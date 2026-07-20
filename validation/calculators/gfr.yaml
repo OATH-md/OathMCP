@@ -1,0 +1,1225 @@
+calculatorId: gfr
+specVersion: 1.0.0
+clinicalModel: 2021 CKD-EPI creatinine estimated GFR
+variant: ckd_epi_2021_creatinine_adult
+population: Adults aged 18 years or older with stable kidney function and standardized serum creatinine.
+setting: Adult kidney-function assessment with albuminuria, chronicity, and confirmatory testing considered
+  separately.
+assessmentTiming: A stable creatinine value representing steady-state kidney function.
+endpoint: Indexed eGFR in mL/min/1.73 m² and the corresponding KDIGO GFR category.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:gfr:2026-07-16
+    calculatorId: gfr
+    model: 2021 CKD-EPI creatinine estimated GFR
+    variant: ckd_epi_2021_creatinine_adult
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:gfr:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: Inker LA[au] AND 2021[dp] AND creatinine[ti] AND cystatin[ti]
+        translationExposed: true
+        translatedQuery: (inker, la[Author] OR inker la[Author]) AND 2021/01/01:2021/12/31[Date - Publication] AND
+          "creatinine"[Title] AND "cystatin"[Title]
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 2
+        stableCitationIds:
+          - PMID:34554658
+          - PMID:33912746
+      - id: search:gfr:derivation
+        sourceRole: derivation
+        authorityId: gfr_inker_2021
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          ckd_epi_2021_creatinine_adult
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - gfr_inker_2021
+      - id: search:gfr:controlling
+        sourceRole: controlling_authority
+        authorityId: gfr_kdigo_2024
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          ckd_epi_2021_creatinine_adult
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - gfr_kdigo_2024
+      - id: search:gfr:specialty
+        sourceRole: specialty_guidance
+        authorityId: gfr_nkf_asn_2021
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          ckd_epi_2021_creatinine_adult
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - gfr_nkf_asn_2021
+      - id: search:gfr:independent
+        sourceRole: independent_numeric
+        authorityId: gfr_niddk_equations_2026
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          ckd_epi_2021_creatinine_adult
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - gfr_niddk_equations_2026
+    accounting:
+      retrieved: 2
+      deduplicated: 2
+      screened: 2
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: gfr_inker_2021
+        title: New Creatinine- and Cystatin C-Based Equations to Estimate GFR without Race.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:33912746
+        title: Performance and Determinants of Serum Creatinine and Cystatin C-Based GFR Estimating Equations in South
+          Asians.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:gfr:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and historical terminology
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search, not an exhaustive systematic review.
+      resolution: Resolved by retaining exact author/model terms, checking automatic translation, screening every
+        result, and pairing the database search with current authority, specialty, derivation, and independent
+        numeric sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - gfr_inker_2021
+  - gfr_kdigo_2024
+  - gfr_nkf_asn_2021
+  - gfr_niddk_equations_2026
+claims:
+  - id: claim:gfr:calculator-model
+    kind: applicability
+    statement: 2021 CKD-EPI creatinine estimated GFR is limited to Adults aged 18 years or older with stable
+      kidney function and standardized serum creatinine. Adult kidney-function assessment with albuminuria,
+      chronicity, and confirmatory testing considered separately.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - gfr_kdigo_2024
+    locators:
+      - sourceId: gfr_kdigo_2024
+        locator: KDIGO 2024 guideline, Figure 4 GFR categories and Practice Points 1.1.1.1-1.1.1.2, 1.2.2.1-1.2.2.2.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad clinical limitations are descriptive; every
+      runtime-verifiable surface is separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:formula-implementation
+    kind: formula
+    statement: eGFR = 142 × min(SCr/k,1)^alpha × max(SCr/k,1)^-1.200 × 0.9938^age × 1.012 if female, with k
+      0.7/0.9 and alpha -0.241/-0.302 for female/male.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - gfr_inker_2021
+    locators:
+      - sourceId: gfr_inker_2021
+        locator: Inker 2021 article and supplement, 2021 CKD-EPI eGFRcr equation and validation tables.
+    executable: true
+    scenarioIds:
+      - case:gfr:ref-male-g2
+      - case:gfr:ref-female-g1
+      - case:gfr:ref-male-g4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:applicability-purpose
+    kind: applicability
+    statement: Calculate adult 2021 CKD-EPI creatinine eGFR and its KDIGO GFR category. Do not diagnose CKD from a
+      single category or silently substitute indexed eGFR for a drug label's required kidney-function method.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - gfr_kdigo_2024
+    locators:
+      - sourceId: gfr_kdigo_2024
+        locator: KDIGO 2024 guideline, Figure 4 GFR categories and Practice Points 1.1.1.1-1.1.1.2, 1.2.2.1-1.2.2.2.
+    executable: true
+    scenarioIds:
+      - case:gfr:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:applicability-exclusions
+    kind: exclusion
+    statement: Do not calculate until the runtime's required discriminator 'age' is supplied; the broader clinical
+      limitations remain descriptive context.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - gfr_kdigo_2024
+    locators:
+      - sourceId: gfr_kdigo_2024
+        locator: KDIGO 2024 guideline, Figure 4 GFR categories and Practice Points 1.1.1.1-1.1.1.2, 1.2.2.1-1.2.2.2.
+    executable: true
+    scenarioIds:
+      - case:gfr:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:input-creatinine
+    kind: input
+    statement: Standardized serum creatinine. Pass a bare number in mg/dL, or an object {value, unit} to supply SI
+      units (umol/L).
+    covers:
+      - input:creatinine
+    status: supported
+    sourceIds:
+      - gfr_inker_2021
+    locators:
+      - sourceId: gfr_inker_2021
+        locator: Inker 2021 article and supplement, 2021 CKD-EPI eGFRcr equation and validation tables.
+    executable: true
+    scenarioIds:
+      - case:gfr:ref-male-g2
+      - case:gfr:ref-female-g1
+      - case:gfr:ref-male-g4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:input-creatinine-hard_limits
+    kind: input
+    statement: OathMCP rejects Serum Creatinine outside [0.01, 60] as a conservative operational envelope, not a
+      clinical cutoff.
+    covers:
+      - input:creatinine:hard_limits
+    status: supported
+    sourceIds:
+      - gfr_niddk_equations_2026
+    locators:
+      - sourceId: gfr_niddk_equations_2026
+        locator: NIDDK eGFR Equations for Adults, 2021 CKD-EPI eGFRcr single equation, Table 1, units, and 88.4
+          conversion.
+    executable: true
+    scenarioIds:
+      - case:gfr:hard-creatinine
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:input-creatinine-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Serum Creatinine is outside [0.2, 20]; this is an
+      operational review prompt.
+    covers:
+      - input:creatinine:plausibility
+    status: supported
+    sourceIds:
+      - gfr_niddk_equations_2026
+    locators:
+      - sourceId: gfr_niddk_equations_2026
+        locator: NIDDK eGFR Equations for Adults, 2021 CKD-EPI eGFRcr single equation, Table 1, units, and 88.4
+          conversion.
+    executable: true
+    scenarioIds:
+      - case:gfr:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:unit-creatinine
+    kind: unit
+    statement: Serum Creatinine accepts exactly mg/dL and umol/L, normalized to the declared canonical unit.
+    covers:
+      - unit:creatinine
+    status: supported
+    sourceIds:
+      - gfr_niddk_equations_2026
+    locators:
+      - sourceId: gfr_niddk_equations_2026
+        locator: NIDDK eGFR Equations for Adults, 2021 CKD-EPI eGFRcr single equation, Table 1, units, and 88.4
+          conversion.
+    executable: true
+    scenarioIds:
+      - case:gfr:unit-us
+      - case:gfr:unit-si
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:input-age
+    kind: input
+    statement: Age in years.
+    covers:
+      - input:age
+    status: supported
+    sourceIds:
+      - gfr_inker_2021
+    locators:
+      - sourceId: gfr_inker_2021
+        locator: Inker 2021 article and supplement, 2021 CKD-EPI eGFRcr equation and validation tables.
+    executable: true
+    scenarioIds:
+      - case:gfr:ref-male-g2
+      - case:gfr:ref-female-g1
+      - case:gfr:ref-male-g4
+      - case:gfr:missing-age
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:input-age-hard_limits
+    kind: input
+    statement: OathMCP rejects Age outside [18, 120] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:age:hard_limits
+    status: supported
+    sourceIds:
+      - gfr_niddk_equations_2026
+    locators:
+      - sourceId: gfr_niddk_equations_2026
+        locator: NIDDK eGFR Equations for Adults, 2021 CKD-EPI eGFRcr single equation, Table 1, units, and 88.4
+          conversion.
+    executable: true
+    scenarioIds:
+      - case:gfr:hard-age
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:input-age-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Age is outside [18, 120]; this is an operational review prompt.
+    covers:
+      - input:age:plausibility
+    status: supported
+    sourceIds:
+      - gfr_niddk_equations_2026
+    locators:
+      - sourceId: gfr_niddk_equations_2026
+        locator: NIDDK eGFR Equations for Adults, 2021 CKD-EPI eGFRcr single equation, Table 1, units, and 88.4
+          conversion.
+    executable: true
+    scenarioIds:
+      - case:gfr:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:input-sex
+    kind: input
+    statement: Biological sex used by the CKD-EPI equation (male or female).
+    covers:
+      - input:sex
+    status: supported
+    sourceIds:
+      - gfr_inker_2021
+    locators:
+      - sourceId: gfr_inker_2021
+        locator: Inker 2021 article and supplement, 2021 CKD-EPI eGFRcr equation and validation tables.
+    executable: true
+    scenarioIds:
+      - case:gfr:ref-male-g2
+      - case:gfr:ref-female-g1
+      - case:gfr:ref-male-g4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:input-sex-options
+    kind: input
+    statement: Sex accepts only the declared source-bound options.
+    covers:
+      - input:sex:options
+    status: supported
+    sourceIds:
+      - gfr_inker_2021
+    locators:
+      - sourceId: gfr_inker_2021
+        locator: Inker 2021 article and supplement, 2021 CKD-EPI eGFRcr equation and validation tables.
+    executable: true
+    scenarioIds:
+      - case:gfr:ref-male-g2
+      - case:gfr:ref-female-g1
+      - case:gfr:ref-male-g4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:output-gfr
+    kind: outcome
+    statement: Estimated, indexed GFR in mL/min/1.73m², rounded to 2 decimal places; this is not an absolute
+      mL/min drug-dosing value.
+    covers:
+      - output:gfr
+    status: supported
+    sourceIds:
+      - gfr_inker_2021
+    locators:
+      - sourceId: gfr_inker_2021
+        locator: Inker 2021 article and supplement, 2021 CKD-EPI eGFRcr equation and validation tables.
+    executable: true
+    scenarioIds:
+      - case:gfr:ref-male-g2
+      - case:gfr:ref-female-g1
+      - case:gfr:ref-male-g4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:band-calculator-0
+    kind: band
+    statement: G1 — Normal or high; this category alone does not establish CKD is the declared KDIGO GFR category
+      for >=90.
+    covers:
+      - band:calculator:0
+    status: supported
+    sourceIds:
+      - gfr_kdigo_2024
+    locators:
+      - sourceId: gfr_kdigo_2024
+        locator: KDIGO 2024 guideline, Figure 4 GFR categories and Practice Points 1.1.1.1-1.1.1.2, 1.2.2.1-1.2.2.2.
+    executable: true
+    scenarioIds:
+      - case:gfr:ref-female-g1
+      - case:gfr:boundary-01
+      - case:gfr:boundary-02
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:band-calculator-1
+    kind: band
+    statement: G2 — Mildly decreased; this category alone does not establish CKD is the declared KDIGO GFR
+      category for >=60.
+    covers:
+      - band:calculator:1
+    status: supported
+    sourceIds:
+      - gfr_kdigo_2024
+    locators:
+      - sourceId: gfr_kdigo_2024
+        locator: KDIGO 2024 guideline, Figure 4 GFR categories and Practice Points 1.1.1.1-1.1.1.2, 1.2.2.1-1.2.2.2.
+    executable: true
+    scenarioIds:
+      - case:gfr:ref-male-g2
+      - case:gfr:boundary-03
+      - case:gfr:boundary-04
+      - case:gfr:boundary-05
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:band-calculator-2
+    kind: band
+    statement: G3a — Mildly to moderately decreased is the declared KDIGO GFR category for >=45.
+    covers:
+      - band:calculator:2
+    status: supported
+    sourceIds:
+      - gfr_kdigo_2024
+    locators:
+      - sourceId: gfr_kdigo_2024
+        locator: KDIGO 2024 guideline, Figure 4 GFR categories and Practice Points 1.1.1.1-1.1.1.2, 1.2.2.1-1.2.2.2.
+    executable: true
+    scenarioIds:
+      - case:gfr:boundary-06
+      - case:gfr:boundary-07
+      - case:gfr:boundary-08
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:band-calculator-3
+    kind: band
+    statement: G3b — Moderately to severely decreased is the declared KDIGO GFR category for >=30.
+    covers:
+      - band:calculator:3
+    status: supported
+    sourceIds:
+      - gfr_kdigo_2024
+    locators:
+      - sourceId: gfr_kdigo_2024
+        locator: KDIGO 2024 guideline, Figure 4 GFR categories and Practice Points 1.1.1.1-1.1.1.2, 1.2.2.1-1.2.2.2.
+    executable: true
+    scenarioIds:
+      - case:gfr:boundary-09
+      - case:gfr:boundary-10
+      - case:gfr:boundary-11
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:band-calculator-4
+    kind: band
+    statement: G4 — Severely decreased is the declared KDIGO GFR category for >=15.
+    covers:
+      - band:calculator:4
+    status: supported
+    sourceIds:
+      - gfr_kdigo_2024
+    locators:
+      - sourceId: gfr_kdigo_2024
+        locator: KDIGO 2024 guideline, Figure 4 GFR categories and Practice Points 1.1.1.1-1.1.1.2, 1.2.2.1-1.2.2.2.
+    executable: true
+    scenarioIds:
+      - case:gfr:ref-male-g4
+      - case:gfr:boundary-12
+      - case:gfr:boundary-13
+      - case:gfr:boundary-14
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gfr:band-calculator-5
+    kind: band
+    statement: G5 — Kidney failure is the declared KDIGO GFR category for <15.
+    covers:
+      - band:calculator:5
+    status: supported
+    sourceIds:
+      - gfr_kdigo_2024
+    locators:
+      - sourceId: gfr_kdigo_2024
+        locator: KDIGO 2024 guideline, Figure 4 GFR categories and Practice Points 1.1.1.1-1.1.1.2, 1.2.2.1-1.2.2.2.
+    executable: true
+    scenarioIds:
+      - case:gfr:boundary-15
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:gfr:ref-male-g2
+    tags:
+      - calculator:gfr:core
+    inputs: &a2
+      creatinine: 1.2
+      age: 55
+      sex: male
+    expected: &a3
+      gfr: 71.42
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_2
+        kind: stage
+        label: G2 — Mildly decreased; this category alone does not establish CKD
+        severity: borderline
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:formula-implementation
+      - claim:gfr:input-creatinine
+      - claim:gfr:input-age
+      - claim:gfr:input-sex
+      - claim:gfr:input-sex-options
+      - claim:gfr:output-gfr
+      - claim:gfr:band-calculator-1
+    sourceIds:
+      - gfr_inker_2021
+      - gfr_kdigo_2024
+    witnesses:
+      - formula:implementation
+      - input:creatinine
+      - input:age
+      - input:sex
+      - input:sex:options
+      - output:gfr
+      - band:calculator:1
+  - kind: reference
+    id: case:gfr:ref-female-g1
+    tags:
+      - calculator:gfr:reference
+    inputs: &a4
+      creatinine: 0.6
+      age: 40
+      sex: female
+    expected: &a5
+      gfr: 116.3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_1
+        kind: stage
+        label: G1 — Normal or high; this category alone does not establish CKD
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:formula-implementation
+      - claim:gfr:input-creatinine
+      - claim:gfr:input-age
+      - claim:gfr:input-sex
+      - claim:gfr:input-sex-options
+      - claim:gfr:output-gfr
+      - claim:gfr:band-calculator-0
+    sourceIds:
+      - gfr_inker_2021
+      - gfr_kdigo_2024
+    witnesses:
+      - formula:implementation
+      - input:creatinine
+      - input:age
+      - input:sex
+      - input:sex:options
+      - output:gfr
+      - band:calculator:0
+  - kind: reference
+    id: case:gfr:ref-male-g4
+    tags:
+      - calculator:gfr:reference
+    inputs: &a6
+      creatinine: 2.5
+      age: 70
+      sex: male
+    expected: &a7
+      gfr: 26.96
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_5
+        kind: stage
+        label: G4 — Severely decreased
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:formula-implementation
+      - claim:gfr:input-creatinine
+      - claim:gfr:input-age
+      - claim:gfr:input-sex
+      - claim:gfr:input-sex-options
+      - claim:gfr:output-gfr
+      - claim:gfr:band-calculator-4
+    sourceIds:
+      - gfr_inker_2021
+      - gfr_kdigo_2024
+    witnesses:
+      - formula:implementation
+      - input:creatinine
+      - input:age
+      - input:sex
+      - input:sex:options
+      - output:gfr
+      - band:calculator:4
+  - kind: edge
+    id: case:gfr:missing-age
+    tags:
+      - required-inputs
+    inputs: &a1
+      creatinine: 1.2
+      sex: male
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: age
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:input-age
+    sourceIds:
+      - gfr_inker_2021
+    witnesses:
+      - input:age
+  - kind: edge
+    id: case:gfr:hard-creatinine
+    tags:
+      - hard-limits
+    inputs:
+      creatinine: 0.005
+      age: 55
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: creatinine
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:input-creatinine-hard_limits
+    sourceIds:
+      - gfr_niddk_equations_2026
+    witnesses:
+      - input:creatinine:hard_limits
+  - kind: edge
+    id: case:gfr:hard-age
+    tags:
+      - calculator:gfr:hard-limit
+    inputs:
+      creatinine: 1.2
+      age: 17
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: age
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:input-age-hard_limits
+    sourceIds:
+      - gfr_niddk_equations_2026
+    witnesses:
+      - input:age:hard_limits
+  - kind: edge
+    id: case:gfr:plausibility
+    tags:
+      - plausibility
+    inputs:
+      creatinine: 30
+      age: 50
+      sex: male
+    expected:
+      gfr: 1.55
+    expectedBehavior: warn
+    expectedWarnings:
+      - Serum Creatinine 30 mg/dL is unusual (expected 0.2–20 mg/dL); if the source uses another unit, pass it
+        explicitly as { value, unit }.
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_6
+        kind: stage
+        label: G5 — Kidney failure
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:input-creatinine-plausibility
+      - claim:gfr:input-age-plausibility
+    sourceIds:
+      - gfr_niddk_equations_2026
+    witnesses:
+      - input:creatinine:plausibility
+      - input:age:plausibility
+  - kind: edge
+    id: case:gfr:unit-us
+    tags:
+      - unit-equivalence
+    inputs:
+      creatinine:
+        value: 1
+        unit: mg/dL
+      age: 50
+      sex: male
+    expected:
+      gfr: 91.69
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_1
+        kind: stage
+        label: G1 — Normal or high; this category alone does not establish CKD
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:unit-creatinine
+    sourceIds:
+      - gfr_niddk_equations_2026
+    witnesses:
+      - unit:creatinine
+  - kind: edge
+    id: case:gfr:unit-si
+    tags:
+      - unit-equivalence
+    inputs:
+      creatinine:
+        value: 88.4
+        unit: umol/L
+      age: 50
+      sex: male
+    expected:
+      gfr: 91.69
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_1
+        kind: stage
+        label: G1 — Normal or high; this category alone does not establish CKD
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:unit-creatinine
+    sourceIds:
+      - gfr_niddk_equations_2026
+    witnesses:
+      - unit:creatinine
+  - kind: agent
+    id: case:gfr:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      creatinine: 1.2
+      age: 55
+      sex: male
+    expected:
+      gfr: 71.42
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_2
+        kind: stage
+        label: G2 — Mildly decreased; this category alone does not establish CKD
+        severity: borderline
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:applicability-purpose
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:gfr:agent-exclusion
+    tags:
+      - agent-applicability
+    inputs: *a1
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: age
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:applicability-exclusions
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - applicability:exclusions
+  - kind: edge
+    id: case:gfr:boundary-01
+    tags:
+      - interpretation-boundaries
+    inputs:
+      creatinine: 1.015543456207
+      age: 50
+      sex: male
+    expected:
+      gfr: 90.01
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_1
+        kind: stage
+        label: G1 — Normal or high; this category alone does not establish CKD
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-0
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:0
+  - kind: edge
+    id: case:gfr:boundary-02
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 1.015637487138
+      age: 50
+      sex: male
+    expected:
+      gfr: 90
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_1
+        kind: stage
+        label: G1 — Normal or high; this category alone does not establish CKD
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-0
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:0
+  - kind: edge
+    id: case:gfr:boundary-03
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 1.015731537225
+      age: 50
+      sex: male
+    expected:
+      gfr: 89.99
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_2
+        kind: stage
+        label: G2 — Mildly decreased; this category alone does not establish CKD
+        severity: borderline
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-1
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:1
+  - kind: edge
+    id: case:gfr:boundary-04
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 1.42370865274
+      age: 50
+      sex: male
+    expected:
+      gfr: 60.01
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_2
+        kind: stage
+        label: G2 — Mildly decreased; this category alone does not establish CKD
+        severity: borderline
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-1
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:1
+  - kind: edge
+    id: case:gfr:boundary-05
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 1.423906387307
+      age: 50
+      sex: male
+    expected:
+      gfr: 60
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_2
+        kind: stage
+        label: G2 — Mildly decreased; this category alone does not establish CKD
+        severity: borderline
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-1
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:1
+  - kind: edge
+    id: case:gfr:boundary-06
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 1.424104182302
+      age: 50
+      sex: male
+    expected:
+      gfr: 59.99
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_3
+        kind: stage
+        label: G3a — Mildly to moderately decreased
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-2
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:2
+  - kind: edge
+    id: case:gfr:boundary-07
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 1.809325216751
+      age: 50
+      sex: male
+    expected:
+      gfr: 45.01
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_3
+        kind: stage
+        label: G3a — Mildly to moderately decreased
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-2
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:2
+  - kind: edge
+    id: case:gfr:boundary-08
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 1.809660270772
+      age: 50
+      sex: male
+    expected:
+      gfr: 45
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_3
+        kind: stage
+        label: G3a — Mildly to moderately decreased
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-2
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:2
+  - kind: edge
+    id: case:gfr:boundary-09
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 1.809995461325
+      age: 50
+      sex: male
+    expected:
+      gfr: 44.99
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_4
+        kind: stage
+        label: G3b — Moderately to severely decreased
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-3
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:3
+  - kind: edge
+    id: case:gfr:boundary-10
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 2.536408212139
+      age: 50
+      sex: male
+    expected:
+      gfr: 30.01
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_4
+        kind: stage
+        label: G3b — Moderately to severely decreased
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-3
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:3
+  - kind: edge
+    id: case:gfr:boundary-11
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 2.537112750408
+      age: 50
+      sex: male
+    expected:
+      gfr: 30
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_4
+        kind: stage
+        label: G3b — Moderately to severely decreased
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-3
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:3
+  - kind: edge
+    id: case:gfr:boundary-12
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 2.537817719359
+      age: 50
+      sex: male
+    expected:
+      gfr: 29.99
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_5
+        kind: stage
+        label: G4 — Severely decreased
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-4
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:4
+  - kind: edge
+    id: case:gfr:boundary-13
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 4.518111071936
+      age: 50
+      sex: male
+    expected:
+      gfr: 15.01
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_5
+        kind: stage
+        label: G4 — Severely decreased
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-4
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:4
+  - kind: edge
+    id: case:gfr:boundary-14
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 4.520620994231
+      age: 50
+      sex: male
+    expected:
+      gfr: 15
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_5
+        kind: stage
+        label: G4 — Severely decreased
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-4
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:4
+  - kind: edge
+    id: case:gfr:boundary-15
+    tags:
+      - calculator:gfr:boundary
+    inputs:
+      creatinine: 4.523133986085
+      age: 50
+      sex: male
+    expected:
+      gfr: 14.99
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gfr
+        code: gfr_band_6
+        kind: stage
+        label: G5 — Kidney failure
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gfr:band-calculator-5
+    sourceIds:
+      - gfr_kdigo_2024
+    witnesses:
+      - band:calculator:5
+compatibilityNotes: []
+explicitBlockers: []

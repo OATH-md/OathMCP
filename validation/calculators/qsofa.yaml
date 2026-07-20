@@ -1,0 +1,1317 @@
+calculatorId: qsofa
+specVersion: 1.0.0
+clinicalModel: Sepsis-3 quick Sequential Organ Failure Assessment bedside prognostic criteria
+variant: sepsis3_2016_adult_suspected_infection_non_icu_with_ssc_2026_limit
+population: Adults with suspected infection in prehospital, emergency-department, or general-ward settings.
+setting: Rapid bedside poor-outcome risk prompt outside the ICU; not a standalone sepsis screen or diagnosis.
+assessmentTiming: At initial assessment and repeated when clinical status changes.
+endpoint: Integer score 0-3; two or more criteria identify adults with suspected infection at greater risk of death or
+  prolonged ICU stay.
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:qsofa:2026-07-16
+    calculatorId: qsofa
+    model: Sepsis-3 quick Sequential Organ Failure Assessment bedside prognostic criteria
+    variant: sepsis3_2016_adult_suspected_infection_non_icu_with_ssc_2026_limit
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:qsofa:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web flat-file export
+        exactQuery: qSOFA[Title] AND ("external validation"[Title/Abstract] OR multicenter[Title/Abstract] OR
+          meta-analysis[Title/Abstract] OR systematic review[Title/Abstract])
+        translationExposed: true
+        translatedQuery: qSOFA[Title] AND ("external validation"[Title/Abstract] OR multicenter[Title/Abstract] OR
+          meta-analysis[Title/Abstract] OR systematic review[Title/Abstract])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 48
+        stableCitationIds:
+          - PMID:37450490
+          - PMID:35427367
+          - PMID:40961067
+          - PMID:30290639
+          - PMID:30324278
+          - PMID:35902704
+          - PMID:39539877
+          - PMID:35572161
+          - PMID:39853387
+          - PMID:32829969
+          - PMID:31735660
+          - PMID:30626160
+          - PMID:34404680
+          - PMID:29996880
+          - PMID:38232095
+          - PMID:42085388
+          - PMID:29605565
+          - PMID:37144037
+          - PMID:31169735
+          - PMID:37091364
+          - PMID:32331426
+          - PMID:40997264
+          - PMID:39649288
+          - PMID:33046312
+          - PMID:31612664
+          - PMID:37465342
+          - PMID:31410290
+          - PMID:35961351
+          - PMID:31320214
+          - PMID:32415144
+          - PMID:41788714
+          - PMID:29720475
+          - PMID:41280345
+          - PMID:31703403
+          - PMID:38176175
+          - PMID:41341163
+          - PMID:33582611
+          - PMID:36240177
+          - PMID:38502804
+          - PMID:41655519
+          - PMID:32587706
+          - PMID:28847586
+          - PMID:40918028
+          - PMID:40221594
+          - PMID:36656692
+          - PMID:42226876
+          - PMID:34746178
+          - PMID:31532168
+      - id: search:qsofa:qsofa_seymour_2016
+        sourceRole: derivation
+        authorityId: qsofa_seymour_2016
+        database: Primary or responsible-authority source
+        site: JAMA
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for qsofa
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - qsofa_seymour_2016
+      - id: search:qsofa:qsofa_sepsis3_2016
+        sourceRole: controlling_authority
+        authorityId: qsofa_sepsis3_2016
+        database: Primary or responsible-authority source
+        site: ESICM and SCCM Sepsis-3 task force
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for qsofa
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - qsofa_sepsis3_2016
+      - id: search:qsofa:ssc_adult_2026
+        sourceRole: specialty_guidance
+        authorityId: ssc_adult_2026
+        database: Primary or responsible-authority source
+        site: Society of Critical Care Medicine and European Society of Intensive Care Medicine
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for qsofa
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - ssc_adult_2026
+      - id: search:qsofa:qsofa_freund_2017
+        sourceRole: external_validation
+        authorityId: qsofa_freund_2017
+        database: Primary or responsible-authority source
+        site: JAMA
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for qsofa
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - qsofa_freund_2017
+    accounting:
+      retrieved: 52
+      deduplicated: 52
+      screened: 52
+      fullTextAssessed: 4
+      excluded: 0
+      included: 4
+    deduplication:
+      method: PMID, DOI, and responsible-authority URL identity with manual title reconciliation
+      tool: PubMed flat-file export plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:37450490
+        title: SIRS, SOFA, qSOFA, and NEWS in the diagnosis of sepsis and prediction of adverse
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:35427367
+        title: A comparison of qSOFA, SIRS and NEWS in predicting the accuracy of mortality in
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:40961067
+        title: Predictive value of SOFA, PCT, Lactate, qSOFA and their combinations for
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:30290639
+        title: "Role of qSOFA in predicting mortality of pneumonia: A systematic review and"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:30324278
+        title: SIRS or qSOFA? Is that the question? Clinical and methodological observations
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:35902704
+        title: Prognostic accuracy of SOFA and qSOFA for mortality among children with
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:39539877
+        title: Comparative Effectiveness of CURB-65 and qSOFA Scores in Predicting Pneumonia
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:35572161
+        title: "Prognostic Accuracy of qSOFA and SIRS for Mortality in the Emergency Department:"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:39853387
+        title: Lactate-enhanced-qSOFA (LqSOFA) score as a predictor of in-hospital mortality in
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32829969
+        title: "Rapid Systematic Review: The Appropriate Use of Quick Sequential Organ Failure"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31735660
+        title: External Validation of the qSOFA Score in Emergency Department Patients With
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:30626160
+        title: "qSOFA is a Poor Predictor of Short-Term Mortality in All Patients: A Systematic"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:34404680
+        title: Comparison of qSOFA and Hospital Early Warning Scores for prognosis in suspected
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:29996880
+        title: Head-to-head comparison of qSOFA and SIRS criteria in predicting the mortality of
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:38232095
+        title: Prognostic accuracy of qSOFA score, SIRS criteria, and EWSs for in-hospital
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:42085388
+        title: Sequential Organ Failure Assessment (SOFA) score and quick SOFA(qSOFA) predict
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:29605565
+        title: Accuracy of quick Sequential Organ Failure Assessment (qSOFA) score and systemic
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:37144037
+        title: "Prehospital qSOFA, mSOFA, and NEWS2 performance for sepsis prediction: A"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31169735
+        title: Combining procalcitonin with the qSOFA and sepsis mortality prediction.
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:37091364
+        title: Combining C-reactive protein and quick sequential organ failure assessment
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32331426
+        title: The Integration of qSOFA with Clinical Variables and Serum Biomarkers Improves
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:40997264
+        title: Pancreatic Stone Protein in Co-Evaluation With QSOFA and News2 for Early Sepsis
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:39649288
+        title: Head-to-head comparison of pre-hospital qSOFA and lactate-qSOFA for predicting
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:33046312
+        title: Clinical validation demonstrates concordance of qSOFA and POC lactate Bayesian
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31612664
+        title: "Screening for sepsis: SIRS or qSOFA? A literature review."
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:37465342
+        title: Predictive Value of PRISMA-7, qSOFA, ESI, and CFS for 28-Day Mortality in Elderly
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31410290
+        title: Prognostic accuracy of SOFA, qSOFA and SIRS criteria in hematological cancer
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:35961351
+        title: Enhanced bedside mortality prediction combining point-of-care lactate and the
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31320214
+        title: "Combining qSOFA criteria with initial lactate levels: Improved screening of"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32415144
+        title: The SIRS criteria have better performance for predicting infection than qSOFA
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41788714
+        title: Validation of CURB-65, CRB-65, NEWS2, qSOFA, and 4C scores for predicting
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:29720475
+        title: Comparison of qSOFA with current emergency department tools for screening of
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41280345
+        title: "Predicting 7-day mortality in COVID-19 pneumonia: performance of NEWS2, qSOFA,"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31703403
+        title: Predictive Validity of the qSOFA Score for Sepsis in Adults with Community-Onset
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:38176175
+        title: The usefulness of lactate/albumin ratio, C-reactive protein/albumin ratio,
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41341163
+        title: "Hidden Risk Factors Overlooked by qSOFA in Emergency Department Sepsis Patients:"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:33582611
+        title: Association of ischemia modified albumin with mortality in qSOFA positive sepsis
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:36240177
+        title: Predictive validity of the quick Sequential Organ Failure Assessment (qSOFA)
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:38502804
+        title: Biomarkers Improve Diagnostics of Sepsis in Adult Patients With Suspected Organ
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41655519
+        title: "S-S.M.A.R.T score for mortality prediction in sepsis: Comparative analysis with"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32587706
+        title: Prehospital and in-hospital quick Sequential Organ Failure Assessment (qSOFA)
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:28847586
+        title: "Assessment of mortality by qSOFA in patients with sepsis outside ICU: A post hoc"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:40918028
+        title: Comparison of the Reverse Shock Index Multiplied by Glasgow Coma Scale Score,
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:40221594
+        title: The clinical frailty scale improves risk prediction in older emergency department
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:36656692
+        title: Diabetes mellitus is associated with increased risk of positive qSOFA score but
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:42226876
+        title: Comparison of National Early Warning Score 2 (NEWS2) and Quick Sequential Organ
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:34746178
+        title: Is qSOFA Suitable for Early Diagnosis of Sepsis Among Bacteremia Patients in
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31532168
+        title: "[qSOFA score for prediction of outcome in surgical patients in intensive care"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: qsofa_seymour_2016
+        title: "Assessment of Clinical Criteria for Sepsis: For the Third International Consensus Definitions for Sepsis and
+          Septic Shock (Sepsis-3)."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: qsofa_sepsis3_2016
+        title: The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3).
+        disposition: included
+        fullTextAssessed: true
+      - citationId: ssc_adult_2026
+        title: "Surviving Sepsis Campaign: international guidelines for management of sepsis and septic shock 2026."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: qsofa_freund_2017
+        title: Prognostic Accuracy of Sepsis-3 Criteria for In-Hospital Mortality Among Patients With Suspected Infection
+          Presenting to the Emergency Department.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:qsofa:pubmed
+      checklist:
+        - Exact model and variant terms retained
+        - Population and setting concepts included
+        - Validation and update concepts represented
+        - No date restriction on foundational evidence
+        - Translation and result ledger checked
+      comments:
+        - The initial strategy was widened beyond known-title retrieval while retaining exact model identity and a
+          screenable result set.
+        - Current responsible-authority and specialty-guidance searches were reviewed separately from MEDLINE.
+      resolution: Resolved by retaining exact model terms, adding population and validation concepts, screening every
+        retrieved record, and separately checking current responsible-authority guidance, citation chains, corrections,
+        retractions, and supersession.
+      resolved: true
+      reviewer: Independent PRESS search specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - qsofa_seymour_2016
+  - qsofa_sepsis3_2016
+  - ssc_adult_2026
+  - qsofa_freund_2017
+claims:
+  - id: claim:qsofa:calculator-model
+    kind: applicability
+    statement: Sepsis-3 quick Sequential Organ Failure Assessment bedside prognostic criteria; exact variant
+      sepsis3_2016_adult_suspected_infection_non_icu_with_ssc_2026_limit.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+      - qsofa_freund_2017
+    locators:
+      - sourceId: qsofa_seymour_2016
+        locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+          outcome discrimination outside ICU."
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+      - sourceId: qsofa_freund_2017
+        locator: "Methods and Results: prospective multicenter adult ED cohort, suspected infection, qSOFA threshold 2, and
+          in-hospital mortality endpoint."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and setting are verified by source review; runtime scenarios separately witness
+      every executable component and output.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:formula-implementation
+    kind: formula
+    statement: The declared component weights are summed exactly and the resulting outputs follow the reviewed
+      sepsis3_2016_adult_suspected_infection_non_icu_with_ssc_2026_limit model.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    locators:
+      - sourceId: qsofa_seymour_2016
+        locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+          outcome discrimination outside ICU."
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+    executable: true
+    scenarioIds:
+      - case:qsofa:reference-1
+      - case:qsofa:reference-2
+      - case:qsofa:reference-3
+      - case:qsofa:option-altered_mental_status-false
+      - case:qsofa:option-altered_mental_status-true
+      - case:qsofa:boundary-rr-21
+      - case:qsofa:boundary-rr-22
+      - case:qsofa:boundary-sbp-100
+      - case:qsofa:boundary-sbp-101
+      - case:qsofa:boundary-score-2
+      - case:qsofa:boundary-score-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:applicability-purpose
+    kind: applicability
+    statement: Adults with suspected infection in prehospital, emergency-department, or general-ward settings. Rapid bedside
+      poor-outcome risk prompt outside the ICU; not a standalone sepsis screen or diagnosis.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - qsofa_sepsis3_2016
+      - ssc_adult_2026
+      - qsofa_freund_2017
+    locators:
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+      - sourceId: ssc_adult_2026
+        locator: "Screening recommendations: use NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient sepsis screen."
+      - sourceId: qsofa_freund_2017
+        locator: "Methods and Results: prospective multicenter adult ED cohort, suspected infection, qSOFA threshold 2, and
+          in-hospital mortality endpoint."
+    executable: true
+    scenarioIds:
+      - case:qsofa:agent-intended
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:applicability-exclusions
+    kind: exclusion
+    statement: A poor-outcome prompt, not a sepsis diagnosis and not a sufficiently sensitive standalone sepsis screen. The
+      2026 Surviving Sepsis Campaign recommends NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient screening
+      tool. Do not use this adult model in children or as a replacement for SOFA and clinical assessment.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - qsofa_sepsis3_2016
+      - ssc_adult_2026
+      - qsofa_freund_2017
+    locators:
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+      - sourceId: ssc_adult_2026
+        locator: "Screening recommendations: use NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient sepsis screen."
+      - sourceId: qsofa_freund_2017
+        locator: "Methods and Results: prospective multicenter adult ED cohort, suspected infection, qSOFA threshold 2, and
+          in-hospital mortality endpoint."
+    executable: true
+    scenarioIds:
+      - case:qsofa:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:input-respiratory_rate
+    kind: input
+    statement: "Respiratory Rate: Respiratory rate in breaths per minute. Scores a point when >= 22."
+    covers:
+      - input:respiratory_rate
+    status: supported
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    locators:
+      - sourceId: qsofa_seymour_2016
+        locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+          outcome discrimination outside ICU."
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+    executable: true
+    scenarioIds:
+      - case:qsofa:reference-1
+      - case:qsofa:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:input-respiratory_rate-hard_limits
+    kind: input
+    statement: Respiratory Rate hard limits are 0 to 120.
+    covers:
+      - input:respiratory_rate:hard_limits
+    status: supported
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    locators:
+      - sourceId: qsofa_seymour_2016
+        locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+          outcome discrimination outside ICU."
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+    executable: true
+    scenarioIds:
+      - case:qsofa:hard-limit-respiratory_rate
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:input-respiratory_rate-plausibility
+    kind: input
+    statement: Respiratory Rate plausibility interval is 4 to 60 and outliers warn without changing the score definition.
+    covers:
+      - input:respiratory_rate:plausibility
+    status: supported
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    locators:
+      - sourceId: qsofa_seymour_2016
+        locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+          outcome discrimination outside ICU."
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+    executable: true
+    scenarioIds:
+      - case:qsofa:plausibility-respiratory_rate
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:input-systolic_bp
+    kind: input
+    statement: "Systolic Blood Pressure: Systolic blood pressure in mmHg. Scores a point when <= 100."
+    covers:
+      - input:systolic_bp
+    status: supported
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    locators:
+      - sourceId: qsofa_seymour_2016
+        locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+          outcome discrimination outside ICU."
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+    executable: true
+    scenarioIds:
+      - case:qsofa:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:input-systolic_bp-hard_limits
+    kind: input
+    statement: Systolic Blood Pressure hard limits are 0 to 400.
+    covers:
+      - input:systolic_bp:hard_limits
+    status: supported
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    locators:
+      - sourceId: qsofa_seymour_2016
+        locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+          outcome discrimination outside ICU."
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+    executable: true
+    scenarioIds:
+      - case:qsofa:hard-limit-systolic_bp
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:input-systolic_bp-plausibility
+    kind: input
+    statement: Systolic Blood Pressure plausibility interval is 40 to 300 and outliers warn without changing the score definition.
+    covers:
+      - input:systolic_bp:plausibility
+    status: supported
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    locators:
+      - sourceId: qsofa_seymour_2016
+        locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+          outcome discrimination outside ICU."
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+    executable: true
+    scenarioIds:
+      - case:qsofa:plausibility-systolic_bp
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:input-altered_mental_status
+    kind: input
+    statement: "Altered Mental Status: Altered mentation (GCS < 15). Scores a point when true."
+    covers:
+      - input:altered_mental_status
+    status: supported
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    locators:
+      - sourceId: qsofa_seymour_2016
+        locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+          outcome discrimination outside ICU."
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+    executable: true
+    scenarioIds:
+      - case:qsofa:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:output-score
+    kind: outcome
+    statement: qSOFA score (0-3).
+    covers:
+      - output:score
+    status: supported
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    locators:
+      - sourceId: qsofa_seymour_2016
+        locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+          outcome discrimination outside ICU."
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+    executable: true
+    scenarioIds:
+      - case:qsofa:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:band-calculator-0
+    kind: band
+    statement: "qsofa_band_1: >=2 — Meets the qSOFA >=2 threshold associated with greater risk of poor outcomes; this is not
+      a sepsis diagnosis."
+    covers:
+      - band:calculator:0
+    status: supported
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    locators:
+      - sourceId: qsofa_seymour_2016
+        locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+          outcome discrimination outside ICU."
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+    executable: true
+    scenarioIds:
+      - case:qsofa:boundary-score-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:qsofa:band-calculator-1
+    kind: band
+    statement: "qsofa_band_2: <2 — Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or
+      deterioration."
+    covers:
+      - band:calculator:1
+    status: supported
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    locators:
+      - sourceId: qsofa_seymour_2016
+        locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+          outcome discrimination outside ICU."
+      - sourceId: qsofa_sepsis3_2016
+        locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+          prompt to investigate organ dysfunction."
+    executable: true
+    scenarioIds:
+      - case:qsofa:boundary-rr-21
+      - case:qsofa:boundary-rr-22
+      - case:qsofa:boundary-sbp-100
+      - case:qsofa:boundary-sbp-101
+      - case:qsofa:boundary-score-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:qsofa:reference-1
+    kind: reference
+    tags:
+      - calculator:qsofa:core
+    inputs:
+      respiratory_rate: 21
+      systolic_bp: 101
+      altered_mental_status: false
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_2
+        kind: screening
+        label: Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:formula-implementation
+      - claim:qsofa:input-respiratory_rate
+      - claim:qsofa:input-systolic_bp
+      - claim:qsofa:input-altered_mental_status
+      - claim:qsofa:output-score
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - formula:implementation
+      - input:respiratory_rate
+      - input:systolic_bp
+      - input:altered_mental_status
+      - output:score
+  - id: case:qsofa:reference-2
+    kind: reference
+    tags:
+      - calculator:qsofa:core
+    inputs:
+      respiratory_rate: 22
+      systolic_bp: 100
+      altered_mental_status: false
+    expected:
+      score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_1
+        kind: screening
+        label: Meets the qSOFA >=2 threshold associated with greater risk of poor outcomes; this is not a sepsis diagnosis.
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:formula-implementation
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - formula:implementation
+  - id: case:qsofa:reference-3
+    kind: reference
+    tags:
+      - calculator:qsofa:core
+    inputs:
+      respiratory_rate: 30
+      systolic_bp: 80
+      altered_mental_status: true
+    expected:
+      score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_1
+        kind: screening
+        label: Meets the qSOFA >=2 threshold associated with greater risk of poor outcomes; this is not a sepsis diagnosis.
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:formula-implementation
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - formula:implementation
+  - id: case:qsofa:agent-intended
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs:
+      respiratory_rate: 21
+      systolic_bp: 101
+      altered_mental_status: false
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_2
+        kind: screening
+        label: Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:applicability-purpose
+    sourceIds:
+      - qsofa_sepsis3_2016
+      - ssc_adult_2026
+      - qsofa_freund_2017
+    witnesses:
+      - applicability:purpose
+  - id: case:qsofa:agent-exclusion
+    kind: agent
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      systolic_bp: 101
+      altered_mental_status: false
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: respiratory_rate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:applicability-exclusions
+      - claim:qsofa:input-respiratory_rate
+    sourceIds:
+      - qsofa_sepsis3_2016
+      - ssc_adult_2026
+      - qsofa_freund_2017
+      - qsofa_seymour_2016
+    witnesses:
+      - applicability:exclusions
+      - input:respiratory_rate
+  - id: case:qsofa:hard-limit-respiratory_rate
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      respiratory_rate: -1
+      systolic_bp: 101
+      altered_mental_status: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: respiratory_rate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:input-respiratory_rate-hard_limits
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - input:respiratory_rate:hard_limits
+  - id: case:qsofa:plausibility-respiratory_rate
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      respiratory_rate: 3
+      systolic_bp: 101
+      altered_mental_status: false
+    expected:
+      score: 0
+    expectedBehavior: warn
+    expectedWarnings:
+      - Respiratory Rate 3 is unusual (expected 4–60).
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_2
+        kind: screening
+        label: Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:input-respiratory_rate-plausibility
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - input:respiratory_rate:plausibility
+  - id: case:qsofa:hard-limit-systolic_bp
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      respiratory_rate: 21
+      systolic_bp: -1
+      altered_mental_status: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: systolic_bp
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:input-systolic_bp-hard_limits
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - input:systolic_bp:hard_limits
+  - id: case:qsofa:plausibility-systolic_bp
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      respiratory_rate: 21
+      systolic_bp: 39
+      altered_mental_status: false
+    expected:
+      score: 1
+    expectedBehavior: warn
+    expectedWarnings:
+      - Systolic Blood Pressure 39 is unusual (expected 40–300).
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_2
+        kind: screening
+        label: Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:input-systolic_bp-plausibility
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - input:systolic_bp:plausibility
+  - id: case:qsofa:option-altered_mental_status-false
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      respiratory_rate: 21
+      systolic_bp: 101
+      altered_mental_status: false
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_2
+        kind: screening
+        label: Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:formula-implementation
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - formula:implementation
+  - id: case:qsofa:option-altered_mental_status-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      respiratory_rate: 21
+      systolic_bp: 101
+      altered_mental_status: true
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_2
+        kind: screening
+        label: Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:formula-implementation
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - formula:implementation
+  - id: case:qsofa:boundary-rr-21
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      respiratory_rate: 21
+      systolic_bp: 101
+      altered_mental_status: false
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_2
+        kind: screening
+        label: Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:formula-implementation
+      - claim:qsofa:band-calculator-1
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - formula:implementation
+      - band:calculator:1
+  - id: case:qsofa:boundary-rr-22
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      respiratory_rate: 22
+      systolic_bp: 101
+      altered_mental_status: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_2
+        kind: screening
+        label: Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:formula-implementation
+      - claim:qsofa:band-calculator-1
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - formula:implementation
+      - band:calculator:1
+  - id: case:qsofa:boundary-sbp-100
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      respiratory_rate: 21
+      systolic_bp: 100
+      altered_mental_status: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_2
+        kind: screening
+        label: Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:formula-implementation
+      - claim:qsofa:band-calculator-1
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - formula:implementation
+      - band:calculator:1
+  - id: case:qsofa:boundary-sbp-101
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      respiratory_rate: 21
+      systolic_bp: 101
+      altered_mental_status: false
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_2
+        kind: screening
+        label: Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:formula-implementation
+      - claim:qsofa:band-calculator-1
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - formula:implementation
+      - band:calculator:1
+  - id: case:qsofa:boundary-score-2
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      respiratory_rate: 22
+      systolic_bp: 100
+      altered_mental_status: false
+    expected:
+      score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_1
+        kind: screening
+        label: Meets the qSOFA >=2 threshold associated with greater risk of poor outcomes; this is not a sepsis diagnosis.
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:formula-implementation
+      - claim:qsofa:band-calculator-0
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - formula:implementation
+      - band:calculator:0
+  - id: case:qsofa:boundary-score-1
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      respiratory_rate: 22
+      systolic_bp: 101
+      altered_mental_status: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: qsofa_band_2
+        kind: screening
+        label: Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:qsofa:formula-implementation
+      - claim:qsofa:band-calculator-1
+    sourceIds:
+      - qsofa_seymour_2016
+      - qsofa_sepsis3_2016
+    witnesses:
+      - formula:implementation
+      - band:calculator:1
+explicitBlockers: []

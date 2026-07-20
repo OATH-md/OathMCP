@@ -1,0 +1,114 @@
+---
+title: "qSOFA (Quick Sequential Organ Failure Assessment)"
+description: "Adults with suspected infection in prehospital, emergency-department, or general-ward settings. Return an integer score from 0-3; two or more criteria identify adults with suspected infection at greater risk of death or prolonged ICU stay."
+sidebar:
+  label: "qSOFA (Quick Sequential Organ Failure Assessment)"
+search:
+  tags: ["qsofa", "score", "adult sepsis poor-outcome risk", "suspected-infection organ-dysfunction risk", "qSOFA"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>score</Badge> <Badge>Spec 1.0.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Adults with suspected infection in prehospital, emergency-department, or general-ward settings. |
+| Setting | Rapid bedside poor-outcome risk prompt outside the ICU; not a standalone sepsis screen or diagnosis. |
+| Model | `qsofa` · sepsis3_2016_adult_suspected_infection_non_icu_with_ssc_2026_limit |
+| Model kind | score |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** A poor-outcome prompt, not a sepsis diagnosis and not a sufficiently sensitive standalone sepsis screen. The 2026 Surviving Sepsis Campaign recommends NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient screening tool. Do not use this adult model in children or as a replacement for SOFA and clinical assessment.
+
+- A poor-outcome prompt, not a sepsis diagnosis and not a sufficiently sensitive standalone sepsis screen. The 2026 Surviving Sepsis Campaign recommends NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient screening tool. Do not use this adult model in children or as a replacement for SOFA and clinical assessment.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `respiratory_rate` | integer | Yes | — | 4–60 | 0–120 | Respiratory rate in breaths per minute. Scores a point when &gt;= 22. |
+| `systolic_bp` | integer | Yes | — | 40–300 | 0–400 | Systolic blood pressure in mmHg. Scores a point when &lt;= 100. |
+| `altered_mental_status` | boolean | Yes | — | — | — | Altered mentation (GCS &lt; 15). Scores a point when true. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `score` | integer | Always | Yes | qSOFA score (0-3). |
+
+## Interpretation bands
+
+| Output | Code | Condition | Label | Kind | Severity |
+| --- | --- | --- | --- | --- | --- |
+| Primary | `qsofa_band_1` | `&gt;=2` | Meets the qSOFA &gt;=2 threshold associated with greater risk of poor outcomes; this is not a sepsis diagnosis. | screening | critical |
+| Primary | `qsofa_band_2` | `&lt;2` | Does not meet the qSOFA &gt;=2 threshold; a lower score does not rule out infection or deterioration. | screening | normal |
+
+## Warnings, constraints, and adjustments
+
+No calculator-specific warning rules or cross-field constraints are declared beyond input validation and applicability.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "qsofa",
+  "inputs": {
+    "respiratory_rate": 21,
+    "systolic_bp": 101,
+    "altered_mental_status": false
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `qsofa`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 14/14 | 13/13 | 17/17 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://qsofa/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Assessment of Clinical Criteria for Sepsis: For the Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3).](https://pubmed.ncbi.nlm.nih.gov/26903335/)<br />Results and qSOFA model: respiratory rate &gt;=22/min, systolic pressure &lt;=100 mm Hg, altered mentation, and outcome discrimination outside ICU. |
+| `source_2` | validation | [Prognostic Accuracy of Sepsis-3 Criteria for In-Hospital Mortality Among Patients With Suspected Infection Presenting to the Emergency Department.](https://pubmed.ncbi.nlm.nih.gov/28114554/)<br />Methods and Results: prospective multicenter adult ED cohort, suspected infection, qSOFA threshold 2, and in-hospital mortality endpoint. |
+| `source_3` | guideline | [The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3).](https://pmc.ncbi.nlm.nih.gov/articles/PMC4968574/)<br />Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and prompt to investigate organ dysfunction. |
+| `source_4` | guideline | [Surviving Sepsis Campaign: international guidelines for management of sepsis and septic shock 2026.](https://doi.org/10.1007/s00134-026-08361-1)<br />Screening recommendations: use NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient sepsis screen. |
+
+<Panel title="Repository source">
+  Calculator ID `qsofa`; spec version `1.0.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

@@ -1,0 +1,110 @@
+id: bmi
+version: 1.0.0
+name: Body Mass Index (BMI)
+clinicalModel:
+  modelKind: formula
+  modelId: bmi
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+applicability:
+  population: Adults aged 20 years or older undergoing weight-status screening
+    from measured height and weight.
+  setting: Adult clinical and public-health screening; BMI is not a direct
+    measurement of adiposity or a diagnosis by itself.
+  exclusions:
+    - Do not apply these fixed adult categories to children. Interpret adult BMI
+      with other health factors because it is a screening measure and surrogate
+      marker rather than a direct body-fat measurement.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Compute adult BMI from measured weight and height and return
+  the CDC adult screening category. Interpret it with other health factors.
+whenNotToUse: Do not calculate without establishing adult applicability and
+  obtaining both measured height and measured weight.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Centers for Disease Control and Prevention. Adult BMI Categories.
+    locator: Adult categories table and screening-measure limitation; reviewed 2026-07-16
+    url: https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html
+    reviewed: true
+inputs:
+  weight_kg:
+    title: Weight
+    description: Body weight in kilograms.
+    aliases:
+      - weight
+    kind: number
+    plausible:
+      - 2
+      - 300
+    hardLimits:
+      - 0.5
+      - 700
+    required: true
+    conceptId: patient.weight_kg
+    examples:
+      - 70
+    sourceRefs:
+      - source_1
+    sharedKey: weight_kg
+  height_cm:
+    title: Height
+    description: Height in centimeters.
+    kind: number
+    plausible:
+      - 30
+      - 250
+    hardLimits:
+      - 10
+      - 300
+    required: true
+    conceptId: patient.height_cm
+    examples:
+      - 170
+    sourceRefs:
+      - source_1
+    sharedKey: height_cm
+outputs:
+  bmi:
+    title: Body Mass Index
+    description: BMI in kg/m², rounded to 2 decimal places.
+    kind: number
+    unit: kg/m²
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - bmi
+interpretationBands:
+  - code: bmi_band_1
+    kind: class
+    when: ">=30"
+    label: Obesity
+    severity: abnormal
+    evidenceRefs:
+      - source_1
+  - code: bmi_band_2
+    kind: class
+    when: ">=25"
+    label: Overweight
+    severity: borderline
+    evidenceRefs:
+      - source_1
+  - code: bmi_band_3
+    kind: class
+    when: ">=18.5"
+    label: Normal weight
+    severity: normal
+    evidenceRefs:
+      - source_1
+  - code: bmi_band_4
+    kind: class
+    when: <18.5
+    label: Underweight
+    severity: borderline
+    evidenceRefs:
+      - source_1

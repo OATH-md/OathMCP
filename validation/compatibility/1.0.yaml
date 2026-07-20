@@ -1,0 +1,5993 @@
+schemaVersion: "1.0"
+capturedAt: 2026-07-15
+snapshot:
+  catalogMode: full
+  defaultCatalogMode: full
+  toolNames:
+    - calculate_aa_gradient
+    - calculate_abg
+    - calculate_anion_gap
+    - calculate_apgar
+    - calculate_bmi
+    - calculate_bsa
+    - calculate_bsa_dubois
+    - calculate_carboplatin_auc
+    - calculate_chadsvasc
+    - calculate_chemo_dose_bsa
+    - calculate_child_pugh
+    - calculate_corrected_calcium
+    - calculate_creatinine_clearance
+    - calculate_csf
+    - calculate_eos
+    - calculate_free_water_deficit
+    - calculate_gad7
+    - calculate_gcs
+    - calculate_gfr
+    - calculate_gir
+    - calculate_grace
+    - calculate_hepb
+    - calculate_ibw
+    - calculate_ich_volume
+    - calculate_kdpi
+    - calculate_map
+    - calculate_meld
+    - calculate_mews
+    - calculate_morse_fall_scale
+    - calculate_neonatal_measurements
+    - calculate_nihss
+    - calculate_oxygenation_index
+    - calculate_panel
+    - calculate_pews
+    - calculate_qsofa
+    - calculate_r_factor
+    - calculate_ranson
+    - calculate_sodium_deficit
+    - calculate_timi
+    - calculate_wells_dvt
+    - describe_calculator
+    - find_calculator
+  promptNames:
+    - interpret_abg
+    - interpret_csf
+    - interpret_hepb
+  evidenceUris:
+    - calc://aa_gradient/evidence
+    - calc://abg/evidence
+    - calc://anion_gap/evidence
+    - calc://apgar/evidence
+    - calc://bmi/evidence
+    - calc://bsa/evidence
+    - calc://bsa_dubois/evidence
+    - calc://carboplatin_auc/evidence
+    - calc://chadsvasc/evidence
+    - calc://chemo_dose_bsa/evidence
+    - calc://child_pugh/evidence
+    - calc://corrected_calcium/evidence
+    - calc://creatinine_clearance/evidence
+    - calc://csf/evidence
+    - calc://eos/evidence
+    - calc://free_water_deficit/evidence
+    - calc://gad7/evidence
+    - calc://gcs/evidence
+    - calc://gfr/evidence
+    - calc://gir/evidence
+    - calc://grace/evidence
+    - calc://hepb/evidence
+    - calc://ibw/evidence
+    - calc://ich_volume/evidence
+    - calc://kdpi/evidence
+    - calc://map/evidence
+    - calc://meld/evidence
+    - calc://mews/evidence
+    - calc://morse_fall_scale/evidence
+    - calc://neonatal_measurements/evidence
+    - calc://nihss/evidence
+    - calc://oxygenation_index/evidence
+    - calc://pews/evidence
+    - calc://qsofa/evidence
+    - calc://r_factor/evidence
+    - calc://ranson/evidence
+    - calc://sodium_deficit/evidence
+    - calc://timi/evidence
+    - calc://wells_dvt/evidence
+  safeAliases:
+    aa_gradient: {}
+    abg:
+      ph:
+        - pH
+      paco2:
+        - PaCO2
+      bicarbonate:
+        - HCO3
+      sodium:
+        - Na
+      chloride:
+        - Cl
+      venous_sample:
+        - is_venous
+    anion_gap: {}
+    apgar: {}
+    bmi:
+      weight_kg:
+        - weight
+    bsa:
+      weight_kg:
+        - weight
+    bsa_dubois: {}
+    carboplatin_auc: {}
+    chadsvasc:
+      sex:
+        - gender
+    chemo_dose_bsa: {}
+    child_pugh:
+      bilirubin_category:
+        - bilirubin
+      albumin_category:
+        - albumin
+      inr_category:
+        - inr
+    corrected_calcium: {}
+    creatinine_clearance:
+      weight_kg:
+        - weight
+      sex:
+        - gender
+    csf: {}
+    eos: {}
+    free_water_deficit:
+      patient_category:
+        - demographic
+    gad7: {}
+    gcs: {}
+    gfr: {}
+    gir:
+      weight_kg:
+        - weight
+    grace: {}
+    hepb: {}
+    ibw: {}
+    ich_volume:
+      ellipsoid_shape:
+        - is_ellipsoid
+    kdpi:
+      donor_age_years:
+        - age
+      height_cm:
+        - height
+      weight_kg:
+        - weight
+      cause_of_death_cva:
+        - cod_cva
+      donation_after_circulatory_death:
+        - dcd
+    map:
+      systolic_bp:
+        - systolic
+      diastolic_bp:
+        - diastolic
+    meld: {}
+    mews:
+      systolic_bp_category:
+        - systolic_bp
+      heart_rate_category:
+        - heart_rate
+      respiratory_rate_category:
+        - respiratory_rate
+      temperature_category:
+        - temperature
+    morse_fall_scale: {}
+    neonatal_measurements:
+      gestational_age_weeks:
+        - gestational_age
+      corrected_gestational_age_weeks:
+        - corrected_gestational_age
+    nihss: {}
+    oxygenation_index: {}
+    pews: {}
+    qsofa: {}
+    r_factor: {}
+    ranson: {}
+    sodium_deficit: {}
+    timi: {}
+    wells_dvt: {}
+  calculatorContracts:
+    aa_gradient:
+      directTool:
+        inputs:
+          pao2:
+            required: true
+            kind: number
+          paco2:
+            required: true
+            kind: number
+          fio2:
+            required: true
+            kind: number
+          age:
+            required: true
+            kind: integer
+          altitude:
+            required: false
+            kind: number
+            default: 0
+        conditionalRequirements: []
+        outputs:
+          aa_gradient:
+            kind: number
+            unit: mmHg
+            availability:
+              kind: always
+          expected_gradient:
+            kind: number
+            unit: mmHg
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          pao2:
+            required: true
+            kind: number
+          paco2:
+            required: true
+            kind: number
+          fio2:
+            required: true
+            kind: number
+          age:
+            required: true
+            kind: integer
+          altitude:
+            required: false
+            kind: number
+            default: 0
+        conditionalRequirements: []
+        outputs:
+          aa_gradient:
+            kind: number
+            unit: mmHg
+            availability:
+              kind: always
+          expected_gradient:
+            kind: number
+            unit: mmHg
+            availability:
+              kind: always
+    abg:
+      directTool:
+        inputs:
+          ph:
+            required: true
+            kind: number
+          paco2:
+            required: true
+            kind: number
+          bicarbonate:
+            required: true
+            kind: number
+          sodium:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mEq/L
+              acceptedUnits:
+                - mEq/L
+                - mmol/L
+          chloride:
+            required: true
+            kind: number
+          albumin:
+            required: false
+            kind: quantity
+            quantity:
+              canonicalUnit: g/dL
+              acceptedUnits:
+                - g/L
+                - g/dL
+          sample_type:
+            required: false
+            kind: enum
+            enumValues:
+              - arterial
+              - peripheral_venous
+          venous_sample:
+            required: false
+            kind: boolean
+        conditionalRequirements:
+          - kind: forbidValueWhen
+            field: sample_type
+            when: ==arterial
+            target: venous_sample
+            value: true
+            message: sample_type=arterial conflicts with venous_sample=true.
+          - kind: forbidValueWhen
+            field: sample_type
+            when: ==peripheral_venous
+            target: venous_sample
+            value: false
+            message: sample_type=peripheral_venous conflicts with venous_sample=false.
+          - kind: requiredWithAliases
+            fields:
+              - Cl
+              - chloride
+          - kind: requiredWithAliases
+            fields:
+              - HCO3
+              - bicarbonate
+          - kind: requiredWithAliases
+            fields:
+              - Na
+              - sodium
+          - kind: requiredWithAliases
+            fields:
+              - PaCO2
+              - paco2
+          - kind: requiredWithAliases
+            fields:
+              - pH
+              - ph
+        outputs:
+          sample_type:
+            kind: enum
+            allowedValues:
+              - arterial
+              - peripheral_venous
+            availability:
+              kind: always
+          sample_type_provenance:
+            kind: enum
+            allowedValues:
+              - defaulted_arterial
+              - deprecated_flag
+              - explicit
+            availability:
+              kind: always
+          acid_base_branch_id:
+            kind: enum
+            allowedValues:
+              - compensated_or_mixed_high_values
+              - compensated_or_mixed_low_values
+              - indeterminate_arterial_pattern
+              - metabolic_acidemia
+              - metabolic_alkalemia
+              - mixed_acidemia
+              - mixed_alkalemia
+              - respiratory_acidemia
+              - respiratory_alkalemia
+              - screening_only_venous
+              - within_arterial_reference
+            availability:
+              kind: always
+          compensation_basis:
+            kind: enum
+            allowedValues:
+              - compensation_indeterminate_or_not_evaluated
+              - metabolic_alkalosis_empirical
+              - not_applicable
+              - respiratory_compensation_not_evaluated
+              - venous_pco2_not_interchangeable
+              - winters_metabolic_acidosis
+            availability:
+              kind: always
+          expected_paco2_range:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: compensation_available
+          compensation_status:
+            kind: enum
+            allowedValues:
+              - above_expected_range
+              - below_expected_range
+              - within_expected_range
+            availability:
+              kind: computeCondition
+              conditionId: compensation_available
+          anion_gap:
+            kind: number
+            unit: mEq/L
+            availability:
+              kind: always
+          albumin_corrected_anion_gap:
+            kind: number
+            unit: mEq/L
+            availability:
+              kind: always
+          albumin_provenance:
+            kind: enum
+            allowedValues:
+              - defaulted_4_g_dl
+              - measured
+            availability:
+              kind: always
+          delta_ratio:
+            kind: number
+            availability:
+              kind: computeCondition
+              conditionId: delta_ratio_available
+          albumin_corrected_delta_ratio:
+            kind: number
+            availability:
+              kind: computeCondition
+              conditionId: corrected_delta_ratio_available
+          mixed_disorder_branch_ids:
+            kind: string_list
+            availability:
+              kind: always
+          missing_data_notes:
+            kind: string_list
+            availability:
+              kind: always
+          limitations:
+            kind: string_list
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          ph:
+            required: true
+            kind: number
+          paco2:
+            required: true
+            kind: number
+          bicarbonate:
+            required: true
+            kind: number
+          sodium:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mEq/L
+              acceptedUnits:
+                - mEq/L
+                - mmol/L
+          chloride:
+            required: true
+            kind: number
+          albumin:
+            required: false
+            kind: quantity
+            quantity:
+              canonicalUnit: g/dL
+              acceptedUnits:
+                - g/L
+                - g/dL
+          sample_type:
+            required: false
+            kind: enum
+            enumValues:
+              - arterial
+              - peripheral_venous
+          venous_sample:
+            required: false
+            kind: boolean
+        conditionalRequirements:
+          - kind: forbidValueWhen
+            field: sample_type
+            when: ==arterial
+            target: venous_sample
+            value: true
+            message: sample_type=arterial conflicts with venous_sample=true.
+          - kind: forbidValueWhen
+            field: sample_type
+            when: ==peripheral_venous
+            target: venous_sample
+            value: false
+            message: sample_type=peripheral_venous conflicts with venous_sample=false.
+          - kind: requiredWithAliases
+            fields:
+              - Cl
+              - chloride
+          - kind: requiredWithAliases
+            fields:
+              - HCO3
+              - bicarbonate
+          - kind: requiredWithAliases
+            fields:
+              - Na
+              - sodium
+          - kind: requiredWithAliases
+            fields:
+              - PaCO2
+              - paco2
+          - kind: requiredWithAliases
+            fields:
+              - pH
+              - ph
+        outputs:
+          sample_type:
+            kind: enum
+            allowedValues:
+              - arterial
+              - peripheral_venous
+            availability:
+              kind: always
+          sample_type_provenance:
+            kind: enum
+            allowedValues:
+              - defaulted_arterial
+              - deprecated_flag
+              - explicit
+            availability:
+              kind: always
+          acid_base_branch_id:
+            kind: enum
+            allowedValues:
+              - compensated_or_mixed_high_values
+              - compensated_or_mixed_low_values
+              - indeterminate_arterial_pattern
+              - metabolic_acidemia
+              - metabolic_alkalemia
+              - mixed_acidemia
+              - mixed_alkalemia
+              - respiratory_acidemia
+              - respiratory_alkalemia
+              - screening_only_venous
+              - within_arterial_reference
+            availability:
+              kind: always
+          compensation_basis:
+            kind: enum
+            allowedValues:
+              - compensation_indeterminate_or_not_evaluated
+              - metabolic_alkalosis_empirical
+              - not_applicable
+              - respiratory_compensation_not_evaluated
+              - venous_pco2_not_interchangeable
+              - winters_metabolic_acidosis
+            availability:
+              kind: always
+          expected_paco2_range:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: compensation_available
+          compensation_status:
+            kind: enum
+            allowedValues:
+              - above_expected_range
+              - below_expected_range
+              - within_expected_range
+            availability:
+              kind: computeCondition
+              conditionId: compensation_available
+          anion_gap:
+            kind: number
+            unit: mEq/L
+            availability:
+              kind: always
+          albumin_corrected_anion_gap:
+            kind: number
+            unit: mEq/L
+            availability:
+              kind: always
+          albumin_provenance:
+            kind: enum
+            allowedValues:
+              - defaulted_4_g_dl
+              - measured
+            availability:
+              kind: always
+          delta_ratio:
+            kind: number
+            availability:
+              kind: computeCondition
+              conditionId: delta_ratio_available
+          albumin_corrected_delta_ratio:
+            kind: number
+            availability:
+              kind: computeCondition
+              conditionId: corrected_delta_ratio_available
+          mixed_disorder_branch_ids:
+            kind: string_list
+            availability:
+              kind: always
+          missing_data_notes:
+            kind: string_list
+            availability:
+              kind: always
+          limitations:
+            kind: string_list
+            availability:
+              kind: always
+    anion_gap:
+      directTool:
+        inputs:
+          sodium:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mEq/L
+              acceptedUnits:
+                - mEq/L
+                - mmol/L
+          chloride:
+            required: true
+            kind: number
+          bicarbonate:
+            required: true
+            kind: number
+          albumin:
+            required: false
+            kind: quantity
+            quantity:
+              canonicalUnit: g/dL
+              acceptedUnits:
+                - g/L
+                - g/dL
+        conditionalRequirements: []
+        outputs:
+          anion_gap:
+            kind: number
+            unit: mEq/L
+            availability:
+              kind: always
+          albumin_corrected_anion_gap:
+            kind: number
+            unit: mEq/L
+            availability:
+              kind: whenAnyInputPresent
+              fields:
+                - albumin
+          delta_anion_gap:
+            kind: number
+            unit: mEq/L
+            availability:
+              kind: always
+          albumin_corrected_delta_anion_gap:
+            kind: number
+            unit: mEq/L
+            availability:
+              kind: whenAnyInputPresent
+              fields:
+                - albumin
+          delta_ratio:
+            kind: number
+            availability:
+              kind: computeCondition
+              conditionId: uncorrected_delta_ratio_applicable
+          albumin_corrected_delta_ratio:
+            kind: number
+            availability:
+              kind: computeCondition
+              conditionId: corrected_delta_ratio_applicable
+      compactDispatcher:
+        inputs:
+          sodium:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mEq/L
+              acceptedUnits:
+                - mEq/L
+                - mmol/L
+          chloride:
+            required: true
+            kind: number
+          bicarbonate:
+            required: true
+            kind: number
+          albumin:
+            required: false
+            kind: quantity
+            quantity:
+              canonicalUnit: g/dL
+              acceptedUnits:
+                - g/L
+                - g/dL
+        conditionalRequirements: []
+        outputs:
+          anion_gap:
+            kind: number
+            unit: mEq/L
+            availability:
+              kind: always
+          albumin_corrected_anion_gap:
+            kind: number
+            unit: mEq/L
+            availability:
+              kind: whenAnyInputPresent
+              fields:
+                - albumin
+          delta_anion_gap:
+            kind: number
+            unit: mEq/L
+            availability:
+              kind: always
+          albumin_corrected_delta_anion_gap:
+            kind: number
+            unit: mEq/L
+            availability:
+              kind: whenAnyInputPresent
+              fields:
+                - albumin
+          delta_ratio:
+            kind: number
+            availability:
+              kind: computeCondition
+              conditionId: uncorrected_delta_ratio_applicable
+          albumin_corrected_delta_ratio:
+            kind: number
+            availability:
+              kind: computeCondition
+              conditionId: corrected_delta_ratio_applicable
+    apgar:
+      directTool:
+        inputs:
+          assessment_minute:
+            required: true
+            kind: enum
+            enumValues:
+              - minute_1
+              - minute_10
+              - minute_15
+              - minute_20
+              - minute_5
+          oxygen:
+            required: true
+            kind: boolean
+          ppv_or_ncpap:
+            required: true
+            kind: boolean
+          endotracheal_tube:
+            required: true
+            kind: boolean
+          chest_compressions:
+            required: true
+            kind: boolean
+          epinephrine:
+            required: true
+            kind: boolean
+          appearance:
+            required: true
+            kind: enum
+            enumValues:
+              - blue_or_pale
+              - body_pink_extremities_blue
+              - pink_all_over
+          pulse:
+            required: true
+            kind: enum
+            enumValues:
+              - absent
+              - at_least_100
+              - less_than_100
+            enumAliases:
+              at_least_100:
+                - greater_than_100
+          grimace:
+            required: true
+            kind: enum
+            enumValues:
+              - cough_sneeze_cry
+              - grimace
+              - no_response
+          activity:
+            required: true
+            kind: enum
+            enumValues:
+              - active_motion
+              - limp
+              - some_flexion
+          respiratory:
+            required: true
+            kind: enum
+            enumValues:
+              - absent
+              - strong_cry
+              - weak_or_irregular
+        conditionalRequirements: []
+        outputs:
+          apgar_score:
+            kind: integer
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          assessment_minute:
+            required: true
+            kind: enum
+            enumValues:
+              - minute_1
+              - minute_10
+              - minute_15
+              - minute_20
+              - minute_5
+          oxygen:
+            required: true
+            kind: boolean
+          ppv_or_ncpap:
+            required: true
+            kind: boolean
+          endotracheal_tube:
+            required: true
+            kind: boolean
+          chest_compressions:
+            required: true
+            kind: boolean
+          epinephrine:
+            required: true
+            kind: boolean
+          appearance:
+            required: true
+            kind: enum
+            enumValues:
+              - blue_or_pale
+              - body_pink_extremities_blue
+              - pink_all_over
+          pulse:
+            required: true
+            kind: enum
+            enumValues:
+              - absent
+              - at_least_100
+              - less_than_100
+            enumAliases:
+              at_least_100:
+                - greater_than_100
+          grimace:
+            required: true
+            kind: enum
+            enumValues:
+              - cough_sneeze_cry
+              - grimace
+              - no_response
+          activity:
+            required: true
+            kind: enum
+            enumValues:
+              - active_motion
+              - limp
+              - some_flexion
+          respiratory:
+            required: true
+            kind: enum
+            enumValues:
+              - absent
+              - strong_cry
+              - weak_or_irregular
+        conditionalRequirements: []
+        outputs:
+          apgar_score:
+            kind: integer
+            availability:
+              kind: always
+    bmi:
+      directTool:
+        inputs:
+          weight_kg:
+            required: true
+            kind: number
+          height_cm:
+            required: true
+            kind: number
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - weight
+              - weight_kg
+        outputs:
+          bmi:
+            kind: number
+            unit: kg/m²
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          weight_kg:
+            required: true
+            kind: number
+          height_cm:
+            required: true
+            kind: number
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - weight
+              - weight_kg
+        outputs:
+          bmi:
+            kind: number
+            unit: kg/m²
+            availability:
+              kind: always
+    bsa:
+      directTool:
+        inputs:
+          weight_kg:
+            required: true
+            kind: number
+          height_cm:
+            required: true
+            kind: number
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - weight
+              - weight_kg
+        outputs:
+          bsa:
+            kind: number
+            unit: m²
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          weight_kg:
+            required: true
+            kind: number
+          height_cm:
+            required: true
+            kind: number
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - weight
+              - weight_kg
+        outputs:
+          bsa:
+            kind: number
+            unit: m²
+            availability:
+              kind: always
+    bsa_dubois:
+      directTool:
+        inputs:
+          height_cm:
+            required: true
+            kind: number
+          weight_kg:
+            required: true
+            kind: number
+        conditionalRequirements: []
+        outputs:
+          bsa:
+            kind: number
+            unit: m²
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          height_cm:
+            required: true
+            kind: number
+          weight_kg:
+            required: true
+            kind: number
+        conditionalRequirements: []
+        outputs:
+          bsa:
+            kind: number
+            unit: m²
+            availability:
+              kind: always
+    carboplatin_auc:
+      directTool:
+        inputs:
+          target_auc:
+            required: true
+            kind: number
+          gfr:
+            required: true
+            kind: number
+        conditionalRequirements: []
+        outputs:
+          dose:
+            kind: number
+            availability:
+              kind: always
+            unit: mg
+          gfr_used:
+            kind: number
+            availability:
+              kind: always
+            unit: mL/min
+          gfr_was_capped:
+            kind: boolean
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          target_auc:
+            required: true
+            kind: number
+          gfr:
+            required: true
+            kind: number
+        conditionalRequirements: []
+        outputs:
+          dose:
+            kind: number
+            availability:
+              kind: always
+            unit: mg
+          gfr_used:
+            kind: number
+            availability:
+              kind: always
+            unit: mL/min
+          gfr_was_capped:
+            kind: boolean
+            availability:
+              kind: always
+    chadsvasc:
+      directTool:
+        inputs:
+          age_group:
+            required: true
+            kind: enum
+            enumValues:
+              - age_65_74
+              - age_75_plus
+              - under_65
+          sex:
+            required: true
+            kind: enum
+            enumValues:
+              - female
+              - male
+          chf:
+            required: true
+            kind: boolean
+          hypertension:
+            required: true
+            kind: boolean
+          stroke_history:
+            required: true
+            kind: boolean
+          vascular_disease:
+            required: true
+            kind: boolean
+          diabetes:
+            required: true
+            kind: boolean
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - gender
+              - sex
+        outputs:
+          score:
+            kind: integer
+            availability:
+              kind: always
+          stroke_risk:
+            kind: enum
+            allowedValues:
+              - 0.2%
+              - 0.6%
+              - 10.8%
+              - 11.2%
+              - 12.2%
+              - 2.2%
+              - 3.2%
+              - 4.8%
+              - 7.2%
+              - 9.7%
+            availability:
+              kind: always
+          embolism_risk:
+            kind: enum
+            allowedValues:
+              - 0.3%
+              - 0.9%
+              - 10.0%
+              - 13.6%
+              - 15.2%
+              - 15.7%
+              - 17.4%
+              - 2.9%
+              - 4.6%
+              - 6.7%
+            availability:
+              kind: always
+          stroke_risk_percent:
+            kind: number
+            unit: percent
+            availability:
+              kind: always
+          thromboembolism_risk_percent:
+            kind: number
+            unit: percent
+            availability:
+              kind: always
+          risk_time_horizon:
+            kind: enum
+            allowedValues:
+              - one_year
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          age_group:
+            required: true
+            kind: enum
+            enumValues:
+              - age_65_74
+              - age_75_plus
+              - under_65
+          sex:
+            required: true
+            kind: enum
+            enumValues:
+              - female
+              - male
+          chf:
+            required: true
+            kind: boolean
+          hypertension:
+            required: true
+            kind: boolean
+          stroke_history:
+            required: true
+            kind: boolean
+          vascular_disease:
+            required: true
+            kind: boolean
+          diabetes:
+            required: true
+            kind: boolean
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - gender
+              - sex
+        outputs:
+          score:
+            kind: integer
+            availability:
+              kind: always
+          stroke_risk:
+            kind: enum
+            allowedValues:
+              - 0.2%
+              - 0.6%
+              - 10.8%
+              - 11.2%
+              - 12.2%
+              - 2.2%
+              - 3.2%
+              - 4.8%
+              - 7.2%
+              - 9.7%
+            availability:
+              kind: always
+          embolism_risk:
+            kind: enum
+            allowedValues:
+              - 0.3%
+              - 0.9%
+              - 10.0%
+              - 13.6%
+              - 15.2%
+              - 15.7%
+              - 17.4%
+              - 2.9%
+              - 4.6%
+              - 6.7%
+            availability:
+              kind: always
+          stroke_risk_percent:
+            kind: number
+            unit: percent
+            availability:
+              kind: always
+          thromboembolism_risk_percent:
+            kind: number
+            unit: percent
+            availability:
+              kind: always
+          risk_time_horizon:
+            kind: enum
+            allowedValues:
+              - one_year
+            availability:
+              kind: always
+    chemo_dose_bsa:
+      directTool:
+        inputs:
+          dose_per_m2:
+            required: true
+            kind: number
+          bsa:
+            required: true
+            kind: number
+          dose_reduction:
+            required: false
+            kind: integer
+            default: 0
+          cap_bsa:
+            required: false
+            kind: boolean
+            default: false
+        conditionalRequirements: []
+        outputs:
+          calculated_dose:
+            kind: number
+            unit: mg
+            availability:
+              kind: always
+          final_dose:
+            kind: number
+            unit: mg
+            availability:
+              kind: always
+          bsa_used:
+            kind: number
+            unit: m²
+            availability:
+              kind: always
+          bsa_was_capped:
+            kind: boolean
+            availability:
+              kind: always
+          reduction_applied:
+            kind: number
+            unit: "%"
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          dose_per_m2:
+            required: true
+            kind: number
+          bsa:
+            required: true
+            kind: number
+          dose_reduction:
+            required: false
+            kind: integer
+            default: 0
+          cap_bsa:
+            required: false
+            kind: boolean
+            default: false
+        conditionalRequirements: []
+        outputs:
+          calculated_dose:
+            kind: number
+            unit: mg
+            availability:
+              kind: always
+          final_dose:
+            kind: number
+            unit: mg
+            availability:
+              kind: always
+          bsa_used:
+            kind: number
+            unit: m²
+            availability:
+              kind: always
+          bsa_was_capped:
+            kind: boolean
+            availability:
+              kind: always
+          reduction_applied:
+            kind: number
+            unit: "%"
+            availability:
+              kind: always
+    child_pugh:
+      directTool:
+        inputs:
+          bilirubin_category:
+            required: true
+            kind: enum
+            enumValues:
+              - high
+              - low
+              - moderate
+          albumin_category:
+            required: true
+            kind: enum
+            enumValues:
+              - high
+              - low
+              - moderate
+          inr_category:
+            required: true
+            kind: enum
+            enumValues:
+              - high
+              - low
+              - moderate
+          ascites:
+            required: true
+            kind: enum
+            enumValues:
+              - mild
+              - moderate
+              - none
+          encephalopathy:
+            required: true
+            kind: enum
+            enumValues:
+              - mild
+              - none
+              - severe
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - albumin
+              - albumin_category
+          - kind: requiredWithAliases
+            fields:
+              - bilirubin
+              - bilirubin_category
+          - kind: requiredWithAliases
+            fields:
+              - inr
+              - inr_category
+        outputs:
+          score:
+            kind: integer
+            availability:
+              kind: always
+          class:
+            kind: enum
+            allowedValues:
+              - A
+              - B
+              - C
+            availability:
+              kind: always
+          prognosis:
+            kind: enum
+            allowedValues:
+              - Advanced hepatic dysfunction
+              - Moderately impaired liver function
+              - Well-compensated liver disease
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          bilirubin_category:
+            required: true
+            kind: enum
+            enumValues:
+              - high
+              - low
+              - moderate
+          albumin_category:
+            required: true
+            kind: enum
+            enumValues:
+              - high
+              - low
+              - moderate
+          inr_category:
+            required: true
+            kind: enum
+            enumValues:
+              - high
+              - low
+              - moderate
+          ascites:
+            required: true
+            kind: enum
+            enumValues:
+              - mild
+              - moderate
+              - none
+          encephalopathy:
+            required: true
+            kind: enum
+            enumValues:
+              - mild
+              - none
+              - severe
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - albumin
+              - albumin_category
+          - kind: requiredWithAliases
+            fields:
+              - bilirubin
+              - bilirubin_category
+          - kind: requiredWithAliases
+            fields:
+              - inr
+              - inr_category
+        outputs:
+          score:
+            kind: integer
+            availability:
+              kind: always
+          class:
+            kind: enum
+            allowedValues:
+              - A
+              - B
+              - C
+            availability:
+              kind: always
+          prognosis:
+            kind: enum
+            allowedValues:
+              - Advanced hepatic dysfunction
+              - Moderately impaired liver function
+              - Well-compensated liver disease
+            availability:
+              kind: always
+    corrected_calcium:
+      directTool:
+        inputs:
+          calcium:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - mmol/L
+          albumin:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: g/dL
+              acceptedUnits:
+                - g/L
+                - g/dL
+        conditionalRequirements: []
+        outputs:
+          corrected_calcium:
+            kind: number
+            unit: mg/dL
+            availability:
+              kind: always
+          clinical_use_supported:
+            kind: boolean
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          calcium:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - mmol/L
+          albumin:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: g/dL
+              acceptedUnits:
+                - g/L
+                - g/dL
+        conditionalRequirements: []
+        outputs:
+          corrected_calcium:
+            kind: number
+            unit: mg/dL
+            availability:
+              kind: always
+          clinical_use_supported:
+            kind: boolean
+            availability:
+              kind: always
+    creatinine_clearance:
+      directTool:
+        inputs:
+          age:
+            required: true
+            kind: integer
+          weight_kg:
+            required: true
+            kind: number
+          creatinine:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - umol/L
+          sex:
+            required: true
+            kind: enum
+            enumValues:
+              - female
+              - male
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - gender
+              - sex
+          - kind: requiredWithAliases
+            fields:
+              - weight
+              - weight_kg
+        outputs:
+          creatinine_clearance:
+            kind: number
+            unit: mL/min
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          age:
+            required: true
+            kind: integer
+          weight_kg:
+            required: true
+            kind: number
+          creatinine:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - umol/L
+          sex:
+            required: true
+            kind: enum
+            enumValues:
+              - female
+              - male
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - gender
+              - sex
+          - kind: requiredWithAliases
+            fields:
+              - weight
+              - weight_kg
+        outputs:
+          creatinine_clearance:
+            kind: number
+            unit: mL/min
+            availability:
+              kind: always
+    csf:
+      directTool:
+        inputs:
+          age_years:
+            required: true
+            kind: integer
+          wbc_per_ul:
+            required: true
+            kind: integer
+          wbc_diff:
+            required: true
+            kind: enum
+            enumValues:
+              - lymphocyte
+              - mixed
+              - pmn
+              - unknown
+            enumAliases:
+              pmn:
+                - PMN
+          rbc_per_ul:
+            required: false
+            kind: integer
+          traumatic_tap_method:
+            required: false
+            kind: enum
+            enumValues:
+              - none
+              - one_wbc_per_1000_rbc
+              - one_wbc_per_1500_rbc
+              - one_wbc_per_500_rbc
+            default: none
+          appearance:
+            required: false
+            kind: enum
+            enumValues:
+              - bloody
+              - clear
+              - cloudy
+              - unknown
+              - xanthochromic
+          opening_pressure_cm_h2o:
+            required: false
+            kind: number
+          csf_glucose_mmol_l:
+            required: false
+            kind: number
+          serum_glucose_mmol_l:
+            required: false
+            kind: number
+          protein_mg_dl:
+            required: false
+            kind: number
+          gram_stain_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          bacterial_culture_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          pathogen_pcr_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          pathogen_pcr_identity:
+            required: false
+            kind: enum
+            enumValues:
+              - bacterial_panel
+              - enterovirus
+              - hsv1
+              - hsv2
+              - not_specified
+              - other
+              - vzv
+          mycobacterial_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          mycobacterial_assay:
+            required: false
+            kind: enum
+            enumValues:
+              - culture
+              - not_specified
+              - other
+              - pcr
+              - smear
+          fungal_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          fungal_assay:
+            required: false
+            kind: enum
+            enumValues:
+              - beta_d_glucan
+              - cryptococcal_antigen
+              - culture
+              - india_ink
+              - not_specified
+              - other
+          oligoclonal_band_status:
+            required: false
+            kind: enum
+            enumValues:
+              - absent
+              - csf_restricted
+              - matched_serum_and_csf
+              - not_tested
+              - unknown
+            default: not_tested
+          neural_antibody_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          neural_antibody_identity:
+            required: false
+            kind: enum
+            enumValues:
+              - ampa
+              - caspr2
+              - gaba_b
+              - lgi1
+              - nmda_receptor
+              - not_specified
+              - other
+          neural_antibody_specimen:
+            required: false
+            kind: enum
+            enumValues:
+              - csf
+              - not_specified
+              - paired
+              - serum
+          symptom_onset_days:
+            required: false
+            kind: number
+          antimicrobial_pretreatment:
+            required: true
+            kind: enum
+            enumValues:
+              - no
+              - unknown
+              - yes
+          immune_status:
+            required: true
+            kind: enum
+            enumValues:
+              - immunocompetent
+              - immunocompromised
+              - unknown
+          imaging_context:
+            required: true
+            kind: enum
+            enumValues:
+              - normal_or_no_explanation
+              - not_done
+              - other_abnormality
+              - supports_sah
+              - unknown
+          xanthochromia_method:
+            required: false
+            kind: enum
+            enumValues:
+              - not_tested
+              - spectrophotometry
+              - unknown
+              - visual
+            default: not_tested
+          xanthochromia_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          hours_from_onset_to_lumbar_puncture:
+            required: false
+            kind: number
+        conditionalRequirements:
+          - kind: requiredWhen
+            field: fungal_result
+            when: ==positive
+            required:
+              - fungal_assay
+            message: Identify the positive fungal assay.
+          - kind: requiredWhen
+            field: mycobacterial_result
+            when: ==positive
+            required:
+              - mycobacterial_assay
+            message: Identify the positive mycobacterial assay.
+          - kind: requiredWhen
+            field: neural_antibody_result
+            when: ==positive
+            required:
+              - neural_antibody_identity
+              - neural_antibody_specimen
+            message: Identify the neural antibody and specimen for a positive result.
+          - kind: requiredWhen
+            field: pathogen_pcr_result
+            when: ==positive
+            required:
+              - pathogen_pcr_identity
+            message: Identify the PCR target for a positive result.
+          - kind: requiredWhen
+            field: traumatic_tap_method
+            when: ==one_wbc_per_1000_rbc
+            required:
+              - rbc_per_ul
+            message: An RBC count is required when a traumatic-tap correction is selected.
+          - kind: requiredWhen
+            field: traumatic_tap_method
+            when: ==one_wbc_per_1500_rbc
+            required:
+              - rbc_per_ul
+            message: An RBC count is required when a traumatic-tap correction is selected.
+          - kind: requiredWhen
+            field: traumatic_tap_method
+            when: ==one_wbc_per_500_rbc
+            required:
+              - rbc_per_ul
+            message: An RBC count is required when a traumatic-tap correction is selected.
+        outputs:
+          corrected_wbc:
+            kind: number
+            unit: cells/uL
+            availability:
+              kind: always
+          wbc_correction_method:
+            kind: enum
+            allowedValues:
+              - none
+              - one_wbc_per_1000_rbc
+              - one_wbc_per_1500_rbc
+              - one_wbc_per_500_rbc
+            availability:
+              kind: always
+          csf_serum_glucose_ratio:
+            kind: number
+            availability:
+              kind: computeCondition
+              conditionId: glucose_ratio_available
+          derived_values:
+            kind: string_list
+            availability:
+              kind: always
+          confirmed_assays:
+            kind: string_list
+            availability:
+              kind: always
+          support_flags:
+            kind: string_list
+            availability:
+              kind: always
+          differential_considerations:
+            kind: string_list
+            availability:
+              kind: always
+          xanthochromia_context:
+            kind: enum
+            allowedValues:
+              - negative_spectrophotometry_reported
+              - not_assessed
+              - result_or_method_or_timing_insufficient
+              - supported_spectrophotometry_after_12h
+            availability:
+              kind: always
+          missing_context:
+            kind: string_list
+            availability:
+              kind: always
+          limitations:
+            kind: string_list
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          age_years:
+            required: true
+            kind: integer
+          wbc_per_ul:
+            required: true
+            kind: integer
+          wbc_diff:
+            required: true
+            kind: enum
+            enumValues:
+              - lymphocyte
+              - mixed
+              - pmn
+              - unknown
+            enumAliases:
+              pmn:
+                - PMN
+          rbc_per_ul:
+            required: false
+            kind: integer
+          traumatic_tap_method:
+            required: false
+            kind: enum
+            enumValues:
+              - none
+              - one_wbc_per_1000_rbc
+              - one_wbc_per_1500_rbc
+              - one_wbc_per_500_rbc
+            default: none
+          appearance:
+            required: false
+            kind: enum
+            enumValues:
+              - bloody
+              - clear
+              - cloudy
+              - unknown
+              - xanthochromic
+          opening_pressure_cm_h2o:
+            required: false
+            kind: number
+          csf_glucose_mmol_l:
+            required: false
+            kind: number
+          serum_glucose_mmol_l:
+            required: false
+            kind: number
+          protein_mg_dl:
+            required: false
+            kind: number
+          gram_stain_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          bacterial_culture_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          pathogen_pcr_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          pathogen_pcr_identity:
+            required: false
+            kind: enum
+            enumValues:
+              - bacterial_panel
+              - enterovirus
+              - hsv1
+              - hsv2
+              - not_specified
+              - other
+              - vzv
+          mycobacterial_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          mycobacterial_assay:
+            required: false
+            kind: enum
+            enumValues:
+              - culture
+              - not_specified
+              - other
+              - pcr
+              - smear
+          fungal_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          fungal_assay:
+            required: false
+            kind: enum
+            enumValues:
+              - beta_d_glucan
+              - cryptococcal_antigen
+              - culture
+              - india_ink
+              - not_specified
+              - other
+          oligoclonal_band_status:
+            required: false
+            kind: enum
+            enumValues:
+              - absent
+              - csf_restricted
+              - matched_serum_and_csf
+              - not_tested
+              - unknown
+            default: not_tested
+          neural_antibody_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          neural_antibody_identity:
+            required: false
+            kind: enum
+            enumValues:
+              - ampa
+              - caspr2
+              - gaba_b
+              - lgi1
+              - nmda_receptor
+              - not_specified
+              - other
+          neural_antibody_specimen:
+            required: false
+            kind: enum
+            enumValues:
+              - csf
+              - not_specified
+              - paired
+              - serum
+          symptom_onset_days:
+            required: false
+            kind: number
+          antimicrobial_pretreatment:
+            required: true
+            kind: enum
+            enumValues:
+              - no
+              - unknown
+              - yes
+          immune_status:
+            required: true
+            kind: enum
+            enumValues:
+              - immunocompetent
+              - immunocompromised
+              - unknown
+          imaging_context:
+            required: true
+            kind: enum
+            enumValues:
+              - normal_or_no_explanation
+              - not_done
+              - other_abnormality
+              - supports_sah
+              - unknown
+          xanthochromia_method:
+            required: false
+            kind: enum
+            enumValues:
+              - not_tested
+              - spectrophotometry
+              - unknown
+              - visual
+            default: not_tested
+          xanthochromia_result:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          hours_from_onset_to_lumbar_puncture:
+            required: false
+            kind: number
+        conditionalRequirements:
+          - kind: requiredWhen
+            field: fungal_result
+            when: ==positive
+            required:
+              - fungal_assay
+            message: Identify the positive fungal assay.
+          - kind: requiredWhen
+            field: mycobacterial_result
+            when: ==positive
+            required:
+              - mycobacterial_assay
+            message: Identify the positive mycobacterial assay.
+          - kind: requiredWhen
+            field: neural_antibody_result
+            when: ==positive
+            required:
+              - neural_antibody_identity
+              - neural_antibody_specimen
+            message: Identify the neural antibody and specimen for a positive result.
+          - kind: requiredWhen
+            field: pathogen_pcr_result
+            when: ==positive
+            required:
+              - pathogen_pcr_identity
+            message: Identify the PCR target for a positive result.
+          - kind: requiredWhen
+            field: traumatic_tap_method
+            when: ==one_wbc_per_1000_rbc
+            required:
+              - rbc_per_ul
+            message: An RBC count is required when a traumatic-tap correction is selected.
+          - kind: requiredWhen
+            field: traumatic_tap_method
+            when: ==one_wbc_per_1500_rbc
+            required:
+              - rbc_per_ul
+            message: An RBC count is required when a traumatic-tap correction is selected.
+          - kind: requiredWhen
+            field: traumatic_tap_method
+            when: ==one_wbc_per_500_rbc
+            required:
+              - rbc_per_ul
+            message: An RBC count is required when a traumatic-tap correction is selected.
+        outputs:
+          corrected_wbc:
+            kind: number
+            unit: cells/uL
+            availability:
+              kind: always
+          wbc_correction_method:
+            kind: enum
+            allowedValues:
+              - none
+              - one_wbc_per_1000_rbc
+              - one_wbc_per_1500_rbc
+              - one_wbc_per_500_rbc
+            availability:
+              kind: always
+          csf_serum_glucose_ratio:
+            kind: number
+            availability:
+              kind: computeCondition
+              conditionId: glucose_ratio_available
+          derived_values:
+            kind: string_list
+            availability:
+              kind: always
+          confirmed_assays:
+            kind: string_list
+            availability:
+              kind: always
+          support_flags:
+            kind: string_list
+            availability:
+              kind: always
+          differential_considerations:
+            kind: string_list
+            availability:
+              kind: always
+          xanthochromia_context:
+            kind: enum
+            allowedValues:
+              - negative_spectrophotometry_reported
+              - not_assessed
+              - result_or_method_or_timing_insufficient
+              - supported_spectrophotometry_after_12h
+            availability:
+              kind: always
+          missing_context:
+            kind: string_list
+            availability:
+              kind: always
+          limitations:
+            kind: string_list
+            availability:
+              kind: always
+    eos:
+      directTool:
+        inputs:
+          model_version:
+            required: true
+            kind: enum
+            enumValues:
+              - original_2017_nonuniversal_gbs
+              - updated_2024_universal_gbs
+          baseline_incidence:
+            required: true
+            kind: enum
+            enumValues:
+              - "0.1"
+              - "0.2"
+              - "0.3"
+              - "0.4"
+              - "0.5"
+              - "0.6"
+              - "0.7"
+              - "0.8"
+              - "0.9"
+              - "1"
+              - "2"
+              - "4"
+          temperature:
+            required: true
+            kind: number
+          rom_hours:
+            required: true
+            kind: number
+          gestational_age:
+            required: true
+            kind: number
+          antibiotic_status:
+            required: true
+            kind: enum
+            enumValues:
+              - broad_spectrum_ge_4h
+              - gbs_specific_ge_2h_or_any_2_to_4h
+              - none
+            enumAliases:
+              none:
+                - None
+              gbs_specific_ge_2h_or_any_2_to_4h:
+                - GBS Specific >=2hr or Any 2-4hr
+              broad_spectrum_ge_4h:
+                - Broad Spectrum >=4hr
+          gbs_status:
+            required: true
+            kind: enum
+            enumValues:
+              - negative
+              - positive
+              - unknown
+            enumAliases:
+              positive:
+                - Positive
+              negative:
+                - Negative
+              unknown:
+                - Unknown
+          clinical_appearance:
+            required: true
+            kind: enum
+            enumValues:
+              - clinical_illness
+              - equivocal
+              - well_appearing
+            enumAliases:
+              well_appearing:
+                - Well Appearing
+              equivocal:
+                - Equivocal
+              clinical_illness:
+                - Clinical Illness
+        conditionalRequirements: []
+        outputs:
+          risk_at_birth_per_1000:
+            kind: number
+            availability:
+              kind: always
+          composite_risk_per_1000:
+            kind: number
+            availability:
+              kind: always
+          clinical_recommendation:
+            kind: enum
+            allowedValues:
+              - Blood culture and vitals every 4 hours for 16 hours
+              - Blood culture and vitals every 4 hours for 24 hours
+              - Consider starting empiric antibiotics
+              - Empiric antibiotics
+              - No additional care
+              - No culture, no antibiotics
+              - Obtain blood culture, no empiric antibiotics
+              - Treat empirically with antibiotics
+            availability:
+              kind: always
+          birth_vitals_recommendation:
+            kind: enum
+            allowedValues:
+              - Routine vitals
+              - Vitals every 4 hours for 16 hours
+            availability:
+              kind: computeCondition
+              conditionId: updated_birth_vitals
+          vitals_recommendation:
+            kind: enum
+            allowedValues:
+              - Routine vitals
+              - Vitals every 4 hours for 16 hours
+              - Vitals every 4 hours for 24 hours
+              - Vitals in NICU
+              - Vitals per NICU
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          model_version:
+            required: true
+            kind: enum
+            enumValues:
+              - original_2017_nonuniversal_gbs
+              - updated_2024_universal_gbs
+          baseline_incidence:
+            required: true
+            kind: enum
+            enumValues:
+              - "0.1"
+              - "0.2"
+              - "0.3"
+              - "0.4"
+              - "0.5"
+              - "0.6"
+              - "0.7"
+              - "0.8"
+              - "0.9"
+              - "1"
+              - "2"
+              - "4"
+          temperature:
+            required: true
+            kind: number
+          rom_hours:
+            required: true
+            kind: number
+          gestational_age:
+            required: true
+            kind: number
+          antibiotic_status:
+            required: true
+            kind: enum
+            enumValues:
+              - broad_spectrum_ge_4h
+              - gbs_specific_ge_2h_or_any_2_to_4h
+              - none
+            enumAliases:
+              none:
+                - None
+              gbs_specific_ge_2h_or_any_2_to_4h:
+                - GBS Specific >=2hr or Any 2-4hr
+              broad_spectrum_ge_4h:
+                - Broad Spectrum >=4hr
+          gbs_status:
+            required: true
+            kind: enum
+            enumValues:
+              - negative
+              - positive
+              - unknown
+            enumAliases:
+              positive:
+                - Positive
+              negative:
+                - Negative
+              unknown:
+                - Unknown
+          clinical_appearance:
+            required: true
+            kind: enum
+            enumValues:
+              - clinical_illness
+              - equivocal
+              - well_appearing
+            enumAliases:
+              well_appearing:
+                - Well Appearing
+              equivocal:
+                - Equivocal
+              clinical_illness:
+                - Clinical Illness
+        conditionalRequirements: []
+        outputs:
+          risk_at_birth_per_1000:
+            kind: number
+            availability:
+              kind: always
+          composite_risk_per_1000:
+            kind: number
+            availability:
+              kind: always
+          clinical_recommendation:
+            kind: enum
+            allowedValues:
+              - Blood culture and vitals every 4 hours for 16 hours
+              - Blood culture and vitals every 4 hours for 24 hours
+              - Consider starting empiric antibiotics
+              - Empiric antibiotics
+              - No additional care
+              - No culture, no antibiotics
+              - Obtain blood culture, no empiric antibiotics
+              - Treat empirically with antibiotics
+            availability:
+              kind: always
+          birth_vitals_recommendation:
+            kind: enum
+            allowedValues:
+              - Routine vitals
+              - Vitals every 4 hours for 16 hours
+            availability:
+              kind: computeCondition
+              conditionId: updated_birth_vitals
+          vitals_recommendation:
+            kind: enum
+            allowedValues:
+              - Routine vitals
+              - Vitals every 4 hours for 16 hours
+              - Vitals every 4 hours for 24 hours
+              - Vitals in NICU
+              - Vitals per NICU
+            availability:
+              kind: always
+    free_water_deficit:
+      directTool:
+        inputs:
+          weight_kg:
+            required: true
+            kind: number
+          current_sodium:
+            required: true
+            kind: number
+          ideal_sodium:
+            required: false
+            kind: number
+            default: 140
+          patient_category:
+            required: true
+            kind: enum
+            enumValues:
+              - adult_female
+              - adult_male
+              - elderly_female
+              - elderly_male
+            enumAliases:
+              adult_male:
+                - Adult Male (18-65 years)
+              adult_female:
+                - Adult Female (18-65 years)
+              elderly_male:
+                - Elderly Male (>65 years)
+              elderly_female:
+                - Elderly Female (>65 years)
+        conditionalRequirements:
+          - kind: compare
+            left: current_sodium
+            operator: ">"
+            right: ideal_sodium
+            message: Current sodium must be greater than target sodium for this adult hypernatremia deficit estimate.
+          - kind: requiredWithAliases
+            fields:
+              - demographic
+              - patient_category
+        outputs:
+          free_water_deficit:
+            kind: number
+            unit: L
+            availability:
+              kind: always
+          tbw_percentage_used:
+            kind: number
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          weight_kg:
+            required: true
+            kind: number
+          current_sodium:
+            required: true
+            kind: number
+          ideal_sodium:
+            required: false
+            kind: number
+            default: 140
+          patient_category:
+            required: true
+            kind: enum
+            enumValues:
+              - adult_female
+              - adult_male
+              - elderly_female
+              - elderly_male
+            enumAliases:
+              adult_male:
+                - Adult Male (18-65 years)
+              adult_female:
+                - Adult Female (18-65 years)
+              elderly_male:
+                - Elderly Male (>65 years)
+              elderly_female:
+                - Elderly Female (>65 years)
+        conditionalRequirements:
+          - kind: compare
+            left: current_sodium
+            operator: ">"
+            right: ideal_sodium
+            message: Current sodium must be greater than target sodium for this adult hypernatremia deficit estimate.
+          - kind: requiredWithAliases
+            fields:
+              - demographic
+              - patient_category
+        outputs:
+          free_water_deficit:
+            kind: number
+            unit: L
+            availability:
+              kind: always
+          tbw_percentage_used:
+            kind: number
+            availability:
+              kind: always
+    gad7:
+      directTool:
+        inputs:
+          feeling_nervous:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+          cannot_control_worrying:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+          worrying_too_much:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+          trouble_relaxing:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+          restlessness:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+          easily_annoyed:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+          feeling_afraid:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+        conditionalRequirements: []
+        outputs:
+          gad7_score:
+            kind: integer
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          feeling_nervous:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+          cannot_control_worrying:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+          worrying_too_much:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+          trouble_relaxing:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+          restlessness:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+          easily_annoyed:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+          feeling_afraid:
+            required: true
+            kind: enum
+            enumValues:
+              - more_than_half_the_days
+              - nearly_every_day
+              - not_at_all
+              - several_days
+        conditionalRequirements: []
+        outputs:
+          gad7_score:
+            kind: integer
+            availability:
+              kind: always
+    gcs:
+      directTool:
+        inputs:
+          assessment_context:
+            required: true
+            kind: enum
+            enumValues:
+              - acute_brain_injury
+              - general_consciousness
+              - traumatic_brain_injury
+          modifier_context:
+            required: true
+            kind: enum
+            enumValues:
+              - intubation_or_tracheostomy
+              - language_or_communication_barrier
+              - multiple_modifiers
+              - none
+              - ocular_obstruction
+              - other
+              - paralysis
+              - sedation
+          eye_opening:
+            required: true
+            kind: enum
+            enumValues:
+              - none
+              - not_testable_ocular_obstruction
+              - spontaneous
+              - to_pain
+              - to_speech
+          verbal_response:
+            required: true
+            kind: enum
+            enumValues:
+              - confused
+              - inappropriate_words
+              - incomprehensible_sounds
+              - none
+              - not_testable_communication_barrier
+              - not_testable_intubation
+              - oriented
+          motor_response:
+            required: true
+            kind: enum
+            enumValues:
+              - extension
+              - flexion
+              - flexion_withdrawal
+              - localizes_to_pain
+              - none
+              - not_testable_paralysis
+              - obeys_commands
+        conditionalRequirements:
+          - kind: requireAtLeastValuesWhen
+            field: eye_opening
+            when: ==not_testable_ocular_obstruction
+            targets:
+              - field: modifier_context
+                value: ocular_obstruction
+              - field: modifier_context
+                value: multiple_modifiers
+            message: The ocular-obstruction Not Testable option requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: modifier_context
+            when: ==multiple_modifiers
+            targets:
+              - field: eye_opening
+                value: not_testable_ocular_obstruction
+              - field: verbal_response
+                value: not_testable_intubation
+              - field: verbal_response
+                value: not_testable_communication_barrier
+              - field: motor_response
+                value: not_testable_paralysis
+            minimum: 2
+            message: Multiple modifiers require at least two affected GCS components to be recorded Not Testable.
+          - kind: requireAtLeastValuesWhen
+            field: motor_response
+            when: ==not_testable_paralysis
+            targets:
+              - field: modifier_context
+                value: paralysis
+              - field: modifier_context
+                value: multiple_modifiers
+            message: The paralysis Not Testable option requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: verbal_response
+            when: ==not_testable_communication_barrier
+            targets:
+              - field: modifier_context
+                value: language_or_communication_barrier
+              - field: modifier_context
+                value: multiple_modifiers
+            message: The communication-barrier Not Testable option requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: verbal_response
+            when: ==not_testable_intubation
+            targets:
+              - field: modifier_context
+                value: intubation_or_tracheostomy
+              - field: modifier_context
+                value: multiple_modifiers
+            message: The intubation Not Testable option requires the matching or multiple-modifier context.
+          - kind: requireValueWhen
+            field: modifier_context
+            when: ==intubation_or_tracheostomy
+            target: verbal_response
+            value: not_testable_intubation
+            message: Intubation or tracheostomy requires the verbal component to be recorded Not Testable.
+          - kind: requireValueWhen
+            field: modifier_context
+            when: ==language_or_communication_barrier
+            target: verbal_response
+            value: not_testable_communication_barrier
+            message: A communication barrier requires the verbal component to be recorded Not Testable.
+          - kind: requireValueWhen
+            field: modifier_context
+            when: ==ocular_obstruction
+            target: eye_opening
+            value: not_testable_ocular_obstruction
+            message: Ocular obstruction requires the eye component to be recorded Not Testable.
+          - kind: requireValueWhen
+            field: modifier_context
+            when: ==paralysis
+            target: motor_response
+            value: not_testable_paralysis
+            message: Paralysis requires the motor component to be recorded Not Testable.
+        outputs:
+          gcs_total:
+            kind: integer
+            availability:
+              kind: computeCondition
+              conditionId: complete_total
+          eye_score:
+            kind: integer
+            availability:
+              kind: computeCondition
+              conditionId: eye_testable
+          verbal_score:
+            kind: integer
+            availability:
+              kind: computeCondition
+              conditionId: verbal_testable
+          motor_score:
+            kind: integer
+            availability:
+              kind: computeCondition
+              conditionId: motor_testable
+          assessment_complete:
+            kind: boolean
+            availability:
+              kind: always
+          missing_component_reasons:
+            kind: string_list
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          assessment_context:
+            required: true
+            kind: enum
+            enumValues:
+              - acute_brain_injury
+              - general_consciousness
+              - traumatic_brain_injury
+          modifier_context:
+            required: true
+            kind: enum
+            enumValues:
+              - intubation_or_tracheostomy
+              - language_or_communication_barrier
+              - multiple_modifiers
+              - none
+              - ocular_obstruction
+              - other
+              - paralysis
+              - sedation
+          eye_opening:
+            required: true
+            kind: enum
+            enumValues:
+              - none
+              - not_testable_ocular_obstruction
+              - spontaneous
+              - to_pain
+              - to_speech
+          verbal_response:
+            required: true
+            kind: enum
+            enumValues:
+              - confused
+              - inappropriate_words
+              - incomprehensible_sounds
+              - none
+              - not_testable_communication_barrier
+              - not_testable_intubation
+              - oriented
+          motor_response:
+            required: true
+            kind: enum
+            enumValues:
+              - extension
+              - flexion
+              - flexion_withdrawal
+              - localizes_to_pain
+              - none
+              - not_testable_paralysis
+              - obeys_commands
+        conditionalRequirements:
+          - kind: requireAtLeastValuesWhen
+            field: eye_opening
+            when: ==not_testable_ocular_obstruction
+            targets:
+              - field: modifier_context
+                value: ocular_obstruction
+              - field: modifier_context
+                value: multiple_modifiers
+            message: The ocular-obstruction Not Testable option requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: modifier_context
+            when: ==multiple_modifiers
+            targets:
+              - field: eye_opening
+                value: not_testable_ocular_obstruction
+              - field: verbal_response
+                value: not_testable_intubation
+              - field: verbal_response
+                value: not_testable_communication_barrier
+              - field: motor_response
+                value: not_testable_paralysis
+            minimum: 2
+            message: Multiple modifiers require at least two affected GCS components to be recorded Not Testable.
+          - kind: requireAtLeastValuesWhen
+            field: motor_response
+            when: ==not_testable_paralysis
+            targets:
+              - field: modifier_context
+                value: paralysis
+              - field: modifier_context
+                value: multiple_modifiers
+            message: The paralysis Not Testable option requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: verbal_response
+            when: ==not_testable_communication_barrier
+            targets:
+              - field: modifier_context
+                value: language_or_communication_barrier
+              - field: modifier_context
+                value: multiple_modifiers
+            message: The communication-barrier Not Testable option requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: verbal_response
+            when: ==not_testable_intubation
+            targets:
+              - field: modifier_context
+                value: intubation_or_tracheostomy
+              - field: modifier_context
+                value: multiple_modifiers
+            message: The intubation Not Testable option requires the matching or multiple-modifier context.
+          - kind: requireValueWhen
+            field: modifier_context
+            when: ==intubation_or_tracheostomy
+            target: verbal_response
+            value: not_testable_intubation
+            message: Intubation or tracheostomy requires the verbal component to be recorded Not Testable.
+          - kind: requireValueWhen
+            field: modifier_context
+            when: ==language_or_communication_barrier
+            target: verbal_response
+            value: not_testable_communication_barrier
+            message: A communication barrier requires the verbal component to be recorded Not Testable.
+          - kind: requireValueWhen
+            field: modifier_context
+            when: ==ocular_obstruction
+            target: eye_opening
+            value: not_testable_ocular_obstruction
+            message: Ocular obstruction requires the eye component to be recorded Not Testable.
+          - kind: requireValueWhen
+            field: modifier_context
+            when: ==paralysis
+            target: motor_response
+            value: not_testable_paralysis
+            message: Paralysis requires the motor component to be recorded Not Testable.
+        outputs:
+          gcs_total:
+            kind: integer
+            availability:
+              kind: computeCondition
+              conditionId: complete_total
+          eye_score:
+            kind: integer
+            availability:
+              kind: computeCondition
+              conditionId: eye_testable
+          verbal_score:
+            kind: integer
+            availability:
+              kind: computeCondition
+              conditionId: verbal_testable
+          motor_score:
+            kind: integer
+            availability:
+              kind: computeCondition
+              conditionId: motor_testable
+          assessment_complete:
+            kind: boolean
+            availability:
+              kind: always
+          missing_component_reasons:
+            kind: string_list
+            availability:
+              kind: always
+    gfr:
+      directTool:
+        inputs:
+          creatinine:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - umol/L
+          age:
+            required: true
+            kind: integer
+          sex:
+            required: true
+            kind: enum
+            enumValues:
+              - female
+              - male
+        conditionalRequirements: []
+        outputs:
+          gfr:
+            kind: number
+            unit: mL/min/1.73m²
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          creatinine:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - umol/L
+          age:
+            required: true
+            kind: integer
+          sex:
+            required: true
+            kind: enum
+            enumValues:
+              - female
+              - male
+        conditionalRequirements: []
+        outputs:
+          gfr:
+            kind: number
+            unit: mL/min/1.73m²
+            availability:
+              kind: always
+    gir:
+      directTool:
+        inputs:
+          weight_kg:
+            required: true
+            kind: number
+          dextrose_concentration:
+            required: true
+            kind: number
+          infusion_rate:
+            required: true
+            kind: number
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - weight
+              - weight_kg
+        outputs:
+          gir:
+            kind: number
+            unit: mg/kg/min
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          weight_kg:
+            required: true
+            kind: number
+          dextrose_concentration:
+            required: true
+            kind: number
+          infusion_rate:
+            required: true
+            kind: number
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - weight
+              - weight_kg
+        outputs:
+          gir:
+            kind: number
+            unit: mg/kg/min
+            availability:
+              kind: always
+    grace:
+      directTool:
+        inputs:
+          age:
+            required: true
+            kind: integer
+          heart_rate:
+            required: true
+            kind: integer
+          systolic_bp:
+            required: true
+            kind: integer
+          creatinine:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - umol/L
+          killip_class:
+            required: true
+            kind: enum
+            enumValues:
+              - i
+              - ii
+              - iii
+              - iv
+            enumAliases:
+              i:
+                - I
+              ii:
+                - II
+              iii:
+                - III
+              iv:
+                - IV
+          cardiac_arrest:
+            required: true
+            kind: boolean
+          st_segment_deviation:
+            required: true
+            kind: boolean
+          elevated_cardiac_enzymes:
+            required: true
+            kind: boolean
+        conditionalRequirements: []
+        outputs:
+          score:
+            kind: integer
+            availability:
+              kind: always
+          mortality_risk:
+            kind: number
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          age:
+            required: true
+            kind: integer
+          heart_rate:
+            required: true
+            kind: integer
+          systolic_bp:
+            required: true
+            kind: integer
+          creatinine:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - umol/L
+          killip_class:
+            required: true
+            kind: enum
+            enumValues:
+              - i
+              - ii
+              - iii
+              - iv
+            enumAliases:
+              i:
+                - I
+              ii:
+                - II
+              iii:
+                - III
+              iv:
+                - IV
+          cardiac_arrest:
+            required: true
+            kind: boolean
+          st_segment_deviation:
+            required: true
+            kind: boolean
+          elevated_cardiac_enzymes:
+            required: true
+            kind: boolean
+        conditionalRequirements: []
+        outputs:
+          score:
+            kind: integer
+            availability:
+              kind: always
+          mortality_risk:
+            kind: number
+            availability:
+              kind: always
+    hepb:
+      directTool:
+        inputs:
+          hbsag:
+            required: true
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+          anti_hbc:
+            required: true
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+          anti_hbs:
+            required: true
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+          igm_anti_hbc:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          hbeag:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          anti_hbe:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+        conditionalRequirements: []
+        outputs:
+          status_code:
+            kind: enum
+            allowedValues:
+              - acute_infection_pattern
+              - atypical_or_contradictory_pattern
+              - chronic_infection_pattern
+              - incomplete_triple_panel
+              - isolated_core_antibody_pattern
+              - resolved_infection_pattern
+              - resolving_or_window_pattern
+              - susceptible_pattern
+              - vaccine_immunity_pattern
+            availability:
+              kind: always
+          pattern_quality:
+            kind: enum
+            allowedValues:
+              - complete_supported
+              - contradictory_or_atypical
+              - insufficient
+            availability:
+              kind: always
+          replication_marker_context:
+            kind: enum
+            allowedValues:
+              - anti_hbe_detected
+              - both_detected
+              - hbeag_detected
+              - neither_detected
+              - not_fully_assessed
+            availability:
+              kind: always
+          missing_context:
+            kind: string_list
+            availability:
+              kind: always
+          next_context:
+            kind: string_list
+            availability:
+              kind: always
+          limitations:
+            kind: string_list
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          hbsag:
+            required: true
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+          anti_hbc:
+            required: true
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+          anti_hbs:
+            required: true
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+          igm_anti_hbc:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          hbeag:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+          anti_hbe:
+            required: false
+            kind: enum
+            enumValues:
+              - negative
+              - not_tested
+              - positive
+              - unknown
+            default: not_tested
+        conditionalRequirements: []
+        outputs:
+          status_code:
+            kind: enum
+            allowedValues:
+              - acute_infection_pattern
+              - atypical_or_contradictory_pattern
+              - chronic_infection_pattern
+              - incomplete_triple_panel
+              - isolated_core_antibody_pattern
+              - resolved_infection_pattern
+              - resolving_or_window_pattern
+              - susceptible_pattern
+              - vaccine_immunity_pattern
+            availability:
+              kind: always
+          pattern_quality:
+            kind: enum
+            allowedValues:
+              - complete_supported
+              - contradictory_or_atypical
+              - insufficient
+            availability:
+              kind: always
+          replication_marker_context:
+            kind: enum
+            allowedValues:
+              - anti_hbe_detected
+              - both_detected
+              - hbeag_detected
+              - neither_detected
+              - not_fully_assessed
+            availability:
+              kind: always
+          missing_context:
+            kind: string_list
+            availability:
+              kind: always
+          next_context:
+            kind: string_list
+            availability:
+              kind: always
+          limitations:
+            kind: string_list
+            availability:
+              kind: always
+    ibw:
+      directTool:
+        inputs:
+          height_cm:
+            required: true
+            kind: number
+          sex:
+            required: true
+            kind: enum
+            enumValues:
+              - female
+              - male
+        conditionalRequirements: []
+        outputs:
+          ibw:
+            kind: number
+            unit: kg
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          height_cm:
+            required: true
+            kind: number
+          sex:
+            required: true
+            kind: enum
+            enumValues:
+              - female
+              - male
+        conditionalRequirements: []
+        outputs:
+          ibw:
+            kind: number
+            unit: kg
+            availability:
+              kind: always
+    ich_volume:
+      directTool:
+        inputs:
+          length_cm:
+            required: true
+            kind: number
+          width_cm:
+            required: true
+            kind: number
+          slice_width_cm:
+            required: true
+            kind: number
+          num_slices:
+            required: true
+            kind: integer
+          ellipsoid_shape:
+            required: true
+            kind: boolean
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - ellipsoid_shape
+              - is_ellipsoid
+        outputs:
+          volume_ml:
+            kind: number
+            unit: mL
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          length_cm:
+            required: true
+            kind: number
+          width_cm:
+            required: true
+            kind: number
+          slice_width_cm:
+            required: true
+            kind: number
+          num_slices:
+            required: true
+            kind: integer
+          ellipsoid_shape:
+            required: true
+            kind: boolean
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - ellipsoid_shape
+              - is_ellipsoid
+        outputs:
+          volume_ml:
+            kind: number
+            unit: mL
+            availability:
+              kind: always
+    kdpi:
+      directTool:
+        inputs:
+          donor_age_years:
+            required: true
+            kind: number
+          donor_height_cm:
+            required: true
+            kind: number
+          donor_weight_kg:
+            required: true
+            kind: number
+          donor_hypertension:
+            required: true
+            kind: boolean
+          donor_diabetes:
+            required: true
+            kind: boolean
+          cause_of_death_cva:
+            required: true
+            kind: boolean
+          donor_creatinine:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - umol/L
+          donation_after_circulatory_death:
+            required: true
+            kind: boolean
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - cause_of_death_cva
+              - cod_cva
+          - kind: requiredWithAliases
+            fields:
+              - dcd
+              - donation_after_circulatory_death
+        outputs:
+          kdpi:
+            kind: integer
+            unit: "%"
+            availability:
+              kind: always
+          kdri_raw:
+            kind: number
+            availability:
+              kind: always
+          kdri_scaled:
+            kind: number
+            availability:
+              kind: always
+          reference_population_year:
+            kind: integer
+            availability:
+              kind: always
+          mapping_as_of:
+            kind: enum
+            allowedValues:
+              - 2026-04-03
+            availability:
+              kind: always
+          interpretation:
+            kind: string
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          donor_age_years:
+            required: true
+            kind: number
+          donor_height_cm:
+            required: true
+            kind: number
+          donor_weight_kg:
+            required: true
+            kind: number
+          donor_hypertension:
+            required: true
+            kind: boolean
+          donor_diabetes:
+            required: true
+            kind: boolean
+          cause_of_death_cva:
+            required: true
+            kind: boolean
+          donor_creatinine:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - umol/L
+          donation_after_circulatory_death:
+            required: true
+            kind: boolean
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - cause_of_death_cva
+              - cod_cva
+          - kind: requiredWithAliases
+            fields:
+              - dcd
+              - donation_after_circulatory_death
+        outputs:
+          kdpi:
+            kind: integer
+            unit: "%"
+            availability:
+              kind: always
+          kdri_raw:
+            kind: number
+            availability:
+              kind: always
+          kdri_scaled:
+            kind: number
+            availability:
+              kind: always
+          reference_population_year:
+            kind: integer
+            availability:
+              kind: always
+          mapping_as_of:
+            kind: enum
+            allowedValues:
+              - 2026-04-03
+            availability:
+              kind: always
+          interpretation:
+            kind: string
+            availability:
+              kind: always
+    map:
+      directTool:
+        inputs:
+          systolic_bp:
+            required: true
+            kind: integer
+          diastolic_bp:
+            required: true
+            kind: integer
+        conditionalRequirements:
+          - kind: compare
+            left: systolic_bp
+            operator: ">"
+            right: diastolic_bp
+            message: Systolic blood pressure must be greater than diastolic blood pressure.
+          - kind: requiredWithAliases
+            fields:
+              - diastolic
+              - diastolic_bp
+          - kind: requiredWithAliases
+            fields:
+              - systolic
+              - systolic_bp
+        outputs:
+          map:
+            kind: number
+            unit: mmHg
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          systolic_bp:
+            required: true
+            kind: integer
+          diastolic_bp:
+            required: true
+            kind: integer
+        conditionalRequirements:
+          - kind: compare
+            left: systolic_bp
+            operator: ">"
+            right: diastolic_bp
+            message: Systolic blood pressure must be greater than diastolic blood pressure.
+          - kind: requiredWithAliases
+            fields:
+              - diastolic
+              - diastolic_bp
+          - kind: requiredWithAliases
+            fields:
+              - systolic
+              - systolic_bp
+        outputs:
+          map:
+            kind: number
+            unit: mmHg
+            availability:
+              kind: always
+    meld:
+      directTool:
+        inputs:
+          creatinine:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - umol/L
+          bilirubin:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - umol/L
+          inr:
+            required: true
+            kind: number
+          sodium:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mEq/L
+              acceptedUnits:
+                - mEq/L
+                - mmol/L
+          albumin:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: g/dL
+              acceptedUnits:
+                - g/L
+                - g/dL
+          age_at_registration:
+            required: true
+            kind: integer
+          sex:
+            required: false
+            kind: enum
+            enumValues:
+              - female
+              - male
+          dialysis:
+            required: true
+            kind: boolean
+        conditionalRequirements:
+          - kind: requiredWhen
+            field: age_at_registration
+            when: ">=18"
+            required:
+              - sex
+            message: Sex is required for the adult MELD 3.0 calculation.
+          - kind: requiredWithAliases
+            fields:
+              - age
+              - age_at_registration
+        outputs:
+          meld:
+            kind: integer
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          creatinine:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - umol/L
+          bilirubin:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mg/dL
+              acceptedUnits:
+                - mg/dL
+                - umol/L
+          inr:
+            required: true
+            kind: number
+          sodium:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: mEq/L
+              acceptedUnits:
+                - mEq/L
+                - mmol/L
+          albumin:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: g/dL
+              acceptedUnits:
+                - g/L
+                - g/dL
+          age_at_registration:
+            required: true
+            kind: integer
+          sex:
+            required: false
+            kind: enum
+            enumValues:
+              - female
+              - male
+          dialysis:
+            required: true
+            kind: boolean
+        conditionalRequirements:
+          - kind: requiredWhen
+            field: age_at_registration
+            when: ">=18"
+            required:
+              - sex
+            message: Sex is required for the adult MELD 3.0 calculation.
+          - kind: requiredWithAliases
+            fields:
+              - age
+              - age_at_registration
+        outputs:
+          meld:
+            kind: integer
+            availability:
+              kind: always
+    mews:
+      directTool:
+        inputs:
+          systolic_bp_category:
+            required: true
+            kind: enum
+            enumValues:
+              - bp_101_199
+              - bp_71_80
+              - bp_81_100
+              - bp_ge_200
+              - bp_le_70
+          heart_rate_category:
+            required: true
+            kind: enum
+            enumValues:
+              - hr_101_110
+              - hr_111_129
+              - hr_41_50
+              - hr_51_100
+              - hr_ge_130
+              - hr_le_40
+            enumAliases:
+              hr_le_40:
+                - hr_lt_40
+              hr_ge_130:
+                - hr_gt_130
+          respiratory_rate_category:
+            required: true
+            kind: enum
+            enumValues:
+              - rr_15_20
+              - rr_21_29
+              - rr_9_14
+              - rr_ge_30
+              - rr_lt_9
+            enumAliases:
+              rr_ge_30:
+                - rr_gt_30
+          temperature_category:
+            required: true
+            kind: enum
+            enumValues:
+              - temp_35_384c
+              - temp_ge_385c
+              - temp_lt_35c
+            enumAliases:
+              temp_ge_385c:
+                - temp_gt_385c
+          avpu:
+            required: true
+            kind: enum
+            enumValues:
+              - alert
+              - pain
+              - unresponsive
+              - voice
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - heart_rate
+              - heart_rate_category
+          - kind: requiredWithAliases
+            fields:
+              - respiratory_rate
+              - respiratory_rate_category
+          - kind: requiredWithAliases
+            fields:
+              - systolic_bp
+              - systolic_bp_category
+          - kind: requiredWithAliases
+            fields:
+              - temperature
+              - temperature_category
+        outputs:
+          mews_score:
+            kind: integer
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          systolic_bp_category:
+            required: true
+            kind: enum
+            enumValues:
+              - bp_101_199
+              - bp_71_80
+              - bp_81_100
+              - bp_ge_200
+              - bp_le_70
+          heart_rate_category:
+            required: true
+            kind: enum
+            enumValues:
+              - hr_101_110
+              - hr_111_129
+              - hr_41_50
+              - hr_51_100
+              - hr_ge_130
+              - hr_le_40
+            enumAliases:
+              hr_le_40:
+                - hr_lt_40
+              hr_ge_130:
+                - hr_gt_130
+          respiratory_rate_category:
+            required: true
+            kind: enum
+            enumValues:
+              - rr_15_20
+              - rr_21_29
+              - rr_9_14
+              - rr_ge_30
+              - rr_lt_9
+            enumAliases:
+              rr_ge_30:
+                - rr_gt_30
+          temperature_category:
+            required: true
+            kind: enum
+            enumValues:
+              - temp_35_384c
+              - temp_ge_385c
+              - temp_lt_35c
+            enumAliases:
+              temp_ge_385c:
+                - temp_gt_385c
+          avpu:
+            required: true
+            kind: enum
+            enumValues:
+              - alert
+              - pain
+              - unresponsive
+              - voice
+        conditionalRequirements:
+          - kind: requiredWithAliases
+            fields:
+              - heart_rate
+              - heart_rate_category
+          - kind: requiredWithAliases
+            fields:
+              - respiratory_rate
+              - respiratory_rate_category
+          - kind: requiredWithAliases
+            fields:
+              - systolic_bp
+              - systolic_bp_category
+          - kind: requiredWithAliases
+            fields:
+              - temperature
+              - temperature_category
+        outputs:
+          mews_score:
+            kind: integer
+            availability:
+              kind: always
+    morse_fall_scale:
+      directTool:
+        inputs:
+          history_of_falling:
+            required: true
+            kind: enum
+            enumValues:
+              - no
+              - yes
+          secondary_diagnosis:
+            required: true
+            kind: enum
+            enumValues:
+              - no
+              - yes
+          ambulatory_aid:
+            required: true
+            kind: enum
+            enumValues:
+              - bed_rest_nurse_assist
+              - crutches_cane_walker
+              - furniture
+          iv_heparin_lock:
+            required: true
+            kind: enum
+            enumValues:
+              - no
+              - yes
+          gait_transferring:
+            required: true
+            kind: enum
+            enumValues:
+              - impaired
+              - normal_bedrest_immobile
+              - weak
+          mental_status:
+            required: true
+            kind: enum
+            enumValues:
+              - forgets_limitations
+              - oriented_to_own_ability
+        conditionalRequirements: []
+        outputs:
+          mfs_score:
+            kind: integer
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          history_of_falling:
+            required: true
+            kind: enum
+            enumValues:
+              - no
+              - yes
+          secondary_diagnosis:
+            required: true
+            kind: enum
+            enumValues:
+              - no
+              - yes
+          ambulatory_aid:
+            required: true
+            kind: enum
+            enumValues:
+              - bed_rest_nurse_assist
+              - crutches_cane_walker
+              - furniture
+          iv_heparin_lock:
+            required: true
+            kind: enum
+            enumValues:
+              - no
+              - yes
+          gait_transferring:
+            required: true
+            kind: enum
+            enumValues:
+              - impaired
+              - normal_bedrest_immobile
+              - weak
+          mental_status:
+            required: true
+            kind: enum
+            enumValues:
+              - forgets_limitations
+              - oriented_to_own_ability
+        conditionalRequirements: []
+        outputs:
+          mfs_score:
+            kind: integer
+            availability:
+              kind: always
+    neonatal_measurements:
+      directTool:
+        inputs:
+          weight_grams:
+            required: false
+            kind: number
+          gestational_age_weeks:
+            required: false
+            kind: integer
+          postnatal_age_hours:
+            required: false
+            kind: number
+          corrected_gestational_age_weeks:
+            required: false
+            kind: integer
+        conditionalRequirements:
+          - kind: atLeastOne
+            fields:
+              - weight_grams
+              - gestational_age_weeks
+              - corrected_gestational_age_weeks
+            message: Provide at least one supported neonatal measurement input.
+        outputs:
+          uac_depth_estimate_cm:
+            kind: number
+            unit: cm
+            availability:
+              kind: computeCondition
+              conditionId: weight_supported
+          uvc_depth_estimate_cm:
+            kind: number
+            unit: cm
+            availability:
+              kind: computeCondition
+              conditionId: weight_supported
+          catheter_formula_id:
+            kind: enum
+            allowedValues:
+              - shukla_1986_original
+            availability:
+              kind: computeCondition
+              conditionId: weight_supported
+          ett_depth_at_lip_cm:
+            kind: number
+            unit: cm
+            availability:
+              kind: computeCondition
+              conditionId: gestational_age_ett_supported
+          day_one_systolic_bp_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: gestational_age_bp_supported
+          day_one_diastolic_bp_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: gestational_age_bp_supported
+          day_one_map_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: gestational_age_bp_supported
+          day_one_pulse_pressure_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: gestational_age_bp_supported
+          corrected_systolic_bp_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: corrected_age_bp_supported
+          corrected_diastolic_bp_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: corrected_age_bp_supported
+          corrected_map_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: corrected_age_bp_supported
+          corrected_pulse_pressure_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: corrected_age_bp_supported
+          limitations:
+            kind: string_list
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          weight_grams:
+            required: false
+            kind: number
+          gestational_age_weeks:
+            required: false
+            kind: integer
+          postnatal_age_hours:
+            required: false
+            kind: number
+          corrected_gestational_age_weeks:
+            required: false
+            kind: integer
+        conditionalRequirements:
+          - kind: atLeastOne
+            fields:
+              - weight_grams
+              - gestational_age_weeks
+              - corrected_gestational_age_weeks
+            message: Provide at least one supported neonatal measurement input.
+        outputs:
+          uac_depth_estimate_cm:
+            kind: number
+            unit: cm
+            availability:
+              kind: computeCondition
+              conditionId: weight_supported
+          uvc_depth_estimate_cm:
+            kind: number
+            unit: cm
+            availability:
+              kind: computeCondition
+              conditionId: weight_supported
+          catheter_formula_id:
+            kind: enum
+            allowedValues:
+              - shukla_1986_original
+            availability:
+              kind: computeCondition
+              conditionId: weight_supported
+          ett_depth_at_lip_cm:
+            kind: number
+            unit: cm
+            availability:
+              kind: computeCondition
+              conditionId: gestational_age_ett_supported
+          day_one_systolic_bp_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: gestational_age_bp_supported
+          day_one_diastolic_bp_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: gestational_age_bp_supported
+          day_one_map_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: gestational_age_bp_supported
+          day_one_pulse_pressure_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: gestational_age_bp_supported
+          corrected_systolic_bp_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: corrected_age_bp_supported
+          corrected_diastolic_bp_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: corrected_age_bp_supported
+          corrected_map_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: corrected_age_bp_supported
+          corrected_pulse_pressure_mm_hg:
+            kind: number_range
+            unit: mmHg
+            availability:
+              kind: computeCondition
+              conditionId: corrected_age_bp_supported
+          limitations:
+            kind: string_list
+            availability:
+              kind: always
+    nihss:
+      directTool:
+        inputs:
+          assessment_timing:
+            required: true
+            kind: enum
+            enumValues:
+              - baseline
+              - follow_up
+              - post_treatment
+          modifier_context:
+            required: true
+            kind: enum
+            enumValues:
+              - amputation_or_joint_fusion
+              - intubation
+              - language_barrier
+              - multiple_modifiers
+              - none
+              - other
+              - pre_existing_deficit
+          level_of_consciousness:
+            required: true
+            kind: enum
+            enumValues:
+              - alert
+              - minor_stimulation
+              - movements_to_pain
+              - repeated_stimulation
+              - unresponsive
+          month_and_age:
+            required: true
+            kind: enum
+            enumValues:
+              - aphasic
+              - both_right
+              - impaired_communication
+              - none_right
+              - one_right
+          commands:
+            required: true
+            kind: enum
+            enumValues:
+              - both_tasks
+              - no_tasks
+              - one_task
+          horizontal_gaze:
+            required: true
+            kind: enum
+            enumValues:
+              - forced_palsy
+              - normal
+              - partial_overcome
+              - partial_reflex
+          visual_fields:
+            required: true
+            kind: enum
+            enumValues:
+              - bilateral_hemianopia
+              - bilaterally_blind
+              - complete_hemianopia
+              - no_loss
+              - partial_hemianopia
+          facial_palsy:
+            required: true
+            kind: enum
+            enumValues:
+              - bilateral_complete
+              - minor_paralysis
+              - normal
+              - partial_paralysis
+              - unilateral_complete
+          left_arm_motor:
+            required: true
+            kind: enum
+            enumValues:
+              - amputation
+              - drift_hits_bed
+              - drift_no_bed
+              - no_drift
+              - no_effort
+              - no_movement
+              - some_effort
+          right_arm_motor:
+            required: true
+            kind: enum
+            enumValues:
+              - amputation
+              - drift_hits_bed
+              - drift_no_bed
+              - no_drift
+              - no_effort
+              - no_movement
+              - some_effort
+          left_leg_motor:
+            required: true
+            kind: enum
+            enumValues:
+              - amputation
+              - drift_hits_bed
+              - drift_no_bed
+              - no_drift
+              - no_effort
+              - no_movement
+              - some_effort
+          right_leg_motor:
+            required: true
+            kind: enum
+            enumValues:
+              - amputation
+              - drift_hits_bed
+              - drift_no_bed
+              - no_drift
+              - no_effort
+              - no_movement
+              - some_effort
+          limb_ataxia:
+            required: true
+            kind: enum
+            enumValues:
+              - amputation
+              - does_not_understand
+              - no_ataxia
+              - one_limb
+              - paralyzed
+              - two_limbs
+          sensation:
+            required: true
+            kind: enum
+            enumValues:
+              - complete_loss
+              - mild_moderate_sense
+              - mild_moderate_sharp
+              - normal
+              - quadriplegic
+              - unresponsive
+          language:
+            required: true
+            kind: enum
+            enumValues:
+              - mild_moderate
+              - mute
+              - normal
+              - severe
+              - unresponsive
+          dysarthria:
+            required: true
+            kind: enum
+            enumValues:
+              - intubated
+              - mild_moderate
+              - mute
+              - normal
+              - severe
+          extinction:
+            required: true
+            kind: enum
+            enumValues:
+              - extinction
+              - inattention
+              - multiple_modalities
+              - no_abnormality
+              - profound_hemi_inattention
+        conditionalRequirements:
+          - kind: requireAtLeastValuesWhen
+            field: dysarthria
+            when: ==intubated
+            targets:
+              - field: modifier_context
+                value: intubation
+              - field: modifier_context
+                value: multiple_modifiers
+            message: The intubated dysarthria option requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: left_arm_motor
+            when: ==amputation
+            targets:
+              - field: modifier_context
+                value: amputation_or_joint_fusion
+              - field: modifier_context
+                value: multiple_modifiers
+            message: An amputated left-arm item requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: left_leg_motor
+            when: ==amputation
+            targets:
+              - field: modifier_context
+                value: amputation_or_joint_fusion
+              - field: modifier_context
+                value: multiple_modifiers
+            message: An amputated left-leg item requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: limb_ataxia
+            when: ==amputation
+            targets:
+              - field: modifier_context
+                value: amputation_or_joint_fusion
+              - field: modifier_context
+                value: multiple_modifiers
+            message: An amputated ataxia item requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: modifier_context
+            when: ==amputation_or_joint_fusion
+            targets:
+              - field: left_arm_motor
+                value: amputation
+              - field: right_arm_motor
+                value: amputation
+              - field: left_leg_motor
+                value: amputation
+              - field: right_leg_motor
+                value: amputation
+              - field: limb_ataxia
+                value: amputation
+            message: Amputation or joint fusion context requires at least one affected NIHSS item to be recorded UN.
+          - kind: requireAtLeastValuesWhen
+            field: modifier_context
+            when: ==multiple_modifiers
+            targets:
+              - field: left_arm_motor
+                value: amputation
+              - field: right_arm_motor
+                value: amputation
+              - field: left_leg_motor
+                value: amputation
+              - field: right_leg_motor
+                value: amputation
+              - field: limb_ataxia
+                value: amputation
+              - field: dysarthria
+                value: intubated
+            minimum: 2
+            message: Multiple modifiers require at least two affected NIHSS items to be recorded UN.
+          - kind: requireAtLeastValuesWhen
+            field: right_arm_motor
+            when: ==amputation
+            targets:
+              - field: modifier_context
+                value: amputation_or_joint_fusion
+              - field: modifier_context
+                value: multiple_modifiers
+            message: An amputated right-arm item requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: right_leg_motor
+            when: ==amputation
+            targets:
+              - field: modifier_context
+                value: amputation_or_joint_fusion
+              - field: modifier_context
+                value: multiple_modifiers
+            message: An amputated right-leg item requires the matching or multiple-modifier context.
+          - kind: requireValueWhen
+            field: modifier_context
+            when: ==intubation
+            target: dysarthria
+            value: intubated
+            message: Intubation requires dysarthria to be recorded UN rather than assigned a numeric score.
+        outputs:
+          nihss_score:
+            kind: integer
+            availability:
+              kind: computeCondition
+              conditionId: complete_total
+          assessment_complete:
+            kind: boolean
+            availability:
+              kind: always
+          missing_component_reasons:
+            kind: string_list
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          assessment_timing:
+            required: true
+            kind: enum
+            enumValues:
+              - baseline
+              - follow_up
+              - post_treatment
+          modifier_context:
+            required: true
+            kind: enum
+            enumValues:
+              - amputation_or_joint_fusion
+              - intubation
+              - language_barrier
+              - multiple_modifiers
+              - none
+              - other
+              - pre_existing_deficit
+          level_of_consciousness:
+            required: true
+            kind: enum
+            enumValues:
+              - alert
+              - minor_stimulation
+              - movements_to_pain
+              - repeated_stimulation
+              - unresponsive
+          month_and_age:
+            required: true
+            kind: enum
+            enumValues:
+              - aphasic
+              - both_right
+              - impaired_communication
+              - none_right
+              - one_right
+          commands:
+            required: true
+            kind: enum
+            enumValues:
+              - both_tasks
+              - no_tasks
+              - one_task
+          horizontal_gaze:
+            required: true
+            kind: enum
+            enumValues:
+              - forced_palsy
+              - normal
+              - partial_overcome
+              - partial_reflex
+          visual_fields:
+            required: true
+            kind: enum
+            enumValues:
+              - bilateral_hemianopia
+              - bilaterally_blind
+              - complete_hemianopia
+              - no_loss
+              - partial_hemianopia
+          facial_palsy:
+            required: true
+            kind: enum
+            enumValues:
+              - bilateral_complete
+              - minor_paralysis
+              - normal
+              - partial_paralysis
+              - unilateral_complete
+          left_arm_motor:
+            required: true
+            kind: enum
+            enumValues:
+              - amputation
+              - drift_hits_bed
+              - drift_no_bed
+              - no_drift
+              - no_effort
+              - no_movement
+              - some_effort
+          right_arm_motor:
+            required: true
+            kind: enum
+            enumValues:
+              - amputation
+              - drift_hits_bed
+              - drift_no_bed
+              - no_drift
+              - no_effort
+              - no_movement
+              - some_effort
+          left_leg_motor:
+            required: true
+            kind: enum
+            enumValues:
+              - amputation
+              - drift_hits_bed
+              - drift_no_bed
+              - no_drift
+              - no_effort
+              - no_movement
+              - some_effort
+          right_leg_motor:
+            required: true
+            kind: enum
+            enumValues:
+              - amputation
+              - drift_hits_bed
+              - drift_no_bed
+              - no_drift
+              - no_effort
+              - no_movement
+              - some_effort
+          limb_ataxia:
+            required: true
+            kind: enum
+            enumValues:
+              - amputation
+              - does_not_understand
+              - no_ataxia
+              - one_limb
+              - paralyzed
+              - two_limbs
+          sensation:
+            required: true
+            kind: enum
+            enumValues:
+              - complete_loss
+              - mild_moderate_sense
+              - mild_moderate_sharp
+              - normal
+              - quadriplegic
+              - unresponsive
+          language:
+            required: true
+            kind: enum
+            enumValues:
+              - mild_moderate
+              - mute
+              - normal
+              - severe
+              - unresponsive
+          dysarthria:
+            required: true
+            kind: enum
+            enumValues:
+              - intubated
+              - mild_moderate
+              - mute
+              - normal
+              - severe
+          extinction:
+            required: true
+            kind: enum
+            enumValues:
+              - extinction
+              - inattention
+              - multiple_modalities
+              - no_abnormality
+              - profound_hemi_inattention
+        conditionalRequirements:
+          - kind: requireAtLeastValuesWhen
+            field: dysarthria
+            when: ==intubated
+            targets:
+              - field: modifier_context
+                value: intubation
+              - field: modifier_context
+                value: multiple_modifiers
+            message: The intubated dysarthria option requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: left_arm_motor
+            when: ==amputation
+            targets:
+              - field: modifier_context
+                value: amputation_or_joint_fusion
+              - field: modifier_context
+                value: multiple_modifiers
+            message: An amputated left-arm item requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: left_leg_motor
+            when: ==amputation
+            targets:
+              - field: modifier_context
+                value: amputation_or_joint_fusion
+              - field: modifier_context
+                value: multiple_modifiers
+            message: An amputated left-leg item requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: limb_ataxia
+            when: ==amputation
+            targets:
+              - field: modifier_context
+                value: amputation_or_joint_fusion
+              - field: modifier_context
+                value: multiple_modifiers
+            message: An amputated ataxia item requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: modifier_context
+            when: ==amputation_or_joint_fusion
+            targets:
+              - field: left_arm_motor
+                value: amputation
+              - field: right_arm_motor
+                value: amputation
+              - field: left_leg_motor
+                value: amputation
+              - field: right_leg_motor
+                value: amputation
+              - field: limb_ataxia
+                value: amputation
+            message: Amputation or joint fusion context requires at least one affected NIHSS item to be recorded UN.
+          - kind: requireAtLeastValuesWhen
+            field: modifier_context
+            when: ==multiple_modifiers
+            targets:
+              - field: left_arm_motor
+                value: amputation
+              - field: right_arm_motor
+                value: amputation
+              - field: left_leg_motor
+                value: amputation
+              - field: right_leg_motor
+                value: amputation
+              - field: limb_ataxia
+                value: amputation
+              - field: dysarthria
+                value: intubated
+            minimum: 2
+            message: Multiple modifiers require at least two affected NIHSS items to be recorded UN.
+          - kind: requireAtLeastValuesWhen
+            field: right_arm_motor
+            when: ==amputation
+            targets:
+              - field: modifier_context
+                value: amputation_or_joint_fusion
+              - field: modifier_context
+                value: multiple_modifiers
+            message: An amputated right-arm item requires the matching or multiple-modifier context.
+          - kind: requireAtLeastValuesWhen
+            field: right_leg_motor
+            when: ==amputation
+            targets:
+              - field: modifier_context
+                value: amputation_or_joint_fusion
+              - field: modifier_context
+                value: multiple_modifiers
+            message: An amputated right-leg item requires the matching or multiple-modifier context.
+          - kind: requireValueWhen
+            field: modifier_context
+            when: ==intubation
+            target: dysarthria
+            value: intubated
+            message: Intubation requires dysarthria to be recorded UN rather than assigned a numeric score.
+        outputs:
+          nihss_score:
+            kind: integer
+            availability:
+              kind: computeCondition
+              conditionId: complete_total
+          assessment_complete:
+            kind: boolean
+            availability:
+              kind: always
+          missing_component_reasons:
+            kind: string_list
+            availability:
+              kind: always
+    oxygenation_index:
+      directTool:
+        inputs:
+          mean_airway_pressure:
+            required: true
+            kind: number
+          fio2:
+            required: true
+            kind: number
+          pao2:
+            required: false
+            kind: number
+          spo2:
+            required: false
+            kind: number
+        conditionalRequirements:
+          - kind: atLeastOne
+            fields:
+              - pao2
+              - spo2
+            message: Either PaO2 or SpO2 must be provided to compute an oxygenation index.
+        outputs:
+          oi:
+            kind: number
+            availability:
+              kind: whenAnyInputPresent
+              fields:
+                - pao2
+          osi:
+            kind: number
+            availability:
+              kind: whenAnyInputPresent
+              fields:
+                - spo2
+      compactDispatcher:
+        inputs:
+          mean_airway_pressure:
+            required: true
+            kind: number
+          fio2:
+            required: true
+            kind: number
+          pao2:
+            required: false
+            kind: number
+          spo2:
+            required: false
+            kind: number
+        conditionalRequirements:
+          - kind: atLeastOne
+            fields:
+              - pao2
+              - spo2
+            message: Either PaO2 or SpO2 must be provided to compute an oxygenation index.
+        outputs:
+          oi:
+            kind: number
+            availability:
+              kind: whenAnyInputPresent
+              fields:
+                - pao2
+          osi:
+            kind: number
+            availability:
+              kind: whenAnyInputPresent
+              fields:
+                - spo2
+    pews:
+      directTool:
+        inputs:
+          behavior:
+            required: true
+            kind: enum
+            enumValues:
+              - irritable
+              - lethargic
+              - playing_appropriate
+              - sleeping
+          cardiovascular:
+            required: true
+            kind: enum
+            enumValues:
+              - gray
+              - gray_mottled
+              - pale
+              - pink
+          respiratory:
+            required: true
+            kind: enum
+            enumValues:
+              - mild_distress
+              - moderate_distress
+              - normal
+              - severe_distress
+          nebulizers:
+            required: true
+            kind: boolean
+          vomiting:
+            required: true
+            kind: boolean
+        conditionalRequirements: []
+        outputs:
+          pews_score:
+            kind: integer
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          behavior:
+            required: true
+            kind: enum
+            enumValues:
+              - irritable
+              - lethargic
+              - playing_appropriate
+              - sleeping
+          cardiovascular:
+            required: true
+            kind: enum
+            enumValues:
+              - gray
+              - gray_mottled
+              - pale
+              - pink
+          respiratory:
+            required: true
+            kind: enum
+            enumValues:
+              - mild_distress
+              - moderate_distress
+              - normal
+              - severe_distress
+          nebulizers:
+            required: true
+            kind: boolean
+          vomiting:
+            required: true
+            kind: boolean
+        conditionalRequirements: []
+        outputs:
+          pews_score:
+            kind: integer
+            availability:
+              kind: always
+    qsofa:
+      directTool:
+        inputs:
+          respiratory_rate:
+            required: true
+            kind: integer
+          systolic_bp:
+            required: true
+            kind: integer
+          altered_mental_status:
+            required: true
+            kind: boolean
+        conditionalRequirements: []
+        outputs:
+          score:
+            kind: integer
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          respiratory_rate:
+            required: true
+            kind: integer
+          systolic_bp:
+            required: true
+            kind: integer
+          altered_mental_status:
+            required: true
+            kind: boolean
+        conditionalRequirements: []
+        outputs:
+          score:
+            kind: integer
+            availability:
+              kind: always
+    r_factor:
+      directTool:
+        inputs:
+          alt:
+            required: true
+            kind: number
+          alp:
+            required: true
+            kind: number
+          alt_uln:
+            required: false
+            kind: number
+            default: 40
+          alp_uln:
+            required: false
+            kind: number
+            default: 115
+        conditionalRequirements: []
+        outputs:
+          r_factor:
+            kind: number
+            availability:
+              kind: always
+          injury_type:
+            kind: enum
+            allowedValues:
+              - Cholestatic
+              - Hepatocellular
+              - Mixed
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          alt:
+            required: true
+            kind: number
+          alp:
+            required: true
+            kind: number
+          alt_uln:
+            required: false
+            kind: number
+            default: 40
+          alp_uln:
+            required: false
+            kind: number
+            default: 115
+        conditionalRequirements: []
+        outputs:
+          r_factor:
+            kind: number
+            availability:
+              kind: always
+          injury_type:
+            kind: enum
+            allowedValues:
+              - Cholestatic
+              - Hepatocellular
+              - Mixed
+            availability:
+              kind: always
+    ranson:
+      directTool:
+        inputs:
+          etiology_variant:
+            required: true
+            kind: enum
+            enumValues:
+              - gallstone
+              - non_gallstone
+          assessment_phase:
+            required: true
+            kind: enum
+            enumValues:
+              - admission
+              - at_48_hours
+          hours_since_admission:
+            required: true
+            kind: integer
+          wbc_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_met
+              - unknown
+          age_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_met
+              - unknown
+          glucose_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_met
+              - unknown
+          ast_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_met
+              - unknown
+          ldh_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_met
+              - unknown
+          hematocrit_drop_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_due
+              - not_met
+              - unknown
+          bun_increase_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_due
+              - not_met
+              - unknown
+          calcium_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_due
+              - not_met
+              - unknown
+          po2_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_applicable
+              - not_due
+              - not_met
+              - unknown
+          base_deficit_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_due
+              - not_met
+              - unknown
+          fluid_sequestration_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_due
+              - not_met
+              - unknown
+        conditionalRequirements:
+          - kind: forbidValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: hours_since_admission
+            value: 48
+            message: Use the at_48_hours phase at 48 completed hours.
+          - kind: forbidValueWhen
+            field: etiology_variant
+            when: ==non_gallstone
+            target: po2_criterion
+            value: not_applicable
+            message: The non-gallstone variant requires the arterial pO2 observation.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: base_deficit_criterion
+            value: not_due
+            message: Forty-eight-hour base deficit is not due at admission.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: bun_increase_criterion
+            value: not_due
+            message: Forty-eight-hour BUN is not due at admission.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: calcium_criterion
+            value: not_due
+            message: Forty-eight-hour calcium is not due at admission.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: fluid_sequestration_criterion
+            value: not_due
+            message: Forty-eight-hour fluid sequestration is not due at admission.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: hematocrit_drop_criterion
+            value: not_due
+            message: Forty-eight-hour hematocrit is not due at admission.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: po2_criterion
+            value: not_due
+            message: Forty-eight-hour arterial oxygen is not due at admission.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==at_48_hours
+            target: hours_since_admission
+            value: 48
+            message: A completed Ranson score requires the 48-hour assessment.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==at_48_hours
+            where:
+              - field: etiology_variant
+                when: ==gallstone
+            target: po2_criterion
+            value: not_applicable
+            message: The arterial pO2 criterion is not part of the gallstone variant.
+        outputs:
+          admission_subtotal:
+            kind: integer
+            availability:
+              kind: always
+          admission_complete:
+            kind: boolean
+            availability:
+              kind: always
+          score:
+            kind: integer
+            availability:
+              kind: computeCondition
+              conditionId: completed_48_hour_score
+          historical_mortality_band:
+            kind: enum
+            availability:
+              kind: computeCondition
+              conditionId: completed_48_hour_score
+            allowedValues:
+              - ~1%
+              - ~100%
+              - ~15%
+              - ~40%
+          assessment_complete:
+            kind: boolean
+            availability:
+              kind: always
+          missing_component_reasons:
+            kind: string_list
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          etiology_variant:
+            required: true
+            kind: enum
+            enumValues:
+              - gallstone
+              - non_gallstone
+          assessment_phase:
+            required: true
+            kind: enum
+            enumValues:
+              - admission
+              - at_48_hours
+          hours_since_admission:
+            required: true
+            kind: integer
+          wbc_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_met
+              - unknown
+          age_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_met
+              - unknown
+          glucose_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_met
+              - unknown
+          ast_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_met
+              - unknown
+          ldh_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_met
+              - unknown
+          hematocrit_drop_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_due
+              - not_met
+              - unknown
+          bun_increase_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_due
+              - not_met
+              - unknown
+          calcium_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_due
+              - not_met
+              - unknown
+          po2_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_applicable
+              - not_due
+              - not_met
+              - unknown
+          base_deficit_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_due
+              - not_met
+              - unknown
+          fluid_sequestration_criterion:
+            required: true
+            kind: enum
+            enumValues:
+              - met
+              - not_due
+              - not_met
+              - unknown
+        conditionalRequirements:
+          - kind: forbidValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: hours_since_admission
+            value: 48
+            message: Use the at_48_hours phase at 48 completed hours.
+          - kind: forbidValueWhen
+            field: etiology_variant
+            when: ==non_gallstone
+            target: po2_criterion
+            value: not_applicable
+            message: The non-gallstone variant requires the arterial pO2 observation.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: base_deficit_criterion
+            value: not_due
+            message: Forty-eight-hour base deficit is not due at admission.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: bun_increase_criterion
+            value: not_due
+            message: Forty-eight-hour BUN is not due at admission.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: calcium_criterion
+            value: not_due
+            message: Forty-eight-hour calcium is not due at admission.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: fluid_sequestration_criterion
+            value: not_due
+            message: Forty-eight-hour fluid sequestration is not due at admission.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: hematocrit_drop_criterion
+            value: not_due
+            message: Forty-eight-hour hematocrit is not due at admission.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==admission
+            target: po2_criterion
+            value: not_due
+            message: Forty-eight-hour arterial oxygen is not due at admission.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==at_48_hours
+            target: hours_since_admission
+            value: 48
+            message: A completed Ranson score requires the 48-hour assessment.
+          - kind: requireValueWhen
+            field: assessment_phase
+            when: ==at_48_hours
+            where:
+              - field: etiology_variant
+                when: ==gallstone
+            target: po2_criterion
+            value: not_applicable
+            message: The arterial pO2 criterion is not part of the gallstone variant.
+        outputs:
+          admission_subtotal:
+            kind: integer
+            availability:
+              kind: always
+          admission_complete:
+            kind: boolean
+            availability:
+              kind: always
+          score:
+            kind: integer
+            availability:
+              kind: computeCondition
+              conditionId: completed_48_hour_score
+          historical_mortality_band:
+            kind: enum
+            availability:
+              kind: computeCondition
+              conditionId: completed_48_hour_score
+            allowedValues:
+              - ~1%
+              - ~100%
+              - ~15%
+              - ~40%
+          assessment_complete:
+            kind: boolean
+            availability:
+              kind: always
+          missing_component_reasons:
+            kind: string_list
+            availability:
+              kind: always
+    sodium_deficit:
+      directTool:
+        inputs:
+          weight_kg:
+            required: true
+            kind: number
+          current_sodium:
+            required: true
+            kind: number
+          desired_sodium:
+            required: true
+            kind: number
+          age:
+            required: true
+            kind: integer
+          height_cm:
+            required: true
+            kind: number
+          sex:
+            required: true
+            kind: enum
+            enumValues:
+              - female
+              - male
+        conditionalRequirements:
+          - kind: compare
+            left: desired_sodium
+            operator: ">"
+            right: current_sodium
+            message: Desired sodium must be greater than current sodium.
+        outputs:
+          sodium_deficit:
+            kind: number
+            unit: mEq
+            availability:
+              kind: always
+          total_body_water:
+            kind: number
+            unit: L
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          weight_kg:
+            required: true
+            kind: number
+          current_sodium:
+            required: true
+            kind: number
+          desired_sodium:
+            required: true
+            kind: number
+          age:
+            required: true
+            kind: integer
+          height_cm:
+            required: true
+            kind: number
+          sex:
+            required: true
+            kind: enum
+            enumValues:
+              - female
+              - male
+        conditionalRequirements:
+          - kind: compare
+            left: desired_sodium
+            operator: ">"
+            right: current_sodium
+            message: Desired sodium must be greater than current sodium.
+        outputs:
+          sodium_deficit:
+            kind: number
+            unit: mEq
+            availability:
+              kind: always
+          total_body_water:
+            kind: number
+            unit: L
+            availability:
+              kind: always
+    timi:
+      directTool:
+        inputs:
+          age_65_or_older:
+            required: true
+            kind: boolean
+          cad_risk_factors:
+            required: true
+            kind: boolean
+          known_cad:
+            required: true
+            kind: boolean
+          asa_use:
+            required: true
+            kind: boolean
+          severe_angina:
+            required: true
+            kind: boolean
+          ekg_st_changes:
+            required: true
+            kind: boolean
+          positive_cardiac_marker:
+            required: true
+            kind: boolean
+        conditionalRequirements: []
+        outputs:
+          score:
+            kind: integer
+            availability:
+              kind: always
+          risk_percentage:
+            kind: enum
+            allowedValues:
+              - 13.2%
+              - 19.9%
+              - 26.2%
+              - 4.7%
+              - 40.9%
+              - 8.3%
+            availability:
+              kind: always
+          risk_percent:
+            kind: number
+            unit: percent
+            availability:
+              kind: always
+          risk_horizon_days:
+            kind: integer
+            unit: days
+            availability:
+              kind: always
+          risk_endpoint:
+            kind: enum
+            allowedValues:
+              - death_mi_or_urgent_revascularization
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          age_65_or_older:
+            required: true
+            kind: boolean
+          cad_risk_factors:
+            required: true
+            kind: boolean
+          known_cad:
+            required: true
+            kind: boolean
+          asa_use:
+            required: true
+            kind: boolean
+          severe_angina:
+            required: true
+            kind: boolean
+          ekg_st_changes:
+            required: true
+            kind: boolean
+          positive_cardiac_marker:
+            required: true
+            kind: boolean
+        conditionalRequirements: []
+        outputs:
+          score:
+            kind: integer
+            availability:
+              kind: always
+          risk_percentage:
+            kind: enum
+            allowedValues:
+              - 13.2%
+              - 19.9%
+              - 26.2%
+              - 4.7%
+              - 40.9%
+              - 8.3%
+            availability:
+              kind: always
+          risk_percent:
+            kind: number
+            unit: percent
+            availability:
+              kind: always
+          risk_horizon_days:
+            kind: integer
+            unit: days
+            availability:
+              kind: always
+          risk_endpoint:
+            kind: enum
+            allowedValues:
+              - death_mi_or_urgent_revascularization
+            availability:
+              kind: always
+    wells_dvt:
+      directTool:
+        inputs:
+          active_cancer:
+            required: true
+            kind: boolean
+          paralysis_or_cast:
+            required: true
+            kind: boolean
+          bedridden:
+            required: true
+            kind: boolean
+          localized_tenderness:
+            required: true
+            kind: boolean
+          entire_leg_swollen:
+            required: true
+            kind: boolean
+          calf_swelling:
+            required: true
+            kind: boolean
+          pitting_edema:
+            required: true
+            kind: boolean
+          collateral_veins:
+            required: true
+            kind: boolean
+          alternative_diagnosis:
+            required: true
+            kind: boolean
+          previously_diagnosed:
+            required: true
+            kind: boolean
+        conditionalRequirements: []
+        outputs:
+          score:
+            kind: integer
+            availability:
+              kind: always
+          risk_category:
+            kind: enum
+            allowedValues:
+              - likely
+              - unlikely
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          active_cancer:
+            required: true
+            kind: boolean
+          paralysis_or_cast:
+            required: true
+            kind: boolean
+          bedridden:
+            required: true
+            kind: boolean
+          localized_tenderness:
+            required: true
+            kind: boolean
+          entire_leg_swollen:
+            required: true
+            kind: boolean
+          calf_swelling:
+            required: true
+            kind: boolean
+          pitting_edema:
+            required: true
+            kind: boolean
+          collateral_veins:
+            required: true
+            kind: boolean
+          alternative_diagnosis:
+            required: true
+            kind: boolean
+          previously_diagnosed:
+            required: true
+            kind: boolean
+        conditionalRequirements: []
+        outputs:
+          score:
+            kind: integer
+            availability:
+              kind: always
+          risk_category:
+            kind: enum
+            allowedValues:
+              - likely
+              - unlikely
+            availability:
+              kind: always
+  resultEnvelopeFields:
+    - evidence
+    - id
+    - inputsUsed
+    - interpretation
+    - interpretations
+    - results
+    - schemaVersion
+    - version
+    - warnings
+  responseForms:
+    - json_text
+    - structuredContent
+  directToolAnnotations:
+    readOnlyHint: true
+    idempotentHint: true
+    openWorldHint: false
+  errorDiscriminants:
+    - AMBIGUOUS_ALIAS
+    - BAD_ENUM
+    - BAD_TYPE
+    - CONSTRAINT_FAILED
+    - MISSING_REQUIRED
+    - NON_FINITE_OUTPUT
+    - OUT_OF_HARD_LIMITS
+    - UNDECLARED_OUTPUT
+    - UNKNOWN_CALCULATOR
+    - UNKNOWN_UNIT
+allowedSafetyBreaks:
+  - id: break:kdpi-donor-age-alias
+    calculatorId: kdpi
+    compatibilityClaimId: d002.kdpi_donor_age_alias
+    clinicalClaimId: claim:kdpi:input-donor_age_years
+    clinicalClaimCoverage: input:donor_age_years
+    surface: safeAliases:kdpi.donor_age_years
+    oldBehavior: Generic age was accepted as deceased-donor age.
+    replacement: Only donor_age_years is accepted.
+    rationale: Generic patient age must not populate deceased-donor age.
+    oldValueDigest: sha256:c598dcda33307ef9631f764f26e14b6794e5fceb6157de036d8db46130b937d8
+    replacementValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+  - id: break:kdpi-donor-height-alias
+    calculatorId: kdpi
+    compatibilityClaimId: d002.kdpi_donor_height_alias
+    clinicalClaimId: claim:kdpi:input-donor_height_cm
+    clinicalClaimCoverage: input:donor_height_cm
+    surface: safeAliases:kdpi.height_cm
+    oldBehavior: Generic height was accepted as deceased-donor height.
+    replacement: Only donor_height_cm supplied in the KDPI override is accepted.
+    rationale: Generic patient height must not populate deceased-donor height.
+    oldValueDigest: sha256:f5a8ef8d59b0d1e7273256f0f4875e3dd41a453546b5520be895e9ae69f1d28c
+    replacementValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+  - id: break:kdpi-donor-weight-alias
+    calculatorId: kdpi
+    compatibilityClaimId: d002.kdpi_donor_weight_alias
+    clinicalClaimId: claim:kdpi:input-donor_weight_kg
+    clinicalClaimCoverage: input:donor_weight_kg
+    surface: safeAliases:kdpi.weight_kg
+    oldBehavior: Generic weight was accepted as deceased-donor weight.
+    replacement: Only donor_weight_kg supplied in the KDPI override is accepted.
+    rationale: Generic patient weight must not populate deceased-donor weight.
+    oldValueDigest: sha256:e6ef59bce9fe5b099c2807d27031228b9f56a0472ce99579657469f6aa4f6e1b
+    replacementValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+  - id: migration:meld-age-at-registration
+    calculatorId: meld
+    compatibilityClaimId: d002.meld_age_at_registration_alias
+    clinicalClaimId: claim:meld:input-age_at_registration-aliases
+    clinicalClaimCoverage: input:age_at_registration:aliases
+    surface: safeAliases:meld.age_at_registration
+    oldBehavior: age was the canonical registration-age field.
+    replacement: age_at_registration is canonical and age remains an accepted alias.
+    rationale: Preserve the former age field only as an unambiguous alias for age at registration.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:c598dcda33307ef9631f764f26e14b6794e5fceb6157de036d8db46130b937d8
+  - id: break:carboplatin-direct-inputs
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_direct_inputs
+    clinicalClaimId: claim:carboplatin_auc:applicability-exclusions
+    clinicalClaimCoverage: applicability:exclusions
+    surface: calculatorContracts:carboplatin_auc.directTool.inputs
+    oldBehavior: The direct tool accepted only target_auc and gfr and inferred renal method, indexing, cap, and rounding.
+    replacement: The direct tool requires explicit method, indexing, treatment intent, cap policy, and rounding policy.
+    rationale: The direct carboplatin tool must require the exact safety-critical context instead of inferring it.
+    oldValueDigest: sha256:7c24307bf9063390e13ae182ab2490c6aa9475792a403b86f240ae6658fb9d49
+    replacementValueDigest: sha256:709189f10e8d62d071ec2598e638799d57eee032f1e0ec7f4c75ca41899b63d2
+  - id: break:carboplatin-compact-inputs
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_compact_inputs
+    clinicalClaimId: claim:carboplatin_auc:applicability-exclusions
+    clinicalClaimCoverage: applicability:exclusions
+    surface: calculatorContracts:carboplatin_auc.compactDispatcher.inputs
+    oldBehavior: Compact dispatch accepted only target_auc and gfr and inferred renal method, indexing, cap, and rounding.
+    replacement: Compact dispatch requires explicit method, indexing, treatment intent, cap policy, and rounding policy.
+    rationale: Compact carboplatin dispatch must require the exact safety-critical context instead of inferring it.
+    oldValueDigest: sha256:7c24307bf9063390e13ae182ab2490c6aa9475792a403b86f240ae6658fb9d49
+    replacementValueDigest: sha256:709189f10e8d62d071ec2598e638799d57eee032f1e0ec7f4c75ca41899b63d2
+  - id: break:carboplatin-direct-constraints
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_direct_constraints
+    clinicalClaimId: claim:carboplatin_auc:applicability-exclusions
+    clinicalClaimCoverage: applicability:exclusions
+    surface: calculatorContracts:carboplatin_auc.directTool.conditionalRequirements
+    oldBehavior: The direct tool unconditionally capped gfr and had no cross-field safety requirements.
+    replacement: The direct tool requires BSA for indexed values and rejects unsafe method, indexing, and cap combinations.
+    rationale: Direct carboplatin constraints must enforce the declared renal method, indexing, and cap policy.
+    oldValueDigest: sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+    replacementValueDigest: sha256:7cf289e7c7898f104882202c89ba9e976e7843d6e2e2bc1f0bc15c7c7d5ad56d
+  - id: break:carboplatin-compact-constraints
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_compact_constraints
+    clinicalClaimId: claim:carboplatin_auc:applicability-exclusions
+    clinicalClaimCoverage: applicability:exclusions
+    surface: calculatorContracts:carboplatin_auc.compactDispatcher.conditionalRequirements
+    oldBehavior: Compact dispatch unconditionally capped gfr and had no cross-field safety requirements.
+    replacement: Compact dispatch requires BSA for indexed values and rejects unsafe method, indexing, and cap combinations.
+    rationale: Compact carboplatin constraints must enforce the declared renal method, indexing, and cap policy.
+    oldValueDigest: sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+    replacementValueDigest: sha256:7cf289e7c7898f104882202c89ba9e976e7843d6e2e2bc1f0bc15c7c7d5ad56d
+  - id: break:carboplatin-direct-dose-kind
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_direct_dose_kind
+    clinicalClaimId: claim:carboplatin_auc:output-dose
+    clinicalClaimCoverage: output:dose
+    surface: calculatorContracts:carboplatin_auc.directTool.outputs.dose
+    oldBehavior: The direct tool returned a one-decimal numeric dose.
+    replacement: The direct tool returns the final carboplatin dose as a nearest-whole-mg integer.
+    rationale: The direct dose output must expose the source-supported final rounding contract.
+    oldValueDigest: sha256:77a1a2e05a52dcb1f31a9681c00c88dcd785880accb8e4c60f7e462454718743
+    replacementValueDigest: sha256:8dd2254174179cd86fa1cb7f2039e0eba6b440804399efea49108f6a64432527
+  - id: break:carboplatin-compact-dose-kind
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_compact_dose_kind
+    clinicalClaimId: claim:carboplatin_auc:output-dose
+    clinicalClaimCoverage: output:dose
+    surface: calculatorContracts:carboplatin_auc.compactDispatcher.outputs.dose
+    oldBehavior: Compact dispatch returned a one-decimal numeric dose.
+    replacement: Compact dispatch returns the final carboplatin dose as a nearest-whole-mg integer.
+    rationale: The compact dose output must expose the source-supported final rounding contract.
+    oldValueDigest: sha256:77a1a2e05a52dcb1f31a9681c00c88dcd785880accb8e4c60f7e462454718743
+    replacementValueDigest: sha256:8dd2254174179cd86fa1cb7f2039e0eba6b440804399efea49108f6a64432527
+  - id: break:ranson-direct-inputs
+    calculatorId: ranson
+    compatibilityClaimId: d002.ranson_direct_inputs
+    clinicalClaimId: claim:ranson:formula-implementation
+    clinicalClaimCoverage: formula:implementation
+    surface: calculatorContracts:ranson.directTool.inputs
+    oldBehavior: The direct tool accepted caller-classified criterion states plus phase and elapsed hours.
+    replacement: The direct tool accepts raw timestamped observations for engine-owned threshold derivation.
+    rationale: The direct Ranson tool must derive criteria from raw observations instead of trusting caller classification.
+    oldValueDigest: sha256:8fed544a9511c7ae99748f02706b984f35a6831a18ab31bd2689a5ab11252bca
+    replacementValueDigest: sha256:db26464a6f06911738401be4d2287271ac6c0cecacde1f26f2dc76906ea8d880
+  - id: break:ranson-compact-inputs
+    calculatorId: ranson
+    compatibilityClaimId: d002.ranson_compact_inputs
+    clinicalClaimId: claim:ranson:formula-implementation
+    clinicalClaimCoverage: formula:implementation
+    surface: calculatorContracts:ranson.compactDispatcher.inputs
+    oldBehavior: Compact dispatch accepted caller-classified criterion states plus phase and elapsed hours.
+    replacement: Compact dispatch accepts raw timestamped observations for engine-owned threshold derivation.
+    rationale: Compact Ranson dispatch must derive criteria from raw observations instead of trusting caller classification.
+    oldValueDigest: sha256:8fed544a9511c7ae99748f02706b984f35a6831a18ab31bd2689a5ab11252bca
+    replacementValueDigest: sha256:db26464a6f06911738401be4d2287271ac6c0cecacde1f26f2dc76906ea8d880
+  - id: break:ranson-direct-constraints
+    calculatorId: ranson
+    compatibilityClaimId: d002.ranson_direct_constraints
+    clinicalClaimId: claim:ranson:formula-implementation
+    clinicalClaimCoverage: formula:implementation
+    surface: calculatorContracts:ranson.directTool.conditionalRequirements
+    oldBehavior: The direct tool constrained caller-classified phase and criterion-state combinations.
+    replacement: The direct tool enforces exact admission/follow-up timestamps and variant-specific observation presence.
+    rationale: Direct Ranson constraints must enforce exact timing and gallstone/non-gallstone observation rules.
+    oldValueDigest: sha256:fa143ee38533603f4fdd5ae49700e24817c3e43955bc5e2e9a8f7a7e4f499e39
+    replacementValueDigest: sha256:346910a0c429df1339f21442e23ac0b2e88df1df0fa6f6831923c1e5766d5194
+  - id: break:ranson-compact-constraints
+    calculatorId: ranson
+    compatibilityClaimId: d002.ranson_compact_constraints
+    clinicalClaimId: claim:ranson:formula-implementation
+    clinicalClaimCoverage: formula:implementation
+    surface: calculatorContracts:ranson.compactDispatcher.conditionalRequirements
+    oldBehavior: Compact dispatch constrained caller-classified phase and criterion-state combinations.
+    replacement: Compact dispatch enforces exact admission/follow-up timestamps and variant-specific observation presence.
+    rationale: Compact Ranson constraints must enforce exact timing and gallstone/non-gallstone observation rules.
+    oldValueDigest: sha256:fa143ee38533603f4fdd5ae49700e24817c3e43955bc5e2e9a8f7a7e4f499e39
+    replacementValueDigest: sha256:346910a0c429df1339f21442e23ac0b2e88df1df0fa6f6831923c1e5766d5194
+  - id: break:carboplatin-direct-kidney-function-absolute
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_direct_kidney_function_absolute
+    clinicalClaimId: claim:carboplatin_auc:output-kidney_function_absolute
+    clinicalClaimCoverage: output:kidney_function_absolute
+    surface: calculatorContracts:carboplatin_auc.directTool.outputs.kidney_function_absolute
+    oldBehavior: The output was absent from the direct tool.
+    replacement: The direct tool adds the always-available kidney_function_absolute number in mL/min.
+    rationale: The direct result must expose the source-supported absolute kidney-function value.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:33766b44a0c282dcef6839f0c41d4b2ff8dcc814ec81d8086f830a86dffa65e1
+  - id: break:carboplatin-compact-kidney-function-absolute
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_compact_kidney_function_absolute
+    clinicalClaimId: claim:carboplatin_auc:output-kidney_function_absolute
+    clinicalClaimCoverage: output:kidney_function_absolute
+    surface: calculatorContracts:carboplatin_auc.compactDispatcher.outputs.kidney_function_absolute
+    oldBehavior: The output was absent from compact dispatch.
+    replacement: Compact dispatch adds the always-available kidney_function_absolute number in mL/min.
+    rationale: The compact result must expose the source-supported absolute kidney-function value.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:33766b44a0c282dcef6839f0c41d4b2ff8dcc814ec81d8086f830a86dffa65e1
+  - id: break:carboplatin-direct-kidney-function-used
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_direct_kidney_function_used
+    clinicalClaimId: claim:carboplatin_auc:output-kidney_function_used
+    clinicalClaimCoverage: output:kidney_function_used
+    surface: calculatorContracts:carboplatin_auc.directTool.outputs.kidney_function_used
+    oldBehavior: The output was absent from the direct tool.
+    replacement: The direct tool adds the always-available kidney_function_used number in mL/min.
+    rationale: The direct result must expose the source-supported kidney-function value used in dosing.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:33766b44a0c282dcef6839f0c41d4b2ff8dcc814ec81d8086f830a86dffa65e1
+  - id: break:carboplatin-compact-kidney-function-used
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_compact_kidney_function_used
+    clinicalClaimId: claim:carboplatin_auc:output-kidney_function_used
+    clinicalClaimCoverage: output:kidney_function_used
+    surface: calculatorContracts:carboplatin_auc.compactDispatcher.outputs.kidney_function_used
+    oldBehavior: The output was absent from compact dispatch.
+    replacement: Compact dispatch adds the always-available kidney_function_used number in mL/min.
+    rationale: The compact result must expose the source-supported kidney-function value used in dosing.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:33766b44a0c282dcef6839f0c41d4b2ff8dcc814ec81d8086f830a86dffa65e1
+  - id: break:carboplatin-direct-indexed-conversion-applied
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_direct_indexed_conversion_applied
+    clinicalClaimId: claim:carboplatin_auc:output-indexed_conversion_applied
+    clinicalClaimCoverage: output:indexed_conversion_applied
+    surface: calculatorContracts:carboplatin_auc.directTool.outputs.indexed_conversion_applied
+    oldBehavior: The output was absent from the direct tool.
+    replacement: The direct tool adds the always-available indexed_conversion_applied boolean.
+    rationale: The direct result must expose whether indexed kidney function was converted to absolute units.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:ebb22d939c9b2b7342d9e8f59cbedd01e08327d223b68cf1f7318914cb15736d
+  - id: break:carboplatin-compact-indexed-conversion-applied
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_compact_indexed_conversion_applied
+    clinicalClaimId: claim:carboplatin_auc:output-indexed_conversion_applied
+    clinicalClaimCoverage: output:indexed_conversion_applied
+    surface: calculatorContracts:carboplatin_auc.compactDispatcher.outputs.indexed_conversion_applied
+    oldBehavior: The output was absent from compact dispatch.
+    replacement: Compact dispatch adds the always-available indexed_conversion_applied boolean.
+    rationale: The compact result must expose whether indexed kidney function was converted to absolute units.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:ebb22d939c9b2b7342d9e8f59cbedd01e08327d223b68cf1f7318914cb15736d
+  - id: break:carboplatin-direct-cap-policy-applied
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_direct_cap_policy_applied
+    clinicalClaimId: claim:carboplatin_auc:output-cap_policy_applied
+    clinicalClaimCoverage: output:cap_policy_applied
+    surface: calculatorContracts:carboplatin_auc.directTool.outputs.cap_policy_applied
+    oldBehavior: The output was absent from the direct tool.
+    replacement: The direct tool adds the always-available cap_policy_applied enum.
+    rationale: The direct result must expose the source-supported cap policy applied to kidney function.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:622903fccb003998348c2ce13f6c107bc4e253e93014ae96c2fb9bbf8f1af6be
+  - id: break:carboplatin-compact-cap-policy-applied
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_compact_cap_policy_applied
+    clinicalClaimId: claim:carboplatin_auc:output-cap_policy_applied
+    clinicalClaimCoverage: output:cap_policy_applied
+    surface: calculatorContracts:carboplatin_auc.compactDispatcher.outputs.cap_policy_applied
+    oldBehavior: The output was absent from compact dispatch.
+    replacement: Compact dispatch adds the always-available cap_policy_applied enum.
+    rationale: The compact result must expose the source-supported cap policy applied to kidney function.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:622903fccb003998348c2ce13f6c107bc4e253e93014ae96c2fb9bbf8f1af6be
+  - id: break:carboplatin-direct-rounding-policy-applied
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_direct_rounding_policy_applied
+    clinicalClaimId: claim:carboplatin_auc:output-rounding_policy_applied
+    clinicalClaimCoverage: output:rounding_policy_applied
+    surface: calculatorContracts:carboplatin_auc.directTool.outputs.rounding_policy_applied
+    oldBehavior: The output was absent from the direct tool.
+    replacement: The direct tool adds the always-available rounding_policy_applied enum.
+    rationale: The direct result must expose the source-supported final-dose rounding policy.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:15ef5f2f38ee680d85b25815c57ab776abc8ffb977ced295b47db9f82afcf65d
+  - id: break:carboplatin-compact-rounding-policy-applied
+    calculatorId: carboplatin_auc
+    compatibilityClaimId: d002.carboplatin_auc_compact_rounding_policy_applied
+    clinicalClaimId: claim:carboplatin_auc:output-rounding_policy_applied
+    clinicalClaimCoverage: output:rounding_policy_applied
+    surface: calculatorContracts:carboplatin_auc.compactDispatcher.outputs.rounding_policy_applied
+    oldBehavior: The output was absent from compact dispatch.
+    replacement: Compact dispatch adds the always-available rounding_policy_applied enum.
+    rationale: The compact result must expose the source-supported final-dose rounding policy.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:15ef5f2f38ee680d85b25815c57ab776abc8ffb977ced295b47db9f82afcf65d
+  - id: break:ranson-direct-criterion-provenance
+    calculatorId: ranson
+    compatibilityClaimId: d002.ranson_direct_criterion_provenance
+    clinicalClaimId: claim:ranson:output-criterion-provenance
+    clinicalClaimCoverage: output:criterion_provenance
+    surface: calculatorContracts:ranson.directTool.outputs.criterion_provenance
+    oldBehavior: The output was absent from the direct tool.
+    replacement: The direct tool adds the always-available criterion_provenance criterion list.
+    rationale: The direct result must expose source-supported per-criterion provenance.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:9919a27ddf3a8cbd4da52799abfd9fac3c2b583f42978b30fd53c6b05fd99d57
+  - id: break:ranson-compact-criterion-provenance
+    calculatorId: ranson
+    compatibilityClaimId: d002.ranson_compact_criterion_provenance
+    clinicalClaimId: claim:ranson:output-criterion-provenance
+    clinicalClaimCoverage: output:criterion_provenance
+    surface: calculatorContracts:ranson.compactDispatcher.outputs.criterion_provenance
+    oldBehavior: The output was absent from compact dispatch.
+    replacement: Compact dispatch adds the always-available criterion_provenance criterion list.
+    rationale: The compact result must expose source-supported per-criterion provenance.
+    oldValueDigest: sha256:eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c
+    replacementValueDigest: sha256:9919a27ddf3a8cbd4da52799abfd9fac3c2b583f42978b30fd53c6b05fd99d57

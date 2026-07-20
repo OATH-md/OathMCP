@@ -1,0 +1,2173 @@
+calculatorId: gcs
+specVersion: 1.1.0
+clinicalModel: Glasgow Coma Scale with official Not Testable reporting
+variant: 1974_three_component_with_official_nt_guidance
+population: Patients undergoing standardized assessment of eye, verbal, and motor responsiveness.
+setting: Acute neurological assessment with context and modifiers documented.
+assessmentTiming: At the documented clinical assessment; serial component trends remain distinct observations.
+endpoint: Component responses and a total only when every component is testable.
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:gcs:2026-07-16
+    calculatorId: gcs
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:gcs:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: '"Glasgow Coma Scale"[Title] AND (Teasdale[Author] OR Jennett[Author] OR Murray[Author] OR Reith[Author])'
+        translationExposed: true
+        translatedQuery: '"Glasgow Coma Scale"[Title] AND (Teasdale[Author] OR Jennett[Author] OR Murray[Author] OR Reith[Author])'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 18
+        exportDigest: sha256:83594f2245aa3ae9c393e26c47ae7048b0b5709ffc177474ec39449a670ce63a
+        stableCitationIds:
+          - PMID:38437980
+          - PMID:38278534
+          - PMID:32898843
+          - PMID:31712114
+          - PMID:29125266
+          - PMID:28602178
+          - PMID:28327922
+          - PMID:26564211
+          - PMID:25951090
+          - PMID:25030516
+          - PMID:17375991
+          - PMID:15275876
+          - PMID:10784300
+          - PMID:9391355
+          - PMID:6469315
+          - PMID:6136811
+          - PMID:7063832
+          - PMID:6789987
+      - id: search:gcs:gcs_teasdale_jennett_1974
+        sourceRole: derivation
+        authorityId: gcs_teasdale_jennett_1974
+        database: Primary or responsible-authority source
+        site: The Lancet
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for gcs
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - gcs_teasdale_jennett_1974
+      - id: search:gcs:gcs_official_faq_2026
+        sourceRole: controlling_authority
+        authorityId: gcs_official_faq_2026
+        database: Primary or responsible-authority source
+        site: Official Glasgow Coma Scale project
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for gcs
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - gcs_official_faq_2026
+      - id: search:gcs:gcs_nice_ng232_2023
+        sourceRole: specialty_guidance
+        authorityId: gcs_nice_ng232_2023
+        database: Primary or responsible-authority source
+        site: NICE
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for gcs
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - gcs_nice_ng232_2023
+      - id: search:gcs:gcs_reith_2016
+        sourceRole: external_validation
+        authorityId: gcs_reith_2016
+        database: Primary or responsible-authority source
+        site: Intensive Care Medicine
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for gcs
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - gcs_reith_2016
+    accounting:
+      retrieved: 21
+      deduplicated: 21
+      screened: 21
+      fullTextAssessed: 4
+      excluded: 0
+      included: 4
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:38437980
+        title: "The Message of the Glasgow Coma Scale: A Comprehensive Bibliometric Analysis and Systematic Review of Clinical
+          Practice Guidelines Spanning the Past 50 years."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:38278534
+        title: Assessment of level of consciousness using Glasgow Coma Scale tools.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32898843
+        title: A practical method for dealing with missing Glasgow Coma Scale verbal component scores.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31712114
+        title: "The Story of the Development and Adoption of the Glasgow Coma Scale: Part I, The Early Years."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:29125266
+        title: "Decision making in very severe traumatic brain injury (Glasgow Coma Scale 3-5): a literature review of acute
+          neurosurgical management."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:28602178
+        title: "Differential effects of the Glasgow Coma Scale Score and its Components: An analysis of 54,069 patients with
+          traumatic brain injury."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:28327922
+        title: "Factors Influencing the Reliability of the Glasgow Coma Scale: A Systematic Review."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: gcs_reith_2016
+        title: "The reliability of the Glasgow Coma Scale: a systematic review."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:25951090
+        title: "Lack of Standardization in the Use of the Glasgow Coma Scale: Results of International Surveys."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:25030516
+        title: "The Glasgow Coma Scale at 40 years: standing the test of time."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:17375991
+        title: "Prognostic value of the Glasgow Coma Scale and pupil reactivity in traumatic brain injury assessed pre-hospital
+          and on enrollment: an IMPACT analysis."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:15275876
+        title: "Mortality prediction of head Abbreviated Injury Score and Glasgow Coma Scale: analysis of 7,764 head injuries."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:10784300
+        title: Revisiting the Glasgow Coma Scale and Coma Score.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:9391355
+        title: "The history of the Glasgow Coma Scale: an interview with professor Bryan Jennett. Interview by Carole Rush."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:6469315
+        title: Extracranial insults and outcome in patients with acute head injury--relationship to the Glasgow Coma Scale.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:6136811
+        title: "Glasgow coma scale: to sum or not to sum."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:7063832
+        title: "The description of 'conscious level': a case for the Glasgow Coma Scale."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:6789987
+        title: Adoption of Glasgow Coma Scale in the British Isles.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: gcs_teasdale_jennett_1974
+        title: Assessment of coma and impaired consciousness. A practical scale.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: gcs_official_faq_2026
+        title: Glasgow Coma Scale frequently asked questions.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: gcs_nice_ng232_2023
+        title: "Head injury: assessment and early management (NG232)."
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:gcs:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - score names and author synonyms
+        - derivation and external validation concepts
+        - assessment modifiers and applicability limits
+        - current authority and supersession
+      comments:
+        - The focused author/model query was paired with direct review of the primary score form, current responsible
+          authority, specialty guidance, and an external validation.
+      resolution: Resolved by retaining exact model and author terms, checking PubMed translation, screening every result,
+        chasing citations, and reviewing current authority sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+    model: Glasgow Coma Scale with official Not Testable reporting
+    variant: 1974_three_component_with_official_nt_guidance
+authoritySourceIds:
+  - pubmed_medline
+  - gcs_teasdale_jennett_1974
+  - gcs_official_faq_2026
+  - gcs_nice_ng232_2023
+  - gcs_reith_2016
+claims:
+  - id: claim:gcs:calculator:model
+    kind: applicability
+    statement: Glasgow Coma Scale with official Not Testable reporting is scoped to Patients undergoing standardized
+      assessment of eye, verbal, and motor responsiveness. Acute neurological assessment with context and modifiers
+      documented.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - gcs_official_faq_2026
+      - gcs_nice_ng232_2023
+      - gcs_reith_2016
+    locators:
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+      - sourceId: gcs_nice_ng232_2023
+        locator: NG232 recommendations 1.3.1-1.3.2 and GCS definition for head injury.
+      - sourceId: gcs_reith_2016
+        locator: Systematic review methods and reliability limitations.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad population scope are descriptive; every runtime-verifiable surface is
+      separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:formula:implementation
+    kind: formula
+    statement: The total is the exact sum of the cited score form component weights; a total is returned only when the
+      declared testability rules permit it.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:ref-2
+      - case:gcs:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:applicability:purpose
+    kind: applicability
+    statement: Record Glasgow Coma Scale components and a total only when all three components are testable; preserve Not
+      Testable reasons and modifiers.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - gcs_official_faq_2026
+      - gcs_nice_ng232_2023
+      - gcs_reith_2016
+    locators:
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+      - sourceId: gcs_nice_ng232_2023
+        locator: NG232 recommendations 1.3.1-1.3.2 and GCS definition for head injury.
+      - sourceId: gcs_reith_2016
+        locator: Systematic review methods and reliability limitations.
+    executable: true
+    scenarioIds:
+      - case:gcs:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:applicability:exclusions
+    kind: exclusion
+    statement: Do not manufacture a total when any component is Not Testable, and do not generalize traumatic-brain-injury
+      severity labels to other contexts.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - gcs_official_faq_2026
+      - gcs_nice_ng232_2023
+      - gcs_reith_2016
+    locators:
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+      - sourceId: gcs_nice_ng232_2023
+        locator: NG232 recommendations 1.3.1-1.3.2 and GCS definition for head injury.
+      - sourceId: gcs_reith_2016
+        locator: Systematic review methods and reliability limitations.
+    executable: true
+    scenarioIds:
+      - case:gcs:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:input:assessment_context
+    kind: input
+    statement: "Assessment Context: Context in which the component responses were assessed."
+    covers:
+      - input:assessment_context
+    status: supported
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:input:assessment_context:options
+    kind: input
+    statement: "Assessment Context uses the closed cited option set: general_consciousness, acute_brain_injury,
+      traumatic_brain_injury."
+    covers:
+      - input:assessment_context:options
+    status: supported
+    sourceIds: &a1
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:option-assessment_context-general_consciousness
+      - case:gcs:option-assessment_context-acute_brain_injury
+      - case:gcs:option-assessment_context-traumatic_brain_injury
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:input:modifier_context
+    kind: input
+    statement: "Examination Modifier: Dominant factor affecting interpretation; choose a component's Not Testable option
+      whenever that response cannot actually be tested."
+    covers:
+      - input:modifier_context
+    status: supported
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:input:modifier_context:options
+    kind: input
+    statement: "Examination Modifier uses the closed cited option set: none, intubation_or_tracheostomy, sedation,
+      paralysis, language_or_communication_barrier, ocular_obstruction, other, multiple_modifiers."
+    covers:
+      - input:modifier_context:options
+    status: supported
+    sourceIds: &a2
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:option-modifier_context-none
+      - case:gcs:option-modifier_context-intubation_or_tracheostomy
+      - case:gcs:option-modifier_context-sedation
+      - case:gcs:option-modifier_context-paralysis
+      - case:gcs:option-modifier_context-language_or_communication_barrier
+      - case:gcs:option-modifier_context-ocular_obstruction
+      - case:gcs:option-modifier_context-other
+      - case:gcs:option-modifier_context-multiple_modifiers
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:input:eye_opening
+    kind: input
+    statement: "Eye Opening: Best observed eye-opening response, or Not Testable when local factors prevent assessment."
+    covers:
+      - input:eye_opening
+    status: supported
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:input:eye_opening:options
+    kind: input
+    statement: "Eye Opening uses the closed cited option set: none=1, to_pain=2, to_speech=3, spontaneous=4,
+      not_testable_ocular_obstruction (NT/UN)."
+    covers:
+      - input:eye_opening:options
+    status: supported
+    sourceIds: &a3
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:option-eye_opening-none
+      - case:gcs:option-eye_opening-to_pain
+      - case:gcs:option-eye_opening-to_speech
+      - case:gcs:option-eye_opening-spontaneous
+      - case:gcs:option-eye_opening-not_testable_ocular_obstruction
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:input:verbal_response
+    kind: input
+    statement: "Verbal Response: Best observed verbal response, or Not Testable with an explicit reason."
+    covers:
+      - input:verbal_response
+    status: supported
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:input:verbal_response:options
+    kind: input
+    statement: "Verbal Response uses the closed cited option set: none=1, incomprehensible_sounds=2, inappropriate_words=3,
+      confused=4, oriented=5, not_testable_intubation (NT/UN), not_testable_communication_barrier (NT/UN)."
+    covers:
+      - input:verbal_response:options
+    status: supported
+    sourceIds: &a4
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:option-verbal_response-none
+      - case:gcs:option-verbal_response-incomprehensible_sounds
+      - case:gcs:option-verbal_response-inappropriate_words
+      - case:gcs:option-verbal_response-confused
+      - case:gcs:option-verbal_response-oriented
+      - case:gcs:option-verbal_response-not_testable_intubation
+      - case:gcs:option-verbal_response-not_testable_communication_barrier
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:input:motor_response
+    kind: input
+    statement: "Motor Response: Best observed motor response, or Not Testable when a physical limitation prevents assessment."
+    covers:
+      - input:motor_response
+    status: supported
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:input:motor_response:options
+    kind: input
+    statement: "Motor Response uses the closed cited option set: none=1, extension=2, flexion=3, flexion_withdrawal=4,
+      localizes_to_pain=5, obeys_commands=6, not_testable_paralysis (NT/UN)."
+    covers:
+      - input:motor_response:options
+    status: supported
+    sourceIds: &a5
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:option-motor_response-none
+      - case:gcs:option-motor_response-extension
+      - case:gcs:option-motor_response-flexion
+      - case:gcs:option-motor_response-flexion_withdrawal
+      - case:gcs:option-motor_response-localizes_to_pain
+      - case:gcs:option-motor_response-obeys_commands
+      - case:gcs:option-motor_response-not_testable_paralysis
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:output:gcs_total
+    kind: outcome
+    statement: "GCS Total Score: Total score (3-15), returned only when all components are testable."
+    covers:
+      - output:gcs_total
+    status: supported
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:ref-2
+      - case:gcs:ref-3
+      - case:gcs:multiple-modifiers
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:output:eye_score
+    kind: outcome
+    statement: "Eye Opening Score: Eye component score, omitted when eye opening is Not Testable."
+    covers:
+      - output:eye_score
+    status: supported
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:ref-2
+      - case:gcs:ref-3
+      - case:gcs:multiple-modifiers
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:output:verbal_score
+    kind: outcome
+    statement: "Verbal Response Score: Verbal component score, omitted when verbal response is Not Testable."
+    covers:
+      - output:verbal_score
+    status: supported
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:ref-2
+      - case:gcs:ref-3
+      - case:gcs:multiple-modifiers
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:output:motor_score
+    kind: outcome
+    statement: "Motor Response Score: Motor component score, omitted when motor response is Not Testable."
+    covers:
+      - output:motor_score
+    status: supported
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:ref-2
+      - case:gcs:ref-3
+      - case:gcs:multiple-modifiers
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:output:assessment_complete
+    kind: outcome
+    statement: "Assessment Complete: True only when all components are testable and a total can be reported."
+    covers:
+      - output:assessment_complete
+    status: supported
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:ref-2
+      - case:gcs:ref-3
+      - case:gcs:multiple-modifiers
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:output:missing_component_reasons
+    kind: outcome
+    statement: "Not-Testable Component Reasons: Reasons omitted components and the total could not be scored; empty when
+      complete."
+    covers:
+      - output:missing_component_reasons
+    status: supported
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_teasdale_jennett_1974
+        locator: Teasdale and Jennett 1974, eye/verbal/motor response scale.
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:ref-1
+      - case:gcs:ref-2
+      - case:gcs:ref-3
+      - case:gcs:multiple-modifiers
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:constraint:0
+    kind: input
+    statement: Ocular obstruction requires the eye component to be recorded Not Testable.
+    covers:
+      - constraint:0
+    status: supported
+    sourceIds:
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:constraint-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:constraint:1
+    kind: input
+    statement: The ocular-obstruction Not Testable option requires the matching or multiple-modifier context.
+    covers:
+      - constraint:1
+    status: supported
+    sourceIds:
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:constraint-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:constraint:2
+    kind: input
+    statement: Intubation or tracheostomy requires the verbal component to be recorded Not Testable.
+    covers:
+      - constraint:2
+    status: supported
+    sourceIds:
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:constraint-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:constraint:3
+    kind: input
+    statement: The intubation Not Testable option requires the matching or multiple-modifier context.
+    covers:
+      - constraint:3
+    status: supported
+    sourceIds:
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:constraint-4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:constraint:4
+    kind: input
+    statement: A communication barrier requires the verbal component to be recorded Not Testable.
+    covers:
+      - constraint:4
+    status: supported
+    sourceIds:
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:constraint-5
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:constraint:5
+    kind: input
+    statement: The communication-barrier Not Testable option requires the matching or multiple-modifier context.
+    covers:
+      - constraint:5
+    status: supported
+    sourceIds:
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:constraint-6
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:constraint:6
+    kind: input
+    statement: Paralysis requires the motor component to be recorded Not Testable.
+    covers:
+      - constraint:6
+    status: supported
+    sourceIds:
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:constraint-7
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:constraint:7
+    kind: input
+    statement: The paralysis Not Testable option requires the matching or multiple-modifier context.
+    covers:
+      - constraint:7
+    status: supported
+    sourceIds:
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:constraint-8
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gcs:constraint:8
+    kind: input
+    statement: Multiple modifiers require at least two affected GCS components to be recorded Not Testable.
+    covers:
+      - constraint:8
+    status: supported
+    sourceIds:
+      - gcs_official_faq_2026
+    locators:
+      - sourceId: gcs_official_faq_2026
+        locator: "FAQ: interfering factors, NT notation, component reporting, and prohibition on a total when any component is
+          NT."
+    executable: true
+    scenarioIds:
+      - case:gcs:constraint-9
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:gcs:ref-1
+    kind: reference
+    tags:
+      - source-reference
+      - calculator:gcs:core
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 15
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:formula:implementation
+      - claim:gcs:output:gcs_total
+      - claim:gcs:output:eye_score
+      - claim:gcs:output:verbal_score
+      - claim:gcs:output:motor_score
+      - claim:gcs:output:assessment_complete
+      - claim:gcs:output:missing_component_reasons
+      - claim:gcs:input:assessment_context
+      - claim:gcs:input:assessment_context:options
+      - claim:gcs:input:modifier_context
+      - claim:gcs:input:modifier_context:options
+      - claim:gcs:input:eye_opening
+      - claim:gcs:input:eye_opening:options
+      - claim:gcs:input:verbal_response
+      - claim:gcs:input:verbal_response:options
+      - claim:gcs:input:motor_response
+      - claim:gcs:input:motor_response:options
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    witnesses:
+      - formula:implementation
+      - output:gcs_total
+      - output:eye_score
+      - output:verbal_score
+      - output:motor_score
+      - output:assessment_complete
+      - output:missing_component_reasons
+      - input:assessment_context
+      - input:assessment_context:options
+      - input:modifier_context
+      - input:modifier_context:options
+      - input:eye_opening
+      - input:eye_opening:options
+      - input:verbal_response
+      - input:verbal_response:options
+      - input:motor_response
+      - input:motor_response:options
+  - id: case:gcs:ref-2
+    kind: reference
+    tags:
+      - source-reference
+    inputs:
+      assessment_context: acute_brain_injury
+      modifier_context: none
+      eye_opening: to_pain
+      verbal_response: incomprehensible_sounds
+      motor_response: localizes_to_pain
+    expected:
+      gcs_total: 9
+      eye_score: 2
+      verbal_score: 2
+      motor_score: 5
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:formula:implementation
+      - claim:gcs:output:gcs_total
+      - claim:gcs:output:eye_score
+      - claim:gcs:output:verbal_score
+      - claim:gcs:output:motor_score
+      - claim:gcs:output:assessment_complete
+      - claim:gcs:output:missing_component_reasons
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    witnesses:
+      - formula:implementation
+      - output:gcs_total
+      - output:eye_score
+      - output:verbal_score
+      - output:motor_score
+      - output:assessment_complete
+      - output:missing_component_reasons
+  - id: case:gcs:ref-3
+    kind: reference
+    tags:
+      - source-reference
+    inputs:
+      assessment_context: traumatic_brain_injury
+      modifier_context: none
+      eye_opening: none
+      verbal_response: none
+      motor_response: none
+    expected:
+      gcs_total: 3
+      eye_score: 1
+      verbal_score: 1
+      motor_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:formula:implementation
+      - claim:gcs:output:gcs_total
+      - claim:gcs:output:eye_score
+      - claim:gcs:output:verbal_score
+      - claim:gcs:output:motor_score
+      - claim:gcs:output:assessment_complete
+      - claim:gcs:output:missing_component_reasons
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    witnesses:
+      - formula:implementation
+      - output:gcs_total
+      - output:eye_score
+      - output:verbal_score
+      - output:motor_score
+      - output:assessment_complete
+      - output:missing_component_reasons
+  - id: case:gcs:agent-purpose
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 15
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:applicability:purpose
+    sourceIds:
+      - gcs_official_faq_2026
+      - gcs_nice_ng232_2023
+      - gcs_reith_2016
+    witnesses:
+      - applicability:purpose
+  - id: case:gcs:agent-exclusion
+    kind: agent
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: assessment_context
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:applicability:exclusions
+      - claim:gcs:input:assessment_context
+    sourceIds:
+      - gcs_official_faq_2026
+      - gcs_nice_ng232_2023
+      - gcs_reith_2016
+      - gcs_teasdale_jennett_1974
+    witnesses:
+      - applicability:exclusions
+      - input:assessment_context
+  - id: case:gcs:constraint-1
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: ocular_obstruction
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: eye_opening
+      messageIncludes: Ocular obstruction requires the eye component to be recorded Not Testable.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:constraint:0
+    sourceIds:
+      - gcs_official_faq_2026
+    witnesses:
+      - constraint:0
+  - id: case:gcs:constraint-2
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: not_testable_ocular_obstruction
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: eye_opening
+      messageIncludes: The ocular-obstruction Not Testable option requires the matching or multiple-modifier context.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:constraint:1
+    sourceIds:
+      - gcs_official_faq_2026
+    witnesses:
+      - constraint:1
+  - id: case:gcs:constraint-3
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: intubation_or_tracheostomy
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: verbal_response
+      messageIncludes: Intubation or tracheostomy requires the verbal component to be recorded Not Testable.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:constraint:2
+    sourceIds:
+      - gcs_official_faq_2026
+    witnesses:
+      - constraint:2
+  - id: case:gcs:constraint-4
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: not_testable_intubation
+      motor_response: obeys_commands
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: verbal_response
+      messageIncludes: The intubation Not Testable option requires the matching or multiple-modifier context.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:constraint:3
+    sourceIds:
+      - gcs_official_faq_2026
+    witnesses:
+      - constraint:3
+  - id: case:gcs:constraint-5
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: language_or_communication_barrier
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: verbal_response
+      messageIncludes: A communication barrier requires the verbal component to be recorded Not Testable.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:constraint:4
+    sourceIds:
+      - gcs_official_faq_2026
+    witnesses:
+      - constraint:4
+  - id: case:gcs:constraint-6
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: not_testable_communication_barrier
+      motor_response: obeys_commands
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: verbal_response
+      messageIncludes: The communication-barrier Not Testable option requires the matching or multiple-modifier context.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:constraint:5
+    sourceIds:
+      - gcs_official_faq_2026
+    witnesses:
+      - constraint:5
+  - id: case:gcs:constraint-7
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: paralysis
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: motor_response
+      messageIncludes: Paralysis requires the motor component to be recorded Not Testable.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:constraint:6
+    sourceIds:
+      - gcs_official_faq_2026
+    witnesses:
+      - constraint:6
+  - id: case:gcs:constraint-8
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: not_testable_paralysis
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: motor_response
+      messageIncludes: The paralysis Not Testable option requires the matching or multiple-modifier context.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:constraint:7
+    sourceIds:
+      - gcs_official_faq_2026
+    witnesses:
+      - constraint:7
+  - id: case:gcs:constraint-9
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: multiple_modifiers
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: modifier_context
+      messageIncludes: Multiple modifiers require at least two affected GCS components to be recorded Not Testable.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:constraint:8
+    sourceIds:
+      - gcs_official_faq_2026
+    witnesses:
+      - constraint:8
+  - id: case:gcs:multiple-modifiers
+    kind: edge
+    tags:
+      - conditional-output
+    inputs:
+      assessment_context: acute_brain_injury
+      modifier_context: multiple_modifiers
+      eye_opening: not_testable_ocular_obstruction
+      verbal_response: not_testable_intubation
+      motor_response: obeys_commands
+    expected:
+      motor_score: 6
+      assessment_complete: false
+      missing_component_reasons:
+        - "Eye Opening: Local ocular trauma, swelling, or obstruction prevents valid eye-opening assessment."
+        - "Verbal Response: Intubation or tracheostomy prevents valid verbal assessment."
+    expectedBehavior: omit
+    omittedOutputs:
+      - gcs_total
+      - eye_score
+      - verbal_score
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:gcs:output:gcs_total
+      - claim:gcs:output:eye_score
+      - claim:gcs:output:verbal_score
+      - claim:gcs:output:motor_score
+      - claim:gcs:output:assessment_complete
+      - claim:gcs:output:missing_component_reasons
+    sourceIds:
+      - gcs_teasdale_jennett_1974
+      - gcs_official_faq_2026
+    witnesses:
+      - output:gcs_total
+      - output:eye_score
+      - output:verbal_score
+      - output:motor_score
+      - output:assessment_complete
+      - output:missing_component_reasons
+  - id: case:gcs:option-assessment_context-general_consciousness
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 15
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:assessment_context:options
+    sourceIds: *a1
+    witnesses:
+      - input:assessment_context:options
+  - id: case:gcs:option-assessment_context-acute_brain_injury
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: acute_brain_injury
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 15
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:assessment_context:options
+    sourceIds: *a1
+    witnesses:
+      - input:assessment_context:options
+  - id: case:gcs:option-assessment_context-traumatic_brain_injury
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: traumatic_brain_injury
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 15
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:assessment_context:options
+    sourceIds: *a1
+    witnesses:
+      - input:assessment_context:options
+  - id: case:gcs:option-modifier_context-none
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 15
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:gcs:option-modifier_context-intubation_or_tracheostomy
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: intubation_or_tracheostomy
+      eye_opening: spontaneous
+      verbal_response: not_testable_intubation
+      motor_response: obeys_commands
+    expected:
+      eye_score: 4
+      motor_score: 6
+      assessment_complete: false
+      missing_component_reasons:
+        - "Verbal Response: Intubation or tracheostomy prevents valid verbal assessment."
+    expectedBehavior: omit
+    omittedOutputs:
+      - gcs_total
+      - verbal_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:gcs:option-modifier_context-sedation
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: sedation
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 15
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:gcs:option-modifier_context-paralysis
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: paralysis
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: not_testable_paralysis
+    expected:
+      eye_score: 4
+      verbal_score: 5
+      assessment_complete: false
+      missing_component_reasons:
+        - "Motor Response: Paralysis or another physical limitation prevents valid motor assessment."
+    expectedBehavior: omit
+    omittedOutputs:
+      - gcs_total
+      - motor_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:gcs:option-modifier_context-language_or_communication_barrier
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: language_or_communication_barrier
+      eye_opening: spontaneous
+      verbal_response: not_testable_communication_barrier
+      motor_response: obeys_commands
+    expected:
+      eye_score: 4
+      motor_score: 6
+      assessment_complete: false
+      missing_component_reasons:
+        - "Verbal Response: A documented language or communication barrier prevents valid verbal assessment."
+    expectedBehavior: omit
+    omittedOutputs:
+      - gcs_total
+      - verbal_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:gcs:option-modifier_context-ocular_obstruction
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: ocular_obstruction
+      eye_opening: not_testable_ocular_obstruction
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: false
+      missing_component_reasons:
+        - "Eye Opening: Local ocular trauma, swelling, or obstruction prevents valid eye-opening assessment."
+    expectedBehavior: omit
+    omittedOutputs:
+      - gcs_total
+      - eye_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:gcs:option-modifier_context-other
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: other
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 15
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:gcs:option-modifier_context-multiple_modifiers
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: multiple_modifiers
+      eye_opening: not_testable_ocular_obstruction
+      verbal_response: not_testable_intubation
+      motor_response: obeys_commands
+    expected:
+      motor_score: 6
+      assessment_complete: false
+      missing_component_reasons:
+        - "Eye Opening: Local ocular trauma, swelling, or obstruction prevents valid eye-opening assessment."
+        - "Verbal Response: Intubation or tracheostomy prevents valid verbal assessment."
+    expectedBehavior: omit
+    omittedOutputs:
+      - gcs_total
+      - eye_score
+      - verbal_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:gcs:option-eye_opening-none
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: none
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 12
+      eye_score: 1
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:eye_opening:options
+    sourceIds: *a3
+    witnesses:
+      - input:eye_opening:options
+  - id: case:gcs:option-eye_opening-to_pain
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: to_pain
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 13
+      eye_score: 2
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:eye_opening:options
+    sourceIds: *a3
+    witnesses:
+      - input:eye_opening:options
+  - id: case:gcs:option-eye_opening-to_speech
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: to_speech
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 14
+      eye_score: 3
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:eye_opening:options
+    sourceIds: *a3
+    witnesses:
+      - input:eye_opening:options
+  - id: case:gcs:option-eye_opening-spontaneous
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 15
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:eye_opening:options
+    sourceIds: *a3
+    witnesses:
+      - input:eye_opening:options
+  - id: case:gcs:option-eye_opening-not_testable_ocular_obstruction
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: ocular_obstruction
+      eye_opening: not_testable_ocular_obstruction
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: false
+      missing_component_reasons:
+        - "Eye Opening: Local ocular trauma, swelling, or obstruction prevents valid eye-opening assessment."
+    expectedBehavior: omit
+    omittedOutputs:
+      - gcs_total
+      - eye_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:eye_opening:options
+    sourceIds: *a3
+    witnesses:
+      - input:eye_opening:options
+  - id: case:gcs:option-verbal_response-none
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: none
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 11
+      eye_score: 4
+      verbal_score: 1
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:verbal_response:options
+    sourceIds: *a4
+    witnesses:
+      - input:verbal_response:options
+  - id: case:gcs:option-verbal_response-incomprehensible_sounds
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: incomprehensible_sounds
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 12
+      eye_score: 4
+      verbal_score: 2
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:verbal_response:options
+    sourceIds: *a4
+    witnesses:
+      - input:verbal_response:options
+  - id: case:gcs:option-verbal_response-inappropriate_words
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: inappropriate_words
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 13
+      eye_score: 4
+      verbal_score: 3
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:verbal_response:options
+    sourceIds: *a4
+    witnesses:
+      - input:verbal_response:options
+  - id: case:gcs:option-verbal_response-confused
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: confused
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 14
+      eye_score: 4
+      verbal_score: 4
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:verbal_response:options
+    sourceIds: *a4
+    witnesses:
+      - input:verbal_response:options
+  - id: case:gcs:option-verbal_response-oriented
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 15
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:verbal_response:options
+    sourceIds: *a4
+    witnesses:
+      - input:verbal_response:options
+  - id: case:gcs:option-verbal_response-not_testable_intubation
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: intubation_or_tracheostomy
+      eye_opening: spontaneous
+      verbal_response: not_testable_intubation
+      motor_response: obeys_commands
+    expected:
+      eye_score: 4
+      motor_score: 6
+      assessment_complete: false
+      missing_component_reasons:
+        - "Verbal Response: Intubation or tracheostomy prevents valid verbal assessment."
+    expectedBehavior: omit
+    omittedOutputs:
+      - gcs_total
+      - verbal_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:verbal_response:options
+    sourceIds: *a4
+    witnesses:
+      - input:verbal_response:options
+  - id: case:gcs:option-verbal_response-not_testable_communication_barrier
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: language_or_communication_barrier
+      eye_opening: spontaneous
+      verbal_response: not_testable_communication_barrier
+      motor_response: obeys_commands
+    expected:
+      eye_score: 4
+      motor_score: 6
+      assessment_complete: false
+      missing_component_reasons:
+        - "Verbal Response: A documented language or communication barrier prevents valid verbal assessment."
+    expectedBehavior: omit
+    omittedOutputs:
+      - gcs_total
+      - verbal_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:verbal_response:options
+    sourceIds: *a4
+    witnesses:
+      - input:verbal_response:options
+  - id: case:gcs:option-motor_response-none
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: none
+    expected:
+      gcs_total: 10
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:motor_response:options
+    sourceIds: *a5
+    witnesses:
+      - input:motor_response:options
+  - id: case:gcs:option-motor_response-extension
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: extension
+    expected:
+      gcs_total: 11
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:motor_response:options
+    sourceIds: *a5
+    witnesses:
+      - input:motor_response:options
+  - id: case:gcs:option-motor_response-flexion
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: flexion
+    expected:
+      gcs_total: 12
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 3
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:motor_response:options
+    sourceIds: *a5
+    witnesses:
+      - input:motor_response:options
+  - id: case:gcs:option-motor_response-flexion_withdrawal
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: flexion_withdrawal
+    expected:
+      gcs_total: 13
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 4
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:motor_response:options
+    sourceIds: *a5
+    witnesses:
+      - input:motor_response:options
+  - id: case:gcs:option-motor_response-localizes_to_pain
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: localizes_to_pain
+    expected:
+      gcs_total: 14
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 5
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:motor_response:options
+    sourceIds: *a5
+    witnesses:
+      - input:motor_response:options
+  - id: case:gcs:option-motor_response-obeys_commands
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: none
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: obeys_commands
+    expected:
+      gcs_total: 15
+      eye_score: 4
+      verbal_score: 5
+      motor_score: 6
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:motor_response:options
+    sourceIds: *a5
+    witnesses:
+      - input:motor_response:options
+  - id: case:gcs:option-motor_response-not_testable_paralysis
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_context: general_consciousness
+      modifier_context: paralysis
+      eye_opening: spontaneous
+      verbal_response: oriented
+      motor_response: not_testable_paralysis
+    expected:
+      eye_score: 4
+      verbal_score: 5
+      assessment_complete: false
+      missing_component_reasons:
+        - "Motor Response: Paralysis or another physical limitation prevents valid motor assessment."
+    expectedBehavior: omit
+    omittedOutputs:
+      - gcs_total
+      - motor_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:gcs:input:motor_response:options
+    sourceIds: *a5
+    witnesses:
+      - input:motor_response:options
+compatibilityNotes:
+  - Added assessment and modifier context plus explicit per-component Not Testable options.
+  - Totals and component numbers are omitted when the governing response cannot be tested; unsupported universal
+    head-injury bands were removed.
+explicitBlockers: []

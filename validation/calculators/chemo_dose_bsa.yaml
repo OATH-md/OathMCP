@@ -1,0 +1,853 @@
+calculatorId: chemo_dose_bsa
+specVersion: 1.0.0
+clinicalModel: Protocol-specified BSA-based systemic therapy dose arithmetic
+variant: caller_supplied_mg_per_m2_with_explicit_cap_and_reduction
+population: Patients whose governing oncology protocol or approved label specifies a dose in mg/m².
+setting: Oncology prescribing support after protocol, drug, cycle, organ function, and toxicity review.
+assessmentTiming: Current protocol dose, patient BSA, and any explicitly authorized cap or reduction.
+endpoint: Pre-reduction and final arithmetic dose in mg with cap and reduction provenance.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:chemo_dose_bsa:2026-07-16
+    calculatorId: chemo_dose_bsa
+    model: Protocol-specified BSA-based systemic therapy dose arithmetic
+    variant: caller_supplied_mg_per_m2_with_explicit_cap_and_reduction
+    searchedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    sources:
+      - id: search:chemo_dose_bsa:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline_dosing
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: '"body surface area"[Title] AND (chemotherapy[Title/Abstract] OR anticancer[Title/Abstract])
+          AND (dosing[Title/Abstract] OR dose[Title/Abstract]) AND (obes*[Title/Abstract] OR cap*[Title/Abstract])'
+        translationExposed: true
+        translatedQuery: Field-tagged query retained as entered; PubMed automatic term mapping was not invoked.
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 9
+        exportDigest: sha256:fbf54997c6a556590e5691f43d9aaacc0d522d0b1a9d61acfc4742d0b7b99ef8
+        stableCitationIds:
+          - PMID:41636852
+          - PMID:28453698
+          - PMID:28368442
+          - PMID:27502721
+          - PMID:19359030
+          - PMID:18922643
+          - PMID:15979816
+          - PMID:11437397
+          - PMID:11321664
+      - id: search:chemo_dose_bsa:derivation
+        sourceRole: derivation
+        authorityId: chemo_vandenbongard_2000
+        database: Primary or responsible-authority source
+        site: Clinical Pharmacokinetics
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          caller_supplied_mg_per_m2_with_explicit_cap_and_reduction
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - chemo_vandenbongard_2000
+      - id: search:chemo_dose_bsa:controlling_authority
+        sourceRole: controlling_authority
+        authorityId: chemo_fda_optimization_2024
+        database: Primary or responsible-authority source
+        site: U.S. Food and Drug Administration Oncology Center of Excellence
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          caller_supplied_mg_per_m2_with_explicit_cap_and_reduction
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - chemo_fda_optimization_2024
+      - id: search:chemo_dose_bsa:specialty_guidance
+        sourceRole: specialty_guidance
+        authorityId: bsa_asco_2021
+        database: Primary or responsible-authority source
+        site: American Society of Clinical Oncology
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          caller_supplied_mg_per_m2_with_explicit_cap_and_reduction
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bsa_asco_2021
+      - id: search:chemo_dose_bsa:approved_label
+        sourceRole: approved_label
+        authorityId: chemo_paclitaxel_label_2015
+        database: Primary or responsible-authority source
+        site: U.S. Food and Drug Administration
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          caller_supplied_mg_per_m2_with_explicit_cap_and_reduction
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - chemo_paclitaxel_label_2015
+      - id: search:chemo_dose_bsa:cap_policy
+        sourceRole: independent_numeric
+        authorityId: chemo_kmcc_bsa_cap_2024
+        database: Primary or responsible-authority source
+        site: Kent and Medway Cancer Collaborative
+        interface: direct document review
+        exactQuery: Exact current policy language for an explicitly selected 2.0 m² cytotoxic chemotherapy BSA cap
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - chemo_kmcc_bsa_cap_2024
+    accounting:
+      retrieved: 9
+      deduplicated: 9
+      screened: 9
+      fullTextAssessed: 0
+      excluded: 0
+      included: 0
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - { citationId: pmid:41636852, title: 'Impact of chemotherapy dose capping on treatment intensity and survival in early breast cancer patients with high body surface area.', disposition: excluded, exclusionReason: 'Recent single-center policy cohort; the current KMCC policy and ASCO guideline control the retained cap claims.', fullTextAssessed: false }
+      - { citationId: pmid:28453698, title: 'Reply to Higher rate of severe toxicities in obese patients receiving dose-dense chemotherapy according to unadjusted body surface area.', disposition: excluded, exclusionReason: 'Correspondence without a distinct retained dosing rule.', fullTextAssessed: false }
+      - { citationId: pmid:28368442, title: 'Reply to the letter to the editor Higher rate of severe toxicities in obese patients receiving dose-dense chemotherapy according to unadjusted body surface area.', disposition: excluded, exclusionReason: 'Correspondence without a distinct retained dosing rule.', fullTextAssessed: false }
+      - { citationId: pmid:27502721, title: 'Higher rate of severe toxicities in obese patients receiving dose-dense chemotherapy according to unadjusted body surface area.', disposition: excluded, exclusionReason: 'Regimen-specific toxicity analysis without a distinct generic calculator rule.', fullTextAssessed: false }
+      - { citationId: pmid:19359030, title: 'Chemotherapy toxicity in gynecologic cancer patients with a body surface area greater than 2 m2.', disposition: excluded, exclusionReason: 'Disease-specific toxicity cohort without a controlling cap policy.', fullTextAssessed: false }
+      - { citationId: pmid:18922643, title: 'Dosing chemotherapy in obese patients: actual versus assigned body surface area.', disposition: excluded, exclusionReason: 'Historical practice survey superseded for retained recommendations by ASCO guidance.', fullTextAssessed: false }
+      - { citationId: pmid:15979816, title: 'Obesity and dose individualization in cancer chemotherapy: the role of body surface area and body mass index.', disposition: excluded, exclusionReason: 'Review without a distinct retained protocol-specific cap rule.', fullTextAssessed: false }
+      - { citationId: pmid:11437397, title: 'Body surface area estimation in children using weight alone: application in paediatric oncology.', disposition: excluded, exclusionReason: 'Pediatric BSA estimation is outside this caller-supplied BSA calculator.', fullTextAssessed: false }
+      - { citationId: pmid:11321664, title: 'Effect of obesity on the leukocyte nadir in women treated with adjuvant cyclophosphamide, methotrexate, and fluorouracil dosed according to body surface area.', disposition: excluded, exclusionReason: 'Regimen-specific cohort without a distinct generic calculator rule.', fullTextAssessed: false }
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:chemo_dose_bsa:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and synonyms
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search paired with direct primary and responsible-authority review.
+      resolution: Resolved by retaining exact model and author terms, checking translation, screening every result,
+        chasing citations, and reviewing current authority and specialty sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline_dosing
+  - chemo_vandenbongard_2000
+  - chemo_fda_optimization_2024
+  - bsa_asco_2021
+  - chemo_paclitaxel_label_2015
+  - chemo_kmcc_bsa_cap_2024
+claims:
+  - id: claim:chemo_dose_bsa:calculator-model
+    kind: applicability
+    statement: Protocol-specified BSA-based systemic therapy dose arithmetic is limited to Patients whose
+      governing oncology protocol or approved label specifies a dose in mg/m². Oncology prescribing support
+      after protocol, drug, cycle, organ function, and toxicity review.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - chemo_fda_optimization_2024
+    locators:
+      - sourceId: chemo_fda_optimization_2024
+        locator: FDA final guidance, dosage optimization and intrinsic body-size factor sections.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad clinical limitations are descriptive; every
+      runtime-verifiable surface is separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:formula-implementation
+    kind: formula
+    statement: The calculator implements the source-bound Protocol-specified BSA-based systemic therapy dose
+      arithmetic arithmetic and declared final rounding.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - chemo_vandenbongard_2000
+    locators:
+      - sourceId: chemo_vandenbongard_2000
+        locator: "Clinical Pharmacokinetics 2000 abstract: conventional anticancer dose calculation based on BSA in
+          m²."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-1
+      - case:chemo_dose_bsa:ref-2
+      - case:chemo_dose_bsa:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:applicability-purpose
+    kind: applicability
+    statement: "Compute an individual chemotherapy drug dose from a protocol-specified mg/m² dose and the
+      patient's body surface area: calculated_dose = dose_per_m2 × BSA, then final_dose after any percentage
+      reduction. BSA is not capped unless the caller explicitly enables the protocol-specific 2.0 m² cap."
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - bsa_asco_2021
+    locators:
+      - sourceId: bsa_asco_2021
+        locator: "ASCO 2021 Recommendations 1-2: full body-size-based cytotoxic dosing; no routine obesity cap."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:applicability-exclusions
+    kind: exclusion
+    statement: Verify the regimen, body-size dosing policy, dose-reduction rationale, and final rounded dose with
+      oncology pharmacy. Do not enable the BSA cap unless the applicable protocol explicitly requires it.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - bsa_asco_2021
+    locators:
+      - sourceId: bsa_asco_2021
+        locator: "ASCO 2021 Recommendations 1-2: full body-size-based cytotoxic dosing; no routine obesity cap."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:input-dose_per_m2
+    kind: input
+    statement: Protocol-specified dose in mg/m².
+    covers:
+      - input:dose_per_m2
+    status: supported
+    sourceIds:
+      - chemo_paclitaxel_label_2015
+    locators:
+      - sourceId: chemo_paclitaxel_label_2015
+        locator: "Paclitaxel label Dosage and Administration and Clinical Studies: approved 135 and 175 mg/m²
+          examples."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-1
+      - case:chemo_dose_bsa:ref-2
+      - case:chemo_dose_bsa:ref-3
+      - case:chemo_dose_bsa:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:input-dose_per_m2-hard_limits
+    kind: input
+    statement: OathMCP rejects Dose per m² outside [0.1,10000] as a conservative operational envelope, not a
+      clinical cutoff.
+    covers:
+      - input:dose_per_m2:hard_limits
+    status: supported
+    sourceIds:
+      - chemo_paclitaxel_label_2015
+    locators:
+      - sourceId: chemo_paclitaxel_label_2015
+        locator: "Paclitaxel label Dosage and Administration and Clinical Studies: approved 135 and 175 mg/m²
+          examples."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:hard-dose_per_m2
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:input-dose_per_m2-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Dose per m² is outside [1,3000]; this is an operational
+      review prompt.
+    covers:
+      - input:dose_per_m2:plausibility
+    status: supported
+    sourceIds:
+      - chemo_paclitaxel_label_2015
+    locators:
+      - sourceId: chemo_paclitaxel_label_2015
+        locator: "Paclitaxel label Dosage and Administration and Clinical Studies: approved 135 and 175 mg/m²
+          examples."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:plausibility-dose_per_m2
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:input-bsa
+    kind: input
+    statement: Patient body surface area in m².
+    covers:
+      - input:bsa
+    status: supported
+    sourceIds:
+      - chemo_paclitaxel_label_2015
+    locators:
+      - sourceId: chemo_paclitaxel_label_2015
+        locator: "Paclitaxel label Dosage and Administration and Clinical Studies: approved 135 and 175 mg/m²
+          examples."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-1
+      - case:chemo_dose_bsa:ref-2
+      - case:chemo_dose_bsa:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:input-bsa-hard_limits
+    kind: input
+    statement: OathMCP rejects Body Surface Area outside [0.5,3] as a conservative operational envelope, not a
+      clinical cutoff.
+    covers:
+      - input:bsa:hard_limits
+    status: supported
+    sourceIds:
+      - chemo_paclitaxel_label_2015
+    locators:
+      - sourceId: chemo_paclitaxel_label_2015
+        locator: "Paclitaxel label Dosage and Administration and Clinical Studies: approved 135 and 175 mg/m²
+          examples."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:hard-bsa
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:input-dose_reduction
+    kind: input
+    statement: Percentage dose reduction (0 for full dose, e.g. 25 for a 25% reduction).
+    covers:
+      - input:dose_reduction
+    status: supported
+    sourceIds:
+      - chemo_paclitaxel_label_2015
+    locators:
+      - sourceId: chemo_paclitaxel_label_2015
+        locator: "Paclitaxel label Dosage and Administration and Clinical Studies: approved 135 and 175 mg/m²
+          examples."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-1
+      - case:chemo_dose_bsa:ref-2
+      - case:chemo_dose_bsa:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:input-dose_reduction-hard_limits
+    kind: input
+    statement: OathMCP rejects Dose Reduction outside [0,100] as a conservative operational envelope, not a
+      clinical cutoff.
+    covers:
+      - input:dose_reduction:hard_limits
+    status: supported
+    sourceIds:
+      - chemo_paclitaxel_label_2015
+    locators:
+      - sourceId: chemo_paclitaxel_label_2015
+        locator: "Paclitaxel label Dosage and Administration and Clinical Studies: approved 135 and 175 mg/m²
+          examples."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:hard-dose_reduction
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:default-dose_reduction
+    kind: default
+    statement: Dose Reduction defaults to 0 and remains visible in input provenance.
+    covers:
+      - default:dose_reduction
+    status: supported
+    sourceIds:
+      - chemo_paclitaxel_label_2015
+    locators:
+      - sourceId: chemo_paclitaxel_label_2015
+        locator: "Paclitaxel label Dosage and Administration and Clinical Studies: approved 135 and 175 mg/m²
+          examples."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:input-cap_bsa
+    kind: input
+    statement: Set true only when the applicable regimen explicitly caps BSA at 2.0 m².
+    covers:
+      - input:cap_bsa
+    status: supported
+    sourceIds:
+      - chemo_kmcc_bsa_cap_2024
+    locators:
+      - sourceId: chemo_kmcc_bsa_cap_2024
+        locator: KMCC BSA capping guidance v2, recommendation to cap cytotoxic chemotherapy BSA at 2.0 m² unless
+          the clinician specifies otherwise.
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-1
+      - case:chemo_dose_bsa:ref-2
+      - case:chemo_dose_bsa:ref-3
+      - case:chemo_dose_bsa:cap-boundary-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:default-cap_bsa
+    kind: default
+    statement: Apply Protocol BSA Cap defaults to false and remains visible in input provenance.
+    covers:
+      - default:cap_bsa
+    status: supported
+    sourceIds:
+      - bsa_asco_2021
+    locators:
+      - sourceId: bsa_asco_2021
+        locator: ASCO 2021 Recommendations 1-2, full body-size-based cytotoxic dosing and no routine obesity cap.
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-2
+      - case:chemo_dose_bsa:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:output-calculated_dose
+    kind: outcome
+    statement: Dose before any reduction, in mg, rounded to 1 decimal place.
+    covers:
+      - output:calculated_dose
+    status: supported
+    sourceIds:
+      - chemo_vandenbongard_2000
+    locators:
+      - sourceId: chemo_vandenbongard_2000
+        locator: "Clinical Pharmacokinetics 2000 abstract: conventional anticancer dose calculation based on BSA in
+          m²."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-1
+      - case:chemo_dose_bsa:ref-2
+      - case:chemo_dose_bsa:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:output-final_dose
+    kind: outcome
+    statement: Dose after any percentage reduction, in mg, rounded to 1 decimal place.
+    covers:
+      - output:final_dose
+    status: supported
+    sourceIds:
+      - chemo_vandenbongard_2000
+    locators:
+      - sourceId: chemo_vandenbongard_2000
+        locator: "Clinical Pharmacokinetics 2000 abstract: conventional anticancer dose calculation based on BSA in
+          m²."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-1
+      - case:chemo_dose_bsa:ref-2
+      - case:chemo_dose_bsa:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:output-bsa_used
+    kind: outcome
+    statement: The BSA value used after any explicitly requested cap, rounded to 2 decimal places.
+    covers:
+      - output:bsa_used
+    status: supported
+    sourceIds:
+      - chemo_vandenbongard_2000
+      - chemo_kmcc_bsa_cap_2024
+    locators:
+      - sourceId: chemo_vandenbongard_2000
+        locator: "Clinical Pharmacokinetics 2000 abstract: conventional anticancer dose calculation based on BSA in
+          m²."
+      - sourceId: chemo_kmcc_bsa_cap_2024
+        locator: KMCC BSA capping guidance v2, explicit 2.0 m² cap policy.
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-1
+      - case:chemo_dose_bsa:ref-2
+      - case:chemo_dose_bsa:ref-3
+      - case:chemo_dose_bsa:cap-boundary-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:output-bsa_was_capped
+    kind: outcome
+    statement: Whether the BSA was capped at 2.0 m².
+    covers:
+      - output:bsa_was_capped
+    status: supported
+    sourceIds:
+      - chemo_vandenbongard_2000
+      - chemo_kmcc_bsa_cap_2024
+    locators:
+      - sourceId: chemo_vandenbongard_2000
+        locator: "Clinical Pharmacokinetics 2000 abstract: conventional anticancer dose calculation based on BSA in
+          m²."
+      - sourceId: chemo_kmcc_bsa_cap_2024
+        locator: KMCC BSA capping guidance v2, explicit 2.0 m² cap policy.
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-1
+      - case:chemo_dose_bsa:ref-2
+      - case:chemo_dose_bsa:ref-3
+      - case:chemo_dose_bsa:cap-boundary-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:output-reduction_applied
+    kind: outcome
+    statement: The percentage dose reduction applied.
+    covers:
+      - output:reduction_applied
+    status: supported
+    sourceIds:
+      - chemo_vandenbongard_2000
+    locators:
+      - sourceId: chemo_vandenbongard_2000
+        locator: "Clinical Pharmacokinetics 2000 abstract: conventional anticancer dose calculation based on BSA in
+          m²."
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-1
+      - case:chemo_dose_bsa:ref-2
+      - case:chemo_dose_bsa:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:chemo_dose_bsa:warning-0
+    kind: warning
+    statement: BSA above 2.0 m² was capped at 2.0 m² for dosing.
+    covers:
+      - warning:0
+    status: supported
+    sourceIds:
+      - chemo_kmcc_bsa_cap_2024
+    locators:
+      - sourceId: chemo_kmcc_bsa_cap_2024
+        locator: KMCC BSA capping guidance v2, explicit 2.0 m² cap policy.
+    executable: true
+    scenarioIds:
+      - case:chemo_dose_bsa:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+cases:
+  - kind: reference
+    id: case:chemo_dose_bsa:ref-1
+    tags:
+      - calculator:chemo_dose_bsa:core
+      - calculator:chemo_dose_bsa:warning
+    inputs: &a1
+      dose_per_m2: 100
+      bsa: 2.5
+      dose_reduction: 0
+      cap_bsa: true
+    expected: &a2
+      calculated_dose: 200
+      final_dose: 200
+      bsa_used: 2
+      bsa_was_capped: true
+      reduction_applied: 0
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:chemo_dose_bsa:formula-implementation
+      - claim:chemo_dose_bsa:input-dose_per_m2
+      - claim:chemo_dose_bsa:input-bsa
+      - claim:chemo_dose_bsa:input-dose_reduction
+      - claim:chemo_dose_bsa:input-cap_bsa
+      - claim:chemo_dose_bsa:output-calculated_dose
+      - claim:chemo_dose_bsa:output-final_dose
+      - claim:chemo_dose_bsa:output-bsa_used
+      - claim:chemo_dose_bsa:output-bsa_was_capped
+      - claim:chemo_dose_bsa:output-reduction_applied
+      - claim:chemo_dose_bsa:warning-0
+    sourceIds:
+      - chemo_vandenbongard_2000
+      - chemo_paclitaxel_label_2015
+      - chemo_kmcc_bsa_cap_2024
+    witnesses:
+      - formula:implementation
+      - input:dose_per_m2
+      - input:bsa
+      - input:dose_reduction
+      - input:cap_bsa
+      - output:calculated_dose
+      - output:final_dose
+      - output:bsa_used
+      - output:bsa_was_capped
+      - output:reduction_applied
+      - warning:0
+    expectedWarnings: &a3
+      - BSA above 2.0 m² was capped at 2.0 m² for dosing.
+  - kind: reference
+    id: case:chemo_dose_bsa:ref-2
+    tags:
+      - calculator:chemo_dose_bsa:reference
+      - defaults
+    inputs:
+      dose_per_m2: 100
+      bsa: 1.8
+      dose_reduction: 25
+    expected:
+      calculated_dose: 180
+      final_dose: 135
+      bsa_used: 1.8
+      bsa_was_capped: false
+      reduction_applied: 25
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:chemo_dose_bsa:formula-implementation
+      - claim:chemo_dose_bsa:input-dose_per_m2
+      - claim:chemo_dose_bsa:input-bsa
+      - claim:chemo_dose_bsa:input-dose_reduction
+      - claim:chemo_dose_bsa:input-cap_bsa
+      - claim:chemo_dose_bsa:default-cap_bsa
+      - claim:chemo_dose_bsa:output-calculated_dose
+      - claim:chemo_dose_bsa:output-final_dose
+      - claim:chemo_dose_bsa:output-bsa_used
+      - claim:chemo_dose_bsa:output-bsa_was_capped
+      - claim:chemo_dose_bsa:output-reduction_applied
+    sourceIds:
+      - chemo_vandenbongard_2000
+      - chemo_paclitaxel_label_2015
+      - bsa_asco_2021
+      - chemo_kmcc_bsa_cap_2024
+    witnesses:
+      - formula:implementation
+      - input:dose_per_m2
+      - input:bsa
+      - input:dose_reduction
+      - input:cap_bsa
+      - default:cap_bsa
+      - output:calculated_dose
+      - output:final_dose
+      - output:bsa_used
+      - output:bsa_was_capped
+      - output:reduction_applied
+  - kind: reference
+    id: case:chemo_dose_bsa:ref-3
+    tags:
+      - calculator:chemo_dose_bsa:reference
+      - defaults
+    inputs:
+      dose_per_m2: 175
+      bsa: 1.9
+    expected:
+      calculated_dose: 332.5
+      final_dose: 332.5
+      bsa_used: 1.9
+      bsa_was_capped: false
+      reduction_applied: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:chemo_dose_bsa:formula-implementation
+      - claim:chemo_dose_bsa:input-dose_per_m2
+      - claim:chemo_dose_bsa:input-bsa
+      - claim:chemo_dose_bsa:input-dose_reduction
+      - claim:chemo_dose_bsa:default-dose_reduction
+      - claim:chemo_dose_bsa:input-cap_bsa
+      - claim:chemo_dose_bsa:default-cap_bsa
+      - claim:chemo_dose_bsa:output-calculated_dose
+      - claim:chemo_dose_bsa:output-final_dose
+      - claim:chemo_dose_bsa:output-bsa_used
+      - claim:chemo_dose_bsa:output-bsa_was_capped
+      - claim:chemo_dose_bsa:output-reduction_applied
+    sourceIds:
+      - chemo_vandenbongard_2000
+      - chemo_paclitaxel_label_2015
+      - bsa_asco_2021
+      - chemo_kmcc_bsa_cap_2024
+    witnesses:
+      - formula:implementation
+      - input:dose_per_m2
+      - input:bsa
+      - input:dose_reduction
+      - default:dose_reduction
+      - input:cap_bsa
+      - default:cap_bsa
+      - output:calculated_dose
+      - output:final_dose
+      - output:bsa_used
+      - output:bsa_was_capped
+      - output:reduction_applied
+  - kind: agent
+    id: case:chemo_dose_bsa:agent-purpose
+    tags:
+      - agent-applicability
+    inputs: *a1
+    expected: *a2
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:chemo_dose_bsa:applicability-purpose
+    sourceIds:
+      - bsa_asco_2021
+    witnesses:
+      - applicability:purpose
+    expectedWarnings: *a3
+  - kind: agent
+    id: case:chemo_dose_bsa:agent-exclusion
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      bsa: 2.5
+      dose_reduction: 0
+      cap_bsa: true
+    expected: {}
+    expectedBehavior: clarify
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:chemo_dose_bsa:applicability-exclusions
+      - claim:chemo_dose_bsa:input-dose_per_m2
+    sourceIds:
+      - bsa_asco_2021
+      - chemo_paclitaxel_label_2015
+    witnesses:
+      - applicability:exclusions
+      - input:dose_per_m2
+    expectedError:
+      code: MISSING_REQUIRED
+      field: dose_per_m2
+  - kind: edge
+    id: case:chemo_dose_bsa:hard-dose_per_m2
+    tags:
+      - hard-limits
+    inputs:
+      dose_per_m2: 0.09
+      bsa: 2.5
+      dose_reduction: 0
+      cap_bsa: true
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:chemo_dose_bsa:input-dose_per_m2-hard_limits
+    sourceIds:
+      - chemo_paclitaxel_label_2015
+    witnesses:
+      - input:dose_per_m2:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: dose_per_m2
+  - kind: edge
+    id: case:chemo_dose_bsa:plausibility-dose_per_m2
+    tags:
+      - plausibility
+    inputs:
+      dose_per_m2: 0.55
+      bsa: 2.5
+      dose_reduction: 0
+      cap_bsa: true
+    expected:
+      calculated_dose: 1.1
+      final_dose: 1.1
+      bsa_used: 2
+      bsa_was_capped: true
+      reduction_applied: 0
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:chemo_dose_bsa:input-dose_per_m2-plausibility
+    sourceIds:
+      - chemo_paclitaxel_label_2015
+    witnesses:
+      - input:dose_per_m2:plausibility
+    expectedWarnings:
+      - Dose per m² 0.55 is unusual (expected 1–3000).
+      - BSA above 2.0 m² was capped at 2.0 m² for dosing.
+  - kind: edge
+    id: case:chemo_dose_bsa:hard-bsa
+    tags:
+      - hard-limits
+    inputs:
+      dose_per_m2: 100
+      bsa: 0.45
+      dose_reduction: 0
+      cap_bsa: true
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:chemo_dose_bsa:input-bsa-hard_limits
+    sourceIds:
+      - chemo_paclitaxel_label_2015
+    witnesses:
+      - input:bsa:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: bsa
+  - kind: edge
+    id: case:chemo_dose_bsa:hard-dose_reduction
+    tags:
+      - hard-limits
+    inputs:
+      dose_per_m2: 100
+      bsa: 2.5
+      dose_reduction: -1
+      cap_bsa: true
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:chemo_dose_bsa:input-dose_reduction-hard_limits
+    sourceIds:
+      - chemo_paclitaxel_label_2015
+    witnesses:
+      - input:dose_reduction:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: dose_reduction
+  - kind: edge
+    id: case:chemo_dose_bsa:cap-boundary-2
+    tags: [interpretation-boundaries]
+    inputs: { dose_per_m2: 100, bsa: 2, dose_reduction: 0, cap_bsa: true }
+    expected: { calculated_dose: 200, final_dose: 200, bsa_used: 2, bsa_was_capped: false, reduction_applied: 0 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Exact protocol BSA cap boundary; the cap applies only above 2.0 m². }
+    claimIds: [claim:chemo_dose_bsa:input-cap_bsa, claim:chemo_dose_bsa:output-bsa_used,
+      claim:chemo_dose_bsa:output-bsa_was_capped]
+    sourceIds: [chemo_kmcc_bsa_cap_2024]
+    witnesses: [input:cap_bsa, output:bsa_used, output:bsa_was_capped]
+compatibilityNotes: []
+explicitBlockers: []

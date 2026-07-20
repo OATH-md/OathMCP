@@ -1,0 +1,1295 @@
+calculatorId: morse_fall_scale
+specVersion: 1.0.0
+clinicalModel: Original six-item Morse Fall Scale with AHRQ toolkit categories
+variant: morse_1989_six_item_adult_inpatient
+population: Adult inpatients undergoing fall-risk screening.
+setting: Hospital inpatient screening with locally validated prevention thresholds.
+assessmentTiming: At admission and when condition, treatment, or mobility changes according to local policy.
+endpoint: Six-item total from 0 to 125 with descriptive AHRQ toolkit categories; not an individual fall diagnosis.
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:morse_fall_scale:2026-07-16
+    calculatorId: morse_fall_scale
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:morse_fall_scale:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: '"Morse Fall Scale"[Title] AND (valid*[Title/Abstract] OR reliab*[Title/Abstract] OR predict*[Title/Abstract])'
+        translationExposed: true
+        translatedQuery: '"Morse Fall Scale"[Title] AND ("valid*"[Title/Abstract] OR "reliab*"[Title/Abstract] OR
+          "predict*"[Title/Abstract])'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 20
+        exportDigest: sha256:397f08274fb7c59d2916b48eaa6fab2c3e6991493fac16456794018ef23506f4
+        stableCitationIds:
+          - PMID:41944392
+          - PMID:41881948
+          - PMID:41819531
+          - PMID:41084899
+          - PMID:39236031
+          - PMID:38340434
+          - PMID:37915000
+          - PMID:37305899
+          - PMID:34964175
+          - PMID:34588316
+          - PMID:34407447
+          - PMID:28945714
+          - PMID:28225854
+          - PMID:27531001
+          - PMID:24601131
+          - PMID:24580973
+          - PMID:24124974
+          - PMID:24118515
+          - PMID:24112535
+          - PMID:16464453
+      - id: search:morse_fall_scale:morse_morse_1989
+        sourceRole: derivation
+        authorityId: morse_morse_1989
+        database: Primary or responsible-authority source
+        site: Canadian Journal on Aging
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for
+          morse_fall_scale
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - morse_morse_1989
+      - id: search:morse_fall_scale:morse_ahrq_toolkit_2026
+        sourceRole: controlling_authority
+        authorityId: morse_ahrq_toolkit_2026
+        database: Primary or responsible-authority source
+        site: AHRQ
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for
+          morse_fall_scale
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - morse_ahrq_toolkit_2026
+      - id: search:morse_fall_scale:morse_ahrq_psnet_2026
+        sourceRole: specialty_guidance
+        authorityId: morse_ahrq_psnet_2026
+        database: Primary or responsible-authority source
+        site: AHRQ PSNet
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for
+          morse_fall_scale
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - morse_ahrq_psnet_2026
+      - id: search:morse_fall_scale:morse_chow_2007
+        sourceRole: external_validation
+        authorityId: morse_chow_2007
+        database: Primary or responsible-authority source
+        site: International Journal of Nursing Studies
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for
+          morse_fall_scale
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - morse_chow_2007
+    accounting:
+      retrieved: 23
+      deduplicated: 23
+      screened: 23
+      fullTextAssessed: 4
+      excluded: 0
+      included: 4
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:41944392
+        title: "Predicting Falls With the Morse Fall Scale: A Retrospective Assessment at the Veterans Health Administration."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41881948
+        title: "Falls in Acute Care Patients-Exploring the Predictive Value of the Morse Fall Scale: A Retrospective Analysis."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41819531
+        title: Fall History is the Only Morse Fall Scale Item That Differentiates Nursing Home Residents Who Fall From Those Who
+          do Not.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41084899
+        title: A Real-World Study on the Morse Fall Scale and Clinical Judgment Method for Fall Risk in Adult Inpatients.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:39236031
+        title: "Re-evaluating the Morse Fall Scale in obstetrics and gynecology wards and determining optimal cut-off scores for
+          enhanced risk assessment: A retrospective survey."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:38340434
+        title: Rasch analysis of Morse Fall Scale among the older adults with cognitive impairment in nursing homes.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:37915000
+        title: "In-hospital fall prediction using machine learning algorithms and the Morse fall scale in patients with acute
+          stroke: a nested case-control study."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:37305899
+        title: Comparative Study of the Accuracy of At-Point Clinical Frailty Scale and Morse Fall Scale in Identifying
+          High-Risk Fall Patients among Hospitalized Adults.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:34964175
+        title: Validity of the Morse Fall Scale and the Johns Hopkins Fall Risk Assessment Tool for fall risk assessment in an
+          acute care setting.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:34588316
+        title: "Wilson Sims Fall Risk Assessment Tool Versus Morse Fall Scale in Psychogeriatric Inpatients: a Multicentre
+          Study."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:34407447
+        title: Combining the AM-PAC "6-Clicks" and the Morse Fall Scale to Predict Individuals at Risk for Falls in an Inpatient
+          Rehabilitation Hospital.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:28945714
+        title: "Autologous Stem Cell Transplantation: The Predictive Value of the Morse Fall Scale in Hospitalized Patients  ."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:28225854
+        title: Analysis of risk prediction capability and validity of Morse Fall Scale Brazilian version.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:27531001
+        title: Prognostic Utility of the Braden Scale and the Morse Fall Scale in Hospitalized Patients With Heart Failure.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:24601131
+        title: "[Morse Fall Scale: translation and transcultural adaptation for the Portuguese language]."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:24580973
+        title: The inter-rater reliability test of the modified Morse Fall Scale among patients ≥ 55 years old in an acute care
+          hospital in Singapore.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:24124974
+        title: Predicting falls using two instruments (the Hendrich Fall Risk Model and the Morse Fall Scale) in an acute care
+          setting in Lebanon.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:24118515
+        title: Evaluation of falls by inpatients in an acute care hospital in Korea using the Morse Fall Scale.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:24112535
+        title: Validity of the Morse Fall Scale implemented in an electronic medical record system.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: morse_chow_2007
+        title: "Evaluation of the Morse Fall Scale: applicability in Chinese hospital populations."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: morse_morse_1989
+        title: Development of a Scale to Identify the Fall-Prone Patient.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: morse_ahrq_toolkit_2026
+        title: "Preventing Falls in Hospitals: Tool 3H Morse Fall Scale."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: morse_ahrq_psnet_2026
+        title: Falling Through the Crack (in the Bedrails).
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:morse_fall_scale:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - score names and author synonyms
+        - derivation and external validation concepts
+        - assessment modifiers and applicability limits
+        - current authority and supersession
+      comments:
+        - The focused author/model query was paired with direct review of the primary score form, current responsible
+          authority, specialty guidance, and an external validation.
+      resolution: Resolved by retaining exact model and author terms, checking PubMed translation, screening every result,
+        chasing citations, and reviewing current authority sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+    model: Original six-item Morse Fall Scale with AHRQ toolkit categories
+    variant: morse_1989_six_item_adult_inpatient
+authoritySourceIds:
+  - pubmed_medline
+  - morse_morse_1989
+  - morse_ahrq_toolkit_2026
+  - morse_ahrq_psnet_2026
+  - morse_chow_2007
+claims:
+  - id: claim:morse_fall_scale:calculator:model
+    kind: applicability
+    statement: Original six-item Morse Fall Scale with AHRQ toolkit categories is scoped to Adult inpatients undergoing
+      fall-risk screening. Hospital inpatient screening with locally validated prevention thresholds.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - morse_ahrq_toolkit_2026
+      - morse_ahrq_psnet_2026
+      - morse_chow_2007
+    locators:
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+      - sourceId: morse_ahrq_psnet_2026
+        locator: Inpatient fall-risk assessment context and Morse item table.
+      - sourceId: morse_chow_2007
+        locator: "External rehabilitation-hospital validation: sensitivity, specificity, and reliability."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad population scope are descriptive; every runtime-verifiable surface is
+      separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:formula:implementation
+    kind: formula
+    statement: The total is the exact sum of the cited score form component weights; a total is returned only when the
+      declared testability rules permit it.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+      - case:morse_fall_scale:ref-2
+      - case:morse_fall_scale:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:applicability:purpose
+    kind: applicability
+    statement: Calculate the original six-item Morse Fall Scale for an adult inpatient and report the total with the AHRQ
+      toolkit's descriptive risk band.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - morse_ahrq_toolkit_2026
+      - morse_ahrq_psnet_2026
+      - morse_chow_2007
+    locators:
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+      - sourceId: morse_ahrq_psnet_2026
+        locator: Inpatient fall-risk assessment context and Morse item table.
+      - sourceId: morse_chow_2007
+        locator: "External rehabilitation-hospital validation: sensitivity, specificity, and reliability."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:applicability:exclusions
+    kind: exclusion
+    statement: A screening aid, not a diagnosis. Risk cut-off scores should be calibrated for each healthcare setting or
+      unit so fall-prevention strategies target those most at risk; operational thresholds vary by institution.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - morse_ahrq_toolkit_2026
+      - morse_ahrq_psnet_2026
+      - morse_chow_2007
+    locators:
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+      - sourceId: morse_ahrq_psnet_2026
+        locator: Inpatient fall-risk assessment context and Morse item table.
+      - sourceId: morse_chow_2007
+        locator: "External rehabilitation-hospital validation: sensitivity, specificity, and reliability."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:input:history_of_falling
+    kind: input
+    statement: "History of Falling: History of falling; immediate or within 3 months."
+    covers:
+      - input:history_of_falling
+    status: supported
+    sourceIds:
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+      - case:morse_fall_scale:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:input:history_of_falling:options
+    kind: input
+    statement: "History of Falling uses the closed cited option set: no=0, yes=25."
+    covers:
+      - input:history_of_falling:options
+    status: supported
+    sourceIds: &a1
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+      - case:morse_fall_scale:option-history_of_falling-no
+      - case:morse_fall_scale:option-history_of_falling-yes
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:input:secondary_diagnosis
+    kind: input
+    statement: "Secondary Diagnosis: More than one medical diagnosis listed on the chart."
+    covers:
+      - input:secondary_diagnosis
+    status: supported
+    sourceIds:
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:input:secondary_diagnosis:options
+    kind: input
+    statement: "Secondary Diagnosis uses the closed cited option set: no=0, yes=15."
+    covers:
+      - input:secondary_diagnosis:options
+    status: supported
+    sourceIds: &a2
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+      - case:morse_fall_scale:option-secondary_diagnosis-no
+      - case:morse_fall_scale:option-secondary_diagnosis-yes
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:input:ambulatory_aid
+    kind: input
+    statement: "Ambulatory Aid: Aid used for ambulation; furniture clutching scores highest."
+    covers:
+      - input:ambulatory_aid
+    status: supported
+    sourceIds:
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:input:ambulatory_aid:options
+    kind: input
+    statement: "Ambulatory Aid uses the closed cited option set: bed_rest_nurse_assist=0, crutches_cane_walker=15, furniture=30."
+    covers:
+      - input:ambulatory_aid:options
+    status: supported
+    sourceIds: &a3
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+      - case:morse_fall_scale:option-ambulatory_aid-bed_rest_nurse_assist
+      - case:morse_fall_scale:option-ambulatory_aid-crutches_cane_walker
+      - case:morse_fall_scale:option-ambulatory_aid-furniture
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:input:iv_heparin_lock
+    kind: input
+    statement: "IV/Heparin Lock: Intravenous apparatus or heparin lock in place."
+    covers:
+      - input:iv_heparin_lock
+    status: supported
+    sourceIds:
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:input:iv_heparin_lock:options
+    kind: input
+    statement: "IV/Heparin Lock uses the closed cited option set: no=0, yes=20."
+    covers:
+      - input:iv_heparin_lock:options
+    status: supported
+    sourceIds: &a4
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+      - case:morse_fall_scale:option-iv_heparin_lock-no
+      - case:morse_fall_scale:option-iv_heparin_lock-yes
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:input:gait_transferring
+    kind: input
+    statement: "Gait/Transferring: Gait and transferring ability."
+    covers:
+      - input:gait_transferring
+    status: supported
+    sourceIds:
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:input:gait_transferring:options
+    kind: input
+    statement: "Gait/Transferring uses the closed cited option set: normal_bedrest_immobile=0, weak=10, impaired=20."
+    covers:
+      - input:gait_transferring:options
+    status: supported
+    sourceIds: &a5
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+      - case:morse_fall_scale:option-gait_transferring-normal_bedrest_immobile
+      - case:morse_fall_scale:option-gait_transferring-weak
+      - case:morse_fall_scale:option-gait_transferring-impaired
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:input:mental_status
+    kind: input
+    statement: "Mental Status: Self-assessment of ability versus actual ability."
+    covers:
+      - input:mental_status
+    status: supported
+    sourceIds:
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:input:mental_status:options
+    kind: input
+    statement: "Mental Status uses the closed cited option set: oriented_to_own_ability=0, forgets_limitations=15."
+    covers:
+      - input:mental_status:options
+    status: supported
+    sourceIds: &a6
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+      - case:morse_fall_scale:option-mental_status-oriented_to_own_ability
+      - case:morse_fall_scale:option-mental_status-forgets_limitations
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:output:mfs_score
+    kind: outcome
+    statement: "MFS Score: Total Morse Fall Scale score (0-125)."
+    covers:
+      - output:mfs_score
+    status: supported
+    sourceIds:
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    locators:
+      - sourceId: morse_morse_1989
+        locator: "Development paper: six variables, discriminant weights, and validation split."
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:ref-1
+      - case:morse_fall_scale:ref-2
+      - case:morse_fall_scale:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:band:calculator:0
+    kind: band
+    statement: ">45: Score above 45 (high risk in the AHRQ toolkit); apply a locally validated fall-risk policy rather than
+      inferring an intervention from the score alone."
+    covers:
+      - band:calculator:0
+    status: supported
+    sourceIds:
+      - morse_ahrq_toolkit_2026
+      - morse_chow_2007
+    locators:
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+      - sourceId: morse_chow_2007
+        locator: "External rehabilitation-hospital validation: sensitivity, specificity, and reliability."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:band-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:band:calculator:1
+    kind: band
+    statement: ">=25: Score 25-45 (moderate risk in the AHRQ toolkit); apply a locally validated fall-risk policy."
+    covers:
+      - band:calculator:1
+    status: supported
+    sourceIds:
+      - morse_ahrq_toolkit_2026
+      - morse_chow_2007
+    locators:
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+      - sourceId: morse_chow_2007
+        locator: "External rehabilitation-hospital validation: sensitivity, specificity, and reliability."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:band-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:morse_fall_scale:band:calculator:2
+    kind: band
+    statement: "<25: Score below 25 in this implementation; a low score does not establish absence of fall risk."
+    covers:
+      - band:calculator:2
+    status: supported
+    sourceIds:
+      - morse_ahrq_toolkit_2026
+      - morse_chow_2007
+    locators:
+      - sourceId: morse_ahrq_toolkit_2026
+        locator: "Preventing Falls in Hospitals, Tool 3H table: exact item weights, <25, 25-45, >45 categories, and local-cutoff
+          footnote."
+      - sourceId: morse_chow_2007
+        locator: "External rehabilitation-hospital validation: sensitivity, specificity, and reliability."
+    executable: true
+    scenarioIds:
+      - case:morse_fall_scale:band-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:morse_fall_scale:ref-1
+    kind: reference
+    tags:
+      - source-reference
+      - calculator:morse_fall_scale:core
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:morse_fall_scale:formula:implementation
+      - claim:morse_fall_scale:output:mfs_score
+      - claim:morse_fall_scale:input:history_of_falling
+      - claim:morse_fall_scale:input:history_of_falling:options
+      - claim:morse_fall_scale:input:secondary_diagnosis
+      - claim:morse_fall_scale:input:secondary_diagnosis:options
+      - claim:morse_fall_scale:input:ambulatory_aid
+      - claim:morse_fall_scale:input:ambulatory_aid:options
+      - claim:morse_fall_scale:input:iv_heparin_lock
+      - claim:morse_fall_scale:input:iv_heparin_lock:options
+      - claim:morse_fall_scale:input:gait_transferring
+      - claim:morse_fall_scale:input:gait_transferring:options
+      - claim:morse_fall_scale:input:mental_status
+      - claim:morse_fall_scale:input:mental_status:options
+    sourceIds:
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    witnesses:
+      - formula:implementation
+      - output:mfs_score
+      - input:history_of_falling
+      - input:history_of_falling:options
+      - input:secondary_diagnosis
+      - input:secondary_diagnosis:options
+      - input:ambulatory_aid
+      - input:ambulatory_aid:options
+      - input:iv_heparin_lock
+      - input:iv_heparin_lock:options
+      - input:gait_transferring
+      - input:gait_transferring:options
+      - input:mental_status
+      - input:mental_status:options
+  - id: case:morse_fall_scale:ref-2
+    kind: reference
+    tags:
+      - source-reference
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: yes
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: weak
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 25
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:morse_fall_scale:formula:implementation
+      - claim:morse_fall_scale:output:mfs_score
+    sourceIds:
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    witnesses:
+      - formula:implementation
+      - output:mfs_score
+  - id: case:morse_fall_scale:ref-3
+    kind: reference
+    tags:
+      - source-reference
+    inputs:
+      history_of_falling: yes
+      secondary_diagnosis: yes
+      ambulatory_aid: furniture
+      iv_heparin_lock: yes
+      gait_transferring: impaired
+      mental_status: forgets_limitations
+    expected:
+      mfs_score: 125
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:morse_fall_scale:formula:implementation
+      - claim:morse_fall_scale:output:mfs_score
+    sourceIds:
+      - morse_morse_1989
+      - morse_ahrq_toolkit_2026
+    witnesses:
+      - formula:implementation
+      - output:mfs_score
+  - id: case:morse_fall_scale:agent-purpose
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:morse_fall_scale:applicability:purpose
+    sourceIds:
+      - morse_ahrq_toolkit_2026
+      - morse_ahrq_psnet_2026
+      - morse_chow_2007
+    witnesses:
+      - applicability:purpose
+  - id: case:morse_fall_scale:agent-exclusion
+    kind: agent
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: history_of_falling
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:morse_fall_scale:applicability:exclusions
+      - claim:morse_fall_scale:input:history_of_falling
+    sourceIds:
+      - morse_ahrq_toolkit_2026
+      - morse_ahrq_psnet_2026
+      - morse_chow_2007
+      - morse_morse_1989
+    witnesses:
+      - applicability:exclusions
+      - input:history_of_falling
+  - id: case:morse_fall_scale:band-1
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      history_of_falling: yes
+      secondary_diagnosis: yes
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: weak
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 50
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mfs_score
+        code: morse_fall_scale_band_1
+        kind: status
+        label: Score above 45 (high risk in the AHRQ toolkit); apply a locally validated fall-risk policy rather than inferring
+          an intervention from the score alone.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:morse_fall_scale:band:calculator:0
+    sourceIds:
+      - morse_ahrq_toolkit_2026
+      - morse_chow_2007
+    witnesses:
+      - band:calculator:0
+  - id: case:morse_fall_scale:band-2
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: yes
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: weak
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 25
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mfs_score
+        code: morse_fall_scale_band_2
+        kind: status
+        label: Score 25-45 (moderate risk in the AHRQ toolkit); apply a locally validated fall-risk policy.
+        severity: borderline
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:morse_fall_scale:band:calculator:1
+    sourceIds:
+      - morse_ahrq_toolkit_2026
+      - morse_chow_2007
+    witnesses:
+      - band:calculator:1
+  - id: case:morse_fall_scale:band-3
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mfs_score
+        code: morse_fall_scale_band_3
+        kind: status
+        label: Score below 25 in this implementation; a low score does not establish absence of fall risk.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:morse_fall_scale:band:calculator:2
+    sourceIds:
+      - morse_ahrq_toolkit_2026
+      - morse_chow_2007
+    witnesses:
+      - band:calculator:2
+  - id: case:morse_fall_scale:option-history_of_falling-no
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:history_of_falling:options
+    sourceIds: *a1
+    witnesses:
+      - input:history_of_falling:options
+  - id: case:morse_fall_scale:option-history_of_falling-yes
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: yes
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 25
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:history_of_falling:options
+    sourceIds: *a1
+    witnesses:
+      - input:history_of_falling:options
+  - id: case:morse_fall_scale:option-secondary_diagnosis-no
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:secondary_diagnosis:options
+    sourceIds: *a2
+    witnesses:
+      - input:secondary_diagnosis:options
+  - id: case:morse_fall_scale:option-secondary_diagnosis-yes
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: yes
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 15
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:secondary_diagnosis:options
+    sourceIds: *a2
+    witnesses:
+      - input:secondary_diagnosis:options
+  - id: case:morse_fall_scale:option-ambulatory_aid-bed_rest_nurse_assist
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:ambulatory_aid:options
+    sourceIds: *a3
+    witnesses:
+      - input:ambulatory_aid:options
+  - id: case:morse_fall_scale:option-ambulatory_aid-crutches_cane_walker
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: crutches_cane_walker
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 15
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:ambulatory_aid:options
+    sourceIds: *a3
+    witnesses:
+      - input:ambulatory_aid:options
+  - id: case:morse_fall_scale:option-ambulatory_aid-furniture
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: furniture
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 30
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:ambulatory_aid:options
+    sourceIds: *a3
+    witnesses:
+      - input:ambulatory_aid:options
+  - id: case:morse_fall_scale:option-iv_heparin_lock-no
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:iv_heparin_lock:options
+    sourceIds: *a4
+    witnesses:
+      - input:iv_heparin_lock:options
+  - id: case:morse_fall_scale:option-iv_heparin_lock-yes
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: yes
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 20
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:iv_heparin_lock:options
+    sourceIds: *a4
+    witnesses:
+      - input:iv_heparin_lock:options
+  - id: case:morse_fall_scale:option-gait_transferring-normal_bedrest_immobile
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:gait_transferring:options
+    sourceIds: *a5
+    witnesses:
+      - input:gait_transferring:options
+  - id: case:morse_fall_scale:option-gait_transferring-weak
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: weak
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:gait_transferring:options
+    sourceIds: *a5
+    witnesses:
+      - input:gait_transferring:options
+  - id: case:morse_fall_scale:option-gait_transferring-impaired
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: impaired
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 20
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:gait_transferring:options
+    sourceIds: *a5
+    witnesses:
+      - input:gait_transferring:options
+  - id: case:morse_fall_scale:option-mental_status-oriented_to_own_ability
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: oriented_to_own_ability
+    expected:
+      mfs_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:mental_status:options
+    sourceIds: *a6
+    witnesses:
+      - input:mental_status:options
+  - id: case:morse_fall_scale:option-mental_status-forgets_limitations
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      history_of_falling: no
+      secondary_diagnosis: no
+      ambulatory_aid: bed_rest_nurse_assist
+      iv_heparin_lock: no
+      gait_transferring: normal_bedrest_immobile
+      mental_status: forgets_limitations
+    expected:
+      mfs_score: 15
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:morse_fall_scale:input:mental_status:options
+    sourceIds: *a6
+    witnesses:
+      - input:mental_status:options
+compatibilityNotes: []
+explicitBlockers: []

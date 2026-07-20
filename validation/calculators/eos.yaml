@@ -1,0 +1,1093 @@
+calculatorId: eos
+specVersion: 2.0.0
+clinicalModel: Kaiser neonatal early-onset sepsis models (2017 original and 2024 update)
+variant: explicit_kaiser_2017_or_2024
+population: Infants born at 35 weeks gestation or later; the 2024 model assumes universal antenatal GBS screening.
+setting: Birth-hospital neonatal early-onset sepsis risk assessment with local baseline incidence.
+assessmentTiming: At birth, then after classification of the infant's clinical appearance.
+endpoint: Predicted culture-confirmed early-onset sepsis cases per 1000 live births and model-specific care recommendation.
+reviewGroup: policy_versioned
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:eos:2026-07-16
+    calculatorId: eos
+    model: Kaiser neonatal early-onset sepsis models (2017 original and 2024 update)
+    variant: explicit_kaiser_2017_or_2024
+    searchedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    sources:
+      - id: search:eos:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline_policy
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web search
+        exactQuery: ("early-onset sepsis calculator"[Title/Abstract] OR "neonatal sepsis calculator"[Title/Abstract]) AND
+          (Kaiser[Title/Abstract] OR Kuzniewicz[Author]) AND (model[Title/Abstract] OR validat*[Title/Abstract])
+        translationExposed: true
+        translatedQuery: ("early-onset sepsis calculator"[Title/Abstract] OR "neonatal sepsis calculator"[Title/Abstract]) AND
+          ("Kaiser"[Title/Abstract] OR Kuzniewicz[Author]) AND ("model"[Title/Abstract] OR "validat*"[Title/Abstract])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 5
+        stableCitationIds:
+          - PMID:39314183
+          - PMID:37827729
+          - PMID:34040919
+          - PMID:31745517
+          - PMID:31569094
+      - id: search:eos:eos_kuzniewicz_2017_2024
+        sourceRole: derivation
+        authorityId: eos_kuzniewicz_2017_2024
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for eos
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID:39314183; PMID:28114554
+      - id: search:eos:eos_technical_assessment_2021
+        sourceRole: external_validation
+        authorityId: eos_technical_assessment_2021
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for eos
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID:33129425
+      - id: search:eos:eos_aap_2018
+        sourceRole: controlling_authority
+        authorityId: eos_aap_2018
+        database: Primary or responsible-authority source
+        site: publications.aap.org
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for eos
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - AAP:e20182894
+      - id: search:eos:eos_acog_2020
+        sourceRole: specialty_guidance
+        authorityId: eos_acog_2020
+        database: Primary or responsible-authority source
+        site: www.acog.org
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for eos
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - ACOG:CO797
+      - id: search:eos:eos_acog_term_2013
+        sourceRole: specialty_guidance
+        authorityId: eos_acog_term_2013
+        database: Primary or responsible-authority source
+        site: www.acog.org
+        interface: direct document review
+        exactQuery: ACOG definition of term pregnancy and the exact gestational age at which postterm begins
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - ACOG:CO579
+      - id: search:eos:eos_kaiser_2024_release
+        sourceRole: data_release
+        authorityId: eos_kaiser_2024_release
+        database: Primary or responsible-authority source
+        site: neonatalsepsiscalculator.kaiserpermanente.org
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for eos
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - KAISER:EOS:2024
+    accounting:
+      retrieved: 5
+      deduplicated: 5
+      screened: 5
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID-based deduplication of the exact PubMed export; citation-chased derivation records and direct operator/authority records are listed separately under sources and are not counted as PubMed retrievals.
+      tool: PubMed exact-query export plus separately documented citation chasing and direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: eos_kuzniewicz_2017_2024
+        title: "Update to the Neonatal Early-Onset Sepsis Calculator Utilizing a Contemporary Cohort."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:37827729
+        title: "Kaiser Permanente early-onset sepsis calculator as a safe tool for reducing antibiotic use among chorioamnionitis-exposed term neonates: Qatar experience."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:34040919
+        title: "Use of Early-Onset Sepsis Risk Calculator for Neonates ≥ 34 Weeks in a Large Tertiary Neonatal Centre, Saudi Arabia."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:31745517
+        title: "Utilization of a Neonatal Early-Onset Sepsis Calculator to Guide Initial Newborn Management."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:31569094
+        title: "Implementation of the Neonatal Sepsis Calculator in Early-Onset Sepsis and Maternal Chorioamnionitis."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:eos:pubmed
+      checklist:
+        - Concept coverage
+        - Controlled vocabulary and text words
+        - Boolean logic
+        - Limits and reproducibility
+        - Exact model/variant, endpoint, data-release, and currentness specificity
+      comments:
+        - The exact PubMed query returned 5 unique PMID records; every result is represented in the title/abstract screening ledger above.
+        - PMID 28114554 and PMID 33129425 were identified by backward citation chasing and reviewed through their separate derivation/external-validation source records.
+      resolution: Exact query results, screening decisions, and counts were reconciled against the live PubMed export; citation-chased and direct operator/authority sources remain explicitly separate from the PubMed accounting.
+      resolved: true
+      reviewer: OathMCP independent search QA lane
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline_policy
+  - eos_kuzniewicz_2017_2024
+  - eos_technical_assessment_2021
+  - eos_aap_2018
+  - eos_acog_2020
+  - eos_acog_term_2013
+  - eos_kaiser_2024_release
+claims:
+  - id: claim:eos:calculator-model
+    kind: applicability
+    statement: eos implements only the exact clinical model, version, population, setting, endpoint, and data snapshot
+      declared in this dossier.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+      - eos_kaiser_2024_release
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: the original and updated model identities,
+          populations, endpoints, coefficients, and validation cohorts."
+      - sourceId: eos_kaiser_2024_release
+        locator: "Kaiser EOS Calculator 2.0 Model Update FAQ and version selector: responsible-operator identity of the 2024
+          model release and its coexistence with the original model."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is a source-governed scope assertion; every runtime-verifiable surface is covered
+      by separate executable claims.
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:formula-implementation
+    kind: formula
+    statement: eos combines the declared inputs using the cited coefficients, lookup rows, policy branches, bounds, and
+      rounding rules.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+      - case:eos:reference-original-culture-threshold
+      - case:eos:reference-original-clinical-illness
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:applicability-purpose
+    kind: applicability
+    statement: eos is limited to the cited population, assessment timing, setting, and endpoint.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - eos_aap_2018
+    locators:
+      - sourceId: eos_aap_2018
+        locator: "AAP Clinical Report e20182894, multivariate risk-assessment section: calculator use for infants born at or
+          above 35 weeks and the precedence of ongoing clinical assessment."
+    executable: true
+    scenarioIds:
+      - case:eos:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:applicability-exclusions
+    kind: applicability
+    statement: eos preserves the cited exclusions and does not turn a risk estimate into a treatment, acceptance, or
+      allocation directive.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - eos_aap_2018
+    locators:
+      - sourceId: eos_aap_2018
+        locator: "AAP Clinical Report e20182894, multivariate risk-assessment section: the multivariate estimate does not
+          replace immediate evaluation and treatment of a clinically ill infant."
+    executable: true
+    scenarioIds:
+      - case:eos:agent-exclusion-missing-context
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-model_version
+    kind: input
+    statement: eos uses the cited definition, role, timing, and domain for model_version.
+    covers:
+      - input:model_version
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+      - case:eos:agent-exclusion-missing-context
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-model_version-options
+    kind: input
+    statement: eos accepts only the source-defined finite option vocabulary for this input.
+    covers:
+      - input:model_version:options
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-baseline_incidence
+    kind: input
+    statement: eos uses the cited definition, role, timing, and domain for baseline_incidence.
+    covers:
+      - input:baseline_incidence
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-baseline_incidence-options
+    kind: input
+    statement: eos accepts only the source-defined finite option vocabulary for this input.
+    covers:
+      - input:baseline_incidence:options
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-temperature
+    kind: input
+    statement: eos uses the cited definition, role, timing, and domain for temperature.
+    covers:
+      - input:temperature
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-temperature-hard_limits
+    kind: input
+    statement: eos rejects values outside the declared operational safety envelope; this envelope is not a clinical decision
+      threshold.
+    covers:
+      - input:temperature:hard_limits
+    status: supported
+    sourceIds:
+      - eos_aap_2018
+    locators:
+      - sourceId: eos_aap_2018
+        locator: "AAP Clinical Report e20182894, multivariate risk-assessment section: calculator use is limited to infants born
+          at or above 35 weeks and must remain subordinate to clinical illness."
+    executable: true
+    scenarioIds:
+      - case:eos:hard-temperature
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-temperature-plausibility
+    kind: input
+    statement: eos warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:temperature:plausibility
+    status: supported
+    sourceIds:
+      - eos_aap_2018
+    locators:
+      - sourceId: eos_aap_2018
+        locator: "AAP Clinical Report e20182894, multivariate risk-assessment section: calculator use is limited to infants born
+          at or above 35 weeks and must remain subordinate to clinical illness."
+    executable: true
+    scenarioIds:
+      - case:eos:plausibility-temperature
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-rom_hours
+    kind: input
+    statement: eos uses the cited definition, role, timing, and domain for rom_hours.
+    covers:
+      - input:rom_hours
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-rom_hours-hard_limits
+    kind: input
+    statement: eos rejects values outside the declared operational safety envelope; this envelope is not a clinical decision
+      threshold.
+    covers:
+      - input:rom_hours:hard_limits
+    status: supported
+    sourceIds:
+      - eos_aap_2018
+    locators:
+      - sourceId: eos_aap_2018
+        locator: "AAP Clinical Report e20182894, multivariate risk-assessment section: calculator use is limited to infants born
+          at or above 35 weeks and must remain subordinate to clinical illness."
+    executable: true
+    scenarioIds:
+      - case:eos:hard-rom_hours
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-rom_hours-plausibility
+    kind: input
+    statement: eos warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:rom_hours:plausibility
+    status: supported
+    sourceIds:
+      - eos_aap_2018
+    locators:
+      - sourceId: eos_aap_2018
+        locator: "AAP Clinical Report e20182894, multivariate risk-assessment section: calculator use is limited to infants born
+          at or above 35 weeks and must remain subordinate to clinical illness."
+    executable: true
+    scenarioIds:
+      - case:eos:plausibility-rom_hours
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-gestational_age
+    kind: input
+    statement: eos uses the cited definition, role, timing, and domain for gestational_age.
+    covers:
+      - input:gestational_age
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-gestational_age-hard_limits
+    kind: input
+    statement: eos rejects values outside the declared operational safety envelope; this envelope is not a clinical decision
+      threshold.
+    covers:
+      - input:gestational_age:hard_limits
+    status: supported
+    sourceIds:
+      - eos_aap_2018
+      - eos_kaiser_2024_release
+    locators:
+      - sourceId: eos_aap_2018
+        locator: "AAP Clinical Report e20182894, multivariate risk-assessment section: the calculator population begins at 35
+          weeks."
+      - sourceId: eos_kaiser_2024_release
+        locator: "Live Kaiser EOS calculator gestational-age input contract: accepted values extend through 43 completed weeks."
+    executable: true
+    scenarioIds:
+      - case:eos:hard-gestational_age
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-gestational_age-plausibility
+    kind: input
+    statement: eos warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:gestational_age:plausibility
+    status: supported
+    sourceIds:
+      - eos_acog_term_2013
+    locators:
+      - sourceId: eos_acog_term_2013
+        locator: "ACOG Committee Opinion 579, Box 1: late term is 41 0/7 through 41 6/7 weeks and postterm begins at 42 0/7
+          weeks; values above 42 are retained by the operator range but flagged for verification."
+    executable: true
+    scenarioIds:
+      - case:eos:plausibility-gestational_age
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-antibiotic_status
+    kind: input
+    statement: eos uses the cited definition, role, timing, and domain for antibiotic_status.
+    covers:
+      - input:antibiotic_status
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-antibiotic_status-options
+    kind: input
+    statement: eos accepts only the source-defined finite option vocabulary for this input.
+    covers:
+      - input:antibiotic_status:options
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-gbs_status
+    kind: input
+    statement: eos uses the cited definition, role, timing, and domain for gbs_status.
+    covers:
+      - input:gbs_status
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-gbs_status-options
+    kind: input
+    statement: eos accepts only the source-defined finite option vocabulary for this input.
+    covers:
+      - input:gbs_status:options
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-clinical_appearance
+    kind: input
+    statement: eos uses the cited definition, role, timing, and domain for clinical_appearance.
+    covers:
+      - input:clinical_appearance
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:input-clinical_appearance-options
+    kind: input
+    statement: eos accepts only the source-defined finite option vocabulary for this input.
+    covers:
+      - input:clinical_appearance:options
+    status: supported
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+    locators:
+      - sourceId: eos_kuzniewicz_2017_2024
+        locator: "Kuzniewicz 2017 equation/supplement and Kuzniewicz 2024 Table 2: model population, coefficients, likelihood
+          ratios, and validation cohorts."
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:output-risk_at_birth_per_1000
+    kind: outcome
+    statement: eos returns risk_at_birth_per_1000 with the cited meaning, version, units, and rounding.
+    covers:
+      - output:risk_at_birth_per_1000
+    status: supported
+    sourceIds:
+      - eos_kaiser_2024_release
+    locators:
+      - sourceId: eos_kaiser_2024_release
+        locator: 2024 Model Update FAQ coefficient/intercept/LR tables, downloadable workbook, recommendation thresholds, and
+          EMR implementation notes.
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+      - case:eos:reference-original-culture-threshold
+      - case:eos:reference-original-clinical-illness
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:output-composite_risk_per_1000
+    kind: outcome
+    statement: eos returns composite_risk_per_1000 with the cited meaning, version, units, and rounding.
+    covers:
+      - output:composite_risk_per_1000
+    status: supported
+    sourceIds:
+      - eos_kaiser_2024_release
+    locators:
+      - sourceId: eos_kaiser_2024_release
+        locator: 2024 Model Update FAQ coefficient/intercept/LR tables, downloadable workbook, recommendation thresholds, and
+          EMR implementation notes.
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+      - case:eos:reference-original-culture-threshold
+      - case:eos:reference-original-clinical-illness
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:output-clinical_recommendation
+    kind: outcome
+    statement: eos returns clinical_recommendation with the cited meaning, version, units, and rounding.
+    covers:
+      - output:clinical_recommendation
+    status: supported
+    sourceIds:
+      - eos_kaiser_2024_release
+    locators:
+      - sourceId: eos_kaiser_2024_release
+        locator: 2024 Model Update FAQ coefficient/intercept/LR tables, downloadable workbook, recommendation thresholds, and
+          EMR implementation notes.
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+      - case:eos:reference-original-culture-threshold
+      - case:eos:reference-original-clinical-illness
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:output-birth_vitals_recommendation
+    kind: outcome
+    statement: eos returns birth_vitals_recommendation with the cited meaning, version, units, and rounding.
+    covers:
+      - output:birth_vitals_recommendation
+    status: supported
+    sourceIds:
+      - eos_kaiser_2024_release
+    locators:
+      - sourceId: eos_kaiser_2024_release
+        locator: 2024 Model Update FAQ coefficient/intercept/LR tables, downloadable workbook, recommendation thresholds, and
+          EMR implementation notes.
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:output-vitals_recommendation
+    kind: outcome
+    statement: eos returns vitals_recommendation with the cited meaning, version, units, and rounding.
+    covers:
+      - output:vitals_recommendation
+    status: supported
+    sourceIds:
+      - eos_kaiser_2024_release
+    locators:
+      - sourceId: eos_kaiser_2024_release
+        locator: 2024 Model Update FAQ coefficient/intercept/LR tables, downloadable workbook, recommendation thresholds, and
+          EMR implementation notes.
+    executable: true
+    scenarioIds:
+      - case:eos:reference-updated-workbook
+      - case:eos:reference-original-culture-threshold
+      - case:eos:reference-original-clinical-illness
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:eos:warning-0
+    kind: warning
+    statement: eos emits the source- or policy-linked warning for warning:0 without hiding the underlying input or adjustment.
+    covers:
+      - warning:0
+    status: supported
+    sourceIds:
+      - eos_kaiser_2024_release
+    locators:
+      - sourceId: eos_kaiser_2024_release
+        locator: 2024 Model Update FAQ coefficient/intercept/LR tables, downloadable workbook, recommendation thresholds, and
+          EMR implementation notes.
+    executable: true
+    scenarioIds:
+      - case:eos:clinical-illness-warning
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+cases:
+  - kind: reference
+    id: case:eos:reference-updated-workbook
+    tags:
+      - calculator:eos:core
+    inputs:
+      model_version: updated_2024_universal_gbs
+      baseline_incidence: "0.3"
+      temperature: 37.22222222222222
+      rom_hours: 16
+      gestational_age: 40.42857142857143
+      antibiotic_status: gbs_specific_ge_2h_or_any_2_to_4h
+      gbs_status: negative
+      clinical_appearance: well_appearing
+    expected:
+      risk_at_birth_per_1000: 0.033
+      composite_risk_per_1000: 0.012
+      clinical_recommendation: No additional care
+      birth_vitals_recommendation: Routine vitals
+      vitals_recommendation: Routine vitals
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Frozen source-derived expectation after applying the calculator declared rounding and lookup rules.
+    witnesses:
+      - formula:implementation
+      - input:model_version
+      - input:model_version:options
+      - input:baseline_incidence
+      - input:baseline_incidence:options
+      - input:temperature
+      - input:rom_hours
+      - input:gestational_age
+      - input:antibiotic_status
+      - input:antibiotic_status:options
+      - input:gbs_status
+      - input:gbs_status:options
+      - input:clinical_appearance
+      - input:clinical_appearance:options
+      - output:risk_at_birth_per_1000
+      - output:composite_risk_per_1000
+      - output:clinical_recommendation
+      - output:birth_vitals_recommendation
+      - output:vitals_recommendation
+    claimIds:
+      - claim:eos:formula-implementation
+      - claim:eos:input-model_version
+      - claim:eos:input-model_version-options
+      - claim:eos:input-baseline_incidence
+      - claim:eos:input-baseline_incidence-options
+      - claim:eos:input-temperature
+      - claim:eos:input-rom_hours
+      - claim:eos:input-gestational_age
+      - claim:eos:input-antibiotic_status
+      - claim:eos:input-antibiotic_status-options
+      - claim:eos:input-gbs_status
+      - claim:eos:input-gbs_status-options
+      - claim:eos:input-clinical_appearance
+      - claim:eos:input-clinical_appearance-options
+      - claim:eos:output-risk_at_birth_per_1000
+      - claim:eos:output-composite_risk_per_1000
+      - claim:eos:output-clinical_recommendation
+      - claim:eos:output-birth_vitals_recommendation
+      - claim:eos:output-vitals_recommendation
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+      - eos_kaiser_2024_release
+  - kind: reference
+    id: case:eos:reference-original-culture-threshold
+    tags:
+      - calculator:eos:reference
+    inputs:
+      model_version: original_2017_nonuniversal_gbs
+      baseline_incidence: "0.6"
+      temperature: 38.5
+      rom_hours: 15
+      gestational_age: 38
+      antibiotic_status: none
+      gbs_status: positive
+      clinical_appearance: well_appearing
+    expected:
+      risk_at_birth_per_1000: 4.347
+      composite_risk_per_1000: 1.787
+      clinical_recommendation: Obtain blood culture, no empiric antibiotics
+      vitals_recommendation: Vitals every 4 hours for 24 hours
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - formula:implementation
+      - output:risk_at_birth_per_1000
+      - output:composite_risk_per_1000
+      - output:clinical_recommendation
+      - output:vitals_recommendation
+    claimIds:
+      - claim:eos:formula-implementation
+      - claim:eos:output-risk_at_birth_per_1000
+      - claim:eos:output-composite_risk_per_1000
+      - claim:eos:output-clinical_recommendation
+      - claim:eos:output-vitals_recommendation
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+      - eos_kaiser_2024_release
+  - kind: reference
+    id: case:eos:reference-original-clinical-illness
+    tags:
+      - calculator:eos:reference
+    inputs:
+      model_version: original_2017_nonuniversal_gbs
+      baseline_incidence: "0.3"
+      temperature: 38.5
+      rom_hours: 18
+      gestational_age: 40
+      antibiotic_status: none
+      gbs_status: positive
+      clinical_appearance: clinical_illness
+    expected:
+      risk_at_birth_per_1000: 1.954
+      composite_risk_per_1000: 39.859
+      clinical_recommendation: Empiric antibiotics
+      vitals_recommendation: Vitals in NICU
+    expectedBehavior: warn
+    expectedWarnings:
+      - Clinical illness is a high-risk state; do not use a low numerical EOS estimate to delay immediate evaluation and
+        treatment.
+    tolerance: *a1
+    witnesses:
+      - formula:implementation
+      - output:risk_at_birth_per_1000
+      - output:composite_risk_per_1000
+      - output:clinical_recommendation
+      - output:vitals_recommendation
+    claimIds:
+      - claim:eos:formula-implementation
+      - claim:eos:output-risk_at_birth_per_1000
+      - claim:eos:output-composite_risk_per_1000
+      - claim:eos:output-clinical_recommendation
+      - claim:eos:output-vitals_recommendation
+    sourceIds:
+      - eos_kuzniewicz_2017_2024
+      - eos_kaiser_2024_release
+  - kind: agent
+    id: case:eos:agent-exclusion-missing-context
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      baseline_incidence: "0.3"
+      temperature: 37.22222222222222
+      rom_hours: 16
+      gestational_age: 40.42857142857143
+      antibiotic_status: gbs_specific_ge_2h_or_any_2_to_4h
+      gbs_status: negative
+      clinical_appearance: well_appearing
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: model_version
+      messageIncludes: EOS Model Version is required.
+    tolerance: *a1
+    witnesses:
+      - applicability:exclusions
+      - input:model_version
+    claimIds:
+      - claim:eos:applicability-exclusions
+      - claim:eos:input-model_version
+    sourceIds:
+      - eos_aap_2018
+      - eos_kuzniewicz_2017_2024
+  - kind: agent
+    id: case:eos:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      model_version: updated_2024_universal_gbs
+      baseline_incidence: "0.3"
+      temperature: 37.22222222222222
+      rom_hours: 16
+      gestational_age: 40.42857142857143
+      antibiotic_status: gbs_specific_ge_2h_or_any_2_to_4h
+      gbs_status: negative
+      clinical_appearance: well_appearing
+    expected:
+      risk_at_birth_per_1000: 0.033
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - applicability:purpose
+    claimIds:
+      - claim:eos:applicability-purpose
+    sourceIds:
+      - eos_aap_2018
+  - kind: edge
+    id: case:eos:hard-temperature
+    tags:
+      - hard-limits
+    inputs:
+      model_version: updated_2024_universal_gbs
+      baseline_incidence: "0.3"
+      temperature: 43
+      rom_hours: 16
+      gestational_age: 40.42857142857143
+      antibiotic_status: gbs_specific_ge_2h_or_any_2_to_4h
+      gbs_status: negative
+      clinical_appearance: well_appearing
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: temperature
+      messageIncludes: Maternal Temperature 43 is outside physiological limits [34, 42].
+    tolerance: *a1
+    witnesses:
+      - input:temperature:hard_limits
+    claimIds:
+      - claim:eos:input-temperature-hard_limits
+    sourceIds:
+      - eos_aap_2018
+  - kind: edge
+    id: case:eos:plausibility-temperature
+    tags:
+      - plausibility
+    inputs:
+      model_version: updated_2024_universal_gbs
+      baseline_incidence: "0.3"
+      temperature: 41.5
+      rom_hours: 16
+      gestational_age: 40.42857142857143
+      antibiotic_status: gbs_specific_ge_2h_or_any_2_to_4h
+      gbs_status: negative
+      clinical_appearance: well_appearing
+    expected:
+      risk_at_birth_per_1000: 22.855
+    expectedBehavior: warn
+    expectedWarnings:
+      - Maternal Temperature 41.5 is unusual (expected 36–41).
+    tolerance: *a1
+    witnesses:
+      - input:temperature:plausibility
+    claimIds:
+      - claim:eos:input-temperature-plausibility
+    sourceIds:
+      - eos_aap_2018
+  - kind: edge
+    id: case:eos:hard-rom_hours
+    tags:
+      - hard-limits
+    inputs:
+      model_version: updated_2024_universal_gbs
+      baseline_incidence: "0.3"
+      temperature: 37.22222222222222
+      rom_hours: 242.4
+      gestational_age: 40.42857142857143
+      antibiotic_status: gbs_specific_ge_2h_or_any_2_to_4h
+      gbs_status: negative
+      clinical_appearance: well_appearing
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: rom_hours
+      messageIncludes: ROM Duration 242.4 is outside physiological limits [0, 240].
+    tolerance: *a1
+    witnesses:
+      - input:rom_hours:hard_limits
+    claimIds:
+      - claim:eos:input-rom_hours-hard_limits
+    sourceIds:
+      - eos_aap_2018
+  - kind: edge
+    id: case:eos:plausibility-rom_hours
+    tags:
+      - plausibility
+    inputs:
+      model_version: updated_2024_universal_gbs
+      baseline_incidence: "0.3"
+      temperature: 37.22222222222222
+      rom_hours: 156
+      gestational_age: 40.42857142857143
+      antibiotic_status: gbs_specific_ge_2h_or_any_2_to_4h
+      gbs_status: negative
+      clinical_appearance: well_appearing
+    expected:
+      risk_at_birth_per_1000: 0.079
+    expectedBehavior: warn
+    expectedWarnings:
+      - ROM Duration 156 is unusual (expected 0–72).
+    tolerance: *a1
+    witnesses:
+      - input:rom_hours:plausibility
+    claimIds:
+      - claim:eos:input-rom_hours-plausibility
+    sourceIds:
+      - eos_aap_2018
+  - kind: edge
+    id: case:eos:hard-gestational_age
+    tags:
+      - hard-limits
+    inputs:
+      model_version: updated_2024_universal_gbs
+      baseline_incidence: "0.3"
+      temperature: 37.22222222222222
+      rom_hours: 16
+      gestational_age: 44
+      antibiotic_status: gbs_specific_ge_2h_or_any_2_to_4h
+      gbs_status: negative
+      clinical_appearance: well_appearing
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: gestational_age
+      messageIncludes: Gestational Age 44 is outside physiological limits [35, 43].
+    tolerance: *a1
+    witnesses:
+      - input:gestational_age:hard_limits
+    claimIds:
+      - claim:eos:input-gestational_age-hard_limits
+    sourceIds:
+      - eos_aap_2018
+  - kind: edge
+    id: case:eos:plausibility-gestational_age
+    tags:
+      - plausibility
+    inputs:
+      model_version: updated_2024_universal_gbs
+      baseline_incidence: "0.3"
+      temperature: 37.22222222222222
+      rom_hours: 16
+      gestational_age: 42.5
+      antibiotic_status: gbs_specific_ge_2h_or_any_2_to_4h
+      gbs_status: negative
+      clinical_appearance: well_appearing
+    expected:
+      risk_at_birth_per_1000: 0.082
+    expectedBehavior: warn
+    expectedWarnings:
+      - Gestational Age 42.5 is unusual (expected 35–42).
+    tolerance: *a1
+    witnesses:
+      - input:gestational_age:plausibility
+    claimIds:
+      - claim:eos:input-gestational_age-plausibility
+    sourceIds:
+      - eos_acog_term_2013
+  - kind: edge
+    id: case:eos:clinical-illness-warning
+    tags:
+      - plausibility
+    inputs:
+      model_version: updated_2024_universal_gbs
+      baseline_incidence: "0.3"
+      temperature: 37.22222222222222
+      rom_hours: 16
+      gestational_age: 40.42857142857143
+      antibiotic_status: gbs_specific_ge_2h_or_any_2_to_4h
+      gbs_status: negative
+      clinical_appearance: clinical_illness
+    expected:
+      risk_at_birth_per_1000: 0.033
+    expectedBehavior: warn
+    expectedWarnings:
+      - Clinical illness is a high-risk state; do not use a low numerical EOS estimate to delay immediate evaluation and
+        treatment.
+    tolerance: *a1
+    witnesses:
+      - warning:0
+    claimIds:
+      - claim:eos:warning-0
+    sourceIds:
+      - eos_kaiser_2024_release
+explicitBlockers: []

@@ -1,0 +1,28 @@
+{
+  "name": "oath-docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "npm run generate && blume dev",
+    "build": "blume build && node scripts/stage-cloudflare.mjs",
+    "deploy": "npm run check && wrangler deploy",
+    "preview": "blume preview",
+    "generate": "node scripts/generate-from-repo.mjs",
+    "generate:calculators": "node scripts/generate-calculators.mjs",
+    "check:generated": "node scripts/generate-from-repo.mjs --check",
+    "check:content": "node scripts/check-content.mjs",
+    "check:worker": "node --test worker/index.test.js",
+    "check": "npm run check:generated && npm run check:content && npm run check:worker && npm run build"
+  },
+  "dependencies": {
+    "blume": "1.1.2",
+    "yaml": "2.9.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.112.0"
+  }
+}

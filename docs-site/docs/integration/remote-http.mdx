@@ -1,0 +1,33 @@
+---
+title: Remote HTTP
+description: Connect to the official stateless Streamable HTTP endpoint at mcp.oath.md.
+---
+
+```text
+https://mcp.oath.md/mcp
+```
+
+The endpoint is public, unauthenticated, stateless, and rate-limited. It returns
+JSON over MCP Streamable HTTP and does not require a persistent SSE session.
+
+## Related routes
+
+| Route | Purpose |
+| --- | --- |
+| `https://mcp.oath.md/health` | Service name, package version, and route metadata. |
+| `https://mcp.oath.md/responsible-use` | Canonical responsibility notice. |
+| `oath://responsible-use` | The same notice as an MCP resource. |
+| `calc://<id>/evidence` | Evidence, bands, warnings, and output declarations for one calculator. |
+
+## Browser origins
+
+The official Worker permits browser requests from `https://oath.md` and
+`https://mcp.oath.md`. The documentation is served from the
+`https://mcp.oath.md/docs/` path on that origin. A server-side MCP client is not
+governed by browser CORS, but remains responsible for authentication around its
+own product, data minimization, monitoring, and abuse prevention.
+
+:::danger
+Do not send names, record numbers, free-text notes, or protected or personal
+health information to the public endpoint.
+:::

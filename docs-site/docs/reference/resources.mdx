@@ -1,0 +1,27 @@
+---
+title: MCP resources
+description: Read calculator evidence and the canonical responsibility notice on demand.
+---
+
+## Calculator evidence
+
+Each calculator publishes:
+
+```text
+calc://<calculator-id>/evidence
+```
+
+The JSON resource includes citations, source locators, “when not to use” text,
+interpretation bands, declared outputs, and warning rules. Successful results
+link their own evidence resource.
+
+## Responsible use
+
+```text
+oath://responsible-use
+```
+
+This Markdown resource carries the canonical clinical, deployment, privacy,
+warranty, and responsibility boundary bundled into the server. Integrations
+should make it available to operators and preserve its substance in any
+user-facing clinical workflow.

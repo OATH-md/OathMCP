@@ -1,0 +1,125 @@
+---
+title: "Sodium Deficit in Hyponatremia"
+description: "For adults only, calculate Watson total body water and a theoretical sodium-content difference. Keep it separate from treatment choice, infusion volume, and correction-rate limits."
+sidebar:
+  label: "Sodium Deficit in Hyponatremia"
+search:
+  tags: ["sodium_deficit", "formula"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>formula</Badge> <Badge>Spec 1.0.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Adults aged 18 years or older; estimate Watson total body water and the theoretical sodium-content difference between current and target serum sodium in a closed system. |
+| Setting | Educational adult hyponatremia calculation with cause, symptoms, duration, urine losses, potassium, and treatment response assessed separately. |
+| Model | `sodium_deficit.watson_adult_theoretical` · watson_adult_theoretical |
+| Model kind | formula |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Do not use in children or as a sodium dose, saline volume, correction-rate target, or substitute for cause- and symptom-directed hyponatremia management.
+
+- Hyponatremia is usually a disorder of water balance rather than a literal whole-body sodium deficit. This value is not a sodium dose, saline volume, correction-rate target, or treatment recommendation.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `weight_kg` | number | Yes | — | 20–300 | 20–700 | Patient weight in kilograms. |
+| `current_sodium` | number | Yes | — | 100–160 | 80–200 | Current serum sodium in mEq/L. |
+| `desired_sodium` | number | Yes | — | 110–160 | 80–200 | Target serum sodium in mEq/L (must exceed current sodium). |
+| `age` | integer | Yes | — | 18–120 | 18–120 | Adult age in years for the Watson TBW equation. |
+| `height_cm` | number | Yes | — | 100–250 | 100–300 | Height in centimeters. Required for the adult (age ≥ 18) TBW formula. |
+| `sex` | enum (2 options) | Yes | — | — | — | Biological sex (male or female). Required for the adult (age ≥ 18) TBW formula. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+<Expandable title="Sex options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `male` | male | Sex: male. | — |
+| `female` | female | Sex: female. | — |
+
+</Expandable>
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `sodium_deficit` | number · mEq | Always | Yes | Estimated total sodium deficit in mEq, rounded to 1 decimal place. |
+| `total_body_water` | number · L | Always | No | Estimated total body water in liters, rounded to 2 decimal places. |
+
+## Interpretation bands
+
+No deterministic interpretation bands are declared for this calculator.
+
+## Warnings, constraints, and adjustments
+
+- **Constraint (compare):** Desired sodium must be greater than current sodium.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "sodium_deficit",
+  "inputs": {
+    "weight_kg": 70,
+    "current_sodium": 125,
+    "desired_sodium": 135,
+    "age": 40,
+    "height_cm": 175,
+    "sex": "male"
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `sodium_deficit`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 24/24 | 23/23 | 14/14 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://sodium_deficit/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Adrogué HJ, Madias NE. Hyponatremia. N Engl J Med. 2000;342(21):1581-1589.](https://pubmed.ncbi.nlm.nih.gov/10824078/)<br />doi:10.1056/NEJM200005253422107 |
+| `source_2` | reference | [Watson PE, Watson ID, Batt RD. Total body water volumes for adult males and females estimated from simple anthropometric measurements. Am J Clin Nutr. 1980;33(1):27-39.](https://doi.org/10.1093/ajcn/33.1.27)<br />doi:10.1093/ajcn/33.1.27 |
+
+<Panel title="Repository source">
+  Calculator ID `sodium_deficit`; spec version `1.0.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

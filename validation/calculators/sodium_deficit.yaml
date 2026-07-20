@@ -1,0 +1,1001 @@
+calculatorId: sodium_deficit
+specVersion: 1.0.0
+clinicalModel: Adult Watson total-body-water theoretical sodium-content difference
+variant: watson_adult_theoretical_not_a_dose
+population: Adults aged 18 years or older with height, weight, age, and sex available for Watson TBW estimation.
+setting: Educational hyponatremia arithmetic; cause, symptoms, duration, potassium, urine losses, and
+  treatment response are assessed separately.
+assessmentTiming: Current sodium and anthropometric inputs from the same adult assessment.
+endpoint: Watson estimated TBW and a theoretical closed-system sodium-content difference, not a treatment dose.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:sodium_deficit:2026-07-16
+    calculatorId: sodium_deficit
+    model: Adult Watson total-body-water theoretical sodium-content difference
+    variant: watson_adult_theoretical_not_a_dose
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:sodium_deficit:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: (Watson PE[au] AND 1980[dp] AND "total body water"[ti]) OR (Adrogue HJ[au] AND Madias NE[au] AND
+          2000[dp] AND Hyponatremia[ti])
+        translationExposed: true
+        translatedQuery: ((watson, pe[Author] OR watson pe[Author]) AND 1980/01/01:1980/12/31[Date - Publication] AND
+          "total body water"[Title]) OR ((adrogue, hj[Author] OR adrogue hj[Author]) AND (madias, ne[Author]
+          OR madias ne[Author]) AND 2000/01/01:2000/12/31[Date - Publication] AND "Hyponatremia"[Title])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 2
+        stableCitationIds:
+          - PMID:10824078
+          - PMID:6986753
+      - id: search:sodium_deficit:derivation
+        sourceRole: derivation
+        authorityId: sodium_adrogue_2000
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          watson_adult_theoretical_not_a_dose
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - sodium_adrogue_2000
+      - id: search:sodium_deficit:controlling
+        sourceRole: controlling_authority
+        authorityId: sodium_european_guideline_2014
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          watson_adult_theoretical_not_a_dose
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - sodium_european_guideline_2014
+      - id: search:sodium_deficit:specialty
+        sourceRole: specialty_guidance
+        authorityId: sodium_expert_panel_2013
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          watson_adult_theoretical_not_a_dose
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - sodium_expert_panel_2013
+      - id: search:sodium_deficit:independent
+        sourceRole: independent_numeric
+        authorityId: sodium_watson_1980
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          watson_adult_theoretical_not_a_dose
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - sodium_watson_1980
+    accounting:
+      retrieved: 2
+      deduplicated: 2
+      screened: 2
+      fullTextAssessed: 2
+      excluded: 0
+      included: 2
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: sodium_adrogue_2000
+        title: Hyponatremia.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: sodium_watson_1980
+        title: Total body water volumes for adult males and females estimated from simple anthropometric measurements.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:sodium_deficit:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and historical terminology
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search, not an exhaustive systematic review.
+      resolution: Resolved by retaining exact author/model terms, checking automatic translation, screening every
+        result, and pairing the database search with current authority, specialty, derivation, and independent
+        numeric sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - sodium_adrogue_2000
+  - sodium_european_guideline_2014
+  - sodium_expert_panel_2013
+  - sodium_watson_1980
+claims:
+  - id: claim:sodium_deficit:calculator-model
+    kind: applicability
+    statement: Adult Watson total-body-water theoretical sodium-content difference is limited to Adults aged 18
+      years or older with height, weight, age, and sex available for Watson TBW estimation. Educational
+      hyponatremia arithmetic; cause, symptoms, duration, potassium, urine losses, and treatment response are
+      assessed separately.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - sodium_european_guideline_2014
+    locators:
+      - sourceId: sodium_european_guideline_2014
+        locator: European 2014 guideline, diagnostic algorithm and sections 7.1-7.4 on symptom-directed therapy and
+          monitoring.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad clinical limitations are descriptive; every
+      runtime-verifiable surface is separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:formula-implementation
+    kind: formula
+    statement: Theoretical difference = Watson adult TBW × (target sodium - current sodium); Watson TBW uses
+      sex-specific adult regressions from age, height, and weight.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - sodium_adrogue_2000
+      - sodium_watson_1980
+    locators:
+      - sourceId: sodium_adrogue_2000
+        locator: Adrogue and Madias 2000 Hyponatremia, sodium-content arithmetic and treatment limitations.
+      - sourceId: sodium_watson_1980
+        locator: Watson 1980 equation tables for adult male and female total body water, with centimeters and kilograms.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:ref-adult-male
+      - case:sodium_deficit:ref-adult-female
+      - case:sodium_deficit:ref-older-male
+      - case:sodium_deficit:lower-adult-envelope
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:applicability-purpose
+    kind: applicability
+    statement: For adults only, calculate Watson total body water and a theoretical sodium-content difference.
+      Keep it separate from treatment choice, infusion volume, and correction-rate limits.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - sodium_european_guideline_2014
+    locators:
+      - sourceId: sodium_european_guideline_2014
+        locator: European 2014 guideline, diagnostic algorithm and sections 7.1-7.4 on symptom-directed therapy and
+          monitoring.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:applicability-exclusions
+    kind: exclusion
+    statement: Do not calculate until the runtime's required discriminator 'sex' is supplied; the broader clinical
+      limitations remain descriptive context.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - sodium_european_guideline_2014
+    locators:
+      - sourceId: sodium_european_guideline_2014
+        locator: European 2014 guideline, diagnostic algorithm and sections 7.1-7.4 on symptom-directed therapy and
+          monitoring.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-weight_kg
+    kind: input
+    statement: Patient weight in kilograms.
+    covers:
+      - input:weight_kg
+    status: supported
+    sourceIds:
+      - sodium_adrogue_2000
+    locators:
+      - sourceId: sodium_adrogue_2000
+        locator: Adrogue and Madias 2000 Hyponatremia, sodium-content arithmetic and treatment limitations.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:ref-adult-male
+      - case:sodium_deficit:ref-adult-female
+      - case:sodium_deficit:ref-older-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-weight_kg-hard_limits
+    kind: input
+    statement: OathMCP rejects Weight outside [20, 700] as an adult operational envelope that prevents nonpositive Watson estimates.
+    covers:
+      - input:weight_kg:hard_limits
+    status: supported
+    sourceIds:
+      - sodium_watson_1980
+    locators:
+      - sourceId: sodium_watson_1980
+        locator: Watson 1980 equation tables for adult male and female total body water, with centimeters and
+          kilograms.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:hard-weight_kg
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-weight_kg-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Weight is outside [20, 300]; this is an operational review prompt.
+    covers:
+      - input:weight_kg:plausibility
+    status: supported
+    sourceIds:
+      - sodium_watson_1980
+    locators:
+      - sourceId: sodium_watson_1980
+        locator: Watson 1980 equation tables for adult male and female total body water, with centimeters and
+          kilograms.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-current_sodium
+    kind: input
+    statement: Current serum sodium in mEq/L.
+    covers:
+      - input:current_sodium
+    status: supported
+    sourceIds:
+      - sodium_adrogue_2000
+    locators:
+      - sourceId: sodium_adrogue_2000
+        locator: Adrogue and Madias 2000 Hyponatremia, sodium-content arithmetic and treatment limitations.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:ref-adult-male
+      - case:sodium_deficit:ref-adult-female
+      - case:sodium_deficit:ref-older-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-current_sodium-hard_limits
+    kind: input
+    statement: OathMCP rejects Current Sodium outside [80, 200] as a conservative operational envelope, not a
+      clinical cutoff.
+    covers:
+      - input:current_sodium:hard_limits
+    status: supported
+    sourceIds:
+      - sodium_watson_1980
+    locators:
+      - sourceId: sodium_watson_1980
+        locator: Watson 1980 equation tables for adult male and female total body water, with centimeters and
+          kilograms.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:hard-current_sodium
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-current_sodium-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Current Sodium is outside [100, 160]; this is an
+      operational review prompt.
+    covers:
+      - input:current_sodium:plausibility
+    status: supported
+    sourceIds:
+      - sodium_watson_1980
+    locators:
+      - sourceId: sodium_watson_1980
+        locator: Watson 1980 equation tables for adult male and female total body water, with centimeters and
+          kilograms.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-desired_sodium
+    kind: input
+    statement: Target serum sodium in mEq/L (must exceed current sodium).
+    covers:
+      - input:desired_sodium
+    status: supported
+    sourceIds:
+      - sodium_adrogue_2000
+    locators:
+      - sourceId: sodium_adrogue_2000
+        locator: Adrogue and Madias 2000 Hyponatremia, sodium-content arithmetic and treatment limitations.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:ref-adult-male
+      - case:sodium_deficit:ref-adult-female
+      - case:sodium_deficit:ref-older-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-desired_sodium-hard_limits
+    kind: input
+    statement: OathMCP rejects Desired Sodium outside [80, 200] as a conservative operational envelope, not a
+      clinical cutoff.
+    covers:
+      - input:desired_sodium:hard_limits
+    status: supported
+    sourceIds:
+      - sodium_watson_1980
+    locators:
+      - sourceId: sodium_watson_1980
+        locator: Watson 1980 equation tables for adult male and female total body water, with centimeters and
+          kilograms.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:hard-desired_sodium
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-desired_sodium-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Desired Sodium is outside [110, 160]; this is an
+      operational review prompt.
+    covers:
+      - input:desired_sodium:plausibility
+    status: supported
+    sourceIds:
+      - sodium_watson_1980
+    locators:
+      - sourceId: sodium_watson_1980
+        locator: Watson 1980 equation tables for adult male and female total body water, with centimeters and
+          kilograms.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-age
+    kind: input
+    statement: Adult age in years for the Watson TBW equation.
+    covers:
+      - input:age
+    status: supported
+    sourceIds:
+      - sodium_adrogue_2000
+    locators:
+      - sourceId: sodium_adrogue_2000
+        locator: Adrogue and Madias 2000 Hyponatremia, sodium-content arithmetic and treatment limitations.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:ref-adult-male
+      - case:sodium_deficit:ref-adult-female
+      - case:sodium_deficit:ref-older-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-age-hard_limits
+    kind: input
+    statement: OathMCP rejects Age outside [18, 120] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:age:hard_limits
+    status: supported
+    sourceIds:
+      - sodium_watson_1980
+    locators:
+      - sourceId: sodium_watson_1980
+        locator: Watson 1980 equation tables for adult male and female total body water, with centimeters and
+          kilograms.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:hard-age
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-age-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Age is outside [18, 120]; this is an operational review prompt.
+    covers:
+      - input:age:plausibility
+    status: supported
+    sourceIds:
+      - sodium_watson_1980
+    locators:
+      - sourceId: sodium_watson_1980
+        locator: Watson 1980 equation tables for adult male and female total body water, with centimeters and
+          kilograms.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-height_cm
+    kind: input
+    statement: Height in centimeters. Required for the adult (age ≥ 18) TBW formula.
+    covers:
+      - input:height_cm
+    status: supported
+    sourceIds:
+      - sodium_adrogue_2000
+    locators:
+      - sourceId: sodium_adrogue_2000
+        locator: Adrogue and Madias 2000 Hyponatremia, sodium-content arithmetic and treatment limitations.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:ref-adult-male
+      - case:sodium_deficit:ref-adult-female
+      - case:sodium_deficit:ref-older-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-height_cm-hard_limits
+    kind: input
+    statement: OathMCP rejects Height outside [100, 300] as an adult operational envelope that prevents nonpositive Watson estimates.
+    covers:
+      - input:height_cm:hard_limits
+    status: supported
+    sourceIds:
+      - sodium_watson_1980
+    locators:
+      - sourceId: sodium_watson_1980
+        locator: Watson 1980 equation tables for adult male and female total body water, with centimeters and
+          kilograms.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:hard-height_cm
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-height_cm-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Height is outside [100, 250]; this is an operational review
+      prompt.
+    covers:
+      - input:height_cm:plausibility
+    status: supported
+    sourceIds:
+      - sodium_watson_1980
+    locators:
+      - sourceId: sodium_watson_1980
+        locator: Watson 1980 equation tables for adult male and female total body water, with centimeters and
+          kilograms.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-sex
+    kind: input
+    statement: Biological sex (male or female). Required for the adult (age ≥ 18) TBW formula.
+    covers:
+      - input:sex
+    status: supported
+    sourceIds:
+      - sodium_adrogue_2000
+    locators:
+      - sourceId: sodium_adrogue_2000
+        locator: Adrogue and Madias 2000 Hyponatremia, sodium-content arithmetic and treatment limitations.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:ref-adult-male
+      - case:sodium_deficit:ref-adult-female
+      - case:sodium_deficit:ref-older-male
+      - case:sodium_deficit:missing-sex
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:input-sex-options
+    kind: input
+    statement: Sex accepts only the declared source-bound options.
+    covers:
+      - input:sex:options
+    status: supported
+    sourceIds:
+      - sodium_adrogue_2000
+    locators:
+      - sourceId: sodium_adrogue_2000
+        locator: Adrogue and Madias 2000 Hyponatremia, sodium-content arithmetic and treatment limitations.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:ref-adult-male
+      - case:sodium_deficit:ref-adult-female
+      - case:sodium_deficit:ref-older-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:output-sodium_deficit
+    kind: outcome
+    statement: Estimated total sodium deficit in mEq, rounded to 1 decimal place.
+    covers:
+      - output:sodium_deficit
+    status: supported
+    sourceIds:
+      - sodium_adrogue_2000
+    locators:
+      - sourceId: sodium_adrogue_2000
+        locator: Adrogue and Madias 2000 Hyponatremia, sodium-content arithmetic and treatment limitations.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:ref-adult-male
+      - case:sodium_deficit:ref-adult-female
+      - case:sodium_deficit:ref-older-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:output-total_body_water
+    kind: outcome
+    statement: Estimated total body water in liters, rounded to 2 decimal places.
+    covers:
+      - output:total_body_water
+    status: supported
+    sourceIds:
+      - sodium_adrogue_2000
+    locators:
+      - sourceId: sodium_adrogue_2000
+        locator: Adrogue and Madias 2000 Hyponatremia, sodium-content arithmetic and treatment limitations.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:ref-adult-male
+      - case:sodium_deficit:ref-adult-female
+      - case:sodium_deficit:ref-older-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:sodium_deficit:constraint-0
+    kind: input
+    statement: Desired sodium must be greater than current sodium.
+    covers:
+      - constraint:0
+    status: supported
+    sourceIds:
+      - sodium_adrogue_2000
+    locators:
+      - sourceId: sodium_adrogue_2000
+        locator: Adrogue and Madias 2000 Hyponatremia, sodium-content arithmetic and treatment limitations.
+    executable: true
+    scenarioIds:
+      - case:sodium_deficit:constraint-direction
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:sodium_deficit:ref-adult-male
+    tags:
+      - calculator:sodium_deficit:core
+    inputs: &a2
+      weight_kg: 70
+      current_sodium: 125
+      desired_sodium: 135
+      age: 40
+      height_cm: 175
+      sex: male
+    expected: &a3
+      sodium_deficit: 409.7
+      total_body_water: 40.97
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:formula-implementation
+      - claim:sodium_deficit:input-weight_kg
+      - claim:sodium_deficit:input-current_sodium
+      - claim:sodium_deficit:input-desired_sodium
+      - claim:sodium_deficit:input-age
+      - claim:sodium_deficit:input-height_cm
+      - claim:sodium_deficit:input-sex
+      - claim:sodium_deficit:input-sex-options
+      - claim:sodium_deficit:output-sodium_deficit
+      - claim:sodium_deficit:output-total_body_water
+    sourceIds:
+      - sodium_adrogue_2000
+      - sodium_watson_1980
+    witnesses:
+      - formula:implementation
+      - input:weight_kg
+      - input:current_sodium
+      - input:desired_sodium
+      - input:age
+      - input:height_cm
+      - input:sex
+      - input:sex:options
+      - output:sodium_deficit
+      - output:total_body_water
+  - kind: reference
+    id: case:sodium_deficit:ref-adult-female
+    tags:
+      - calculator:sodium_deficit:reference
+    inputs: &a4
+      weight_kg: 60
+      current_sodium: 128
+      desired_sodium: 138
+      age: 50
+      height_cm: 160
+      sex: female
+    expected: &a5
+      sodium_deficit: 298
+      total_body_water: 29.8
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:formula-implementation
+      - claim:sodium_deficit:input-weight_kg
+      - claim:sodium_deficit:input-current_sodium
+      - claim:sodium_deficit:input-desired_sodium
+      - claim:sodium_deficit:input-age
+      - claim:sodium_deficit:input-height_cm
+      - claim:sodium_deficit:input-sex
+      - claim:sodium_deficit:input-sex-options
+      - claim:sodium_deficit:output-sodium_deficit
+      - claim:sodium_deficit:output-total_body_water
+    sourceIds:
+      - sodium_adrogue_2000
+      - sodium_watson_1980
+    witnesses:
+      - formula:implementation
+      - input:weight_kg
+      - input:current_sodium
+      - input:desired_sodium
+      - input:age
+      - input:height_cm
+      - input:sex
+      - input:sex:options
+      - output:sodium_deficit
+      - output:total_body_water
+  - kind: reference
+    id: case:sodium_deficit:ref-older-male
+    tags:
+      - calculator:sodium_deficit:reference
+    inputs: &a6
+      weight_kg: 80
+      current_sodium: 120
+      desired_sodium: 125
+      age: 65
+      height_cm: 180
+      sex: male
+    expected: &a7
+      sodium_deficit: 212.4
+      total_body_water: 42.49
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:formula-implementation
+      - claim:sodium_deficit:input-weight_kg
+      - claim:sodium_deficit:input-current_sodium
+      - claim:sodium_deficit:input-desired_sodium
+      - claim:sodium_deficit:input-age
+      - claim:sodium_deficit:input-height_cm
+      - claim:sodium_deficit:input-sex
+      - claim:sodium_deficit:input-sex-options
+      - claim:sodium_deficit:output-sodium_deficit
+      - claim:sodium_deficit:output-total_body_water
+    sourceIds:
+      - sodium_adrogue_2000
+      - sodium_watson_1980
+    witnesses:
+      - formula:implementation
+      - input:weight_kg
+      - input:current_sodium
+      - input:desired_sodium
+      - input:age
+      - input:height_cm
+      - input:sex
+      - input:sex:options
+      - output:sodium_deficit
+      - output:total_body_water
+  - kind: edge
+    id: case:sodium_deficit:missing-sex
+    tags:
+      - required-inputs
+    inputs: &a1
+      weight_kg: 70
+      current_sodium: 125
+      desired_sodium: 135
+      age: 40
+      height_cm: 175
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: sex
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:input-sex
+    sourceIds:
+      - sodium_adrogue_2000
+    witnesses:
+      - input:sex
+  - kind: edge
+    id: case:sodium_deficit:hard-weight_kg
+    tags:
+      - hard-limits
+    inputs:
+      weight_kg: 19
+      current_sodium: 125
+      desired_sodium: 135
+      age: 40
+      height_cm: 175
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: weight_kg
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:input-weight_kg-hard_limits
+    sourceIds:
+      - sodium_watson_1980
+    witnesses:
+      - input:weight_kg:hard_limits
+  - kind: edge
+    id: case:sodium_deficit:hard-current_sodium
+    tags:
+      - calculator:sodium_deficit:hard-limit
+    inputs:
+      weight_kg: 70
+      current_sodium: 40
+      desired_sodium: 135
+      age: 40
+      height_cm: 175
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: current_sodium
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:input-current_sodium-hard_limits
+    sourceIds:
+      - sodium_watson_1980
+    witnesses:
+      - input:current_sodium:hard_limits
+  - kind: edge
+    id: case:sodium_deficit:hard-desired_sodium
+    tags:
+      - calculator:sodium_deficit:hard-limit
+    inputs:
+      weight_kg: 70
+      current_sodium: 125
+      desired_sodium: 40
+      age: 40
+      height_cm: 175
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: desired_sodium
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:input-desired_sodium-hard_limits
+    sourceIds:
+      - sodium_watson_1980
+    witnesses:
+      - input:desired_sodium:hard_limits
+  - kind: edge
+    id: case:sodium_deficit:hard-age
+    tags:
+      - calculator:sodium_deficit:hard-limit
+    inputs:
+      weight_kg: 70
+      current_sodium: 125
+      desired_sodium: 135
+      age: 17
+      height_cm: 175
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: age
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:input-age-hard_limits
+    sourceIds:
+      - sodium_watson_1980
+    witnesses:
+      - input:age:hard_limits
+  - kind: edge
+    id: case:sodium_deficit:hard-height_cm
+    tags:
+      - calculator:sodium_deficit:hard-limit
+    inputs:
+      weight_kg: 70
+      current_sodium: 125
+      desired_sodium: 135
+      age: 40
+      height_cm: 99
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: height_cm
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:input-height_cm-hard_limits
+    sourceIds:
+      - sodium_watson_1980
+    witnesses:
+      - input:height_cm:hard_limits
+  - kind: edge
+    id: case:sodium_deficit:lower-adult-envelope
+    tags:
+      - calculator:sodium_deficit:boundary
+    inputs:
+      weight_kg: 20
+      current_sodium: 125
+      desired_sodium: 135
+      age: 18
+      height_cm: 100
+      sex: male
+    expected:
+      sodium_deficit: 182
+      total_body_water: 18.2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Independent Watson arithmetic at the adult operational lower bounds after the declared rounding rule.
+    claimIds:
+      - claim:sodium_deficit:formula-implementation
+    sourceIds:
+      - sodium_adrogue_2000
+      - sodium_watson_1980
+    witnesses:
+      - formula:implementation
+  - kind: edge
+    id: case:sodium_deficit:plausibility
+    tags:
+      - plausibility
+    inputs:
+      weight_kg: 500
+      current_sodium: 90
+      desired_sodium: 170
+      age: 80
+      height_cm: 280
+      sex: male
+    expected:
+      sodium_deficit: 15440.5
+      total_body_water: 193.01
+    expectedBehavior: warn
+    expectedWarnings:
+      - Weight 500 is unusual (expected 20–300).
+      - Current Sodium 90 is unusual (expected 100–160).
+      - Desired Sodium 170 is unusual (expected 110–160).
+      - Height 280 is unusual (expected 100–250).
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:input-weight_kg-plausibility
+      - claim:sodium_deficit:input-current_sodium-plausibility
+      - claim:sodium_deficit:input-desired_sodium-plausibility
+      - claim:sodium_deficit:input-age-plausibility
+      - claim:sodium_deficit:input-height_cm-plausibility
+    sourceIds:
+      - sodium_watson_1980
+    witnesses:
+      - input:weight_kg:plausibility
+      - input:current_sodium:plausibility
+      - input:desired_sodium:plausibility
+      - input:age:plausibility
+      - input:height_cm:plausibility
+  - kind: edge
+    id: case:sodium_deficit:constraint-direction
+    tags:
+      - constraints
+    inputs:
+      weight_kg: 70
+      current_sodium: 130
+      desired_sodium: 130
+      age: 40
+      height_cm: 175
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: desired_sodium
+      messageIncludes: Desired sodium must be greater than current sodium.
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:constraint-0
+    sourceIds:
+      - sodium_adrogue_2000
+    witnesses:
+      - constraint:0
+  - kind: agent
+    id: case:sodium_deficit:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      weight_kg: 70
+      current_sodium: 125
+      desired_sodium: 135
+      age: 40
+      height_cm: 175
+      sex: male
+    expected:
+      sodium_deficit: 409.7
+      total_body_water: 40.97
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:applicability-purpose
+    sourceIds:
+      - sodium_european_guideline_2014
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:sodium_deficit:agent-exclusion
+    tags:
+      - agent-applicability
+    inputs: *a1
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: sex
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:sodium_deficit:applicability-exclusions
+    sourceIds:
+      - sodium_european_guideline_2014
+    witnesses:
+      - applicability:exclusions
+compatibilityNotes:
+  - Removed the unsupported pediatric 0.6 × weight branch and made adult Watson age, height, and sex explicit.
+explicitBlockers: []

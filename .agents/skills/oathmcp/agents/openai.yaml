@@ -1,0 +1,15 @@
+interface:
+  display_name: "OathMCP"
+  short_description: "Find and run cited clinical calculators"
+  default_prompt: "Use $oathmcp to find and run the appropriate clinical calculator, clarify anything uncertain, and cite its evidence."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "oathmcp"
+      description: "OathMCP clinical calculator server"
+      transport: "streamable_http"
+      url: "https://mcp.oath.md/mcp"
+
+policy:
+  allow_implicit_invocation: true

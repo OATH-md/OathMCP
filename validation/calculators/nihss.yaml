@@ -1,0 +1,5239 @@
+calculatorId: nihss
+specVersion: 1.1.0
+clinicalModel: NIH Stroke Scale with official untestable-item semantics
+variant: ninds_nihss_with_un_items
+population: Patients undergoing standardized acute-stroke deficit assessment.
+setting: Acute stroke assessment with timing and examination modifiers documented.
+assessmentTiming: Baseline, post-treatment, or follow-up assessment as explicitly selected.
+endpoint: Measured NIHSS deficits; a zero score does not exclude stroke.
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:nihss:2026-07-16
+    calculatorId: nihss
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:nihss:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: ("NIH Stroke Scale"[Title] OR NIHSS[Title]) AND (Brott[Author] OR Lyden[Author] OR Kasner[Author] OR
+          Martin-Schild[Author])
+        translationExposed: true
+        translatedQuery: ("NIH Stroke Scale"[Title] OR "NIHSS"[Title]) AND (Brott[Author] OR Lyden[Author] OR Kasner[Author] OR
+          Martin-Schild[Author])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 13
+        exportDigest: sha256:3a4faa5f5fa97a78da8df8fb654d666992f3b91492420641170c830f40c87b5c
+        stableCitationIds:
+          - PMID:40197114
+          - PMID:38252764
+          - PMID:26745704
+          - PMID:24482782
+          - PMID:20828876
+          - PMID:19520997
+          - PMID:19295205
+          - PMID:17540971
+          - PMID:16224093
+          - PMID:12511764
+          - PMID:10436096
+          - PMID:9332632
+          - PMID:7974549
+      - id: search:nihss:nihss_brott_1989
+        sourceRole: derivation
+        authorityId: nihss_brott_1989
+        database: Primary or responsible-authority source
+        site: Stroke
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for nihss
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - nihss_brott_1989
+      - id: search:nihss:nihss_ninds_2024
+        sourceRole: controlling_authority
+        authorityId: nihss_ninds_2024
+        database: Primary or responsible-authority source
+        site: NINDS
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for nihss
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - nihss_ninds_2024
+      - id: search:nihss:nihss_aha_asa_2026
+        sourceRole: specialty_guidance
+        authorityId: nihss_aha_asa_2026
+        database: Primary or responsible-authority source
+        site: American Heart Association
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for nihss
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - nihss_aha_asa_2026
+      - id: search:nihss:nihss_stockbridge_2024
+        sourceRole: external_validation
+        authorityId: nihss_stockbridge_2024
+        database: Primary or responsible-authority source
+        site: Stroke
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for nihss
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - nihss_stockbridge_2024
+      - id: search:nihss:nihss_zero_2011
+        sourceRole: external_validation
+        authorityId: nihss_zero_2011
+        database: Primary or responsible-authority source
+        site: Annals of Emergency Medicine
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for nihss
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - nihss_zero_2011
+    accounting:
+      retrieved: 16
+      deduplicated: 16
+      screened: 16
+      fullTextAssessed: 5
+      excluded: 0
+      included: 5
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:40197114
+        title: New Animated Training and Certification Application for NIHSS.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: nihss_stockbridge_2024
+        title: "New Picture Stimuli for the NIH Stroke Scale: A Validation Study."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:26745704
+        title: "Troubleshooting the NIHSS: question-and-answer session with one of the designers."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:24482782
+        title: The NIHSS Score and its Components can Predict Cortical Stroke.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: nihss_zero_2011
+        title: Zero on the NIHSS does not equal the absence of stroke.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:19520997
+        title: "Development of the Italian version of the National Institutes of Health Stroke Scale: It-NIHSS."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:19295205
+        title: Is the NIHSS certification process too lenient?
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:17540971
+        title: CT-NIHSS mismatch does not correlate with MRI diffusion-perfusion mismatch.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:16224093
+        title: NIHSS training and certification using a new digital video disk is reliable.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:12511764
+        title: Utility of the NIH Stroke Scale as a predictor of hospital disposition.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:10436096
+        title: Reliability and validity of estimating the NIH stroke scale score from medical records.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:9332632
+        title: "Early stroke recognition: developing an out-of-hospital NIH Stroke Scale."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:7974549
+        title: Improved reliability of the NIH Stroke Scale using video training. NINDS TPA Stroke Study Group.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: nihss_brott_1989
+        title: "Measurements of acute cerebral infarction: a clinical examination scale."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: nihss_ninds_2024
+        title: NIH Stroke Scale, updated February 2024.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: nihss_aha_asa_2026
+        title: 2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:nihss:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - score names and author synonyms
+        - derivation and external validation concepts
+        - assessment modifiers and applicability limits
+        - current authority and supersession
+      comments:
+        - The focused author/model query was paired with direct review of the primary score form, current responsible
+          authority, specialty guidance, and an external validation.
+      resolution: Resolved by retaining exact model and author terms, checking PubMed translation, screening every result,
+        chasing citations, and reviewing current authority sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+    model: NIH Stroke Scale with official untestable-item semantics
+    variant: ninds_nihss_with_un_items
+authoritySourceIds:
+  - pubmed_medline
+  - nihss_brott_1989
+  - nihss_ninds_2024
+  - nihss_aha_asa_2026
+  - nihss_stockbridge_2024
+  - nihss_zero_2011
+claims:
+  - id: claim:nihss:calculator:model
+    kind: applicability
+    statement: NIH Stroke Scale with official untestable-item semantics is scoped to Patients undergoing standardized
+      acute-stroke deficit assessment. Acute stroke assessment with timing and examination modifiers documented.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - nihss_ninds_2024
+      - nihss_aha_asa_2026
+      - nihss_stockbridge_2024
+      - nihss_zero_2011
+    locators:
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+      - sourceId: nihss_aha_asa_2026
+        locator: "2026 AIS guideline: acute-stroke context and treatment decisions that cannot be reduced to an NIHSS
+          threshold."
+      - sourceId: nihss_stockbridge_2024
+        locator: Validation methods and results for the 2024 picture and object stimuli.
+      - sourceId: nihss_zero_2011
+        locator: "Methods and conclusion: ischemic stroke may present with NIHSS 0."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad population scope are descriptive; every runtime-verifiable surface is
+      separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:formula:implementation
+    kind: formula
+    statement: The total is the exact sum of the cited score form component weights; a total is returned only when the
+      declared testability rules permit it.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:ref-2
+      - case:nihss:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:applicability:purpose
+    kind: applicability
+    statement: Quantify stroke severity from 15 focused neurological items (consciousness, gaze, visual fields, facial and
+      limb motor function, ataxia, sensation, language, dysarthria, and extinction/inattention). Each item is scored on
+      its own scale (0-2, 0-3, or 0-4); the total (0-42) grades impairment — the higher the score, the more severe the
+      stroke.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - nihss_ninds_2024
+      - nihss_aha_asa_2026
+      - nihss_stockbridge_2024
+      - nihss_zero_2011
+    locators:
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+      - sourceId: nihss_aha_asa_2026
+        locator: "2026 AIS guideline: acute-stroke context and treatment decisions that cannot be reduced to an NIHSS
+          threshold."
+      - sourceId: nihss_stockbridge_2024
+        locator: Validation methods and results for the 2024 picture and object stimuli.
+      - sourceId: nihss_zero_2011
+        locator: "Methods and conclusion: ischemic stroke may present with NIHSS 0."
+    executable: true
+    scenarioIds:
+      - case:nihss:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:applicability:exclusions
+    kind: exclusion
+    statement: Full of caveats for patients with prior neurologic deficits (prior weakness, hemi-/quadriplegia, blindness),
+      intubation, or a language barrier. In those cases consult the NIH Stroke Scale reference. Not a substitute for
+      clinical judgment or imaging.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - nihss_ninds_2024
+      - nihss_aha_asa_2026
+      - nihss_stockbridge_2024
+      - nihss_zero_2011
+    locators:
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+      - sourceId: nihss_aha_asa_2026
+        locator: "2026 AIS guideline: acute-stroke context and treatment decisions that cannot be reduced to an NIHSS
+          threshold."
+      - sourceId: nihss_stockbridge_2024
+        locator: Validation methods and results for the 2024 picture and object stimuli.
+      - sourceId: nihss_zero_2011
+        locator: "Methods and conclusion: ischemic stroke may present with NIHSS 0."
+    executable: true
+    scenarioIds:
+      - case:nihss:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:assessment_timing
+    kind: input
+    statement: "Assessment Timing: Clinical timing of this NIHSS assessment; preserve it when comparing serial scores."
+    covers:
+      - input:assessment_timing
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:assessment_timing:options
+    kind: input
+    statement: "Assessment Timing uses the closed cited option set: baseline, post_treatment, follow_up."
+    covers:
+      - input:assessment_timing:options
+    status: supported
+    sourceIds: &a1
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-assessment_timing-baseline
+      - case:nihss:option-assessment_timing-post_treatment
+      - case:nihss:option-assessment_timing-follow_up
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:modifier_context
+    kind: input
+    statement: "Examination Modifier: Dominant modifier affecting interpretation; use the specific UN option for an item
+      that cannot be tested."
+    covers:
+      - input:modifier_context
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:modifier_context:options
+    kind: input
+    statement: "Examination Modifier uses the closed cited option set: none, intubation, amputation_or_joint_fusion,
+      language_barrier, pre_existing_deficit, other, multiple_modifiers."
+    covers:
+      - input:modifier_context:options
+    status: supported
+    sourceIds: &a2
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-modifier_context-none
+      - case:nihss:option-modifier_context-intubation
+      - case:nihss:option-modifier_context-amputation_or_joint_fusion
+      - case:nihss:option-modifier_context-language_barrier
+      - case:nihss:option-modifier_context-pre_existing_deficit
+      - case:nihss:option-modifier_context-other
+      - case:nihss:option-modifier_context-multiple_modifiers
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:level_of_consciousness
+    kind: input
+    statement: "1A: Level of Consciousness: May be assessed casually while taking history."
+    covers:
+      - input:level_of_consciousness
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:level_of_consciousness:options
+    kind: input
+    statement: "1A: Level of Consciousness uses the closed cited option set: alert=0, minor_stimulation=1,
+      repeated_stimulation=2, movements_to_pain=2, unresponsive=3."
+    covers:
+      - input:level_of_consciousness:options
+    status: supported
+    sourceIds: &a3
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-level_of_consciousness-alert
+      - case:nihss:option-level_of_consciousness-minor_stimulation
+      - case:nihss:option-level_of_consciousness-repeated_stimulation
+      - case:nihss:option-level_of_consciousness-movements_to_pain
+      - case:nihss:option-level_of_consciousness-unresponsive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:month_and_age
+    kind: input
+    statement: "1B: Ask Month and Age: Ask about the current month and their age."
+    covers:
+      - input:month_and_age
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:month_and_age:options
+    kind: input
+    statement: "1B: Ask Month and Age uses the closed cited option set: both_right=0, one_right=1, none_right=2,
+      impaired_communication=1, aphasic=2."
+    covers:
+      - input:month_and_age:options
+    status: supported
+    sourceIds: &a4
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-month_and_age-both_right
+      - case:nihss:option-month_and_age-one_right
+      - case:nihss:option-month_and_age-none_right
+      - case:nihss:option-month_and_age-impaired_communication
+      - case:nihss:option-month_and_age-aphasic
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:commands
+    kind: input
+    statement: "1C: Commands: 'Blink Eyes' & 'Squeeze Hands'."
+    covers:
+      - input:commands
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:commands:options
+    kind: input
+    statement: "1C: Commands uses the closed cited option set: both_tasks=0, one_task=1, no_tasks=2."
+    covers:
+      - input:commands:options
+    status: supported
+    sourceIds: &a5
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-commands-both_tasks
+      - case:nihss:option-commands-one_task
+      - case:nihss:option-commands-no_tasks
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:horizontal_gaze
+    kind: input
+    statement: "2: Horizontal Extraocular Movements: Only assess horizontal gaze."
+    covers:
+      - input:horizontal_gaze
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:horizontal_gaze:options
+    kind: input
+    statement: "2: Horizontal Extraocular Movements uses the closed cited option set: normal=0, partial_overcome=1,
+      partial_reflex=1, forced_palsy=2."
+    covers:
+      - input:horizontal_gaze:options
+    status: supported
+    sourceIds: &a6
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-horizontal_gaze-normal
+      - case:nihss:option-horizontal_gaze-partial_overcome
+      - case:nihss:option-horizontal_gaze-partial_reflex
+      - case:nihss:option-horizontal_gaze-forced_palsy
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:visual_fields
+    kind: input
+    statement: "3: Visual Fields: Assessment of visual fields."
+    covers:
+      - input:visual_fields
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:visual_fields:options
+    kind: input
+    statement: "3: Visual Fields uses the closed cited option set: no_loss=0, partial_hemianopia=1, complete_hemianopia=2,
+      bilaterally_blind=3, bilateral_hemianopia=3."
+    covers:
+      - input:visual_fields:options
+    status: supported
+    sourceIds: &a7
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-visual_fields-no_loss
+      - case:nihss:option-visual_fields-partial_hemianopia
+      - case:nihss:option-visual_fields-complete_hemianopia
+      - case:nihss:option-visual_fields-bilaterally_blind
+      - case:nihss:option-visual_fields-bilateral_hemianopia
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:facial_palsy
+    kind: input
+    statement: "4: Facial Palsy: Use grimace if obtunded."
+    covers:
+      - input:facial_palsy
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:facial_palsy:options
+    kind: input
+    statement: "4: Facial Palsy uses the closed cited option set: normal=0, minor_paralysis=1, partial_paralysis=2,
+      unilateral_complete=3, bilateral_complete=3."
+    covers:
+      - input:facial_palsy:options
+    status: supported
+    sourceIds: &a8
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-facial_palsy-normal
+      - case:nihss:option-facial_palsy-minor_paralysis
+      - case:nihss:option-facial_palsy-partial_paralysis
+      - case:nihss:option-facial_palsy-unilateral_complete
+      - case:nihss:option-facial_palsy-bilateral_complete
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:left_arm_motor
+    kind: input
+    statement: "5A: Left Arm Motor Drift: Count out loud and use your fingers to show the patient your count."
+    covers:
+      - input:left_arm_motor
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:left_arm_motor:options
+    kind: input
+    statement: "5A: Left Arm Motor Drift uses the closed cited option set: no_drift=0, drift_no_bed=1, drift_hits_bed=2,
+      some_effort=2, no_effort=3, no_movement=4, amputation (NT/UN)."
+    covers:
+      - input:left_arm_motor:options
+    status: supported
+    sourceIds: &a9
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-left_arm_motor-no_drift
+      - case:nihss:option-left_arm_motor-drift_no_bed
+      - case:nihss:option-left_arm_motor-drift_hits_bed
+      - case:nihss:option-left_arm_motor-some_effort
+      - case:nihss:option-left_arm_motor-no_effort
+      - case:nihss:option-left_arm_motor-no_movement
+      - case:nihss:option-left_arm_motor-amputation
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:right_arm_motor
+    kind: input
+    statement: "5B: Right Arm Motor Drift: Same assessment as Left Arm Motor Drift."
+    covers:
+      - input:right_arm_motor
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:right_arm_motor:options
+    kind: input
+    statement: "5B: Right Arm Motor Drift uses the closed cited option set: no_drift=0, drift_no_bed=1, drift_hits_bed=2,
+      some_effort=2, no_effort=3, no_movement=4, amputation (NT/UN)."
+    covers:
+      - input:right_arm_motor:options
+    status: supported
+    sourceIds: &a10
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-right_arm_motor-no_drift
+      - case:nihss:option-right_arm_motor-drift_no_bed
+      - case:nihss:option-right_arm_motor-drift_hits_bed
+      - case:nihss:option-right_arm_motor-some_effort
+      - case:nihss:option-right_arm_motor-no_effort
+      - case:nihss:option-right_arm_motor-no_movement
+      - case:nihss:option-right_arm_motor-amputation
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:left_leg_motor
+    kind: input
+    statement: "6A: Left Leg Motor Drift: Assessment of leg motor drift."
+    covers:
+      - input:left_leg_motor
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:left_leg_motor:options
+    kind: input
+    statement: "6A: Left Leg Motor Drift uses the closed cited option set: no_drift=0, drift_no_bed=1, drift_hits_bed=2,
+      some_effort=2, no_effort=3, no_movement=4, amputation (NT/UN)."
+    covers:
+      - input:left_leg_motor:options
+    status: supported
+    sourceIds: &a11
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-left_leg_motor-no_drift
+      - case:nihss:option-left_leg_motor-drift_no_bed
+      - case:nihss:option-left_leg_motor-drift_hits_bed
+      - case:nihss:option-left_leg_motor-some_effort
+      - case:nihss:option-left_leg_motor-no_effort
+      - case:nihss:option-left_leg_motor-no_movement
+      - case:nihss:option-left_leg_motor-amputation
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:right_leg_motor
+    kind: input
+    statement: "6B: Right Leg Motor Drift: Same assessment as Left Leg Motor Drift."
+    covers:
+      - input:right_leg_motor
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:right_leg_motor:options
+    kind: input
+    statement: "6B: Right Leg Motor Drift uses the closed cited option set: no_drift=0, drift_no_bed=1, drift_hits_bed=2,
+      some_effort=2, no_effort=3, no_movement=4, amputation (NT/UN)."
+    covers:
+      - input:right_leg_motor:options
+    status: supported
+    sourceIds: &a12
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-right_leg_motor-no_drift
+      - case:nihss:option-right_leg_motor-drift_no_bed
+      - case:nihss:option-right_leg_motor-drift_hits_bed
+      - case:nihss:option-right_leg_motor-some_effort
+      - case:nihss:option-right_leg_motor-no_effort
+      - case:nihss:option-right_leg_motor-no_movement
+      - case:nihss:option-right_leg_motor-amputation
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:limb_ataxia
+    kind: input
+    statement: "7: Limb Ataxia: Finger-nose-finger / heel-shin."
+    covers:
+      - input:limb_ataxia
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:limb_ataxia:options
+    kind: input
+    statement: "7: Limb Ataxia uses the closed cited option set: no_ataxia=0, one_limb=1, two_limbs=2,
+      does_not_understand=0, paralyzed=0, amputation (NT/UN)."
+    covers:
+      - input:limb_ataxia:options
+    status: supported
+    sourceIds: &a13
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-limb_ataxia-no_ataxia
+      - case:nihss:option-limb_ataxia-one_limb
+      - case:nihss:option-limb_ataxia-two_limbs
+      - case:nihss:option-limb_ataxia-does_not_understand
+      - case:nihss:option-limb_ataxia-paralyzed
+      - case:nihss:option-limb_ataxia-amputation
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:sensation
+    kind: input
+    statement: "8: Sensation: Assessment of sensation."
+    covers:
+      - input:sensation
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:sensation:options
+    kind: input
+    statement: "8: Sensation uses the closed cited option set: normal=0, mild_moderate_sharp=1, mild_moderate_sense=1,
+      complete_loss=2, quadriplegic=2, unresponsive=2."
+    covers:
+      - input:sensation:options
+    status: supported
+    sourceIds: &a14
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-sensation-normal
+      - case:nihss:option-sensation-mild_moderate_sharp
+      - case:nihss:option-sensation-mild_moderate_sense
+      - case:nihss:option-sensation-complete_loss
+      - case:nihss:option-sensation-quadriplegic
+      - case:nihss:option-sensation-unresponsive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:language
+    kind: input
+    statement: "9: Language / Aphasia: Describe the scene; name the items; read the sentences."
+    covers:
+      - input:language
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:language:options
+    kind: input
+    statement: "9: Language / Aphasia uses the closed cited option set: normal=0, mild_moderate=1, severe=2, mute=3,
+      unresponsive=3."
+    covers:
+      - input:language:options
+    status: supported
+    sourceIds: &a15
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-language-normal
+      - case:nihss:option-language-mild_moderate
+      - case:nihss:option-language-severe
+      - case:nihss:option-language-mute
+      - case:nihss:option-language-unresponsive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:dysarthria
+    kind: input
+    statement: "10: Dysarthria: Read the words."
+    covers:
+      - input:dysarthria
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:dysarthria:options
+    kind: input
+    statement: "10: Dysarthria uses the closed cited option set: normal=0, mild_moderate=1, severe=2, mute=2, intubated (NT/UN)."
+    covers:
+      - input:dysarthria:options
+    status: supported
+    sourceIds: &a16
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-dysarthria-normal
+      - case:nihss:option-dysarthria-mild_moderate
+      - case:nihss:option-dysarthria-severe
+      - case:nihss:option-dysarthria-mute
+      - case:nihss:option-dysarthria-intubated
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:extinction
+    kind: input
+    statement: "11: Extinction / Inattention: Assessment of extinction and inattention."
+    covers:
+      - input:extinction
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:input:extinction:options
+    kind: input
+    statement: "11: Extinction / Inattention uses the closed cited option set: no_abnormality=0, inattention=1,
+      extinction=1, profound_hemi_inattention=2, multiple_modalities=2."
+    covers:
+      - input:extinction:options
+    status: supported
+    sourceIds: &a17
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:option-extinction-no_abnormality
+      - case:nihss:option-extinction-inattention
+      - case:nihss:option-extinction-extinction
+      - case:nihss:option-extinction-profound_hemi_inattention
+      - case:nihss:option-extinction-multiple_modalities
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:output:nihss_score
+    kind: outcome
+    statement: "NIHSS Score: Total NIH Stroke Scale score (0-42), returned only when every item is testable. A score of 0
+      means no deficit detected by NIHSS; stroke is not excluded."
+    covers:
+      - output:nihss_score
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:ref-2
+      - case:nihss:ref-3
+      - case:nihss:multiple-modifiers
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:output:assessment_complete
+    kind: outcome
+    statement: "Assessment Complete: True only when every NIHSS item is testable and a total can be reported."
+    covers:
+      - output:assessment_complete
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:ref-2
+      - case:nihss:ref-3
+      - case:nihss:multiple-modifiers
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:output:missing_component_reasons
+    kind: outcome
+    statement: "Untestable Item Reasons: Reasons a total was omitted; empty when all items are testable."
+    covers:
+      - output:missing_component_reasons
+    status: supported
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_brott_1989
+        locator: Brott 1989, clinical examination items, weights, and total range.
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:ref-1
+      - case:nihss:ref-2
+      - case:nihss:ref-3
+      - case:nihss:multiple-modifiers
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:constraint:0
+    kind: input
+    statement: Intubation requires dysarthria to be recorded UN rather than assigned a numeric score.
+    covers:
+      - constraint:0
+    status: supported
+    sourceIds:
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:constraint-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:constraint:1
+    kind: input
+    statement: The intubated dysarthria option requires the matching or multiple-modifier context.
+    covers:
+      - constraint:1
+    status: supported
+    sourceIds:
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:constraint-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:constraint:2
+    kind: input
+    statement: Amputation or joint fusion context requires at least one affected NIHSS item to be recorded UN.
+    covers:
+      - constraint:2
+    status: supported
+    sourceIds:
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:constraint-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:constraint:3
+    kind: input
+    statement: An amputated left-arm item requires the matching or multiple-modifier context.
+    covers:
+      - constraint:3
+    status: supported
+    sourceIds:
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:constraint-4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:constraint:4
+    kind: input
+    statement: An amputated right-arm item requires the matching or multiple-modifier context.
+    covers:
+      - constraint:4
+    status: supported
+    sourceIds:
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:constraint-5
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:constraint:5
+    kind: input
+    statement: An amputated left-leg item requires the matching or multiple-modifier context.
+    covers:
+      - constraint:5
+    status: supported
+    sourceIds:
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:constraint-6
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:constraint:6
+    kind: input
+    statement: An amputated right-leg item requires the matching or multiple-modifier context.
+    covers:
+      - constraint:6
+    status: supported
+    sourceIds:
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:constraint-7
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:constraint:7
+    kind: input
+    statement: An amputated ataxia item requires the matching or multiple-modifier context.
+    covers:
+      - constraint:7
+    status: supported
+    sourceIds:
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:constraint-8
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:nihss:constraint:8
+    kind: input
+    statement: Multiple modifiers require at least two affected NIHSS items to be recorded UN.
+    covers:
+      - constraint:8
+    status: supported
+    sourceIds:
+      - nihss_ninds_2024
+    locators:
+      - sourceId: nihss_ninds_2024
+        locator: February 2024 NIHSS form, item instructions, current visual stimuli, and UN rules.
+    executable: true
+    scenarioIds:
+      - case:nihss:constraint-9
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:nihss:ref-1
+    kind: reference
+    tags:
+      - source-reference
+      - calculator:nihss:core
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:formula:implementation
+      - claim:nihss:output:nihss_score
+      - claim:nihss:output:assessment_complete
+      - claim:nihss:output:missing_component_reasons
+      - claim:nihss:input:assessment_timing
+      - claim:nihss:input:assessment_timing:options
+      - claim:nihss:input:modifier_context
+      - claim:nihss:input:modifier_context:options
+      - claim:nihss:input:level_of_consciousness
+      - claim:nihss:input:level_of_consciousness:options
+      - claim:nihss:input:month_and_age
+      - claim:nihss:input:month_and_age:options
+      - claim:nihss:input:commands
+      - claim:nihss:input:commands:options
+      - claim:nihss:input:horizontal_gaze
+      - claim:nihss:input:horizontal_gaze:options
+      - claim:nihss:input:visual_fields
+      - claim:nihss:input:visual_fields:options
+      - claim:nihss:input:facial_palsy
+      - claim:nihss:input:facial_palsy:options
+      - claim:nihss:input:left_arm_motor
+      - claim:nihss:input:left_arm_motor:options
+      - claim:nihss:input:right_arm_motor
+      - claim:nihss:input:right_arm_motor:options
+      - claim:nihss:input:left_leg_motor
+      - claim:nihss:input:left_leg_motor:options
+      - claim:nihss:input:right_leg_motor
+      - claim:nihss:input:right_leg_motor:options
+      - claim:nihss:input:limb_ataxia
+      - claim:nihss:input:limb_ataxia:options
+      - claim:nihss:input:sensation
+      - claim:nihss:input:sensation:options
+      - claim:nihss:input:language
+      - claim:nihss:input:language:options
+      - claim:nihss:input:dysarthria
+      - claim:nihss:input:dysarthria:options
+      - claim:nihss:input:extinction
+      - claim:nihss:input:extinction:options
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    witnesses:
+      - formula:implementation
+      - output:nihss_score
+      - output:assessment_complete
+      - output:missing_component_reasons
+      - input:assessment_timing
+      - input:assessment_timing:options
+      - input:modifier_context
+      - input:modifier_context:options
+      - input:level_of_consciousness
+      - input:level_of_consciousness:options
+      - input:month_and_age
+      - input:month_and_age:options
+      - input:commands
+      - input:commands:options
+      - input:horizontal_gaze
+      - input:horizontal_gaze:options
+      - input:visual_fields
+      - input:visual_fields:options
+      - input:facial_palsy
+      - input:facial_palsy:options
+      - input:left_arm_motor
+      - input:left_arm_motor:options
+      - input:right_arm_motor
+      - input:right_arm_motor:options
+      - input:left_leg_motor
+      - input:left_leg_motor:options
+      - input:right_leg_motor
+      - input:right_leg_motor:options
+      - input:limb_ataxia
+      - input:limb_ataxia:options
+      - input:sensation
+      - input:sensation:options
+      - input:language
+      - input:language:options
+      - input:dysarthria
+      - input:dysarthria:options
+      - input:extinction
+      - input:extinction:options
+  - id: case:nihss:ref-2
+    kind: reference
+    tags:
+      - source-reference
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: minor_stimulation
+      month_and_age: one_right
+      commands: one_task
+      horizontal_gaze: partial_overcome
+      visual_fields: partial_hemianopia
+      facial_palsy: minor_paralysis
+      left_arm_motor: drift_no_bed
+      right_arm_motor: no_drift
+      left_leg_motor: drift_no_bed
+      right_leg_motor: no_drift
+      limb_ataxia: one_limb
+      sensation: mild_moderate_sharp
+      language: mild_moderate
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 11
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:formula:implementation
+      - claim:nihss:output:nihss_score
+      - claim:nihss:output:assessment_complete
+      - claim:nihss:output:missing_component_reasons
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    witnesses:
+      - formula:implementation
+      - output:nihss_score
+      - output:assessment_complete
+      - output:missing_component_reasons
+  - id: case:nihss:ref-3
+    kind: reference
+    tags:
+      - source-reference
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: unresponsive
+      month_and_age: none_right
+      commands: no_tasks
+      horizontal_gaze: forced_palsy
+      visual_fields: bilaterally_blind
+      facial_palsy: unilateral_complete
+      left_arm_motor: no_movement
+      right_arm_motor: no_movement
+      left_leg_motor: no_movement
+      right_leg_motor: no_movement
+      limb_ataxia: two_limbs
+      sensation: complete_loss
+      language: mute
+      dysarthria: severe
+      extinction: profound_hemi_inattention
+    expected:
+      nihss_score: 42
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:formula:implementation
+      - claim:nihss:output:nihss_score
+      - claim:nihss:output:assessment_complete
+      - claim:nihss:output:missing_component_reasons
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    witnesses:
+      - formula:implementation
+      - output:nihss_score
+      - output:assessment_complete
+      - output:missing_component_reasons
+  - id: case:nihss:agent-purpose
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:applicability:purpose
+    sourceIds:
+      - nihss_ninds_2024
+      - nihss_aha_asa_2026
+      - nihss_stockbridge_2024
+      - nihss_zero_2011
+    witnesses:
+      - applicability:purpose
+  - id: case:nihss:agent-exclusion
+    kind: agent
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: assessment_timing
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:applicability:exclusions
+      - claim:nihss:input:assessment_timing
+    sourceIds:
+      - nihss_ninds_2024
+      - nihss_aha_asa_2026
+      - nihss_stockbridge_2024
+      - nihss_zero_2011
+      - nihss_brott_1989
+    witnesses:
+      - applicability:exclusions
+      - input:assessment_timing
+  - id: case:nihss:constraint-1
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_timing: baseline
+      modifier_context: intubation
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: dysarthria
+      messageIncludes: Intubation requires dysarthria to be recorded UN rather than assigned a numeric score.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:constraint:0
+    sourceIds:
+      - nihss_ninds_2024
+    witnesses:
+      - constraint:0
+  - id: case:nihss:constraint-2
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: intubated
+      extinction: no_abnormality
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: dysarthria
+      messageIncludes: The intubated dysarthria option requires the matching or multiple-modifier context.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:constraint:1
+    sourceIds:
+      - nihss_ninds_2024
+    witnesses:
+      - constraint:1
+  - id: case:nihss:constraint-3
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_timing: baseline
+      modifier_context: amputation_or_joint_fusion
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: modifier_context
+      messageIncludes: Amputation or joint fusion context requires at least one affected NIHSS item to be recorded UN.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:constraint:2
+    sourceIds:
+      - nihss_ninds_2024
+    witnesses:
+      - constraint:2
+  - id: case:nihss:constraint-4
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: amputation
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: left_arm_motor
+      messageIncludes: An amputated left-arm item requires the matching or multiple-modifier context.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:constraint:3
+    sourceIds:
+      - nihss_ninds_2024
+    witnesses:
+      - constraint:3
+  - id: case:nihss:constraint-5
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: amputation
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: right_arm_motor
+      messageIncludes: An amputated right-arm item requires the matching or multiple-modifier context.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:constraint:4
+    sourceIds:
+      - nihss_ninds_2024
+    witnesses:
+      - constraint:4
+  - id: case:nihss:constraint-6
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: amputation
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: left_leg_motor
+      messageIncludes: An amputated left-leg item requires the matching or multiple-modifier context.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:constraint:5
+    sourceIds:
+      - nihss_ninds_2024
+    witnesses:
+      - constraint:5
+  - id: case:nihss:constraint-7
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: amputation
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: right_leg_motor
+      messageIncludes: An amputated right-leg item requires the matching or multiple-modifier context.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:constraint:6
+    sourceIds:
+      - nihss_ninds_2024
+    witnesses:
+      - constraint:6
+  - id: case:nihss:constraint-8
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: amputation
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: limb_ataxia
+      messageIncludes: An amputated ataxia item requires the matching or multiple-modifier context.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:constraint:7
+    sourceIds:
+      - nihss_ninds_2024
+    witnesses:
+      - constraint:7
+  - id: case:nihss:constraint-9
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      assessment_timing: baseline
+      modifier_context: multiple_modifiers
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: modifier_context
+      messageIncludes: Multiple modifiers require at least two affected NIHSS items to be recorded UN.
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:constraint:8
+    sourceIds:
+      - nihss_ninds_2024
+    witnesses:
+      - constraint:8
+  - id: case:nihss:multiple-modifiers
+    kind: edge
+    tags:
+      - conditional-output
+    inputs:
+      assessment_timing: baseline
+      modifier_context: multiple_modifiers
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: amputation
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: intubated
+      extinction: no_abnormality
+    expected:
+      assessment_complete: false
+      missing_component_reasons:
+        - "5A: Left Arm Motor Drift: Left arm motor is untestable because of amputation or joint fusion; record UN with
+          an explanation."
+        - "10: Dysarthria: Dysarthria is untestable because intubation or another physical barrier prevents speech;
+          record UN."
+    expectedBehavior: omit
+    omittedOutputs:
+      - nihss_score
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:nihss:output:nihss_score
+      - claim:nihss:output:assessment_complete
+      - claim:nihss:output:missing_component_reasons
+    sourceIds:
+      - nihss_brott_1989
+      - nihss_ninds_2024
+    witnesses:
+      - output:nihss_score
+      - output:assessment_complete
+      - output:missing_component_reasons
+  - id: case:nihss:option-assessment_timing-baseline
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:assessment_timing:options
+    sourceIds: *a1
+    witnesses:
+      - input:assessment_timing:options
+  - id: case:nihss:option-assessment_timing-post_treatment
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: post_treatment
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:assessment_timing:options
+    sourceIds: *a1
+    witnesses:
+      - input:assessment_timing:options
+  - id: case:nihss:option-assessment_timing-follow_up
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: follow_up
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:assessment_timing:options
+    sourceIds: *a1
+    witnesses:
+      - input:assessment_timing:options
+  - id: case:nihss:option-modifier_context-none
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:nihss:option-modifier_context-intubation
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: intubation
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: intubated
+      extinction: no_abnormality
+    expected:
+      assessment_complete: false
+      missing_component_reasons:
+        - "10: Dysarthria: Dysarthria is untestable because intubation or another physical barrier prevents speech;
+          record UN."
+    expectedBehavior: omit
+    omittedOutputs:
+      - nihss_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:nihss:option-modifier_context-amputation_or_joint_fusion
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: amputation_or_joint_fusion
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: amputation
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      assessment_complete: false
+      missing_component_reasons:
+        - "5A: Left Arm Motor Drift: Left arm motor is untestable because of amputation or joint fusion; record UN with
+          an explanation."
+    expectedBehavior: omit
+    omittedOutputs:
+      - nihss_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:nihss:option-modifier_context-language_barrier
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: language_barrier
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:nihss:option-modifier_context-pre_existing_deficit
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: pre_existing_deficit
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:nihss:option-modifier_context-other
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: other
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:nihss:option-modifier_context-multiple_modifiers
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: multiple_modifiers
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: amputation
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: intubated
+      extinction: no_abnormality
+    expected:
+      assessment_complete: false
+      missing_component_reasons:
+        - "5A: Left Arm Motor Drift: Left arm motor is untestable because of amputation or joint fusion; record UN with
+          an explanation."
+        - "10: Dysarthria: Dysarthria is untestable because intubation or another physical barrier prevents speech;
+          record UN."
+    expectedBehavior: omit
+    omittedOutputs:
+      - nihss_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:modifier_context:options
+    sourceIds: *a2
+    witnesses:
+      - input:modifier_context:options
+  - id: case:nihss:option-level_of_consciousness-alert
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:level_of_consciousness:options
+    sourceIds: *a3
+    witnesses:
+      - input:level_of_consciousness:options
+  - id: case:nihss:option-level_of_consciousness-minor_stimulation
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: minor_stimulation
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:level_of_consciousness:options
+    sourceIds: *a3
+    witnesses:
+      - input:level_of_consciousness:options
+  - id: case:nihss:option-level_of_consciousness-repeated_stimulation
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: repeated_stimulation
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:level_of_consciousness:options
+    sourceIds: *a3
+    witnesses:
+      - input:level_of_consciousness:options
+  - id: case:nihss:option-level_of_consciousness-movements_to_pain
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: movements_to_pain
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:level_of_consciousness:options
+    sourceIds: *a3
+    witnesses:
+      - input:level_of_consciousness:options
+  - id: case:nihss:option-level_of_consciousness-unresponsive
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: unresponsive
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 3
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:level_of_consciousness:options
+    sourceIds: *a3
+    witnesses:
+      - input:level_of_consciousness:options
+  - id: case:nihss:option-month_and_age-both_right
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:month_and_age:options
+    sourceIds: *a4
+    witnesses:
+      - input:month_and_age:options
+  - id: case:nihss:option-month_and_age-one_right
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: one_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:month_and_age:options
+    sourceIds: *a4
+    witnesses:
+      - input:month_and_age:options
+  - id: case:nihss:option-month_and_age-none_right
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: none_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:month_and_age:options
+    sourceIds: *a4
+    witnesses:
+      - input:month_and_age:options
+  - id: case:nihss:option-month_and_age-impaired_communication
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: impaired_communication
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:month_and_age:options
+    sourceIds: *a4
+    witnesses:
+      - input:month_and_age:options
+  - id: case:nihss:option-month_and_age-aphasic
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: aphasic
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:month_and_age:options
+    sourceIds: *a4
+    witnesses:
+      - input:month_and_age:options
+  - id: case:nihss:option-commands-both_tasks
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:commands:options
+    sourceIds: *a5
+    witnesses:
+      - input:commands:options
+  - id: case:nihss:option-commands-one_task
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: one_task
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:commands:options
+    sourceIds: *a5
+    witnesses:
+      - input:commands:options
+  - id: case:nihss:option-commands-no_tasks
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: no_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:commands:options
+    sourceIds: *a5
+    witnesses:
+      - input:commands:options
+  - id: case:nihss:option-horizontal_gaze-normal
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:horizontal_gaze:options
+    sourceIds: *a6
+    witnesses:
+      - input:horizontal_gaze:options
+  - id: case:nihss:option-horizontal_gaze-partial_overcome
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: partial_overcome
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:horizontal_gaze:options
+    sourceIds: *a6
+    witnesses:
+      - input:horizontal_gaze:options
+  - id: case:nihss:option-horizontal_gaze-partial_reflex
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: partial_reflex
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:horizontal_gaze:options
+    sourceIds: *a6
+    witnesses:
+      - input:horizontal_gaze:options
+  - id: case:nihss:option-horizontal_gaze-forced_palsy
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: forced_palsy
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:horizontal_gaze:options
+    sourceIds: *a6
+    witnesses:
+      - input:horizontal_gaze:options
+  - id: case:nihss:option-visual_fields-no_loss
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:visual_fields:options
+    sourceIds: *a7
+    witnesses:
+      - input:visual_fields:options
+  - id: case:nihss:option-visual_fields-partial_hemianopia
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: partial_hemianopia
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:visual_fields:options
+    sourceIds: *a7
+    witnesses:
+      - input:visual_fields:options
+  - id: case:nihss:option-visual_fields-complete_hemianopia
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: complete_hemianopia
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:visual_fields:options
+    sourceIds: *a7
+    witnesses:
+      - input:visual_fields:options
+  - id: case:nihss:option-visual_fields-bilaterally_blind
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: bilaterally_blind
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 3
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:visual_fields:options
+    sourceIds: *a7
+    witnesses:
+      - input:visual_fields:options
+  - id: case:nihss:option-visual_fields-bilateral_hemianopia
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: bilateral_hemianopia
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 3
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:visual_fields:options
+    sourceIds: *a7
+    witnesses:
+      - input:visual_fields:options
+  - id: case:nihss:option-facial_palsy-normal
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:facial_palsy:options
+    sourceIds: *a8
+    witnesses:
+      - input:facial_palsy:options
+  - id: case:nihss:option-facial_palsy-minor_paralysis
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: minor_paralysis
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:facial_palsy:options
+    sourceIds: *a8
+    witnesses:
+      - input:facial_palsy:options
+  - id: case:nihss:option-facial_palsy-partial_paralysis
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: partial_paralysis
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:facial_palsy:options
+    sourceIds: *a8
+    witnesses:
+      - input:facial_palsy:options
+  - id: case:nihss:option-facial_palsy-unilateral_complete
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: unilateral_complete
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 3
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:facial_palsy:options
+    sourceIds: *a8
+    witnesses:
+      - input:facial_palsy:options
+  - id: case:nihss:option-facial_palsy-bilateral_complete
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: bilateral_complete
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 3
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:facial_palsy:options
+    sourceIds: *a8
+    witnesses:
+      - input:facial_palsy:options
+  - id: case:nihss:option-left_arm_motor-no_drift
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_arm_motor:options
+    sourceIds: *a9
+    witnesses:
+      - input:left_arm_motor:options
+  - id: case:nihss:option-left_arm_motor-drift_no_bed
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: drift_no_bed
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_arm_motor:options
+    sourceIds: *a9
+    witnesses:
+      - input:left_arm_motor:options
+  - id: case:nihss:option-left_arm_motor-drift_hits_bed
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: drift_hits_bed
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_arm_motor:options
+    sourceIds: *a9
+    witnesses:
+      - input:left_arm_motor:options
+  - id: case:nihss:option-left_arm_motor-some_effort
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: some_effort
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_arm_motor:options
+    sourceIds: *a9
+    witnesses:
+      - input:left_arm_motor:options
+  - id: case:nihss:option-left_arm_motor-no_effort
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_effort
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 3
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_arm_motor:options
+    sourceIds: *a9
+    witnesses:
+      - input:left_arm_motor:options
+  - id: case:nihss:option-left_arm_motor-no_movement
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_movement
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 4
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_arm_motor:options
+    sourceIds: *a9
+    witnesses:
+      - input:left_arm_motor:options
+  - id: case:nihss:option-left_arm_motor-amputation
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: amputation_or_joint_fusion
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: amputation
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      assessment_complete: false
+      missing_component_reasons:
+        - "5A: Left Arm Motor Drift: Left arm motor is untestable because of amputation or joint fusion; record UN with
+          an explanation."
+    expectedBehavior: omit
+    omittedOutputs:
+      - nihss_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_arm_motor:options
+    sourceIds: *a9
+    witnesses:
+      - input:left_arm_motor:options
+  - id: case:nihss:option-right_arm_motor-no_drift
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_arm_motor:options
+    sourceIds: *a10
+    witnesses:
+      - input:right_arm_motor:options
+  - id: case:nihss:option-right_arm_motor-drift_no_bed
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: drift_no_bed
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_arm_motor:options
+    sourceIds: *a10
+    witnesses:
+      - input:right_arm_motor:options
+  - id: case:nihss:option-right_arm_motor-drift_hits_bed
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: drift_hits_bed
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_arm_motor:options
+    sourceIds: *a10
+    witnesses:
+      - input:right_arm_motor:options
+  - id: case:nihss:option-right_arm_motor-some_effort
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: some_effort
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_arm_motor:options
+    sourceIds: *a10
+    witnesses:
+      - input:right_arm_motor:options
+  - id: case:nihss:option-right_arm_motor-no_effort
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_effort
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 3
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_arm_motor:options
+    sourceIds: *a10
+    witnesses:
+      - input:right_arm_motor:options
+  - id: case:nihss:option-right_arm_motor-no_movement
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_movement
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 4
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_arm_motor:options
+    sourceIds: *a10
+    witnesses:
+      - input:right_arm_motor:options
+  - id: case:nihss:option-right_arm_motor-amputation
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: amputation_or_joint_fusion
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: amputation
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      assessment_complete: false
+      missing_component_reasons:
+        - "5B: Right Arm Motor Drift: Right arm motor is untestable because of amputation or joint fusion; record UN
+          with an explanation."
+    expectedBehavior: omit
+    omittedOutputs:
+      - nihss_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_arm_motor:options
+    sourceIds: *a10
+    witnesses:
+      - input:right_arm_motor:options
+  - id: case:nihss:option-left_leg_motor-no_drift
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_leg_motor:options
+    sourceIds: *a11
+    witnesses:
+      - input:left_leg_motor:options
+  - id: case:nihss:option-left_leg_motor-drift_no_bed
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: drift_no_bed
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_leg_motor:options
+    sourceIds: *a11
+    witnesses:
+      - input:left_leg_motor:options
+  - id: case:nihss:option-left_leg_motor-drift_hits_bed
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: drift_hits_bed
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_leg_motor:options
+    sourceIds: *a11
+    witnesses:
+      - input:left_leg_motor:options
+  - id: case:nihss:option-left_leg_motor-some_effort
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: some_effort
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_leg_motor:options
+    sourceIds: *a11
+    witnesses:
+      - input:left_leg_motor:options
+  - id: case:nihss:option-left_leg_motor-no_effort
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_effort
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 3
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_leg_motor:options
+    sourceIds: *a11
+    witnesses:
+      - input:left_leg_motor:options
+  - id: case:nihss:option-left_leg_motor-no_movement
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_movement
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 4
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_leg_motor:options
+    sourceIds: *a11
+    witnesses:
+      - input:left_leg_motor:options
+  - id: case:nihss:option-left_leg_motor-amputation
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: amputation_or_joint_fusion
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: amputation
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      assessment_complete: false
+      missing_component_reasons:
+        - "6A: Left Leg Motor Drift: Left leg motor is untestable because of amputation or joint fusion; record UN with
+          an explanation."
+    expectedBehavior: omit
+    omittedOutputs:
+      - nihss_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:left_leg_motor:options
+    sourceIds: *a11
+    witnesses:
+      - input:left_leg_motor:options
+  - id: case:nihss:option-right_leg_motor-no_drift
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_leg_motor:options
+    sourceIds: *a12
+    witnesses:
+      - input:right_leg_motor:options
+  - id: case:nihss:option-right_leg_motor-drift_no_bed
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: drift_no_bed
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_leg_motor:options
+    sourceIds: *a12
+    witnesses:
+      - input:right_leg_motor:options
+  - id: case:nihss:option-right_leg_motor-drift_hits_bed
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: drift_hits_bed
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_leg_motor:options
+    sourceIds: *a12
+    witnesses:
+      - input:right_leg_motor:options
+  - id: case:nihss:option-right_leg_motor-some_effort
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: some_effort
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_leg_motor:options
+    sourceIds: *a12
+    witnesses:
+      - input:right_leg_motor:options
+  - id: case:nihss:option-right_leg_motor-no_effort
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_effort
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 3
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_leg_motor:options
+    sourceIds: *a12
+    witnesses:
+      - input:right_leg_motor:options
+  - id: case:nihss:option-right_leg_motor-no_movement
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_movement
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 4
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_leg_motor:options
+    sourceIds: *a12
+    witnesses:
+      - input:right_leg_motor:options
+  - id: case:nihss:option-right_leg_motor-amputation
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: amputation_or_joint_fusion
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: amputation
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      assessment_complete: false
+      missing_component_reasons:
+        - "6B: Right Leg Motor Drift: Right leg motor is untestable because of amputation or joint fusion; record UN
+          with an explanation."
+    expectedBehavior: omit
+    omittedOutputs:
+      - nihss_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:right_leg_motor:options
+    sourceIds: *a12
+    witnesses:
+      - input:right_leg_motor:options
+  - id: case:nihss:option-limb_ataxia-no_ataxia
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:limb_ataxia:options
+    sourceIds: *a13
+    witnesses:
+      - input:limb_ataxia:options
+  - id: case:nihss:option-limb_ataxia-one_limb
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: one_limb
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:limb_ataxia:options
+    sourceIds: *a13
+    witnesses:
+      - input:limb_ataxia:options
+  - id: case:nihss:option-limb_ataxia-two_limbs
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: two_limbs
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:limb_ataxia:options
+    sourceIds: *a13
+    witnesses:
+      - input:limb_ataxia:options
+  - id: case:nihss:option-limb_ataxia-does_not_understand
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: does_not_understand
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:limb_ataxia:options
+    sourceIds: *a13
+    witnesses:
+      - input:limb_ataxia:options
+  - id: case:nihss:option-limb_ataxia-paralyzed
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: paralyzed
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:limb_ataxia:options
+    sourceIds: *a13
+    witnesses:
+      - input:limb_ataxia:options
+  - id: case:nihss:option-limb_ataxia-amputation
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: amputation_or_joint_fusion
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: amputation
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      assessment_complete: false
+      missing_component_reasons:
+        - "7: Limb Ataxia: Limb ataxia is untestable because of amputation or joint fusion; record UN with an
+          explanation."
+    expectedBehavior: omit
+    omittedOutputs:
+      - nihss_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:limb_ataxia:options
+    sourceIds: *a13
+    witnesses:
+      - input:limb_ataxia:options
+  - id: case:nihss:option-sensation-normal
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:sensation:options
+    sourceIds: *a14
+    witnesses:
+      - input:sensation:options
+  - id: case:nihss:option-sensation-mild_moderate_sharp
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: mild_moderate_sharp
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:sensation:options
+    sourceIds: *a14
+    witnesses:
+      - input:sensation:options
+  - id: case:nihss:option-sensation-mild_moderate_sense
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: mild_moderate_sense
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:sensation:options
+    sourceIds: *a14
+    witnesses:
+      - input:sensation:options
+  - id: case:nihss:option-sensation-complete_loss
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: complete_loss
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:sensation:options
+    sourceIds: *a14
+    witnesses:
+      - input:sensation:options
+  - id: case:nihss:option-sensation-quadriplegic
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: quadriplegic
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:sensation:options
+    sourceIds: *a14
+    witnesses:
+      - input:sensation:options
+  - id: case:nihss:option-sensation-unresponsive
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: unresponsive
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:sensation:options
+    sourceIds: *a14
+    witnesses:
+      - input:sensation:options
+  - id: case:nihss:option-language-normal
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:language:options
+    sourceIds: *a15
+    witnesses:
+      - input:language:options
+  - id: case:nihss:option-language-mild_moderate
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: mild_moderate
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:language:options
+    sourceIds: *a15
+    witnesses:
+      - input:language:options
+  - id: case:nihss:option-language-severe
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: severe
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:language:options
+    sourceIds: *a15
+    witnesses:
+      - input:language:options
+  - id: case:nihss:option-language-mute
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: mute
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 3
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:language:options
+    sourceIds: *a15
+    witnesses:
+      - input:language:options
+  - id: case:nihss:option-language-unresponsive
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: unresponsive
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 3
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:language:options
+    sourceIds: *a15
+    witnesses:
+      - input:language:options
+  - id: case:nihss:option-dysarthria-normal
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:dysarthria:options
+    sourceIds: *a16
+    witnesses:
+      - input:dysarthria:options
+  - id: case:nihss:option-dysarthria-mild_moderate
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: mild_moderate
+      extinction: no_abnormality
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:dysarthria:options
+    sourceIds: *a16
+    witnesses:
+      - input:dysarthria:options
+  - id: case:nihss:option-dysarthria-severe
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: severe
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:dysarthria:options
+    sourceIds: *a16
+    witnesses:
+      - input:dysarthria:options
+  - id: case:nihss:option-dysarthria-mute
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: mute
+      extinction: no_abnormality
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:dysarthria:options
+    sourceIds: *a16
+    witnesses:
+      - input:dysarthria:options
+  - id: case:nihss:option-dysarthria-intubated
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: intubation
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: intubated
+      extinction: no_abnormality
+    expected:
+      assessment_complete: false
+      missing_component_reasons:
+        - "10: Dysarthria: Dysarthria is untestable because intubation or another physical barrier prevents speech;
+          record UN."
+    expectedBehavior: omit
+    omittedOutputs:
+      - nihss_score
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:dysarthria:options
+    sourceIds: *a16
+    witnesses:
+      - input:dysarthria:options
+  - id: case:nihss:option-extinction-no_abnormality
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: no_abnormality
+    expected:
+      nihss_score: 0
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:extinction:options
+    sourceIds: *a17
+    witnesses:
+      - input:extinction:options
+  - id: case:nihss:option-extinction-inattention
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: inattention
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:extinction:options
+    sourceIds: *a17
+    witnesses:
+      - input:extinction:options
+  - id: case:nihss:option-extinction-extinction
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: extinction
+    expected:
+      nihss_score: 1
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:extinction:options
+    sourceIds: *a17
+    witnesses:
+      - input:extinction:options
+  - id: case:nihss:option-extinction-profound_hemi_inattention
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: profound_hemi_inattention
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:extinction:options
+    sourceIds: *a17
+    witnesses:
+      - input:extinction:options
+  - id: case:nihss:option-extinction-multiple_modalities
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      assessment_timing: baseline
+      modifier_context: none
+      level_of_consciousness: alert
+      month_and_age: both_right
+      commands: both_tasks
+      horizontal_gaze: normal
+      visual_fields: no_loss
+      facial_palsy: normal
+      left_arm_motor: no_drift
+      right_arm_motor: no_drift
+      left_leg_motor: no_drift
+      right_leg_motor: no_drift
+      limb_ataxia: no_ataxia
+      sensation: normal
+      language: normal
+      dysarthria: normal
+      extinction: multiple_modalities
+    expected:
+      nihss_score: 2
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:nihss:input:extinction:options
+    sourceIds: *a17
+    witnesses:
+      - input:extinction:options
+compatibilityNotes:
+  - Amputation, joint-fusion, and intubation states no longer score zero; they make the total unavailable and preserve
+    the UN reason.
+  - Removed unsourced severity bins and the unsafe label equating NIHSS zero with no stroke.
+explicitBlockers: []

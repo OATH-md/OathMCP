@@ -1,0 +1,705 @@
+id: nihss
+version: 1.1.0
+name: NIH Stroke Scale (NIHSS)
+synonyms:
+  - stroke severity
+  - neurologic stroke deficit
+abbreviations:
+  - NIHSS
+clinicalModel:
+  modelKind: score
+  modelId: nihss
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+applicability:
+  population: Quantify stroke severity from 15 focused neurological items
+    (consciousness, gaze, visual fields, facial and limb motor function, ataxia,
+    sensation, language, dysarthria, and extinction/inattention). Each item is
+    scored on its own scale (0-2, 0-3, or 0-4); the total (0-42) grades
+    impairment — the higher the score, the more severe the stroke.
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - Full of caveats for patients with prior neurologic deficits (prior
+      weakness, hemi-/quadriplegia, blindness), intubation, or a language
+      barrier. In those cases consult the NIH Stroke Scale reference. Not a
+      substitute for clinical judgment or imaging.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Quantify stroke severity from 15 focused neurological items
+  (consciousness, gaze, visual fields, facial and limb motor function, ataxia,
+  sensation, language, dysarthria, and extinction/inattention). Each item is
+  scored on its own scale (0-2, 0-3, or 0-4); the total (0-42) grades impairment
+  — the higher the score, the more severe the stroke.
+whenNotToUse: Full of caveats for patients with prior neurologic deficits (prior
+  weakness, hemi-/quadriplegia, blindness), intubation, or a language barrier.
+  In those cases consult the NIH Stroke Scale reference. Not a substitute for
+  clinical judgment or imaging.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: "Brott T, Adams HP Jr, Olinger CP, et al. Measurements of acute
+      cerebral infarction: a clinical examination scale. Stroke.
+      1989;20(7):864-870."
+    locator: doi:10.1161/01.STR.20.7.864
+    doi: 10.1161/01.STR.20.7.864
+    url: https://doi.org/10.1161/01.STR.20.7.864
+    reviewed: true
+  - id: source_2
+    type: reference
+    citation: National Institute of Neurological Disorders and Stroke. NIH Stroke
+      Scale booklet and examination instructions.
+    locator: updated February 2024 form and item instructions; reviewed 2026-07-16
+    url: https://www.ninds.nih.gov/sites/default/files/documents/NIH-Stroke-Scale_updatedFeb2024_508.pdf
+    reviewed: true
+  - id: source_3
+    type: validation
+    citation: Martin-Schild S, Albright KC, Tanksley J, et al. Zero on the NIHSS
+      does not equal the absence of stroke. Ann Emerg Med. 2011;57(1):42-45.
+    locator: doi:10.1016/j.annemergmed.2010.06.564
+    doi: 10.1016/j.annemergmed.2010.06.564
+    url: https://pubmed.ncbi.nlm.nih.gov/20828876/
+    reviewed: true
+inputs:
+  assessment_timing:
+    title: Assessment Timing
+    description: Clinical timing of this NIHSS assessment; preserve it when comparing serial scores.
+    kind: enum
+    enumValues:
+      - { value: baseline, label: baseline, description: Baseline assessment before acute treatment. }
+      - { value: post_treatment, label: post-treatment, description: Assessment after an acute treatment. }
+      - { value: follow_up, label: follow-up, description: Later follow-up assessment. }
+    required: true
+    conceptId: nihss.input.assessment_timing
+    examples: [baseline]
+    sourceRefs: [source_2]
+  modifier_context:
+    title: Examination Modifier
+    description: Dominant modifier affecting interpretation; use the specific UN
+      option for an item that cannot be tested.
+    kind: enum
+    enumValues:
+      - { value: none, label: no modifier, description: No material examination modifier documented. }
+      - { value: intubation, label: intubation, description: Dysarthria may be untestable. }
+      - { value: amputation_or_joint_fusion, label: amputation or joint fusion, description: A motor or ataxia item may be untestable. }
+      - { value: language_barrier, label: language barrier, description: Communication context affects the examination. }
+      - { value: pre_existing_deficit, label: pre-existing deficit, description: A prior neurological deficit affects interpretation. }
+      - { value: other, label: other modifier, description: Another documented modifier affects testing. }
+      - { value: multiple_modifiers, label: multiple modifiers, description: More than one modifier affects different items; record every affected item UN. }
+    required: true
+    conceptId: nihss.input.modifier_context
+    examples: [none]
+    sourceRefs: [source_2]
+  level_of_consciousness:
+    title: "1A: Level of Consciousness"
+    description: May be assessed casually while taking history.
+    kind: enum
+    enumValues:
+      - value: alert
+        points: 0
+        label: alert
+        description: "1A: Level of Consciousness: alert."
+      - value: minor_stimulation
+        points: 1
+        label: minor stimulation
+        description: "1A: Level of Consciousness: minor stimulation."
+      - value: repeated_stimulation
+        points: 2
+        label: repeated stimulation
+        description: "1A: Level of Consciousness: repeated stimulation."
+      - value: movements_to_pain
+        points: 2
+        label: movements to pain
+        description: "1A: Level of Consciousness: movements to pain."
+      - value: unresponsive
+        points: 3
+        label: unresponsive
+        description: "1A: Level of Consciousness: unresponsive."
+    required: true
+    conceptId: nihss.input.level_of_consciousness
+    examples:
+      - alert
+    sourceRefs:
+      - source_1
+    sharedKey: level_of_consciousness
+  month_and_age:
+    title: "1B: Ask Month and Age"
+    description: Ask about the current month and their age.
+    kind: enum
+    enumValues:
+      - value: both_right
+        points: 0
+        label: both right
+        description: "1B: Ask Month and Age: both right."
+      - value: one_right
+        points: 1
+        label: one right
+        description: "1B: Ask Month and Age: one right."
+      - value: none_right
+        points: 2
+        label: none right
+        description: "1B: Ask Month and Age: none right."
+      - value: impaired_communication
+        points: 1
+        label: impaired communication
+        description: "1B: Ask Month and Age: impaired communication."
+      - value: aphasic
+        points: 2
+        label: aphasic
+        description: "1B: Ask Month and Age: aphasic."
+    required: true
+    conceptId: nihss.input.month_and_age
+    examples:
+      - both_right
+    sourceRefs:
+      - source_1
+    sharedKey: month_and_age
+  commands:
+    title: "1C: Commands"
+    description: "'Blink Eyes' & 'Squeeze Hands'."
+    kind: enum
+    enumValues:
+      - value: both_tasks
+        points: 0
+        label: both tasks
+        description: "1C: Commands: both tasks."
+      - value: one_task
+        points: 1
+        label: one task
+        description: "1C: Commands: one task."
+      - value: no_tasks
+        points: 2
+        label: no tasks
+        description: "1C: Commands: no tasks."
+    required: true
+    conceptId: nihss.input.commands
+    examples:
+      - both_tasks
+    sourceRefs:
+      - source_1
+    sharedKey: commands
+  horizontal_gaze:
+    title: "2: Horizontal Extraocular Movements"
+    description: Only assess horizontal gaze.
+    kind: enum
+    enumValues:
+      - value: normal
+        points: 0
+        label: normal
+        description: "2: Horizontal Extraocular Movements: normal."
+      - value: partial_overcome
+        points: 1
+        label: partial overcome
+        description: "2: Horizontal Extraocular Movements: partial overcome."
+      - value: partial_reflex
+        points: 1
+        label: partial reflex
+        description: "2: Horizontal Extraocular Movements: partial reflex."
+      - value: forced_palsy
+        points: 2
+        label: forced palsy
+        description: "2: Horizontal Extraocular Movements: forced palsy."
+    required: true
+    conceptId: nihss.input.horizontal_gaze
+    examples:
+      - normal
+    sourceRefs:
+      - source_1
+    sharedKey: horizontal_gaze
+  visual_fields:
+    title: "3: Visual Fields"
+    description: Assessment of visual fields.
+    kind: enum
+    enumValues:
+      - value: no_loss
+        points: 0
+        label: no loss
+        description: "3: Visual Fields: no loss."
+      - value: partial_hemianopia
+        points: 1
+        label: partial hemianopia
+        description: "3: Visual Fields: partial hemianopia."
+      - value: complete_hemianopia
+        points: 2
+        label: complete hemianopia
+        description: "3: Visual Fields: complete hemianopia."
+      - value: bilaterally_blind
+        points: 3
+        label: bilaterally blind
+        description: "3: Visual Fields: bilaterally blind."
+      - value: bilateral_hemianopia
+        points: 3
+        label: bilateral hemianopia
+        description: "3: Visual Fields: bilateral hemianopia."
+    required: true
+    conceptId: nihss.input.visual_fields
+    examples:
+      - no_loss
+    sourceRefs:
+      - source_1
+    sharedKey: visual_fields
+  facial_palsy:
+    title: "4: Facial Palsy"
+    description: Use grimace if obtunded.
+    kind: enum
+    enumValues:
+      - value: normal
+        points: 0
+        label: normal
+        description: "4: Facial Palsy: normal."
+      - value: minor_paralysis
+        points: 1
+        label: minor paralysis
+        description: "4: Facial Palsy: minor paralysis."
+      - value: partial_paralysis
+        points: 2
+        label: partial paralysis
+        description: "4: Facial Palsy: partial paralysis."
+      - value: unilateral_complete
+        points: 3
+        label: unilateral complete
+        description: "4: Facial Palsy: unilateral complete."
+      - value: bilateral_complete
+        points: 3
+        label: bilateral complete
+        description: "4: Facial Palsy: bilateral complete."
+    required: true
+    conceptId: nihss.input.facial_palsy
+    examples:
+      - normal
+    sourceRefs:
+      - source_1
+    sharedKey: facial_palsy
+  left_arm_motor:
+    title: "5A: Left Arm Motor Drift"
+    description: Count out loud and use your fingers to show the patient your count.
+    kind: enum
+    enumValues:
+      - value: no_drift
+        points: 0
+        label: no drift
+        description: "5A: Left Arm Motor Drift: no drift."
+      - value: drift_no_bed
+        points: 1
+        label: drift no bed
+        description: "5A: Left Arm Motor Drift: drift no bed."
+      - value: drift_hits_bed
+        points: 2
+        label: drift hits bed
+        description: "5A: Left Arm Motor Drift: drift hits bed."
+      - value: some_effort
+        points: 2
+        label: some effort
+        description: "5A: Left Arm Motor Drift: some effort."
+      - value: no_effort
+        points: 3
+        label: no effort
+        description: "5A: Left Arm Motor Drift: no effort."
+      - value: no_movement
+        points: 4
+        label: no movement
+        description: "5A: Left Arm Motor Drift: no movement."
+      - value: amputation
+        scorable: false
+        notTestableReason: Left arm motor is untestable because of amputation or joint fusion; record UN with an explanation.
+        label: untestable - amputation or joint fusion
+        description: "5A: Left Arm Motor Drift: UN because of amputation or joint fusion."
+    required: true
+    conceptId: nihss.input.left_arm_motor
+    examples:
+      - no_drift
+    sourceRefs:
+      - source_1
+    sharedKey: left_arm_motor
+  right_arm_motor:
+    title: "5B: Right Arm Motor Drift"
+    description: Same assessment as Left Arm Motor Drift.
+    kind: enum
+    enumValues:
+      - value: no_drift
+        points: 0
+        label: no drift
+        description: "5B: Right Arm Motor Drift: no drift."
+      - value: drift_no_bed
+        points: 1
+        label: drift no bed
+        description: "5B: Right Arm Motor Drift: drift no bed."
+      - value: drift_hits_bed
+        points: 2
+        label: drift hits bed
+        description: "5B: Right Arm Motor Drift: drift hits bed."
+      - value: some_effort
+        points: 2
+        label: some effort
+        description: "5B: Right Arm Motor Drift: some effort."
+      - value: no_effort
+        points: 3
+        label: no effort
+        description: "5B: Right Arm Motor Drift: no effort."
+      - value: no_movement
+        points: 4
+        label: no movement
+        description: "5B: Right Arm Motor Drift: no movement."
+      - value: amputation
+        scorable: false
+        notTestableReason: Right arm motor is untestable because of amputation or joint fusion; record UN with an explanation.
+        label: untestable - amputation or joint fusion
+        description: "5B: Right Arm Motor Drift: UN because of amputation or joint fusion."
+    required: true
+    conceptId: nihss.input.right_arm_motor
+    examples:
+      - no_drift
+    sourceRefs:
+      - source_1
+    sharedKey: right_arm_motor
+  left_leg_motor:
+    title: "6A: Left Leg Motor Drift"
+    description: Assessment of leg motor drift.
+    kind: enum
+    enumValues:
+      - value: no_drift
+        points: 0
+        label: no drift
+        description: "6A: Left Leg Motor Drift: no drift."
+      - value: drift_no_bed
+        points: 1
+        label: drift no bed
+        description: "6A: Left Leg Motor Drift: drift no bed."
+      - value: drift_hits_bed
+        points: 2
+        label: drift hits bed
+        description: "6A: Left Leg Motor Drift: drift hits bed."
+      - value: some_effort
+        points: 2
+        label: some effort
+        description: "6A: Left Leg Motor Drift: some effort."
+      - value: no_effort
+        points: 3
+        label: no effort
+        description: "6A: Left Leg Motor Drift: no effort."
+      - value: no_movement
+        points: 4
+        label: no movement
+        description: "6A: Left Leg Motor Drift: no movement."
+      - value: amputation
+        scorable: false
+        notTestableReason: Left leg motor is untestable because of amputation or joint fusion; record UN with an explanation.
+        label: untestable - amputation or joint fusion
+        description: "6A: Left Leg Motor Drift: UN because of amputation or joint fusion."
+    required: true
+    conceptId: nihss.input.left_leg_motor
+    examples:
+      - no_drift
+    sourceRefs:
+      - source_1
+    sharedKey: left_leg_motor
+  right_leg_motor:
+    title: "6B: Right Leg Motor Drift"
+    description: Same assessment as Left Leg Motor Drift.
+    kind: enum
+    enumValues:
+      - value: no_drift
+        points: 0
+        label: no drift
+        description: "6B: Right Leg Motor Drift: no drift."
+      - value: drift_no_bed
+        points: 1
+        label: drift no bed
+        description: "6B: Right Leg Motor Drift: drift no bed."
+      - value: drift_hits_bed
+        points: 2
+        label: drift hits bed
+        description: "6B: Right Leg Motor Drift: drift hits bed."
+      - value: some_effort
+        points: 2
+        label: some effort
+        description: "6B: Right Leg Motor Drift: some effort."
+      - value: no_effort
+        points: 3
+        label: no effort
+        description: "6B: Right Leg Motor Drift: no effort."
+      - value: no_movement
+        points: 4
+        label: no movement
+        description: "6B: Right Leg Motor Drift: no movement."
+      - value: amputation
+        scorable: false
+        notTestableReason: Right leg motor is untestable because of amputation or joint fusion; record UN with an explanation.
+        label: untestable - amputation or joint fusion
+        description: "6B: Right Leg Motor Drift: UN because of amputation or joint fusion."
+    required: true
+    conceptId: nihss.input.right_leg_motor
+    examples:
+      - no_drift
+    sourceRefs:
+      - source_1
+    sharedKey: right_leg_motor
+  limb_ataxia:
+    title: "7: Limb Ataxia"
+    description: Finger-nose-finger / heel-shin.
+    kind: enum
+    enumValues:
+      - value: no_ataxia
+        points: 0
+        label: no ataxia
+        description: "7: Limb Ataxia: no ataxia."
+      - value: one_limb
+        points: 1
+        label: one limb
+        description: "7: Limb Ataxia: one limb."
+      - value: two_limbs
+        points: 2
+        label: two limbs
+        description: "7: Limb Ataxia: two limbs."
+      - value: does_not_understand
+        points: 0
+        label: does not understand
+        description: "7: Limb Ataxia: does not understand."
+      - value: paralyzed
+        points: 0
+        label: paralyzed
+        description: "7: Limb Ataxia: paralyzed."
+      - value: amputation
+        scorable: false
+        notTestableReason: Limb ataxia is untestable because of amputation or joint fusion; record UN with an explanation.
+        label: untestable - amputation or joint fusion
+        description: "7: Limb Ataxia: UN because of amputation or joint fusion."
+    required: true
+    conceptId: nihss.input.limb_ataxia
+    examples:
+      - no_ataxia
+    sourceRefs:
+      - source_1
+    sharedKey: limb_ataxia
+  sensation:
+    title: "8: Sensation"
+    description: Assessment of sensation.
+    kind: enum
+    enumValues:
+      - value: normal
+        points: 0
+        label: normal
+        description: "8: Sensation: normal."
+      - value: mild_moderate_sharp
+        points: 1
+        label: mild moderate sharp
+        description: "8: Sensation: mild moderate sharp."
+      - value: mild_moderate_sense
+        points: 1
+        label: mild moderate sense
+        description: "8: Sensation: mild moderate sense."
+      - value: complete_loss
+        points: 2
+        label: complete loss
+        description: "8: Sensation: complete loss."
+      - value: quadriplegic
+        points: 2
+        label: quadriplegic
+        description: "8: Sensation: quadriplegic."
+      - value: unresponsive
+        points: 2
+        label: unresponsive
+        description: "8: Sensation: unresponsive."
+    required: true
+    conceptId: nihss.input.sensation
+    examples:
+      - normal
+    sourceRefs:
+      - source_1
+    sharedKey: sensation
+  language:
+    title: "9: Language / Aphasia"
+    description: Describe the scene; name the items; read the sentences.
+    kind: enum
+    enumValues:
+      - value: normal
+        points: 0
+        label: normal
+        description: "9: Language / Aphasia: normal."
+      - value: mild_moderate
+        points: 1
+        label: mild moderate
+        description: "9: Language / Aphasia: mild moderate."
+      - value: severe
+        points: 2
+        label: severe
+        description: "9: Language / Aphasia: severe."
+      - value: mute
+        points: 3
+        label: mute
+        description: "9: Language / Aphasia: mute."
+      - value: unresponsive
+        points: 3
+        label: unresponsive
+        description: "9: Language / Aphasia: unresponsive."
+    required: true
+    conceptId: nihss.input.language
+    examples:
+      - normal
+    sourceRefs:
+      - source_1
+    sharedKey: language
+  dysarthria:
+    title: "10: Dysarthria"
+    description: Read the words.
+    kind: enum
+    enumValues:
+      - value: normal
+        points: 0
+        label: normal
+        description: "10: Dysarthria: normal."
+      - value: mild_moderate
+        points: 1
+        label: mild moderate
+        description: "10: Dysarthria: mild moderate."
+      - value: severe
+        points: 2
+        label: severe
+        description: "10: Dysarthria: severe."
+      - value: mute
+        points: 2
+        label: mute
+        description: "10: Dysarthria: mute."
+      - value: intubated
+        scorable: false
+        notTestableReason: Dysarthria is untestable because intubation or another physical barrier prevents speech; record UN.
+        label: untestable - intubated or physical barrier
+        description: "10: Dysarthria: UN because speech cannot be tested."
+    required: true
+    conceptId: nihss.input.dysarthria
+    examples:
+      - normal
+    sourceRefs:
+      - source_1
+    sharedKey: dysarthria
+  extinction:
+    title: "11: Extinction / Inattention"
+    description: Assessment of extinction and inattention.
+    kind: enum
+    enumValues:
+      - value: no_abnormality
+        points: 0
+        label: no abnormality
+        description: "11: Extinction / Inattention: no abnormality."
+      - value: inattention
+        points: 1
+        label: inattention
+        description: "11: Extinction / Inattention: inattention."
+      - value: extinction
+        points: 1
+        label: extinction
+        description: "11: Extinction / Inattention: extinction."
+      - value: profound_hemi_inattention
+        points: 2
+        label: profound hemi inattention
+        description: "11: Extinction / Inattention: profound hemi inattention."
+      - value: multiple_modalities
+        points: 2
+        label: multiple modalities
+        description: "11: Extinction / Inattention: multiple modalities."
+    required: true
+    conceptId: nihss.input.extinction
+    examples:
+      - no_abnormality
+    sourceRefs:
+      - source_1
+    sharedKey: extinction
+constraints:
+  - { kind: requireValueWhen, field: modifier_context, when: "==intubation", target: dysarthria, value: intubated, message: Intubation requires dysarthria to be recorded UN rather than assigned a numeric score. }
+  - { kind: requireAtLeastValuesWhen, field: dysarthria, when: "==intubated", targets: [{ field: modifier_context, value: intubation }, { field: modifier_context, value: multiple_modifiers }], message: The intubated dysarthria option requires the matching or multiple-modifier context. }
+  - kind: requireAtLeastValuesWhen
+    field: modifier_context
+    when: "==amputation_or_joint_fusion"
+    targets:
+      - { field: left_arm_motor, value: amputation }
+      - { field: right_arm_motor, value: amputation }
+      - { field: left_leg_motor, value: amputation }
+      - { field: right_leg_motor, value: amputation }
+      - { field: limb_ataxia, value: amputation }
+    message: Amputation or joint fusion context requires at least one affected NIHSS item to be recorded UN.
+  - { kind: requireAtLeastValuesWhen, field: left_arm_motor, when: "==amputation", targets: [{ field: modifier_context, value: amputation_or_joint_fusion }, { field: modifier_context, value: multiple_modifiers }], message: An amputated left-arm item requires the matching or multiple-modifier context. }
+  - { kind: requireAtLeastValuesWhen, field: right_arm_motor, when: "==amputation", targets: [{ field: modifier_context, value: amputation_or_joint_fusion }, { field: modifier_context, value: multiple_modifiers }], message: An amputated right-arm item requires the matching or multiple-modifier context. }
+  - { kind: requireAtLeastValuesWhen, field: left_leg_motor, when: "==amputation", targets: [{ field: modifier_context, value: amputation_or_joint_fusion }, { field: modifier_context, value: multiple_modifiers }], message: An amputated left-leg item requires the matching or multiple-modifier context. }
+  - { kind: requireAtLeastValuesWhen, field: right_leg_motor, when: "==amputation", targets: [{ field: modifier_context, value: amputation_or_joint_fusion }, { field: modifier_context, value: multiple_modifiers }], message: An amputated right-leg item requires the matching or multiple-modifier context. }
+  - { kind: requireAtLeastValuesWhen, field: limb_ataxia, when: "==amputation", targets: [{ field: modifier_context, value: amputation_or_joint_fusion }, { field: modifier_context, value: multiple_modifiers }], message: An amputated ataxia item requires the matching or multiple-modifier context. }
+  - kind: requireAtLeastValuesWhen
+    field: modifier_context
+    when: "==multiple_modifiers"
+    minimum: 2
+    targets:
+      - { field: left_arm_motor, value: amputation }
+      - { field: right_arm_motor, value: amputation }
+      - { field: left_leg_motor, value: amputation }
+      - { field: right_leg_motor, value: amputation }
+      - { field: limb_ataxia, value: amputation }
+      - { field: dysarthria, value: intubated }
+    message: Multiple modifiers require at least two affected NIHSS items to be recorded UN.
+outputs:
+  nihss_score:
+    title: NIHSS Score
+    description: Total NIH Stroke Scale score (0-42), returned only when every
+      item is testable. A score of 0 means no deficit detected by NIHSS; stroke
+      is not excluded.
+    kind: integer
+    availability:
+      kind: computeCondition
+      conditionId: complete_total
+    evidenceRefs:
+      - source_1
+      - source_2
+      - source_3
+  assessment_complete:
+    title: Assessment Complete
+    description: True only when every NIHSS item is testable and a total can be reported.
+    kind: boolean
+    availability: { kind: always }
+    evidenceRefs: [source_2]
+  missing_component_reasons:
+    title: Untestable Item Reasons
+    description: Reasons a total was omitted; empty when all items are testable.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_2]
+primaryOutputs:
+  - nihss_score
+scoring:
+  output: nihss_score
+  components:
+    - kind: enum
+      field: level_of_consciousness
+    - kind: enum
+      field: month_and_age
+    - kind: enum
+      field: commands
+    - kind: enum
+      field: horizontal_gaze
+    - kind: enum
+      field: visual_fields
+    - kind: enum
+      field: facial_palsy
+    - kind: enum
+      field: left_arm_motor
+    - kind: enum
+      field: right_arm_motor
+    - kind: enum
+      field: left_leg_motor
+    - kind: enum
+      field: right_leg_motor
+    - kind: enum
+      field: limb_ataxia
+    - kind: enum
+      field: sensation
+    - kind: enum
+      field: language
+    - kind: enum
+      field: dysarthria
+    - kind: enum
+      field: extinction
+  range:
+    - 0
+    - 42
+  evidenceRefs:
+    - source_1

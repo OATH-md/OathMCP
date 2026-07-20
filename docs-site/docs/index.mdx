@@ -1,0 +1,50 @@
+---
+title: OathMCP documentation
+description: Evidence-aware clinical calculators for AI agents, documented for clinicians and engineers.
+sidebar:
+  hidden: true
+---
+
+OathMCP exposes 39 established clinical calculators through the Model Context
+Protocol. These docs explain both sides of that contract: what each calculator
+is for clinically, and how an agent or application should discover, describe,
+and run it safely.
+
+:::warning
+OathMCP provides decision-support calculations, not medical advice, diagnosis,
+prognosis, or treatment. A qualified clinician remains responsible for
+calculator selection, inputs, units, applicability, interpretation, and every
+clinical decision. Read [Responsible use](/responsible-use) before integrating
+the server.
+:::
+
+<CardGroup cols={2}>
+  <Card title="Start in five minutes" href="/guides/quickstart" icon="rocket">
+    Connect to the hosted endpoint or run the stdio package locally.
+  </Card>
+  <Card title="Choose the right calculator" href="/guides/clinical-selection" icon="list-checks">
+    Match intent, population, setting, model, and variant before calculation.
+  </Card>
+  <Card title="Browse all calculators" href="/calculators" icon="calculator">
+    Review applicability, inputs, outputs, warnings, and evidence for every live calculator.
+  </Card>
+  <Card title="Integrate the MCP" href="/integration/agent-workflow" icon="workflow">
+    Use the four-tool compact workflow designed for reliable agent behavior.
+  </Card>
+</CardGroup>
+
+## The contract in one view
+
+<Steps>
+  <Step title="Discover">Call `find_calculator` when the exact instrument is not already known.</Step>
+  <Step title="Confirm">Call `describe_calculator` before first use or whenever the input contract is uncertain.</Step>
+  <Step title="Calculate">Call `calculate` with a canonical calculator ID and explicit inputs. Never invent missing values.</Step>
+  <Step title="Review">Preserve warnings, provenance, interpretations, evidence links, and the clinician-responsibility boundary.</Step>
+</Steps>
+
+## Designed for humans and agents
+
+The site is statically generated. Every page is searchable, available as raw
+Markdown by appending `.md`, and indexed in `/llms.txt` and `/llms-full.txt`.
+The documentation site does not add a second clinical MCP or an unauthenticated
+AI endpoint; calculation remains owned by `https://mcp.oath.md/mcp`.

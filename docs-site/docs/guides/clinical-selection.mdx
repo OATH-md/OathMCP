@@ -1,0 +1,30 @@
+---
+title: Clinical selection
+description: Select the exact calculator, model, variant, population, setting, timing, and endpoint before execution.
+---
+
+Calculator selection is a clinical act. OathMCP helps agents retrieve candidate
+instruments and exposes their declared applicability, but it does not transfer
+selection responsibility away from the clinician or deploying workflow.
+
+## Confirm these dimensions
+
+1. **Clinical intent** — what quantity, score, classification, or pattern is needed?
+2. **Population** — adult, pediatric, neonatal, transplant, oncology, or another defined cohort?
+3. **Setting and timing** — screening, admission, follow-up, 48-hour assessment, or current laboratory state?
+4. **Model and variant** — which published equation, policy release, threshold set, or implementation version?
+5. **Inputs and units** — are all required observations available, measured, and expressed in supported units?
+6. **Exclusions** — does the page's “When not to use” or applicability section block this case?
+7. **Endpoint** — does the output answer the actual question without implying diagnosis or management?
+
+## Agent behavior
+
+When `find_calculator` returns `needs_clarification`, ask the returned question.
+Do not calculate until the ambiguity is resolved. When it returns `no_match`, do
+not substitute an unrelated available instrument.
+
+:::danger
+Never infer a missing patient value, convert narrative uncertainty into a
+definite score component, or suppress a declared exclusion to make a calculator
+run.
+:::

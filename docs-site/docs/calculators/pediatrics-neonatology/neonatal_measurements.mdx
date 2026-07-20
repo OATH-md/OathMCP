@@ -1,0 +1,126 @@
+---
+title: "Neonatal Measurement Estimates"
+description: "Return only the output families supported by the supplied weight, gestational age, postnatal timing, or corrected age, using typed numeric estimates and ranges."
+sidebar:
+  label: "Neonatal Measurement Estimates"
+search:
+  tags: ["neonatal_measurements", "lookup"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>lookup</Badge> <Badge>Spec 1.1.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Newborn infants within the source-table gestational-age and weight ranges. |
+| Setting | Initial catheter, ETT, and reference blood-pressure estimates requiring direct confirmation. |
+| Model | `neonatal_measurement_estimates` · shukla_1986_kempley_2008_zubrow_1995 |
+| Model kind | lookup |
+| Variant | Not separately declared |
+| Review date | 2026-07-15 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Do not treat insertion estimates as confirmed position or reference BP distributions as intervention thresholds.
+
+- Estimates do not confirm final catheter or ETT position and blood-pressure ranges are descriptive references, not treatment targets.
+- The original Shukla UVC formula has documented over-insertion risk and must be reported with that limitation.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `weight_grams` | number | No | — | 400–6000 | 1–10000 | Birth weight in grams; drives Shukla UAC/UVC estimates. |
+| `gestational_age_weeks` | integer | No | — | — | 22–43 | Completed gestational weeks 22-43; drives Kempley ETT depth and, with explicit day-one timing, BP reference outputs where tabled. |
+| `postnatal_age_hours` | number | No | — | 0–168 | 0–8760 | Hours since birth; day-one BP references are emitted only when this is explicitly 0 through 24 hours. |
+| `corrected_gestational_age_weeks` | integer | No | — | — | 24–46 | Corrected gestational age in completed weeks 24-46; drives corrected-age BP reference outputs. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `uac_depth_estimate_cm` | number · cm | Compute condition: weight_supported | Yes | Shukla birth-weight estimate; final tip position requires direct confirmation. |
+| `uvc_depth_estimate_cm` | number · cm | Compute condition: weight_supported | No | Original Shukla birth-weight estimate with documented over-insertion limitation. |
+| `catheter_formula_id` | enum | Compute condition: weight_supported | No | Exact formula variant used for catheter estimates. |
+| `ett_depth_at_lip_cm` | number · cm | Compute condition: gestational_age_ett_supported | Yes | Initial oral ETT insertion estimate requiring confirmation of final position. |
+| `day_one_systolic_bp_mm_hg` | number_range · mmHg | Compute condition: gestational_age_bp_supported | No | Low, mean, and high descriptive reference values for gestational age. |
+| `day_one_diastolic_bp_mm_hg` | number_range · mmHg | Compute condition: gestational_age_bp_supported | No | Low, mean, and high descriptive reference values for gestational age. |
+| `day_one_map_mm_hg` | number_range · mmHg | Compute condition: gestational_age_bp_supported | Yes | Low, mean, and high descriptive reference values for gestational age. |
+| `day_one_pulse_pressure_mm_hg` | number_range · mmHg | Compute condition: gestational_age_bp_supported | No | Low, mean, and high descriptive reference values for gestational age. |
+| `corrected_systolic_bp_mm_hg` | number_range · mmHg | Compute condition: corrected_age_bp_supported | No | Low, mean, and high descriptive reference values for corrected age. |
+| `corrected_diastolic_bp_mm_hg` | number_range · mmHg | Compute condition: corrected_age_bp_supported | No | Low, mean, and high descriptive reference values for corrected age. |
+| `corrected_map_mm_hg` | number_range · mmHg | Compute condition: corrected_age_bp_supported | Yes | Low, mean, and high descriptive reference values for corrected age. |
+| `corrected_pulse_pressure_mm_hg` | number_range · mmHg | Compute condition: corrected_age_bp_supported | No | Low, mean, and high descriptive reference values for corrected age. |
+| `limitations` | string_list | Always | No | Output-family-specific confirmation and applicability limitations. |
+
+## Interpretation bands
+
+No deterministic interpretation bands are declared for this calculator.
+
+## Warnings, constraints, and adjustments
+
+- **Constraint (atLeastOne):** Provide at least one supported neonatal measurement input.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "neonatal_measurements",
+  "inputs": {
+    "weight_grams": 1200,
+    "gestational_age_weeks": 30,
+    "postnatal_age_hours": 12,
+    "corrected_gestational_age_weeks": 36
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `neonatal_measurements`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 30/30 | 29/29 | 25/25 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://neonatal_measurements/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Shukla H, Ferrara A. Rapid estimation of insertional length of umbilical catheters in newborns. Am J Dis Child. 1986;140(8):786-788.](https://doi.org/10.1001/archpedi.1986.02140220068034)<br />equations:UA=3*BWkg+9;UV=UA/2+1 |
+| `source_2` | validation | [Verheij GH, et al. Revised formula to determine the insertion length of umbilical vein catheters. Eur J Pediatr. 2013;172(8):1011-1015.](https://pubmed.ncbi.nlm.nih.gov/23503982/)<br />pmid:23503982 |
+| `source_3` | derivation | [Kempley ST, Moreiras JW, Petrone FL. Endotracheal tube length for neonatal intubation. Resuscitation. 2008;77(3):369-373.](https://doi.org/10.1016/j.resuscitation.2008.02.002)<br />doi:10.1016/j.resuscitation.2008.02.002 |
+| `source_4` | reference | [Zubrow AB, Hulman S, Kushner H, Falkner B. Determinants of blood pressure in infants admitted to neonatal intensive care units. J Perinatol. 1995;15(6):470-479.](https://pubmed.ncbi.nlm.nih.gov/8648456/)<br />pmid:8648456 |
+
+<Panel title="Repository source">
+  Calculator ID `neonatal_measurements`; spec version `1.1.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

@@ -1,0 +1,346 @@
+id: meld
+version: 3.1.0
+name: MELD 3.0
+family: meld
+variant: meld_3_0
+synonyms:
+  - model for end-stage liver disease
+  - liver transplant urgency
+abbreviations:
+  - MELD
+clinicalModel:
+  modelKind: policy
+  modelId: meld.meld_3_0
+  modelVersion: meld_3_0
+  jurisdiction: United States OPTN liver allocation
+  dataSnapshot: optn_policy_9.1.d_effective_2023-07-13
+  effectiveDate: 2023-07-13
+  reviewDate: 2026-07-15
+  evidenceRefs:
+    - source_1
+    - source_2
+reviewAfter: 2026-10-13
+applicability:
+  population: Calculate the current OPTN MELD 3.0 score used to assign
+    medical-urgency priority to liver-transplant candidates age 12 years and
+    older. The formula uses creatinine, bilirubin, INR, sodium, albumin, age at
+    registration, and adult candidate sex; the reported score ranges from 6 to
+    40.
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - Do not use for candidates younger than 12 years, acute liver failure
+      status decisions, exception-score determinations, or as a substitute for
+      the OPTN match system. The adult female coefficient applies only when age
+      at registration is at least 18 years.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Calculate the current OPTN MELD 3.0 score used to assign
+  medical-urgency priority to liver-transplant candidates age 12 years and
+  older. The formula uses creatinine, bilirubin, INR, sodium, albumin, age at
+  registration, and adult candidate sex; the reported score ranges from 6 to 40.
+whenNotToUse: Do not use for candidates younger than 12 years, acute liver
+  failure status decisions, exception-score determinations, or as a substitute
+  for the OPTN match system. The adult female coefficient applies only when age
+  at registration is at least 18 years.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Organ Procurement and Transplantation Network. MELD Calculator.
+      Current OPTN allocation inputs and implementation effective July 13, 2023.
+    locator: url:https://www.hrsa.gov/optn/data-calculators/allocation-calculators/meld-calculator
+    url: https://www.hrsa.gov/optn/data-calculators/allocation-calculators/meld-calculator
+    reviewed: true
+  - id: source_2
+    type: reference
+    citation: "Kim WR, Mannalithara A, Heimbach JK, et al. MELD 3.0: The Model for
+      End-Stage Liver Disease Updated for the Modern Era. Gastroenterology.
+      2021;161(6):1887-1895.e4."
+    locator: doi:10.1053/j.gastro.2021.08.050
+    doi: 10.1053/j.gastro.2021.08.050
+    url: https://doi.org/10.1053/j.gastro.2021.08.050
+    reviewed: true
+  - id: source_3
+    type: validation
+    citation: MELD 3.0 for adolescent liver transplant candidates. Liver Transpl. 2023.
+    locator: PMID:36943091
+    url: https://pubmed.ncbi.nlm.nih.gov/36943091/
+    reviewed: true
+inputs:
+  creatinine:
+    title: Serum Creatinine
+    description: Serum creatinine. Pass a bare number in mg/dL or {value, unit} for
+      SI. The formula uses 1-3 mg/dL and sets the value to 3 mg/dL when the
+      dialysis criterion is met.
+    kind: quantity
+    quantity:
+      analyte: creatinine
+      canonicalUnit: mg/dL
+      acceptedUnits:
+        - mg/dL
+        - umol/L
+    plausible:
+      - 0.2
+      - 15
+    hardLimits:
+      - 0.1
+      - 40
+    required: true
+    conceptId: meld.input.creatinine
+    examples:
+      - 2
+    sourceRefs:
+      - source_1
+  bilirubin:
+    title: Total Bilirubin
+    description: Total bilirubin. Pass a bare number in mg/dL or {value, unit} for
+      SI. The formula floors values below 1 mg/dL.
+    kind: quantity
+    quantity:
+      analyte: bilirubin
+      canonicalUnit: mg/dL
+      acceptedUnits:
+        - mg/dL
+        - umol/L
+    plausible:
+      - 0.1
+      - 30
+    hardLimits:
+      - 0.05
+      - 80
+    required: true
+    conceptId: meld.input.bilirubin
+    examples:
+      - 2
+    sourceRefs:
+      - source_1
+    sharedKey: bilirubin
+  inr:
+    title: INR
+    description: International normalized ratio. The formula floors values below 1.
+    kind: number
+    plausible:
+      - 0.8
+      - 10
+    hardLimits:
+      - 0.5
+      - 20
+    required: true
+    conceptId: meld.input.inr
+    examples:
+      - 1.5
+    sourceRefs:
+      - source_1
+    sharedKey: inr
+  sodium:
+    title: Serum Sodium
+    description: Serum sodium. Pass a bare number in mEq/L or {value, unit}; the
+      formula uses the range 125-137 mEq/L.
+    kind: quantity
+    quantity:
+      analyte: sodium
+      canonicalUnit: mEq/L
+      acceptedUnits:
+        - mEq/L
+        - mmol/L
+    plausible:
+      - 110
+      - 160
+    hardLimits:
+      - 90
+      - 200
+    required: true
+    conceptId: meld.input.sodium
+    examples:
+      - 135
+    sourceRefs:
+      - source_1
+  albumin:
+    title: Serum Albumin
+    description: Serum albumin. Pass a bare number in g/dL or {value, unit} for SI;
+      the formula uses the range 1.5-3.5 g/dL.
+    kind: quantity
+    quantity:
+      analyte: albumin
+      canonicalUnit: g/dL
+      acceptedUnits:
+        - g/dL
+        - g/L
+    plausible:
+      - 1.5
+      - 5.5
+    hardLimits:
+      - 0.5
+      - 8
+    required: true
+    conceptId: meld.input.albumin
+    examples:
+      - 3
+    sourceRefs:
+      - source_1
+  age_at_registration:
+    title: Age at Registration
+    description: Age in years when the candidate was registered. MELD applies from
+      age 12; the adult sex coefficient applies from age 18.
+    kind: integer
+    plausible:
+      - 12
+      - 100
+    hardLimits:
+      - 12
+      - 120
+    required: true
+    aliases:
+      - age
+    conceptId: meld.input.age_at_registration
+    examples:
+      - 40
+    sourceRefs:
+      - source_1
+      - source_3
+  sex:
+    title: Sex for Adult MELD Calculation
+    description: Candidate sex used by the OPTN adult MELD calculation. Required
+      when age at registration is 18 years or older.
+    kind: enum
+    enumValues:
+      - value: male
+        label: male
+        description: "Sex for Adult MELD Calculation: male."
+      - value: female
+        label: female
+        description: "Sex for Adult MELD Calculation: female."
+    required: false
+    conceptId: meld.input.sex
+    examples:
+      - male
+    sourceRefs:
+      - source_1
+  dialysis:
+    title: Dialysis in Past Week
+    description: True after at least two dialysis sessions or at least 24 hours of
+      continuous veno-venous hemodialysis in the preceding week.
+    kind: boolean
+    required: true
+    conceptId: meld.input.dialysis
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: dialysis
+outputs:
+  meld:
+    title: MELD 3.0 Score
+    description: OPTN MELD 3.0 score, rounded to an integer and bounded to 6-40.
+    kind: integer
+    range: [6, 40]
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - meld
+constraints:
+  - kind: requiredWhen
+    field: age_at_registration
+    when: ">=18"
+    required:
+      - sex
+    message: Sex is required for the adult MELD 3.0 calculation.
+adjustments:
+  - id: creatinine_clamp_1_3
+    operation: clamp
+    target: { kind: input, field: creatinine }
+    minimum: 1
+    maximum: 3
+    evidenceRefs: [source_1]
+  - id: dialysis_creatinine_3
+    operation: clamp
+    target: { kind: input, field: creatinine }
+    condition: { kind: inputEquals, field: dialysis, value: true }
+    minimum: 3
+    maximum: 3
+    evidenceRefs: [source_1]
+  - id: bilirubin_floor_1
+    operation: floor
+    target: { kind: input, field: bilirubin }
+    minimum: 1
+    evidenceRefs: [source_1]
+  - id: inr_floor_1
+    operation: floor
+    target: { kind: input, field: inr }
+    minimum: 1
+    evidenceRefs: [source_1]
+  - id: sodium_clamp_125_137
+    operation: clamp
+    target: { kind: input, field: sodium }
+    minimum: 125
+    maximum: 137
+    evidenceRefs: [source_1]
+  - id: albumin_clamp_1_5_3_5
+    operation: clamp
+    target: { kind: input, field: albumin }
+    minimum: 1.5
+    maximum: 3.5
+    evidenceRefs: [source_1]
+  - id: meld_score_clamp_6_40
+    operation: clamp
+    target: { kind: output, field: meld }
+    minimum: 6
+    maximum: 40
+    evidenceRefs: [source_1]
+warnings:
+  - field: creatinine
+    when: <1
+    message: Creatinine below 1 mg/dL was floored to 1 mg/dL for MELD 3.0.
+    evidenceRefs:
+      - source_1
+    adjustmentId: creatinine_clamp_1_3
+  - field: creatinine
+    when: ">3"
+    message: Creatinine above 3 mg/dL was capped at 3 mg/dL for MELD 3.0.
+    evidenceRefs:
+      - source_1
+    adjustmentId: creatinine_clamp_1_3
+  - field: dialysis
+    when: ==true
+    message: The dialysis criterion sets creatinine to 3 mg/dL for MELD 3.0.
+    evidenceRefs:
+      - source_1
+    adjustmentId: dialysis_creatinine_3
+  - field: bilirubin
+    when: <1
+    message: Bilirubin below 1 mg/dL was floored to 1 mg/dL for MELD 3.0.
+    evidenceRefs:
+      - source_1
+    adjustmentId: bilirubin_floor_1
+  - field: inr
+    when: <1
+    message: INR below 1 was floored to 1 for MELD 3.0.
+    evidenceRefs:
+      - source_1
+    adjustmentId: inr_floor_1
+  - field: sodium
+    when: <125
+    message: Sodium below 125 mEq/L was floored to 125 mEq/L for MELD 3.0.
+    evidenceRefs:
+      - source_1
+    adjustmentId: sodium_clamp_125_137
+  - field: sodium
+    when: ">137"
+    message: Sodium above 137 mEq/L was capped at 137 mEq/L for MELD 3.0.
+    evidenceRefs:
+      - source_1
+    adjustmentId: sodium_clamp_125_137
+  - field: albumin
+    when: <1.5
+    message: Albumin below 1.5 g/dL was floored to 1.5 g/dL for MELD 3.0.
+    evidenceRefs:
+      - source_1
+    adjustmentId: albumin_clamp_1_5_3_5
+  - field: albumin
+    when: ">3.5"
+    message: Albumin above 3.5 g/dL was capped at 3.5 g/dL for MELD 3.0.
+    evidenceRefs:
+      - source_1
+    adjustmentId: albumin_clamp_1_5_3_5

@@ -1,0 +1,1168 @@
+calculatorId: pews
+specVersion: 1.0.0
+clinicalModel: Original three-domain Brighton Monaghan Pediatric Early Warning Score with two optional modifiers
+variant: monaghan_2005_brighton_three_domain_plus_two_modifiers
+population: Hospitalized children assessed against local age-specific norms using behavior, cardiovascular, and
+  respiratory domains.
+setting: Legacy Brighton pediatric inpatient deterioration surveillance; not the 2023 NHS England National PEWS or an
+  emergency-department triage tool.
+assessmentTiming: Serial bedside observation according to the institution-specific pediatric deterioration protocol.
+endpoint: Integer screening score 0-13 without a universal response threshold; high and rising scores require
+  interpretation under the local validated escalation policy.
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:pews:2026-07-16
+    calculatorId: pews
+    model: Original three-domain Brighton Monaghan Pediatric Early Warning Score with two optional modifiers
+    variant: monaghan_2005_brighton_three_domain_plus_two_modifiers
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:pews:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web flat-file export
+        exactQuery: ("Brighton PEWS"[Title/Abstract] OR "pediatric early warning score"[Title]) AND (valid*[Title] OR
+          predict*[Title] OR accuracy[Title])
+        translationExposed: true
+        translatedQuery: ("Brighton PEWS"[Title/Abstract] OR "pediatric early warning score"[Title]) AND (valid*[Title] OR
+          predict*[Title] OR accuracy[Title])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 23
+        stableCitationIds:
+          - PMID:33304675
+          - PMID:39025324
+          - PMID:33547772
+          - PMID:38973711
+          - PMID:41388856
+          - PMID:39468957
+          - PMID:37970145
+          - PMID:30992308
+          - PMID:25639996
+          - PMID:28699997
+          - PMID:32426639
+          - PMID:37036078
+          - PMID:34711757
+          - PMID:26317836
+          - PMID:33231047
+          - PMID:36523394
+          - PMID:40694915
+          - PMID:35639436
+          - PMID:26914628
+          - PMID:31339430
+          - PMID:34083424
+          - PMID:30842954
+          - PMID:42159847
+      - id: search:pews:pews_monaghan_2005
+        sourceRole: derivation
+        authorityId: pews_monaghan_2005
+        database: Primary or responsible-authority source
+        site: Paediatric Nursing
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for pews
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - pews_monaghan_2005
+      - id: search:pews:pews_nhs_england_2023
+        sourceRole: controlling_authority
+        authorityId: pews_nhs_england_2023
+        database: Primary or responsible-authority source
+        site: NHS England
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for pews
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - pews_nhs_england_2023
+      - id: search:pews:pews_rcpch_national_2023
+        sourceRole: specialty_guidance
+        authorityId: pews_rcpch_national_2023
+        database: Primary or responsible-authority source
+        site: Royal College of Paediatrics and Child Health with NHS England and Royal College of Nursing
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for pews
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - pews_rcpch_national_2023
+      - id: search:pews:pews_roland_2016
+        sourceRole: external_validation
+        authorityId: pews_roland_2016
+        database: Primary or responsible-authority source
+        site: Emergency Medicine Journal
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for pews
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - pews_roland_2016
+    accounting:
+      retrieved: 27
+      deduplicated: 27
+      screened: 27
+      fullTextAssessed: 4
+      excluded: 0
+      included: 4
+    deduplication:
+      method: PMID, DOI, and responsible-authority URL identity with manual title reconciliation
+      tool: PubMed flat-file export plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:33304675
+        title: Can the Pediatric Early Warning Score (PEWS) Predict Hospital Length of Stay?
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:39025324
+        title: Pediatric Early Warning Score (PEWS) in predicting prognosis of critical
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:33547772
+        title: Accuracy and Monitoring of Pediatric Early Warning Score (PEWS) Scores Prior to
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:38973711
+        title: "Oncological pediatric early warning score: a dedicated tool to predict patient's"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41388856
+        title: "Predicting Clinical Deterioration in Pediatric Hematology-Oncology Patients: PEWS"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:39468957
+        title: Pediatric Early Warning Scores Before Rapid Response Poorly Predict Intensive
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:37970145
+        title: Validity of Pediatric Early Warning Score in Predicting Unplanned Pediatric
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:30992308
+        title: Provisional Validation of a Pediatric Early Warning Score for Resource-Limited
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:25639996
+        title: Validation of pediatric early warning score in pediatric emergency department.
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:28699997
+        title: Accuracy of a pediatric early warning score in the recognition of clinical
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32426639
+        title: "AutoPEWS: Automating Pediatric Early Warning Score Calculation Improves Accuracy"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:37036078
+        title: Use of Evidence-Based Vital Signs in Pediatric Early Warning Score to Predict
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:34711757
+        title: Evaluation of a Pediatric Early Warning Score as a Predictor of Occult Invasive
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:26317836
+        title: A Pilot Study to Validate the Burn Center Pediatric Early Warning Score Tool in
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:33231047
+        title: Usefulness of an early warning score as an early predictor of clinical
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:36523394
+        title: A prediction model for the efficacy of continuous positive airway pressure on
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:40694915
+        title: Are Pediatric early warning scores reliable in malnourished children? A
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:35639436
+        title: "Prediction of Pediatric Patient Admission/Discharge in the Emergency Department:"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:26914628
+        title: Validation of a Pediatric Early Warning Score in Hospitalized Pediatric Oncology
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31339430
+        title: Validity of the Pediatric Early Warning Score and the Bedside Pediatric Early
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:34083424
+        title: Comparison of a new predictive model with other critical scores for predicting
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:30842954
+        title: Nested case-control study of multiple serological indexes and Brighton pediatric
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:42159847
+        title: Performance of PRISM III and pediatric early warning score for predicting
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pews_monaghan_2005
+        title: Detecting and managing deterioration in children.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pews_nhs_england_2023
+        title: National paediatric early warning system observation and escalation charts.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pews_rcpch_national_2023
+        title: New NHS warning system to spot deterioration in children’s health faster.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pews_roland_2016
+        title: Can paediatric early warning scores be used to guide the need for hospital admission and predict significant
+          illness in children presenting to the emergency department?
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:pews:pubmed
+      checklist:
+        - Exact model and variant terms retained
+        - Population and setting concepts included
+        - Validation and update concepts represented
+        - No date restriction on foundational evidence
+        - Translation and result ledger checked
+      comments:
+        - The initial strategy was widened beyond known-title retrieval while retaining exact model identity and a
+          screenable result set.
+        - Current responsible-authority and specialty-guidance searches were reviewed separately from MEDLINE.
+      resolution: Resolved by retaining exact model terms, adding population and validation concepts, screening every
+        retrieved record, and separately checking current responsible-authority guidance, citation chains, corrections,
+        retractions, and supersession.
+      resolved: true
+      reviewer: Independent PRESS search specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - pews_monaghan_2005
+  - pews_nhs_england_2023
+  - pews_rcpch_national_2023
+  - pews_roland_2016
+claims:
+  - id: claim:pews:calculator-model
+    kind: applicability
+    statement: Original three-domain Brighton Monaghan Pediatric Early Warning Score with two optional modifiers; exact
+      variant monaghan_2005_brighton_three_domain_plus_two_modifiers.
+    covers:
+      - calculator:model
+    status: variant_specific
+    sourceIds:
+      - pews_monaghan_2005
+      - pews_nhs_england_2023
+      - pews_roland_2016
+    locators:
+      - sourceId: pews_monaghan_2005
+        locator: "Published Brighton score table: behavior, cardiovascular, respiratory 0-3 categories and two separate
+          two-point modifiers."
+      - sourceId: pews_nhs_england_2023
+        locator: "Publication summary and four age-banded charts: current English national PEWS is a different system for
+          general children wards."
+      - sourceId: pews_roland_2016
+        locator: "Methods and Conclusion: Brighton PEWS external accuracy, elevated scores warrant attention, low scores poorly
+          rule out serious illness."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and setting are verified by source review; runtime scenarios separately witness
+      every executable component and output.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:pews:formula-implementation
+    kind: formula
+    statement: The declared component weights are summed exactly and the resulting outputs follow the reviewed
+      monaghan_2005_brighton_three_domain_plus_two_modifiers model.
+    covers:
+      - formula:implementation
+    status: variant_specific
+    sourceIds:
+      - pews_monaghan_2005
+    locators:
+      - sourceId: pews_monaghan_2005
+        locator: "Published Brighton score table: behavior, cardiovascular, respiratory 0-3 categories and two separate
+          two-point modifiers."
+    executable: true
+    scenarioIds:
+      - case:pews:reference-1
+      - case:pews:reference-2
+      - case:pews:reference-3
+      - case:pews:option-nebulizers-false
+      - case:pews:option-nebulizers-true
+      - case:pews:option-vomiting-false
+      - case:pews:option-vomiting-true
+      - case:pews:boundary-modifier-nebulizer
+      - case:pews:boundary-modifier-vomiting
+      - case:pews:boundary-both-modifiers
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:pews:applicability-purpose
+    kind: applicability
+    statement: Hospitalized children assessed against local age-specific norms using behavior, cardiovascular, and
+      respiratory domains. Legacy Brighton pediatric inpatient deterioration surveillance; not the 2023 NHS England
+      National PEWS or an emergency-department triage tool.
+    covers:
+      - applicability:purpose
+    status: variant_specific
+    sourceIds:
+      - pews_nhs_england_2023
+      - pews_rcpch_national_2023
+      - pews_roland_2016
+    locators:
+      - sourceId: pews_nhs_england_2023
+        locator: "Publication summary and four age-banded charts: current English national PEWS is a different system for
+          general children wards."
+      - sourceId: pews_rcpch_national_2023
+        locator: "National-system description: age-banded observations, escalation, and parent or carer concern overriding the
+          numeric score."
+      - sourceId: pews_roland_2016
+        locator: "Methods and Conclusion: Brighton PEWS external accuracy, elevated scores warrant attention, low scores poorly
+          rule out serious illness."
+    executable: true
+    scenarioIds:
+      - case:pews:agent-intended
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:pews:applicability-exclusions
+    kind: exclusion
+    statement: A legacy pediatric inpatient deterioration score, not a diagnosis, emergency-department triage rule, or
+      substitute for clinical concern. Local age-specific norms and escalation policy are required. The 2023 NHS England
+      National PEWS is a different age-banded system and must not be represented by this calculator.
+    covers:
+      - applicability:exclusions
+    status: variant_specific
+    sourceIds:
+      - pews_nhs_england_2023
+      - pews_rcpch_national_2023
+      - pews_roland_2016
+    locators:
+      - sourceId: pews_nhs_england_2023
+        locator: "Publication summary and four age-banded charts: current English national PEWS is a different system for
+          general children wards."
+      - sourceId: pews_rcpch_national_2023
+        locator: "National-system description: age-banded observations, escalation, and parent or carer concern overriding the
+          numeric score."
+      - sourceId: pews_roland_2016
+        locator: "Methods and Conclusion: Brighton PEWS external accuracy, elevated scores warrant attention, low scores poorly
+          rule out serious illness."
+    executable: true
+    scenarioIds:
+      - case:pews:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:pews:input-behavior
+    kind: input
+    statement: "Behavior: Assessment of the child's behavior and level of consciousness."
+    covers:
+      - input:behavior
+    status: variant_specific
+    sourceIds:
+      - pews_monaghan_2005
+    locators:
+      - sourceId: pews_monaghan_2005
+        locator: "Published Brighton score table: behavior, cardiovascular, respiratory 0-3 categories and two separate
+          two-point modifiers."
+    executable: true
+    scenarioIds:
+      - case:pews:reference-1
+      - case:pews:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:pews:input-behavior-options
+    kind: input
+    statement: "Behavior: playing_appropriate=0, sleeping=1, irritable=2, lethargic=3."
+    covers:
+      - input:behavior:options
+    status: variant_specific
+    sourceIds:
+      - pews_monaghan_2005
+    locators:
+      - sourceId: pews_monaghan_2005
+        locator: "Published Brighton score table: behavior, cardiovascular, respiratory 0-3 categories and two separate
+          two-point modifiers."
+    executable: true
+    scenarioIds:
+      - case:pews:option-behavior-playing_appropriate
+      - case:pews:option-behavior-sleeping
+      - case:pews:option-behavior-irritable
+      - case:pews:option-behavior-lethargic
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:pews:input-cardiovascular
+    kind: input
+    statement: "Cardiovascular: Assessment of cardiovascular status, including color, capillary refill, and heart rate."
+    covers:
+      - input:cardiovascular
+    status: variant_specific
+    sourceIds:
+      - pews_monaghan_2005
+    locators:
+      - sourceId: pews_monaghan_2005
+        locator: "Published Brighton score table: behavior, cardiovascular, respiratory 0-3 categories and two separate
+          two-point modifiers."
+    executable: true
+    scenarioIds:
+      - case:pews:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:pews:input-cardiovascular-options
+    kind: input
+    statement: "Cardiovascular: pink=0, pale=1, gray=2, gray_mottled=3."
+    covers:
+      - input:cardiovascular:options
+    status: variant_specific
+    sourceIds:
+      - pews_monaghan_2005
+    locators:
+      - sourceId: pews_monaghan_2005
+        locator: "Published Brighton score table: behavior, cardiovascular, respiratory 0-3 categories and two separate
+          two-point modifiers."
+    executable: true
+    scenarioIds:
+      - case:pews:option-cardiovascular-pink
+      - case:pews:option-cardiovascular-pale
+      - case:pews:option-cardiovascular-gray
+      - case:pews:option-cardiovascular-gray_mottled
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:pews:input-respiratory
+    kind: input
+    statement: "Respiratory: Assessment of respiratory status, including respiratory rate, work of breathing, and oxygen
+      requirements."
+    covers:
+      - input:respiratory
+    status: variant_specific
+    sourceIds:
+      - pews_monaghan_2005
+    locators:
+      - sourceId: pews_monaghan_2005
+        locator: "Published Brighton score table: behavior, cardiovascular, respiratory 0-3 categories and two separate
+          two-point modifiers."
+    executable: true
+    scenarioIds:
+      - case:pews:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:pews:input-respiratory-options
+    kind: input
+    statement: "Respiratory: normal=0, mild_distress=1, moderate_distress=2, severe_distress=3."
+    covers:
+      - input:respiratory:options
+    status: variant_specific
+    sourceIds:
+      - pews_monaghan_2005
+    locators:
+      - sourceId: pews_monaghan_2005
+        locator: "Published Brighton score table: behavior, cardiovascular, respiratory 0-3 categories and two separate
+          two-point modifiers."
+    executable: true
+    scenarioIds:
+      - case:pews:option-respiratory-normal
+      - case:pews:option-respiratory-mild_distress
+      - case:pews:option-respiratory-moderate_distress
+      - case:pews:option-respiratory-severe_distress
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:pews:input-nebulizers
+    kind: input
+    statement: "Quarter Hourly Nebulizers: Whether the patient requires nebulizer treatments every 15 minutes. Adds 2 points
+      when true."
+    covers:
+      - input:nebulizers
+    status: variant_specific
+    sourceIds:
+      - pews_monaghan_2005
+    locators:
+      - sourceId: pews_monaghan_2005
+        locator: "Published Brighton score table: behavior, cardiovascular, respiratory 0-3 categories and two separate
+          two-point modifiers."
+    executable: true
+    scenarioIds:
+      - case:pews:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:pews:input-vomiting
+    kind: input
+    statement: "Persistent Vomiting Following Surgery: Whether the patient has persistent vomiting following surgery. Adds 2
+      point when true."
+    covers:
+      - input:vomiting
+    status: variant_specific
+    sourceIds:
+      - pews_monaghan_2005
+    locators:
+      - sourceId: pews_monaghan_2005
+        locator: "Published Brighton score table: behavior, cardiovascular, respiratory 0-3 categories and two separate
+          two-point modifiers."
+    executable: true
+    scenarioIds:
+      - case:pews:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:pews:output-pews_score
+    kind: outcome
+    statement: Total Brighton/Monaghan Pediatric Early Warning Score (0-13).
+    covers:
+      - output:pews_score
+    status: variant_specific
+    sourceIds:
+      - pews_monaghan_2005
+    locators:
+      - sourceId: pews_monaghan_2005
+        locator: "Published Brighton score table: behavior, cardiovascular, respiratory 0-3 categories and two separate
+          two-point modifiers."
+    executable: true
+    scenarioIds:
+      - case:pews:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:pews:reference-1
+    kind: reference
+    tags:
+      - calculator:pews:core
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:formula-implementation
+      - claim:pews:input-behavior
+      - claim:pews:input-cardiovascular
+      - claim:pews:input-respiratory
+      - claim:pews:input-nebulizers
+      - claim:pews:input-vomiting
+      - claim:pews:output-pews_score
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - formula:implementation
+      - input:behavior
+      - input:cardiovascular
+      - input:respiratory
+      - input:nebulizers
+      - input:vomiting
+      - output:pews_score
+  - id: case:pews:reference-2
+    kind: reference
+    tags:
+      - calculator:pews:core
+    inputs:
+      behavior: sleeping
+      cardiovascular: pale
+      respiratory: mild_distress
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 3
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:formula-implementation
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - formula:implementation
+  - id: case:pews:reference-3
+    kind: reference
+    tags:
+      - calculator:pews:core
+    inputs:
+      behavior: lethargic
+      cardiovascular: gray_mottled
+      respiratory: severe_distress
+      nebulizers: true
+      vomiting: true
+    expected:
+      pews_score: 13
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:formula-implementation
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - formula:implementation
+  - id: case:pews:agent-intended
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:applicability-purpose
+    sourceIds:
+      - pews_rcpch_national_2023
+      - pews_roland_2016
+    witnesses:
+      - applicability:purpose
+  - id: case:pews:agent-exclusion
+    kind: agent
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: behavior
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:applicability-exclusions
+      - claim:pews:input-behavior
+    sourceIds:
+      - pews_rcpch_national_2023
+      - pews_roland_2016
+      - pews_monaghan_2005
+    witnesses:
+      - applicability:exclusions
+      - input:behavior
+  - id: case:pews:option-behavior-playing_appropriate
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:input-behavior-options
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - input:behavior:options
+  - id: case:pews:option-behavior-sleeping
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: sleeping
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 1
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:input-behavior-options
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - input:behavior:options
+  - id: case:pews:option-behavior-irritable
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: irritable
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:input-behavior-options
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - input:behavior:options
+  - id: case:pews:option-behavior-lethargic
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: lethargic
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 3
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:input-behavior-options
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - input:behavior:options
+  - id: case:pews:option-cardiovascular-pink
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:input-cardiovascular-options
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - input:cardiovascular:options
+  - id: case:pews:option-cardiovascular-pale
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pale
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 1
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:input-cardiovascular-options
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - input:cardiovascular:options
+  - id: case:pews:option-cardiovascular-gray
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: gray
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:input-cardiovascular-options
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - input:cardiovascular:options
+  - id: case:pews:option-cardiovascular-gray_mottled
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: gray_mottled
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 3
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:input-cardiovascular-options
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - input:cardiovascular:options
+  - id: case:pews:option-respiratory-normal
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:input-respiratory-options
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - input:respiratory:options
+  - id: case:pews:option-respiratory-mild_distress
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: mild_distress
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 1
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:input-respiratory-options
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - input:respiratory:options
+  - id: case:pews:option-respiratory-moderate_distress
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: moderate_distress
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:input-respiratory-options
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - input:respiratory:options
+  - id: case:pews:option-respiratory-severe_distress
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: severe_distress
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 3
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:input-respiratory-options
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - input:respiratory:options
+  - id: case:pews:option-nebulizers-false
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:formula-implementation
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - formula:implementation
+  - id: case:pews:option-nebulizers-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: true
+      vomiting: false
+    expected:
+      pews_score: 2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:formula-implementation
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - formula:implementation
+  - id: case:pews:option-vomiting-false
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: false
+    expected:
+      pews_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:formula-implementation
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - formula:implementation
+  - id: case:pews:option-vomiting-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: true
+    expected:
+      pews_score: 2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:formula-implementation
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - formula:implementation
+  - id: case:pews:boundary-modifier-nebulizer
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: true
+      vomiting: false
+    expected:
+      pews_score: 2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:formula-implementation
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - formula:implementation
+  - id: case:pews:boundary-modifier-vomiting
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: false
+      vomiting: true
+    expected:
+      pews_score: 2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:formula-implementation
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - formula:implementation
+  - id: case:pews:boundary-both-modifiers
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      behavior: playing_appropriate
+      cardiovascular: pink
+      respiratory: normal
+      nebulizers: true
+      vomiting: true
+    expected:
+      pews_score: 4
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:pews:formula-implementation
+    sourceIds:
+      - pews_monaghan_2005
+    witnesses:
+      - formula:implementation
+explicitBlockers: []

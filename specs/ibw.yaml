@@ -1,0 +1,80 @@
+id: ibw
+version: 1.0.0
+name: Ideal Body Weight (Devine)
+clinicalModel:
+  modelKind: formula
+  modelId: ibw
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+applicability:
+  population: Adults at least 152.4 cm tall when a governing protocol explicitly
+    requests the Devine ideal-body-weight descriptor.
+  setting: Protocol-specific body-size calculation; the tool does not choose
+    ideal over actual, adjusted, lean, or predicted body weight.
+  exclusions:
+    - The Devine formula is anchored at 60 inches (152.4 cm) and is not accepted
+      below that height. It is not a substitute for adjusted or lean body weight
+      when a dosing protocol specifies another size descriptor.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Compute the adult Devine ideal-body-weight descriptor from
+  height and formula sex only when a governing protocol requests it.
+whenNotToUse: Do not calculate below 60 inches (152.4 cm), without a formula sex
+  input, or when the governing protocol specifies another size descriptor.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: "McCarron MM, Devine BJ. Clinical Pharmacy: Drug Intelligence &
+      Clinical Pharmacy. 1974;8:650-655."
+    locator: url:https://journals.sagepub.com/doi/10.1177/106002807400801104
+    url: https://journals.sagepub.com/doi/10.1177/106002807400801104
+    reviewed: true
+inputs:
+  height_cm:
+    title: Height
+    description: Height in centimeters.
+    kind: number
+    plausible:
+      - 152.4
+      - 220
+    hardLimits:
+      - 152.4
+      - 300
+    required: true
+    conceptId: patient.height_cm
+    examples:
+      - 180
+    sourceRefs:
+      - source_1
+    sharedKey: height_cm
+  sex:
+    title: Sex
+    description: Biological sex used by the Devine formula (male or female).
+    kind: enum
+    enumValues:
+      - value: male
+        label: male
+        description: "Sex: male."
+      - value: female
+        label: female
+        description: "Sex: female."
+    required: true
+    conceptId: ibw.input.sex
+    examples:
+      - male
+    sourceRefs:
+      - source_1
+outputs:
+  ibw:
+    title: Ideal Body Weight
+    description: Ideal body weight in kg, rounded to 1 decimal place.
+    kind: number
+    unit: kg
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - ibw

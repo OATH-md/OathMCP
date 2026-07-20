@@ -1,0 +1,906 @@
+calculatorId: r_factor
+specVersion: 1.0.0
+clinicalModel: Drug-induced liver injury R ratio
+variant: easl_2019_r_ratio_with_local_uln
+population: Patients with suspected drug-induced liver injury and contemporaneous ALT and ALP values.
+setting: Biochemical liver-injury pattern classification after exclusion of competing causes.
+assessmentTiming: Use values at presentation and the reporting laboratory upper limits of normal.
+endpoint: Dimensionless R ratio and hepatocellular, mixed, or cholestatic pattern.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:r_factor:2026-07-16
+    calculatorId: r_factor
+    model: Drug-induced liver injury R ratio
+    variant: easl_2019_r_ratio_with_local_uln
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:r_factor:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: '(("R ratio"[Title/Abstract] OR "R factor"[Title/Abstract]) AND ("drug-induced liver
+          injury"[Title/Abstract] OR DILI[Title/Abstract]) AND (classification[Title/Abstract] OR
+          pattern[Title/Abstract] OR threshold*[Title/Abstract])) OR (Benichou C[Author] AND "drug-induced liver
+          disorders"[Title]) OR (Fontana RJ[Author] AND "AASLD practice guidance"[Title])'
+        translationExposed: true
+        translatedQuery: Field-tagged query retained as entered; PubMed automatic term mapping was not invoked.
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 11
+        exportDigest: sha256:5dd8eca122343977348d68c73ffa91c7b480e351268c3e454db8d83149a1973b
+        stableCitationIds:
+          - PMID:42427211
+          - PMID:41342618
+          - PMID:40004737
+          - PMID:39778015
+          - PMID:38239534
+          - PMID:35899384
+          - PMID:35523682
+          - PMID:30016799
+          - PMID:28388864
+          - PMID:25809419
+          - PMID:2254635
+      - id: search:r_factor:derivation
+        sourceRole: derivation
+        authorityId: r_benichou_1990
+        database: Primary or responsible-authority source
+        site: Journal of Hepatology
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          easl_2019_r_ratio_with_local_uln
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - r_benichou_1990
+      - id: search:r_factor:controlling_authority
+        sourceRole: controlling_authority
+        authorityId: r_easl_2019
+        database: Primary or responsible-authority source
+        site: European Association for the Study of the Liver
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          easl_2019_r_ratio_with_local_uln
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - r_easl_2019
+      - id: search:r_factor:specialty_guidance
+        sourceRole: specialty_guidance
+        authorityId: r_aasld_2023
+        database: Primary or responsible-authority source
+        site: American Association for the Study of Liver Diseases
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          easl_2019_r_ratio_with_local_uln
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - r_aasld_2023
+      - id: search:r_factor:independent_numeric
+        sourceRole: independent_numeric
+        authorityId: r_fda_dili_2009
+        database: Primary or responsible-authority source
+        site: U.S. Food and Drug Administration
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          easl_2019_r_ratio_with_local_uln
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - r_fda_dili_2009
+      - id: search:r_factor:default-uln-guidance
+        sourceRole: independent_numeric
+        authorityId: r_livertox_rucam_2019
+        database: Primary or responsible-authority source
+        site: U.S. National Library of Medicine
+        interface: direct document review
+        exactQuery: Exact local-ULN recommendation and fallback values for the R ratio
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - r_livertox_rucam_2019
+    accounting:
+      retrieved: 11
+      deduplicated: 11
+      screened: 11
+      fullTextAssessed: 2
+      excluded: 0
+      included: 2
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - { citationId: pmid:42427211, title: 'Ceftriaxone-induced liver injury: Incidence, phenotypic characterization and predictive factors.', disposition: excluded, exclusionReason: 'Drug-specific cohort without a distinct retained R-ratio definition.', fullTextAssessed: false }
+      - { citationId: pmid:41342618, title: 'Drug-induced Liver Injury Attributed to Traditional Herbal Medication: A Case Report with Histopathological and Clinical Correlations.', disposition: excluded, exclusionReason: 'Single case report without a distinct retained model claim.', fullTextAssessed: false }
+      - { citationId: pmid:40004737, title: 'Hepatitis Associated with Catha edulis Consumption-A Single-Center Study.', disposition: excluded, exclusionReason: 'Exposure-specific cohort without a distinct retained model claim.', fullTextAssessed: false }
+      - { citationId: pmid:39778015, title: 'Safety assessment of turmeric-boswellia-sesame formulation in healthy adult volunteers: An open-label prospective study.', disposition: excluded, exclusionReason: 'Product-specific safety study without a distinct retained model claim.', fullTextAssessed: false }
+      - { citationId: pmid:38239534, title: 'Terbinafine-Induced Liver Injury: A Case Report.', disposition: excluded, exclusionReason: 'Single case report without a distinct retained model claim.', fullTextAssessed: false }
+      - citationId: r_aasld_2023
+        title: AASLD practice guidance on drug, herbal, and dietary supplement-induced liver injury.
+        disposition: included
+        fullTextAssessed: true
+      - { citationId: pmid:35523682, title: 'Drug-induced liver injury: Relation between the R ratio and histopathology.', disposition: excluded, exclusionReason: 'Validation study without a distinct retained equation or threshold claim.', fullTextAssessed: false }
+      - { citationId: pmid:30016799, title: 'The Pattern of Elevated Liver Function Tests in Nonalcoholic Fatty Liver Disease Predicts Fibrosis Stage and Metabolic-Associated Comorbidities.', disposition: excluded, exclusionReason: 'Non-DILI population outside the declared setting.', fullTextAssessed: false }
+      - { citationId: pmid:28388864, title: 'Clinical and histologic features of Azathioprine-induced hepatotoxicity.', disposition: excluded, exclusionReason: 'Drug-specific cohort without a distinct retained model claim.', fullTextAssessed: false }
+      - { citationId: pmid:25809419, title: 'The value of serum aspartate aminotransferase and gamma-glutamyl transpetidase as biomarkers in hepatotoxicity.', disposition: excluded, exclusionReason: 'Alternative biomarker study outside the exact ALT-ALP calculator contract.', fullTextAssessed: false }
+      - citationId: r_benichou_1990
+        title: Criteria of drug-induced liver disorders. Report of an international consensus meeting.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:r_factor:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and synonyms
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search paired with direct primary and responsible-authority review.
+      resolution: Resolved by retaining exact model and author terms, checking translation, screening every result,
+        chasing citations, and reviewing current authority and specialty sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - r_benichou_1990
+  - r_easl_2019
+  - r_aasld_2023
+  - r_fda_dili_2009
+  - r_livertox_rucam_2019
+claims:
+  - id: claim:r_factor:calculator-model
+    kind: applicability
+    statement: Drug-induced liver injury R ratio is limited to Patients with suspected drug-induced liver injury
+      and contemporaneous ALT and ALP values. Biochemical liver-injury pattern classification after exclusion
+      of competing causes.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - r_easl_2019
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad clinical limitations are descriptive; every
+      runtime-verifiable surface is separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:formula-implementation
+    kind: formula
+    statement: The calculator implements the source-bound Drug-induced liver injury R ratio arithmetic and
+      declared final rounding.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - r_benichou_1990
+      - r_easl_2019
+    locators:
+      - sourceId: r_benichou_1990
+        locator: Benichou 1990 international consensus report, biochemical injury-pattern criteria.
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 exact R-ratio equation and category boundaries.
+    executable: true
+    scenarioIds:
+      - case:r_factor:ref-1
+      - case:r_factor:ref-2
+      - case:r_factor:ref-3
+      - case:r_factor:boundary-2
+      - case:r_factor:boundary-5
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:applicability-purpose
+    kind: applicability
+    statement: "Classify a pattern of liver injury from ALT and ALP using the R factor: R = (ALT/ALT_ULN) /
+      (ALP/ALP_ULN). R ≥ 5 is hepatocellular, 2 < R < 5 is mixed, and R ≤ 2 is cholestatic. Returns the R
+      value and injury type. Default upper limits of normal are ALT 40 U/L and ALP 115 U/L; override them with
+      your lab's ULNs if they differ."
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - r_aasld_2023
+    locators:
+      - sourceId: r_aasld_2023
+        locator: "AASLD 2023 guidance, Initial laboratory assessment: R-value equation, timing, and competing causes."
+    executable: true
+    scenarioIds:
+      - case:r_factor:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:applicability-exclusions
+    kind: exclusion
+    statement: Normal ULN values vary by lab — pass the correct alt_uln/alp_uln if yours differ. The R factor
+      characterises a pattern; it does not identify the cause.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - r_aasld_2023
+    locators:
+      - sourceId: r_aasld_2023
+        locator: "AASLD 2023 guidance, Initial laboratory assessment: R-value equation, timing, and competing causes."
+    executable: true
+    scenarioIds:
+      - case:r_factor:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:input-alt
+    kind: input
+    statement: Alanine aminotransferase in U/L.
+    covers:
+      - input:alt
+    status: supported
+    sourceIds:
+      - r_easl_2019
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+    executable: true
+    scenarioIds:
+      - case:r_factor:ref-1
+      - case:r_factor:ref-2
+      - case:r_factor:ref-3
+      - case:r_factor:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:input-alt-hard_limits
+    kind: input
+    statement: OathMCP rejects ALT outside [0.1,100000] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:alt:hard_limits
+    status: supported
+    sourceIds:
+      - r_easl_2019
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+    executable: true
+    scenarioIds:
+      - case:r_factor:hard-alt
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:input-alt-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when ALT is outside [1,2000]; this is an operational review prompt.
+    covers:
+      - input:alt:plausibility
+    status: supported
+    sourceIds:
+      - r_easl_2019
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+    executable: true
+    scenarioIds:
+      - case:r_factor:plausibility-alt
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:input-alp
+    kind: input
+    statement: Alkaline phosphatase in U/L.
+    covers:
+      - input:alp
+    status: supported
+    sourceIds:
+      - r_easl_2019
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+    executable: true
+    scenarioIds:
+      - case:r_factor:ref-1
+      - case:r_factor:ref-2
+      - case:r_factor:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:input-alp-hard_limits
+    kind: input
+    statement: OathMCP rejects ALP outside [0.1,100000] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:alp:hard_limits
+    status: supported
+    sourceIds:
+      - r_easl_2019
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+    executable: true
+    scenarioIds:
+      - case:r_factor:hard-alp
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:input-alp-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when ALP is outside [1,2000]; this is an operational review prompt.
+    covers:
+      - input:alp:plausibility
+    status: supported
+    sourceIds:
+      - r_easl_2019
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+    executable: true
+    scenarioIds:
+      - case:r_factor:plausibility-alp
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:input-alt_uln
+    kind: input
+    statement: Upper limit of normal for ALT in U/L (default 40).
+    covers:
+      - input:alt_uln
+    status: supported
+    sourceIds:
+      - r_livertox_rucam_2019
+    locators:
+      - sourceId: r_livertox_rucam_2019
+        locator: LiverTox NBK548272 recommendation 4, local ULN preference and ALT 40 U/L fallback.
+    executable: true
+    scenarioIds:
+      - case:r_factor:ref-1
+      - case:r_factor:ref-2
+      - case:r_factor:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:input-alt_uln-hard_limits
+    kind: input
+    statement: OathMCP rejects ALT Upper Limit of Normal outside [0.1,1000] as a conservative operational
+      envelope, not a clinical cutoff.
+    covers:
+      - input:alt_uln:hard_limits
+    status: supported
+    sourceIds:
+      - r_easl_2019
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+    executable: true
+    scenarioIds:
+      - case:r_factor:hard-alt_uln
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:input-alt_uln-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when ALT Upper Limit of Normal is outside [10,100]; this is an
+      operational review prompt.
+    covers:
+      - input:alt_uln:plausibility
+    status: supported
+    sourceIds:
+      - r_easl_2019
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+    executable: true
+    scenarioIds:
+      - case:r_factor:plausibility-alt_uln
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:default-alt_uln
+    kind: default
+    statement: ALT Upper Limit of Normal defaults to 40 and remains visible in input provenance.
+    covers:
+      - default:alt_uln
+    status: supported
+    sourceIds:
+      - r_livertox_rucam_2019
+    locators:
+      - sourceId: r_livertox_rucam_2019
+        locator: LiverTox NBK548272 recommendation 4, use local ULNs and, if absent, ALT 40 U/L.
+    executable: true
+    scenarioIds:
+      - case:r_factor:ref-1
+      - case:r_factor:ref-2
+      - case:r_factor:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:input-alp_uln
+    kind: input
+    statement: Upper limit of normal for ALP in U/L (default 115).
+    covers:
+      - input:alp_uln
+    status: supported
+    sourceIds:
+      - r_livertox_rucam_2019
+    locators:
+      - sourceId: r_livertox_rucam_2019
+        locator: LiverTox NBK548272 recommendation 4, local ULN preference and ALP 115 U/L fallback.
+    executable: true
+    scenarioIds:
+      - case:r_factor:ref-1
+      - case:r_factor:ref-2
+      - case:r_factor:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:input-alp_uln-hard_limits
+    kind: input
+    statement: OathMCP rejects ALP Upper Limit of Normal outside [0.1,1000] as a conservative operational
+      envelope, not a clinical cutoff.
+    covers:
+      - input:alp_uln:hard_limits
+    status: supported
+    sourceIds:
+      - r_easl_2019
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+    executable: true
+    scenarioIds:
+      - case:r_factor:hard-alp_uln
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:input-alp_uln-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when ALP Upper Limit of Normal is outside [30,200]; this is an
+      operational review prompt.
+    covers:
+      - input:alp_uln:plausibility
+    status: supported
+    sourceIds:
+      - r_easl_2019
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+    executable: true
+    scenarioIds:
+      - case:r_factor:plausibility-alp_uln
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:default-alp_uln
+    kind: default
+    statement: ALP Upper Limit of Normal defaults to 115 and remains visible in input provenance.
+    covers:
+      - default:alp_uln
+    status: supported
+    sourceIds:
+      - r_livertox_rucam_2019
+    locators:
+      - sourceId: r_livertox_rucam_2019
+        locator: LiverTox NBK548272 recommendation 4, use local ULNs and, if absent, ALP 115 U/L.
+    executable: true
+    scenarioIds:
+      - case:r_factor:ref-1
+      - case:r_factor:ref-2
+      - case:r_factor:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:output-r_factor
+    kind: outcome
+    statement: The R factor (dimensionless), rounded to 2 decimal places.
+    covers:
+      - output:r_factor
+    status: supported
+    sourceIds:
+      - r_easl_2019
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+    executable: true
+    scenarioIds:
+      - case:r_factor:ref-1
+      - case:r_factor:ref-2
+      - case:r_factor:ref-3
+      - case:r_factor:boundary-2
+      - case:r_factor:boundary-5
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:r_factor:output-injury_type
+    kind: outcome
+    statement: Liver injury pattern — Hepatocellular (R≥5), Mixed (2<R<5), or Cholestatic (R≤2).
+    covers:
+      - output:injury_type
+    status: supported
+    sourceIds:
+      - r_easl_2019
+      - r_fda_dili_2009
+    locators:
+      - sourceId: r_easl_2019
+        locator: EASL 2019 guideline, p. 11 lines defining R=(ALT/ULN)/(ALP/ULN), R>=5, R<=2, and 2<R<5.
+      - sourceId: r_fda_dili_2009
+        locator: FDA DILI guidance, biochemical injury-pattern R-ratio equation and thresholds.
+    executable: true
+    scenarioIds:
+      - case:r_factor:ref-1
+      - case:r_factor:ref-2
+      - case:r_factor:ref-3
+      - case:r_factor:boundary-2
+      - case:r_factor:boundary-5
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:r_factor:ref-1
+    tags:
+      - calculator:r_factor:core
+      - defaults
+    inputs: &a1
+      alt: 200
+      alp: 100
+    expected: &a2
+      r_factor: 5.75
+      injury_type: Hepatocellular
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:formula-implementation
+      - claim:r_factor:input-alt
+      - claim:r_factor:input-alp
+      - claim:r_factor:input-alt_uln
+      - claim:r_factor:default-alt_uln
+      - claim:r_factor:input-alp_uln
+      - claim:r_factor:default-alp_uln
+      - claim:r_factor:output-r_factor
+      - claim:r_factor:output-injury_type
+    sourceIds:
+      - r_benichou_1990
+      - r_easl_2019
+      - r_livertox_rucam_2019
+    witnesses:
+      - formula:implementation
+      - input:alt
+      - input:alp
+      - input:alt_uln
+      - default:alt_uln
+      - input:alp_uln
+      - default:alp_uln
+      - output:r_factor
+      - output:injury_type
+  - kind: reference
+    id: case:r_factor:ref-2
+    tags:
+      - calculator:r_factor:reference
+      - defaults
+    inputs:
+      alt: 80
+      alp: 300
+    expected:
+      r_factor: 0.77
+      injury_type: Cholestatic
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:formula-implementation
+      - claim:r_factor:input-alt
+      - claim:r_factor:input-alp
+      - claim:r_factor:input-alt_uln
+      - claim:r_factor:default-alt_uln
+      - claim:r_factor:input-alp_uln
+      - claim:r_factor:default-alp_uln
+      - claim:r_factor:output-r_factor
+      - claim:r_factor:output-injury_type
+    sourceIds:
+      - r_benichou_1990
+      - r_easl_2019
+      - r_livertox_rucam_2019
+    witnesses:
+      - formula:implementation
+      - input:alt
+      - input:alp
+      - input:alt_uln
+      - default:alt_uln
+      - input:alp_uln
+      - default:alp_uln
+      - output:r_factor
+      - output:injury_type
+  - kind: reference
+    id: case:r_factor:ref-3
+    tags:
+      - calculator:r_factor:reference
+      - defaults
+    inputs:
+      alt: 120
+      alp: 150
+    expected:
+      r_factor: 2.3
+      injury_type: Mixed
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:formula-implementation
+      - claim:r_factor:input-alt
+      - claim:r_factor:input-alp
+      - claim:r_factor:input-alt_uln
+      - claim:r_factor:default-alt_uln
+      - claim:r_factor:input-alp_uln
+      - claim:r_factor:default-alp_uln
+      - claim:r_factor:output-r_factor
+      - claim:r_factor:output-injury_type
+    sourceIds:
+      - r_benichou_1990
+      - r_easl_2019
+      - r_livertox_rucam_2019
+    witnesses:
+      - formula:implementation
+      - input:alt
+      - input:alp
+      - input:alt_uln
+      - default:alt_uln
+      - input:alp_uln
+      - default:alp_uln
+      - output:r_factor
+      - output:injury_type
+  - kind: agent
+    id: case:r_factor:agent-purpose
+    tags:
+      - agent-applicability
+    inputs: *a1
+    expected: *a2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:applicability-purpose
+    sourceIds:
+      - r_aasld_2023
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:r_factor:agent-exclusion
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      alp: 100
+    expected: {}
+    expectedBehavior: clarify
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:applicability-exclusions
+      - claim:r_factor:input-alt
+    sourceIds:
+      - r_aasld_2023
+      - r_easl_2019
+    witnesses:
+      - applicability:exclusions
+      - input:alt
+    expectedError:
+      code: MISSING_REQUIRED
+      field: alt
+  - kind: edge
+    id: case:r_factor:hard-alt
+    tags:
+      - hard-limits
+    inputs:
+      alt: 0.09
+      alp: 100
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:input-alt-hard_limits
+    sourceIds:
+      - r_easl_2019
+    witnesses:
+      - input:alt:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: alt
+  - kind: edge
+    id: case:r_factor:plausibility-alt
+    tags:
+      - plausibility
+    inputs:
+      alt: 0.55
+      alp: 100
+    expected:
+      r_factor: 0.02
+      injury_type: Cholestatic
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:input-alt-plausibility
+    sourceIds:
+      - r_easl_2019
+    witnesses:
+      - input:alt:plausibility
+    expectedWarnings:
+      - ALT 0.55 is unusual (expected 1–2000).
+  - kind: edge
+    id: case:r_factor:hard-alp
+    tags:
+      - hard-limits
+    inputs:
+      alt: 200
+      alp: 0.09
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:input-alp-hard_limits
+    sourceIds:
+      - r_easl_2019
+    witnesses:
+      - input:alp:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: alp
+  - kind: edge
+    id: case:r_factor:plausibility-alp
+    tags:
+      - plausibility
+    inputs:
+      alt: 200
+      alp: 0.55
+    expected:
+      r_factor: 1045.45
+      injury_type: Hepatocellular
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:input-alp-plausibility
+    sourceIds:
+      - r_easl_2019
+    witnesses:
+      - input:alp:plausibility
+    expectedWarnings:
+      - ALP 0.55 is unusual (expected 1–2000).
+  - kind: edge
+    id: case:r_factor:hard-alt_uln
+    tags:
+      - hard-limits
+    inputs:
+      alt: 200
+      alp: 100
+      alt_uln: 0.09
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:input-alt_uln-hard_limits
+    sourceIds:
+      - r_easl_2019
+    witnesses:
+      - input:alt_uln:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: alt_uln
+  - kind: edge
+    id: case:r_factor:plausibility-alt_uln
+    tags:
+      - plausibility
+    inputs:
+      alt: 200
+      alp: 100
+      alt_uln: 5.05
+    expected:
+      r_factor: 45.54
+      injury_type: Hepatocellular
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:input-alt_uln-plausibility
+    sourceIds:
+      - r_easl_2019
+    witnesses:
+      - input:alt_uln:plausibility
+    expectedWarnings:
+      - ALT Upper Limit of Normal 5.05 is unusual (expected 10–100).
+  - kind: edge
+    id: case:r_factor:hard-alp_uln
+    tags:
+      - hard-limits
+    inputs:
+      alt: 200
+      alp: 100
+      alp_uln: 0.09
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:input-alp_uln-hard_limits
+    sourceIds:
+      - r_easl_2019
+    witnesses:
+      - input:alp_uln:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: alp_uln
+  - kind: edge
+    id: case:r_factor:plausibility-alp_uln
+    tags:
+      - plausibility
+    inputs:
+      alt: 200
+      alp: 100
+      alp_uln: 15.05
+    expected:
+      r_factor: 0.75
+      injury_type: Cholestatic
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:r_factor:input-alp_uln-plausibility
+    sourceIds:
+      - r_easl_2019
+    witnesses:
+      - input:alp_uln:plausibility
+    expectedWarnings:
+      - ALP Upper Limit of Normal 15.05 is unusual (expected 30–200).
+  - kind: edge
+    id: case:r_factor:boundary-2
+    tags: [interpretation-boundaries]
+    inputs: { alt: 80, alp: 120, alt_uln: 40, alp_uln: 120 }
+    expected: { r_factor: 2, injury_type: Cholestatic }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Exact EASL R-ratio category boundary. }
+    claimIds: [claim:r_factor:formula-implementation, claim:r_factor:output-r_factor, claim:r_factor:output-injury_type]
+    sourceIds: [r_easl_2019, r_fda_dili_2009]
+    witnesses: [formula:implementation, output:r_factor, output:injury_type]
+  - kind: edge
+    id: case:r_factor:boundary-5
+    tags: [interpretation-boundaries]
+    inputs: { alt: 200, alp: 120, alt_uln: 40, alp_uln: 120 }
+    expected: { r_factor: 5, injury_type: Hepatocellular }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Exact EASL R-ratio category boundary. }
+    claimIds: [claim:r_factor:formula-implementation, claim:r_factor:output-r_factor, claim:r_factor:output-injury_type]
+    sourceIds: [r_easl_2019, r_fda_dili_2009]
+    witnesses: [formula:implementation, output:r_factor, output:injury_type]
+compatibilityNotes: []
+explicitBlockers: []

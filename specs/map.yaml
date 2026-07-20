@@ -1,0 +1,88 @@
+id: map
+version: 1.0.0
+name: Mean Arterial Pressure (MAP)
+clinicalModel:
+  modelKind: formula
+  modelId: map
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+applicability:
+  population: Patients with a same-observation systolic and diastolic blood
+    pressure for whom the standard normal-heart-rate approximation is suitable.
+  setting: Calculated approximation from brachial systolic and diastolic
+    pressure; it is not an invasive waveform mean.
+  exclusions:
+    - The 1/3–2/3 estimate assumes a normal heart rate and waveform; it is less
+      accurate at extremes of heart rate or with significant arrhythmia, where a
+      measured (invasive) MAP is preferred.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Approximate MAP from systolic and diastolic blood pressure
+  using DBP plus one third of pulse pressure at a normal heart rate.
+whenNotToUse: Do not calculate from a missing pressure or when systolic pressure
+  is not greater than diastolic pressure.
+evidence:
+  - id: source_1
+    type: guideline
+    citation: American Heart Association scientific statement on blood pressure measurement.
+    locator: PMCID PMC11409525, calculated MAP at normal heart rate
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11409525/
+    reviewed: true
+inputs:
+  systolic_bp:
+    title: Systolic Blood Pressure
+    description: Systolic blood pressure in mmHg.
+    aliases:
+      - systolic
+    kind: integer
+    plausible:
+      - 50
+      - 250
+    hardLimits:
+      - 10
+      - 400
+    required: true
+    conceptId: map.input.systolic_bp
+    examples:
+      - 120
+    sourceRefs:
+      - source_1
+  diastolic_bp:
+    title: Diastolic Blood Pressure
+    description: Diastolic blood pressure in mmHg.
+    aliases:
+      - diastolic
+    kind: integer
+    plausible:
+      - 30
+      - 150
+    hardLimits:
+      - 5
+      - 300
+    required: true
+    conceptId: map.input.diastolic_bp
+    examples:
+      - 80
+    sourceRefs:
+      - source_1
+    sharedKey: diastolic_bp
+outputs:
+  map:
+    title: Mean Arterial Pressure
+    description: MAP in mmHg, rounded to 2 decimal places.
+    kind: number
+    unit: mmHg
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - map
+constraints:
+  - kind: compare
+    left: systolic_bp
+    operator: ">"
+    right: diastolic_bp
+    message: Systolic blood pressure must be greater than diastolic blood pressure.

@@ -1,0 +1,44 @@
+---
+title: MCP tools
+description: The four compact tools exposed by the official OathMCP endpoint.
+---
+
+## `find_calculator`
+
+Find up to ten calculators by intent, population, model, or known name. The
+default limit is three. Returns `matched`, `needs_clarification`, or `no_match`.
+
+```ts
+{ query: string; limit?: number }
+```
+
+## `describe_calculator`
+
+Return applicability, inputs, outputs, evidence, warnings, safety limits, model,
+version, and implementation-assurance metadata for one canonical ID.
+
+```ts
+{ id: string }
+```
+
+## `calculate`
+
+Run one known calculator. Inputs are validated against that calculator's strict
+runtime contract.
+
+```ts
+{ id: string; inputs: Record<string, unknown> }
+```
+
+## `calculate_panel`
+
+Run one or more already-selected calculators. Shared values bind only to inputs
+whose specs explicitly opt into the same reviewed shared key.
+
+```ts
+{
+  calculators: string[];
+  inputs: Record<string, unknown>;
+  overrides?: Record<string, Record<string, unknown>>;
+}
+```

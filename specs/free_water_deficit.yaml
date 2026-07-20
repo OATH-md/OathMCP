@@ -1,0 +1,148 @@
+id: free_water_deficit
+version: 1.0.0
+name: Free Water Deficit in Hypernatremia
+synonyms:
+  - hypernatremia water deficit
+abbreviations:
+  - FWD
+clinicalModel:
+  modelKind: formula
+  modelId: free_water_deficit.adrogue_madias_adult
+  modelVersion: adrogue_madias_adult
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+applicability:
+  population: Adults with hypernatremia, using a sex/age-category total-body-water
+    fraction to estimate the static electrolyte-free water deficit.
+  setting: Initial adult hypernatremia assessment with serial sodium, urine
+    output, and ongoing-loss reassessment.
+  exclusions:
+    - This static estimate excludes ongoing losses, gains, and urine electrolyte-free
+      water clearance. It is not a fluid prescription or correction-rate target.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Estimate an adult static electrolyte-free water deficit from
+  weight, current sodium, target sodium, and an explicit adult TBW category.
+whenNotToUse: Do not use as a fluid prescription or correction-rate target, in
+  children, or without accounting separately for ongoing losses and gains.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Adrogué HJ, Madias NE. Hypernatremia. N Engl J Med. 2000;342(20):1493-1499.
+    locator: url:https://pubmed.ncbi.nlm.nih.gov/10816188/
+    url: https://pubmed.ncbi.nlm.nih.gov/10816188/
+    reviewed: true
+inputs:
+  weight_kg:
+    title: Weight
+    description: Patient weight in kilograms.
+    kind: number
+    plausible:
+      - 1
+      - 300
+    hardLimits:
+      - 0.1
+      - 700
+    required: true
+    conceptId: patient.weight_kg
+    examples:
+      - 70
+    sourceRefs:
+      - source_1
+    sharedKey: weight_kg
+  current_sodium:
+    title: Current Sodium
+    description: Current serum sodium in mEq/L (must exceed the ideal sodium for
+      hypernatremia).
+    kind: number
+    plausible:
+      - 145
+      - 180
+    hardLimits:
+      - 140
+      - 250
+    required: true
+    conceptId: free_water_deficit.input.current_sodium
+    examples:
+      - 160
+    sourceRefs:
+      - source_1
+  ideal_sodium:
+    title: Ideal Sodium
+    description: Target serum sodium in mEq/L (defaults to 140).
+    kind: number
+    plausible:
+      - 135
+      - 145
+    hardLimits:
+      - 120
+      - 160
+    required: false
+    default: 140
+    conceptId: free_water_deficit.input.ideal_sodium
+    examples:
+      - 140
+    sourceRefs:
+      - source_1
+    sharedKey: ideal_sodium
+  patient_category:
+    title: Patient Category
+    description: Patient category selecting the % total body water.
+    aliases:
+      - demographic
+    kind: enum
+    enumValues:
+      - value: adult_male
+        aliases:
+          - Adult Male (18-65 years)
+        label: adult male
+        description: "Patient Category: adult male."
+      - value: adult_female
+        aliases:
+          - Adult Female (18-65 years)
+        label: adult female
+        description: "Patient Category: adult female."
+      - value: elderly_male
+        aliases:
+          - Elderly Male (>65 years)
+        label: elderly male
+        description: "Patient Category: elderly male."
+      - value: elderly_female
+        aliases:
+          - Elderly Female (>65 years)
+        label: elderly female
+        description: "Patient Category: elderly female."
+    required: true
+    conceptId: free_water_deficit.input.patient_category
+    examples:
+      - adult_male
+    sourceRefs:
+      - source_1
+    sharedKey: patient_category
+outputs:
+  free_water_deficit:
+    title: Free Water Deficit
+    description: Estimated free water deficit in liters, rounded to 2 decimal places.
+    kind: number
+    unit: L
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+  tbw_percentage_used:
+    title: "% Total Body Water Used"
+    description: The total-body-water fraction (as a decimal) selected by patient category.
+    kind: number
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - free_water_deficit
+constraints:
+  - kind: compare
+    left: current_sodium
+    operator: ">"
+    right: ideal_sodium
+    message: Current sodium must be greater than target sodium for this adult hypernatremia deficit estimate.

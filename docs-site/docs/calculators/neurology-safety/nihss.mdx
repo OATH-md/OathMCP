@@ -1,0 +1,375 @@
+---
+title: "NIH Stroke Scale (NIHSS)"
+description: "Quantify stroke severity from 15 focused neurological items (consciousness, gaze, visual fields, facial and limb motor function, ataxia, sensation, language, dysarthria, and extinction/inattention). Each item is scored on its own scale (0-2, 0-3, or 0-4); the total (0-42) grades impairment — the higher the score, the more severe the stroke."
+sidebar:
+  label: "NIH Stroke Scale (NIHSS)"
+search:
+  tags: ["nihss", "score", "stroke severity", "neurologic stroke deficit", "NIHSS"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>score</Badge> <Badge>Spec 1.1.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Quantify stroke severity from 15 focused neurological items (consciousness, gaze, visual fields, facial and limb motor function, ataxia, sensation, language, dysarthria, and extinction/inattention). Each item is scored on its own scale (0-2, 0-3, or 0-4); the total (0-42) grades impairment — the higher the score, the more severe the stroke. |
+| Setting | Clinical decision support; apply only in the context declared by this calculator. |
+| Model | `nihss` · 1.0.0 |
+| Model kind | score |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Full of caveats for patients with prior neurologic deficits (prior weakness, hemi-/quadriplegia, blindness), intubation, or a language barrier. In those cases consult the NIH Stroke Scale reference. Not a substitute for clinical judgment or imaging.
+
+- Full of caveats for patients with prior neurologic deficits (prior weakness, hemi-/quadriplegia, blindness), intubation, or a language barrier. In those cases consult the NIH Stroke Scale reference. Not a substitute for clinical judgment or imaging.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `assessment_timing` | enum (3 options) | Yes | — | — | — | Clinical timing of this NIHSS assessment; preserve it when comparing serial scores. |
+| `modifier_context` | enum (7 options) | Yes | — | — | — | Dominant modifier affecting interpretation; use the specific UN option for an item that cannot be tested. |
+| `level_of_consciousness` | enum (5 options) | Yes | — | — | — | May be assessed casually while taking history. |
+| `month_and_age` | enum (5 options) | Yes | — | — | — | Ask about the current month and their age. |
+| `commands` | enum (3 options) | Yes | — | — | — | 'Blink Eyes' &amp; 'Squeeze Hands'. |
+| `horizontal_gaze` | enum (4 options) | Yes | — | — | — | Only assess horizontal gaze. |
+| `visual_fields` | enum (5 options) | Yes | — | — | — | Assessment of visual fields. |
+| `facial_palsy` | enum (5 options) | Yes | — | — | — | Use grimace if obtunded. |
+| `left_arm_motor` | enum (7 options) | Yes | — | — | — | Count out loud and use your fingers to show the patient your count. |
+| `right_arm_motor` | enum (7 options) | Yes | — | — | — | Same assessment as Left Arm Motor Drift. |
+| `left_leg_motor` | enum (7 options) | Yes | — | — | — | Assessment of leg motor drift. |
+| `right_leg_motor` | enum (7 options) | Yes | — | — | — | Same assessment as Left Leg Motor Drift. |
+| `limb_ataxia` | enum (6 options) | Yes | — | — | — | Finger-nose-finger / heel-shin. |
+| `sensation` | enum (6 options) | Yes | — | — | — | Assessment of sensation. |
+| `language` | enum (5 options) | Yes | — | — | — | Describe the scene; name the items; read the sentences. |
+| `dysarthria` | enum (5 options) | Yes | — | — | — | Read the words. |
+| `extinction` | enum (5 options) | Yes | — | — | — | Assessment of extinction and inattention. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+<Expandable title="Assessment Timing options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `baseline` | baseline | Baseline assessment before acute treatment. | — |
+| `post_treatment` | post-treatment | Assessment after an acute treatment. | — |
+| `follow_up` | follow-up | Later follow-up assessment. | — |
+
+</Expandable>
+
+
+<Expandable title="Examination Modifier options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `none` | no modifier | No material examination modifier documented. | — |
+| `intubation` | intubation | Dysarthria may be untestable. | — |
+| `amputation_or_joint_fusion` | amputation or joint fusion | A motor or ataxia item may be untestable. | — |
+| `language_barrier` | language barrier | Communication context affects the examination. | — |
+| `pre_existing_deficit` | pre-existing deficit | A prior neurological deficit affects interpretation. | — |
+| `other` | other modifier | Another documented modifier affects testing. | — |
+| `multiple_modifiers` | multiple modifiers | More than one modifier affects different items; record every affected item UN. | — |
+
+</Expandable>
+
+
+<Expandable title="1A: Level of Consciousness options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `alert` | alert | 1A: Level of Consciousness: alert. | 0 |
+| `minor_stimulation` | minor stimulation | 1A: Level of Consciousness: minor stimulation. | 1 |
+| `repeated_stimulation` | repeated stimulation | 1A: Level of Consciousness: repeated stimulation. | 2 |
+| `movements_to_pain` | movements to pain | 1A: Level of Consciousness: movements to pain. | 2 |
+| `unresponsive` | unresponsive | 1A: Level of Consciousness: unresponsive. | 3 |
+
+</Expandable>
+
+
+<Expandable title="1B: Ask Month and Age options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `both_right` | both right | 1B: Ask Month and Age: both right. | 0 |
+| `one_right` | one right | 1B: Ask Month and Age: one right. | 1 |
+| `none_right` | none right | 1B: Ask Month and Age: none right. | 2 |
+| `impaired_communication` | impaired communication | 1B: Ask Month and Age: impaired communication. | 1 |
+| `aphasic` | aphasic | 1B: Ask Month and Age: aphasic. | 2 |
+
+</Expandable>
+
+
+<Expandable title="1C: Commands options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `both_tasks` | both tasks | 1C: Commands: both tasks. | 0 |
+| `one_task` | one task | 1C: Commands: one task. | 1 |
+| `no_tasks` | no tasks | 1C: Commands: no tasks. | 2 |
+
+</Expandable>
+
+
+<Expandable title="2: Horizontal Extraocular Movements options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `normal` | normal | 2: Horizontal Extraocular Movements: normal. | 0 |
+| `partial_overcome` | partial overcome | 2: Horizontal Extraocular Movements: partial overcome. | 1 |
+| `partial_reflex` | partial reflex | 2: Horizontal Extraocular Movements: partial reflex. | 1 |
+| `forced_palsy` | forced palsy | 2: Horizontal Extraocular Movements: forced palsy. | 2 |
+
+</Expandable>
+
+
+<Expandable title="3: Visual Fields options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `no_loss` | no loss | 3: Visual Fields: no loss. | 0 |
+| `partial_hemianopia` | partial hemianopia | 3: Visual Fields: partial hemianopia. | 1 |
+| `complete_hemianopia` | complete hemianopia | 3: Visual Fields: complete hemianopia. | 2 |
+| `bilaterally_blind` | bilaterally blind | 3: Visual Fields: bilaterally blind. | 3 |
+| `bilateral_hemianopia` | bilateral hemianopia | 3: Visual Fields: bilateral hemianopia. | 3 |
+
+</Expandable>
+
+
+<Expandable title="4: Facial Palsy options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `normal` | normal | 4: Facial Palsy: normal. | 0 |
+| `minor_paralysis` | minor paralysis | 4: Facial Palsy: minor paralysis. | 1 |
+| `partial_paralysis` | partial paralysis | 4: Facial Palsy: partial paralysis. | 2 |
+| `unilateral_complete` | unilateral complete | 4: Facial Palsy: unilateral complete. | 3 |
+| `bilateral_complete` | bilateral complete | 4: Facial Palsy: bilateral complete. | 3 |
+
+</Expandable>
+
+
+<Expandable title="5A: Left Arm Motor Drift options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `no_drift` | no drift | 5A: Left Arm Motor Drift: no drift. | 0 |
+| `drift_no_bed` | drift no bed | 5A: Left Arm Motor Drift: drift no bed. | 1 |
+| `drift_hits_bed` | drift hits bed | 5A: Left Arm Motor Drift: drift hits bed. | 2 |
+| `some_effort` | some effort | 5A: Left Arm Motor Drift: some effort. | 2 |
+| `no_effort` | no effort | 5A: Left Arm Motor Drift: no effort. | 3 |
+| `no_movement` | no movement | 5A: Left Arm Motor Drift: no movement. | 4 |
+| `amputation` | untestable - amputation or joint fusion | 5A: Left Arm Motor Drift: UN because of amputation or joint fusion. | Not scorable |
+
+</Expandable>
+
+
+<Expandable title="5B: Right Arm Motor Drift options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `no_drift` | no drift | 5B: Right Arm Motor Drift: no drift. | 0 |
+| `drift_no_bed` | drift no bed | 5B: Right Arm Motor Drift: drift no bed. | 1 |
+| `drift_hits_bed` | drift hits bed | 5B: Right Arm Motor Drift: drift hits bed. | 2 |
+| `some_effort` | some effort | 5B: Right Arm Motor Drift: some effort. | 2 |
+| `no_effort` | no effort | 5B: Right Arm Motor Drift: no effort. | 3 |
+| `no_movement` | no movement | 5B: Right Arm Motor Drift: no movement. | 4 |
+| `amputation` | untestable - amputation or joint fusion | 5B: Right Arm Motor Drift: UN because of amputation or joint fusion. | Not scorable |
+
+</Expandable>
+
+
+<Expandable title="6A: Left Leg Motor Drift options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `no_drift` | no drift | 6A: Left Leg Motor Drift: no drift. | 0 |
+| `drift_no_bed` | drift no bed | 6A: Left Leg Motor Drift: drift no bed. | 1 |
+| `drift_hits_bed` | drift hits bed | 6A: Left Leg Motor Drift: drift hits bed. | 2 |
+| `some_effort` | some effort | 6A: Left Leg Motor Drift: some effort. | 2 |
+| `no_effort` | no effort | 6A: Left Leg Motor Drift: no effort. | 3 |
+| `no_movement` | no movement | 6A: Left Leg Motor Drift: no movement. | 4 |
+| `amputation` | untestable - amputation or joint fusion | 6A: Left Leg Motor Drift: UN because of amputation or joint fusion. | Not scorable |
+
+</Expandable>
+
+
+<Expandable title="6B: Right Leg Motor Drift options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `no_drift` | no drift | 6B: Right Leg Motor Drift: no drift. | 0 |
+| `drift_no_bed` | drift no bed | 6B: Right Leg Motor Drift: drift no bed. | 1 |
+| `drift_hits_bed` | drift hits bed | 6B: Right Leg Motor Drift: drift hits bed. | 2 |
+| `some_effort` | some effort | 6B: Right Leg Motor Drift: some effort. | 2 |
+| `no_effort` | no effort | 6B: Right Leg Motor Drift: no effort. | 3 |
+| `no_movement` | no movement | 6B: Right Leg Motor Drift: no movement. | 4 |
+| `amputation` | untestable - amputation or joint fusion | 6B: Right Leg Motor Drift: UN because of amputation or joint fusion. | Not scorable |
+
+</Expandable>
+
+
+<Expandable title="7: Limb Ataxia options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `no_ataxia` | no ataxia | 7: Limb Ataxia: no ataxia. | 0 |
+| `one_limb` | one limb | 7: Limb Ataxia: one limb. | 1 |
+| `two_limbs` | two limbs | 7: Limb Ataxia: two limbs. | 2 |
+| `does_not_understand` | does not understand | 7: Limb Ataxia: does not understand. | 0 |
+| `paralyzed` | paralyzed | 7: Limb Ataxia: paralyzed. | 0 |
+| `amputation` | untestable - amputation or joint fusion | 7: Limb Ataxia: UN because of amputation or joint fusion. | Not scorable |
+
+</Expandable>
+
+
+<Expandable title="8: Sensation options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `normal` | normal | 8: Sensation: normal. | 0 |
+| `mild_moderate_sharp` | mild moderate sharp | 8: Sensation: mild moderate sharp. | 1 |
+| `mild_moderate_sense` | mild moderate sense | 8: Sensation: mild moderate sense. | 1 |
+| `complete_loss` | complete loss | 8: Sensation: complete loss. | 2 |
+| `quadriplegic` | quadriplegic | 8: Sensation: quadriplegic. | 2 |
+| `unresponsive` | unresponsive | 8: Sensation: unresponsive. | 2 |
+
+</Expandable>
+
+
+<Expandable title="9: Language / Aphasia options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `normal` | normal | 9: Language / Aphasia: normal. | 0 |
+| `mild_moderate` | mild moderate | 9: Language / Aphasia: mild moderate. | 1 |
+| `severe` | severe | 9: Language / Aphasia: severe. | 2 |
+| `mute` | mute | 9: Language / Aphasia: mute. | 3 |
+| `unresponsive` | unresponsive | 9: Language / Aphasia: unresponsive. | 3 |
+
+</Expandable>
+
+
+<Expandable title="10: Dysarthria options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `normal` | normal | 10: Dysarthria: normal. | 0 |
+| `mild_moderate` | mild moderate | 10: Dysarthria: mild moderate. | 1 |
+| `severe` | severe | 10: Dysarthria: severe. | 2 |
+| `mute` | mute | 10: Dysarthria: mute. | 2 |
+| `intubated` | untestable - intubated or physical barrier | 10: Dysarthria: UN because speech cannot be tested. | Not scorable |
+
+</Expandable>
+
+
+<Expandable title="11: Extinction / Inattention options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `no_abnormality` | no abnormality | 11: Extinction / Inattention: no abnormality. | 0 |
+| `inattention` | inattention | 11: Extinction / Inattention: inattention. | 1 |
+| `extinction` | extinction | 11: Extinction / Inattention: extinction. | 1 |
+| `profound_hemi_inattention` | profound hemi inattention | 11: Extinction / Inattention: profound hemi inattention. | 2 |
+| `multiple_modalities` | multiple modalities | 11: Extinction / Inattention: multiple modalities. | 2 |
+
+</Expandable>
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `nihss_score` | integer | Compute condition: complete_total | Yes | Total NIH Stroke Scale score (0-42), returned only when every item is testable. A score of 0 means no deficit detected by NIHSS; stroke is not excluded. |
+| `assessment_complete` | boolean | Always | No | True only when every NIHSS item is testable and a total can be reported. |
+| `missing_component_reasons` | string_list | Always | No | Reasons a total was omitted; empty when all items are testable. |
+
+## Interpretation bands
+
+No deterministic interpretation bands are declared for this calculator.
+
+## Warnings, constraints, and adjustments
+
+- **Constraint (requireValueWhen):** Intubation requires dysarthria to be recorded UN rather than assigned a numeric score.
+- **Constraint (requireAtLeastValuesWhen):** The intubated dysarthria option requires the matching or multiple-modifier context.
+- **Constraint (requireAtLeastValuesWhen):** Amputation or joint fusion context requires at least one affected NIHSS item to be recorded UN.
+- **Constraint (requireAtLeastValuesWhen):** An amputated left-arm item requires the matching or multiple-modifier context.
+- **Constraint (requireAtLeastValuesWhen):** An amputated right-arm item requires the matching or multiple-modifier context.
+- **Constraint (requireAtLeastValuesWhen):** An amputated left-leg item requires the matching or multiple-modifier context.
+- **Constraint (requireAtLeastValuesWhen):** An amputated right-leg item requires the matching or multiple-modifier context.
+- **Constraint (requireAtLeastValuesWhen):** An amputated ataxia item requires the matching or multiple-modifier context.
+- **Constraint (requireAtLeastValuesWhen):** Multiple modifiers require at least two affected NIHSS items to be recorded UN.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "nihss",
+  "inputs": {
+    "assessment_timing": "baseline",
+    "modifier_context": "none",
+    "level_of_consciousness": "alert",
+    "month_and_age": "both_right",
+    "commands": "both_tasks",
+    "horizontal_gaze": "normal",
+    "visual_fields": "no_loss",
+    "facial_palsy": "normal",
+    "left_arm_motor": "no_drift",
+    "right_arm_motor": "no_drift",
+    "left_leg_motor": "no_drift",
+    "right_leg_motor": "no_drift",
+    "limb_ataxia": "no_ataxia",
+    "sensation": "normal",
+    "language": "normal",
+    "dysarthria": "normal",
+    "extinction": "no_abnormality"
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `nihss`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 50/50 | 49/49 | 107/107 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://nihss/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Brott T, Adams HP Jr, Olinger CP, et al. Measurements of acute cerebral infarction: a clinical examination scale. Stroke. 1989;20(7):864-870.](https://doi.org/10.1161/01.STR.20.7.864)<br />doi:10.1161/01.STR.20.7.864 |
+| `source_2` | reference | [National Institute of Neurological Disorders and Stroke. NIH Stroke Scale booklet and examination instructions.](https://www.ninds.nih.gov/sites/default/files/documents/NIH-Stroke-Scale_updatedFeb2024_508.pdf)<br />updated February 2024 form and item instructions; reviewed 2026-07-16 |
+| `source_3` | validation | [Martin-Schild S, Albright KC, Tanksley J, et al. Zero on the NIHSS does not equal the absence of stroke. Ann Emerg Med. 2011;57(1):42-45.](https://pubmed.ncbi.nlm.nih.gov/20828876/)<br />doi:10.1016/j.annemergmed.2010.06.564 |
+
+<Panel title="Repository source">
+  Calculator ID `nihss`; spec version `1.1.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

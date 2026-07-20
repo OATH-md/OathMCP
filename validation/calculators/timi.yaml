@@ -1,0 +1,1094 @@
+calculatorId: timi
+specVersion: 1.1.0
+clinicalModel: TIMI UA NSTEMI seven-factor risk score
+variant: timi_11b_essence_14_day_composite
+population: Patients with unstable angina or non-ST-elevation myocardial
+  infarction matching the model context.
+setting: Presentation-time prognostic stratification; not diagnosis and not
+  applicable to STEMI or undifferentiated chest pain.
+assessmentTiming: At presentation using the seven baseline predictor definitions.
+endpoint: Fourteen-day all-cause death, new or recurrent myocardial infarction,
+  or severe recurrent ischemia requiring urgent revascularization.
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:timi:2026-07-16
+    calculatorId: timi
+    model: TIMI UA NSTEMI seven-factor risk score
+    variant: timi_11b_essence_14_day_composite
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:timi:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web search
+        exactQuery: '"TIMI risk score"[Title/Abstract] AND (unstable
+          angina[Title/Abstract] OR NSTEMI[Title/Abstract]) AND
+          validation[Title/Abstract]'
+        translationExposed: true
+        translatedQuery: '"TIMI risk score"[Title/Abstract] AND (unstable
+          angina[Title/Abstract] OR NSTEMI[Title/Abstract]) AND
+          validation[Title/Abstract]'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:10938172
+      - id: search:timi:timi_antman_2000
+        sourceRole: derivation
+        authorityId: timi_antman_2000
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for timi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:10938172
+      - id: search:timi:timi_polonio_2010
+        sourceRole: external_validation
+        authorityId: timi_polonio_2010
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for timi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:20439123
+      - id: search:timi:timi_accaha_2025
+        sourceRole: controlling_authority
+        authorityId: timi_accaha_2025
+        database: Primary or responsible-authority source
+        site: professional.heart.org
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for timi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - AHA:ACS:2025
+      - id: search:timi:timi_esc_2023
+        sourceRole: specialty_guidance
+        authorityId: timi_esc_2023
+        database: Primary or responsible-authority source
+        site: www.escardio.org
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for timi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - ESC:ACS:2023
+    accounting:
+      retrieved: 5
+      deduplicated: 4
+      screened: 4
+      fullTextAssessed: 4
+      excluded: 0
+      included: 4
+    deduplication:
+      method: PMID, DOI, and responsible-authority URL identity with manual title
+        reconciliation
+      tool: PubMed plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: timi_antman_2000
+        title: TIMI UA NSTEMI risk-score derivation and validation
+        disposition: included
+        fullTextAssessed: true
+      - citationId: timi_polonio_2010
+        title: Independent prospective TIMI UA NSTEMI evaluation
+        disposition: included
+        fullTextAssessed: true
+      - citationId: timi_accaha_2025
+        title: 2025 ACC AHA acute-coronary-syndromes guideline
+        disposition: included
+        fullTextAssessed: true
+      - citationId: timi_esc_2023
+        title: 2023 ESC acute-coronary-syndromes guideline
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:timi:pubmed
+      checklist:
+        - Concept coverage
+        - Controlled vocabulary and text words
+        - Boolean logic
+        - Limits and reproducibility
+        - Variant and endpoint specificity
+      comments:
+        - Strategy checked independently against the retained derivation,
+          external validation, current authority, and specialty-guidance
+          sources.
+      resolution: All checklist comments resolved; exact query, source identities,
+        accounting, and citation chasing recorded.
+      resolved: true
+      reviewer: OathMCP independent search QA lane
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - timi_antman_2000
+  - timi_polonio_2010
+  - timi_accaha_2025
+  - timi_esc_2023
+claims:
+  - id: claim:timi:calculator-model
+    kind: applicability
+    statement: timi is the exact model and variant named by this dossier; adjacent
+      scores and variants are out of scope.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - timi_accaha_2025
+      - timi_esc_2023
+    locators:
+      - sourceId: timi_accaha_2025
+        locator: "Acute coronary syndrome risk-stratification recommendations and
+          supportive text: contemporary use and limitations of clinical risk
+          scores in NSTE-ACS."
+      - sourceId: timi_esc_2023
+        locator: "Section 5 risk assessment and NSTE-ACS pathway: contemporary
+          prognostic-score context and the separation of risk stratification
+          from diagnosis."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is a source-governed scope assertion
+      rather than a numerical runtime output.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:formula-implementation
+    kind: formula
+    statement: The declared timi inputs are combined exactly according to the cited
+      score definition.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+      - case:timi:reference-score-three
+      - case:timi:reference-score-seven
+      - case:timi:component-age_65_or_older-true
+      - case:timi:component-cad_risk_factors-true
+      - case:timi:component-known_cad-true
+      - case:timi:component-asa_use-true
+      - case:timi:component-severe_angina-true
+      - case:timi:component-ekg_st_changes-true
+      - case:timi:component-positive_cardiac_marker-true
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:applicability-purpose
+    kind: applicability
+    statement: The calculator purpose is limited to the cited population, setting,
+      timing, and endpoint.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - timi_accaha_2025
+      - timi_esc_2023
+    locators:
+      - sourceId: timi_accaha_2025
+        locator: "Acute coronary syndrome risk-stratification recommendations and
+          supportive text: contemporary use and limitations of clinical risk
+          scores in NSTE-ACS."
+      - sourceId: timi_esc_2023
+        locator: "Section 5 risk assessment and NSTE-ACS pathway: contemporary
+          prognostic-score context and the separation of risk stratification
+          from diagnosis."
+    executable: true
+    scenarioIds:
+      - case:timi:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:applicability-exclusions
+    kind: applicability
+    statement: The calculator exclusions and non-directive limitations must remain
+      visible to agents.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - timi_accaha_2025
+      - timi_esc_2023
+    locators:
+      - sourceId: timi_accaha_2025
+        locator: "Acute coronary syndrome risk-stratification recommendations and
+          supportive text: contemporary use and limitations of clinical risk
+          scores in NSTE-ACS."
+      - sourceId: timi_esc_2023
+        locator: "Section 5 risk assessment and NSTE-ACS pathway: contemporary
+          prognostic-score context and the separation of risk stratification
+          from diagnosis."
+    executable: true
+    scenarioIds:
+      - case:timi:agent-exclusion-missing-context
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:input-age-65-or-older
+    kind: input
+    statement: The runtime surface input:age_65_or_older matches the cited timi
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:age_65_or_older
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+      - case:timi:missing-age_65_or_older
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:input-cad-risk-factors
+    kind: input
+    statement: The runtime surface input:cad_risk_factors matches the cited timi
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:cad_risk_factors
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:input-known-cad
+    kind: input
+    statement: The runtime surface input:known_cad matches the cited timi model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - input:known_cad
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:input-asa-use
+    kind: input
+    statement: The runtime surface input:asa_use matches the cited timi model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - input:asa_use
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:input-severe-angina
+    kind: input
+    statement: The runtime surface input:severe_angina matches the cited timi model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - input:severe_angina
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:input-ekg-st-changes
+    kind: input
+    statement: The runtime surface input:ekg_st_changes matches the cited timi model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - input:ekg_st_changes
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:input-positive-cardiac-marker
+    kind: input
+    statement: The runtime surface input:positive_cardiac_marker matches the cited
+      timi model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:positive_cardiac_marker
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:output-score
+    kind: outcome
+    statement: The runtime surface output:score matches the cited timi model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - output:score
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:output-risk-percentage
+    kind: outcome
+    statement: The runtime surface output:risk_percentage matches the cited timi
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - output:risk_percentage
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:output-risk-percent
+    kind: outcome
+    statement: The runtime surface output:risk_percent matches the cited timi model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - output:risk_percent
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:output-risk-horizon-days
+    kind: outcome
+    statement: The runtime surface output:risk_horizon_days matches the cited timi
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - output:risk_horizon_days
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:output-risk-endpoint
+    kind: outcome
+    statement: The runtime surface output:risk_endpoint matches the cited timi model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - output:risk_endpoint
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:band-calculator-0
+    kind: band
+    statement: The runtime surface band:calculator:0 matches the cited timi model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - band:calculator:0
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:band-timi_band_1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:band-calculator-1
+    kind: band
+    statement: The runtime surface band:calculator:1 matches the cited timi model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - band:calculator:1
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:band-timi_band_2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:band-calculator-2
+    kind: band
+    statement: The runtime surface band:calculator:2 matches the cited timi model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - band:calculator:2
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:band-timi_band_3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:timi:band-calculator-3
+    kind: band
+    statement: The runtime surface band:calculator:3 matches the cited timi model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - band:calculator:3
+    status: supported
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    locators:
+      - sourceId: timi_antman_2000
+        locator: "Methods, Table 1, and Figure 1: seven one-point predictors, the 14-day
+          death/MI/urgent-revascularization composite, and score-specific TIMI
+          11B event rates."
+      - sourceId: timi_polonio_2010
+        locator: "Methods and Results: independent UA/NSTEMI cohort evaluation of the
+          seven-factor TIMI score against the same 14-day ischemic composite."
+    executable: true
+    scenarioIds:
+      - case:timi:band-timi_band_4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:timi:reference-score-zero
+    kind: reference
+    tags:
+      - calculator:timi:core
+      - source-derived-reference
+    inputs: &a2
+      age_65_or_older: false
+      cad_risk_factors: false
+      known_cad: false
+      asa_use: false
+      severe_angina: false
+      ekg_st_changes: false
+      positive_cardiac_marker: false
+    expected:
+      score: 0
+      risk_percentage: 4.7%
+      risk_percent: 4.7
+      risk_horizon_days: 14
+      risk_endpoint: death_mi_or_urgent_revascularization
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Integer scores, cohort lookup values, categorical outputs, warnings,
+        omissions, and interpretation codes are asserted exactly from the cited
+        model definition.
+    claimIds:
+      - claim:timi:formula-implementation
+      - claim:timi:input-age-65-or-older
+      - claim:timi:input-cad-risk-factors
+      - claim:timi:input-known-cad
+      - claim:timi:input-asa-use
+      - claim:timi:input-severe-angina
+      - claim:timi:input-ekg-st-changes
+      - claim:timi:input-positive-cardiac-marker
+      - claim:timi:output-score
+      - claim:timi:output-risk-percentage
+      - claim:timi:output-risk-percent
+      - claim:timi:output-risk-horizon-days
+      - claim:timi:output-risk-endpoint
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - formula:implementation
+      - input:age_65_or_older
+      - input:cad_risk_factors
+      - input:known_cad
+      - input:asa_use
+      - input:severe_angina
+      - input:ekg_st_changes
+      - input:positive_cardiac_marker
+      - output:score
+      - output:risk_percentage
+      - output:risk_percent
+      - output:risk_horizon_days
+      - output:risk_endpoint
+  - id: case:timi:reference-score-three
+    kind: reference
+    tags:
+      - calculator:timi:core
+      - source-derived-reference
+    inputs:
+      age_65_or_older: true
+      cad_risk_factors: true
+      known_cad: true
+      asa_use: false
+      severe_angina: false
+      ekg_st_changes: false
+      positive_cardiac_marker: false
+    expected:
+      score: 3
+      risk_percentage: 13.2%
+      risk_percent: 13.2
+      risk_horizon_days: 14
+      risk_endpoint: death_mi_or_urgent_revascularization
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:timi:formula-implementation
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - formula:implementation
+  - id: case:timi:reference-score-seven
+    kind: reference
+    tags:
+      - calculator:timi:core
+      - source-derived-reference
+    inputs:
+      age_65_or_older: true
+      cad_risk_factors: true
+      known_cad: true
+      asa_use: true
+      severe_angina: true
+      ekg_st_changes: true
+      positive_cardiac_marker: true
+    expected:
+      score: 7
+      risk_percentage: 40.9%
+      risk_percent: 40.9
+      risk_horizon_days: 14
+      risk_endpoint: death_mi_or_urgent_revascularization
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:timi:formula-implementation
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - formula:implementation
+  - id: case:timi:missing-age_65_or_older
+    kind: agent
+    tags:
+      - required-inputs
+    inputs: &a3
+      cad_risk_factors: false
+      known_cad: false
+      asa_use: false
+      severe_angina: false
+      ekg_st_changes: false
+      positive_cardiac_marker: false
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: age_65_or_older
+    tolerance: *a1
+    claimIds:
+      - claim:timi:input-age-65-or-older
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - input:age_65_or_older
+  - id: case:timi:agent-purpose
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs: *a2
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:timi:applicability-purpose
+    sourceIds:
+      - timi_accaha_2025
+      - timi_esc_2023
+    witnesses:
+      - applicability:purpose
+  - id: case:timi:agent-exclusion-missing-context
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs: *a3
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: age_65_or_older
+    tolerance: *a1
+    claimIds:
+      - claim:timi:applicability-exclusions
+    sourceIds:
+      - timi_accaha_2025
+      - timi_esc_2023
+    witnesses:
+      - applicability:exclusions
+  - id: case:timi:band-timi_band_1
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age_65_or_older: true
+      cad_risk_factors: true
+      known_cad: true
+      asa_use: true
+      severe_angina: true
+      ekg_st_changes: false
+      positive_cardiac_marker: false
+    expected:
+      score: 5
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: timi_band_1
+        kind: risk
+        label: Enrolled trial-cohort 14-day composite event rate 26.2-40.9%; not an
+          individualized prediction.
+        severity: critical
+    tolerance: *a1
+    claimIds:
+      - claim:timi:band-calculator-0
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - band:calculator:0
+  - id: case:timi:band-timi_band_2
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age_65_or_older: true
+      cad_risk_factors: true
+      known_cad: true
+      asa_use: false
+      severe_angina: false
+      ekg_st_changes: false
+      positive_cardiac_marker: false
+    expected:
+      score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: timi_band_2
+        kind: risk
+        label: Enrolled trial-cohort 14-day composite event rate 13.2-19.9%; not an
+          individualized prediction.
+        severity: abnormal
+    tolerance: *a1
+    claimIds:
+      - claim:timi:band-calculator-1
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - band:calculator:1
+  - id: case:timi:band-timi_band_3
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age_65_or_older: true
+      cad_risk_factors: true
+      known_cad: false
+      asa_use: false
+      severe_angina: false
+      ekg_st_changes: false
+      positive_cardiac_marker: false
+    expected:
+      score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: timi_band_3
+        kind: risk
+        label: Enrolled trial-cohort 14-day composite event rate 8.3%; not an
+          individualized prediction.
+        severity: borderline
+    tolerance: *a1
+    claimIds:
+      - claim:timi:band-calculator-2
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - band:calculator:2
+  - id: case:timi:band-timi_band_4
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs: *a2
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: timi_band_4
+        kind: risk
+        label: Enrolled trial-cohort 14-day composite event rate 4.7%; not an
+          individualized prediction.
+        severity: normal
+    tolerance: *a1
+    claimIds:
+      - claim:timi:band-calculator-3
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - band:calculator:3
+  - id: case:timi:component-age_65_or_older-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_65_or_older: true
+      cad_risk_factors: false
+      known_cad: false
+      asa_use: false
+      severe_angina: false
+      ekg_st_changes: false
+      positive_cardiac_marker: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:timi:formula-implementation
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - formula:implementation
+  - id: case:timi:component-cad_risk_factors-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_65_or_older: false
+      cad_risk_factors: true
+      known_cad: false
+      asa_use: false
+      severe_angina: false
+      ekg_st_changes: false
+      positive_cardiac_marker: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:timi:formula-implementation
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - formula:implementation
+  - id: case:timi:component-known_cad-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_65_or_older: false
+      cad_risk_factors: false
+      known_cad: true
+      asa_use: false
+      severe_angina: false
+      ekg_st_changes: false
+      positive_cardiac_marker: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:timi:formula-implementation
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - formula:implementation
+  - id: case:timi:component-asa_use-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_65_or_older: false
+      cad_risk_factors: false
+      known_cad: false
+      asa_use: true
+      severe_angina: false
+      ekg_st_changes: false
+      positive_cardiac_marker: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:timi:formula-implementation
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - formula:implementation
+  - id: case:timi:component-severe_angina-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_65_or_older: false
+      cad_risk_factors: false
+      known_cad: false
+      asa_use: false
+      severe_angina: true
+      ekg_st_changes: false
+      positive_cardiac_marker: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:timi:formula-implementation
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - formula:implementation
+  - id: case:timi:component-ekg_st_changes-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_65_or_older: false
+      cad_risk_factors: false
+      known_cad: false
+      asa_use: false
+      severe_angina: false
+      ekg_st_changes: true
+      positive_cardiac_marker: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:timi:formula-implementation
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - formula:implementation
+  - id: case:timi:component-positive_cardiac_marker-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_65_or_older: false
+      cad_risk_factors: false
+      known_cad: false
+      asa_use: false
+      severe_angina: false
+      ekg_st_changes: false
+      positive_cardiac_marker: true
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:timi:formula-implementation
+    sourceIds:
+      - timi_antman_2000
+      - timi_polonio_2010
+    witnesses:
+      - formula:implementation
+compatibilityNotes:
+  - Corrected rounded cohort lookup values to the exact published TIMI 11B event
+    rates.
+explicitBlockers: []

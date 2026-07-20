@@ -1,0 +1,26 @@
+---
+title: "Hepatology and gastroenterology"
+description: "Liver severity, injury patterns, hepatitis serology, and pancreatitis scoring."
+---
+
+{/* GENERATED from repository-root OathMCP sources. */}
+
+Liver severity, injury patterns, hepatitis serology, and pancreatitis scoring.
+
+<CardGroup cols={2}>
+  <Card title="Modified Child-Pugh Score (INR variant)" href="/calculators/hepatology-gastroenterology/child_pugh" icon="calculator">
+    Adults with established cirrhosis whose bilirubin, albumin, INR, ascites, and encephalopathy categories are available. Return an integer score from 5-15 and descriptive class A (5-6), B (7-9), or C (10-15).
+  </Card>
+  <Card title="Hepatitis B Triple-Panel Findings" href="/calculators/hepatology-gastroenterology/hepb" icon="calculator">
+    Map an explicit HBsAg, total anti-HBc, and anti-HBs state to a typed CDC pattern while preserving uncertainty and contradictions.
+  </Card>
+  <Card title="MELD 3.0" href="/calculators/hepatology-gastroenterology/meld" icon="calculator">
+    Calculate the current OPTN MELD 3.0 score used to assign medical-urgency priority to liver-transplant candidates age 12 years and older. The formula uses creatinine, bilirubin, INR, sodium, albumin, age at registration, and adult candidate sex; the reported score ranges from 6 to 40.
+  </Card>
+  <Card title="R Factor for Liver Injury" href="/calculators/hepatology-gastroenterology/r_factor" icon="calculator">
+    Classify a pattern of liver injury from ALT and ALP using the R factor: R = (ALT/ALT_ULN) / (ALP/ALP_ULN). R ≥ 5 is hepatocellular, 2 &lt; R &lt; 5 is mixed, and R ≤ 2 is cholestatic. Returns the R value and injury type. Default upper limits of normal are ALT 40 U/L and ALP 115 U/L; override them with your lab's ULNs if they differ.
+  </Card>
+  <Card title="Ranson Criteria for Acute Pancreatitis" href="/calculators/hepatology-gastroenterology/ranson" icon="calculator">
+    Derive the selected Ranson variant from raw timestamped observations; expose the admission subtotal, every criterion state, and missing or not-due reasons without treating absent observations as negative.
+  </Card>
+</CardGroup>

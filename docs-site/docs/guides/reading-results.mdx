@@ -1,0 +1,33 @@
+---
+title: Reading results
+description: Interpret the OathMCP result envelope without losing warnings, evidence, provenance, or clinical context.
+---
+
+Each successful result contains calculated values plus the information needed
+to audit how the server handled the request.
+
+## What to preserve
+
+- `results` — typed calculated outputs; conditional outputs may be absent when their prerequisites are not met.
+- `interpretations` — deterministic bands declared in the calculator spec, not a diagnosis.
+- `warnings` — unusual-but-accepted inputs, compatibility aliases, caps, floors, and other cautions.
+- `inputsUsed` — normalized submitted and default values retained for compatibility.
+- `inputProvenance` — whether each value was supplied, defaulted, or provided through an alias, including unit normalization.
+- `adjustments` — declared caps, floors, or clamps, including the effective value used for computation.
+- `scoringComponents`, `scoreComplete`, and `scoreMissingReasons` — score provenance and explicit incomplete-score state.
+- `clinicalModel` and `version` — the exact declared clinical model and implementation version.
+- `evidence` — the result-relevant citations and locators bundled with the calculation.
+- `evidenceUri` — `calc://<id>/evidence`, the on-demand evidence and safety resource.
+
+## Warnings are not errors
+
+Hard-limit, missing-required, type, unknown-input, and constraint failures stop a
+calculation. Plausibility warnings allow it to proceed while making the unusual
+input explicit. An integration should surface both classes honestly.
+
+## Interpretation boundary
+
+A band label describes the output under the declared instrument. It must not be
+presented as a diagnosis, prognosis, treatment recommendation, or substitute for
+the original source, current guidance, local protocols, or the complete clinical
+context.

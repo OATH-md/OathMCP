@@ -1,0 +1,151 @@
+id: hepb
+version: 1.1.0
+name: Hepatitis B Triple-Panel Findings
+clinicalModel:
+  modelKind: decision_tree
+  modelId: cdc_hbv_triple_panel
+  modelVersion: 2025-08
+  reviewDate: 2026-07-15
+  evidenceRefs: [source_1, source_2]
+applicability:
+  population: People undergoing hepatitis B screening or diagnostic serology review.
+  setting: Deterministic interpretation of the CDC triple panel with optional supplemental markers.
+  exclusions:
+    - This tool does not establish disease phase, infectivity level, treatment, or prognosis.
+    - Unknown and not-tested markers remain distinct from negative results.
+  evidenceRefs: [source_1, source_2]
+purposeForAgents: Map an explicit HBsAg, total anti-HBc, and anti-HBs state to a typed CDC pattern while preserving uncertainty and contradictions.
+whenNotToUse: Do not infer a complete pattern from omitted, unknown, or not-tested markers, and do not use HBe markers alone to label disease phase or infectivity.
+evidence:
+  - id: source_1
+    type: guideline
+    citation: Centers for Disease Control and Prevention. Clinical Testing and Diagnosis for Hepatitis B. Updated January 31, 2025.
+    locator: section:How to interpret test results
+    url: https://www.cdc.gov/hepatitis-b/hcp/diagnosis-testing/index.html
+    reviewed: true
+  - id: source_2
+    type: guideline
+    citation: Centers for Disease Control and Prevention. Hepatitis B Surveillance Guidance. Interpretation of Hepatitis B Laboratory Results.
+    locator: table:3-1
+    url: https://www.cdc.gov/hepatitis/php/surveillance-guidance/hepatitis-b.html
+    reviewed: true
+inputs:
+  hbsag:
+    title: HBsAg
+    description: Explicit surface-antigen state; do not substitute not_tested or unknown with negative.
+    kind: enum
+    enumValues: &marker_states
+      - { value: positive, label: Positive, description: Laboratory result reported positive. }
+      - { value: negative, label: Negative, description: Laboratory result reported negative. }
+      - { value: unknown, label: Unknown, description: Result exists but its state is unknown or indeterminate. }
+      - { value: not_tested, label: Not tested, description: Marker was not tested. }
+    required: true
+    conceptId: hepb.input.hbsag
+    examples: [negative]
+    sourceRefs: [source_1, source_2]
+    sharedKey: hbsag
+  anti_hbc:
+    title: Total anti-HBc
+    description: Explicit total core-antibody state.
+    kind: enum
+    enumValues: *marker_states
+    required: true
+    conceptId: hepb.input.anti_hbc
+    examples: [negative]
+    sourceRefs: [source_1, source_2]
+    sharedKey: anti_hbc
+  anti_hbs:
+    title: Anti-HBs
+    description: Explicit surface-antibody state; a positive result implies vaccine immunity only when total anti-HBc is negative and vaccination is documented.
+    kind: enum
+    enumValues: *marker_states
+    required: true
+    conceptId: hepb.input.anti_hbs
+    examples: [positive]
+    sourceRefs: [source_1, source_2]
+    sharedKey: anti_hbs
+  igm_anti_hbc:
+    title: IgM anti-HBc
+    description: Supplemental recent-infection marker; IgM can also be positive during chronic flares or reactivation.
+    kind: enum
+    enumValues: *marker_states
+    required: false
+    default: not_tested
+    conceptId: hepb.input.igm_anti_hbc
+    examples: [not_tested]
+    sourceRefs: [source_1, source_2]
+    sharedKey: igm_anti_hbc
+  hbeag:
+    title: HBeAg
+    description: Supplemental replication marker reported without assigning an infectivity level.
+    kind: enum
+    enumValues: *marker_states
+    required: false
+    default: not_tested
+    conceptId: hepb.input.hbeag
+    examples: [not_tested]
+    sourceRefs: [source_2]
+    sharedKey: hbeag
+  anti_hbe:
+    title: Anti-HBe
+    description: Supplemental e-antibody marker reported without assigning an infectivity level.
+    kind: enum
+    enumValues: *marker_states
+    required: false
+    default: not_tested
+    conceptId: hepb.input.anti_hbe
+    examples: [not_tested]
+    sourceRefs: [source_2]
+    sharedKey: anti_hbe
+outputs:
+  status_code:
+    title: CDC Pattern Code
+    description: Typed triple-panel pattern; atypical and incomplete states remain explicit.
+    kind: enum
+    allowedValues: [acute_infection_pattern, chronic_infection_pattern, resolving_or_window_pattern, resolved_infection_pattern, vaccine_immunity_pattern, isolated_core_antibody_pattern, susceptible_pattern, incomplete_triple_panel, atypical_or_contradictory_pattern]
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2]
+  pattern_quality:
+    title: Pattern Quality
+    description: Whether the result is a complete supported pattern, incomplete, or contradictory/atypical.
+    kind: enum
+    allowedValues: [complete_supported, insufficient, contradictory_or_atypical]
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2]
+  replication_marker_context:
+    title: HBe Marker Context
+    description: Descriptive HBeAg and anti-HBe state without an infectivity or disease-phase conclusion.
+    kind: enum
+    allowedValues: [hbeag_detected, anti_hbe_detected, both_detected, neither_detected, not_fully_assessed]
+    availability: { kind: always }
+    evidenceRefs: [source_2]
+  missing_context:
+    title: Missing Context
+    description: Required or useful marker/context states that remain unknown or not tested.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2]
+  next_context:
+    title: Next Context Needed
+    description: Non-treatment information needed to resolve the pattern.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2]
+  limitations:
+    title: Limitations
+    description: Interpretation limits that must accompany the pattern.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2]
+primaryOutputs: [status_code]
+prompt:
+  description: Ask the host LLM to summarize only the deterministic CDC pattern and unresolved context.
+  template: |
+    Summarize this deterministic hepatitis B serology pattern for a clinician without adding treatment, prognosis, disease phase, or an infectivity level.
+    Pattern code: {{status_code}}
+    Pattern quality: {{pattern_quality}}
+    HBe marker context: {{replication_marker_context}}
+    Missing context: {{missing_context}}
+    Next context needed: {{next_context}}
+    Limitations: {{limitations}}
+    Return one concise paragraph and preserve unknown and not-tested states exactly.

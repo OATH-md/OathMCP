@@ -1,0 +1,2779 @@
+calculatorId: abg
+specVersion: 1.1.0
+clinicalModel: Deterministic ABG/VBG acid-base findings
+variant: arterial_compensation_with_venous_screening_limit
+population: Adults with a contemporaneous blood-gas sample and serum electrolytes.
+setting: Clinician-reviewed acid-base findings; not diagnosis or treatment.
+assessmentTiming: Contemporaneous blood gas, electrolytes, and albumin when measured.
+endpoint: Typed sample context, acid-base branch, compensation availability, gaps, ratios, provenance, and limitations.
+reviewGroup: interpreter_conditional
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:abg:2026-07-16
+    calculatorId: abg
+    model: Deterministic ABG/VBG acid-base findings
+    variant: arterial_compensation_with_venous_screening_limit
+    searchedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    sources:
+      - id: search:abg:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline_interpreter
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed E-utilities exact UID query
+        exactQuery: 6016545[uid] OR 9824071[uid] OR 11092993[uid]
+        translationExposed: true
+        translatedQuery: '"6016545"[UID] OR "9824071"[UID] OR "11092993"[UID]'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 3
+        stableCitationIds:
+          - PMID:6016545
+          - PMID:9824071
+          - PMID:11092993
+      - id: search:abg:abg_winters_1965
+        sourceRole: derivation
+        authorityId: abg_winters_1965
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact abg formula, finite branch, conditional output, limitation, population, timing, correction,
+          retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID 6016545
+      - id: search:abg:abg_figge_1998
+        sourceRole: derivation
+        authorityId: abg_figge_1998
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact abg formula, finite branch, conditional output, limitation, population, timing, correction,
+          retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID 9824071
+      - id: search:abg:abg_ats_interpretation
+        sourceRole: controlling_authority
+        authorityId: abg_ats_interpretation
+        database: Primary or responsible-authority source
+        site: www.thoracic.org
+        interface: direct document review
+        exactQuery: Exact abg formula, finite branch, conditional output, limitation, population, timing, correction,
+          retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - web resource checked 2026-07-16
+      - id: search:abg:abg_french_guideline_2019
+        sourceRole: specialty_guidance
+        authorityId: abg_french_guideline_2019
+        database: Primary or responsible-authority source
+        site: pmc.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact abg formula, finite branch, conditional output, limitation, population, timing, correction,
+          retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMCID PMC6695455; 2019 guideline
+    accounting:
+      retrieved: 3
+      deduplicated: 3
+      screened: 3
+      fullTextAssessed: 3
+      excluded: 1
+      included: 2
+    deduplication:
+      method: PMID-based deduplication of the exact E-utilities result set; direct authority documents and citation chasing
+        are recorded separately and contribute zero bibliographic retrievals.
+      tool: PubMed E-utilities JSON export plus direct full-text review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: abg_winters_1965
+        title: Quantitative displacement of acid-base equilibrium in metabolic acidosis.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: abg_figge_1998
+        title: Anion gap and hypoalbuminemia.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:11092993
+        title: A simple estimate of the effect of the serum albumin level on the anion gap.
+        disposition: excluded
+        exclusionReason: Full text describes an alternative bedside coefficient; retained sources match the encoded Figge 2.5
+          mEq/L per g/dL correction.
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:abg:pubmed
+      checklist:
+        - Concept coverage and exact model or branch identity
+        - Controlled vocabulary, text words, and stable identifiers
+        - Boolean logic and reproducibility
+        - Population, timing, assay or table provenance, and conditional-output specificity
+        - Corrections, retractions, supersession, and current responsible-authority guidance
+      comments:
+        - The exact UID query returned 3 unique PMID records; every result is represented in the full-text screening
+          ledger.
+        - Direct current authority and specialty documents were checked separately so their update state is not
+          conflated with MEDLINE retrieval accounting.
+      resolution: Exact query results, stable identifiers, full-text dispositions, source roles, claim locators, and current
+        authority checks were reconciled against the live PubMed and official-document surfaces.
+      resolved: true
+      reviewer: OathMCP independent search QA lane
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline_interpreter
+  - abg_winters_1965
+  - abg_figge_1998
+  - abg_ats_interpretation
+  - abg_french_guideline_2019
+claims:
+  - id: claim:abg:calculator-model
+    kind: applicability
+    statement: abg implements only the model, variant, population, timing, and endpoint declared in this dossier.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, six-step approach and compensation table: arterial pH/PCO2/bicarbonate branch
+          framing, anion-gap review, and mixed-disorder limitations."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and scope are source-governed; every runtime-verifiable surface is covered by
+      separate executable claims.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:formula-implementation
+    kind: formula
+    statement: abg applies the cited deterministic formulas, finite branches, conditional availability rules, and rounding
+      exactly as declared.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, six-step approach and compensation table: arterial pH/PCO2/bicarbonate branch
+          framing, respiratory and metabolic compensation relationships, anion-gap review, and mixed-disorder limitations."
+      - sourceId: abg_french_guideline_2019
+        locator: "French expert-panel guideline R1.1-R1.3 and rationale: venous blood gas may screen pH but venous PCO2 is
+          not interchangeable with arterial PCO2 for the calculator's compensation branch."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+      - case:abg:reference-1
+      - case:abg:reference-2
+      - case:abg:reference-3
+      - case:abg:reference-4
+      - case:abg:reference-aliases
+      - case:abg:reference-unit-sodium-1
+      - case:abg:reference-unit-sodium-2
+      - case:abg:reference-unit-albumin-1
+      - case:abg:reference-unit-albumin-2
+      - case:abg:branch-normal
+      - case:abg:branch-metabolic-acidemia
+      - case:abg:branch-respiratory-acidemia
+      - case:abg:branch-mixed-acidemia
+      - case:abg:branch-metabolic-alkalemia
+      - case:abg:branch-respiratory-alkalemia
+      - case:abg:branch-mixed-alkalemia
+      - case:abg:branch-compensated-low
+      - case:abg:branch-compensated-high
+      - case:abg:branch-indeterminate
+      - case:abg:branch-compensation-below
+      - case:abg:branch-compensation-above
+      - case:abg:branch-venous-screen
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:applicability-purpose
+    kind: applicability
+    statement: abg is limited to deterministic findings or initial measurement estimates within the cited clinical context.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, six-step approach and compensation table: arterial pH/PCO2/bicarbonate branch
+          framing, anion-gap review, and mixed-disorder limitations."
+    executable: true
+    scenarioIds:
+      - case:abg:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:applicability-exclusions
+    kind: applicability
+    statement: abg preserves the cited exclusions and does not turn a compatible pattern or estimate into diagnosis,
+      confidence, prognosis, treatment, or confirmed device position.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, six-step approach and compensation table: arterial pH/PCO2/bicarbonate branch
+          framing, anion-gap review, and mixed-disorder limitations."
+    executable: true
+    scenarioIds:
+      - case:abg:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-ph
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:ph.
+    covers:
+      - input:ph
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+      - case:abg:hard-ph
+      - case:abg:required-ph
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-ph-hard-limits
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:ph:hard_limits.
+    covers:
+      - input:ph:hard_limits
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:hard-ph
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-ph-plausibility
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:ph:plausibility.
+    covers:
+      - input:ph:plausibility
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:plausibility-ph
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-ph-aliases
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:ph:aliases.
+    covers:
+      - input:ph:aliases
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:reference-aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-paco2
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:paco2.
+    covers:
+      - input:paco2
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+      - case:abg:hard-paco2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-paco2-hard-limits
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:paco2:hard_limits.
+    covers:
+      - input:paco2:hard_limits
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:hard-paco2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-paco2-plausibility
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:paco2:plausibility.
+    covers:
+      - input:paco2:plausibility
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:plausibility-paco2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-paco2-aliases
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:paco2:aliases.
+    covers:
+      - input:paco2:aliases
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:reference-aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-bicarbonate
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:bicarbonate.
+    covers:
+      - input:bicarbonate
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+      - case:abg:hard-bicarbonate
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-bicarbonate-hard-limits
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:bicarbonate:hard_limits.
+    covers:
+      - input:bicarbonate:hard_limits
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:hard-bicarbonate
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-bicarbonate-plausibility
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:bicarbonate:plausibility.
+    covers:
+      - input:bicarbonate:plausibility
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:plausibility-bicarbonate
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-bicarbonate-aliases
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:bicarbonate:aliases.
+    covers:
+      - input:bicarbonate:aliases
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:reference-aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-sodium
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:sodium.
+    covers:
+      - input:sodium
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+      - case:abg:hard-sodium
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-sodium-hard-limits
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:sodium:hard_limits.
+    covers:
+      - input:sodium:hard_limits
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:hard-sodium
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-sodium-plausibility
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:sodium:plausibility.
+    covers:
+      - input:sodium:plausibility
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:plausibility-sodium
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-sodium-aliases
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:sodium:aliases.
+    covers:
+      - input:sodium:aliases
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:unit-sodium
+    kind: unit
+    statement: abg uses the source-defined contract and behavior for unit:sodium.
+    covers:
+      - unit:sodium
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-unit-sodium-1
+      - case:abg:reference-unit-sodium-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-chloride
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:chloride.
+    covers:
+      - input:chloride
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+      - case:abg:hard-chloride
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-chloride-hard-limits
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:chloride:hard_limits.
+    covers:
+      - input:chloride:hard_limits
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:hard-chloride
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-chloride-plausibility
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:chloride:plausibility.
+    covers:
+      - input:chloride:plausibility
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:plausibility-chloride
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-chloride-aliases
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:chloride:aliases.
+    covers:
+      - input:chloride:aliases
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-albumin
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:albumin.
+    covers:
+      - input:albumin
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+      - case:abg:hard-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-albumin-hard-limits
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:albumin:hard_limits.
+    covers:
+      - input:albumin:hard_limits
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:hard-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-albumin-plausibility
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:albumin:plausibility.
+    covers:
+      - input:albumin:plausibility
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:plausibility-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:unit-albumin
+    kind: unit
+    statement: abg uses the source-defined contract and behavior for unit:albumin.
+    covers:
+      - unit:albumin
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-unit-albumin-1
+      - case:abg:reference-unit-albumin-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-sample-type
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:sample_type.
+    covers:
+      - input:sample_type
+    status: supported
+    sourceIds:
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, six-step approach and compensation table: arterial pH/PCO2/bicarbonate branch
+          framing, anion-gap review, and mixed-disorder limitations."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-sample-type-options
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:sample_type:options.
+    covers:
+      - input:sample_type:options
+    status: supported
+    sourceIds:
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, six-step approach and compensation table: arterial pH/PCO2/bicarbonate branch
+          framing, anion-gap review, and mixed-disorder limitations."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-venous-sample
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:venous_sample.
+    covers:
+      - input:venous_sample
+    status: supported
+    sourceIds:
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, six-step approach and compensation table: arterial pH/PCO2/bicarbonate branch
+          framing, anion-gap review, and mixed-disorder limitations."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:input-venous-sample-aliases
+    kind: input
+    statement: abg uses the source-defined contract and behavior for input:venous_sample:aliases.
+    covers:
+      - input:venous_sample:aliases
+    status: supported
+    sourceIds:
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, six-step approach and compensation table: arterial pH/PCO2/bicarbonate branch
+          framing, anion-gap review, and mixed-disorder limitations."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-sample-type
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:sample_type.
+    covers:
+      - output:sample_type
+    status: supported
+    sourceIds:
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, six-step approach and compensation table: arterial pH/PCO2/bicarbonate branch
+          framing, anion-gap review, and mixed-disorder limitations."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-sample-type-provenance
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:sample_type_provenance.
+    covers:
+      - output:sample_type_provenance
+    status: supported
+    sourceIds:
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, six-step approach and compensation table: arterial pH/PCO2/bicarbonate branch
+          framing, anion-gap review, and mixed-disorder limitations."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-acid-base-branch-id
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:acid_base_branch_id.
+    covers:
+      - output:acid_base_branch_id
+    status: supported
+    sourceIds:
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, six-step approach and compensation table: arterial pH/PCO2/bicarbonate branch
+          framing, respiratory and metabolic compensation relationships, anion-gap review, and mixed-disorder limitations."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+      - case:abg:branch-normal
+      - case:abg:branch-metabolic-acidemia
+      - case:abg:branch-respiratory-acidemia
+      - case:abg:branch-mixed-acidemia
+      - case:abg:branch-metabolic-alkalemia
+      - case:abg:branch-respiratory-alkalemia
+      - case:abg:branch-mixed-alkalemia
+      - case:abg:branch-compensated-low
+      - case:abg:branch-compensated-high
+      - case:abg:branch-indeterminate
+      - case:abg:branch-venous-screen
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-compensation-basis
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:compensation_basis.
+    covers:
+      - output:compensation_basis
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, compensation table: expected respiratory response for metabolic acidosis and
+          metabolic alkalosis, with separate respiratory-disorder relationships and mixed-disorder cautions."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-expected-paco2-range
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:expected_paco2_range.
+    covers:
+      - output:expected_paco2_range
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, compensation table: expected PCO2 relationships for metabolic acidosis and
+          metabolic alkalosis."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-compensation-status
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:compensation_status.
+    covers:
+      - output:compensation_status
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, compensation table and mixed-disorder step: compare measured PCO2 with the
+          expected range and flag values below or above it."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+      - case:abg:branch-compensation-below
+      - case:abg:branch-compensation-above
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-anion-gap
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:anion_gap.
+    covers:
+      - output:anion_gap
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-albumin-corrected-anion-gap
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:albumin_corrected_anion_gap.
+    covers:
+      - output:albumin_corrected_anion_gap
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-albumin-provenance
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:albumin_provenance.
+    covers:
+      - output:albumin_provenance
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-delta-ratio
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:delta_ratio.
+    covers:
+      - output:delta_ratio
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, Steps 5-6: calculate the anion gap, then divide the increase in anion gap by
+          the decrease in bicarbonate to assess an additional metabolic disorder."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-albumin-corrected-delta-ratio
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:albumin_corrected_delta_ratio.
+    covers:
+      - output:albumin_corrected_delta_ratio
+    status: supported
+    sourceIds:
+      - abg_figge_1998
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_figge_1998
+        locator: "Figge et al., Results and derived correction: sodium minus chloride and bicarbonate, with 2.5 mEq/L added per
+          1 g/dL albumin below 4 g/dL."
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, Steps 5-6: adjust the patient's expected normal gap for hypoalbuminemia before
+          assessing the delta-anion-gap to delta-bicarbonate relationship."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-mixed-disorder-branch-ids
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:mixed_disorder_branch_ids.
+    covers:
+      - output:mixed_disorder_branch_ids
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, Steps 4 and 6 plus Table 6: measured compensation outside the expected range
+          and delta-ratio relationships identify deterministic mixed-disorder patterns."
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-missing-data-notes
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:missing_data_notes.
+    covers:
+      - output:missing_data_notes
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:output-limitations
+    kind: outcome
+    statement: abg uses the source-defined contract and behavior for output:limitations.
+    covers:
+      - output:limitations
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:constraint-0
+    kind: input
+    statement: abg uses the source-defined contract and behavior for constraint:0.
+    covers:
+      - constraint:0
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:constraint-0
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:constraint-1
+    kind: input
+    statement: abg uses the source-defined contract and behavior for constraint:1.
+    covers:
+      - constraint:1
+    status: supported
+    sourceIds:
+      - abg_winters_1965
+    locators:
+      - sourceId: abg_winters_1965
+        locator: Winters et al., quantitative metabolic-acidosis series and compensation relationship; use is limited to
+          arterial PCO2 and metabolic-acidosis branches.
+    executable: true
+    scenarioIds:
+      - case:abg:constraint-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:abg:interpretation-prompt
+    kind: interpretation
+    statement: abg renders only the cited deterministic outputs, missing context, and limitations without adding diagnosis,
+      confidence, prognosis, or management language.
+    covers:
+      - interpretation:prompt
+    status: supported
+    sourceIds:
+      - abg_ats_interpretation
+    locators:
+      - sourceId: abg_ats_interpretation
+        locator: "ATS Interpretation of ABGs, six-step approach and compensation table: arterial pH/PCO2/bicarbonate branch
+          framing, anion-gap review, and mixed-disorder limitations."
+    executable: true
+    scenarioIds:
+      - case:abg:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+cases:
+  - kind: reference
+    id: case:abg:reference-comprehensive
+    tags:
+      - calculator:abg:core
+      - conditional-output
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: 22
+      albumin_corrected_anion_gap: 24.5
+      albumin_provenance: measured
+      delta_ratio: 1.25
+      albumin_corrected_delta_ratio: 1.56
+      mixed_disorder_branch_ids: []
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:formula-implementation
+      - claim:abg:input-ph
+      - claim:abg:input-paco2
+      - claim:abg:input-bicarbonate
+      - claim:abg:input-sodium
+      - claim:abg:input-chloride
+      - claim:abg:input-albumin
+      - claim:abg:input-sample-type
+      - claim:abg:input-sample-type-options
+      - claim:abg:input-venous-sample
+      - claim:abg:output-sample-type
+      - claim:abg:output-sample-type-provenance
+      - claim:abg:output-acid-base-branch-id
+      - claim:abg:output-compensation-basis
+      - claim:abg:output-expected-paco2-range
+      - claim:abg:output-compensation-status
+      - claim:abg:output-anion-gap
+      - claim:abg:output-albumin-corrected-anion-gap
+      - claim:abg:output-albumin-provenance
+      - claim:abg:output-delta-ratio
+      - claim:abg:output-albumin-corrected-delta-ratio
+      - claim:abg:output-mixed-disorder-branch-ids
+      - claim:abg:output-missing-data-notes
+      - claim:abg:output-limitations
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+    witnesses:
+      - formula:implementation
+      - input:ph
+      - input:paco2
+      - input:bicarbonate
+      - input:sodium
+      - input:chloride
+      - input:albumin
+      - input:sample_type
+      - input:sample_type:options
+      - input:venous_sample
+      - output:sample_type
+      - output:sample_type_provenance
+      - output:acid_base_branch_id
+      - output:compensation_basis
+      - output:expected_paco2_range
+      - output:compensation_status
+      - output:anion_gap
+      - output:albumin_corrected_anion_gap
+      - output:albumin_provenance
+      - output:delta_ratio
+      - output:albumin_corrected_delta_ratio
+      - output:mixed_disorder_branch_ids
+      - output:missing_data_notes
+      - output:limitations
+  - kind: reference
+    id: case:abg:reference-1
+    tags:
+      - calculator:abg:source-derived
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: 22
+      albumin_corrected_anion_gap: 24.5
+      albumin_provenance: measured
+      delta_ratio: 1.25
+      albumin_corrected_delta_ratio: 1.56
+      mixed_disorder_branch_ids: []
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:abg:reference-2
+    tags:
+      - calculator:abg:source-derived
+    inputs:
+      ph: 7.4
+      paco2: 40
+      bicarbonate: 24
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: within_arterial_reference
+      compensation_basis: not_applicable
+      anion_gap: 12
+      albumin_corrected_anion_gap: 12
+      albumin_provenance: defaulted_4_g_dl
+      mixed_disorder_branch_ids: []
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:abg:reference-3
+    tags:
+      - calculator:abg:source-derived
+    inputs:
+      ph: 7.5
+      paco2: 45
+      bicarbonate: 34
+      sodium: 140
+      chloride: 95
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_alkalemia
+      compensation_basis: metabolic_alkalosis_empirical
+      expected_paco2_range:
+        low: 45
+        high: 49
+        mean: 47
+      compensation_status: within_expected_range
+      anion_gap: 11
+      albumin_corrected_anion_gap: 11
+      albumin_provenance: defaulted_4_g_dl
+      mixed_disorder_branch_ids: []
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:abg:reference-4
+    tags:
+      - calculator:abg:source-derived
+    inputs:
+      ph: 7.28
+      paco2: 38
+      bicarbonate: 15
+      sodium: 140
+      chloride: 100
+      venous_sample: true
+    expected:
+      sample_type: peripheral_venous
+      sample_type_provenance: deprecated_flag
+      acid_base_branch_id: screening_only_venous
+      compensation_basis: venous_pco2_not_interchangeable
+      anion_gap: 25
+      albumin_corrected_anion_gap: 25
+      albumin_provenance: defaulted_4_g_dl
+      delta_ratio: 1.44
+      albumin_corrected_delta_ratio: 1.44
+      mixed_disorder_branch_ids: []
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+        - venous_pco2_not_interchangeable_with_arterial_pco2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:abg:reference-aliases
+    tags:
+      - aliases
+    inputs:
+      albumin: 3
+      sample_type: arterial
+      pH: 7.3
+      PaCO2: 30
+      HCO3: 16
+      Na: 142
+      Cl: 104
+      is_venous: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: 22
+      albumin_corrected_anion_gap: 24.5
+      albumin_provenance: measured
+      delta_ratio: 1.25
+      albumin_corrected_delta_ratio: 1.56
+      mixed_disorder_branch_ids: []
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'pH' is a compatibility alias; use 'ph'.
+      - Input 'PaCO2' is a compatibility alias; use 'paco2'.
+      - Input 'HCO3' is a compatibility alias; use 'bicarbonate'.
+      - Input 'Na' is a compatibility alias; use 'sodium'.
+      - Input 'Cl' is a compatibility alias; use 'chloride'.
+      - Input 'is_venous' is a compatibility alias; use 'venous_sample'.
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:formula-implementation
+      - claim:abg:input-ph-aliases
+      - claim:abg:input-paco2-aliases
+      - claim:abg:input-bicarbonate-aliases
+      - claim:abg:input-sodium-aliases
+      - claim:abg:input-chloride-aliases
+      - claim:abg:input-venous-sample-aliases
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+    witnesses:
+      - formula:implementation
+      - input:ph:aliases
+      - input:paco2:aliases
+      - input:bicarbonate:aliases
+      - input:sodium:aliases
+      - input:chloride:aliases
+      - input:venous_sample:aliases
+  - kind: reference
+    id: case:abg:reference-unit-sodium-1
+    tags:
+      - unit-equivalence
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium:
+        value: 142
+        unit: mEq/L
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: 22
+      albumin_corrected_anion_gap: 24.5
+      albumin_provenance: measured
+      delta_ratio: 1.25
+      albumin_corrected_delta_ratio: 1.56
+      mixed_disorder_branch_ids: []
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:formula-implementation
+      - claim:abg:unit-sodium
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+    witnesses:
+      - formula:implementation
+      - unit:sodium
+  - kind: reference
+    id: case:abg:reference-unit-sodium-2
+    tags:
+      - unit-equivalence
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium:
+        value: 142
+        unit: mmol/L
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: 22
+      albumin_corrected_anion_gap: 24.5
+      albumin_provenance: measured
+      delta_ratio: 1.25
+      albumin_corrected_delta_ratio: 1.56
+      mixed_disorder_branch_ids: []
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:formula-implementation
+      - claim:abg:unit-sodium
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+    witnesses:
+      - formula:implementation
+      - unit:sodium
+  - kind: reference
+    id: case:abg:reference-unit-albumin-1
+    tags:
+      - unit-equivalence
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin:
+        value: 3
+        unit: g/dL
+      sample_type: arterial
+      venous_sample: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: 22
+      albumin_corrected_anion_gap: 24.5
+      albumin_provenance: measured
+      delta_ratio: 1.25
+      albumin_corrected_delta_ratio: 1.56
+      mixed_disorder_branch_ids: []
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:formula-implementation
+      - claim:abg:unit-albumin
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+    witnesses:
+      - formula:implementation
+      - unit:albumin
+  - kind: reference
+    id: case:abg:reference-unit-albumin-2
+    tags:
+      - unit-equivalence
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin:
+        value: 30
+        unit: g/L
+      sample_type: arterial
+      venous_sample: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: 22
+      albumin_corrected_anion_gap: 24.5
+      albumin_provenance: measured
+      delta_ratio: 1.25
+      albumin_corrected_delta_ratio: 1.56
+      mixed_disorder_branch_ids: []
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:formula-implementation
+      - claim:abg:unit-albumin
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+    witnesses:
+      - formula:implementation
+      - unit:albumin
+  - kind: edge
+    id: case:abg:hard-ph
+    tags:
+      - hard-limits
+    inputs:
+      ph: 5.5
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: ph
+      messageIncludes: pH 5.5 is outside physiological limits [6.5, 8].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:abg:input-ph-hard-limits
+      - claim:abg:input-ph
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - input:ph:hard_limits
+      - input:ph
+  - kind: edge
+    id: case:abg:plausibility-ph
+    tags:
+      - plausibility
+    inputs:
+      ph: 6.65
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: 22
+      albumin_corrected_anion_gap: 24.5
+      albumin_provenance: measured
+      delta_ratio: 1.25
+      albumin_corrected_delta_ratio: 1.56
+      mixed_disorder_branch_ids: []
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:input-ph-plausibility
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - input:ph:plausibility
+    expectedWarnings:
+      - pH 6.65 is unusual (expected 6.8–7.8).
+  - kind: edge
+    id: case:abg:hard-paco2
+    tags:
+      - hard-limits
+    inputs:
+      ph: 7.3
+      paco2: 4
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: paco2
+      messageIncludes: Measured PCO2 4 is outside physiological limits [5, 200].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:abg:input-paco2-hard-limits
+      - claim:abg:input-paco2
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - input:paco2:hard_limits
+      - input:paco2
+  - kind: edge
+    id: case:abg:plausibility-paco2
+    tags:
+      - plausibility
+    inputs:
+      ph: 7.3
+      paco2: 7.5
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: below_expected_range
+      anion_gap: 22
+      albumin_corrected_anion_gap: 24.5
+      albumin_provenance: measured
+      delta_ratio: 1.25
+      albumin_corrected_delta_ratio: 1.56
+      mixed_disorder_branch_ids:
+        - metabolic_acidemia_plus_respiratory_alkalemia
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:input-paco2-plausibility
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - input:paco2:plausibility
+    expectedWarnings:
+      - Measured PCO2 7.5 is unusual (expected 10–100).
+  - kind: edge
+    id: case:abg:hard-bicarbonate
+    tags:
+      - hard-limits
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 0
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: bicarbonate
+      messageIncludes: Bicarbonate 0 is outside physiological limits [1, 70].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:abg:input-bicarbonate-hard-limits
+      - claim:abg:input-bicarbonate
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - input:bicarbonate:hard_limits
+      - input:bicarbonate
+  - kind: edge
+    id: case:abg:plausibility-bicarbonate
+    tags:
+      - plausibility
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 3
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 10.5
+        high: 14.5
+        mean: 12.5
+      compensation_status: above_expected_range
+      anion_gap: 35
+      albumin_corrected_anion_gap: 37.5
+      albumin_provenance: measured
+      delta_ratio: 1.1
+      albumin_corrected_delta_ratio: 1.21
+      mixed_disorder_branch_ids:
+        - metabolic_acidemia_plus_respiratory_acidemia
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:input-bicarbonate-plausibility
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - input:bicarbonate:plausibility
+    expectedWarnings:
+      - Bicarbonate 3 is unusual (expected 5–50).
+  - kind: edge
+    id: case:abg:hard-sodium
+    tags:
+      - hard-limits
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 79
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: sodium
+      messageIncludes: Sodium 79 mEq/L is outside physiological limits [80, 200] mEq/L.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:abg:input-sodium-hard-limits
+      - claim:abg:input-sodium
+    sourceIds:
+      - abg_figge_1998
+    witnesses:
+      - input:sodium:hard_limits
+      - input:sodium
+  - kind: edge
+    id: case:abg:plausibility-sodium
+    tags:
+      - plausibility
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 95
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: -25
+      albumin_corrected_anion_gap: -22.5
+      albumin_provenance: measured
+      mixed_disorder_branch_ids: []
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:input-sodium-plausibility
+    sourceIds:
+      - abg_figge_1998
+    witnesses:
+      - input:sodium:plausibility
+    expectedWarnings:
+      - Sodium 95 mEq/L is unusual (expected 110–170 mEq/L); if the source uses another unit, pass it explicitly as {
+        value, unit }.
+  - kind: edge
+    id: case:abg:hard-chloride
+    tags:
+      - hard-limits
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 49
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: chloride
+      messageIncludes: Chloride 49 is outside physiological limits [50, 150].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:abg:input-chloride-hard-limits
+      - claim:abg:input-chloride
+    sourceIds:
+      - abg_figge_1998
+    witnesses:
+      - input:chloride:hard_limits
+      - input:chloride
+  - kind: edge
+    id: case:abg:plausibility-chloride
+    tags:
+      - plausibility
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 60
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: 66
+      albumin_corrected_anion_gap: 68.5
+      albumin_provenance: measured
+      delta_ratio: 6.75
+      albumin_corrected_delta_ratio: 7.06
+      mixed_disorder_branch_ids: []
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:input-chloride-plausibility
+    sourceIds:
+      - abg_figge_1998
+    witnesses:
+      - input:chloride:plausibility
+    expectedWarnings:
+      - Chloride 60 is unusual (expected 70–130).
+  - kind: edge
+    id: case:abg:hard-albumin
+    tags:
+      - hard-limits
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: -0.5
+      sample_type: arterial
+      venous_sample: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: albumin
+      messageIncludes: Albumin -0.5 g/dL is outside physiological limits [0.5, 10] g/dL.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:abg:input-albumin-hard-limits
+      - claim:abg:input-albumin
+    sourceIds:
+      - abg_figge_1998
+    witnesses:
+      - input:albumin:hard_limits
+      - input:albumin
+  - kind: edge
+    id: case:abg:plausibility-albumin
+    tags:
+      - plausibility
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: 0.75
+      sample_type: arterial
+      venous_sample: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: 22
+      albumin_corrected_anion_gap: 30.1
+      albumin_provenance: measured
+      delta_ratio: 1.25
+      albumin_corrected_delta_ratio: 2.27
+      mixed_disorder_branch_ids: []
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:input-albumin-plausibility
+    sourceIds:
+      - abg_figge_1998
+    witnesses:
+      - input:albumin:plausibility
+    expectedWarnings:
+      - Albumin 0.75 g/dL is unusual (expected 1–6 g/dL); if the source uses another unit, pass it explicitly as {
+        value, unit }.
+  - kind: edge
+    id: case:abg:constraint-0
+    tags:
+      - constraints
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: true
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: venous_sample
+      messageIncludes: sample_type=arterial conflicts with venous_sample=true.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:abg:constraint-0
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - constraint:0
+  - kind: edge
+    id: case:abg:constraint-1
+    tags:
+      - constraints
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: peripheral_venous
+      venous_sample: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: venous_sample
+      messageIncludes: sample_type=peripheral_venous conflicts with venous_sample=false.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:abg:constraint-1
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - constraint:1
+  - kind: edge
+    id: case:abg:required-ph
+    tags:
+      - required-inputs
+    inputs:
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: ph
+      messageIncludes: pH is required.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:abg:input-ph
+    sourceIds:
+      - abg_winters_1965
+    witnesses:
+      - input:ph
+  - kind: agent
+    id: case:abg:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: 22
+      albumin_corrected_anion_gap: 24.5
+      albumin_provenance: measured
+      delta_ratio: 1.25
+      albumin_corrected_delta_ratio: 1.56
+      mixed_disorder_branch_ids: []
+      missing_data_notes: []
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:abg:applicability-purpose
+      - claim:abg:interpretation-prompt
+    sourceIds:
+      - abg_ats_interpretation
+    witnesses:
+      - applicability:purpose
+      - interpretation:prompt
+  - kind: agent
+    id: case:abg:agent-exclusion
+    tags:
+      - calculator:abg:source-derived
+    inputs:
+      paco2: 30
+      bicarbonate: 16
+      sodium: 142
+      chloride: 104
+      albumin: 3
+      sample_type: arterial
+      venous_sample: false
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: ph
+      messageIncludes: pH is required.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:abg:applicability-exclusions
+    sourceIds:
+      - abg_ats_interpretation
+    witnesses:
+      - applicability:exclusions
+  - kind: reference
+    id: case:abg:branch-normal
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.4
+      paco2: 40
+      bicarbonate: 24
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: within_arterial_reference
+      compensation_basis: not_applicable
+      anion_gap: 12
+      albumin_corrected_anion_gap: 12
+      albumin_provenance: defaulted_4_g_dl
+      mixed_disorder_branch_ids: []
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: omit
+    omittedOutputs:
+      - expected_paco2_range
+      - compensation_status
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-acid-base-branch-id
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:acid_base_branch_id
+      - formula:implementation
+  - kind: reference
+    id: case:abg:branch-metabolic-acidemia
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.3
+      paco2: 30
+      bicarbonate: 16
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 30
+        high: 34
+        mean: 32
+      compensation_status: within_expected_range
+      anion_gap: 20
+      albumin_corrected_anion_gap: 20
+      albumin_provenance: defaulted_4_g_dl
+      delta_ratio: 1
+      albumin_corrected_delta_ratio: 1
+      mixed_disorder_branch_ids: []
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-acid-base-branch-id
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:acid_base_branch_id
+      - formula:implementation
+  - kind: reference
+    id: case:abg:branch-respiratory-acidemia
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.3
+      paco2: 55
+      bicarbonate: 24
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: respiratory_acidemia
+      compensation_basis: respiratory_compensation_not_evaluated
+      anion_gap: 12
+      albumin_corrected_anion_gap: 12
+      albumin_provenance: defaulted_4_g_dl
+      mixed_disorder_branch_ids: []
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+        - respiratory_compensation_is_not_evaluated_by_this_tool
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-acid-base-branch-id
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:acid_base_branch_id
+      - formula:implementation
+  - kind: reference
+    id: case:abg:branch-mixed-acidemia
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.3
+      paco2: 55
+      bicarbonate: 16
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: mixed_acidemia
+      compensation_basis: not_applicable
+      anion_gap: 20
+      albumin_corrected_anion_gap: 20
+      albumin_provenance: defaulted_4_g_dl
+      delta_ratio: 1
+      albumin_corrected_delta_ratio: 1
+      mixed_disorder_branch_ids:
+        - low_bicarbonate_plus_high_pco2_acidemia
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-acid-base-branch-id
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:acid_base_branch_id
+      - formula:implementation
+  - kind: reference
+    id: case:abg:branch-metabolic-alkalemia
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.5
+      paco2: 45
+      bicarbonate: 34
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_alkalemia
+      compensation_basis: metabolic_alkalosis_empirical
+      expected_paco2_range:
+        low: 45
+        high: 49
+        mean: 47
+      compensation_status: within_expected_range
+      anion_gap: 2
+      albumin_corrected_anion_gap: 2
+      albumin_provenance: defaulted_4_g_dl
+      mixed_disorder_branch_ids: []
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-acid-base-branch-id
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:acid_base_branch_id
+      - formula:implementation
+  - kind: reference
+    id: case:abg:branch-respiratory-alkalemia
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.5
+      paco2: 25
+      bicarbonate: 24
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: respiratory_alkalemia
+      compensation_basis: respiratory_compensation_not_evaluated
+      anion_gap: 12
+      albumin_corrected_anion_gap: 12
+      albumin_provenance: defaulted_4_g_dl
+      mixed_disorder_branch_ids: []
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+        - respiratory_compensation_is_not_evaluated_by_this_tool
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-acid-base-branch-id
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:acid_base_branch_id
+      - formula:implementation
+  - kind: reference
+    id: case:abg:branch-mixed-alkalemia
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.5
+      paco2: 25
+      bicarbonate: 34
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: mixed_alkalemia
+      compensation_basis: not_applicable
+      anion_gap: 2
+      albumin_corrected_anion_gap: 2
+      albumin_provenance: defaulted_4_g_dl
+      mixed_disorder_branch_ids:
+        - high_bicarbonate_plus_low_pco2_alkalemia
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-acid-base-branch-id
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:acid_base_branch_id
+      - formula:implementation
+  - kind: reference
+    id: case:abg:branch-compensated-low
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.4
+      paco2: 30
+      bicarbonate: 20
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: compensated_or_mixed_low_values
+      compensation_basis: compensation_indeterminate_or_not_evaluated
+      anion_gap: 16
+      albumin_corrected_anion_gap: 16
+      albumin_provenance: defaulted_4_g_dl
+      delta_ratio: 1
+      albumin_corrected_delta_ratio: 1
+      mixed_disorder_branch_ids: []
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+        - compensation_or_mixed_status_is_indeterminate_and_not_further_evaluated
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-acid-base-branch-id
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:acid_base_branch_id
+      - formula:implementation
+  - kind: reference
+    id: case:abg:branch-compensated-high
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.4
+      paco2: 50
+      bicarbonate: 30
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: compensated_or_mixed_high_values
+      compensation_basis: compensation_indeterminate_or_not_evaluated
+      anion_gap: 6
+      albumin_corrected_anion_gap: 6
+      albumin_provenance: defaulted_4_g_dl
+      mixed_disorder_branch_ids: []
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+        - compensation_or_mixed_status_is_indeterminate_and_not_further_evaluated
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-acid-base-branch-id
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:acid_base_branch_id
+      - formula:implementation
+  - kind: reference
+    id: case:abg:branch-indeterminate
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.4
+      paco2: 40
+      bicarbonate: 28
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: indeterminate_arterial_pattern
+      compensation_basis: not_applicable
+      anion_gap: 8
+      albumin_corrected_anion_gap: 8
+      albumin_provenance: defaulted_4_g_dl
+      mixed_disorder_branch_ids: []
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-acid-base-branch-id
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:acid_base_branch_id
+      - formula:implementation
+  - kind: reference
+    id: case:abg:branch-compensation-below
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.25
+      paco2: 20
+      bicarbonate: 12
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 24
+        high: 28
+        mean: 26
+      compensation_status: below_expected_range
+      anion_gap: 24
+      albumin_corrected_anion_gap: 24
+      albumin_provenance: defaulted_4_g_dl
+      delta_ratio: 1
+      albumin_corrected_delta_ratio: 1
+      mixed_disorder_branch_ids:
+        - metabolic_acidemia_plus_respiratory_alkalemia
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-compensation-status
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:compensation_status
+      - formula:implementation
+  - kind: reference
+    id: case:abg:branch-compensation-above
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.25
+      paco2: 40
+      bicarbonate: 12
+      sodium: 140
+      chloride: 104
+      sample_type: arterial
+    expected:
+      sample_type: arterial
+      sample_type_provenance: explicit
+      acid_base_branch_id: metabolic_acidemia
+      compensation_basis: winters_metabolic_acidosis
+      expected_paco2_range:
+        low: 24
+        high: 28
+        mean: 26
+      compensation_status: above_expected_range
+      anion_gap: 24
+      albumin_corrected_anion_gap: 24
+      albumin_provenance: defaulted_4_g_dl
+      delta_ratio: 1
+      albumin_corrected_delta_ratio: 1
+      mixed_disorder_branch_ids:
+        - metabolic_acidemia_plus_respiratory_acidemia
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-compensation-status
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:compensation_status
+      - formula:implementation
+  - kind: reference
+    id: case:abg:branch-venous-screen
+    tags:
+      - calculator:abg:source-branch
+    inputs:
+      ph: 7.28
+      paco2: 38
+      bicarbonate: 15
+      sodium: 140
+      chloride: 104
+      sample_type: peripheral_venous
+    expected:
+      sample_type: peripheral_venous
+      sample_type_provenance: explicit
+      acid_base_branch_id: screening_only_venous
+      compensation_basis: venous_pco2_not_interchangeable
+      anion_gap: 21
+      albumin_corrected_anion_gap: 21
+      albumin_provenance: defaulted_4_g_dl
+      delta_ratio: 1
+      albumin_corrected_delta_ratio: 1
+      mixed_disorder_branch_ids: []
+      missing_data_notes:
+        - albumin_not_provided_reference_default_used
+      limitations:
+        - reference_intervals_and_clinical_context_still_required
+        - delta_ratio_is_a_pattern_aid_not_a_diagnosis
+        - venous_pco2_not_interchangeable_with_arterial_pco2
+    expectedBehavior: omit
+    omittedOutputs:
+      - expected_paco2_range
+      - compensation_status
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:abg:output-acid-base-branch-id
+      - claim:abg:formula-implementation
+    sourceIds:
+      - abg_winters_1965
+      - abg_figge_1998
+      - abg_ats_interpretation
+      - abg_french_guideline_2019
+    witnesses:
+      - output:acid_base_branch_id
+      - formula:implementation
+compatibilityNotes:
+  - Removed zero sentinels for unavailable delta ratios and suppressed arterial PCO2 compensation branches for
+    peripheral venous samples.
+  - Preserved the deprecated venous_sample/is_venous surface while adding explicit sample_type and conflict rejection.
+  - Made direct mixed branches explicit and labels respiratory or indeterminate compensation as not evaluated rather
+    than physiologically inapplicable.
+explicitBlockers: []

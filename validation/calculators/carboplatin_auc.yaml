@@ -1,0 +1,1896 @@
+calculatorId: carboplatin_auc
+specVersion: 1.0.0
+clinicalModel: Calvert carboplatin dose with explicit kidney-function and cap policy
+variant: calvert_1989_addikd_2022_or_nci_ctep_2010_policy
+population: Adults receiving a protocol-specified carboplatin target AUC.
+setting: Oncology prescribing support with pharmacist and governing-protocol verification.
+assessmentTiming: Current kidney-function assessment for the treatment cycle.
+endpoint: Total carboplatin dose in mg with kidney-function conversion, cap, and rounding provenance.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:carboplatin_auc:2026-07-16
+    calculatorId: carboplatin_auc
+    model: Calvert carboplatin dose with explicit kidney-function and cap policy
+    variant: calvert_1989_addikd_2022_or_nci_ctep_2010_policy
+    searchedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    sources:
+      - id: search:carboplatin_auc:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline_dosing
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: '(carboplatin[Title] AND (Calvert[Title/Abstract] OR "target AUC"[Title/Abstract]) AND
+          (GFR[Title/Abstract] OR renal[Title/Abstract] OR kidney[Title/Abstract]) AND (dos*[Title/Abstract] OR
+          validation[Title/Abstract] OR accuracy[Title/Abstract])) OR (Calvert AH[Author] AND carboplatin[Title]
+          AND dosage[Title])'
+        translationExposed: true
+        translatedQuery: Field-tagged query retained as entered; PubMed automatic term mapping was not invoked.
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 12
+        exportDigest: sha256:8abf279d74cf8ca3920808a0821a6ae35c15c073c23ad620521b8077c8d97788
+        stableCitationIds:
+          - PMID:42101435
+          - PMID:42076051
+          - PMID:37757592
+          - PMID:24445148
+          - PMID:23131495
+          - PMID:18670187
+          - PMID:17873111
+          - PMID:11156227
+          - PMID:10697623
+          - PMID:9376268
+          - PMID:8529288
+          - PMID:2681557
+      - id: search:carboplatin_auc:derivation
+        sourceRole: derivation
+        authorityId: carb_calvert_1989
+        database: Primary or responsible-authority source
+        site: Journal of Clinical Oncology
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          calvert_1989_addikd_2022_or_nci_ctep_2010_policy
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - carb_calvert_1989
+      - id: search:carboplatin_auc:controlling_authority
+        sourceRole: controlling_authority
+        authorityId: carb_nci_ctep_2010
+        database: Primary or responsible-authority source
+        site: U.S. National Cancer Institute Cancer Therapy Evaluation Program
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          calvert_1989_addikd_2022_or_nci_ctep_2010_policy
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - carb_nci_ctep_2010
+      - id: search:carboplatin_auc:specialty_guidance
+        sourceRole: specialty_guidance
+        authorityId: carb_eviq_addikd_2022
+        database: Primary or responsible-authority source
+        site: Cancer Institute NSW
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          calvert_1989_addikd_2022_or_nci_ctep_2010_policy
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - carb_eviq_addikd_2022
+      - id: search:carboplatin_auc:approved_label
+        sourceRole: approved_label
+        authorityId: carb_fda_label_2012
+        database: Primary or responsible-authority source
+        site: U.S. Food and Drug Administration
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          calvert_1989_addikd_2022_or_nci_ctep_2010_policy
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - carb_fda_label_2012
+    accounting:
+      retrieved: 12
+      deduplicated: 12
+      screened: 12
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - { citationId: pmid:42101435, title: 'A scoping review of renal function calculation methods for the dosing of carboplatin.', disposition: excluded, exclusionReason: 'Descriptive review of heterogeneous renal-function estimation methods; it gives no controlling method recommendation and does not alter the retained Calvert equation, NCI filtration cap, or final-dose rounding policy.', fullTextAssessed: false }
+      - { citationId: pmid:42076051, title: 'Calvert Formula Modification for Optimized Carboplatin Dosing in Breast Cancer with Preserved Renal Function.', disposition: excluded, exclusionReason: 'Breast-cancer-specific model-based proposed modification that the authors describe as hypothesis-generating and requiring prospective validation before clinical use; outside the retained validated Calvert-policy variant.', fullTextAssessed: false }
+      - { citationId: pmid:37757592, title: 'Carboplatin dosing in overweight and obese patients with normal renal function, does weight matter?', disposition: excluded, exclusionReason: 'Population-specific dosing analysis without a distinct retained policy claim.', fullTextAssessed: false }
+      - { citationId: pmid:24445148, title: 'Performance of formulae based estimates of glomerular filtration rate for carboplatin dosing in stage 1 seminoma.', disposition: excluded, exclusionReason: 'Disease-specific estimation comparison without a controlling method policy.', fullTextAssessed: false }
+      - { citationId: pmid:23131495, title: 'Carboplatin dose calculation in lung cancer patients with low serum creatinine concentrations using CKD-EPI and Cockcroft-Gault with different weight descriptors.', disposition: excluded, exclusionReason: 'Disease-specific estimation comparison without a controlling method policy.', fullTextAssessed: false }
+      - { citationId: pmid:18670187, title: 'Study of the predictive method of 24-hour creatinine clearance in calculating the appropriate dosage of Carboplatin.', disposition: excluded, exclusionReason: 'Estimation comparison without a distinct retained policy claim.', fullTextAssessed: false }
+      - { citationId: pmid:17873111, title: 'Dose-banding of carboplatin: rationale and proposed banding scheme.', disposition: excluded, exclusionReason: 'Dose-banding proposal outside the exact Calvert final-dose contract.', fullTextAssessed: false }
+      - { citationId: pmid:11156227, title: 'Multi-institutional validation study of carboplatin dosing formula using adjusted serum creatinine level.', disposition: excluded, exclusionReason: 'Adjusted-creatinine variant outside the retained explicit methods.', fullTextAssessed: false }
+      - { citationId: pmid:10697623, title: 'Efficacy of 51Cr-EDTA clearance to tailor a carboplatin therapeutic regimen in ovarian cancer patients.', disposition: excluded, exclusionReason: 'Disease-specific measured-GFR study without a distinct retained policy claim.', fullTextAssessed: false }
+      - { citationId: pmid:9376268, title: 'Adjustment of creatinine clearance improves accuracy of Calvert formula for carboplatin dosing.', disposition: excluded, exclusionReason: 'Historical adjustment variant outside the retained explicit methods.', fullTextAssessed: false }
+      - { citationId: pmid:8529288, title: 'Evaluation of formulas using the serum creatinine level to calculate the optimal dosage of carboplatin.', disposition: excluded, exclusionReason: 'Historical formula comparison without a distinct retained policy claim.', fullTextAssessed: false }
+      - citationId: carb_calvert_1989
+        title: "Carboplatin dosage: prospective evaluation of a simple formula based on renal function."
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:carboplatin_auc:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and synonyms
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search paired with direct primary and responsible-authority review.
+      resolution: Resolved by retaining exact model and author terms, checking translation, screening every result,
+        chasing citations, and reviewing current authority and specialty sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline_dosing
+  - carb_calvert_1989
+  - carb_nci_ctep_2010
+  - carb_eviq_addikd_2022
+  - carb_fda_label_2012
+claims:
+  - id: d002.carboplatin_auc_direct_inputs
+    scope: compatibility
+    kind: input
+    statement: The direct carboplatin tool must require the exact safety-critical context instead of inferring it.
+    covers:
+      - compatibility:calculatorContracts:carboplatin_auc.directTool.inputs
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced safety requirement.
+    compatibilityDecision:
+      oldBehavior: The direct tool accepted only target_auc and gfr and inferred renal method, indexing, cap, and rounding.
+      replacement: The direct tool requires explicit method, indexing, treatment intent, cap policy, and rounding policy.
+      rationale: The direct carboplatin tool must require the exact safety-critical context instead of inferring it.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_compact_inputs
+    scope: compatibility
+    kind: input
+    statement: Compact carboplatin dispatch must require the exact safety-critical context instead of inferring it.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.compactDispatcher.inputs]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced safety requirement.
+    compatibilityDecision:
+      oldBehavior: Compact dispatch accepted only target_auc and gfr and inferred renal method, indexing, cap, and rounding.
+      replacement: Compact dispatch requires explicit method, indexing, treatment intent, cap policy, and rounding policy.
+      rationale: Compact carboplatin dispatch must require the exact safety-critical context instead of inferring it.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_direct_constraints
+    scope: compatibility
+    kind: input
+    statement: Direct carboplatin constraints must enforce the declared renal method, indexing, and cap policy.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.directTool.conditionalRequirements]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced safety requirement.
+    compatibilityDecision:
+      oldBehavior: The direct tool unconditionally capped gfr and had no cross-field safety requirements.
+      replacement: The direct tool requires BSA for indexed values and rejects unsafe method, indexing, and cap combinations.
+      rationale: Direct carboplatin constraints must enforce the declared renal method, indexing, and cap policy.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_compact_constraints
+    scope: compatibility
+    kind: input
+    statement: Compact carboplatin constraints must enforce the declared renal method, indexing, and cap policy.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.compactDispatcher.conditionalRequirements]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced safety requirement.
+    compatibilityDecision:
+      oldBehavior: Compact dispatch unconditionally capped gfr and had no cross-field safety requirements.
+      replacement: Compact dispatch requires BSA for indexed values and rejects unsafe method, indexing, and cap combinations.
+      rationale: Compact carboplatin constraints must enforce the declared renal method, indexing, and cap policy.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_direct_dose_kind
+    scope: compatibility
+    kind: formula
+    statement: The direct dose output must expose the source-supported final rounding contract.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.directTool.outputs.dose]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced safety requirement.
+    compatibilityDecision:
+      oldBehavior: The direct tool returned a one-decimal numeric dose.
+      replacement: The direct tool returns the final carboplatin dose as a nearest-whole-mg integer.
+      rationale: The direct dose output must expose the source-supported final rounding contract.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_compact_dose_kind
+    scope: compatibility
+    kind: formula
+    statement: The compact dose output must expose the source-supported final rounding contract.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.compactDispatcher.outputs.dose]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced safety requirement.
+    compatibilityDecision:
+      oldBehavior: Compact dispatch returned a one-decimal numeric dose.
+      replacement: Compact dispatch returns the final carboplatin dose as a nearest-whole-mg integer.
+      rationale: The compact dose output must expose the source-supported final rounding contract.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_direct_kidney_function_absolute
+    scope: compatibility
+    kind: formula
+    statement: The direct result must expose the source-supported absolute kidney-function value.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.directTool.outputs.kidney_function_absolute]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced output requirement.
+    compatibilityDecision:
+      oldBehavior: The output was absent from the direct tool.
+      replacement: The direct tool adds the always-available kidney_function_absolute number in mL/min.
+      rationale: The direct result must expose the source-supported absolute kidney-function value.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_compact_kidney_function_absolute
+    scope: compatibility
+    kind: formula
+    statement: The compact result must expose the source-supported absolute kidney-function value.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.compactDispatcher.outputs.kidney_function_absolute]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced output requirement.
+    compatibilityDecision:
+      oldBehavior: The output was absent from compact dispatch.
+      replacement: Compact dispatch adds the always-available kidney_function_absolute number in mL/min.
+      rationale: The compact result must expose the source-supported absolute kidney-function value.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_direct_kidney_function_used
+    scope: compatibility
+    kind: formula
+    statement: The direct result must expose the source-supported kidney-function value used in dosing.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.directTool.outputs.kidney_function_used]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced output requirement.
+    compatibilityDecision:
+      oldBehavior: The output was absent from the direct tool.
+      replacement: The direct tool adds the always-available kidney_function_used number in mL/min.
+      rationale: The direct result must expose the source-supported kidney-function value used in dosing.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_compact_kidney_function_used
+    scope: compatibility
+    kind: formula
+    statement: The compact result must expose the source-supported kidney-function value used in dosing.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.compactDispatcher.outputs.kidney_function_used]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced output requirement.
+    compatibilityDecision:
+      oldBehavior: The output was absent from compact dispatch.
+      replacement: Compact dispatch adds the always-available kidney_function_used number in mL/min.
+      rationale: The compact result must expose the source-supported kidney-function value used in dosing.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_direct_indexed_conversion_applied
+    scope: compatibility
+    kind: formula
+    statement: The direct result must expose whether indexed kidney function was converted to absolute units.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.directTool.outputs.indexed_conversion_applied]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced output requirement.
+    compatibilityDecision:
+      oldBehavior: The output was absent from the direct tool.
+      replacement: The direct tool adds the always-available indexed_conversion_applied boolean.
+      rationale: The direct result must expose whether indexed kidney function was converted to absolute units.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_compact_indexed_conversion_applied
+    scope: compatibility
+    kind: formula
+    statement: The compact result must expose whether indexed kidney function was converted to absolute units.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.compactDispatcher.outputs.indexed_conversion_applied]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced output requirement.
+    compatibilityDecision:
+      oldBehavior: The output was absent from compact dispatch.
+      replacement: Compact dispatch adds the always-available indexed_conversion_applied boolean.
+      rationale: The compact result must expose whether indexed kidney function was converted to absolute units.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_direct_cap_policy_applied
+    scope: compatibility
+    kind: formula
+    statement: The direct result must expose the source-supported cap policy applied to kidney function.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.directTool.outputs.cap_policy_applied]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced output requirement.
+    compatibilityDecision:
+      oldBehavior: The output was absent from the direct tool.
+      replacement: The direct tool adds the always-available cap_policy_applied enum.
+      rationale: The direct result must expose the source-supported cap policy applied to kidney function.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_compact_cap_policy_applied
+    scope: compatibility
+    kind: formula
+    statement: The compact result must expose the source-supported cap policy applied to kidney function.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.compactDispatcher.outputs.cap_policy_applied]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced output requirement.
+    compatibilityDecision:
+      oldBehavior: The output was absent from compact dispatch.
+      replacement: Compact dispatch adds the always-available cap_policy_applied enum.
+      rationale: The compact result must expose the source-supported cap policy applied to kidney function.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_direct_rounding_policy_applied
+    scope: compatibility
+    kind: formula
+    statement: The direct result must expose the source-supported final-dose rounding policy.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.directTool.outputs.rounding_policy_applied]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced output requirement.
+    compatibilityDecision:
+      oldBehavior: The output was absent from the direct tool.
+      replacement: The direct tool adds the always-available rounding_policy_applied enum.
+      rationale: The direct result must expose the source-supported final-dose rounding policy.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: d002.carboplatin_auc_compact_rounding_policy_applied
+    scope: compatibility
+    kind: formula
+    statement: The compact result must expose the source-supported final-dose rounding policy.
+    covers: [compatibility:calculatorContracts:carboplatin_auc.compactDispatcher.outputs.rounding_policy_applied]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced output requirement.
+    compatibilityDecision:
+      oldBehavior: The output was absent from compact dispatch.
+      replacement: Compact dispatch adds the always-available rounding_policy_applied enum.
+      rationale: The compact result must expose the source-supported final-dose rounding policy.
+    reviewedAt: 2026-07-17
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:calculator-model
+    kind: applicability
+    statement: Calvert carboplatin dose with explicit kidney-function and cap policy is limited to Adults
+      receiving a protocol-specified carboplatin target AUC. Oncology prescribing support with pharmacist and
+      governing-protocol verification.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - carb_fda_label_2012
+    locators:
+      - sourceId: carb_fda_label_2012
+        locator: "Carboplatin label Dosage and Administration: Calvert formula and 51Cr-EDTA measured GFR."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad clinical limitations are descriptive; every
+      runtime-verifiable surface is separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:formula-implementation
+    kind: formula
+    statement: The calculator implements the source-bound Calvert carboplatin dose with explicit kidney-function
+      and cap policy arithmetic and declared final rounding.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - carb_calvert_1989
+    locators:
+      - sourceId: carb_calvert_1989
+        locator: Calvert 1989 abstract and full-text equation relating dose, target AUC, GFR, and nonrenal clearance.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:applicability-purpose
+    kind: applicability
+    statement: Compute a protocol-specified adult carboplatin dose with the Calvert formula while making
+      kidney-function method, indexed-to-absolute conversion, treatment intent, cap policy, and rounding
+      provenance explicit.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:applicability-exclusions
+    kind: exclusion
+    statement: Do not infer a kidney-function method, indexed status, cap, target AUC, final-dose rounding policy, or
+      treatment protocol. Prefer measured GFR when estimated kidney function may be unreliable.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-target_auc
+    kind: input
+    statement: Target area under the curve in mg/mL × min (e.g. 5-6 for ovarian cancer).
+    covers:
+      - input:target_auc
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+      - case:carboplatin_auc:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-target_auc-hard_limits
+    kind: input
+    statement: OathMCP rejects Target AUC outside [1,10] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:target_auc:hard_limits
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:hard-target_auc
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-target_auc-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Target AUC is outside [2,7]; this is an operational review
+      prompt.
+    covers:
+      - input:target_auc:plausibility
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:plausibility-target_auc
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-gfr
+    kind: input
+    statement: Measured or estimated kidney-function value. Supply the units/status separately; indexed values are
+      converted to absolute mL/min using patient BSA.
+    covers:
+      - input:gfr
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-gfr-hard_limits
+    kind: input
+    statement: OathMCP rejects Kidney Function outside [10,200] as a conservative operational envelope, not a
+      clinical cutoff.
+    covers:
+      - input:gfr:hard_limits
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:hard-gfr
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-gfr-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Kidney Function is outside [15,150]; this is an operational
+      review prompt.
+    covers:
+      - input:gfr:plausibility
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:plausibility-gfr
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-kidney_function_method
+    kind: input
+    statement: Exact method used to obtain the supplied kidney-function value.
+    covers:
+      - input:kidney_function_method
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-kidney_function_method-options
+    kind: input
+    statement: Kidney Function Method accepts exactly measured_gfr, ckd_epi_2009_no_race_egfr, cockcroft_gault_crcl.
+    covers:
+      - input:kidney_function_method:options
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-kidney_function_indexing
+    kind: input
+    statement: Whether the supplied value is absolute mL/min or indexed to 1.73 m².
+    covers:
+      - input:kidney_function_indexing
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-kidney_function_indexing-options
+    kind: input
+    statement: Kidney Function Indexing accepts exactly absolute_ml_min, indexed_ml_min_1_73m2.
+    covers:
+      - input:kidney_function_indexing:options
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-patient_bsa
+    kind: input
+    statement: Patient body surface area in m²; required only for an indexed kidney-function value.
+    covers:
+      - input:patient_bsa
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-patient_bsa-hard_limits
+    kind: input
+    statement: OathMCP rejects Patient BSA outside [0.1,5] as a conservative operational envelope, not a clinical
+      cutoff.
+    covers:
+      - input:patient_bsa:hard_limits
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:hard-patient_bsa
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-patient_bsa-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Patient BSA is outside [0.5,3]; this is an operational
+      review prompt.
+    covers:
+      - input:patient_bsa:plausibility
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:plausibility-patient_bsa
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-treatment_intent
+    kind: input
+    statement: Treatment intent used to judge whether estimated kidney function is appropriate.
+    covers:
+      - input:treatment_intent
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-treatment_intent-options
+    kind: input
+    statement: Treatment Intent accepts exactly curative, non_curative, unspecified.
+    covers:
+      - input:treatment_intent:options
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-cap_policy
+    kind: input
+    statement: Explicit governing cap policy. ADDIKD 2022 does not recommend a universal cap; the NCI option
+      applies only to affected protocols using estimated GFR.
+    covers:
+      - input:cap_policy
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-cap_policy-options
+    kind: input
+    statement: Kidney Function Cap Policy accepts exactly no_cap_addikd_2022, nci_ctep_estimated_125.
+    covers:
+      - input:cap_policy:options
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-rounding_policy
+    kind: input
+    statement: Explicit final-dose rounding policy. No intermediate values are rounded before the Calvert result.
+    covers:
+      - input:rounding_policy
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:input-rounding_policy-options
+    kind: input
+    statement: Final Dose Rounding Policy accepts exactly nearest_whole_mg_addikd_2022.
+    covers:
+      - input:rounding_policy:options
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:output-dose
+    kind: outcome
+    statement: Calculated carboplatin dose in mg, with no intermediate rounding and the final result rounded to
+      the nearest whole milligram.
+    covers:
+      - output:dose
+    status: supported
+    sourceIds:
+      - carb_calvert_1989
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_calvert_1989
+        locator: Calvert 1989 abstract and full-text equation relating dose, target AUC, GFR, and nonrenal clearance.
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ carboplatin calculator, Rounding section requiring no intermediate rounding and final dose
+          rounding to the nearest whole milligram.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+      - case:carboplatin_auc:cap-below-125
+      - case:carboplatin_auc:cap-above-125-clear
+      - case:carboplatin_auc:round-below-half-source-anchor
+      - case:carboplatin_auc:round-at-half-source-anchor
+      - case:carboplatin_auc:round-above-half-source-anchor
+      - case:carboplatin_auc:cap-boundary-125
+      - case:carboplatin_auc:cap-above-125
+      - case:carboplatin_auc:round-below-half
+      - case:carboplatin_auc:round-at-half
+      - case:carboplatin_auc:round-above-half
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:output-kidney_function_absolute
+    kind: outcome
+    statement: Supplied kidney function converted, when needed, to absolute mL/min.
+    covers:
+      - output:kidney_function_absolute
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ carboplatin calculator, BSA-adjusted eGFR equation converting indexed eGFR to absolute mL/min.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:output-kidney_function_used
+    kind: outcome
+    statement: Absolute kidney function used in the Calvert formula after the explicit cap policy.
+    covers:
+      - output:kidney_function_used
+    status: supported
+    sourceIds:
+      - carb_calvert_1989
+      - carb_nci_ctep_2010
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_calvert_1989
+        locator: Calvert 1989 abstract and full-text equation relating dose, target AUC, GFR, and nonrenal clearance.
+      - sourceId: carb_nci_ctep_2010
+        locator: NCI/CTEP 2010 information letter, affected-protocol estimated kidney function cap at 125 mL/min.
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ carboplatin calculator, ADDIKD method and no-universal-cap practice points.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+      - case:carboplatin_auc:cap-below-125
+      - case:carboplatin_auc:cap-above-125-clear
+      - case:carboplatin_auc:cap-boundary-125
+      - case:carboplatin_auc:cap-above-125
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:output-gfr_used
+    kind: outcome
+    statement: Deprecated compatibility alias for kidney_function_used; retained additively for existing result
+      consumers.
+    covers:
+      - output:gfr_used
+    status: supported
+    sourceIds:
+      - carb_calvert_1989
+    locators:
+      - sourceId: carb_calvert_1989
+        locator: Calvert 1989 abstract and full-text equation relating dose, target AUC, GFR, and nonrenal clearance.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:output-indexed_conversion_applied
+    kind: outcome
+    statement: Whether patient BSA was used to convert an indexed value to absolute mL/min.
+    covers:
+      - output:indexed_conversion_applied
+    status: supported
+    sourceIds:
+      - carb_calvert_1989
+    locators:
+      - sourceId: carb_calvert_1989
+        locator: Calvert 1989 abstract and full-text equation relating dose, target AUC, GFR, and nonrenal clearance.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:output-gfr_was_capped
+    kind: outcome
+    statement: Whether the explicit NCI/CTEP policy capped estimated kidney function at 125 mL/min.
+    covers:
+      - output:gfr_was_capped
+    status: supported
+    sourceIds:
+      - carb_nci_ctep_2010
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_nci_ctep_2010
+        locator: NCI/CTEP 2010 information letter, affected-protocol estimated kidney function cap at 125 mL/min.
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ carboplatin calculator, ADDIKD recommendation not to apply a universal kidney-function cap.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+      - case:carboplatin_auc:cap-below-125
+      - case:carboplatin_auc:cap-above-125-clear
+      - case:carboplatin_auc:cap-boundary-125
+      - case:carboplatin_auc:cap-above-125
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:output-cap_policy_applied
+    kind: outcome
+    statement: Machine-readable cap policy used for this result.
+    covers:
+      - output:cap_policy_applied
+    status: supported
+    sourceIds:
+      - carb_nci_ctep_2010
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_nci_ctep_2010
+        locator: NCI/CTEP 2010 information letter, affected-protocol estimated kidney function cap at 125 mL/min.
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ carboplatin calculator, ADDIKD recommendation not to apply a universal kidney-function cap.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+      - case:carboplatin_auc:cap-below-125
+      - case:carboplatin_auc:cap-above-125-clear
+      - case:carboplatin_auc:cap-boundary-125
+      - case:carboplatin_auc:cap-above-125
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:output-rounding_policy_applied
+    kind: outcome
+    statement: Machine-readable final-dose rounding policy used for this result.
+    covers:
+      - output:rounding_policy_applied
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ carboplatin calculator, Rounding section requiring final-only nearest-whole-mg rounding.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:ref-1
+      - case:carboplatin_auc:ref-2
+      - case:carboplatin_auc:ref-3
+      - case:carboplatin_auc:round-below-half-source-anchor
+      - case:carboplatin_auc:round-at-half-source-anchor
+      - case:carboplatin_auc:round-above-half-source-anchor
+      - case:carboplatin_auc:round-below-half
+      - case:carboplatin_auc:round-at-half
+      - case:carboplatin_auc:round-above-half
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:constraint-0
+    kind: input
+    statement: Patient BSA is required to convert indexed kidney function to absolute mL/min.
+    covers:
+      - constraint:0
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:constraint-0
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:constraint-1
+    kind: input
+    statement: Directly measured GFR must be supplied as absolute mL/min; do not BSA-index it.
+    covers:
+      - constraint:1
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:constraint-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:constraint-2
+    kind: input
+    statement: The NCI/CTEP estimated-kidney-function cap does not apply to directly measured GFR.
+    covers:
+      - constraint:2
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:constraint-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:constraint-3
+    kind: input
+    statement: Cockcroft-Gault creatinine clearance must be supplied as absolute mL/min; do not BSA-index it.
+    covers:
+      - constraint:3
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:constraint-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:carboplatin_auc:warning-0
+    kind: warning
+    statement: ADDIKD/eviQ prefers directly measured GFR for curative treatment intent.
+    covers:
+      - warning:0
+    status: supported
+    sourceIds:
+      - carb_eviq_addikd_2022
+    locators:
+      - sourceId: carb_eviq_addikd_2022
+        locator: eviQ Practice points, kidney-function options, BSA-adjusted eGFR equation, cap recommendation, and
+          Rounding section.
+    executable: true
+    scenarioIds:
+      - case:carboplatin_auc:warning-curative-estimate
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+cases:
+  - kind: reference
+    id: case:carboplatin_auc:ref-1
+    tags:
+      - calculator:carboplatin_auc:core
+      - conditional-output
+    inputs: &a1
+      target_auc: 5
+      gfr: 150
+      kidney_function_method: ckd_epi_2009_no_race_egfr
+      kidney_function_indexing: absolute_ml_min
+      treatment_intent: non_curative
+      cap_policy: nci_ctep_estimated_125
+      rounding_policy: nearest_whole_mg_addikd_2022
+    expected: &a2
+      dose: 750
+      kidney_function_absolute: 150
+      kidney_function_used: 125
+      gfr_used: 125
+      indexed_conversion_applied: false
+      gfr_was_capped: true
+      cap_policy_applied: nci_ctep_estimated_125
+      rounding_policy_applied: nearest_whole_mg_addikd_2022
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:formula-implementation
+      - claim:carboplatin_auc:input-target_auc
+      - claim:carboplatin_auc:input-gfr
+      - claim:carboplatin_auc:input-kidney_function_method
+      - claim:carboplatin_auc:input-kidney_function_method-options
+      - claim:carboplatin_auc:input-kidney_function_indexing
+      - claim:carboplatin_auc:input-kidney_function_indexing-options
+      - claim:carboplatin_auc:input-patient_bsa
+      - claim:carboplatin_auc:input-treatment_intent
+      - claim:carboplatin_auc:input-treatment_intent-options
+      - claim:carboplatin_auc:input-cap_policy
+      - claim:carboplatin_auc:input-cap_policy-options
+      - claim:carboplatin_auc:input-rounding_policy
+      - claim:carboplatin_auc:input-rounding_policy-options
+      - claim:carboplatin_auc:output-dose
+      - claim:carboplatin_auc:output-kidney_function_absolute
+      - claim:carboplatin_auc:output-kidney_function_used
+      - claim:carboplatin_auc:output-gfr_used
+      - claim:carboplatin_auc:output-indexed_conversion_applied
+      - claim:carboplatin_auc:output-gfr_was_capped
+      - claim:carboplatin_auc:output-cap_policy_applied
+      - claim:carboplatin_auc:output-rounding_policy_applied
+    sourceIds:
+      - carb_calvert_1989
+      - carb_eviq_addikd_2022
+      - carb_nci_ctep_2010
+    witnesses:
+      - formula:implementation
+      - input:target_auc
+      - input:gfr
+      - input:kidney_function_method
+      - input:kidney_function_method:options
+      - input:kidney_function_indexing
+      - input:kidney_function_indexing:options
+      - input:patient_bsa
+      - input:treatment_intent
+      - input:treatment_intent:options
+      - input:cap_policy
+      - input:cap_policy:options
+      - input:rounding_policy
+      - input:rounding_policy:options
+      - output:dose
+      - output:kidney_function_absolute
+      - output:kidney_function_used
+      - output:gfr_used
+      - output:indexed_conversion_applied
+      - output:gfr_was_capped
+      - output:cap_policy_applied
+      - output:rounding_policy_applied
+  - kind: reference
+    id: case:carboplatin_auc:ref-2
+    tags:
+      - calculator:carboplatin_auc:reference
+    inputs:
+      target_auc: 5
+      gfr: 90
+      kidney_function_method: measured_gfr
+      kidney_function_indexing: absolute_ml_min
+      treatment_intent: curative
+      cap_policy: no_cap_addikd_2022
+      rounding_policy: nearest_whole_mg_addikd_2022
+    expected:
+      dose: 575
+      kidney_function_absolute: 90
+      kidney_function_used: 90
+      gfr_used: 90
+      indexed_conversion_applied: false
+      gfr_was_capped: false
+      cap_policy_applied: no_cap_addikd_2022
+      rounding_policy_applied: nearest_whole_mg_addikd_2022
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:formula-implementation
+      - claim:carboplatin_auc:input-target_auc
+      - claim:carboplatin_auc:input-gfr
+      - claim:carboplatin_auc:input-kidney_function_method
+      - claim:carboplatin_auc:input-kidney_function_method-options
+      - claim:carboplatin_auc:input-kidney_function_indexing
+      - claim:carboplatin_auc:input-kidney_function_indexing-options
+      - claim:carboplatin_auc:input-patient_bsa
+      - claim:carboplatin_auc:input-treatment_intent
+      - claim:carboplatin_auc:input-treatment_intent-options
+      - claim:carboplatin_auc:input-cap_policy
+      - claim:carboplatin_auc:input-cap_policy-options
+      - claim:carboplatin_auc:input-rounding_policy
+      - claim:carboplatin_auc:input-rounding_policy-options
+      - claim:carboplatin_auc:output-dose
+      - claim:carboplatin_auc:output-kidney_function_absolute
+      - claim:carboplatin_auc:output-kidney_function_used
+      - claim:carboplatin_auc:output-gfr_used
+      - claim:carboplatin_auc:output-indexed_conversion_applied
+      - claim:carboplatin_auc:output-gfr_was_capped
+      - claim:carboplatin_auc:output-cap_policy_applied
+      - claim:carboplatin_auc:output-rounding_policy_applied
+    sourceIds:
+      - carb_calvert_1989
+      - carb_eviq_addikd_2022
+    witnesses:
+      - formula:implementation
+      - input:target_auc
+      - input:gfr
+      - input:kidney_function_method
+      - input:kidney_function_method:options
+      - input:kidney_function_indexing
+      - input:kidney_function_indexing:options
+      - input:patient_bsa
+      - input:treatment_intent
+      - input:treatment_intent:options
+      - input:cap_policy
+      - input:cap_policy:options
+      - input:rounding_policy
+      - input:rounding_policy:options
+      - output:dose
+      - output:kidney_function_absolute
+      - output:kidney_function_used
+      - output:gfr_used
+      - output:indexed_conversion_applied
+      - output:gfr_was_capped
+      - output:cap_policy_applied
+      - output:rounding_policy_applied
+  - kind: reference
+    id: case:carboplatin_auc:ref-3
+    tags:
+      - calculator:carboplatin_auc:reference
+    inputs:
+      target_auc: 6
+      gfr: 60
+      kidney_function_method: ckd_epi_2009_no_race_egfr
+      kidney_function_indexing: indexed_ml_min_1_73m2
+      patient_bsa: 2
+      treatment_intent: non_curative
+      cap_policy: no_cap_addikd_2022
+      rounding_policy: nearest_whole_mg_addikd_2022
+    expected:
+      dose: 566
+      kidney_function_absolute: 69.36
+      kidney_function_used: 69.36
+      gfr_used: 69.36
+      indexed_conversion_applied: true
+      gfr_was_capped: false
+      cap_policy_applied: no_cap_addikd_2022
+      rounding_policy_applied: nearest_whole_mg_addikd_2022
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:formula-implementation
+      - claim:carboplatin_auc:input-target_auc
+      - claim:carboplatin_auc:input-gfr
+      - claim:carboplatin_auc:input-kidney_function_method
+      - claim:carboplatin_auc:input-kidney_function_method-options
+      - claim:carboplatin_auc:input-kidney_function_indexing
+      - claim:carboplatin_auc:input-kidney_function_indexing-options
+      - claim:carboplatin_auc:input-patient_bsa
+      - claim:carboplatin_auc:input-treatment_intent
+      - claim:carboplatin_auc:input-treatment_intent-options
+      - claim:carboplatin_auc:input-cap_policy
+      - claim:carboplatin_auc:input-cap_policy-options
+      - claim:carboplatin_auc:input-rounding_policy
+      - claim:carboplatin_auc:input-rounding_policy-options
+      - claim:carboplatin_auc:output-dose
+      - claim:carboplatin_auc:output-kidney_function_absolute
+      - claim:carboplatin_auc:output-kidney_function_used
+      - claim:carboplatin_auc:output-gfr_used
+      - claim:carboplatin_auc:output-indexed_conversion_applied
+      - claim:carboplatin_auc:output-gfr_was_capped
+      - claim:carboplatin_auc:output-cap_policy_applied
+      - claim:carboplatin_auc:output-rounding_policy_applied
+    sourceIds:
+      - carb_calvert_1989
+      - carb_eviq_addikd_2022
+    witnesses:
+      - formula:implementation
+      - input:target_auc
+      - input:gfr
+      - input:kidney_function_method
+      - input:kidney_function_method:options
+      - input:kidney_function_indexing
+      - input:kidney_function_indexing:options
+      - input:patient_bsa
+      - input:treatment_intent
+      - input:treatment_intent:options
+      - input:cap_policy
+      - input:cap_policy:options
+      - input:rounding_policy
+      - input:rounding_policy:options
+      - output:dose
+      - output:kidney_function_absolute
+      - output:kidney_function_used
+      - output:gfr_used
+      - output:indexed_conversion_applied
+      - output:gfr_was_capped
+      - output:cap_policy_applied
+      - output:rounding_policy_applied
+  - kind: agent
+    id: case:carboplatin_auc:agent-purpose
+    tags:
+      - agent-applicability
+    inputs: *a1
+    expected: *a2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:applicability-purpose
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:carboplatin_auc:agent-exclusion
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      gfr: 150
+      kidney_function_method: ckd_epi_2009_no_race_egfr
+      kidney_function_indexing: absolute_ml_min
+      treatment_intent: non_curative
+      cap_policy: nci_ctep_estimated_125
+      rounding_policy: nearest_whole_mg_addikd_2022
+    expected: {}
+    expectedBehavior: clarify
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:applicability-exclusions
+      - claim:carboplatin_auc:input-target_auc
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - applicability:exclusions
+      - input:target_auc
+    expectedError:
+      code: MISSING_REQUIRED
+      field: target_auc
+  - kind: edge
+    id: case:carboplatin_auc:hard-target_auc
+    tags:
+      - hard-limits
+    inputs:
+      target_auc: 0.9
+      gfr: 150
+      kidney_function_method: ckd_epi_2009_no_race_egfr
+      kidney_function_indexing: absolute_ml_min
+      treatment_intent: non_curative
+      cap_policy: nci_ctep_estimated_125
+      rounding_policy: nearest_whole_mg_addikd_2022
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:input-target_auc-hard_limits
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - input:target_auc:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: target_auc
+  - kind: edge
+    id: case:carboplatin_auc:plausibility-target_auc
+    tags:
+      - plausibility
+    inputs:
+      target_auc: 1.5
+      gfr: 150
+      kidney_function_method: ckd_epi_2009_no_race_egfr
+      kidney_function_indexing: absolute_ml_min
+      treatment_intent: non_curative
+      cap_policy: nci_ctep_estimated_125
+      rounding_policy: nearest_whole_mg_addikd_2022
+    expected:
+      dose: 225
+      kidney_function_absolute: 150
+      kidney_function_used: 125
+      gfr_used: 125
+      indexed_conversion_applied: false
+      gfr_was_capped: true
+      cap_policy_applied: nci_ctep_estimated_125
+      rounding_policy_applied: nearest_whole_mg_addikd_2022
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:input-target_auc-plausibility
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - input:target_auc:plausibility
+    expectedWarnings:
+      - Target AUC 1.5 is unusual (expected 2–7).
+  - kind: edge
+    id: case:carboplatin_auc:hard-gfr
+    tags:
+      - hard-limits
+    inputs:
+      target_auc: 5
+      gfr: 9
+      kidney_function_method: ckd_epi_2009_no_race_egfr
+      kidney_function_indexing: absolute_ml_min
+      treatment_intent: non_curative
+      cap_policy: nci_ctep_estimated_125
+      rounding_policy: nearest_whole_mg_addikd_2022
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:input-gfr-hard_limits
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - input:gfr:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: gfr
+  - kind: edge
+    id: case:carboplatin_auc:plausibility-gfr
+    tags:
+      - plausibility
+    inputs:
+      target_auc: 5
+      gfr: 12.5
+      kidney_function_method: ckd_epi_2009_no_race_egfr
+      kidney_function_indexing: absolute_ml_min
+      treatment_intent: non_curative
+      cap_policy: nci_ctep_estimated_125
+      rounding_policy: nearest_whole_mg_addikd_2022
+    expected:
+      dose: 188
+      kidney_function_absolute: 12.5
+      kidney_function_used: 12.5
+      gfr_used: 12.5
+      indexed_conversion_applied: false
+      gfr_was_capped: false
+      cap_policy_applied: nci_ctep_estimated_125
+      rounding_policy_applied: nearest_whole_mg_addikd_2022
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:input-gfr-plausibility
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - input:gfr:plausibility
+    expectedWarnings:
+      - Kidney Function 12.5 is unusual (expected 15–150).
+  - kind: edge
+    id: case:carboplatin_auc:hard-patient_bsa
+    tags:
+      - hard-limits
+    inputs:
+      target_auc: 5
+      gfr: 150
+      kidney_function_method: ckd_epi_2009_no_race_egfr
+      kidney_function_indexing: absolute_ml_min
+      treatment_intent: non_curative
+      cap_policy: nci_ctep_estimated_125
+      rounding_policy: nearest_whole_mg_addikd_2022
+      patient_bsa: 0.09
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:input-patient_bsa-hard_limits
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - input:patient_bsa:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: patient_bsa
+  - kind: edge
+    id: case:carboplatin_auc:plausibility-patient_bsa
+    tags:
+      - plausibility
+    inputs:
+      target_auc: 5
+      gfr: 150
+      kidney_function_method: ckd_epi_2009_no_race_egfr
+      kidney_function_indexing: absolute_ml_min
+      treatment_intent: non_curative
+      cap_policy: nci_ctep_estimated_125
+      rounding_policy: nearest_whole_mg_addikd_2022
+      patient_bsa: 0.3
+    expected:
+      dose: 750
+      kidney_function_absolute: 150
+      kidney_function_used: 125
+      gfr_used: 125
+      indexed_conversion_applied: false
+      gfr_was_capped: true
+      cap_policy_applied: nci_ctep_estimated_125
+      rounding_policy_applied: nearest_whole_mg_addikd_2022
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:input-patient_bsa-plausibility
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - input:patient_bsa:plausibility
+    expectedWarnings:
+      - Patient BSA 0.3 is unusual (expected 0.5–3).
+  - kind: edge
+    id: case:carboplatin_auc:constraint-0
+    tags:
+      - constraints
+    inputs:
+      target_auc: 5
+      gfr: 150
+      kidney_function_method: ckd_epi_2009_no_race_egfr
+      kidney_function_indexing: indexed_ml_min_1_73m2
+      treatment_intent: non_curative
+      cap_policy: no_cap_addikd_2022
+      rounding_policy: nearest_whole_mg_addikd_2022
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:constraint-0
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - constraint:0
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: patient_bsa
+      messageIncludes: Patient BSA is required to convert indexed kidney function to absolute mL/min.
+  - kind: edge
+    id: case:carboplatin_auc:constraint-1
+    tags:
+      - constraints
+    inputs:
+      target_auc: 5
+      gfr: 150
+      kidney_function_method: measured_gfr
+      kidney_function_indexing: indexed_ml_min_1_73m2
+      treatment_intent: non_curative
+      cap_policy: no_cap_addikd_2022
+      rounding_policy: nearest_whole_mg_addikd_2022
+      patient_bsa: 1.73
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:constraint-1
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - constraint:1
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: kidney_function_indexing
+      messageIncludes: Directly measured GFR must be supplied as absolute mL/min; do not BSA-index it.
+  - kind: edge
+    id: case:carboplatin_auc:constraint-2
+    tags:
+      - constraints
+    inputs:
+      target_auc: 5
+      gfr: 150
+      kidney_function_method: measured_gfr
+      kidney_function_indexing: absolute_ml_min
+      treatment_intent: non_curative
+      cap_policy: nci_ctep_estimated_125
+      rounding_policy: nearest_whole_mg_addikd_2022
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:constraint-2
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - constraint:2
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: cap_policy
+      messageIncludes: The NCI/CTEP estimated-kidney-function cap does not apply to directly measured GFR.
+  - kind: edge
+    id: case:carboplatin_auc:constraint-3
+    tags:
+      - constraints
+    inputs:
+      target_auc: 5
+      gfr: 150
+      kidney_function_method: cockcroft_gault_crcl
+      kidney_function_indexing: indexed_ml_min_1_73m2
+      treatment_intent: non_curative
+      cap_policy: nci_ctep_estimated_125
+      rounding_policy: nearest_whole_mg_addikd_2022
+      patient_bsa: 1.73
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:constraint-3
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - constraint:3
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: kidney_function_indexing
+      messageIncludes: Cockcroft-Gault creatinine clearance must be supplied as absolute mL/min; do not BSA-index it.
+  - kind: edge
+    id: case:carboplatin_auc:warning-curative-estimate
+    tags:
+      - calculator:carboplatin_auc:warning
+    inputs:
+      target_auc: 5
+      gfr: 90
+      kidney_function_method: ckd_epi_2009_no_race_egfr
+      kidney_function_indexing: absolute_ml_min
+      treatment_intent: curative
+      cap_policy: no_cap_addikd_2022
+      rounding_policy: nearest_whole_mg_addikd_2022
+    expected:
+      dose: 575
+      kidney_function_absolute: 90
+      kidney_function_used: 90
+      gfr_used: 90
+      indexed_conversion_applied: false
+      gfr_was_capped: false
+      cap_policy_applied: no_cap_addikd_2022
+      rounding_policy_applied: nearest_whole_mg_addikd_2022
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:carboplatin_auc:warning-0
+    sourceIds:
+      - carb_eviq_addikd_2022
+    witnesses:
+      - warning:0
+    expectedWarnings:
+      - ADDIKD/eviQ prefers directly measured GFR for curative treatment intent.
+  - kind: edge
+    id: case:carboplatin_auc:cap-below-125
+    tags: [interpretation-boundaries]
+    inputs: { target_auc: 5, gfr: 124.99, kidney_function_method: ckd_epi_2009_no_race_egfr,
+      kidney_function_indexing: absolute_ml_min, treatment_intent: non_curative,
+      cap_policy: nci_ctep_estimated_125, rounding_policy: nearest_whole_mg_addikd_2022 }
+    expected: { dose: 750, kidney_function_absolute: 124.99, kidney_function_used: 124.99, gfr_used: 124.99,
+      indexed_conversion_applied: false, gfr_was_capped: false, cap_policy_applied: nci_ctep_estimated_125,
+      rounding_policy_applied: nearest_whole_mg_addikd_2022 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Exact NCI CTEP estimated-kidney-function cap boundary. }
+    claimIds: [claim:carboplatin_auc:output-dose, claim:carboplatin_auc:output-kidney_function_used,
+      claim:carboplatin_auc:output-gfr_was_capped, claim:carboplatin_auc:output-cap_policy_applied]
+    sourceIds: [carb_calvert_1989, carb_nci_ctep_2010, carb_eviq_addikd_2022]
+    witnesses: [output:dose, output:kidney_function_used, output:gfr_was_capped, output:cap_policy_applied]
+  - kind: edge
+    id: case:carboplatin_auc:cap-above-125-clear
+    tags: [interpretation-boundaries]
+    inputs: { target_auc: 5, gfr: 130, kidney_function_method: ckd_epi_2009_no_race_egfr,
+      kidney_function_indexing: absolute_ml_min, treatment_intent: non_curative,
+      cap_policy: nci_ctep_estimated_125, rounding_policy: nearest_whole_mg_addikd_2022 }
+    expected: { dose: 750, kidney_function_absolute: 130, kidney_function_used: 125, gfr_used: 125,
+      indexed_conversion_applied: false, gfr_was_capped: true, cap_policy_applied: nci_ctep_estimated_125,
+      rounding_policy_applied: nearest_whole_mg_addikd_2022 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: First dossier value above the NCI CTEP 125 mL/min cap. }
+    claimIds: [claim:carboplatin_auc:output-dose, claim:carboplatin_auc:output-kidney_function_used,
+      claim:carboplatin_auc:output-gfr_was_capped, claim:carboplatin_auc:output-cap_policy_applied]
+    sourceIds: [carb_calvert_1989, carb_nci_ctep_2010, carb_eviq_addikd_2022]
+    witnesses: [output:dose, output:kidney_function_used, output:gfr_was_capped, output:cap_policy_applied]
+  - kind: edge
+    id: case:carboplatin_auc:round-below-half-source-anchor
+    tags: [calculator:carboplatin_auc:rounding]
+    inputs: { target_auc: 2, gfr: 90.24, kidney_function_method: measured_gfr,
+      kidney_function_indexing: absolute_ml_min, treatment_intent: non_curative,
+      cap_policy: no_cap_addikd_2022, rounding_policy: nearest_whole_mg_addikd_2022 }
+    expected: { dose: 230, kidney_function_absolute: 90.24, kidney_function_used: 90.24, gfr_used: 90.24,
+      indexed_conversion_applied: false, gfr_was_capped: false, cap_policy_applied: no_cap_addikd_2022,
+      rounding_policy_applied: nearest_whole_mg_addikd_2022 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Final-only dose rounding immediately below the half-mg boundary. }
+    claimIds: [claim:carboplatin_auc:output-dose, claim:carboplatin_auc:output-rounding_policy_applied]
+    sourceIds: [carb_calvert_1989, carb_eviq_addikd_2022]
+    witnesses: [output:dose, output:rounding_policy_applied]
+  - kind: edge
+    id: case:carboplatin_auc:round-at-half-source-anchor
+    tags: [calculator:carboplatin_auc:rounding]
+    inputs: { target_auc: 2, gfr: 90.25, kidney_function_method: measured_gfr,
+      kidney_function_indexing: absolute_ml_min, treatment_intent: non_curative,
+      cap_policy: no_cap_addikd_2022, rounding_policy: nearest_whole_mg_addikd_2022 }
+    expected: { dose: 230, kidney_function_absolute: 90.25, kidney_function_used: 90.25, gfr_used: 90.25,
+      indexed_conversion_applied: false, gfr_was_capped: false, cap_policy_applied: no_cap_addikd_2022,
+      rounding_policy_applied: nearest_whole_mg_addikd_2022 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Final-only half-even rounding at an exact half-mg boundary. }
+    claimIds: [claim:carboplatin_auc:output-dose, claim:carboplatin_auc:output-rounding_policy_applied]
+    sourceIds: [carb_calvert_1989, carb_eviq_addikd_2022]
+    witnesses: [output:dose, output:rounding_policy_applied]
+  - kind: edge
+    id: case:carboplatin_auc:round-above-half-source-anchor
+    tags: [calculator:carboplatin_auc:rounding]
+    inputs: { target_auc: 2, gfr: 90.26, kidney_function_method: measured_gfr,
+      kidney_function_indexing: absolute_ml_min, treatment_intent: non_curative,
+      cap_policy: no_cap_addikd_2022, rounding_policy: nearest_whole_mg_addikd_2022 }
+    expected: { dose: 231, kidney_function_absolute: 90.26, kidney_function_used: 90.26, gfr_used: 90.26,
+      indexed_conversion_applied: false, gfr_was_capped: false, cap_policy_applied: no_cap_addikd_2022,
+      rounding_policy_applied: nearest_whole_mg_addikd_2022 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Final-only dose rounding immediately above the half-mg boundary. }
+    claimIds: [claim:carboplatin_auc:output-dose, claim:carboplatin_auc:output-rounding_policy_applied]
+    sourceIds: [carb_calvert_1989, carb_eviq_addikd_2022]
+    witnesses: [output:dose, output:rounding_policy_applied]
+  - kind: edge
+    id: case:carboplatin_auc:cap-boundary-125
+    tags: [interpretation-boundaries]
+    inputs: { target_auc: 5, gfr: 125, kidney_function_method: ckd_epi_2009_no_race_egfr,
+      kidney_function_indexing: absolute_ml_min, treatment_intent: non_curative,
+      cap_policy: nci_ctep_estimated_125, rounding_policy: nearest_whole_mg_addikd_2022 }
+    expected: { dose: 750, kidney_function_absolute: 125, kidney_function_used: 125, gfr_used: 125,
+      indexed_conversion_applied: false, gfr_was_capped: false, cap_policy_applied: nci_ctep_estimated_125,
+      rounding_policy_applied: nearest_whole_mg_addikd_2022 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Exact NCI CTEP estimated-kidney-function cap boundary. }
+    claimIds: [claim:carboplatin_auc:output-dose, claim:carboplatin_auc:output-kidney_function_used,
+      claim:carboplatin_auc:output-gfr_was_capped, claim:carboplatin_auc:output-cap_policy_applied]
+    sourceIds: [carb_calvert_1989, carb_nci_ctep_2010, carb_eviq_addikd_2022]
+    witnesses: [output:dose, output:kidney_function_used, output:gfr_was_capped, output:cap_policy_applied]
+  - kind: edge
+    id: case:carboplatin_auc:cap-above-125
+    tags: [interpretation-boundaries]
+    inputs: { target_auc: 5, gfr: 125.01, kidney_function_method: ckd_epi_2009_no_race_egfr,
+      kidney_function_indexing: absolute_ml_min, treatment_intent: non_curative,
+      cap_policy: nci_ctep_estimated_125, rounding_policy: nearest_whole_mg_addikd_2022 }
+    expected: { dose: 750, kidney_function_absolute: 125.01, kidney_function_used: 125, gfr_used: 125,
+      indexed_conversion_applied: false, gfr_was_capped: true, cap_policy_applied: nci_ctep_estimated_125,
+      rounding_policy_applied: nearest_whole_mg_addikd_2022 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: First dossier value above the NCI CTEP 125 mL/min cap. }
+    claimIds: [claim:carboplatin_auc:output-dose, claim:carboplatin_auc:output-kidney_function_used,
+      claim:carboplatin_auc:output-gfr_was_capped, claim:carboplatin_auc:output-cap_policy_applied]
+    sourceIds: [carb_calvert_1989, carb_nci_ctep_2010, carb_eviq_addikd_2022]
+    witnesses: [output:dose, output:kidney_function_used, output:gfr_was_capped, output:cap_policy_applied]
+  - kind: edge
+    id: case:carboplatin_auc:round-below-half
+    tags: [calculator:carboplatin_auc:rounding]
+    inputs: { target_auc: 5, gfr: 90.09, kidney_function_method: measured_gfr,
+      kidney_function_indexing: absolute_ml_min, treatment_intent: non_curative,
+      cap_policy: no_cap_addikd_2022, rounding_policy: nearest_whole_mg_addikd_2022 }
+    expected: { dose: 575, kidney_function_absolute: 90.09, kidney_function_used: 90.09, gfr_used: 90.09,
+      indexed_conversion_applied: false, gfr_was_capped: false, cap_policy_applied: no_cap_addikd_2022,
+      rounding_policy_applied: nearest_whole_mg_addikd_2022 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Final-only dose rounding immediately below the half-mg boundary. }
+    claimIds: [claim:carboplatin_auc:output-dose, claim:carboplatin_auc:output-rounding_policy_applied]
+    sourceIds: [carb_calvert_1989, carb_eviq_addikd_2022]
+    witnesses: [output:dose, output:rounding_policy_applied]
+  - kind: edge
+    id: case:carboplatin_auc:round-at-half
+    tags: [calculator:carboplatin_auc:rounding]
+    inputs: { target_auc: 5, gfr: 90.1, kidney_function_method: measured_gfr,
+      kidney_function_indexing: absolute_ml_min, treatment_intent: non_curative,
+      cap_policy: no_cap_addikd_2022, rounding_policy: nearest_whole_mg_addikd_2022 }
+    expected: { dose: 576, kidney_function_absolute: 90.1, kidney_function_used: 90.1, gfr_used: 90.1,
+      indexed_conversion_applied: false, gfr_was_capped: false, cap_policy_applied: no_cap_addikd_2022,
+      rounding_policy_applied: nearest_whole_mg_addikd_2022 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Final-only half-even rounding at an exact half-mg boundary. }
+    claimIds: [claim:carboplatin_auc:output-dose, claim:carboplatin_auc:output-rounding_policy_applied]
+    sourceIds: [carb_calvert_1989, carb_eviq_addikd_2022]
+    witnesses: [output:dose, output:rounding_policy_applied]
+  - kind: edge
+    id: case:carboplatin_auc:round-above-half
+    tags: [calculator:carboplatin_auc:rounding]
+    inputs: { target_auc: 5, gfr: 90.11, kidney_function_method: measured_gfr,
+      kidney_function_indexing: absolute_ml_min, treatment_intent: non_curative,
+      cap_policy: no_cap_addikd_2022, rounding_policy: nearest_whole_mg_addikd_2022 }
+    expected: { dose: 576, kidney_function_absolute: 90.11, kidney_function_used: 90.11, gfr_used: 90.11,
+      indexed_conversion_applied: false, gfr_was_capped: false, cap_policy_applied: no_cap_addikd_2022,
+      rounding_policy_applied: nearest_whole_mg_addikd_2022 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Final-only dose rounding immediately above the half-mg boundary. }
+    claimIds: [claim:carboplatin_auc:output-dose, claim:carboplatin_auc:output-rounding_policy_applied]
+    sourceIds: [carb_calvert_1989, carb_eviq_addikd_2022]
+    witnesses: [output:dose, output:rounding_policy_applied]
+compatibilityNotes:
+  - Replaced the unconditional Cockcroft-Gault and 125 mL/min cap assumption with required kidney-function
+    method, indexed/absolute status, treatment intent, and explicit ADDIKD or NCI/CTEP cap policy.
+  - Added absolute and used kidney-function outputs, indexed-conversion status, cap status, and
+    machine-readable cap-policy provenance.
+  - Restricted the ADDIKD/eviQ eGFR method to CKD-EPI 2009 without race and made nearest-whole-mg final-dose
+    rounding explicit in the input and result provenance.
+  - Retained gfr_used as a deprecated additive result alias while requiring the new safety-critical method,
+    indexing, policy, and rounding inputs.
+explicitBlockers: []

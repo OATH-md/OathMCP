@@ -1,0 +1,339 @@
+id: eos
+version: 2.0.0
+name: Neonatal Early-Onset Sepsis (EOS) Calculator
+family: neonatal_early_onset_sepsis
+variant: explicit_kaiser_2017_or_2024
+synonyms:
+  - neonatal sepsis risk
+  - newborn sepsis
+abbreviations:
+  - EOS
+clinicalModel:
+  modelKind: policy
+  modelId: neonatal_early_onset_sepsis.kaiser
+  modelVersion: explicit_2017_original_or_2024_update
+  jurisdiction: Kaiser Permanente model; local implementation context required
+  dataSnapshot: eos.kaiser_models_2017_2024
+  effectiveDate: 2024-10-01
+  reviewDate: 2026-07-15
+  evidenceRefs:
+    - source_1
+    - source_2
+reviewAfter: 2026-10-13
+applicability:
+  population: Estimate early-onset sepsis risk in an infant born at 35 weeks or
+    later from maternal intrapartum factors and the infant's clinical appearance.
+    The caller must deliberately select the 2024 model for settings with
+    universal antenatal GBS screening or the original 2017 model for settings
+    without universal screening.
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - Do not use below 35 weeks gestation. Temperature is the highest maternal
+      intrapartum temperature and baseline incidence must reflect the local
+      population. A clinically ill infant requires immediate clinical evaluation;
+      the numerical estimate is not a substitute for neonatal sepsis management.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Calculate the selected Kaiser EOS model's risk at birth and
+  clinical-appearance-adjusted risk, with model-specific recommendations and an
+  explicit model-version choice.
+whenNotToUse: Do not use below 35 weeks gestation or silently choose the 2024
+  model where universal antenatal GBS screening is not practiced. Clinical
+  illness takes precedence over a reassuring numeric estimate.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Kuzniewicz MW, Puopolo KM, Fischer A, et al. A quantitative,
+      risk-based approach to the management of neonatal early-onset sepsis. JAMA
+      Pediatr. 2017;171(4):365-371. (Kaiser Permanente EOS calculator.)
+    locator: doi:10.1001/jamapediatrics.2016.4678
+    doi: 10.1001/jamapediatrics.2016.4678
+    url: https://neonatalsepsiscalculator.kaiserpermanente.org/
+    reviewed: true
+  - id: source_2
+    type: derivation
+    citation: Kuzniewicz MW, Escobar GJ, Forquer H, et al. Update to the Neonatal
+      Early-Onset Sepsis Calculator Utilizing a Contemporary Cohort. Pediatrics.
+      2024;154(4):e2023065267.
+    locator: doi:10.1542/peds.2023-065267, Table 2 and Kaiser 2024 model FAQ
+    doi: 10.1542/peds.2023-065267
+    url: https://neonatalsepsiscalculator.kaiserpermanente.org/ModelUpdateFAQ.aspx
+    reviewed: true
+inputs:
+  model_version:
+    title: EOS Model Version
+    description: Select the 2024 updated model only where universal antenatal GBS
+      screening is practiced; otherwise select the original 2017 model.
+    kind: enum
+    enumValues:
+      - value: updated_2024_universal_gbs
+        label: Updated 2024 — universal GBS screening
+        description: Contemporary 2010-2020 cohort and current IAP classification.
+      - value: original_2017_nonuniversal_gbs
+        label: Original 2017 — no universal GBS screening
+        description: Original model retained for settings without universal GBS screening.
+    required: true
+    conceptId: eos.input.model_version
+    examples:
+      - updated_2024_universal_gbs
+    sourceRefs:
+      - source_1
+      - source_2
+  baseline_incidence:
+    title: Baseline EOS Incidence
+    description: Baseline incidence of EOS per 1000 live births for the population.
+    kind: enum
+    enumValues:
+      - value: "0.1"
+        label: "0.1"
+        description: "Baseline EOS Incidence: 0.1."
+      - value: "0.2"
+        label: "0.2"
+        description: "Baseline EOS Incidence: 0.2."
+      - value: "0.3"
+        label: "0.3"
+        description: "Baseline EOS Incidence: 0.3."
+      - value: "0.4"
+        label: "0.4"
+        description: "Baseline EOS Incidence: 0.4."
+      - value: "0.5"
+        label: "0.5"
+        description: "Baseline EOS Incidence: 0.5."
+      - value: "0.6"
+        label: "0.6"
+        description: "Baseline EOS Incidence: 0.6."
+      - value: "0.7"
+        label: "0.7"
+        description: "Baseline EOS Incidence: 0.7."
+      - value: "0.8"
+        label: "0.8"
+        description: "Baseline EOS Incidence: 0.8."
+      - value: "0.9"
+        label: "0.9"
+        description: "Baseline EOS Incidence: 0.9."
+      - value: "1"
+        label: "1"
+        description: "Baseline EOS Incidence: 1."
+      - value: "2"
+        label: "2"
+        description: "Baseline EOS Incidence: 2."
+      - value: "4"
+        label: "4"
+        description: "Baseline EOS Incidence: 4."
+    required: true
+    conceptId: eos.input.baseline_incidence
+    examples:
+      - "0.5"
+    sourceRefs:
+      - source_1
+    sharedKey: baseline_incidence
+  temperature:
+    title: Maternal Temperature
+    description: Highest maternal intrapartum temperature in °C.
+    kind: number
+    plausible:
+      - 36
+      - 41
+    hardLimits:
+      - 34
+      - 42
+    required: true
+    conceptId: eos.input.temperature
+    examples:
+      - 37.5
+    sourceRefs:
+      - source_1
+    sharedKey: temperature
+  rom_hours:
+    title: ROM Duration
+    description: Duration of rupture of membranes in hours.
+    kind: number
+    plausible:
+      - 0
+      - 72
+    hardLimits:
+      - 0
+      - 240
+    required: true
+    conceptId: eos.input.rom_hours
+    examples:
+      - 10
+    sourceRefs:
+      - source_1
+    sharedKey: rom_hours
+  gestational_age:
+    title: Gestational Age
+    description: Gestational age in weeks (35-43, may include decimals for days).
+    kind: number
+    plausible:
+      - 35
+      - 42
+    hardLimits:
+      - 35
+      - 43
+    required: true
+    conceptId: eos.input.gestational_age
+    examples:
+      - 39
+    sourceRefs:
+      - source_1
+    sharedKey: gestational_age
+  antibiotic_status:
+    title: Antibiotic Status
+    description: Intrapartum antibiotic administration status.
+    kind: enum
+    enumValues:
+      - value: none
+        aliases:
+          - None
+        label: none
+        description: "Antibiotic Status: none."
+      - value: gbs_specific_ge_2h_or_any_2_to_4h
+        aliases:
+          - GBS Specific >=2hr or Any 2-4hr
+        label: gbs specific ge 2h or any 2 to 4h
+        description: "Antibiotic Status: gbs specific ge 2h or any 2 to 4h."
+      - value: broad_spectrum_ge_4h
+        aliases:
+          - Broad Spectrum >=4hr
+        label: broad spectrum ge 4h
+        description: "Antibiotic Status: broad spectrum ge 4h."
+    required: true
+    conceptId: eos.input.antibiotic_status
+    examples:
+      - none
+    sourceRefs:
+      - source_1
+    sharedKey: antibiotic_status
+  gbs_status:
+    title: GBS Status
+    description: Maternal Group B Streptococcus status.
+    kind: enum
+    enumValues:
+      - value: positive
+        aliases:
+          - Positive
+        label: positive
+        description: "GBS Status: positive."
+      - value: negative
+        aliases:
+          - Negative
+        label: negative
+        description: "GBS Status: negative."
+      - value: unknown
+        aliases:
+          - Unknown
+        label: unknown
+        description: "GBS Status: unknown."
+    required: true
+    conceptId: eos.input.gbs_status
+    examples:
+      - unknown
+    sourceRefs:
+      - source_1
+    sharedKey: gbs_status
+  clinical_appearance:
+    title: Clinical Appearance
+    description: The infant's clinical appearance.
+    kind: enum
+    enumValues:
+      - value: well_appearing
+        aliases:
+          - Well Appearing
+        label: well appearing
+        description: "Clinical Appearance: well appearing."
+      - value: equivocal
+        aliases:
+          - Equivocal
+        label: equivocal
+        description: "Clinical Appearance: equivocal."
+      - value: clinical_illness
+        aliases:
+          - Clinical Illness
+        label: clinical illness
+        description: "Clinical Appearance: clinical illness."
+    required: true
+    conceptId: eos.input.clinical_appearance
+    examples:
+      - well_appearing
+    sourceRefs:
+      - source_1
+    sharedKey: clinical_appearance
+outputs:
+  risk_at_birth_per_1000:
+    title: Risk at Birth
+    description: Probability of EOS at birth per 1000 births, rounded to 3 decimal places.
+    kind: number
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+      - source_2
+  composite_risk_per_1000:
+    title: Clinical-Appearance-Adjusted Risk
+    description: Posterior probability of EOS per 1000 births after applying the
+      clinical appearance likelihood ratio, rounded to 3 decimal places.
+    kind: number
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+      - source_2
+  clinical_recommendation:
+    title: Clinical Recommendation
+    description: Recommended management based on the posterior risk and clinical appearance.
+    kind: enum
+    allowedValues:
+      - Consider starting empiric antibiotics
+      - No culture, no antibiotics
+      - Obtain blood culture, no empiric antibiotics
+      - Empiric antibiotics
+      - No additional care
+      - Blood culture and vitals every 4 hours for 24 hours
+      - Blood culture and vitals every 4 hours for 16 hours
+      - Treat empirically with antibiotics
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+      - source_2
+  birth_vitals_recommendation:
+    title: At-Birth Vitals Recommendation
+    description: The 2024 model's distinct vital-sign monitoring instruction based
+      only on risk at birth, before the clinical-appearance likelihood ratio is
+      applied. This is separate from the post-exam clinical recommendation.
+    kind: enum
+    allowedValues:
+      - Routine vitals
+      - Vitals every 4 hours for 16 hours
+    availability:
+      kind: computeCondition
+      conditionId: updated_birth_vitals
+    evidenceRefs:
+      - source_2
+  vitals_recommendation:
+    title: Post-Exam Vitals Recommendation
+    description: Compatibility output for vital-sign monitoring associated with
+      the selected post-exam management branch. For the 2024 model, also inspect
+      birth_vitals_recommendation, which is the operator's independent at-birth signal.
+    kind: enum
+    allowedValues:
+      - Vitals per NICU
+      - Routine vitals
+      - Vitals every 4 hours for 24 hours
+      - Vitals in NICU
+      - Vitals every 4 hours for 16 hours
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+      - source_2
+primaryOutputs:
+  - risk_at_birth_per_1000
+warnings:
+  - field: clinical_appearance
+    when: ==clinical_illness
+    message: Clinical illness is a high-risk state; do not use a low numerical EOS estimate to delay immediate evaluation and treatment.
+    evidenceRefs:
+      - source_2

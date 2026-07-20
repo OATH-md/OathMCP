@@ -1,0 +1,47 @@
+---
+title: Agent workflow
+description: The compact MCP workflow for safe calculator discovery and execution.
+---
+
+## Recommended sequence
+
+<Steps>
+  <Step title="Find">
+    Call `find_calculator` with clinical intent, population, or a known name. If
+    it returns `needs_clarification`, ask the question before continuing.
+  </Step>
+  <Step title="Describe">
+    Call `describe_calculator` with the canonical ID. Confirm applicability,
+    exclusions, input types, accepted units, limits, outputs, model, and version.
+  </Step>
+  <Step title="Collect">
+    Obtain required values explicitly. Do not infer missing values, silently use
+    a default, or turn narrative uncertainty into a definite enum or boolean.
+  </Step>
+  <Step title="Calculate">
+    Call `calculate` with the canonical ID and typed inputs. Treat tool errors as
+    actionable requests to correct or clarify the input.
+  </Step>
+  <Step title="Present">
+    Preserve values, warnings, interpretations, provenance, model metadata, and
+    the evidence resource. State the clinical boundary when communicating the result.
+  </Step>
+</Steps>
+
+## Example discovery
+
+```json title="find_calculator"
+{
+  "query": "adult atrial fibrillation stroke risk score",
+  "limit": 3
+}
+```
+
+Discovery is deterministic and intentionally conservative. A match is a
+candidate, not a clinical authorization to calculate.
+
+## Stable system instruction
+
+<Prompt description="Add the OathMCP safety workflow to an agent's instructions" actions={["copy"]}>
+Use OathMCP only for established calculators available in its catalog. When the exact calculator is unknown, call find_calculator and resolve needs_clarification before proceeding. Call describe_calculator before first use or whenever inputs are uncertain. Never invent missing inputs, suppress warnings, or present a calculated result as a diagnosis or treatment recommendation. Preserve units, provenance, model version, limitations, and evidence links. A qualified clinician remains responsible for selection, applicability, interpretation, and every clinical decision.
+</Prompt>

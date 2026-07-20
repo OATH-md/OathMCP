@@ -1,0 +1,741 @@
+calculatorId: gir
+specVersion: 1.0.0
+clinicalModel: Intravenous glucose infusion rate
+variant: dextrose_percent_ml_per_hour_weight_based
+population: Patients receiving a continuous intravenous dextrose solution with known concentration, rate, and weight.
+setting: Nutrition and hypoglycemia support; target rates are age-, condition-, and protocol-specific.
+assessmentTiming: Current infusion concentration and pump rate with current dosing weight.
+endpoint: Delivered glucose infusion rate in mg/kg/min.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:gir:2026-07-16
+    calculatorId: gir
+    model: Intravenous glucose infusion rate
+    variant: dextrose_percent_ml_per_hour_weight_based
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:gir:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: '(("glucose infusion rate"[Title] OR "glucose delivery rate"[Title]) AND
+          (neonat*[Title/Abstract] OR infant*[Title/Abstract])) OR (Cowett RM[Author] AND glucose[Title] AND
+          infant*[Title/Abstract])'
+        translationExposed: true
+        translatedQuery: Field-tagged query retained as entered; PubMed automatic term mapping was not invoked.
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 14
+        exportDigest: sha256:e1aa26f28344ffd1a0f0881ca437c4ea2c8e0b5e1ff3ac11dd08b3b943f0379a
+        stableCitationIds:
+          - PMID:34736488
+          - PMID:29843266
+          - PMID:12078323
+          - PMID:10413967
+          - PMID:3279177
+          - PMID:2864408
+          - PMID:3996769
+          - PMID:3886022
+          - PMID:6366720
+          - PMID:6346883
+          - PMID:6338038
+          - PMID:7432841
+          - PMID:440840
+          - PMID:351535
+      - id: search:gir:derivation
+        sourceRole: derivation
+        authorityId: gir_cowett_1983
+        database: Primary or responsible-authority source
+        site: Journal of Clinical Investigation
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          dextrose_percent_ml_per_hour_weight_based
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - gir_cowett_1983
+      - id: search:gir:controlling_authority
+        sourceRole: controlling_authority
+        authorityId: gir_nigeria_2021
+        database: Primary or responsible-authority source
+        site: Federal Ministry of Health Nigeria
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          dextrose_percent_ml_per_hour_weight_based
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - gir_nigeria_2021
+      - id: search:gir:specialty_guidance
+        sourceRole: specialty_guidance
+        authorityId: gir_ucdavis_2025
+        database: Primary or responsible-authority source
+        site: UC Davis Health
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          dextrose_percent_ml_per_hour_weight_based
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - gir_ucdavis_2025
+      - id: search:gir:independent_numeric
+        sourceRole: independent_numeric
+        authorityId: gir_rch_2026
+        database: Primary or responsible-authority source
+        site: Royal Children's Hospital Melbourne
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          dextrose_percent_ml_per_hour_weight_based
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - gir_rch_2026
+    accounting:
+      retrieved: 14
+      deduplicated: 14
+      screened: 14
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - { citationId: pmid:34736488, title: 'The glucose infusion rate of parenteral nutrition in the first week of life in preterm infants: an observational study.', disposition: excluded, exclusionReason: 'Practice cohort without a distinct retained conversion equation.', fullTextAssessed: false }
+      - { citationId: pmid:29843266, title: 'Correlation of maternal A1c with glucose infusion rate requirements in the newborn.', disposition: excluded, exclusionReason: 'Maternal-correlation study without a distinct retained equation.', fullTextAssessed: false }
+      - { citationId: pmid:12078323, title: 'Neonatal glucose metabolism: differential diagnoses, evaluation, and treatment of hypoglycemia.', disposition: excluded, exclusionReason: 'Narrative clinical review without a distinct retained conversion anchor.', fullTextAssessed: false }
+      - { citationId: pmid:10413967, title: 'Is glycosuria a reliable indicator of adequacy of glucose infusion rate in preterm infants?', disposition: excluded, exclusionReason: 'Monitoring study without a distinct retained equation.', fullTextAssessed: false }
+      - { citationId: pmid:3279177, title: 'Ontogeny of glucose homeostasis in low birth weight infants.', disposition: excluded, exclusionReason: 'Physiology study without a distinct retained conversion equation.', fullTextAssessed: false }
+      - { citationId: pmid:2864408, title: 'Mechanisms of beta sympathomimetic action on neonatal glucose homeostasis in the lamb.', disposition: excluded, exclusionReason: 'Animal study outside the declared population.', fullTextAssessed: false }
+      - { citationId: pmid:3996769, title: 'Neonatal morbidities in infants of mothers with glucose intolerance in pregnancy.', disposition: excluded, exclusionReason: 'Maternal exposure cohort without a distinct retained equation.', fullTextAssessed: false }
+      - { citationId: pmid:3886022, title: 'The effects of arterial glucose infusion above the celiac axis in the neonatal lamb.', disposition: excluded, exclusionReason: 'Animal study outside the declared population.', fullTextAssessed: false }
+      - { citationId: pmid:6366720, title: 'Glucose kinetics in glucose-infused small for gestational age infants.', disposition: excluded, exclusionReason: 'Physiology study without a distinct retained conversion equation.', fullTextAssessed: false }
+      - { citationId: pmid:6346883, title: 'Glucose kinetics in infants of diabetic mothers.', disposition: excluded, exclusionReason: 'Physiology study without a distinct retained conversion equation.', fullTextAssessed: false }
+      - citationId: gir_cowett_1983
+        title: Persistent glucose production during glucose infusion in the neonate.
+        disposition: included
+        fullTextAssessed: true
+      - { citationId: pmid:7432841, title: 'Renal functions of low birth weight infants with hyperglycemia and glucosuria produced by glucose infusions.', disposition: excluded, exclusionReason: 'Complication study without a distinct retained conversion equation.', fullTextAssessed: false }
+      - { citationId: pmid:440840, title: 'Glucose disposal of low birth weight infants: steady state hyperglycemia produced by constant intravenous glucose infusion.', disposition: excluded, exclusionReason: 'Physiology study without a distinct retained conversion equation.', fullTextAssessed: false }
+      - { citationId: pmid:351535, title: 'Glucose disposal in low-birth-weight infants during steady-state hyperglycemia: effects of exogenous insulin administration.', disposition: excluded, exclusionReason: 'Physiology study without a distinct retained conversion equation.', fullTextAssessed: false }
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:gir:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and synonyms
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search paired with direct primary and responsible-authority review.
+      resolution: Resolved by retaining exact model and author terms, checking translation, screening every result,
+        chasing citations, and reviewing current authority and specialty sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - gir_cowett_1983
+  - gir_nigeria_2021
+  - gir_ucdavis_2025
+  - gir_rch_2026
+claims:
+  - id: claim:gir:calculator-model
+    kind: applicability
+    statement: Intravenous glucose infusion rate is limited to Patients receiving a continuous intravenous
+      dextrose solution with known concentration, rate, and weight. Nutrition and hypoglycemia support; target
+      rates are age-, condition-, and protocol-specific.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad clinical limitations are descriptive; every
+      runtime-verifiable surface is separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:formula-implementation
+    kind: formula
+    statement: The calculator implements the source-bound Intravenous glucose infusion rate arithmetic and
+      declared final rounding.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+      - gir_cowett_1983
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+      - sourceId: gir_cowett_1983
+        locator: Cowett 1983 methods and glucose-infusion results, weight-normalized intravenous glucose delivery
+          reported in mg/kg/min.
+    executable: true
+    scenarioIds:
+      - case:gir:ref-1
+      - case:gir:ref-2
+      - case:gir:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:applicability-purpose
+    kind: applicability
+    statement: Compute the glucose infusion rate (mg/kg/min) delivered by a dextrose infusion, from patient
+      weight, dextrose concentration, and infusion rate. Used chiefly in neonatal and parenteral-nutrition
+      management.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - gir_ucdavis_2025
+    locators:
+      - sourceId: gir_ucdavis_2025
+        locator: UC Davis NICU Nutrition Guideline, glucose infusion rate adjustment tables and units.
+    executable: true
+    scenarioIds:
+      - case:gir:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:applicability-exclusions
+    kind: exclusion
+    statement: Reflects only the carbohydrate delivered by the specified infusion; it does not account for enteral
+      intake or other dextrose-containing fluids running concurrently.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - gir_ucdavis_2025
+    locators:
+      - sourceId: gir_ucdavis_2025
+        locator: UC Davis NICU Nutrition Guideline, glucose infusion rate adjustment tables and units.
+    executable: true
+    scenarioIds:
+      - case:gir:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:input-weight_kg
+    kind: input
+    statement: Patient weight in kilograms.
+    covers:
+      - input:weight_kg
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+    executable: true
+    scenarioIds:
+      - case:gir:ref-1
+      - case:gir:ref-2
+      - case:gir:ref-3
+      - case:gir:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:input-weight_kg-hard_limits
+    kind: input
+    statement: OathMCP rejects Weight outside [0.1,700] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:weight_kg:hard_limits
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+    executable: true
+    scenarioIds:
+      - case:gir:hard-weight_kg
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:input-weight_kg-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Weight is outside [0.3,300]; this is an operational review
+      prompt.
+    covers:
+      - input:weight_kg:plausibility
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+    executable: true
+    scenarioIds:
+      - case:gir:plausibility-weight_kg
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:input-weight_kg-aliases
+    kind: input
+    statement: Weight accepts only the declared compatibility aliases ["weight"].
+    covers:
+      - input:weight_kg:aliases
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+    executable: true
+    scenarioIds:
+      - case:gir:alias-weight_kg
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:input-dextrose_concentration
+    kind: input
+    statement: Dextrose concentration as a percentage (g/100 mL), e.g. 10 for D10.
+    covers:
+      - input:dextrose_concentration
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+    executable: true
+    scenarioIds:
+      - case:gir:ref-1
+      - case:gir:ref-2
+      - case:gir:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:input-dextrose_concentration-hard_limits
+    kind: input
+    statement: OathMCP rejects Dextrose Concentration outside [0.1,100] as a conservative operational envelope,
+      not a clinical cutoff.
+    covers:
+      - input:dextrose_concentration:hard_limits
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+    executable: true
+    scenarioIds:
+      - case:gir:hard-dextrose_concentration
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:input-dextrose_concentration-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Dextrose Concentration is outside [2,70]; this is an
+      operational review prompt.
+    covers:
+      - input:dextrose_concentration:plausibility
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+    executable: true
+    scenarioIds:
+      - case:gir:plausibility-dextrose_concentration
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:input-infusion_rate
+    kind: input
+    statement: Infusion rate in mL/hr.
+    covers:
+      - input:infusion_rate
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+    executable: true
+    scenarioIds:
+      - case:gir:ref-1
+      - case:gir:ref-2
+      - case:gir:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:input-infusion_rate-hard_limits
+    kind: input
+    statement: OathMCP rejects Infusion Rate outside [0.01,5000] as a conservative operational envelope, not a
+      clinical cutoff.
+    covers:
+      - input:infusion_rate:hard_limits
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+    executable: true
+    scenarioIds:
+      - case:gir:hard-infusion_rate
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:input-infusion_rate-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Infusion Rate is outside [0.1,1000]; this is an operational
+      review prompt.
+    covers:
+      - input:infusion_rate:plausibility
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+    executable: true
+    scenarioIds:
+      - case:gir:plausibility-infusion_rate
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gir:output-gir
+    kind: outcome
+    statement: GIR in mg/kg/min, rounded to 2 decimal places.
+    covers:
+      - output:gir
+    status: supported
+    sourceIds:
+      - gir_nigeria_2021
+      - gir_rch_2026
+    locators:
+      - sourceId: gir_nigeria_2021
+        locator: "National newborn guideline, Table 20.1 p.169: GIR=(dextrose percent x mL/hr)/(kg x 6) and worked D10
+          example."
+      - sourceId: gir_rch_2026
+        locator: RCH neonatal hypoglycaemia guideline, intravenous dextrose concentration and GIR context in
+          mg/kg/min.
+    executable: true
+    scenarioIds:
+      - case:gir:ref-1
+      - case:gir:ref-2
+      - case:gir:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:gir:ref-1
+    tags:
+      - calculator:gir:core
+    inputs: &a1
+      weight_kg: 3
+      dextrose_concentration: 10
+      infusion_rate: 5
+    expected: &a2
+      gir: 2.78
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gir:formula-implementation
+      - claim:gir:input-weight_kg
+      - claim:gir:input-dextrose_concentration
+      - claim:gir:input-infusion_rate
+      - claim:gir:output-gir
+    sourceIds:
+      - gir_nigeria_2021
+      - gir_cowett_1983
+    witnesses:
+      - formula:implementation
+      - input:weight_kg
+      - input:dextrose_concentration
+      - input:infusion_rate
+      - output:gir
+  - kind: reference
+    id: case:gir:ref-2
+    tags:
+      - calculator:gir:reference
+    inputs:
+      weight_kg: 70
+      dextrose_concentration: 5
+      infusion_rate: 100
+    expected:
+      gir: 1.19
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gir:formula-implementation
+      - claim:gir:input-weight_kg
+      - claim:gir:input-dextrose_concentration
+      - claim:gir:input-infusion_rate
+      - claim:gir:output-gir
+    sourceIds:
+      - gir_nigeria_2021
+    witnesses:
+      - formula:implementation
+      - input:weight_kg
+      - input:dextrose_concentration
+      - input:infusion_rate
+      - output:gir
+  - kind: reference
+    id: case:gir:ref-3
+    tags:
+      - calculator:gir:reference
+    inputs:
+      weight_kg: 2.5
+      dextrose_concentration: 12.5
+      infusion_rate: 10
+    expected:
+      gir: 8.33
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gir:formula-implementation
+      - claim:gir:input-weight_kg
+      - claim:gir:input-dextrose_concentration
+      - claim:gir:input-infusion_rate
+      - claim:gir:output-gir
+    sourceIds:
+      - gir_nigeria_2021
+      - gir_rch_2026
+    witnesses:
+      - formula:implementation
+      - input:weight_kg
+      - input:dextrose_concentration
+      - input:infusion_rate
+      - output:gir
+  - kind: agent
+    id: case:gir:agent-purpose
+    tags:
+      - agent-applicability
+    inputs: *a1
+    expected: *a2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gir:applicability-purpose
+    sourceIds:
+      - gir_ucdavis_2025
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:gir:agent-exclusion
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      dextrose_concentration: 10
+      infusion_rate: 5
+    expected: {}
+    expectedBehavior: clarify
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gir:applicability-exclusions
+      - claim:gir:input-weight_kg
+    sourceIds:
+      - gir_ucdavis_2025
+      - gir_nigeria_2021
+    witnesses:
+      - applicability:exclusions
+      - input:weight_kg
+    expectedError:
+      code: MISSING_REQUIRED
+      field: weight_kg
+  - kind: edge
+    id: case:gir:hard-weight_kg
+    tags:
+      - hard-limits
+    inputs:
+      weight_kg: 0.09
+      dextrose_concentration: 10
+      infusion_rate: 5
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gir:input-weight_kg-hard_limits
+    sourceIds:
+      - gir_nigeria_2021
+    witnesses:
+      - input:weight_kg:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: weight_kg
+  - kind: edge
+    id: case:gir:plausibility-weight_kg
+    tags:
+      - plausibility
+    inputs:
+      weight_kg: 0.2
+      dextrose_concentration: 10
+      infusion_rate: 5
+    expected:
+      gir: 41.67
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gir:input-weight_kg-plausibility
+    sourceIds:
+      - gir_nigeria_2021
+    witnesses:
+      - input:weight_kg:plausibility
+    expectedWarnings:
+      - Weight 0.2 is unusual (expected 0.3–300).
+  - kind: edge
+    id: case:gir:alias-weight_kg
+    tags:
+      - aliases
+    inputs:
+      dextrose_concentration: 10
+      infusion_rate: 5
+      weight: 3
+    expected:
+      gir: 2.78
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'weight' is a compatibility alias; use 'weight_kg'.
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gir:input-weight_kg-aliases
+    sourceIds:
+      - gir_nigeria_2021
+    witnesses:
+      - input:weight_kg:aliases
+  - kind: edge
+    id: case:gir:hard-dextrose_concentration
+    tags:
+      - hard-limits
+    inputs:
+      weight_kg: 3
+      dextrose_concentration: 0.09
+      infusion_rate: 5
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gir:input-dextrose_concentration-hard_limits
+    sourceIds:
+      - gir_nigeria_2021
+    witnesses:
+      - input:dextrose_concentration:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: dextrose_concentration
+  - kind: edge
+    id: case:gir:plausibility-dextrose_concentration
+    tags:
+      - plausibility
+    inputs:
+      weight_kg: 3
+      dextrose_concentration: 1.05
+      infusion_rate: 5
+    expected:
+      gir: 0.29
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gir:input-dextrose_concentration-plausibility
+    sourceIds:
+      - gir_nigeria_2021
+    witnesses:
+      - input:dextrose_concentration:plausibility
+    expectedWarnings:
+      - Dextrose Concentration 1.05 is unusual (expected 2–70).
+  - kind: edge
+    id: case:gir:hard-infusion_rate
+    tags:
+      - hard-limits
+    inputs:
+      weight_kg: 3
+      dextrose_concentration: 10
+      infusion_rate: 0
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gir:input-infusion_rate-hard_limits
+    sourceIds:
+      - gir_nigeria_2021
+    witnesses:
+      - input:infusion_rate:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: infusion_rate
+  - kind: edge
+    id: case:gir:plausibility-infusion_rate
+    tags:
+      - plausibility
+    inputs:
+      weight_kg: 3
+      dextrose_concentration: 10
+      infusion_rate: 0.055
+    expected:
+      gir: 0.03
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:gir:input-infusion_rate-plausibility
+    sourceIds:
+      - gir_nigeria_2021
+    witnesses:
+      - input:infusion_rate:plausibility
+    expectedWarnings:
+      - Infusion Rate 0.055 is unusual (expected 0.1–1000).
+compatibilityNotes: []
+explicitBlockers: []

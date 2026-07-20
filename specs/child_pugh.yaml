@@ -1,0 +1,271 @@
+id: child_pugh
+version: 1.1.0
+name: Modified Child-Pugh Score (INR variant)
+synonyms:
+  - Child-Turcotte-Pugh score
+  - cirrhosis severity class
+abbreviations:
+  - CTP
+clinicalModel:
+  modelKind: score
+  modelId: child_pugh.modified_inr
+  modelVersion: modified_ctp_va_inr_1_7_2_3_adult_cirrhosis
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+    - source_4
+applicability:
+  population: Adults with established cirrhosis whose bilirubin, albumin, INR, ascites, and encephalopathy categories are
+    available.
+  setting: Cirrhosis severity classification; not individualized survival, operative-risk, transplant-allocation, or
+    treatment advice.
+  exclusions:
+    - A broad cirrhosis severity class, not individualized survival, operative-risk, transplant-allocation, or treatment
+      advice. Ascites and encephalopathy grading are subjective; apply only to the explicit modified INR variant in
+      established cirrhosis.
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+    - source_4
+purposeForAgents: Adults with established cirrhosis whose bilirubin, albumin, INR, ascites, and encephalopathy
+  categories are available. Return an integer score from 5-15 and descriptive class A (5-6), B (7-9), or C (10-15).
+whenNotToUse: A broad cirrhosis severity class, not individualized survival, operative-risk, transplant-allocation, or
+  treatment advice. Ascites and encephalopathy grading are subjective; apply only to the explicit modified INR variant
+  in established cirrhosis.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Transection of the oesophagus for bleeding oesophageal varices.
+    locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+    url: https://pubmed.ncbi.nlm.nih.gov/4541913/
+    reviewed: true
+  - id: source_2
+    type: validation
+    citation: Superiority of the Child-Pugh classification to quantitative liver function tests for assessing prognosis of
+      liver cirrhosis.
+    locator: "Methods and Results: adult cirrhosis cohort and association of increasing Child-Pugh score with prognosis."
+    url: https://pubmed.ncbi.nlm.nih.gov/2734585/
+    reviewed: true
+  - id: source_3
+    type: guideline
+    citation: Child-Turcotte-Pugh Calculator - Cirrhosis.
+    locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+      and encephalopathy definitions, classes A/B/C."
+    url: https://www.hepatitis.va.gov/cirrhosis/background/child-pugh-calculator.asp
+    reviewed: true
+  - id: source_4
+    type: guideline
+    citation: Portal Hypertension and Bleeding in Cirrhosis practice guidance.
+    locator: "Practice-guidance scope: adult cirrhosis, portal-hypertension complications, and clinical management context
+      beyond a classification score."
+    url: https://www.aasld.org/practice-guidelines/portal-hypertension-bleeding-cirrhosis
+    reviewed: true
+inputs:
+  bilirubin_category:
+    title: Total Bilirubin
+    description: "Total serum bilirubin: <2 mg/dL (1), 2-3 mg/dL (2), or >3 mg/dL (3)."
+    aliases:
+      - bilirubin
+    kind: enum
+    enumValues:
+      - value: low
+        points: 1
+        label: low
+        description: "Total Bilirubin: low."
+      - value: moderate
+        points: 2
+        label: moderate
+        description: "Total Bilirubin: moderate."
+      - value: high
+        points: 3
+        label: high
+        description: "Total Bilirubin: high."
+    required: true
+    conceptId: child_pugh.input.bilirubin_category
+    examples:
+      - low
+    sourceRefs:
+      - source_2
+    sharedKey: bilirubin_category
+  albumin_category:
+    title: Serum Albumin
+    description: "Serum albumin: >3.5 g/dL (1), 2.8-3.5 g/dL (2), or <2.8 g/dL (3)."
+    aliases:
+      - albumin
+    kind: enum
+    enumValues:
+      - value: high
+        points: 1
+        label: high
+        description: "Serum Albumin: high."
+      - value: moderate
+        points: 2
+        label: moderate
+        description: "Serum Albumin: moderate."
+      - value: low
+        points: 3
+        label: low
+        description: "Serum Albumin: low."
+    required: true
+    conceptId: child_pugh.input.albumin_category
+    examples:
+      - high
+    sourceRefs:
+      - source_2
+    sharedKey: albumin_category
+  inr_category:
+    title: INR
+    description: "International Normalized Ratio: <1.7 (1), 1.7-2.3 (2), or >2.3 (3)."
+    aliases:
+      - inr
+    kind: enum
+    enumValues:
+      - value: low
+        points: 1
+        label: low
+        description: "INR: low."
+      - value: moderate
+        points: 2
+        label: moderate
+        description: "INR: moderate."
+      - value: high
+        points: 3
+        label: high
+        description: "INR: high."
+    required: true
+    conceptId: child_pugh.input.inr_category
+    examples:
+      - low
+    sourceRefs:
+      - source_2
+    sharedKey: inr_category
+  ascites:
+    title: Ascites
+    description: "Ascites: none (1), mild/medication-controlled (2), or moderate-to-severe refractory (3)."
+    kind: enum
+    enumValues:
+      - value: none
+        points: 1
+        label: none
+        description: "Ascites: none."
+      - value: mild
+        points: 2
+        label: mild
+        description: "Ascites: mild."
+      - value: moderate
+        points: 3
+        label: moderate
+        description: "Ascites: moderate."
+    required: true
+    conceptId: child_pugh.input.ascites
+    examples:
+      - none
+    sourceRefs:
+      - source_2
+    sharedKey: ascites
+  encephalopathy:
+    title: Hepatic Encephalopathy
+    description: "Hepatic encephalopathy: none (1), Grade 1-2 (2), or Grade 3-4 (3)."
+    kind: enum
+    enumValues:
+      - value: none
+        points: 1
+        label: none
+        description: "Hepatic Encephalopathy: none."
+      - value: mild
+        points: 2
+        label: mild
+        description: "Hepatic Encephalopathy: mild."
+      - value: severe
+        points: 3
+        label: severe
+        description: "Hepatic Encephalopathy: severe."
+    required: true
+    conceptId: child_pugh.input.encephalopathy
+    examples:
+      - none
+    sourceRefs:
+      - source_2
+    sharedKey: encephalopathy
+outputs:
+  score:
+    title: Child-Pugh Score
+    description: Total Child-Pugh score (5-15 points).
+    kind: integer
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+      - source_2
+  class:
+    title: Child-Pugh Class
+    description: Child-Pugh classification (A, B, or C).
+    kind: enum
+    allowedValues:
+      - A
+      - B
+      - C
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+      - source_2
+  prognosis:
+    title: Prognosis
+    description: Clinical prognosis based on Child-Pugh class.
+    kind: enum
+    allowedValues:
+      - Well-compensated liver disease
+      - Moderately impaired liver function
+      - Advanced hepatic dysfunction
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+      - source_2
+primaryOutputs:
+  - score
+interpretationBands:
+  - code: child_pugh_band_1
+    kind: class
+    when: ">=10"
+    label: Class C (10-15); do not infer individualized prognosis or management from the class alone.
+    severity: critical
+    evidenceRefs:
+      - source_2
+  - code: child_pugh_band_2
+    kind: class
+    when: ">=7"
+    label: Class B (7-9); do not infer individualized prognosis or management from the class alone.
+    severity: abnormal
+    evidenceRefs:
+      - source_2
+  - code: child_pugh_band_3
+    kind: class
+    when: <7
+    label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+    severity: normal
+    evidenceRefs:
+      - source_2
+scoring:
+  output: score
+  components:
+    - kind: enum
+      field: bilirubin_category
+    - kind: enum
+      field: albumin_category
+    - kind: enum
+      field: inr_category
+    - kind: enum
+      field: ascites
+    - kind: enum
+      field: encephalopathy
+  range:
+    - 5
+    - 15
+  evidenceRefs:
+    - source_1
+    - source_2

@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "oath-docs",
+  "main": "./worker/index.js",
+  "compatibility_date": "2026-07-19",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    {
+      "pattern": "mcp.oath.md/docs",
+      "zone_name": "oath.md"
+    },
+    {
+      "pattern": "mcp.oath.md/docs/*",
+      "zone_name": "oath.md"
+    }
+  ],
+  "assets": {
+    "directory": "./.deploy",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  }
+}

@@ -1,0 +1,118 @@
+---
+title: "Anion Gap (with albumin correction)"
+description: "Compute uncorrected anion gap plus optional historical albumin correction and delta arithmetic from concurrent laboratories. Treat every result as an aid requiring local reference intervals and clinical context."
+sidebar:
+  label: "Anion Gap (with albumin correction)"
+search:
+  tags: ["anion_gap", "formula"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>formula</Badge> <Badge>Spec 1.0.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Patients with concurrent sodium, chloride, and bicarbonate measurements during acid-base evaluation; optional albumin correction is a historical Figge estimate. |
+| Setting | Clinical decision support; apply only in the context declared by this calculator. |
+| Model | `anion_gap` · 1.0.0 |
+| Model kind | formula |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** The delta ratio is only meaningful in metabolic acidosis with an elevated anion gap; it is omitted when those conditions are not met. Do not interpret it in isolation from the clinical picture.
+
+- Laboratory-specific reference intervals and the patient's baseline matter. Albumin correction and delta ratios have important validation limitations and must not diagnose a mixed disorder in isolation.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `sodium` | quantity (mEq/L \| mmol/L) | Yes | — | 120–160 | 80–200 | Serum sodium in mEq/L (numerically equal to mmol/L). Normal 135-145. |
+| `chloride` | number | Yes | — | 80–120 | 50–150 | Serum chloride in mEq/L (numerically equal to mmol/L). Normal 96-106. |
+| `bicarbonate` | number | Yes | — | 5–45 | 1–60 | Serum bicarbonate in mEq/L (numerically equal to mmol/L). Normal 22-29. |
+| `albumin` | quantity (g/dL \| g/L) | No | — | 1–6 | 0.5–10 | Serum albumin. Pass a bare number in g/dL, or &#123;value, unit&#125; for SI (g/L). When omitted, only uncorrected outputs are returned; the calculator does not silently assume 4.0 g/dL. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `anion_gap` | number · mEq/L | Always | Yes | Na − (Cl + HCO3), rounded to 1 decimal place. |
+| `albumin_corrected_anion_gap` | number · mEq/L | When any of: albumin | No | Anion gap + 2.5 × (4 − albumin), rounded to 1 decimal place. |
+| `delta_anion_gap` | number · mEq/L | Always | No | ΔAG = anion gap − 12, rounded to 1 decimal place. |
+| `albumin_corrected_delta_anion_gap` | number · mEq/L | When any of: albumin | No | Albumin-corrected ΔAG = corrected anion gap − 12, rounded to 1 decimal place. |
+| `delta_ratio` | number | Compute condition: uncorrected_delta_ratio_applicable | No | Delta gap / (24 − HCO3), rounded to 2 decimals. Returned only when bicarbonate is below 24 mEq/L and the uncorrected anion gap exceeds 12 mEq/L. |
+| `albumin_corrected_delta_ratio` | number | Compute condition: corrected_delta_ratio_applicable | No | Albumin-corrected delta gap / (24 − HCO3), rounded to 2 decimals. Returned only when albumin is supplied, bicarbonate is below 24 mEq/L, and the corrected anion gap exceeds 12 mEq/L. |
+
+## Interpretation bands
+
+No deterministic interpretation bands are declared for this calculator.
+
+## Warnings, constraints, and adjustments
+
+No calculator-specific warning rules or cross-field constraints are declared beyond input validation and applicability.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "anion_gap",
+  "inputs": {
+    "sodium": 140,
+    "chloride": 104,
+    "bicarbonate": 14,
+    "albumin": 4
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `anion_gap`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 24/24 | 23/23 | 14/14 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://anion_gap/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Oh MS, Carroll HJ. The anion gap. N Engl J Med. 1977;297(15):814-817.](https://doi.org/10.1056/NEJM197710132971507)<br />doi:10.1056/NEJM197710132971507 |
+| `source_2` | reference | [Figge J, Jabor A, Kazda A, Fencl V. Anion gap and hypoalbuminemia. Crit Care Med. 1998;26(11):1807-1810.](https://doi.org/10.1097/00003246-199811000-00019)<br />doi:10.1097/00003246-199811000-00019 |
+| `source_3` | reference | [Rastegar A. Use of the deltaAG/deltaHCO3- ratio in the diagnosis of mixed acid-base disorders. J Am Soc Nephrol. 2007;18(9):2429-2431.](https://doi.org/10.1681/ASN.2006121408)<br />doi:10.1681/ASN.2006121408 |
+| `source_4` | review | [Kraut JA, Madias NE. The serum anion gap in the evaluation of acid-base disorders. Clin J Am Soc Nephrol. 2007;2(1):162-174.](https://pubmed.ncbi.nlm.nih.gov/17699401/)<br />doi:10.2215/CJN.03020906 |
+
+<Panel title="Repository source">
+  Calculator ID `anion_gap`; spec version `1.0.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

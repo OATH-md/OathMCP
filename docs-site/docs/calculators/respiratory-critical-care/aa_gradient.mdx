@@ -1,0 +1,113 @@
+---
+title: "Alveolar-arterial Oxygen Gradient (A-a)"
+description: "Compute the alveolar-arterial oxygen gradient and the age-expected gradient to evaluate the mechanism of hypoxemia. A normal A-a gradient points to hypoventilation or low inspired oxygen; an elevated gradient points to V/Q mismatch, shunt, or diffusion limitation."
+sidebar:
+  label: "Alveolar-arterial Oxygen Gradient (A-a)"
+search:
+  tags: ["aa_gradient", "formula"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>formula</Badge> <Badge>Spec 1.0.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Compute the alveolar-arterial oxygen gradient and the age-expected gradient to evaluate the mechanism of hypoxemia. A normal A-a gradient points to hypoventilation or low inspired oxygen; an elevated gradient points to V/Q mismatch, shunt, or diffusion limitation. |
+| Setting | Clinical decision support; apply only in the context declared by this calculator. |
+| Model | `aa_gradient` · 1.0.0 |
+| Model kind | formula |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** The gradient becomes unreliable at high FiO2 and in the elderly, and is distorted by mechanical ventilation with PEEP; it is not disease-specific and must be read in clinical context.
+
+- The gradient becomes unreliable at high FiO2 and in the elderly, and is distorted by mechanical ventilation with PEEP; it is not disease-specific and must be read in clinical context.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `pao2` | number | Yes | — | 30–600 | 0–700 | Arterial oxygen partial pressure (PaO2) in mmHg. |
+| `paco2` | number | Yes | — | 10–120 | 0–200 | Arterial carbon dioxide partial pressure (PaCO2) in mmHg. |
+| `fio2` | number | Yes | — | — | 21–100 | Fraction of inspired oxygen as a percentage (21 to 100). |
+| `age` | integer | Yes | — | — | 0–120 | Patient age in years (used for the age-expected gradient). |
+| `altitude` | number | No | `0` | — | 0–9000 | Altitude in meters; leave unset for sea level. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `aa_gradient` | number · mmHg | Always | Yes | Alveolar-arterial oxygen gradient in mmHg, rounded to 2 decimal places. |
+| `expected_gradient` | number · mmHg | Always | No | Age-expected A-a gradient (4 + age/4) in mmHg, rounded to 2 decimal places. |
+
+## Interpretation bands
+
+No deterministic interpretation bands are declared for this calculator.
+
+## Warnings, constraints, and adjustments
+
+No calculator-specific warning rules or cross-field constraints are declared beyond input validation and applicability.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "aa_gradient",
+  "inputs": {
+    "pao2": 90,
+    "paco2": 40,
+    "fio2": 21,
+    "age": 40
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `aa_gradient`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 19/19 | 18/18 | 12/12 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://aa_gradient/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Helmholz HF Jr. The abbreviated alveolar air equation. Chest. 1979;75(6):748.](https://doi.org/10.1378/chest.75.6.748)<br />doi:10.1378/chest.75.6.748 |
+| `source_2` | reference | [National Aeronautics and Space Administration. Metric standard-atmosphere barometric relationship for the troposphere.](https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/atmosmet508.html)<br />url:https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/atmosmet508.html |
+
+<Panel title="Repository source">
+  Calculator ID `aa_gradient`; spec version `1.0.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

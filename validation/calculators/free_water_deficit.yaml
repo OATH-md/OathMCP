@@ -1,0 +1,819 @@
+calculatorId: free_water_deficit
+specVersion: 1.0.0
+clinicalModel: Adult static electrolyte-free water deficit
+variant: adrogue_madias_adult_tbw_categories
+population: Adults with hypernatremia using an explicitly selected adult sex/age-category total-body-water fraction.
+setting: Initial adult hypernatremia assessment with ongoing losses, gains, volume status, and serial sodium
+  handled separately.
+assessmentTiming: Current serum sodium and body weight at the same assessment time.
+endpoint: Static estimated electrolyte-free water deficit in liters and the TBW fraction used.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:free_water_deficit:2026-07-16
+    calculatorId: free_water_deficit
+    model: Adult static electrolyte-free water deficit
+    variant: adrogue_madias_adult_tbw_categories
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:free_water_deficit:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: Adrogue HJ[au] AND Madias NE[au] AND Hypernatremia[ti]
+        translationExposed: true
+        translatedQuery: (adrogue, hj[Author] OR adrogue hj[Author]) AND (madias, ne[Author] OR madias ne[Author]) AND
+          "Hypernatremia"[Title]
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:10816188
+      - id: search:free_water_deficit:derivation
+        sourceRole: derivation
+        authorityId: fwd_adrogue_2000
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          adrogue_madias_adult_tbw_categories
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - fwd_adrogue_2000
+      - id: search:free_water_deficit:controlling
+        sourceRole: controlling_authority
+        authorityId: fwd_nhsaaa_2026
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          adrogue_madias_adult_tbw_categories
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - fwd_nhsaaa_2026
+      - id: search:free_water_deficit:specialty
+        sourceRole: specialty_guidance
+        authorityId: fwd_yun_2023
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          adrogue_madias_adult_tbw_categories
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - fwd_yun_2023
+      - id: search:free_water_deficit:independent
+        sourceRole: independent_numeric
+        authorityId: fwd_uw_nephrology_2026
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          adrogue_madias_adult_tbw_categories
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - fwd_uw_nephrology_2026
+    accounting:
+      retrieved: 1
+      deduplicated: 1
+      screened: 1
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: fwd_adrogue_2000
+        title: Hypernatremia.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:free_water_deficit:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and historical terminology
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search, not an exhaustive systematic review.
+      resolution: Resolved by retaining exact author/model terms, checking automatic translation, screening every
+        result, and pairing the database search with current authority, specialty, derivation, and independent
+        numeric sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - fwd_adrogue_2000
+  - fwd_nhsaaa_2026
+  - fwd_yun_2023
+  - fwd_uw_nephrology_2026
+claims:
+  - id: claim:free_water_deficit:calculator-model
+    kind: applicability
+    statement: Adult static electrolyte-free water deficit is limited to Adults with hypernatremia using an
+      explicitly selected adult sex/age-category total-body-water fraction. Initial adult hypernatremia
+      assessment with ongoing losses, gains, volume status, and serial sodium handled separately.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - fwd_nhsaaa_2026
+    locators:
+      - sourceId: fwd_nhsaaa_2026
+        locator: NHS adult hypernatraemia guideline, assessment, cause-directed management, replacement, and
+          monitoring sections.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad clinical limitations are descriptive; every
+      runtime-verifiable surface is separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:formula-implementation
+    kind: formula
+    statement: Free-water deficit = TBW fraction × weight × (current sodium/target sodium - 1), using adult male
+      0.6, adult female 0.5, elderly male 0.5, or elderly female 0.45.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - fwd_adrogue_2000
+    locators:
+      - sourceId: fwd_adrogue_2000
+        locator: Adrogue and Madias 2000 Hypernatremia, water-deficit equation and TBW-fraction discussion.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:ref-adult-male-default
+      - case:free_water_deficit:ref-adult-female-target
+      - case:free_water_deficit:ref-elderly-female
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:applicability-purpose
+    kind: applicability
+    statement: Estimate an adult static electrolyte-free water deficit from weight, current sodium, target sodium,
+      and an explicit adult TBW category.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - fwd_nhsaaa_2026
+    locators:
+      - sourceId: fwd_nhsaaa_2026
+        locator: NHS adult hypernatraemia guideline, assessment, cause-directed management, replacement, and
+          monitoring sections.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:applicability-exclusions
+    kind: exclusion
+    statement: Do not calculate until the runtime's required discriminator 'patient_category' is supplied; the
+      broader clinical limitations remain descriptive context.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - fwd_nhsaaa_2026
+    locators:
+      - sourceId: fwd_nhsaaa_2026
+        locator: NHS adult hypernatraemia guideline, assessment, cause-directed management, replacement, and
+          monitoring sections.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:input-weight_kg
+    kind: input
+    statement: Patient weight in kilograms.
+    covers:
+      - input:weight_kg
+    status: supported
+    sourceIds:
+      - fwd_adrogue_2000
+    locators:
+      - sourceId: fwd_adrogue_2000
+        locator: Adrogue and Madias 2000 Hypernatremia, water-deficit equation and TBW-fraction discussion.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:ref-adult-male-default
+      - case:free_water_deficit:ref-adult-female-target
+      - case:free_water_deficit:ref-elderly-female
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:input-weight_kg-hard_limits
+    kind: input
+    statement: OathMCP rejects Weight outside [0.1, 700] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:weight_kg:hard_limits
+    status: supported
+    sourceIds:
+      - fwd_uw_nephrology_2026
+    locators:
+      - sourceId: fwd_uw_nephrology_2026
+        locator: University of Washington nephrology hypernatremia curriculum, free-water deficit teaching section.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:hard-weight_kg
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:input-weight_kg-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Weight is outside [1, 300]; this is an operational review prompt.
+    covers:
+      - input:weight_kg:plausibility
+    status: supported
+    sourceIds:
+      - fwd_uw_nephrology_2026
+    locators:
+      - sourceId: fwd_uw_nephrology_2026
+        locator: University of Washington nephrology hypernatremia curriculum, free-water deficit teaching section.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:input-current_sodium
+    kind: input
+    statement: Current serum sodium in mEq/L (must exceed the ideal sodium for hypernatremia).
+    covers:
+      - input:current_sodium
+    status: supported
+    sourceIds:
+      - fwd_adrogue_2000
+    locators:
+      - sourceId: fwd_adrogue_2000
+        locator: Adrogue and Madias 2000 Hypernatremia, water-deficit equation and TBW-fraction discussion.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:ref-adult-male-default
+      - case:free_water_deficit:ref-adult-female-target
+      - case:free_water_deficit:ref-elderly-female
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:input-current_sodium-hard_limits
+    kind: input
+    statement: OathMCP rejects Current Sodium outside [140, 250] as a conservative operational envelope, not a
+      clinical cutoff.
+    covers:
+      - input:current_sodium:hard_limits
+    status: supported
+    sourceIds:
+      - fwd_uw_nephrology_2026
+    locators:
+      - sourceId: fwd_uw_nephrology_2026
+        locator: University of Washington nephrology hypernatremia curriculum, free-water deficit teaching section.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:hard-current_sodium
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:input-current_sodium-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Current Sodium is outside [145, 180]; this is an
+      operational review prompt.
+    covers:
+      - input:current_sodium:plausibility
+    status: supported
+    sourceIds:
+      - fwd_uw_nephrology_2026
+    locators:
+      - sourceId: fwd_uw_nephrology_2026
+        locator: University of Washington nephrology hypernatremia curriculum, free-water deficit teaching section.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:input-ideal_sodium
+    kind: input
+    statement: Target serum sodium in mEq/L (defaults to 140).
+    covers:
+      - input:ideal_sodium
+    status: supported
+    sourceIds:
+      - fwd_adrogue_2000
+    locators:
+      - sourceId: fwd_adrogue_2000
+        locator: Adrogue and Madias 2000 Hypernatremia, water-deficit equation and TBW-fraction discussion.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:ref-adult-female-target
+      - case:free_water_deficit:ref-elderly-female
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:input-ideal_sodium-hard_limits
+    kind: input
+    statement: OathMCP rejects Ideal Sodium outside [120, 160] as a conservative operational envelope, not a
+      clinical cutoff.
+    covers:
+      - input:ideal_sodium:hard_limits
+    status: supported
+    sourceIds:
+      - fwd_uw_nephrology_2026
+    locators:
+      - sourceId: fwd_uw_nephrology_2026
+        locator: University of Washington nephrology hypernatremia curriculum, free-water deficit teaching section.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:hard-ideal_sodium
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:input-ideal_sodium-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Ideal Sodium is outside [135, 145]; this is an operational
+      review prompt.
+    covers:
+      - input:ideal_sodium:plausibility
+    status: supported
+    sourceIds:
+      - fwd_uw_nephrology_2026
+    locators:
+      - sourceId: fwd_uw_nephrology_2026
+        locator: University of Washington nephrology hypernatremia curriculum, free-water deficit teaching section.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:default-ideal_sodium
+    kind: default
+    statement: Ideal Sodium defaults to 140 when omitted.
+    covers:
+      - default:ideal_sodium
+    status: supported
+    sourceIds:
+      - fwd_adrogue_2000
+    locators:
+      - sourceId: fwd_adrogue_2000
+        locator: Adrogue and Madias 2000 Hypernatremia, water-deficit equation and TBW-fraction discussion.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:ref-adult-male-default
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:input-patient_category
+    kind: input
+    statement: Patient category selecting the % total body water.
+    covers:
+      - input:patient_category
+    status: supported
+    sourceIds:
+      - fwd_adrogue_2000
+    locators:
+      - sourceId: fwd_adrogue_2000
+        locator: Adrogue and Madias 2000 Hypernatremia, water-deficit equation and TBW-fraction discussion.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:ref-adult-male-default
+      - case:free_water_deficit:ref-adult-female-target
+      - case:free_water_deficit:ref-elderly-female
+      - case:free_water_deficit:missing-patient_category
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:input-patient_category-aliases
+    kind: input
+    statement: Patient Category compatibility aliases normalize to the same source-defined input and emit a
+      noncanonical-input warning.
+    covers:
+      - input:patient_category:aliases
+    status: supported
+    sourceIds:
+      - fwd_uw_nephrology_2026
+    locators:
+      - sourceId: fwd_uw_nephrology_2026
+        locator: University of Washington nephrology hypernatremia curriculum, free-water deficit teaching section.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:input-patient_category-options
+    kind: input
+    statement: Patient Category accepts only the declared source-bound options.
+    covers:
+      - input:patient_category:options
+    status: supported
+    sourceIds:
+      - fwd_adrogue_2000
+    locators:
+      - sourceId: fwd_adrogue_2000
+        locator: Adrogue and Madias 2000 Hypernatremia, water-deficit equation and TBW-fraction discussion.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:ref-adult-male-default
+      - case:free_water_deficit:ref-adult-female-target
+      - case:free_water_deficit:ref-elderly-female
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:output-free_water_deficit
+    kind: outcome
+    statement: Estimated free water deficit in liters, rounded to 2 decimal places.
+    covers:
+      - output:free_water_deficit
+    status: supported
+    sourceIds:
+      - fwd_adrogue_2000
+    locators:
+      - sourceId: fwd_adrogue_2000
+        locator: Adrogue and Madias 2000 Hypernatremia, water-deficit equation and TBW-fraction discussion.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:ref-adult-male-default
+      - case:free_water_deficit:ref-adult-female-target
+      - case:free_water_deficit:ref-elderly-female
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:output-tbw_percentage_used
+    kind: outcome
+    statement: The total-body-water fraction (as a decimal) selected by patient category.
+    covers:
+      - output:tbw_percentage_used
+    status: supported
+    sourceIds:
+      - fwd_adrogue_2000
+    locators:
+      - sourceId: fwd_adrogue_2000
+        locator: Adrogue and Madias 2000 Hypernatremia, water-deficit equation and TBW-fraction discussion.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:ref-adult-male-default
+      - case:free_water_deficit:ref-adult-female-target
+      - case:free_water_deficit:ref-elderly-female
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:free_water_deficit:constraint-0
+    kind: input
+    statement: Current sodium must be greater than target sodium for this adult hypernatremia deficit estimate.
+    covers:
+      - constraint:0
+    status: supported
+    sourceIds:
+      - fwd_adrogue_2000
+    locators:
+      - sourceId: fwd_adrogue_2000
+        locator: Adrogue and Madias 2000 Hypernatremia, water-deficit equation and TBW-fraction discussion.
+    executable: true
+    scenarioIds:
+      - case:free_water_deficit:constraint-direction
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:free_water_deficit:ref-adult-male-default
+    tags:
+      - calculator:free_water_deficit:core
+      - defaults
+    inputs: &a2
+      weight_kg: 70
+      current_sodium: 160
+      patient_category: adult_male
+    expected: &a3
+      free_water_deficit: 6
+      tbw_percentage_used: 0.6
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:free_water_deficit:formula-implementation
+      - claim:free_water_deficit:input-weight_kg
+      - claim:free_water_deficit:input-current_sodium
+      - claim:free_water_deficit:input-patient_category
+      - claim:free_water_deficit:input-patient_category-options
+      - claim:free_water_deficit:output-free_water_deficit
+      - claim:free_water_deficit:output-tbw_percentage_used
+      - claim:free_water_deficit:default-ideal_sodium
+    sourceIds:
+      - fwd_adrogue_2000
+    witnesses:
+      - formula:implementation
+      - input:weight_kg
+      - input:current_sodium
+      - input:patient_category
+      - input:patient_category:options
+      - output:free_water_deficit
+      - output:tbw_percentage_used
+      - default:ideal_sodium
+  - kind: reference
+    id: case:free_water_deficit:ref-adult-female-target
+    tags:
+      - calculator:free_water_deficit:reference
+    inputs: &a4
+      weight_kg: 60
+      current_sodium: 155
+      ideal_sodium: 145
+      patient_category: adult_female
+    expected: &a5
+      free_water_deficit: 2.07
+      tbw_percentage_used: 0.5
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:free_water_deficit:formula-implementation
+      - claim:free_water_deficit:input-weight_kg
+      - claim:free_water_deficit:input-current_sodium
+      - claim:free_water_deficit:input-ideal_sodium
+      - claim:free_water_deficit:input-patient_category
+      - claim:free_water_deficit:input-patient_category-options
+      - claim:free_water_deficit:output-free_water_deficit
+      - claim:free_water_deficit:output-tbw_percentage_used
+    sourceIds:
+      - fwd_adrogue_2000
+    witnesses:
+      - formula:implementation
+      - input:weight_kg
+      - input:current_sodium
+      - input:ideal_sodium
+      - input:patient_category
+      - input:patient_category:options
+      - output:free_water_deficit
+      - output:tbw_percentage_used
+  - kind: reference
+    id: case:free_water_deficit:ref-elderly-female
+    tags:
+      - calculator:free_water_deficit:reference
+    inputs: &a6
+      weight_kg: 60
+      current_sodium: 150
+      ideal_sodium: 140
+      patient_category: elderly_female
+    expected: &a7
+      free_water_deficit: 1.93
+      tbw_percentage_used: 0.45
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:free_water_deficit:formula-implementation
+      - claim:free_water_deficit:input-weight_kg
+      - claim:free_water_deficit:input-current_sodium
+      - claim:free_water_deficit:input-ideal_sodium
+      - claim:free_water_deficit:input-patient_category
+      - claim:free_water_deficit:input-patient_category-options
+      - claim:free_water_deficit:output-free_water_deficit
+      - claim:free_water_deficit:output-tbw_percentage_used
+    sourceIds:
+      - fwd_adrogue_2000
+    witnesses:
+      - formula:implementation
+      - input:weight_kg
+      - input:current_sodium
+      - input:ideal_sodium
+      - input:patient_category
+      - input:patient_category:options
+      - output:free_water_deficit
+      - output:tbw_percentage_used
+  - kind: edge
+    id: case:free_water_deficit:missing-patient_category
+    tags:
+      - required-inputs
+    inputs: &a1
+      weight_kg: 70
+      current_sodium: 160
+      ideal_sodium: 140
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: patient_category
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:free_water_deficit:input-patient_category
+    sourceIds:
+      - fwd_adrogue_2000
+    witnesses:
+      - input:patient_category
+  - kind: edge
+    id: case:free_water_deficit:hard-weight_kg
+    tags:
+      - hard-limits
+    inputs:
+      weight_kg: 0.05
+      current_sodium: 160
+      ideal_sodium: 140
+      patient_category: adult_male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: weight_kg
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:free_water_deficit:input-weight_kg-hard_limits
+    sourceIds:
+      - fwd_uw_nephrology_2026
+    witnesses:
+      - input:weight_kg:hard_limits
+  - kind: edge
+    id: case:free_water_deficit:hard-current_sodium
+    tags:
+      - calculator:free_water_deficit:hard-limit
+    inputs:
+      weight_kg: 70
+      current_sodium: 70
+      ideal_sodium: 140
+      patient_category: adult_male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: current_sodium
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:free_water_deficit:input-current_sodium-hard_limits
+    sourceIds:
+      - fwd_uw_nephrology_2026
+    witnesses:
+      - input:current_sodium:hard_limits
+  - kind: edge
+    id: case:free_water_deficit:hard-ideal_sodium
+    tags:
+      - calculator:free_water_deficit:hard-limit
+    inputs:
+      weight_kg: 70
+      current_sodium: 160
+      ideal_sodium: 60
+      patient_category: adult_male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: ideal_sodium
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:free_water_deficit:input-ideal_sodium-hard_limits
+    sourceIds:
+      - fwd_uw_nephrology_2026
+    witnesses:
+      - input:ideal_sodium:hard_limits
+  - kind: edge
+    id: case:free_water_deficit:plausibility
+    tags:
+      - plausibility
+    inputs:
+      weight_kg: 500
+      current_sodium: 190
+      ideal_sodium: 130
+      patient_category: adult_male
+    expected:
+      free_water_deficit: 138.46
+      tbw_percentage_used: 0.6
+    expectedBehavior: warn
+    expectedWarnings:
+      - Weight 500 is unusual (expected 1–300).
+      - Current Sodium 190 is unusual (expected 145–180).
+      - Ideal Sodium 130 is unusual (expected 135–145).
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:free_water_deficit:input-weight_kg-plausibility
+      - claim:free_water_deficit:input-current_sodium-plausibility
+      - claim:free_water_deficit:input-ideal_sodium-plausibility
+    sourceIds:
+      - fwd_uw_nephrology_2026
+    witnesses:
+      - input:weight_kg:plausibility
+      - input:current_sodium:plausibility
+      - input:ideal_sodium:plausibility
+  - kind: edge
+    id: case:free_water_deficit:aliases
+    tags:
+      - aliases
+    inputs:
+      weight_kg: 70
+      current_sodium: 160
+      ideal_sodium: 140
+      demographic: adult_male
+    expected:
+      free_water_deficit: 6
+      tbw_percentage_used: 0.6
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'demographic' is a compatibility alias; use 'patient_category'.
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:free_water_deficit:input-patient_category-aliases
+    sourceIds:
+      - fwd_uw_nephrology_2026
+    witnesses:
+      - input:patient_category:aliases
+  - kind: edge
+    id: case:free_water_deficit:constraint-direction
+    tags:
+      - constraints
+    inputs:
+      weight_kg: 70
+      current_sodium: 140
+      ideal_sodium: 140
+      patient_category: adult_male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: current_sodium
+      messageIncludes: Current sodium must be greater than target sodium for this adult hypernatremia deficit estimate.
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:free_water_deficit:constraint-0
+    sourceIds:
+      - fwd_adrogue_2000
+    witnesses:
+      - constraint:0
+  - kind: agent
+    id: case:free_water_deficit:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      weight_kg: 70
+      current_sodium: 160
+      ideal_sodium: 140
+      patient_category: adult_male
+    expected:
+      free_water_deficit: 6
+      tbw_percentage_used: 0.6
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:free_water_deficit:applicability-purpose
+    sourceIds:
+      - fwd_nhsaaa_2026
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:free_water_deficit:agent-exclusion
+    tags:
+      - agent-applicability
+    inputs: *a1
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: patient_category
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:free_water_deficit:applicability-exclusions
+    sourceIds:
+      - fwd_nhsaaa_2026
+    witnesses:
+      - applicability:exclusions
+compatibilityNotes:
+  - Removed the unsupported child category; this runtime variant is adult-only.
+explicitBlockers: []

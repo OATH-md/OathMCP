@@ -1,0 +1,76 @@
+---
+import { withBase } from "blume/components/islands/base-path.ts";
+
+interface Props {
+  logo?: {
+    alt?: string;
+    dark?: string;
+    href?: string;
+    light?: string;
+  } | null;
+}
+
+const { logo } = Astro.props;
+const light = logo?.light ?? "/brand/oath-wordmark.svg";
+const dark = logo?.dark ?? "/brand/oath-wordmark-dark.svg";
+const href = logo?.href ?? "/";
+---
+
+<a class="oath-logo" href={withBase(href)} aria-label="Oath documentation home">
+  <img
+    class="oath-logo__light"
+    src={withBase(light)}
+    width="1349"
+    height="355"
+    alt={logo?.alt ?? "Oath"}
+    decoding="async"
+  />
+  <img
+    class="oath-logo__dark"
+    src={withBase(dark)}
+    width="1093"
+    height="288"
+    alt=""
+    decoding="async"
+  />
+</a>
+
+<style>
+  .oath-logo {
+    display: inline-flex;
+    width: 4rem;
+    min-height: 2.75rem;
+    flex: none;
+    align-items: center;
+    border-radius: 0.25rem;
+    transition: scale var(--oath-duration-fast) var(--oath-ease-standard);
+  }
+
+  .oath-logo:active {
+    scale: 0.96;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .oath-logo__dark {
+    display: none;
+  }
+
+  :global(html[data-theme="dark"]) .oath-logo__light {
+    display: none;
+  }
+
+  :global(html[data-theme="dark"]) .oath-logo__dark {
+    display: block;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .oath-logo:active {
+      scale: 1;
+    }
+  }
+</style>

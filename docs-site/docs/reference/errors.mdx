@@ -1,0 +1,20 @@
+---
+title: Errors
+description: Typed, actionable errors for missing, invalid, or unsafe calculator input.
+---
+
+Common error codes include:
+
+| Code | Meaning | Caller action |
+| --- | --- | --- |
+| `UNKNOWN_CALCULATOR` | The ID is not in the live catalog. | Call `find_calculator`; do not guess. |
+| `MISSING_REQUIRED` | A required field is absent. | Obtain the value or stop; do not invent it. |
+| `BAD_TYPE` | A field has the wrong JSON shape or type. | Correct the serialization. |
+| `UNKNOWN_INPUT` | A field is not accepted by this calculator. | Call `describe_calculator` and use canonical names. |
+| `OUT_OF_HARD_LIMITS` | A numeric input is outside the operational safety envelope. | Verify patient, measurement, unit, and transcription. |
+| `CONSTRAINT_FAILED` | Cross-field or workflow constraints are not satisfied. | Resolve the stated clinical/input condition. |
+| `UNKNOWN_UNIT` | A quantity unit is not in the accepted conversion contract. | Convert or submit a documented supported unit. |
+
+An MCP tool error is an expected control path, not an invitation for the agent
+to improvise a value. Surface the field, message, expected contract, and allowed
+values when present.

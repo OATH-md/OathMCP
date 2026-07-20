@@ -1,0 +1,108 @@
+---
+title: "Glucose Infusion Rate (GIR)"
+description: "Compute the glucose infusion rate (mg/kg/min) delivered by a dextrose infusion, from patient weight, dextrose concentration, and infusion rate. Used chiefly in neonatal and parenteral-nutrition management."
+sidebar:
+  label: "Glucose Infusion Rate (GIR)"
+search:
+  tags: ["gir", "formula"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>formula</Badge> <Badge>Spec 1.0.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Compute the glucose infusion rate (mg/kg/min) delivered by a dextrose infusion, from patient weight, dextrose concentration, and infusion rate. Used chiefly in neonatal and parenteral-nutrition management. |
+| Setting | Clinical decision support; apply only in the context declared by this calculator. |
+| Model | `gir` · 1.0.0 |
+| Model kind | formula |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Reflects only the carbohydrate delivered by the specified infusion; it does not account for enteral intake or other dextrose-containing fluids running concurrently.
+
+- Reflects only the carbohydrate delivered by the specified infusion; it does not account for enteral intake or other dextrose-containing fluids running concurrently.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `weight_kg` | number | Yes | — | 0.3–300 | 0.1–700 | Patient weight in kilograms. |
+| `dextrose_concentration` | number | Yes | — | 2–70 | 0.1–100 | Dextrose concentration as a percentage (g/100 mL), e.g. 10 for D10. |
+| `infusion_rate` | number | Yes | — | 0.1–1000 | 0.01–5000 | Infusion rate in mL/hr. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `gir` | number · mg/kg/min | Always | Yes | GIR in mg/kg/min, rounded to 2 decimal places. |
+
+## Interpretation bands
+
+No deterministic interpretation bands are declared for this calculator.
+
+## Warnings, constraints, and adjustments
+
+No calculator-specific warning rules or cross-field constraints are declared beyond input validation and applicability.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "gir",
+  "inputs": {
+    "weight_kg": 3,
+    "dextrose_concentration": 10,
+    "infusion_rate": 5
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `gir`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 15/15 | 14/14 | 12/12 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://gir/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Guenst JM, Nelson LD. Predictors of total parenteral nutrition-induced lipogenesis. Chest. 1994;105(2):553-559.](https://doi.org/10.1378/chest.105.2.553)<br />doi:10.1378/chest.105.2.553 |
+
+<Panel title="Repository source">
+  Calculator ID `gir`; spec version `1.0.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

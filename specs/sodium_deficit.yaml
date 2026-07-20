@@ -1,0 +1,175 @@
+id: sodium_deficit
+version: 1.0.0
+name: Sodium Deficit in Hyponatremia
+clinicalModel:
+  modelKind: formula
+  modelId: sodium_deficit.watson_adult_theoretical
+  modelVersion: watson_adult_theoretical
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+applicability:
+  population: Adults aged 18 years or older; estimate Watson total body water
+    and the theoretical sodium-content difference between current and target
+    serum sodium in a closed system.
+  setting: Educational adult hyponatremia calculation with cause, symptoms,
+    duration, urine losses, potassium, and treatment response assessed separately.
+  exclusions:
+    - Hyponatremia is usually a disorder of water balance rather than a literal
+      whole-body sodium deficit. This value is not a sodium dose, saline volume,
+      correction-rate target, or treatment recommendation.
+  evidenceRefs:
+    - source_1
+purposeForAgents: For adults only, calculate Watson total body water and a
+  theoretical sodium-content difference. Keep it separate from treatment choice,
+  infusion volume, and correction-rate limits.
+whenNotToUse: Do not use in children or as a sodium dose, saline volume,
+  correction-rate target, or substitute for cause- and symptom-directed
+  hyponatremia management.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Adrogué HJ, Madias NE. Hyponatremia. N Engl J Med. 2000;342(21):1581-1589.
+    locator: doi:10.1056/NEJM200005253422107
+    doi: 10.1056/NEJM200005253422107
+    url: https://pubmed.ncbi.nlm.nih.gov/10824078/
+    reviewed: true
+  - id: source_2
+    type: reference
+    citation: Watson PE, Watson ID, Batt RD. Total body water volumes for adult
+      males and females estimated from simple anthropometric measurements. Am J
+      Clin Nutr. 1980;33(1):27-39.
+    locator: doi:10.1093/ajcn/33.1.27
+    doi: 10.1093/ajcn/33.1.27
+    url: https://doi.org/10.1093/ajcn/33.1.27
+    reviewed: true
+inputs:
+  weight_kg:
+    title: Weight
+    description: Patient weight in kilograms.
+    kind: number
+    plausible:
+      - 20
+      - 300
+    hardLimits:
+      - 20
+      - 700
+    required: true
+    conceptId: patient.weight_kg
+    examples:
+      - 20
+    sourceRefs:
+      - source_1
+    sharedKey: weight_kg
+  current_sodium:
+    title: Current Sodium
+    description: Current serum sodium in mEq/L.
+    kind: number
+    plausible:
+      - 100
+      - 160
+    hardLimits:
+      - 80
+      - 200
+    required: true
+    conceptId: sodium_deficit.input.current_sodium
+    examples:
+      - 120
+    sourceRefs:
+      - source_1
+  desired_sodium:
+    title: Desired Sodium
+    description: Target serum sodium in mEq/L (must exceed current sodium).
+    kind: number
+    plausible:
+      - 110
+      - 160
+    hardLimits:
+      - 80
+      - 200
+    required: true
+    conceptId: sodium_deficit.input.desired_sodium
+    examples:
+      - 130
+    sourceRefs:
+      - source_1
+    sharedKey: desired_sodium
+  age:
+    title: Age
+    description: Adult age in years for the Watson TBW equation.
+    kind: integer
+    plausible:
+      - 18
+      - 120
+    hardLimits:
+      - 18
+      - 120
+    required: true
+    conceptId: sodium_deficit.input.age
+    examples:
+      - 40
+    sourceRefs:
+      - source_1
+  height_cm:
+    title: Height
+    description: Height in centimeters. Required for the adult (age ≥ 18) TBW formula.
+    kind: number
+    plausible:
+      - 100
+      - 250
+    hardLimits:
+      - 100
+      - 300
+    required: true
+    conceptId: patient.height_cm
+    examples:
+      - 175
+    sourceRefs:
+      - source_1
+    sharedKey: height_cm
+  sex:
+    title: Sex
+    description: Biological sex (male or female). Required for the adult (age ≥ 18)
+      TBW formula.
+    kind: enum
+    enumValues:
+      - value: male
+        label: male
+        description: "Sex: male."
+      - value: female
+        label: female
+        description: "Sex: female."
+    required: true
+    conceptId: sodium_deficit.input.sex
+    examples:
+      - male
+    sourceRefs:
+      - source_1
+outputs:
+  sodium_deficit:
+    title: Sodium Deficit
+    description: Estimated total sodium deficit in mEq, rounded to 1 decimal place.
+    kind: number
+    unit: mEq
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+  total_body_water:
+    title: Total Body Water
+    description: Estimated total body water in liters, rounded to 2 decimal places.
+    kind: number
+    unit: L
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - sodium_deficit
+constraints:
+  - kind: compare
+    left: desired_sodium
+    operator: ">"
+    right: current_sodium
+    message: Desired sodium must be greater than current sodium.

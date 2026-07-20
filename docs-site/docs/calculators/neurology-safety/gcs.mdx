@@ -1,0 +1,195 @@
+---
+title: "Glasgow Coma Scale (GCS)"
+description: "Record Glasgow Coma Scale components and a total only when all three components are testable; preserve Not Testable reasons and modifiers."
+sidebar:
+  label: "Glasgow Coma Scale (GCS)"
+search:
+  tags: ["gcs", "score"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>score</Badge> <Badge>Spec 1.1.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Standardized assessment of eye, verbal, and motor responsiveness. Report each component; report a total only when all three are testable. |
+| Setting | Acute neurological assessment with the assessment context and modifiers documented. |
+| Model | `gcs` · 1974_with_official_nt_reporting |
+| Model kind | score |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Do not manufacture a total when any component is Not Testable, and do not generalize traumatic-brain-injury severity labels to other contexts.
+
+- Intubation, tracheostomy, sedation, paralysis, communication barriers, and local ocular injury can make a component Not Testable. Never substitute 1 for an untestable component or report a misleading total.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `assessment_context` | enum (3 options) | Yes | — | — | — | Context in which the component responses were assessed. |
+| `modifier_context` | enum (8 options) | Yes | — | — | — | Dominant factor affecting interpretation; choose a component's Not Testable option whenever that response cannot actually be tested. |
+| `eye_opening` | enum (5 options) | Yes | — | — | — | Best observed eye-opening response, or Not Testable when local factors prevent assessment. |
+| `verbal_response` | enum (7 options) | Yes | — | — | — | Best observed verbal response, or Not Testable with an explicit reason. |
+| `motor_response` | enum (7 options) | Yes | — | — | — | Best observed motor response, or Not Testable when a physical limitation prevents assessment. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+<Expandable title="Assessment Context options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `general_consciousness` | general consciousness assessment | General standardized level-of-consciousness assessment. | — |
+| `acute_brain_injury` | acute brain injury | Assessment in suspected or confirmed acute brain injury. | — |
+| `traumatic_brain_injury` | traumatic brain injury | Assessment in traumatic brain injury. | — |
+
+</Expandable>
+
+
+<Expandable title="Examination Modifier options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `none` | no modifier | No material examination modifier documented. | — |
+| `intubation_or_tracheostomy` | intubation or tracheostomy | Verbal assessment may be Not Testable. | — |
+| `sedation` | sedation | Sedation may depress observed responses. | — |
+| `paralysis` | paralysis | Motor assessment may be Not Testable. | — |
+| `language_or_communication_barrier` | language or communication barrier | Verbal assessment may be Not Testable. | — |
+| `ocular_obstruction` | ocular obstruction | Eye opening may be Not Testable. | — |
+| `other` | other modifier | Another documented factor materially affects testing. | — |
+| `multiple_modifiers` | multiple modifiers | More than one documented modifier affects different components; record each affected component Not Testable. | — |
+
+</Expandable>
+
+
+<Expandable title="Eye Opening options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `none` | none | No eye opening. | 1 |
+| `to_pain` | to pressure | Eye opening to pressure. | 2 |
+| `to_speech` | to sound | Eye opening to sound. | 3 |
+| `spontaneous` | spontaneous | Eyes open spontaneously. | 4 |
+| `not_testable_ocular_obstruction` | not testable - ocular obstruction | Eye opening cannot be tested because local factors obstruct assessment. | Not scorable |
+
+</Expandable>
+
+
+<Expandable title="Verbal Response options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `none` | none | No verbal response. | 1 |
+| `incomprehensible_sounds` | sounds | Incomprehensible sounds. | 2 |
+| `inappropriate_words` | words | Inappropriate words. | 3 |
+| `confused` | confused | Confused conversation. | 4 |
+| `oriented` | oriented | Oriented verbal response. | 5 |
+| `not_testable_intubation` | not testable - intubation or tracheostomy | An artificial airway prevents verbal testing; do not substitute 1. | Not scorable |
+| `not_testable_communication_barrier` | not testable - communication barrier | Communication cannot be assessed validly; do not substitute 1. | Not scorable |
+
+</Expandable>
+
+
+<Expandable title="Motor Response options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `none` | none | No motor response. | 1 |
+| `extension` | extension | Abnormal extension. | 2 |
+| `flexion` | abnormal flexion | Abnormal flexion. | 3 |
+| `flexion_withdrawal` | normal flexion | Normal flexion or withdrawal. | 4 |
+| `localizes_to_pain` | localizes | Localizes pressure. | 5 |
+| `obeys_commands` | obeys commands | Obeys commands. | 6 |
+| `not_testable_paralysis` | not testable - physical limitation | Movement cannot be tested validly; do not substitute 1. | Not scorable |
+
+</Expandable>
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `gcs_total` | integer | Compute condition: complete_total | Yes | Total score (3-15), returned only when all components are testable. |
+| `eye_score` | integer | Compute condition: eye_testable | No | Eye component score, omitted when eye opening is Not Testable. |
+| `verbal_score` | integer | Compute condition: verbal_testable | No | Verbal component score, omitted when verbal response is Not Testable. |
+| `motor_score` | integer | Compute condition: motor_testable | No | Motor component score, omitted when motor response is Not Testable. |
+| `assessment_complete` | boolean | Always | Yes | True only when all components are testable and a total can be reported. |
+| `missing_component_reasons` | string_list | Always | No | Reasons omitted components and the total could not be scored; empty when complete. |
+
+## Interpretation bands
+
+No deterministic interpretation bands are declared for this calculator.
+
+## Warnings, constraints, and adjustments
+
+- **Constraint (requireValueWhen):** Ocular obstruction requires the eye component to be recorded Not Testable.
+- **Constraint (requireAtLeastValuesWhen):** The ocular-obstruction Not Testable option requires the matching or multiple-modifier context.
+- **Constraint (requireValueWhen):** Intubation or tracheostomy requires the verbal component to be recorded Not Testable.
+- **Constraint (requireAtLeastValuesWhen):** The intubation Not Testable option requires the matching or multiple-modifier context.
+- **Constraint (requireValueWhen):** A communication barrier requires the verbal component to be recorded Not Testable.
+- **Constraint (requireAtLeastValuesWhen):** The communication-barrier Not Testable option requires the matching or multiple-modifier context.
+- **Constraint (requireValueWhen):** Paralysis requires the motor component to be recorded Not Testable.
+- **Constraint (requireAtLeastValuesWhen):** The paralysis Not Testable option requires the matching or multiple-modifier context.
+- **Constraint (requireAtLeastValuesWhen):** Multiple modifiers require at least two affected GCS components to be recorded Not Testable.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "gcs",
+  "inputs": {
+    "assessment_context": "general_consciousness",
+    "modifier_context": "none",
+    "eye_opening": "spontaneous",
+    "verbal_response": "oriented",
+    "motor_response": "obeys_commands"
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `gcs`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 29/29 | 28/28 | 45/45 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://gcs/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Teasdale G, Jennett B. Assessment of coma and impaired consciousness. A practical scale. Lancet. 1974;2(7872):81-84.](https://doi.org/10.1016/S0140-6736(74)91639-0)<br />doi:10.1016/S0140-6736(74)91639-0 |
+| `source_2` | guideline | [Glasgow Coma Scale. Official assessment aid and FAQ for factors interfering with assessment and Not Testable reporting.](https://www.glasgowcomascale.org/faq/)<br />url:https://www.glasgowcomascale.org/faq/ |
+
+<Panel title="Repository source">
+  Calculator ID `gcs`; spec version `1.1.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

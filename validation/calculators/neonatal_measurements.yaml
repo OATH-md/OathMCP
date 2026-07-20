@@ -1,0 +1,1820 @@
+calculatorId: neonatal_measurements
+specVersion: 1.1.0
+clinicalModel: Shukla catheter, Kempley ETT, and Zubrow BP reference estimates
+variant: shukla_1986_kempley_2008_zubrow_1995
+population: Newborn infants within the source-table gestational-age and weight ranges.
+setting: Initial measurement estimates requiring direct device-position or clinical confirmation.
+assessmentTiming: Birth weight, completed gestational age, explicit postnatal hours for day-one BP, and corrected age at
+  the relevant measurement time.
+endpoint: Structurally conditional numeric estimates, BP ranges, exact source identity, and limitations.
+reviewGroup: interpreter_conditional
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:neonatal_measurements:2026-07-16
+    calculatorId: neonatal_measurements
+    model: Shukla catheter, Kempley ETT, and Zubrow BP reference estimates
+    variant: shukla_1986_kempley_2008_zubrow_1995
+    searchedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    sources:
+      - id: search:neonatal_measurements:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline_interpreter
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed E-utilities exact UID query
+        exactQuery: 3728405[uid] OR 18372092[uid] OR 8648456[uid]
+        translationExposed: true
+        translatedQuery: '"3728405"[UID] OR "18372092"[UID] OR "8648456"[UID]'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 3
+        stableCitationIds:
+          - PMID:3728405
+          - PMID:18372092
+          - PMID:8648456
+      - id: search:neonatal_measurements:neonatal_shukla_1986
+        sourceRole: derivation
+        authorityId: neonatal_shukla_1986
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact neonatal_measurements formula, finite branch, conditional output, limitation, population, timing,
+          correction, retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID 3728405
+      - id: search:neonatal_measurements:neonatal_kempley_2008
+        sourceRole: derivation
+        authorityId: neonatal_kempley_2008
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact neonatal_measurements formula, finite branch, conditional output, limitation, population, timing,
+          correction, retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID 18372092; doi:10.1016/j.resuscitation.2008.02.002
+      - id: search:neonatal_measurements:neonatal_zubrow_1995
+        sourceRole: derivation
+        authorityId: neonatal_zubrow_1995
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact neonatal_measurements formula, finite branch, conditional output, limitation, population, timing,
+          correction, retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID 8648456
+      - id: search:neonatal_measurements:neonatal_aha_aap_2025
+        sourceRole: controlling_authority
+        authorityId: neonatal_aha_aap_2025
+        database: Primary or responsible-authority source
+        site: cpr.heart.org
+        interface: direct document review
+        exactQuery: Exact neonatal_measurements formula, finite branch, conditional output, limitation, population, timing,
+          correction, retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - 2025 AHA/AAP Part 5 checked 2026-07-16
+      - id: search:neonatal_measurements:neonatal_procedures_review_2023
+        sourceRole: specialty_guidance
+        authorityId: neonatal_procedures_review_2023
+        database: Primary or responsible-authority source
+        site: pmc.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact neonatal_measurements formula, finite branch, conditional output, limitation, population, timing,
+          correction, retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMCID PMC10497369; 2023
+    accounting:
+      retrieved: 3
+      deduplicated: 3
+      screened: 3
+      fullTextAssessed: 3
+      excluded: 0
+      included: 3
+    deduplication:
+      method: PMID-based deduplication of the exact E-utilities result set; direct authority documents and citation chasing
+        are recorded separately and contribute zero bibliographic retrievals.
+      tool: PubMed E-utilities JSON export plus direct full-text review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: neonatal_shukla_1986
+        title: Rapid estimation of insertional length of umbilical catheters in newborns.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: neonatal_kempley_2008
+        title: Endotracheal tube length for neonatal intubation.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: neonatal_zubrow_1995
+        title: "Determinants of blood pressure in infants admitted to neonatal intensive care units: a prospective multicenter
+          study."
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:neonatal_measurements:pubmed
+      checklist:
+        - Concept coverage and exact model or branch identity
+        - Controlled vocabulary, text words, and stable identifiers
+        - Boolean logic and reproducibility
+        - Population, timing, assay or table provenance, and conditional-output specificity
+        - Corrections, retractions, supersession, and current responsible-authority guidance
+      comments:
+        - The exact UID query returned 3 unique PMID records; every result is represented in the full-text screening
+          ledger.
+        - Direct current authority and specialty documents were checked separately so their update state is not
+          conflated with MEDLINE retrieval accounting.
+      resolution: Exact query results, stable identifiers, full-text dispositions, source roles, claim locators, and current
+        authority checks were reconciled against the live PubMed and official-document surfaces.
+      resolved: true
+      reviewer: OathMCP independent search QA lane
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline_interpreter
+  - neonatal_shukla_1986
+  - neonatal_kempley_2008
+  - neonatal_zubrow_1995
+  - neonatal_aha_aap_2025
+  - neonatal_procedures_review_2023
+claims:
+  - id: claim:neonatal_measurements:calculator-model
+    kind: applicability
+    statement: neonatal_measurements implements only the model, variant, population, timing, and endpoint declared in this
+      dossier.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - neonatal_aha_aap_2025
+    locators:
+      - sourceId: neonatal_aha_aap_2025
+        locator: "2025 AHA/AAP Part 5, airway and intravascular-access sections: newborn airway/access procedures require
+          trained clinical assessment and confirmation; estimates do not replace placement verification."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and scope are source-governed; every runtime-verifiable surface is covered by
+      separate executable claims.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:formula-implementation
+    kind: formula
+    statement: neonatal_measurements applies the cited deterministic formulas, finite branches, conditional availability
+      rules, and rounding exactly as declared.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - neonatal_shukla_1986
+      - neonatal_kempley_2008
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    locators:
+      - sourceId: neonatal_shukla_1986
+        locator: "Shukla and Ferrara, formula and worked measurements: UAC = 3 x birth weight (kg) + 9 cm; UVC = one-half UAC +
+          1 cm; estimates require position confirmation."
+      - sourceId: neonatal_kempley_2008
+        locator: "Kempley et al., gestational-age table: initial oral ETT length groups from 23-24 through 41-43 completed
+          weeks, with final position confirmation."
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+      - sourceId: neonatal_aha_aap_2025
+        locator: "2025 AHA/AAP Part 5, airway and intravascular-access sections: newborn airway/access procedures require
+          trained clinical assessment and confirmation; estimates do not replace placement verification."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+      - case:neonatal_measurements:reference-1
+      - case:neonatal_measurements:reference-2
+      - case:neonatal_measurements:reference-3
+      - case:neonatal_measurements:reference-4
+      - case:neonatal_measurements:reference-5
+      - case:neonatal_measurements:reference-aliases
+      - case:neonatal_measurements:branch-weight
+      - case:neonatal_measurements:branch-gestation
+      - case:neonatal_measurements:branch-corrected
+      - case:neonatal_measurements:branch-weight-gestation
+      - case:neonatal_measurements:branch-weight-corrected
+      - case:neonatal_measurements:branch-gestation-corrected
+      - case:neonatal_measurements:branch-all
+      - case:neonatal_measurements:branch-day-one-24h
+      - case:neonatal_measurements:branch-after-day-one
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:applicability-purpose
+    kind: applicability
+    statement: neonatal_measurements is limited to deterministic findings or initial measurement estimates within the cited
+      clinical context.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - neonatal_aha_aap_2025
+    locators:
+      - sourceId: neonatal_aha_aap_2025
+        locator: "2025 AHA/AAP Part 5, airway and intravascular-access sections: newborn airway/access procedures require
+          trained clinical assessment and confirmation; estimates do not replace placement verification."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:applicability-exclusions
+    kind: applicability
+    statement: neonatal_measurements preserves the cited exclusions and does not turn a compatible pattern or estimate into
+      diagnosis, confidence, prognosis, treatment, or confirmed device position.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - neonatal_aha_aap_2025
+    locators:
+      - sourceId: neonatal_aha_aap_2025
+        locator: "2025 AHA/AAP Part 5, airway and intravascular-access sections: newborn airway/access procedures require
+          trained clinical assessment and confirmation; estimates do not replace placement verification."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:input-weight-grams
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for input:weight_grams.
+    covers:
+      - input:weight_grams
+    status: supported
+    sourceIds:
+      - neonatal_shukla_1986
+    locators:
+      - sourceId: neonatal_shukla_1986
+        locator: "Shukla and Ferrara, formula and worked measurements: UAC = 3 x birth weight (kg) + 9 cm; UVC = one-half UAC +
+          1 cm; estimates require position confirmation."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+      - case:neonatal_measurements:hard-weight_grams
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:input-weight-grams-hard-limits
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for input:weight_grams:hard_limits.
+    covers:
+      - input:weight_grams:hard_limits
+    status: supported
+    sourceIds:
+      - neonatal_shukla_1986
+    locators:
+      - sourceId: neonatal_shukla_1986
+        locator: "Shukla and Ferrara, formula and worked measurements: UAC = 3 x birth weight (kg) + 9 cm; UVC = one-half UAC +
+          1 cm; estimates require position confirmation."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:hard-weight_grams
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:input-weight-grams-plausibility
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for input:weight_grams:plausibility.
+    covers:
+      - input:weight_grams:plausibility
+    status: supported
+    sourceIds:
+      - neonatal_shukla_1986
+    locators:
+      - sourceId: neonatal_shukla_1986
+        locator: "Shukla and Ferrara, formula and worked measurements: UAC = 3 x birth weight (kg) + 9 cm; UVC = one-half UAC +
+          1 cm; estimates require position confirmation."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:plausibility-weight_grams
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:input-gestational-age-weeks
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for input:gestational_age_weeks.
+    covers:
+      - input:gestational_age_weeks
+    status: supported
+    sourceIds:
+      - neonatal_kempley_2008
+    locators:
+      - sourceId: neonatal_kempley_2008
+        locator: "Kempley et al., gestational-age table: initial oral ETT length groups from 23-24 through 41-43 completed
+          weeks, with final position confirmation."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+      - case:neonatal_measurements:hard-gestational_age_weeks
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:input-gestational-age-weeks-hard-limits
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for input:gestational_age_weeks:hard_limits.
+    covers:
+      - input:gestational_age_weeks:hard_limits
+    status: supported
+    sourceIds:
+      - neonatal_kempley_2008
+    locators:
+      - sourceId: neonatal_kempley_2008
+        locator: "Kempley et al., gestational-age table: initial oral ETT length groups from 23-24 through 41-43 completed
+          weeks, with final position confirmation."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:hard-gestational_age_weeks
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:input-gestational-age-weeks-aliases
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for input:gestational_age_weeks:aliases.
+    covers:
+      - input:gestational_age_weeks:aliases
+    status: supported
+    sourceIds:
+      - neonatal_kempley_2008
+    locators:
+      - sourceId: neonatal_kempley_2008
+        locator: "Kempley et al., gestational-age table: initial oral ETT length groups from 23-24 through 41-43 completed
+          weeks, with final position confirmation."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:input-postnatal-age-hours
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for input:postnatal_age_hours.
+    covers:
+      - input:postnatal_age_hours
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+      - case:neonatal_measurements:hard-postnatal_age_hours
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:input-postnatal-age-hours-hard-limits
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for input:postnatal_age_hours:hard_limits.
+    covers:
+      - input:postnatal_age_hours:hard_limits
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:hard-postnatal_age_hours
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:input-postnatal-age-hours-plausibility
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for input:postnatal_age_hours:plausibility.
+    covers:
+      - input:postnatal_age_hours:plausibility
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:plausibility-postnatal_age_hours
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:input-corrected-gestational-age-weeks
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for input:corrected_gestational_age_weeks.
+    covers:
+      - input:corrected_gestational_age_weeks
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+      - case:neonatal_measurements:hard-corrected_gestational_age_weeks
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:input-corrected-gestational-age-weeks-hard-limits
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for
+      input:corrected_gestational_age_weeks:hard_limits.
+    covers:
+      - input:corrected_gestational_age_weeks:hard_limits
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:hard-corrected_gestational_age_weeks
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:input-corrected-gestational-age-weeks-aliases
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for
+      input:corrected_gestational_age_weeks:aliases.
+    covers:
+      - input:corrected_gestational_age_weeks:aliases
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-uac-depth-estimate-cm
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:uac_depth_estimate_cm.
+    covers:
+      - output:uac_depth_estimate_cm
+    status: supported
+    sourceIds:
+      - neonatal_shukla_1986
+    locators:
+      - sourceId: neonatal_shukla_1986
+        locator: "Shukla and Ferrara, formula and worked measurements: UAC = 3 x birth weight (kg) + 9 cm; UVC = one-half UAC +
+          1 cm; estimates require position confirmation."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-uvc-depth-estimate-cm
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:uvc_depth_estimate_cm.
+    covers:
+      - output:uvc_depth_estimate_cm
+    status: supported
+    sourceIds:
+      - neonatal_shukla_1986
+    locators:
+      - sourceId: neonatal_shukla_1986
+        locator: "Shukla and Ferrara, formula and worked measurements: UAC = 3 x birth weight (kg) + 9 cm; UVC = one-half UAC +
+          1 cm; estimates require position confirmation."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-catheter-formula-id
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:catheter_formula_id.
+    covers:
+      - output:catheter_formula_id
+    status: supported
+    sourceIds:
+      - neonatal_shukla_1986
+    locators:
+      - sourceId: neonatal_shukla_1986
+        locator: "Shukla and Ferrara, formula and worked measurements: UAC = 3 x birth weight (kg) + 9 cm; UVC = one-half UAC +
+          1 cm; estimates require position confirmation."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-ett-depth-at-lip-cm
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:ett_depth_at_lip_cm.
+    covers:
+      - output:ett_depth_at_lip_cm
+    status: supported
+    sourceIds:
+      - neonatal_kempley_2008
+    locators:
+      - sourceId: neonatal_kempley_2008
+        locator: "Kempley et al., gestational-age table: initial oral ETT length groups from 23-24 through 41-43 completed
+          weeks, with final position confirmation."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-day-one-systolic-bp-mm-hg
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:day_one_systolic_bp_mm_hg.
+    covers:
+      - output:day_one_systolic_bp_mm_hg
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-day-one-diastolic-bp-mm-hg
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:day_one_diastolic_bp_mm_hg.
+    covers:
+      - output:day_one_diastolic_bp_mm_hg
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-day-one-map-mm-hg
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:day_one_map_mm_hg.
+    covers:
+      - output:day_one_map_mm_hg
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-day-one-pulse-pressure-mm-hg
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:day_one_pulse_pressure_mm_hg.
+    covers:
+      - output:day_one_pulse_pressure_mm_hg
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-corrected-systolic-bp-mm-hg
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:corrected_systolic_bp_mm_hg.
+    covers:
+      - output:corrected_systolic_bp_mm_hg
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-corrected-diastolic-bp-mm-hg
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:corrected_diastolic_bp_mm_hg.
+    covers:
+      - output:corrected_diastolic_bp_mm_hg
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-corrected-map-mm-hg
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:corrected_map_mm_hg.
+    covers:
+      - output:corrected_map_mm_hg
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-corrected-pulse-pressure-mm-hg
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:corrected_pulse_pressure_mm_hg.
+    covers:
+      - output:corrected_pulse_pressure_mm_hg
+    status: supported
+    sourceIds:
+      - neonatal_zubrow_1995
+    locators:
+      - sourceId: neonatal_zubrow_1995
+        locator: "Zubrow et al., gestational and postnatal-age reference curves/tables: descriptive low, mean, and high SBP,
+          DBP, MAP, and pulse-pressure values, not treatment thresholds."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:output-limitations
+    kind: outcome
+    statement: neonatal_measurements uses the source-defined contract and behavior for output:limitations.
+    covers:
+      - output:limitations
+    status: supported
+    sourceIds:
+      - neonatal_aha_aap_2025
+    locators:
+      - sourceId: neonatal_aha_aap_2025
+        locator: "2025 AHA/AAP Part 5, airway and intravascular-access sections: newborn airway/access procedures require
+          trained clinical assessment and confirmation; estimates do not replace placement verification."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:neonatal_measurements:constraint-0
+    kind: input
+    statement: neonatal_measurements uses the source-defined contract and behavior for constraint:0.
+    covers:
+      - constraint:0
+    status: supported
+    sourceIds:
+      - neonatal_shukla_1986
+    locators:
+      - sourceId: neonatal_shukla_1986
+        locator: "Shukla and Ferrara, formula and worked measurements: UAC = 3 x birth weight (kg) + 9 cm; UVC = one-half UAC +
+          1 cm; estimates require position confirmation."
+    executable: true
+    scenarioIds:
+      - case:neonatal_measurements:constraint-0
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+cases:
+  - kind: reference
+    id: case:neonatal_measurements:reference-comprehensive
+    tags:
+      - calculator:neonatal_measurements:core
+      - conditional-output
+    inputs:
+      weight_grams: 1200
+      gestational_age_weeks: 30
+      postnatal_age_hours: 12
+      corrected_gestational_age_weeks: 36
+    expected:
+      uac_depth_estimate_cm: 12.6
+      uvc_depth_estimate_cm: 7.3
+      catheter_formula_id: shukla_1986_original
+      ett_depth_at_lip_cm: 7
+      day_one_systolic_bp_mm_hg:
+        low: 35
+        mean: 50
+        high: 66
+      day_one_diastolic_bp_mm_hg:
+        low: 22
+        mean: 31
+        high: 39
+      day_one_map_mm_hg:
+        low: 26
+        mean: 37
+        high: 48
+      day_one_pulse_pressure_mm_hg:
+        low: 9
+        mean: 13
+        high: 19
+      corrected_systolic_bp_mm_hg:
+        low: 55
+        mean: 71
+        high: 87
+      corrected_diastolic_bp_mm_hg:
+        low: 27
+        mean: 41
+        high: 58
+      corrected_map_mm_hg:
+        low: 36
+        mean: 51
+        high: 68
+      corrected_pulse_pressure_mm_hg:
+        low: 18
+        mean: 22
+        high: 30
+      limitations:
+        - catheter_estimate_requires_direct_tip_position_confirmation
+        - original_shukla_uvc_formula_has_documented_over_insertion_risk
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_values_are_descriptive_references_not_treatment_thresholds
+        - corrected_age_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+      - claim:neonatal_measurements:input-weight-grams
+      - claim:neonatal_measurements:input-gestational-age-weeks
+      - claim:neonatal_measurements:input-postnatal-age-hours
+      - claim:neonatal_measurements:input-corrected-gestational-age-weeks
+      - claim:neonatal_measurements:output-uac-depth-estimate-cm
+      - claim:neonatal_measurements:output-uvc-depth-estimate-cm
+      - claim:neonatal_measurements:output-catheter-formula-id
+      - claim:neonatal_measurements:output-ett-depth-at-lip-cm
+      - claim:neonatal_measurements:output-day-one-systolic-bp-mm-hg
+      - claim:neonatal_measurements:output-day-one-diastolic-bp-mm-hg
+      - claim:neonatal_measurements:output-day-one-map-mm-hg
+      - claim:neonatal_measurements:output-day-one-pulse-pressure-mm-hg
+      - claim:neonatal_measurements:output-corrected-systolic-bp-mm-hg
+      - claim:neonatal_measurements:output-corrected-diastolic-bp-mm-hg
+      - claim:neonatal_measurements:output-corrected-map-mm-hg
+      - claim:neonatal_measurements:output-corrected-pulse-pressure-mm-hg
+      - claim:neonatal_measurements:output-limitations
+    sourceIds:
+      - neonatal_shukla_1986
+      - neonatal_kempley_2008
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+      - input:weight_grams
+      - input:gestational_age_weeks
+      - input:postnatal_age_hours
+      - input:corrected_gestational_age_weeks
+      - output:uac_depth_estimate_cm
+      - output:uvc_depth_estimate_cm
+      - output:catheter_formula_id
+      - output:ett_depth_at_lip_cm
+      - output:day_one_systolic_bp_mm_hg
+      - output:day_one_diastolic_bp_mm_hg
+      - output:day_one_map_mm_hg
+      - output:day_one_pulse_pressure_mm_hg
+      - output:corrected_systolic_bp_mm_hg
+      - output:corrected_diastolic_bp_mm_hg
+      - output:corrected_map_mm_hg
+      - output:corrected_pulse_pressure_mm_hg
+      - output:limitations
+  - kind: reference
+    id: case:neonatal_measurements:reference-1
+    tags:
+      - calculator:neonatal_measurements:source-derived
+    inputs:
+      weight_grams: 1200
+      gestational_age_weeks: 30
+      postnatal_age_hours: 12
+    expected:
+      uac_depth_estimate_cm: 12.6
+      uvc_depth_estimate_cm: 7.3
+      catheter_formula_id: shukla_1986_original
+      ett_depth_at_lip_cm: 7
+      day_one_systolic_bp_mm_hg:
+        low: 35
+        mean: 50
+        high: 66
+      day_one_diastolic_bp_mm_hg:
+        low: 22
+        mean: 31
+        high: 39
+      day_one_map_mm_hg:
+        low: 26
+        mean: 37
+        high: 48
+      day_one_pulse_pressure_mm_hg:
+        low: 9
+        mean: 13
+        high: 19
+      limitations:
+        - catheter_estimate_requires_direct_tip_position_confirmation
+        - original_shukla_uvc_formula_has_documented_over_insertion_risk
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_shukla_1986
+      - neonatal_kempley_2008
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:reference-2
+    tags:
+      - calculator:neonatal_measurements:source-derived
+    inputs:
+      weight_grams: 999.5
+    expected:
+      uac_depth_estimate_cm: 12
+      uvc_depth_estimate_cm: 7
+      catheter_formula_id: shukla_1986_original
+      limitations:
+        - catheter_estimate_requires_direct_tip_position_confirmation
+        - original_shukla_uvc_formula_has_documented_over_insertion_risk
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_shukla_1986
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:reference-3
+    tags:
+      - calculator:neonatal_measurements:source-derived
+    inputs:
+      gestational_age_weeks: 28
+      postnatal_age_hours: 12
+    expected:
+      ett_depth_at_lip_cm: 6.5
+      day_one_systolic_bp_mm_hg:
+        low: 31
+        mean: 47
+        high: 63
+      day_one_diastolic_bp_mm_hg:
+        low: 20
+        mean: 29
+        high: 37
+      day_one_map_mm_hg:
+        low: 24
+        mean: 35
+        high: 46
+      day_one_pulse_pressure_mm_hg:
+        low: 9
+        mean: 13
+        high: 19
+      limitations:
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_kempley_2008
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:reference-4
+    tags:
+      - calculator:neonatal_measurements:source-derived
+    inputs:
+      corrected_gestational_age_weeks: 36
+    expected:
+      corrected_systolic_bp_mm_hg:
+        low: 55
+        mean: 71
+        high: 87
+      corrected_diastolic_bp_mm_hg:
+        low: 27
+        mean: 41
+        high: 58
+      corrected_map_mm_hg:
+        low: 36
+        mean: 51
+        high: 68
+      corrected_pulse_pressure_mm_hg:
+        low: 18
+        mean: 22
+        high: 30
+      limitations:
+        - corrected_age_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:reference-5
+    tags:
+      - calculator:neonatal_measurements:source-derived
+    inputs:
+      weight_grams: 3200
+      gestational_age_weeks: 40
+      postnatal_age_hours: 12
+      corrected_gestational_age_weeks: 42
+    expected:
+      uac_depth_estimate_cm: 18.6
+      uvc_depth_estimate_cm: 10.3
+      catheter_formula_id: shukla_1986_original
+      ett_depth_at_lip_cm: 8.5
+      day_one_systolic_bp_mm_hg:
+        low: 48
+        mean: 64
+        high: 81
+      day_one_diastolic_bp_mm_hg:
+        low: 32
+        mean: 41
+        high: 49
+      day_one_map_mm_hg:
+        low: 37
+        mean: 49
+        high: 60
+      day_one_pulse_pressure_mm_hg:
+        low: 12
+        mean: 15
+        high: 21
+      corrected_systolic_bp_mm_hg:
+        low: 63
+        mean: 82
+        high: 95
+      corrected_diastolic_bp_mm_hg:
+        low: 32
+        mean: 47
+        high: 63
+      corrected_map_mm_hg:
+        low: 42
+        mean: 59
+        high: 74
+      corrected_pulse_pressure_mm_hg:
+        low: 20
+        mean: 25
+        high: 33
+      limitations:
+        - catheter_estimate_requires_direct_tip_position_confirmation
+        - original_shukla_uvc_formula_has_documented_over_insertion_risk
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_values_are_descriptive_references_not_treatment_thresholds
+        - corrected_age_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_shukla_1986
+      - neonatal_kempley_2008
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:reference-aliases
+    tags:
+      - aliases
+    inputs:
+      weight_grams: 1200
+      postnatal_age_hours: 12
+      gestational_age: 30
+      corrected_gestational_age: 36
+    expected:
+      uac_depth_estimate_cm: 12.6
+      uvc_depth_estimate_cm: 7.3
+      catheter_formula_id: shukla_1986_original
+      ett_depth_at_lip_cm: 7
+      day_one_systolic_bp_mm_hg:
+        low: 35
+        mean: 50
+        high: 66
+      day_one_diastolic_bp_mm_hg:
+        low: 22
+        mean: 31
+        high: 39
+      day_one_map_mm_hg:
+        low: 26
+        mean: 37
+        high: 48
+      day_one_pulse_pressure_mm_hg:
+        low: 9
+        mean: 13
+        high: 19
+      corrected_systolic_bp_mm_hg:
+        low: 55
+        mean: 71
+        high: 87
+      corrected_diastolic_bp_mm_hg:
+        low: 27
+        mean: 41
+        high: 58
+      corrected_map_mm_hg:
+        low: 36
+        mean: 51
+        high: 68
+      corrected_pulse_pressure_mm_hg:
+        low: 18
+        mean: 22
+        high: 30
+      limitations:
+        - catheter_estimate_requires_direct_tip_position_confirmation
+        - original_shukla_uvc_formula_has_documented_over_insertion_risk
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_values_are_descriptive_references_not_treatment_thresholds
+        - corrected_age_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'gestational_age' is a compatibility alias; use 'gestational_age_weeks'.
+      - Input 'corrected_gestational_age' is a compatibility alias; use 'corrected_gestational_age_weeks'.
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+      - claim:neonatal_measurements:input-gestational-age-weeks-aliases
+      - claim:neonatal_measurements:input-corrected-gestational-age-weeks-aliases
+    sourceIds:
+      - neonatal_shukla_1986
+      - neonatal_kempley_2008
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+      - input:gestational_age_weeks:aliases
+      - input:corrected_gestational_age_weeks:aliases
+  - kind: edge
+    id: case:neonatal_measurements:hard-weight_grams
+    tags:
+      - hard-limits
+      - required-inputs
+    inputs:
+      weight_grams: 0
+      gestational_age_weeks: 30
+      postnatal_age_hours: 12
+      corrected_gestational_age_weeks: 36
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: weight_grams
+      messageIncludes: Birth Weight 0 is outside physiological limits [1, 10000].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:neonatal_measurements:input-weight-grams-hard-limits
+      - claim:neonatal_measurements:input-weight-grams
+    sourceIds:
+      - neonatal_shukla_1986
+    witnesses:
+      - input:weight_grams:hard_limits
+      - input:weight_grams
+  - kind: edge
+    id: case:neonatal_measurements:plausibility-weight_grams
+    tags:
+      - plausibility
+    inputs:
+      weight_grams: 200.5
+      gestational_age_weeks: 30
+      postnatal_age_hours: 12
+      corrected_gestational_age_weeks: 36
+    expected:
+      uac_depth_estimate_cm: 9.6
+      uvc_depth_estimate_cm: 5.8
+      catheter_formula_id: shukla_1986_original
+      ett_depth_at_lip_cm: 7
+      day_one_systolic_bp_mm_hg:
+        low: 35
+        mean: 50
+        high: 66
+      day_one_diastolic_bp_mm_hg:
+        low: 22
+        mean: 31
+        high: 39
+      day_one_map_mm_hg:
+        low: 26
+        mean: 37
+        high: 48
+      day_one_pulse_pressure_mm_hg:
+        low: 9
+        mean: 13
+        high: 19
+      corrected_systolic_bp_mm_hg:
+        low: 55
+        mean: 71
+        high: 87
+      corrected_diastolic_bp_mm_hg:
+        low: 27
+        mean: 41
+        high: 58
+      corrected_map_mm_hg:
+        low: 36
+        mean: 51
+        high: 68
+      corrected_pulse_pressure_mm_hg:
+        low: 18
+        mean: 22
+        high: 30
+      limitations:
+        - catheter_estimate_requires_direct_tip_position_confirmation
+        - original_shukla_uvc_formula_has_documented_over_insertion_risk
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_values_are_descriptive_references_not_treatment_thresholds
+        - corrected_age_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:neonatal_measurements:input-weight-grams-plausibility
+    sourceIds:
+      - neonatal_shukla_1986
+    witnesses:
+      - input:weight_grams:plausibility
+    expectedWarnings:
+      - Birth Weight 200.5 is unusual (expected 400–6000).
+  - kind: edge
+    id: case:neonatal_measurements:hard-gestational_age_weeks
+    tags:
+      - hard-limits
+    inputs:
+      weight_grams: 1200
+      gestational_age_weeks: 21
+      postnatal_age_hours: 12
+      corrected_gestational_age_weeks: 36
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: gestational_age_weeks
+      messageIncludes: Gestational Age 21 is outside physiological limits [22, 43].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:neonatal_measurements:input-gestational-age-weeks-hard-limits
+      - claim:neonatal_measurements:input-gestational-age-weeks
+    sourceIds:
+      - neonatal_kempley_2008
+    witnesses:
+      - input:gestational_age_weeks:hard_limits
+      - input:gestational_age_weeks
+  - kind: edge
+    id: case:neonatal_measurements:hard-postnatal_age_hours
+    tags:
+      - hard-limits
+    inputs:
+      weight_grams: 1200
+      gestational_age_weeks: 30
+      postnatal_age_hours: -1
+      corrected_gestational_age_weeks: 36
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: postnatal_age_hours
+      messageIncludes: Postnatal Age -1 is outside physiological limits [0, 8760].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:neonatal_measurements:input-postnatal-age-hours-hard-limits
+      - claim:neonatal_measurements:input-postnatal-age-hours
+    sourceIds:
+      - neonatal_zubrow_1995
+    witnesses:
+      - input:postnatal_age_hours:hard_limits
+      - input:postnatal_age_hours
+  - kind: edge
+    id: case:neonatal_measurements:plausibility-postnatal_age_hours
+    tags:
+      - plausibility
+    inputs:
+      weight_grams: 1200
+      gestational_age_weeks: 30
+      postnatal_age_hours: 4464
+      corrected_gestational_age_weeks: 36
+    expected:
+      uac_depth_estimate_cm: 12.6
+      uvc_depth_estimate_cm: 7.3
+      catheter_formula_id: shukla_1986_original
+      ett_depth_at_lip_cm: 7
+      corrected_systolic_bp_mm_hg:
+        low: 55
+        mean: 71
+        high: 87
+      corrected_diastolic_bp_mm_hg:
+        low: 27
+        mean: 41
+        high: 58
+      corrected_map_mm_hg:
+        low: 36
+        mean: 51
+        high: 68
+      corrected_pulse_pressure_mm_hg:
+        low: 18
+        mean: 22
+        high: 30
+      limitations:
+        - catheter_estimate_requires_direct_tip_position_confirmation
+        - original_shukla_uvc_formula_has_documented_over_insertion_risk
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_requires_explicit_postnatal_age_0_to_24_hours
+        - corrected_age_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:neonatal_measurements:input-postnatal-age-hours-plausibility
+    sourceIds:
+      - neonatal_zubrow_1995
+    witnesses:
+      - input:postnatal_age_hours:plausibility
+    expectedWarnings:
+      - Postnatal Age 4464 is unusual (expected 0–168).
+  - kind: edge
+    id: case:neonatal_measurements:hard-corrected_gestational_age_weeks
+    tags:
+      - hard-limits
+    inputs:
+      weight_grams: 1200
+      gestational_age_weeks: 30
+      postnatal_age_hours: 12
+      corrected_gestational_age_weeks: 23
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: corrected_gestational_age_weeks
+      messageIncludes: Corrected Gestational Age 23 is outside physiological limits [24, 46].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:neonatal_measurements:input-corrected-gestational-age-weeks-hard-limits
+      - claim:neonatal_measurements:input-corrected-gestational-age-weeks
+    sourceIds:
+      - neonatal_zubrow_1995
+    witnesses:
+      - input:corrected_gestational_age_weeks:hard_limits
+      - input:corrected_gestational_age_weeks
+  - kind: edge
+    id: case:neonatal_measurements:constraint-0
+    tags:
+      - constraints
+    inputs:
+      postnatal_age_hours: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: weight_grams | gestational_age_weeks | corrected_gestational_age_weeks
+      messageIncludes: Provide at least one supported neonatal measurement input.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:neonatal_measurements:constraint-0
+    sourceIds:
+      - neonatal_shukla_1986
+    witnesses:
+      - constraint:0
+  - kind: agent
+    id: case:neonatal_measurements:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      weight_grams: 1200
+      gestational_age_weeks: 30
+      postnatal_age_hours: 12
+      corrected_gestational_age_weeks: 36
+    expected:
+      uac_depth_estimate_cm: 12.6
+      uvc_depth_estimate_cm: 7.3
+      catheter_formula_id: shukla_1986_original
+      ett_depth_at_lip_cm: 7
+      day_one_systolic_bp_mm_hg:
+        low: 35
+        mean: 50
+        high: 66
+      day_one_diastolic_bp_mm_hg:
+        low: 22
+        mean: 31
+        high: 39
+      day_one_map_mm_hg:
+        low: 26
+        mean: 37
+        high: 48
+      day_one_pulse_pressure_mm_hg:
+        low: 9
+        mean: 13
+        high: 19
+      corrected_systolic_bp_mm_hg:
+        low: 55
+        mean: 71
+        high: 87
+      corrected_diastolic_bp_mm_hg:
+        low: 27
+        mean: 41
+        high: 58
+      corrected_map_mm_hg:
+        low: 36
+        mean: 51
+        high: 68
+      corrected_pulse_pressure_mm_hg:
+        low: 18
+        mean: 22
+        high: 30
+      limitations:
+        - catheter_estimate_requires_direct_tip_position_confirmation
+        - original_shukla_uvc_formula_has_documented_over_insertion_risk
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_values_are_descriptive_references_not_treatment_thresholds
+        - corrected_age_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:neonatal_measurements:applicability-purpose
+    sourceIds:
+      - neonatal_aha_aap_2025
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:neonatal_measurements:agent-exclusion
+    tags:
+      - calculator:neonatal_measurements:source-derived
+    inputs: {}
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: weight_grams | gestational_age_weeks | corrected_gestational_age_weeks
+      messageIncludes: Provide at least one supported neonatal measurement input.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:neonatal_measurements:applicability-exclusions
+    sourceIds:
+      - neonatal_aha_aap_2025
+    witnesses:
+      - applicability:exclusions
+  - kind: reference
+    id: case:neonatal_measurements:branch-weight
+    tags:
+      - calculator:neonatal_measurements:source-branch
+    inputs:
+      weight_grams: 1200
+    expected:
+      uac_depth_estimate_cm: 12.6
+      uvc_depth_estimate_cm: 7.3
+      catheter_formula_id: shukla_1986_original
+      limitations:
+        - catheter_estimate_requires_direct_tip_position_confirmation
+        - original_shukla_uvc_formula_has_documented_over_insertion_risk
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_shukla_1986
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:branch-gestation
+    tags:
+      - calculator:neonatal_measurements:source-branch
+    inputs:
+      gestational_age_weeks: 30
+      postnatal_age_hours: 12
+    expected:
+      ett_depth_at_lip_cm: 7
+      day_one_systolic_bp_mm_hg:
+        low: 35
+        mean: 50
+        high: 66
+      day_one_diastolic_bp_mm_hg:
+        low: 22
+        mean: 31
+        high: 39
+      day_one_map_mm_hg:
+        low: 26
+        mean: 37
+        high: 48
+      day_one_pulse_pressure_mm_hg:
+        low: 9
+        mean: 13
+        high: 19
+      limitations:
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_kempley_2008
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:branch-corrected
+    tags:
+      - calculator:neonatal_measurements:source-branch
+    inputs:
+      corrected_gestational_age_weeks: 36
+    expected:
+      corrected_systolic_bp_mm_hg:
+        low: 55
+        mean: 71
+        high: 87
+      corrected_diastolic_bp_mm_hg:
+        low: 27
+        mean: 41
+        high: 58
+      corrected_map_mm_hg:
+        low: 36
+        mean: 51
+        high: 68
+      corrected_pulse_pressure_mm_hg:
+        low: 18
+        mean: 22
+        high: 30
+      limitations:
+        - corrected_age_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:branch-weight-gestation
+    tags:
+      - calculator:neonatal_measurements:source-branch
+    inputs:
+      weight_grams: 1200
+      gestational_age_weeks: 30
+      postnatal_age_hours: 12
+    expected:
+      uac_depth_estimate_cm: 12.6
+      uvc_depth_estimate_cm: 7.3
+      catheter_formula_id: shukla_1986_original
+      ett_depth_at_lip_cm: 7
+      day_one_systolic_bp_mm_hg:
+        low: 35
+        mean: 50
+        high: 66
+      day_one_diastolic_bp_mm_hg:
+        low: 22
+        mean: 31
+        high: 39
+      day_one_map_mm_hg:
+        low: 26
+        mean: 37
+        high: 48
+      day_one_pulse_pressure_mm_hg:
+        low: 9
+        mean: 13
+        high: 19
+      limitations:
+        - catheter_estimate_requires_direct_tip_position_confirmation
+        - original_shukla_uvc_formula_has_documented_over_insertion_risk
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_shukla_1986
+      - neonatal_kempley_2008
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:branch-weight-corrected
+    tags:
+      - calculator:neonatal_measurements:source-branch
+    inputs:
+      weight_grams: 1200
+      corrected_gestational_age_weeks: 36
+    expected:
+      uac_depth_estimate_cm: 12.6
+      uvc_depth_estimate_cm: 7.3
+      catheter_formula_id: shukla_1986_original
+      corrected_systolic_bp_mm_hg:
+        low: 55
+        mean: 71
+        high: 87
+      corrected_diastolic_bp_mm_hg:
+        low: 27
+        mean: 41
+        high: 58
+      corrected_map_mm_hg:
+        low: 36
+        mean: 51
+        high: 68
+      corrected_pulse_pressure_mm_hg:
+        low: 18
+        mean: 22
+        high: 30
+      limitations:
+        - catheter_estimate_requires_direct_tip_position_confirmation
+        - original_shukla_uvc_formula_has_documented_over_insertion_risk
+        - corrected_age_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_shukla_1986
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:branch-gestation-corrected
+    tags:
+      - calculator:neonatal_measurements:source-branch
+    inputs:
+      gestational_age_weeks: 30
+      postnatal_age_hours: 12
+      corrected_gestational_age_weeks: 36
+    expected:
+      ett_depth_at_lip_cm: 7
+      day_one_systolic_bp_mm_hg:
+        low: 35
+        mean: 50
+        high: 66
+      day_one_diastolic_bp_mm_hg:
+        low: 22
+        mean: 31
+        high: 39
+      day_one_map_mm_hg:
+        low: 26
+        mean: 37
+        high: 48
+      day_one_pulse_pressure_mm_hg:
+        low: 9
+        mean: 13
+        high: 19
+      corrected_systolic_bp_mm_hg:
+        low: 55
+        mean: 71
+        high: 87
+      corrected_diastolic_bp_mm_hg:
+        low: 27
+        mean: 41
+        high: 58
+      corrected_map_mm_hg:
+        low: 36
+        mean: 51
+        high: 68
+      corrected_pulse_pressure_mm_hg:
+        low: 18
+        mean: 22
+        high: 30
+      limitations:
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_values_are_descriptive_references_not_treatment_thresholds
+        - corrected_age_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_kempley_2008
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:branch-all
+    tags:
+      - calculator:neonatal_measurements:source-branch
+    inputs:
+      weight_grams: 1200
+      gestational_age_weeks: 30
+      postnatal_age_hours: 12
+      corrected_gestational_age_weeks: 36
+    expected:
+      uac_depth_estimate_cm: 12.6
+      uvc_depth_estimate_cm: 7.3
+      catheter_formula_id: shukla_1986_original
+      ett_depth_at_lip_cm: 7
+      day_one_systolic_bp_mm_hg:
+        low: 35
+        mean: 50
+        high: 66
+      day_one_diastolic_bp_mm_hg:
+        low: 22
+        mean: 31
+        high: 39
+      day_one_map_mm_hg:
+        low: 26
+        mean: 37
+        high: 48
+      day_one_pulse_pressure_mm_hg:
+        low: 9
+        mean: 13
+        high: 19
+      corrected_systolic_bp_mm_hg:
+        low: 55
+        mean: 71
+        high: 87
+      corrected_diastolic_bp_mm_hg:
+        low: 27
+        mean: 41
+        high: 58
+      corrected_map_mm_hg:
+        low: 36
+        mean: 51
+        high: 68
+      corrected_pulse_pressure_mm_hg:
+        low: 18
+        mean: 22
+        high: 30
+      limitations:
+        - catheter_estimate_requires_direct_tip_position_confirmation
+        - original_shukla_uvc_formula_has_documented_over_insertion_risk
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_values_are_descriptive_references_not_treatment_thresholds
+        - corrected_age_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_shukla_1986
+      - neonatal_kempley_2008
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:branch-day-one-24h
+    tags:
+      - calculator:neonatal_measurements:source-branch
+    inputs:
+      gestational_age_weeks: 30
+      postnatal_age_hours: 24
+    expected:
+      ett_depth_at_lip_cm: 7
+      day_one_systolic_bp_mm_hg:
+        low: 35
+        mean: 50
+        high: 66
+      day_one_diastolic_bp_mm_hg:
+        low: 22
+        mean: 31
+        high: 39
+      day_one_map_mm_hg:
+        low: 26
+        mean: 37
+        high: 48
+      day_one_pulse_pressure_mm_hg:
+        low: 9
+        mean: 13
+        high: 19
+      limitations:
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_values_are_descriptive_references_not_treatment_thresholds
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_kempley_2008
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:neonatal_measurements:branch-after-day-one
+    tags:
+      - calculator:neonatal_measurements:source-branch
+    inputs:
+      gestational_age_weeks: 30
+      postnatal_age_hours: 24.01
+    expected:
+      ett_depth_at_lip_cm: 7
+      limitations:
+        - ett_estimate_requires_clinical_and_position_confirmation
+        - day_one_bp_requires_explicit_postnatal_age_0_to_24_hours
+    expectedBehavior: omit
+    omittedOutputs:
+      - day_one_systolic_bp_mm_hg
+      - day_one_diastolic_bp_mm_hg
+      - day_one_map_mm_hg
+      - day_one_pulse_pressure_mm_hg
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:neonatal_measurements:formula-implementation
+    sourceIds:
+      - neonatal_kempley_2008
+      - neonatal_zubrow_1995
+      - neonatal_aha_aap_2025
+    witnesses:
+      - formula:implementation
+compatibilityNotes:
+  - Replaced flattened BP strings with separate typed number ranges and removed unsupported slash-delimited ETT size
+    strings.
+  - Added fail-loud no-input validation and explicit original-Shukla over-insertion and confirmation limitations.
+  - Removed ETT size options because exact current-table provenance was incomplete; retained only the separately sourced
+    Kempley depth estimate.
+  - Gated day-one BP ranges on an explicit postnatal age of 0 through 24 hours.
+explicitBlockers: []

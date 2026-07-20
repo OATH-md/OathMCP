@@ -1,0 +1,1754 @@
+calculatorId: mews
+specVersion: 1.0.0
+clinicalModel: Subbe 2001 five-parameter Modified Early Warning Score
+variant: subbe_2001_adult_acute_medical_admission_five_parameter
+population: Adults admitted acutely to medical wards and observed with the Subbe five-parameter physiological score.
+setting: Adult acute medical admissions and general-ward deterioration surveillance; local response policies remain
+  setting-specific.
+assessmentTiming: At admission and serially when the local track-and-trigger protocol requires reassessment.
+endpoint: Integer score 0-14; the original cohort associated a score of 5 or more with increased risk of death, ICU
+  admission, or high-dependency admission.
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:mews:2026-07-16
+    calculatorId: mews
+    model: Subbe 2001 five-parameter Modified Early Warning Score
+    variant: subbe_2001_adult_acute_medical_admission_five_parameter
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:mews:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web flat-file export
+        exactQuery: '"modified early warning score"[Title] AND ("medical admissions"[Title/Abstract] OR "general
+          ward"[Title/Abstract] OR systematic review[Title/Abstract])'
+        translationExposed: true
+        translatedQuery: '"modified early warning score"[Title] AND ("medical admissions"[Title/Abstract] OR "general
+          ward"[Title/Abstract] OR systematic review[Title/Abstract])'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 10
+        stableCitationIds:
+          - PMID:11588210
+          - PMID:32407344
+          - PMID:35470597
+          - PMID:12859475
+          - PMID:34017725
+          - PMID:21904705
+          - PMID:32114753
+          - PMID:29498148
+          - PMID:24859127
+          - PMID:14616654
+      - id: search:mews:mews_subbe_2001
+        sourceRole: derivation
+        authorityId: mews_subbe_2001
+        database: Primary or responsible-authority source
+        site: QJM
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for mews
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - mews_subbe_2001
+      - id: search:mews:mews_nice_cg50_2026
+        sourceRole: controlling_authority
+        authorityId: mews_nice_cg50_2026
+        database: Primary or responsible-authority source
+        site: National Institute for Health and Care Excellence
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for mews
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - mews_nice_cg50_2026
+      - id: search:mews:ssc_adult_2026
+        sourceRole: specialty_guidance
+        authorityId: ssc_adult_2026
+        database: Primary or responsible-authority source
+        site: Society of Critical Care Medicine and European Society of Intensive Care Medicine
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for mews
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - ssc_adult_2026
+      - id: search:mews:mews_ho_2014
+        sourceRole: external_validation
+        authorityId: mews_ho_2014
+        database: Primary or responsible-authority source
+        site: World Journal of Emergency Medicine
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for mews
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - mews_ho_2014
+    accounting:
+      retrieved: 13
+      deduplicated: 13
+      screened: 13
+      fullTextAssessed: 4
+      excluded: 0
+      included: 4
+    deduplication:
+      method: PMID, DOI, and responsible-authority URL identity with manual title reconciliation
+      tool: PubMed flat-file export plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: mews_subbe_2001
+        title: Validation of a modified Early Warning Score in medical admissions.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:32407344
+        title: Predictive powers of the Modified Early Warning Score and the National Early
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:35470597
+        title: Quick Sequential Organ Failure Assessment Score and the Modified Early Warning
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:12859475
+        title: Effect of introducing the Modified Early Warning score on clinical outcomes,
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:34017725
+        title: Prediction of hospital outcome in emergency medical admissions using modified
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:21904705
+        title: The value of the Modified Early Warning Score and biochemical parameters as
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32114753
+        title: Derivation and validation of modified early warning score plus SpO2/FiO2 score
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:29498148
+        title: The value of the Modified Early Warning Score for unplanned Intensive Care Unit
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:24859127
+        title: "[Validation of a modified early warning score to predict ICU transfer for"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:14616654
+        title: In response to 'Effect of introducing the Modified Early Warning score on
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: mews_nice_cg50_2026
+        title: "Acutely ill adults in hospital: recognising and responding to deterioration."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: ssc_adult_2026
+        title: "Surviving Sepsis Campaign: international guidelines for management of sepsis and septic shock 2026."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: mews_ho_2014
+        title: Poor performance of the modified early warning score for predicting mortality in critically ill patients
+          presenting to an emergency department.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:mews:pubmed
+      checklist:
+        - Exact model and variant terms retained
+        - Population and setting concepts included
+        - Validation and update concepts represented
+        - No date restriction on foundational evidence
+        - Translation and result ledger checked
+      comments:
+        - The initial strategy was widened beyond known-title retrieval while retaining exact model identity and a
+          screenable result set.
+        - Current responsible-authority and specialty-guidance searches were reviewed separately from MEDLINE.
+      resolution: Resolved by retaining exact model terms, adding population and validation concepts, screening every
+        retrieved record, and separately checking current responsible-authority guidance, citation chains, corrections,
+        retractions, and supersession.
+      resolved: true
+      reviewer: Independent PRESS search specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - mews_subbe_2001
+  - mews_nice_cg50_2026
+  - ssc_adult_2026
+  - mews_ho_2014
+claims:
+  - id: claim:mews:calculator-model
+    kind: applicability
+    statement: Subbe 2001 five-parameter Modified Early Warning Score; exact variant
+      subbe_2001_adult_acute_medical_admission_five_parameter.
+    covers:
+      - calculator:model
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+      - mews_ho_2014
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+      - sourceId: mews_ho_2014
+        locator: "Methods, Results, and Conclusion: adult ED validation, score performance, and caution against transfer of
+          thresholds across settings."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and setting are verified by source review; runtime scenarios separately witness
+      every executable component and output.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:formula-implementation
+    kind: formula
+    statement: The declared component weights are summed exactly and the resulting outputs follow the reviewed
+      subbe_2001_adult_acute_medical_admission_five_parameter model.
+    covers:
+      - formula:implementation
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:reference-1
+      - case:mews:reference-2
+      - case:mews:reference-3
+      - case:mews:boundary-score-4
+      - case:mews:boundary-score-5
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:applicability-purpose
+    kind: applicability
+    statement: Adults admitted acutely to medical wards and observed with the Subbe five-parameter physiological score.
+      Adult acute medical admissions and general-ward deterioration surveillance; local response policies remain
+      setting-specific.
+    covers:
+      - applicability:purpose
+    status: variant_specific
+    sourceIds:
+      - mews_nice_cg50_2026
+      - ssc_adult_2026
+      - mews_ho_2014
+    locators:
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+      - sourceId: ssc_adult_2026
+        locator: "Screening recommendations: use NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient sepsis screen."
+      - sourceId: mews_ho_2014
+        locator: "Methods, Results, and Conclusion: adult ED validation, score performance, and caution against transfer of
+          thresholds across settings."
+    executable: true
+    scenarioIds:
+      - case:mews:agent-intended
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:applicability-exclusions
+    kind: exclusion
+    statement: An adult track-and-trigger aid, not a diagnosis or substitute for clinical judgment. The caller must classify
+      observations into the exact Subbe bands. Do not transfer this adult medical-admission variant to children,
+      pregnancy, critical care, or a different local escalation policy.
+    covers:
+      - applicability:exclusions
+    status: variant_specific
+    sourceIds:
+      - mews_nice_cg50_2026
+      - ssc_adult_2026
+      - mews_ho_2014
+    locators:
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+      - sourceId: ssc_adult_2026
+        locator: "Screening recommendations: use NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient sepsis screen."
+      - sourceId: mews_ho_2014
+        locator: "Methods, Results, and Conclusion: adult ED validation, score performance, and caution against transfer of
+          thresholds across settings."
+    executable: true
+    scenarioIds:
+      - case:mews:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-systolic_bp_category
+    kind: input
+    statement: "Systolic Blood Pressure: Systolic blood pressure band (mmHg)."
+    covers:
+      - input:systolic_bp_category
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:reference-1
+      - case:mews:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-systolic_bp_category-aliases
+    kind: input
+    statement: Systolic Blood Pressure accepts only the declared compatibility aliases systolic_bp.
+    covers:
+      - input:systolic_bp_category:aliases
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:alias-systolic_bp_category-systolic_bp
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-systolic_bp_category-options
+    kind: input
+    statement: "Systolic Blood Pressure: bp_le_70=3, bp_71_80=2, bp_81_100=1, bp_101_199=0, bp_ge_200=2."
+    covers:
+      - input:systolic_bp_category:options
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:option-systolic_bp_category-bp_le_70
+      - case:mews:option-systolic_bp_category-bp_71_80
+      - case:mews:option-systolic_bp_category-bp_81_100
+      - case:mews:option-systolic_bp_category-bp_101_199
+      - case:mews:option-systolic_bp_category-bp_ge_200
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-heart_rate_category
+    kind: input
+    statement: "Heart Rate: Heart rate band (beats per minute)."
+    covers:
+      - input:heart_rate_category
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-heart_rate_category-aliases
+    kind: input
+    statement: Heart Rate accepts only the declared compatibility aliases heart_rate.
+    covers:
+      - input:heart_rate_category:aliases
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:alias-heart_rate_category-heart_rate
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-heart_rate_category-options
+    kind: input
+    statement: "Heart Rate: hr_le_40=2, hr_41_50=1, hr_51_100=0, hr_101_110=1, hr_111_129=2, hr_ge_130=3."
+    covers:
+      - input:heart_rate_category:options
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:option-heart_rate_category-hr_le_40
+      - case:mews:option-heart_rate_category-hr_41_50
+      - case:mews:option-heart_rate_category-hr_51_100
+      - case:mews:option-heart_rate_category-hr_101_110
+      - case:mews:option-heart_rate_category-hr_111_129
+      - case:mews:option-heart_rate_category-hr_ge_130
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-respiratory_rate_category
+    kind: input
+    statement: "Respiratory Rate: Respiratory rate band (breaths per minute)."
+    covers:
+      - input:respiratory_rate_category
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-respiratory_rate_category-aliases
+    kind: input
+    statement: Respiratory Rate accepts only the declared compatibility aliases respiratory_rate.
+    covers:
+      - input:respiratory_rate_category:aliases
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:alias-respiratory_rate_category-respiratory_rate
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-respiratory_rate_category-options
+    kind: input
+    statement: "Respiratory Rate: rr_lt_9=2, rr_9_14=0, rr_15_20=1, rr_21_29=2, rr_ge_30=3."
+    covers:
+      - input:respiratory_rate_category:options
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:option-respiratory_rate_category-rr_lt_9
+      - case:mews:option-respiratory_rate_category-rr_9_14
+      - case:mews:option-respiratory_rate_category-rr_15_20
+      - case:mews:option-respiratory_rate_category-rr_21_29
+      - case:mews:option-respiratory_rate_category-rr_ge_30
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-temperature_category
+    kind: input
+    statement: "Temperature: Body temperature band."
+    covers:
+      - input:temperature_category
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-temperature_category-aliases
+    kind: input
+    statement: Temperature accepts only the declared compatibility aliases temperature.
+    covers:
+      - input:temperature_category:aliases
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:alias-temperature_category-temperature
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-temperature_category-options
+    kind: input
+    statement: "Temperature: temp_lt_35c=2, temp_35_384c=0, temp_ge_385c=2."
+    covers:
+      - input:temperature_category:options
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:option-temperature_category-temp_lt_35c
+      - case:mews:option-temperature_category-temp_35_384c
+      - case:mews:option-temperature_category-temp_ge_385c
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-avpu
+    kind: input
+    statement: "AVPU Score: Level of consciousness on the AVPU scale."
+    covers:
+      - input:avpu
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:input-avpu-options
+    kind: input
+    statement: "AVPU Score: alert=0, voice=1, pain=2, unresponsive=3."
+    covers:
+      - input:avpu:options
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:option-avpu-alert
+      - case:mews:option-avpu-voice
+      - case:mews:option-avpu-pain
+      - case:mews:option-avpu-unresponsive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:output-mews_score
+    kind: outcome
+    statement: Total Modified Early Warning Score (0-14).
+    covers:
+      - output:mews_score
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:band-calculator-0
+    kind: band
+    statement: "mews_band_1: >=5 — At or above the original MEWS >=5 threshold associated with increased odds of death, ICU
+      admission, and high-dependency-unit admission; response protocols are setting-specific."
+    covers:
+      - band:calculator:0
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:boundary-score-5
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:mews:band-calculator-1
+    kind: band
+    statement: "mews_band_2: <5 — Below the original MEWS high-risk threshold; this does not rule out deterioration."
+    covers:
+      - band:calculator:1
+    status: variant_specific
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    locators:
+      - sourceId: mews_subbe_2001
+        locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+          threshold."
+      - sourceId: mews_nice_cg50_2026
+        locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+          frequency, and clinical concern."
+    executable: true
+    scenarioIds:
+      - case:mews:boundary-score-4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:mews:reference-1
+    kind: reference
+    tags:
+      - calculator:mews:core
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:formula-implementation
+      - claim:mews:input-systolic_bp_category
+      - claim:mews:input-heart_rate_category
+      - claim:mews:input-respiratory_rate_category
+      - claim:mews:input-temperature_category
+      - claim:mews:input-avpu
+      - claim:mews:output-mews_score
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - formula:implementation
+      - input:systolic_bp_category
+      - input:heart_rate_category
+      - input:respiratory_rate_category
+      - input:temperature_category
+      - input:avpu
+      - output:mews_score
+  - id: case:mews:reference-2
+    kind: reference
+    tags:
+      - calculator:mews:core
+    inputs:
+      systolic_bp_category: bp_81_100
+      heart_rate_category: hr_101_110
+      respiratory_rate_category: rr_15_20
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:formula-implementation
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - formula:implementation
+  - id: case:mews:reference-3
+    kind: reference
+    tags:
+      - calculator:mews:core
+    inputs:
+      systolic_bp_category: bp_le_70
+      heart_rate_category: hr_ge_130
+      respiratory_rate_category: rr_ge_30
+      temperature_category: temp_lt_35c
+      avpu: unresponsive
+    expected:
+      mews_score: 14
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_1
+        kind: risk
+        label: At or above the original MEWS >=5 threshold associated with increased odds of death, ICU admission, and
+          high-dependency-unit admission; response protocols are setting-specific.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:formula-implementation
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - formula:implementation
+  - id: case:mews:agent-intended
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:applicability-purpose
+    sourceIds:
+      - mews_nice_cg50_2026
+      - ssc_adult_2026
+      - mews_ho_2014
+    witnesses:
+      - applicability:purpose
+  - id: case:mews:agent-exclusion
+    kind: agent
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: systolic_bp_category
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:applicability-exclusions
+      - claim:mews:input-systolic_bp_category
+    sourceIds:
+      - mews_nice_cg50_2026
+      - ssc_adult_2026
+      - mews_ho_2014
+      - mews_subbe_2001
+    witnesses:
+      - applicability:exclusions
+      - input:systolic_bp_category
+  - id: case:mews:option-systolic_bp_category-bp_le_70
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_le_70
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-systolic_bp_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:systolic_bp_category:options
+  - id: case:mews:option-systolic_bp_category-bp_71_80
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_71_80
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-systolic_bp_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:systolic_bp_category:options
+  - id: case:mews:option-systolic_bp_category-bp_81_100
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_81_100
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-systolic_bp_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:systolic_bp_category:options
+  - id: case:mews:option-systolic_bp_category-bp_101_199
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-systolic_bp_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:systolic_bp_category:options
+  - id: case:mews:option-systolic_bp_category-bp_ge_200
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_ge_200
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-systolic_bp_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:systolic_bp_category:options
+  - id: case:mews:alias-systolic_bp_category-systolic_bp
+    kind: edge
+    tags:
+      - aliases
+    inputs:
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+      systolic_bp: bp_101_199
+    expected:
+      mews_score: 0
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'systolic_bp' is a compatibility alias; use 'systolic_bp_category'.
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-systolic_bp_category-aliases
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:systolic_bp_category:aliases
+  - id: case:mews:option-heart_rate_category-hr_le_40
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_le_40
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-heart_rate_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:heart_rate_category:options
+  - id: case:mews:option-heart_rate_category-hr_41_50
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_41_50
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-heart_rate_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:heart_rate_category:options
+  - id: case:mews:option-heart_rate_category-hr_51_100
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-heart_rate_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:heart_rate_category:options
+  - id: case:mews:option-heart_rate_category-hr_101_110
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_101_110
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-heart_rate_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:heart_rate_category:options
+  - id: case:mews:option-heart_rate_category-hr_111_129
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_111_129
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-heart_rate_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:heart_rate_category:options
+  - id: case:mews:option-heart_rate_category-hr_ge_130
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_ge_130
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-heart_rate_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:heart_rate_category:options
+  - id: case:mews:alias-heart_rate_category-heart_rate
+    kind: edge
+    tags:
+      - aliases
+    inputs:
+      systolic_bp_category: bp_101_199
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+      heart_rate: hr_51_100
+    expected:
+      mews_score: 0
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'heart_rate' is a compatibility alias; use 'heart_rate_category'.
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-heart_rate_category-aliases
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:heart_rate_category:aliases
+  - id: case:mews:option-respiratory_rate_category-rr_lt_9
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_lt_9
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-respiratory_rate_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:respiratory_rate_category:options
+  - id: case:mews:option-respiratory_rate_category-rr_9_14
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-respiratory_rate_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:respiratory_rate_category:options
+  - id: case:mews:option-respiratory_rate_category-rr_15_20
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_15_20
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-respiratory_rate_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:respiratory_rate_category:options
+  - id: case:mews:option-respiratory_rate_category-rr_21_29
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_21_29
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-respiratory_rate_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:respiratory_rate_category:options
+  - id: case:mews:option-respiratory_rate_category-rr_ge_30
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_ge_30
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-respiratory_rate_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:respiratory_rate_category:options
+  - id: case:mews:alias-respiratory_rate_category-respiratory_rate
+    kind: edge
+    tags:
+      - aliases
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      temperature_category: temp_35_384c
+      avpu: alert
+      respiratory_rate: rr_9_14
+    expected:
+      mews_score: 0
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'respiratory_rate' is a compatibility alias; use 'respiratory_rate_category'.
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-respiratory_rate_category-aliases
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:respiratory_rate_category:aliases
+  - id: case:mews:option-temperature_category-temp_lt_35c
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_lt_35c
+      avpu: alert
+    expected:
+      mews_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-temperature_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:temperature_category:options
+  - id: case:mews:option-temperature_category-temp_35_384c
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-temperature_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:temperature_category:options
+  - id: case:mews:option-temperature_category-temp_ge_385c
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_ge_385c
+      avpu: alert
+    expected:
+      mews_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-temperature_category-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:temperature_category:options
+  - id: case:mews:alias-temperature_category-temperature
+    kind: edge
+    tags:
+      - aliases
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      avpu: alert
+      temperature: temp_35_384c
+    expected:
+      mews_score: 0
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'temperature' is a compatibility alias; use 'temperature_category'.
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-temperature_category-aliases
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:temperature_category:aliases
+  - id: case:mews:option-avpu-alert
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-avpu-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:avpu:options
+  - id: case:mews:option-avpu-voice
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: voice
+    expected:
+      mews_score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-avpu-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:avpu:options
+  - id: case:mews:option-avpu-pain
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: pain
+    expected:
+      mews_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-avpu-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:avpu:options
+  - id: case:mews:option-avpu-unresponsive
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      systolic_bp_category: bp_101_199
+      heart_rate_category: hr_51_100
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: unresponsive
+    expected:
+      mews_score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:input-avpu-options
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - input:avpu:options
+  - id: case:mews:boundary-score-4
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      systolic_bp_category: bp_71_80
+      heart_rate_category: hr_41_50
+      respiratory_rate_category: rr_15_20
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 4
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_2
+        kind: risk
+        label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:formula-implementation
+      - claim:mews:band-calculator-1
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - formula:implementation
+      - band:calculator:1
+  - id: case:mews:boundary-score-5
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      systolic_bp_category: bp_le_70
+      heart_rate_category: hr_le_40
+      respiratory_rate_category: rr_9_14
+      temperature_category: temp_35_384c
+      avpu: alert
+    expected:
+      mews_score: 5
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mews_score
+        code: mews_band_1
+        kind: risk
+        label: At or above the original MEWS >=5 threshold associated with increased odds of death, ICU admission, and
+          high-dependency-unit admission; response protocols are setting-specific.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:mews:formula-implementation
+      - claim:mews:band-calculator-0
+    sourceIds:
+      - mews_subbe_2001
+      - mews_nice_cg50_2026
+    witnesses:
+      - formula:implementation
+      - band:calculator:0
+explicitBlockers: []

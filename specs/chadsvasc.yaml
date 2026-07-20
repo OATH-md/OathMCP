@@ -1,0 +1,314 @@
+id: chadsvasc
+version: 1.1.0
+name: CHA₂DS₂-VASc Score
+family: atrial_fibrillation_stroke_risk
+variant: cha2ds2_vasc
+synonyms:
+  - atrial fibrillation stroke risk
+  - afib stroke risk
+  - anticoagulation risk score
+abbreviations:
+  - AF
+  - CHA2DS2-VASc
+clinicalModel:
+  modelKind: score
+  modelId: atrial_fibrillation_stroke_risk.cha2ds2_vasc
+  modelVersion: cha2ds2_vasc
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+applicability:
+  population: Estimate annual stroke and thromboembolism risk in a patient with
+    non-valvular atrial fibrillation from eight weighted risk factors
+    (congestive heart failure, hypertension, age, diabetes, prior
+    stroke/TIA/thromboembolism, vascular disease, and sex). The score supports
+    risk estimation but does not by itself determine anticoagulation.
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - Do not apply these treatment thresholds in patients with a mechanical
+      heart valve or moderate-to-severe rheumatic mitral stenosis. This score
+      does not estimate bleeding risk; assess that separately.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Estimate annual stroke and thromboembolism risk in a patient
+  with non-valvular atrial fibrillation from eight weighted risk factors
+  (congestive heart failure, hypertension, age, diabetes, prior
+  stroke/TIA/thromboembolism, vascular disease, and sex). Use the score with
+  current annual-risk guidance and patient-specific modifiers, not alone.
+whenNotToUse: Do not apply these treatment thresholds in patients with a
+  mechanical heart valve or moderate-to-severe rheumatic mitral stenosis. This
+  score does not estimate bleeding risk; assess that separately.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: "Lip GY, Nieuwlaat R, Pisters R, et al. Refining clinical risk
+      stratification for predicting stroke and thromboembolism in atrial
+      fibrillation using a novel risk factor-based approach: the euro heart
+      survey on atrial fibrillation. Chest. 2010;137(2):263-272."
+    locator: doi:10.1378/chest.09-1584
+    doi: 10.1378/chest.09-1584
+    url: https://doi.org/10.1378/chest.09-1584
+    reviewed: true
+  - id: source_2
+    type: reference
+    citation: Friberg L, Rosenqvist M, Lip GYH. Evaluation of risk stratification
+      schemes for ischaemic stroke and bleeding in 182,678 patients with atrial
+      fibrillation. Eur Heart J. 2012;33(12):1500-1510.
+    locator: doi:10.1093/eurheartj/ehr488
+    doi: 10.1093/eurheartj/ehr488
+    url: https://doi.org/10.1093/eurheartj/ehr488
+    reviewed: true
+  - id: source_3
+    type: reference
+    citation: Joglar JA, Chung MK, Armbruster AL, et al. 2023 ACC/AHA/ACCP/HRS
+      Guideline for the Diagnosis and Management of Atrial Fibrillation.
+      Circulation. 2024.
+    locator: doi:10.1161/CIR.0000000000001193
+    doi: 10.1161/CIR.0000000000001193
+    url: https://doi.org/10.1161/CIR.0000000000001193
+    reviewed: true
+inputs:
+  age_group:
+    title: Age Group
+    description: Patient's age group. Age 65-74 scores +1, age >= 75 scores +2.
+    kind: enum
+    enumValues:
+      - value: under_65
+        points: 0
+        label: under 65
+        description: "Age Group: under 65."
+      - value: age_65_74
+        points: 1
+        label: age 65 74
+        description: "Age Group: age 65 74."
+      - value: age_75_plus
+        points: 2
+        label: age 75 plus
+        description: "Age Group: age 75 plus."
+    required: true
+    conceptId: chadsvasc.input.age_group
+    examples:
+      - under_65
+    sourceRefs:
+      - source_1
+    sharedKey: age_group
+  sex:
+    title: Sex
+    description: Biological sex. Female sex scores +1 as a risk modifier.
+    aliases:
+      - gender
+    kind: enum
+    enumValues:
+      - value: male
+        points: 0
+        label: male
+        description: "Sex: male."
+      - value: female
+        points: 1
+        label: female
+        description: "Sex: female."
+    required: true
+    conceptId: chadsvasc.input.sex
+    examples:
+      - male
+    sourceRefs:
+      - source_1
+  chf:
+    title: History of Congestive Heart Failure
+    description: Congestive heart failure. Scores +1.
+    kind: boolean
+    required: true
+    conceptId: chadsvasc.input.chf
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: chf
+  hypertension:
+    title: History of Hypertension
+    description: Hypertension. Scores +1.
+    kind: boolean
+    required: true
+    conceptId: chadsvasc.input.hypertension
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+  stroke_history:
+    title: History of Stroke/TIA/Thromboembolism
+    description: Prior stroke, TIA, or thromboembolism. Scores +2.
+    kind: boolean
+    required: true
+    conceptId: chadsvasc.input.stroke_history
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: stroke_history
+  vascular_disease:
+    title: History of Vascular Disease
+    description: Vascular disease (MI, PAD, or aortic plaque). Scores +1.
+    kind: boolean
+    required: true
+    conceptId: chadsvasc.input.vascular_disease
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: vascular_disease
+  diabetes:
+    title: History of Diabetes Mellitus
+    description: Diabetes mellitus. Scores +1.
+    kind: boolean
+    required: true
+    conceptId: chadsvasc.input.diabetes
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+outputs:
+  score:
+    title: CHA₂DS₂-VASc Score
+    description: Total CHA₂DS₂-VASc score (0-9).
+    kind: integer
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+  stroke_risk:
+    title: Annual Stroke Risk
+    description: Observed one-year stroke rate in the enrolled Swedish cohort table; not a universal individual probability.
+    kind: enum
+    allowedValues: [0.2%, 0.6%, 2.2%, 3.2%, 4.8%, 7.2%, 9.7%, 11.2%, 10.8%, 12.2%]
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_2
+  embolism_risk:
+    title: Annual Thromboembolism Risk
+    description: Observed one-year thromboembolism rate in the enrolled Swedish cohort table; not a universal individual probability.
+    kind: enum
+    allowedValues: [0.3%, 0.9%, 2.9%, 4.6%, 6.7%, 10.0%, 13.6%, 15.7%, 15.2%, 17.4%]
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_2
+  stroke_risk_percent:
+    title: Annual Stroke Risk Percent
+    description: Numeric one-year stroke rate from the enrolled lookup cohort.
+    kind: number
+    unit: percent
+    availability: { kind: always }
+    evidenceRefs: [source_2]
+  thromboembolism_risk_percent:
+    title: Annual Thromboembolism Risk Percent
+    description: Numeric one-year stroke or systemic thromboembolism rate from the enrolled lookup cohort.
+    kind: number
+    unit: percent
+    availability: { kind: always }
+    evidenceRefs: [source_2]
+  risk_time_horizon:
+    title: Risk Time Horizon
+    description: Time horizon for both numeric lookup estimates.
+    kind: enum
+    allowedValues: [one_year]
+    availability: { kind: always }
+    evidenceRefs: [source_2]
+primaryOutputs:
+  - score
+interpretationBands:
+  - code: chadsvasc_band_1
+    kind: risk
+    when: ">=2"
+    where:
+      - field: sex
+        when: ==male
+    label: Elevated score category; use the estimated annual risk and patient-specific modifiers for anticoagulation decisions.
+    severity: abnormal
+    evidenceRefs:
+      - source_3
+  - code: chadsvasc_band_2
+    kind: risk
+    when: ">=1"
+    where:
+      - field: sex
+        when: ==male
+    label: Intermediate score category; the score alone does not determine anticoagulation.
+    severity: borderline
+    evidenceRefs:
+      - source_3
+  - code: chadsvasc_band_3
+    kind: risk
+    when: <1
+    where:
+      - field: sex
+        when: ==male
+    label: Lower score category; reassess annual risk and modifiers rather than using the score alone.
+    severity: normal
+    evidenceRefs:
+      - source_3
+  - code: chadsvasc_band_4
+    kind: risk
+    when: ">=3"
+    where:
+      - field: sex
+        when: ==female
+    label: Elevated score category; use the estimated annual risk and patient-specific modifiers for anticoagulation decisions.
+    severity: abnormal
+    evidenceRefs:
+      - source_3
+  - code: chadsvasc_band_5
+    kind: risk
+    when: ">=2"
+    where:
+      - field: sex
+        when: ==female
+    label: Intermediate score category; the score alone does not determine anticoagulation.
+    severity: borderline
+    evidenceRefs:
+      - source_3
+  - code: chadsvasc_band_6
+    kind: risk
+    when: <2
+    where:
+      - field: sex
+        when: ==female
+    label: Lower score category; female sex alone is a risk modifier and the score alone does not determine anticoagulation.
+    severity: normal
+    evidenceRefs:
+      - source_3
+scoring:
+  output: score
+  components:
+    - kind: enum
+      field: age_group
+    - kind: enum
+      field: sex
+    - kind: boolean
+      field: chf
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: hypertension
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: stroke_history
+      truePoints: 2
+      falsePoints: 0
+    - kind: boolean
+      field: vascular_disease
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: diabetes
+      truePoints: 1
+      falsePoints: 0
+  range:
+    - 0
+    - 9
+  evidenceRefs:
+    - source_1

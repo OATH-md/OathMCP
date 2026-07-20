@@ -1,0 +1,263 @@
+id: grace
+version: 2006.2.0
+name: GRACE Admission-to-6-Month Mortality (Fox 2006)
+family: grace
+variant: admission_to_6_month_mortality_2006
+synonyms:
+  - acute coronary syndrome six month mortality
+  - ACS mortality risk
+abbreviations:
+  - GRACE
+clinicalModel:
+  modelKind: lookup
+  modelId: grace.admission_to_6_month_mortality_2006
+  modelVersion: fox_2006_palm_nomogram
+  jurisdiction: NICE NG185 risk categorization; multinational GRACE cohort
+  dataSnapshot: grace_fox_nomogram_2014-01-30
+  reviewDate: 2026-07-15
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+reviewAfter: 2026-10-13
+applicability:
+  population: Estimate cumulative mortality from hospital admission through 6
+    months after acute coronary syndrome using the eight-variable Fox 2006 GRACE
+    nomogram. Return both the nomogram score and its published mortality lookup
+    percentage.
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - Do not use as a general cardiovascular-risk score or confuse this
+      cumulative admission-to-6-month model with the separate post-discharge
+      model. Apply only to adults presenting with acute coronary syndrome and
+      use clinical judgment when inputs fall outside the derivation population.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Estimate cumulative mortality from hospital admission through
+  6 months after acute coronary syndrome using the eight-variable Fox 2006 GRACE
+  nomogram. Return both the nomogram score and its published mortality lookup
+  percentage.
+whenNotToUse: Do not use as a general cardiovascular-risk score or confuse this
+  cumulative admission-to-6-month model with the separate post-discharge model.
+  Apply only to adults presenting with acute coronary syndrome and use clinical
+  judgment when inputs fall outside the derivation population.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Fox KA, Dabbous OH, Goldberg RJ, et al. Prediction of risk of death
+      and myocardial infarction in the six months after presentation with acute
+      coronary syndrome (GRACE). BMJ. 2006;333(7578):1091.
+    locator: doi:10.1136/bmj.38985.646481.55
+    doi: 10.1136/bmj.38985.646481.55
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC1661748/
+    reviewed: true
+  - id: source_2
+    type: reference
+    citation: "GRACE Investigators. GRACE Risk Model Coefficients and Palm Pilot
+      Risk Calculator: admission-to-6-month death nomogram, pages 12-13."
+    locator: url:https://web.archive.org/web/20150907141447id_/http://www.outcomes-umassmed.org/grace/files/GRACE_RiskModel_Coefficients.pdf
+    url: https://web.archive.org/web/20150907141447id_/http://www.outcomes-umassmed.org/grace/files/GRACE_RiskModel_Coefficients.pdf
+    reviewed: true
+  - id: source_3
+    type: reference
+    citation: "National Institute for Health and Care Excellence. Acute coronary
+      syndromes. NG185, recommendation 1.2.11: six-month mortality risk bands."
+    locator: url:https://www.nice.org.uk/guidance/ng185/chapter/recommendations
+    url: https://www.nice.org.uk/guidance/ng185/chapter/recommendations
+    reviewed: true
+inputs:
+  age:
+    title: Age
+    description: Patient age in years.
+    kind: integer
+    plausible:
+      - 18
+      - 100
+    hardLimits:
+      - 18
+      - 120
+    required: true
+    conceptId: grace.input.age
+    examples:
+      - 65
+    sourceRefs:
+      - source_1
+  heart_rate:
+    title: Heart Rate
+    description: Heart rate in beats per minute at presentation.
+    kind: integer
+    plausible:
+      - 30
+      - 200
+    hardLimits:
+      - 20
+      - 300
+    required: true
+    conceptId: grace.input.heart_rate
+    examples:
+      - 80
+    sourceRefs:
+      - source_1
+    sharedKey: heart_rate
+  systolic_bp:
+    title: Systolic Blood Pressure
+    description: Systolic blood pressure in mmHg at presentation.
+    kind: integer
+    plausible:
+      - 60
+      - 250
+    hardLimits:
+      - 40
+      - 300
+    required: true
+    conceptId: grace.input.systolic_bp
+    examples:
+      - 120
+    sourceRefs:
+      - source_1
+  creatinine:
+    title: Serum Creatinine
+    description: Serum creatinine at presentation. Pass a bare number in mg/dL or
+      {value, unit} for SI.
+    kind: quantity
+    quantity:
+      analyte: creatinine
+      canonicalUnit: mg/dL
+      acceptedUnits:
+        - mg/dL
+        - umol/L
+    plausible:
+      - 0.2
+      - 15
+    hardLimits:
+      - 0.1
+      - 25
+    required: true
+    conceptId: grace.input.creatinine
+    examples:
+      - 1.2
+    sourceRefs:
+      - source_1
+  killip_class:
+    title: Killip Class
+    description: "Killip class at presentation: I (no heart failure), II (S3 or
+      rales), III (pulmonary edema), or IV (cardiogenic shock)."
+    kind: enum
+    enumValues:
+      - value: i
+        aliases:
+          - I
+        label: i
+        description: "Killip Class: i."
+      - value: ii
+        aliases:
+          - II
+        label: ii
+        description: "Killip Class: ii."
+      - value: iii
+        aliases:
+          - III
+        label: iii
+        description: "Killip Class: iii."
+      - value: iv
+        aliases:
+          - IV
+        label: iv
+        description: "Killip Class: iv."
+    required: true
+    conceptId: grace.input.killip_class
+    examples:
+      - ii
+    sourceRefs:
+      - source_1
+    sharedKey: killip_class
+  cardiac_arrest:
+    title: Cardiac Arrest at Admission
+    description: Whether cardiac arrest occurred at admission.
+    kind: boolean
+    required: true
+    conceptId: grace.input.cardiac_arrest
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: cardiac_arrest
+  st_segment_deviation:
+    title: ST-Segment Deviation
+    description: Whether the presenting ECG shows ST-segment deviation.
+    kind: boolean
+    required: true
+    conceptId: grace.input.st_segment_deviation
+    examples:
+      - true
+    sourceRefs:
+      - source_1
+    sharedKey: st_segment_deviation
+  elevated_cardiac_enzymes:
+    title: Elevated Cardiac Markers
+    description: Whether initial cardiac enzymes or markers are elevated.
+    kind: boolean
+    required: true
+    conceptId: grace.input.elevated_cardiac_enzymes
+    examples:
+      - true
+    sourceRefs:
+      - source_1
+    sharedKey: elevated_cardiac_enzymes
+outputs:
+  score:
+    title: GRACE Nomogram Score
+    description: Fox 2006 cumulative admission-to-6-month nomogram score.
+    kind: integer
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_2
+  mortality_risk:
+    title: Predicted 6-Month Mortality
+    description: Predicted cumulative mortality percentage from the published
+      nomogram lookup bands.
+    kind: number
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_2
+    interpretationBands:
+      - code: mortality_risk_band_1
+        kind: risk
+        when: ">9"
+        label: Highest risk
+        severity: critical
+        evidenceRefs:
+          - source_3
+      - code: mortality_risk_band_2
+        kind: risk
+        when: ">6"
+        label: High risk
+        severity: abnormal
+        evidenceRefs:
+          - source_3
+      - code: mortality_risk_band_3
+        kind: risk
+        when: ">3"
+        label: Intermediate risk
+        severity: borderline
+        evidenceRefs:
+          - source_3
+      - code: mortality_risk_band_4
+        kind: risk
+        when: ">1.5"
+        label: Low risk
+        severity: borderline
+        evidenceRefs:
+          - source_3
+      - code: mortality_risk_band_5
+        kind: risk
+        when: <=1.5
+        label: Lowest risk
+        severity: normal
+        evidenceRefs:
+          - source_3
+primaryOutputs:
+  - mortality_risk

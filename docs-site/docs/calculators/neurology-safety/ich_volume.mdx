@@ -1,0 +1,112 @@
+---
+title: "Intracerebral Hemorrhage Volume (ABC/2)"
+description: "Estimate spontaneous intraparenchymal hemorrhage volume (mL) from CT using the simplified slice-count ABC/2 approximation. Do not infer a prognosis or treatment threshold from this estimate alone."
+sidebar:
+  label: "Intracerebral Hemorrhage Volume (ABC/2)"
+search:
+  tags: ["ich_volume", "formula"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>formula</Badge> <Badge>Spec 1.0.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Estimate the volume of a spontaneous intraparenchymal hemorrhage on CT using the simplified slice-count ABC/2 approximation. |
+| Setting | Rapid bedside approximation from noncontrast CT measurements; this is not a substitute for planimetry or validated segmentation. |
+| Model | `ich_volume` · 1.0.0 |
+| Model kind | formula |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Do not calculate without all four CT measurements and the declared compatibility shape input.
+
+- Accuracy decreases for large, irregular, lobar, multilobar, or heterogeneous hemorrhages and when the simplified slice count does not reproduce Kothari's weighted C method. Prefer planimetry or validated segmentation when precision affects a decision.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `length_cm` | number | Yes | — | 0.1–20 | 0.01–50 | Largest hemorrhage diameter (A) in centimeters. |
+| `width_cm` | number | Yes | — | 0.1–20 | 0.01–50 | Diameter perpendicular to A (B) in centimeters. |
+| `slice_width_cm` | number | Yes | — | 0.1–10 | 0.01–30 | CT slice thickness (C) in centimeters. |
+| `num_slices` | integer | Yes | — | 1–60 | 1–200 | Number of CT slices on which hemorrhage is seen. |
+| `ellipsoid_shape` | boolean | Yes | — | — | — | Compatibility input retained from schema 1.0. Both values use ABC/2; false no longer selects the unsupported ABC/3 shortcut. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `volume_ml` | number · mL | Always | Yes | ICH volume in milliliters (cm³), rounded to 1 decimal place. |
+
+## Interpretation bands
+
+No deterministic interpretation bands are declared for this calculator.
+
+## Warnings, constraints, and adjustments
+
+No calculator-specific warning rules or cross-field constraints are declared beyond input validation and applicability.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "ich_volume",
+  "inputs": {
+    "length_cm": 3,
+    "width_cm": 2,
+    "slice_width_cm": 0.5,
+    "num_slices": 5,
+    "ellipsoid_shape": true
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `ich_volume`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 19/19 | 18/18 | 12/12 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://ich_volume/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Kothari RU, Brott T, Broderick JP, et al. The ABCs of measuring intracerebral hemorrhage volumes. Stroke. 1996;27(8):1304-1305.](https://doi.org/10.1161/01.STR.27.8.1304)<br />doi:10.1161/01.STR.27.8.1304 |
+
+<Panel title="Repository source">
+  Calculator ID `ich_volume`; spec version `1.0.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

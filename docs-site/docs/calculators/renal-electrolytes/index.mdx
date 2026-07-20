@@ -1,0 +1,29 @@
+---
+title: "Renal and electrolytes"
+description: "Kidney function, electrolyte corrections, and water or sodium balance."
+---
+
+{/* GENERATED from repository-root OathMCP sources. */}
+
+Kidney function, electrolyte corrections, and water or sodium balance.
+
+<CardGroup cols={2}>
+  <Card title="Anion Gap (with albumin correction)" href="/calculators/renal-electrolytes/anion_gap" icon="calculator">
+    Compute uncorrected anion gap plus optional historical albumin correction and delta arithmetic from concurrent laboratories. Treat every result as an aid requiring local reference intervals and clinical context.
+  </Card>
+  <Card title="Legacy Conventional 0.8-Factor Albumin Adjustment" href="/calculators/renal-electrolytes/corrected_calcium" icon="calculator">
+    Reproduce the legacy conventional 0.8-factor arithmetic only when a user explicitly asks for that historical value; state that it is not a proxy for ionized calcium and is not supported for calcium-status classification.
+  </Card>
+  <Card title="Creatinine Clearance (Cockcroft-Gault)" href="/calculators/renal-electrolytes/creatinine_clearance" icon="calculator">
+    Calculate the 1976 Cockcroft-Gault estimate only after the caller explicitly supplies the body weight selected under the relevant drug label or dosing protocol.
+  </Card>
+  <Card title="Free Water Deficit in Hypernatremia" href="/calculators/renal-electrolytes/free_water_deficit" icon="calculator">
+    Estimate an adult static electrolyte-free water deficit from weight, current sodium, target sodium, and an explicit adult TBW category.
+  </Card>
+  <Card title="Glomerular Filtration Rate (GFR)" href="/calculators/renal-electrolytes/gfr" icon="calculator">
+    Calculate adult 2021 CKD-EPI creatinine eGFR and its KDIGO GFR category. Do not diagnose CKD from a single category or silently substitute indexed eGFR for a drug label's required kidney-function method.
+  </Card>
+  <Card title="Sodium Deficit in Hyponatremia" href="/calculators/renal-electrolytes/sodium_deficit" icon="calculator">
+    For adults only, calculate Watson total body water and a theoretical sodium-content difference. Keep it separate from treatment choice, infusion volume, and correction-rate limits.
+  </Card>
+</CardGroup>

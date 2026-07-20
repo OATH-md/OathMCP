@@ -1,0 +1,1009 @@
+calculatorId: oxygenation_index
+specVersion: 1.0.0
+clinicalModel: Neonatal oxygenation index and oxygen saturation index
+variant: invasively_ventilated_neonatal_oi_osi
+population: Neonates receiving invasive mechanical ventilation for hypoxemic respiratory failure.
+setting: NICU respiratory severity assessment; OSI is a noninvasive surrogate when PaO2 is unavailable.
+assessmentTiming: Contemporaneous MAP, FiO2, and PaO2 and/or SpO2; trends and full clinical context remain necessary.
+endpoint: OI and/or OSI with descriptive neonatal OI severity category.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:oxygenation_index:2026-07-16
+    calculatorId: oxygenation_index
+    model: Neonatal oxygenation index and oxygen saturation index
+    variant: invasively_ventilated_neonatal_oi_osi
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:oxygenation_index:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: '"oxygen saturation index"[Title] AND (neonat*[Title/Abstract] OR pediatric*[Title/Abstract]
+          OR paediatric*[Title/Abstract])'
+        translationExposed: true
+        translatedQuery: Field-tagged query retained as entered; PubMed automatic term mapping was not invoked.
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 18
+        exportDigest: sha256:6eafaa7b209feac269ee997616ed929b3af97ed8da13b008647ac9594abadd74
+        stableCitationIds:
+          - PMID:41963715
+          - PMID:41428592
+          - PMID:40630719
+          - PMID:39688350
+          - PMID:39086625
+          - PMID:38814919
+          - PMID:38201346
+          - PMID:36889297
+          - PMID:36882001
+          - PMID:38919686
+          - PMID:34942631
+          - PMID:34666386
+          - PMID:31998572
+          - PMID:31537144
+          - PMID:30924897
+          - PMID:26330229
+          - PMID:25592054
+          - PMID:20625338
+      - id: search:oxygenation_index:derivation
+        sourceRole: derivation
+        authorityId: oi_rawat_2015
+        database: Primary or responsible-authority source
+        site: Neonatology
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          invasively_ventilated_neonatal_oi_osi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - oi_rawat_2015
+      - id: search:oxygenation_index:controlling_authority
+        sourceRole: controlling_authority
+        authorityId: oi_nsw_ino_2025
+        database: Primary or responsible-authority source
+        site: South Eastern Sydney Local Health District
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          invasively_ventilated_neonatal_oi_osi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - oi_nsw_ino_2025
+      - id: search:oxygenation_index:specialty_guidance
+        sourceRole: specialty_guidance
+        authorityId: oi_aha_ats_2015
+        database: Primary or responsible-authority source
+        site: American Heart Association and American Thoracic Society
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          invasively_ventilated_neonatal_oi_osi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - oi_aha_ats_2015
+      - id: search:oxygenation_index:independent_numeric
+        sourceRole: independent_numeric
+        authorityId: oi_muniraman_2019
+        database: Primary or responsible-authority source
+        site: JAMA Network Open
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          invasively_ventilated_neonatal_oi_osi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - oi_muniraman_2019
+    accounting:
+      retrieved: 18
+      deduplicated: 18
+      screened: 18
+      fullTextAssessed: 2
+      excluded: 0
+      included: 2
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - { citationId: pmid:41963715, title: 'Noninvasive oxygenation monitoring in PPHN: validation of the oxygen saturation index and the oxygen saturation to fraction of inspired oxygen ratio against conventional invasive indices.', disposition: excluded, exclusionReason: 'PPHN-specific retrospective validation of OSI as a surrogate for OI; it reports no distinct OI formula or neonatal severity-band thresholds for the retained calculator contract.', fullTextAssessed: false }
+      - { citationId: pmid:41428592, title: 'Oxygenation Index and Oxygen Saturation Index in Congenital Diaphragmatic Hernia: Do Management Guidelines Make a Difference?', disposition: excluded, exclusionReason: 'Disease-specific application without a distinct retained formula or category claim.', fullTextAssessed: false }
+      - { citationId: pmid:40630719, title: 'Comparison of the oxygenation index and the oxygen saturation index as clinical indicators for neonatal ECMO.', disposition: excluded, exclusionReason: 'Later validation without a distinct retained formula or category claim.', fullTextAssessed: false }
+      - { citationId: pmid:39688350, title: 'Implementation of the Oxygen Saturation Index as a Predictor of Outcome in Prenatally Diagnosed CDH Neonates in the First 24 Hours of Life.', disposition: excluded, exclusionReason: 'Disease-specific prognostic application.', fullTextAssessed: false }
+      - { citationId: pmid:39086625, title: 'Associations between oxygen saturation Index and oxygenation index in neonates with congenital diaphragmatic hernia.', disposition: excluded, exclusionReason: 'Disease-specific validation without a distinct retained claim.', fullTextAssessed: false }
+      - { citationId: pmid:38814919, title: 'Assessing hypoxic respiratory failure in mechanically ventilated neonates: A comparative study of oxygen saturation index and oxygenation index.', disposition: excluded, exclusionReason: 'Later comparative validation without a distinct retained claim.', fullTextAssessed: false }
+      - { citationId: pmid:38201346, title: 'Categorizing Acute Respiratory Distress Syndrome with Different Severities by Oxygen Saturation Index.', disposition: excluded, exclusionReason: 'Pediatric ARDS categorization outside the declared neonatal OI bands.', fullTextAssessed: false }
+      - { citationId: pmid:36889297, title: 'Reply to Oxygen Saturation Index: A Trigger for Neonatal Transfer?', disposition: excluded, exclusionReason: 'Correspondence without a distinct retained formula claim.', fullTextAssessed: false }
+      - { citationId: pmid:36882001, title: 'Oxygen Saturation Index: A Trigger for Neonatal Transfer?', disposition: excluded, exclusionReason: 'Transfer-policy commentary outside the calculator contract.', fullTextAssessed: false }
+      - { citationId: pmid:38919686, title: 'Can Noninvasive Oxygen Saturation Index Match Invasive Oxygenation Index to Monitor Respiratory Disease in Critically Ill Children? A Prospective Study.', disposition: excluded, exclusionReason: 'Pediatric validation outside the declared neonatal population.', fullTextAssessed: false }
+      - { citationId: pmid:34942631, title: 'Oxygen Saturation Index in Neonates with a Congenital Diaphragmatic Hernia: A Retrospective Cohort Study.', disposition: excluded, exclusionReason: 'Disease-specific validation without a distinct retained claim.', fullTextAssessed: false }
+      - { citationId: pmid:34666386, title: 'Correlation and Prediction of Oxygen Index from Oxygen Saturation Index in Neonates with Acute Respiratory Failure.', disposition: excluded, exclusionReason: 'Later correlation study without a distinct retained formula claim.', fullTextAssessed: false }
+      - { citationId: pmid:31998572, title: 'Frequency of Pediatric Acute Respiratory Distress Syndrome Based on Oxygen Saturation Index in Pediatric Intensive Care Unit of a Developing Country.', disposition: excluded, exclusionReason: 'Pediatric ARDS application outside the neonatal contract.', fullTextAssessed: false }
+      - { citationId: pmid:31537144, title: 'Accuracy of oxygen saturation index in determining the severity of respiratory failure among preterm infants with respiratory distress syndrome.', disposition: excluded, exclusionReason: 'Later accuracy study without a distinct retained claim.', fullTextAssessed: false }
+      - citationId: oi_muniraman_2019
+        title: Evaluation of Oxygen Saturation Index Compared With Oxygenation Index in Neonates With Hypoxemic
+          Respiratory Failure.
+        disposition: included
+        fullTextAssessed: true
+      - { citationId: pmid:26330229, title: 'Reference Ranges for Cerebral Tissue Oxygen Saturation Index in Term Neonates during Immediate Neonatal Transition after Birth.', disposition: excluded, exclusionReason: 'Near-infrared cerebral tissue index is not the respiratory OSI model.', fullTextAssessed: false }
+      - citationId: oi_rawat_2015
+        title: Oxygen saturation index and severity of hypoxic respiratory failure.
+        disposition: included
+        fullTextAssessed: true
+      - { citationId: pmid:20625338, title: 'Computed tomography scan measurement of abdominal wall thickness for application of near-infrared spectroscopy probes to monitor regional oxygen saturation index of gastrointestinal and renal circulations in children.', disposition: excluded, exclusionReason: 'Near-infrared regional tissue index is not the respiratory OSI model.', fullTextAssessed: false }
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:oxygenation_index:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and synonyms
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search paired with direct primary and responsible-authority review.
+      resolution: Resolved by retaining exact model and author terms, checking translation, screening every result,
+        chasing citations, and reviewing current authority and specialty sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - oi_rawat_2015
+  - oi_nsw_ino_2025
+  - oi_aha_ats_2015
+  - oi_muniraman_2019
+claims:
+  - id: claim:oxygenation_index:calculator-model
+    kind: applicability
+    statement: Neonatal oxygenation index and oxygen saturation index is limited to Neonates receiving invasive
+      mechanical ventilation for hypoxemic respiratory failure. NICU respiratory severity assessment; OSI is a
+      noninvasive surrogate when PaO2 is unavailable.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - oi_nsw_ino_2025
+    locators:
+      - sourceId: oi_nsw_ino_2025
+        locator: RHW neonatal iNO guideline, oxygenation-index severity and ECMO context table.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad clinical limitations are descriptive; every
+      runtime-verifiable surface is separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:formula-implementation
+    kind: formula
+    statement: The calculator implements the source-bound Neonatal oxygenation index and oxygen saturation index
+      arithmetic and declared final rounding.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:ref-1
+      - case:oxygenation_index:ref-2
+      - case:oxygenation_index:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:applicability-purpose
+    kind: applicability
+    statement: Compute the neonatal Oxygenation Index (OI, from PaO2) and/or Oxygen Saturation Index (OSI, from
+      SpO2) for hypoxemic respiratory failure or persistent pulmonary hypertension. Provide at least one of
+      PaO2 or SpO2.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - oi_aha_ats_2015
+    locators:
+      - sourceId: oi_aha_ats_2015
+        locator: AHA/ATS pediatric pulmonary hypertension guideline, PPHN section and OI greater than 40 referral
+          context.
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:applicability-exclusions
+    kind: exclusion
+    statement: This calculator is scoped to neonates; do not apply these categories to pediatric ARDS or adults. A
+      single OI value is not by itself a treatment trigger.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - oi_aha_ats_2015
+    locators:
+      - sourceId: oi_aha_ats_2015
+        locator: AHA/ATS pediatric pulmonary hypertension guideline, PPHN section and OI greater than 40 referral
+          context.
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:input-mean_airway_pressure
+    kind: input
+    statement: Mean airway pressure in cmH2O.
+    covers:
+      - input:mean_airway_pressure
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:ref-1
+      - case:oxygenation_index:ref-2
+      - case:oxygenation_index:ref-3
+      - case:oxygenation_index:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:input-mean_airway_pressure-hard_limits
+    kind: input
+    statement: OathMCP rejects Mean Airway Pressure (MAP) outside [0.1,100] as a conservative operational
+      envelope, not a clinical cutoff.
+    covers:
+      - input:mean_airway_pressure:hard_limits
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:hard-mean_airway_pressure
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:input-mean_airway_pressure-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Mean Airway Pressure (MAP) is outside [3,50]; this is an
+      operational review prompt.
+    covers:
+      - input:mean_airway_pressure:plausibility
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:plausibility-mean_airway_pressure
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:input-fio2
+    kind: input
+    statement: Fraction of inspired oxygen as a percentage (21 to 100).
+    covers:
+      - input:fio2
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:ref-1
+      - case:oxygenation_index:ref-2
+      - case:oxygenation_index:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:input-fio2-hard_limits
+    kind: input
+    statement: OathMCP rejects FiO2 outside [21,100] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:fio2:hard_limits
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:hard-fio2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:input-pao2
+    kind: input
+    statement: Arterial oxygen partial pressure (PaO2) in mmHg. Provide this or SpO2.
+    covers:
+      - input:pao2
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:ref-1
+      - case:oxygenation_index:ref-2
+      - case:oxygenation_index:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:input-pao2-hard_limits
+    kind: input
+    statement: OathMCP rejects PaO2 outside [1,700] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:pao2:hard_limits
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:hard-pao2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:input-pao2-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when PaO2 is outside [20,600]; this is an operational review prompt.
+    covers:
+      - input:pao2:plausibility
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:plausibility-pao2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:input-spo2
+    kind: input
+    statement: Pulse-oximetry oxygen saturation (SpO2) as a percentage. Provide this or PaO2.
+    covers:
+      - input:spo2
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:ref-1
+      - case:oxygenation_index:ref-2
+      - case:oxygenation_index:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:input-spo2-hard_limits
+    kind: input
+    statement: OathMCP rejects SpO2 outside [40,100] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:spo2:hard_limits
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:hard-spo2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:input-spo2-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when SpO2 is outside [85,95]; this is an operational review prompt.
+    covers:
+      - input:spo2:plausibility
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:plausibility-spo2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:output-oi
+    kind: outcome
+    statement: OI = (MAP × FiO2 × 100)/PaO2, rounded to 2 decimal places (present when PaO2 given).
+    covers:
+      - output:oi
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:ref-1
+      - case:oxygenation_index:ref-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:output-osi
+    kind: outcome
+    statement: OSI = (MAP × FiO2 × 100)/SpO2, rounded to 2 decimal places (present when SpO2 given).
+    covers:
+      - output:osi
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:constraint-0
+    kind: input
+    statement: Either PaO2 or SpO2 must be provided to compute an oxygenation index.
+    covers:
+      - constraint:0
+    status: supported
+    sourceIds:
+      - oi_rawat_2015
+    locators:
+      - sourceId: oi_rawat_2015
+        locator: "Rawat 2015, Methods: OI and OSI equations; Table 2 and severity discussion."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:constraint-0
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:band-oi-0
+    kind: band
+    statement: Very severe neonatal hypoxemic respiratory failure (OI >40); treatment decisions require the
+      complete neonatal context. is the declared category for >40.
+    covers:
+      - band:oi:0
+    status: supported
+    sourceIds:
+      - oi_muniraman_2019
+    locators:
+      - sourceId: oi_muniraman_2019
+        locator: "Muniraman 2019, Methods equations and Introduction severity cutoffs: <=15, 16-25, 26-40, >40."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:band-very-severe
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:band-oi-1
+    kind: band
+    statement: Severe neonatal hypoxemic respiratory failure (OI >25–40). is the declared category for >25.
+    covers:
+      - band:oi:1
+    status: supported
+    sourceIds:
+      - oi_muniraman_2019
+    locators:
+      - sourceId: oi_muniraman_2019
+        locator: "Muniraman 2019, Methods equations and Introduction severity cutoffs: <=15, 16-25, 26-40, >40."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:band-severe
+      - case:oxygenation_index:boundary-40
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:band-oi-2
+    kind: band
+    statement: Moderate neonatal hypoxemic respiratory failure (OI >15–25). is the declared category for >15.
+    covers:
+      - band:oi:2
+    status: supported
+    sourceIds:
+      - oi_muniraman_2019
+    locators:
+      - sourceId: oi_muniraman_2019
+        locator: "Muniraman 2019, Methods equations and Introduction severity cutoffs: <=15, 16-25, 26-40, >40."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:ref-2
+      - case:oxygenation_index:boundary-25
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:oxygenation_index:band-oi-3
+    kind: band
+    statement: Mild neonatal hypoxemic respiratory failure (OI ≤15). is the declared category for <=15.
+    covers:
+      - band:oi:3
+    status: supported
+    sourceIds:
+      - oi_muniraman_2019
+    locators:
+      - sourceId: oi_muniraman_2019
+        locator: "Muniraman 2019, Methods equations and Introduction severity cutoffs: <=15, 16-25, 26-40, >40."
+    executable: true
+    scenarioIds:
+      - case:oxygenation_index:ref-1
+      - case:oxygenation_index:boundary-15
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:oxygenation_index:ref-1
+    tags:
+      - calculator:oxygenation_index:core
+      - conditional-output
+      - interpretation-boundaries
+    inputs: &a1
+      mean_airway_pressure: 10
+      fio2: 50
+      pao2: 80
+    expected: &a2
+      oi: 6.25
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:formula-implementation
+      - claim:oxygenation_index:input-mean_airway_pressure
+      - claim:oxygenation_index:input-fio2
+      - claim:oxygenation_index:input-pao2
+      - claim:oxygenation_index:input-spo2
+      - claim:oxygenation_index:output-oi
+      - claim:oxygenation_index:band-oi-3
+    sourceIds:
+      - oi_rawat_2015
+      - oi_muniraman_2019
+    witnesses:
+      - formula:implementation
+      - input:mean_airway_pressure
+      - input:fio2
+      - input:pao2
+      - input:spo2
+      - output:oi
+      - band:oi:3
+    expectedInterpretations: &a3
+      - output: oi
+        code: oi_band_4
+        kind: status
+        label: Mild neonatal hypoxemic respiratory failure (OI ≤15).
+        severity: borderline
+  - kind: reference
+    id: case:oxygenation_index:ref-2
+    tags:
+      - calculator:oxygenation_index:reference
+      - interpretation-boundaries
+    inputs:
+      mean_airway_pressure: 15
+      fio2: 80
+      pao2: 60
+    expected:
+      oi: 20
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:formula-implementation
+      - claim:oxygenation_index:input-mean_airway_pressure
+      - claim:oxygenation_index:input-fio2
+      - claim:oxygenation_index:input-pao2
+      - claim:oxygenation_index:input-spo2
+      - claim:oxygenation_index:output-oi
+      - claim:oxygenation_index:band-oi-2
+    sourceIds:
+      - oi_rawat_2015
+      - oi_muniraman_2019
+    witnesses:
+      - formula:implementation
+      - input:mean_airway_pressure
+      - input:fio2
+      - input:pao2
+      - input:spo2
+      - output:oi
+      - band:oi:2
+    expectedInterpretations:
+      - output: oi
+        code: oi_band_3
+        kind: status
+        label: Moderate neonatal hypoxemic respiratory failure (OI >15–25).
+        severity: abnormal
+  - kind: reference
+    id: case:oxygenation_index:ref-3
+    tags:
+      - calculator:oxygenation_index:reference
+    inputs:
+      mean_airway_pressure: 12
+      fio2: 60
+      spo2: 90
+    expected:
+      osi: 8
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:formula-implementation
+      - claim:oxygenation_index:input-mean_airway_pressure
+      - claim:oxygenation_index:input-fio2
+      - claim:oxygenation_index:input-pao2
+      - claim:oxygenation_index:input-spo2
+      - claim:oxygenation_index:output-osi
+    sourceIds:
+      - oi_rawat_2015
+    witnesses:
+      - formula:implementation
+      - input:mean_airway_pressure
+      - input:fio2
+      - input:pao2
+      - input:spo2
+      - output:osi
+  - kind: agent
+    id: case:oxygenation_index:agent-purpose
+    tags:
+      - agent-applicability
+    inputs: *a1
+    expected: *a2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:applicability-purpose
+    sourceIds:
+      - oi_aha_ats_2015
+    witnesses:
+      - applicability:purpose
+    expectedInterpretations: *a3
+  - kind: agent
+    id: case:oxygenation_index:agent-exclusion
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      fio2: 50
+      pao2: 80
+    expected: {}
+    expectedBehavior: clarify
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:applicability-exclusions
+      - claim:oxygenation_index:input-mean_airway_pressure
+    sourceIds:
+      - oi_aha_ats_2015
+      - oi_rawat_2015
+    witnesses:
+      - applicability:exclusions
+      - input:mean_airway_pressure
+    expectedError:
+      code: MISSING_REQUIRED
+      field: mean_airway_pressure
+  - kind: edge
+    id: case:oxygenation_index:hard-mean_airway_pressure
+    tags:
+      - hard-limits
+    inputs:
+      mean_airway_pressure: 0.09
+      fio2: 50
+      pao2: 80
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:input-mean_airway_pressure-hard_limits
+    sourceIds:
+      - oi_rawat_2015
+    witnesses:
+      - input:mean_airway_pressure:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: mean_airway_pressure
+  - kind: edge
+    id: case:oxygenation_index:plausibility-mean_airway_pressure
+    tags:
+      - plausibility
+    inputs:
+      mean_airway_pressure: 1.55
+      fio2: 50
+      pao2: 80
+    expected:
+      oi: 0.97
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:input-mean_airway_pressure-plausibility
+    sourceIds:
+      - oi_rawat_2015
+    witnesses:
+      - input:mean_airway_pressure:plausibility
+    expectedWarnings:
+      - Mean Airway Pressure (MAP) 1.55 is unusual (expected 3–50).
+    expectedInterpretations:
+      - output: oi
+        code: oi_band_4
+        kind: status
+        label: Mild neonatal hypoxemic respiratory failure (OI ≤15).
+        severity: borderline
+  - kind: edge
+    id: case:oxygenation_index:hard-fio2
+    tags:
+      - hard-limits
+    inputs:
+      mean_airway_pressure: 10
+      fio2: 18.9
+      pao2: 80
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:input-fio2-hard_limits
+    sourceIds:
+      - oi_rawat_2015
+    witnesses:
+      - input:fio2:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: fio2
+  - kind: edge
+    id: case:oxygenation_index:hard-pao2
+    tags:
+      - hard-limits
+    inputs:
+      mean_airway_pressure: 10
+      fio2: 50
+      pao2: 0.9
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:input-pao2-hard_limits
+    sourceIds:
+      - oi_rawat_2015
+    witnesses:
+      - input:pao2:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: pao2
+  - kind: edge
+    id: case:oxygenation_index:plausibility-pao2
+    tags:
+      - plausibility
+    inputs:
+      mean_airway_pressure: 10
+      fio2: 50
+      pao2: 10.5
+    expected:
+      oi: 47.62
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:input-pao2-plausibility
+    sourceIds:
+      - oi_rawat_2015
+    witnesses:
+      - input:pao2:plausibility
+    expectedWarnings:
+      - PaO2 10.5 is unusual (expected 20–600).
+    expectedInterpretations:
+      - output: oi
+        code: oi_band_1
+        kind: status
+        label: Very severe neonatal hypoxemic respiratory failure (OI >40); treatment decisions require the complete
+          neonatal context.
+        severity: critical
+  - kind: edge
+    id: case:oxygenation_index:hard-spo2
+    tags:
+      - hard-limits
+    inputs:
+      mean_airway_pressure: 10
+      fio2: 50
+      pao2: 80
+      spo2: 36
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:input-spo2-hard_limits
+    sourceIds:
+      - oi_rawat_2015
+    witnesses:
+      - input:spo2:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: spo2
+  - kind: edge
+    id: case:oxygenation_index:plausibility-spo2
+    tags:
+      - plausibility
+    inputs:
+      mean_airway_pressure: 10
+      fio2: 50
+      pao2: 80
+      spo2: 62.5
+    expected:
+      oi: 6.25
+      osi: 8
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:input-spo2-plausibility
+    sourceIds:
+      - oi_rawat_2015
+    witnesses:
+      - input:spo2:plausibility
+    expectedWarnings:
+      - SpO2 62.5 is unusual (expected 85–95).
+    expectedInterpretations:
+      - output: oi
+        code: oi_band_4
+        kind: status
+        label: Mild neonatal hypoxemic respiratory failure (OI ≤15).
+        severity: borderline
+  - kind: edge
+    id: case:oxygenation_index:band-severe
+    tags:
+      - interpretation-boundaries
+    inputs:
+      mean_airway_pressure: 30
+      fio2: 100
+      pao2: 100
+    expected:
+      oi: 30
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:band-oi-1
+    sourceIds:
+      - oi_muniraman_2019
+    witnesses:
+      - band:oi:1
+    expectedInterpretations:
+      - output: oi
+        code: oi_band_2
+        kind: status
+        label: Severe neonatal hypoxemic respiratory failure (OI >25–40).
+        severity: critical
+  - kind: edge
+    id: case:oxygenation_index:band-very-severe
+    tags:
+      - interpretation-boundaries
+    inputs:
+      mean_airway_pressure: 50
+      fio2: 100
+      pao2: 100
+    expected:
+      oi: 50
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:band-oi-0
+    sourceIds:
+      - oi_muniraman_2019
+    witnesses:
+      - band:oi:0
+    expectedInterpretations:
+      - output: oi
+        code: oi_band_1
+        kind: status
+        label: Very severe neonatal hypoxemic respiratory failure (OI >40); treatment decisions require the complete
+          neonatal context.
+        severity: critical
+  - kind: edge
+    id: case:oxygenation_index:constraint-0
+    tags:
+      - constraints
+    inputs:
+      mean_airway_pressure: 10
+      fio2: 50
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:oxygenation_index:constraint-0
+    sourceIds:
+      - oi_rawat_2015
+    witnesses:
+      - constraint:0
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: pao2 | spo2
+      messageIncludes: Either PaO2 or SpO2 must be provided to compute an oxygenation index.
+  - kind: edge
+    id: case:oxygenation_index:boundary-15
+    tags: [interpretation-boundaries]
+    inputs: { mean_airway_pressure: 15, fio2: 100, pao2: 100 }
+    expected: { oi: 15 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Exact published OI category boundary. }
+    claimIds: [claim:oxygenation_index:band-oi-3]
+    sourceIds: [oi_muniraman_2019]
+    witnesses: [band:oi:3]
+    expectedInterpretations:
+      - { output: oi, code: oi_band_4, kind: status, label: Mild neonatal hypoxemic respiratory failure (OI ≤15).,
+          severity: borderline }
+  - kind: edge
+    id: case:oxygenation_index:boundary-25
+    tags: [interpretation-boundaries]
+    inputs: { mean_airway_pressure: 25, fio2: 100, pao2: 100 }
+    expected: { oi: 25 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Exact published OI category boundary. }
+    claimIds: [claim:oxygenation_index:band-oi-2]
+    sourceIds: [oi_muniraman_2019]
+    witnesses: [band:oi:2]
+    expectedInterpretations:
+      - { output: oi, code: oi_band_3, kind: status,
+          label: Moderate neonatal hypoxemic respiratory failure (OI >15–25)., severity: abnormal }
+  - kind: edge
+    id: case:oxygenation_index:boundary-40
+    tags: [interpretation-boundaries]
+    inputs: { mean_airway_pressure: 40, fio2: 100, pao2: 100 }
+    expected: { oi: 40 }
+    expectedBehavior: calculate
+    tolerance: { mode: exact, rationale: Exact published OI category boundary. }
+    claimIds: [claim:oxygenation_index:band-oi-1]
+    sourceIds: [oi_muniraman_2019]
+    witnesses: [band:oi:1]
+    expectedInterpretations:
+      - { output: oi, code: oi_band_2, kind: status,
+          label: Severe neonatal hypoxemic respiratory failure (OI >25–40)., severity: critical }
+compatibilityNotes: []
+explicitBlockers: []

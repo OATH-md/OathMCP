@@ -1,0 +1,25 @@
+draft:
+  draftVersion: "1.0"
+  archetype: lookup
+  todos: [TODO replace every placeholder and add an immutable reviewed data asset]
+id: __CALCULATOR_ID__
+version: 0.1.0
+name: TODO lookup name
+clinicalModel:
+  modelKind: lookup
+  modelId: __CALCULATOR_ID__
+  modelVersion: TODO exact model version
+  dataSnapshot: TODO immutable snapshot or hash
+  effectiveDate: 2026-01-01
+  reviewDate: 2026-01-01
+  evidenceRefs: [TODO_source_id]
+applicability:
+  population: TODO population
+  setting: TODO setting
+  exclusions: [TODO exclusions]
+  evidenceRefs: [TODO_source_id]
+purposeForAgents: TODO explain the exact lookup use case
+evidence: []
+inputs: {}
+outputs: {}
+primaryOutputs: [TODO_output]

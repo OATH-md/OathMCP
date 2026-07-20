@@ -1,0 +1,56 @@
+<footer class="oath-footer">
+  <div class="oath-footer__inner">
+    <p>Open-source clinical tools for AI agents.</p>
+    <p class="oath-footer__mark" aria-hidden="true">Oath<span>.</span></p>
+  </div>
+</footer>
+
+<style>
+  .oath-footer {
+    padding: 2rem 1rem max(1.5rem, env(safe-area-inset-bottom));
+  }
+
+  .oath-footer__inner {
+    display: flex;
+    max-width: 90rem;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--blume-border);
+    margin-inline: auto;
+  }
+
+  p {
+    margin: 0;
+    color: var(--blume-muted-foreground);
+    font-size: 1rem;
+    text-wrap: pretty;
+  }
+
+  .oath-footer__mark {
+    color: var(--blume-foreground);
+    font-weight: 500;
+  }
+
+  .oath-footer__mark span {
+    color: var(--blume-accent);
+  }
+
+  @media (min-width: 48rem) {
+    .oath-footer {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .oath-footer__inner {
+      border-color: CanvasText;
+    }
+
+    .oath-footer__mark span {
+      color: CanvasText;
+    }
+  }
+</style>

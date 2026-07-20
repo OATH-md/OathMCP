@@ -1,0 +1,1110 @@
+calculatorId: wells_dvt
+specVersion: 1.1.0
+clinicalModel: Modified 2003 two-level Wells DVT clinical probability score
+variant: modified_2003_two_level
+population: Outpatients with clinically suspected lower-extremity deep-vein
+  thrombosis in the validated diagnostic pathway.
+setting: Pretest-probability classification before D-dimer and ultrasonography;
+  not a diagnosis or a PE score.
+assessmentTiming: At initial evaluation before pathway testing.
+endpoint: Two-level DVT-likely or DVT-unlikely clinical probability category at
+  the score threshold of 2.
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:wells_dvt:2026-07-16
+    calculatorId: wells_dvt
+    model: Modified 2003 two-level Wells DVT clinical probability score
+    variant: modified_2003_two_level
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:wells_dvt:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web search
+        exactQuery: Wells rule[Title/Abstract] AND deep vein thrombosis[Title/Abstract]
+          AND (validation[Title/Abstract] OR meta-analysis[Publication Type])
+        translationExposed: true
+        translatedQuery: Wells rule[Title/Abstract] AND deep vein
+          thrombosis[Title/Abstract] AND (validation[Title/Abstract] OR
+          meta-analysis[Publication Type])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:14507948
+      - id: search:wells_dvt:wells_dvt_wells_2003
+        sourceRole: derivation
+        authorityId: wells_dvt_wells_2003
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for wells_dvt
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:14507948
+      - id: search:wells_dvt:wells_dvt_geersing_2014
+        sourceRole: external_validation
+        authorityId: wells_dvt_geersing_2014
+        database: Primary or responsible-authority source
+        site: www.bmj.com
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for wells_dvt
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - doi:10.1136/bmj.g1340
+      - id: search:wells_dvt:wells_dvt_nice_ng158
+        sourceRole: controlling_authority
+        authorityId: wells_dvt_nice_ng158
+        database: Primary or responsible-authority source
+        site: www.nice.org.uk
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for wells_dvt
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - NICE:NG158
+      - id: search:wells_dvt:wells_dvt_ash_2018
+        sourceRole: specialty_guidance
+        authorityId: wells_dvt_ash_2018
+        database: Primary or responsible-authority source
+        site: ashpublications.org
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for wells_dvt
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - ASH:VTE:2018
+    accounting:
+      retrieved: 5
+      deduplicated: 4
+      screened: 4
+      fullTextAssessed: 4
+      excluded: 0
+      included: 4
+    deduplication:
+      method: PMID, DOI, and responsible-authority URL identity with manual title
+        reconciliation
+      tool: PubMed plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: wells_dvt_wells_2003
+        title: Modified two-level Wells DVT derivation pathway
+        disposition: included
+        fullTextAssessed: true
+      - citationId: wells_dvt_geersing_2014
+        title: Wells DVT individual-patient-data external validation
+        disposition: included
+        fullTextAssessed: true
+      - citationId: wells_dvt_nice_ng158
+        title: NICE NG158 two-level DVT Wells pathway
+        disposition: included
+        fullTextAssessed: true
+      - citationId: wells_dvt_ash_2018
+        title: ASH venous-thromboembolism diagnosis guideline
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:wells_dvt:pubmed
+      checklist:
+        - Concept coverage
+        - Controlled vocabulary and text words
+        - Boolean logic
+        - Limits and reproducibility
+        - Variant and endpoint specificity
+      comments:
+        - Strategy checked independently against the retained derivation,
+          external validation, current authority, and specialty-guidance
+          sources.
+      resolution: All checklist comments resolved; exact query, source identities,
+        accounting, and citation chasing recorded.
+      resolved: true
+      reviewer: OathMCP independent search QA lane
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - wells_dvt_wells_2003
+  - wells_dvt_geersing_2014
+  - wells_dvt_nice_ng158
+  - wells_dvt_ash_2018
+claims:
+  - id: claim:wells_dvt:calculator-model
+    kind: applicability
+    statement: wells_dvt is the exact model and variant named by this dossier;
+      adjacent scores and variants are out of scope.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - wells_dvt_nice_ng158
+      - wells_dvt_ash_2018
+    locators:
+      - sourceId: wells_dvt_nice_ng158
+        locator: "Recommendations 1.1.3-1.1.7 and the two-level DVT Wells table: exact
+          components, >=2 likely/<2 unlikely boundary, and required
+          D-dimer/imaging pathway."
+      - sourceId: wells_dvt_ash_2018
+        locator: "Recommendations 5a-5b and 6a-6b: use of a validated
+          pretest-probability rule with D-dimer and ultrasound rather than the
+          score as a stand-alone diagnosis."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is a source-governed scope assertion
+      rather than a numerical runtime output.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:formula-implementation
+    kind: formula
+    statement: The declared wells_dvt inputs are combined exactly according to the
+      cited score definition.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+      - case:wells_dvt:reference-negative-weight
+      - case:wells_dvt:reference-maximum
+      - case:wells_dvt:component-active_cancer-true
+      - case:wells_dvt:component-paralysis_or_cast-true
+      - case:wells_dvt:component-bedridden-true
+      - case:wells_dvt:component-localized_tenderness-true
+      - case:wells_dvt:component-entire_leg_swollen-true
+      - case:wells_dvt:component-calf_swelling-true
+      - case:wells_dvt:component-pitting_edema-true
+      - case:wells_dvt:component-collateral_veins-true
+      - case:wells_dvt:component-alternative_diagnosis-true
+      - case:wells_dvt:component-previously_diagnosed-true
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:applicability-purpose
+    kind: applicability
+    statement: The calculator purpose is limited to the cited population, setting,
+      timing, and endpoint.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - wells_dvt_nice_ng158
+      - wells_dvt_ash_2018
+    locators:
+      - sourceId: wells_dvt_nice_ng158
+        locator: "Recommendations 1.1.3-1.1.7 and the two-level DVT Wells table: exact
+          components, >=2 likely/<2 unlikely boundary, and required
+          D-dimer/imaging pathway."
+      - sourceId: wells_dvt_ash_2018
+        locator: "Recommendations 5a-5b and 6a-6b: use of a validated
+          pretest-probability rule with D-dimer and ultrasound rather than the
+          score as a stand-alone diagnosis."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:applicability-exclusions
+    kind: applicability
+    statement: The calculator exclusions and non-directive limitations must remain
+      visible to agents.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - wells_dvt_nice_ng158
+      - wells_dvt_ash_2018
+    locators:
+      - sourceId: wells_dvt_nice_ng158
+        locator: "Recommendations 1.1.3-1.1.7 and the two-level DVT Wells table: exact
+          components, >=2 likely/<2 unlikely boundary, and required
+          D-dimer/imaging pathway."
+      - sourceId: wells_dvt_ash_2018
+        locator: "Recommendations 5a-5b and 6a-6b: use of a validated
+          pretest-probability rule with D-dimer and ultrasound rather than the
+          score as a stand-alone diagnosis."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:agent-exclusion-missing-context
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:input-active-cancer
+    kind: input
+    statement: The runtime surface input:active_cancer matches the cited wells_dvt
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:active_cancer
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+      - case:wells_dvt:missing-active_cancer
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:input-paralysis-or-cast
+    kind: input
+    statement: The runtime surface input:paralysis_or_cast matches the cited
+      wells_dvt model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:paralysis_or_cast
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:input-bedridden
+    kind: input
+    statement: The runtime surface input:bedridden matches the cited wells_dvt model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - input:bedridden
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:input-localized-tenderness
+    kind: input
+    statement: The runtime surface input:localized_tenderness matches the cited
+      wells_dvt model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:localized_tenderness
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:input-entire-leg-swollen
+    kind: input
+    statement: The runtime surface input:entire_leg_swollen matches the cited
+      wells_dvt model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:entire_leg_swollen
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:input-calf-swelling
+    kind: input
+    statement: The runtime surface input:calf_swelling matches the cited wells_dvt
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:calf_swelling
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:input-pitting-edema
+    kind: input
+    statement: The runtime surface input:pitting_edema matches the cited wells_dvt
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:pitting_edema
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:input-collateral-veins
+    kind: input
+    statement: The runtime surface input:collateral_veins matches the cited
+      wells_dvt model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:collateral_veins
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:input-alternative-diagnosis
+    kind: input
+    statement: The runtime surface input:alternative_diagnosis matches the cited
+      wells_dvt model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:alternative_diagnosis
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:input-previously-diagnosed
+    kind: input
+    statement: The runtime surface input:previously_diagnosed matches the cited
+      wells_dvt model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:previously_diagnosed
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:output-score
+    kind: outcome
+    statement: The runtime surface output:score matches the cited wells_dvt model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - output:score
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:output-risk-category
+    kind: outcome
+    statement: The runtime surface output:risk_category matches the cited wells_dvt
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - output:risk_category
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:reference-score-zero
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:band-calculator-0
+    kind: band
+    statement: The runtime surface band:calculator:0 matches the cited wells_dvt
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - band:calculator:0
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:band-wells_dvt_band_1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:wells_dvt:band-calculator-1
+    kind: band
+    statement: The runtime surface band:calculator:1 matches the cited wells_dvt
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - band:calculator:1
+    status: supported
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    locators:
+      - sourceId: wells_dvt_wells_2003
+        locator: "Methods and Table 1: ten-variable clinical model, +1/-2 weights, calf
+          swelling at least 3 cm, and score <2 unlikely versus >=2 likely;
+          Figures 1-2 show the linked diagnostic pathway."
+      - sourceId: wells_dvt_geersing_2014
+        locator: "Methods, model table, and validation Results: external performance of
+          the two-level Wells DVT rule when combined with D-dimer testing."
+    executable: true
+    scenarioIds:
+      - case:wells_dvt:band-wells_dvt_band_2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:wells_dvt:reference-score-zero
+    kind: reference
+    tags:
+      - calculator:wells_dvt:core
+      - source-derived-reference
+    inputs: &a2
+      active_cancer: false
+      paralysis_or_cast: false
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: false
+      previously_diagnosed: false
+    expected:
+      score: 0
+      risk_category: unlikely
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Integer scores, cohort lookup values, categorical outputs, warnings,
+        omissions, and interpretation codes are asserted exactly from the cited
+        model definition.
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+      - claim:wells_dvt:input-active-cancer
+      - claim:wells_dvt:input-paralysis-or-cast
+      - claim:wells_dvt:input-bedridden
+      - claim:wells_dvt:input-localized-tenderness
+      - claim:wells_dvt:input-entire-leg-swollen
+      - claim:wells_dvt:input-calf-swelling
+      - claim:wells_dvt:input-pitting-edema
+      - claim:wells_dvt:input-collateral-veins
+      - claim:wells_dvt:input-alternative-diagnosis
+      - claim:wells_dvt:input-previously-diagnosed
+      - claim:wells_dvt:output-score
+      - claim:wells_dvt:output-risk-category
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+      - input:active_cancer
+      - input:paralysis_or_cast
+      - input:bedridden
+      - input:localized_tenderness
+      - input:entire_leg_swollen
+      - input:calf_swelling
+      - input:pitting_edema
+      - input:collateral_veins
+      - input:alternative_diagnosis
+      - input:previously_diagnosed
+      - output:score
+      - output:risk_category
+  - id: case:wells_dvt:reference-negative-weight
+    kind: reference
+    tags:
+      - calculator:wells_dvt:core
+      - source-derived-reference
+    inputs:
+      active_cancer: false
+      paralysis_or_cast: false
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: true
+      previously_diagnosed: false
+    expected:
+      score: -2
+      risk_category: unlikely
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+  - id: case:wells_dvt:reference-maximum
+    kind: reference
+    tags:
+      - calculator:wells_dvt:core
+      - source-derived-reference
+    inputs:
+      active_cancer: true
+      paralysis_or_cast: true
+      bedridden: true
+      localized_tenderness: true
+      entire_leg_swollen: true
+      calf_swelling: true
+      pitting_edema: true
+      collateral_veins: true
+      alternative_diagnosis: false
+      previously_diagnosed: true
+    expected:
+      score: 9
+      risk_category: likely
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+  - id: case:wells_dvt:missing-active_cancer
+    kind: agent
+    tags:
+      - required-inputs
+    inputs: &a3
+      paralysis_or_cast: false
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: false
+      previously_diagnosed: false
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: active_cancer
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:input-active-cancer
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - input:active_cancer
+  - id: case:wells_dvt:agent-purpose
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs: *a2
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:applicability-purpose
+    sourceIds:
+      - wells_dvt_nice_ng158
+      - wells_dvt_ash_2018
+    witnesses:
+      - applicability:purpose
+  - id: case:wells_dvt:agent-exclusion-missing-context
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs: *a3
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: active_cancer
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:applicability-exclusions
+    sourceIds:
+      - wells_dvt_nice_ng158
+      - wells_dvt_ash_2018
+    witnesses:
+      - applicability:exclusions
+  - id: case:wells_dvt:band-wells_dvt_band_1
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      active_cancer: true
+      paralysis_or_cast: true
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: false
+      previously_diagnosed: false
+    expected:
+      score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: wells_dvt_band_1
+        kind: likelihood
+        label: DVT likely in the validated two-level pathway; this is a pretest
+          category, not a diagnosis.
+        severity: abnormal
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:band-calculator-0
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - band:calculator:0
+  - id: case:wells_dvt:band-wells_dvt_band_2
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      active_cancer: true
+      paralysis_or_cast: false
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: false
+      previously_diagnosed: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: wells_dvt_band_2
+        kind: likelihood
+        label: DVT unlikely in the validated two-level pathway; a negative score does
+          not independently exclude DVT.
+        severity: normal
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:band-calculator-1
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - band:calculator:1
+  - id: case:wells_dvt:component-active_cancer-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      active_cancer: true
+      paralysis_or_cast: false
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: false
+      previously_diagnosed: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+  - id: case:wells_dvt:component-paralysis_or_cast-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      active_cancer: false
+      paralysis_or_cast: true
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: false
+      previously_diagnosed: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+  - id: case:wells_dvt:component-bedridden-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      active_cancer: false
+      paralysis_or_cast: false
+      bedridden: true
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: false
+      previously_diagnosed: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+  - id: case:wells_dvt:component-localized_tenderness-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      active_cancer: false
+      paralysis_or_cast: false
+      bedridden: false
+      localized_tenderness: true
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: false
+      previously_diagnosed: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+  - id: case:wells_dvt:component-entire_leg_swollen-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      active_cancer: false
+      paralysis_or_cast: false
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: true
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: false
+      previously_diagnosed: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+  - id: case:wells_dvt:component-calf_swelling-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      active_cancer: false
+      paralysis_or_cast: false
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: true
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: false
+      previously_diagnosed: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+  - id: case:wells_dvt:component-pitting_edema-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      active_cancer: false
+      paralysis_or_cast: false
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: true
+      collateral_veins: false
+      alternative_diagnosis: false
+      previously_diagnosed: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+  - id: case:wells_dvt:component-collateral_veins-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      active_cancer: false
+      paralysis_or_cast: false
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: true
+      alternative_diagnosis: false
+      previously_diagnosed: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+  - id: case:wells_dvt:component-alternative_diagnosis-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      active_cancer: false
+      paralysis_or_cast: false
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: true
+      previously_diagnosed: false
+    expected:
+      score: -2
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+  - id: case:wells_dvt:component-previously_diagnosed-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      active_cancer: false
+      paralysis_or_cast: false
+      bedridden: false
+      localized_tenderness: false
+      entire_leg_swollen: false
+      calf_swelling: false
+      pitting_edema: false
+      collateral_veins: false
+      alternative_diagnosis: false
+      previously_diagnosed: true
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:wells_dvt:formula-implementation
+    sourceIds:
+      - wells_dvt_wells_2003
+      - wells_dvt_geersing_2014
+    witnesses:
+      - formula:implementation
+compatibilityNotes: []
+explicitBlockers: []

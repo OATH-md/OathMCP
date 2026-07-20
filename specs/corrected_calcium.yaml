@@ -1,0 +1,113 @@
+id: corrected_calcium
+version: 1.0.0
+name: Legacy Conventional 0.8-Factor Albumin Adjustment
+clinicalModel:
+  modelKind: formula
+  modelId: corrected_calcium.conventional_bmj_1977_legacy
+  modelVersion: conventional_bmj_1977_legacy
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+applicability:
+  population: Historical reproduction of the conventional 0.8-factor albumin-adjustment
+    equation published by the BMJ in 1977 when the formula itself is explicitly requested.
+  setting: Compatibility and educational formula reproduction only; not calcium
+    status classification or treatment support.
+  exclusions:
+    - Do not use albumin-adjusted calcium to classify or manage calcium status.
+      Current laboratory-medicine guidance recommends measured ionized calcium
+      when accurate calcium assessment is required.
+  evidenceRefs:
+    - source_2
+purposeForAgents: Reproduce the legacy conventional 0.8-factor arithmetic only when a
+  user explicitly asks for that historical value; state that it is not a proxy
+  for ionized calcium and is not supported for calcium-status classification.
+whenNotToUse: Do not use the adjusted value to diagnose, classify, or manage
+  calcium status. Prefer measured ionized calcium when accuracy matters.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Correcting the calcium. Br Med J. 1977;1(6061):598.
+    locator: Page 598; conventional adjusted-calcium equation using 0.02 mmol/L per g/L albumin difference, equivalent to 0.8 mg/dL per g/dL.
+    doi: 10.1136/bmj.1.6061.598
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC1605322/
+    reviewed: true
+  - id: source_2
+    type: reference
+    citation: Cavalier E, Zima T, Plebani M, et al. Albumin-adjusted (corrected)
+      calcium should no longer be reported. Clin Chem Lab Med. 2026.
+    locator: doi:10.1515/cclm-2026-0545
+    doi: 10.1515/cclm-2026-0545
+    url: https://pubmed.ncbi.nlm.nih.gov/42035248/
+    reviewed: true
+inputs:
+  calcium:
+    title: Calcium
+    description: Measured total calcium. Pass a bare number in mg/dL, or {value,
+      unit} for SI (mmol/L).
+    kind: quantity
+    quantity:
+      analyte: calcium
+      canonicalUnit: mg/dL
+      acceptedUnits:
+        - mg/dL
+        - mmol/L
+    plausible:
+      - 4
+      - 15
+    hardLimits:
+      - 1
+      - 25
+    required: true
+    conceptId: corrected_calcium.input.calcium
+    examples:
+      - 8
+    sourceRefs:
+      - source_1
+    sharedKey: calcium
+  albumin:
+    title: Albumin
+    description: Serum albumin. Pass a bare number in g/dL, or {value, unit} for SI
+      (g/L).
+    kind: quantity
+    quantity:
+      analyte: albumin
+      canonicalUnit: g/dL
+      acceptedUnits:
+        - g/dL
+        - g/L
+    plausible:
+      - 1
+      - 6
+    hardLimits:
+      - 0.5
+      - 10
+    required: true
+    conceptId: corrected_calcium.input.albumin
+    examples:
+      - 2
+    sourceRefs:
+      - source_1
+outputs:
+  corrected_calcium:
+    title: Legacy Conventional 0.8-Factor Estimate
+    description: Historical arithmetic measured Ca + 0.8 × (4 − albumin), in
+      mg/dL rounded to 1 decimal place; not a substitute for ionized calcium.
+    kind: number
+    unit: mg/dL
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+  clinical_use_supported:
+    title: Clinical Use Supported
+    description: Always false because current laboratory-medicine guidance does
+      not support albumin-adjusted calcium for calcium-status classification.
+    kind: boolean
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_2
+primaryOutputs:
+  - corrected_calcium

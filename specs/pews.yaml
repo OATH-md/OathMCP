@@ -1,0 +1,206 @@
+id: pews
+version: 1.0.0
+name: Brighton/Monaghan Pediatric Early Warning Score (PEWS)
+clinicalModel:
+  modelKind: score
+  modelId: pews
+  modelVersion: monaghan_2005_brighton_three_domain_plus_two_modifiers
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+    - source_4
+applicability:
+  population: Pediatric inpatients assessed against local age-specific norms using behavior, cardiovascular, and
+    respiratory domains.
+  setting: Legacy Brighton pediatric inpatient deterioration surveillance; not the 2023 NHS England National PEWS or an
+    emergency-department triage tool.
+  exclusions:
+    - A legacy pediatric inpatient deterioration score, not a diagnosis, emergency-department triage rule, or substitute
+      for clinical concern. Local age-specific norms and escalation policy are required. The 2023 NHS England National
+      PEWS is a different age-banded system and must not be represented by this calculator.
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+    - source_4
+purposeForAgents: Pediatric inpatient deterioration warning score using behavior, cardiovascular, and respiratory domains
+  against local age-specific norms. Return the integer Brighton PEWS result from 0-13 without inventing a universal response
+  threshold; high and rising scores require interpretation under the local validated escalation policy.
+whenNotToUse: A legacy pediatric inpatient deterioration score, not a diagnosis, emergency-department triage rule, or
+  substitute for clinical concern. Local age-specific norms and escalation policy are required. The 2023 NHS England
+  National PEWS is a different age-banded system and must not be represented by this calculator.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Detecting and managing deterioration in children.
+    locator: "Published Brighton score table: behavior, cardiovascular, respiratory 0-3 categories and two separate
+      two-point modifiers."
+    url: https://doi.org/10.7748/paed2005.02.17.1.32.c964
+    reviewed: true
+  - id: source_2
+    type: validation
+    citation: Can paediatric early warning scores be used to guide the need for hospital admission and predict significant
+      illness in children presenting to the emergency department?
+    locator: "Methods and Conclusion: Brighton PEWS external accuracy, elevated scores warrant attention, low scores poorly
+      rule out serious illness."
+    url: https://pubmed.ncbi.nlm.nih.gov/26531861/
+    reviewed: true
+  - id: source_3
+    type: guideline
+    citation: National paediatric early warning system observation and escalation charts.
+    locator: "Publication summary and four age-banded charts: current English national PEWS is a different system for
+      general children wards."
+    url: https://www.england.nhs.uk/publication/national-pews-observation-and-escalation-charts/
+    reviewed: true
+  - id: source_4
+    type: guideline
+    citation: New NHS warning system to spot deterioration in children’s health faster.
+    locator: "National-system description: age-banded observations, escalation, and parent or carer concern overriding the
+      numeric score."
+    url: https://www.england.nhs.uk/2023/11/new-nhs-warning-system-to-spot-deterioration-in-childrens-health-faster/
+    reviewed: true
+inputs:
+  behavior:
+    title: Behavior
+    description: Assessment of the child's behavior and level of consciousness.
+    kind: enum
+    enumValues:
+      - value: playing_appropriate
+        points: 0
+        label: playing appropriate
+        description: Playing or otherwise age-appropriate.
+      - value: sleeping
+        points: 1
+        label: sleeping
+        description: Sleeping.
+      - value: irritable
+        points: 2
+        label: irritable
+        description: Irritable.
+      - value: lethargic
+        points: 3
+        label: lethargic
+        description: Lethargic or confused, or reduced response to pain.
+    required: true
+    conceptId: pews.input.behavior
+    examples:
+      - lethargic
+    sourceRefs:
+      - source_1
+    sharedKey: behavior
+  cardiovascular:
+    title: Cardiovascular
+    description: Assessment of cardiovascular status, including color, capillary refill, and heart rate.
+    kind: enum
+    enumValues:
+      - value: pink
+        points: 0
+        label: pink
+        description: Pink, or capillary refill 1-2 seconds.
+      - value: pale
+        points: 1
+        label: pale
+        description: Pale, or capillary refill 3 seconds.
+      - value: gray
+        points: 2
+        label: gray
+        description: Gray, or capillary refill 4 seconds, or heart rate at least 20/min above the age-specific normal limit.
+      - value: gray_mottled
+        points: 3
+        label: gray mottled
+        description: Gray and mottled, capillary refill at least 5 seconds, heart rate at least 30/min above the age-specific
+          normal limit, or bradycardia.
+    required: true
+    conceptId: pews.input.cardiovascular
+    examples:
+      - gray_mottled
+    sourceRefs:
+      - source_1
+    sharedKey: cardiovascular
+  respiratory:
+    title: Respiratory
+    description: Assessment of respiratory status, including respiratory rate, work of breathing, and oxygen requirements.
+    kind: enum
+    enumValues:
+      - value: normal
+        points: 0
+        label: normal
+        description: Within age-specific normal parameters with no retractions.
+      - value: mild_distress
+        points: 1
+        label: mild distress
+        description: Rate more than 10/min above the age-specific normal limit with accessory-muscle use, or at least 30%
+          inspired oxygen or 3 L/min.
+      - value: moderate_distress
+        points: 2
+        label: moderate distress
+        description: Rate more than 20/min above the age-specific normal limit with retractions, or at least 40% inspired oxygen
+          or 6 L/min.
+      - value: severe_distress
+        points: 3
+        label: severe distress
+        description: Rate 5/min below the age-specific normal limit with retractions and grunting, or at least 50% inspired
+          oxygen or 8 L/min.
+    required: true
+    conceptId: pews.input.respiratory
+    examples:
+      - severe_distress
+    sourceRefs:
+      - source_1
+  nebulizers:
+    title: Quarter Hourly Nebulizers
+    description: Whether the patient requires nebulizer treatments every 15 minutes. Adds 2 points when true.
+    kind: boolean
+    required: true
+    conceptId: pews.input.nebulizers
+    examples:
+      - true
+    sourceRefs:
+      - source_1
+    sharedKey: nebulizers
+  vomiting:
+    title: Persistent Vomiting Following Surgery
+    description: Whether the patient has persistent vomiting following surgery. Adds 2 points when true.
+    kind: boolean
+    required: true
+    conceptId: pews.input.vomiting
+    examples:
+      - true
+    sourceRefs:
+      - source_1
+    sharedKey: vomiting
+outputs:
+  pews_score:
+    title: PEWS Score
+    description: Total Brighton/Monaghan Pediatric Early Warning Score (0-13).
+    kind: integer
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - pews_score
+scoring:
+  output: pews_score
+  components:
+    - kind: enum
+      field: behavior
+    - kind: enum
+      field: cardiovascular
+    - kind: enum
+      field: respiratory
+    - kind: boolean
+      field: nebulizers
+      truePoints: 2
+      falsePoints: 0
+    - kind: boolean
+      field: vomiting
+      truePoints: 2
+      falsePoints: 0
+  range:
+    - 0
+    - 13
+  evidenceRefs:
+    - source_1

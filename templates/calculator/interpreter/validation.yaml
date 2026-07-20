@@ -1,0 +1,19 @@
+draft:
+  draftVersion: "1.0"
+  archetype: interpreter
+  todos: ["TODO complete branch search, claims, ambiguity cases, and prompt scenarios"]
+calculatorId: __CALCULATOR_ID__
+specVersion: 0.1.0
+clinicalModel: TODO exact clinical model
+variant: TODO exact variant
+population: TODO population
+setting: TODO setting
+assessmentTiming: TODO timing
+endpoint: TODO endpoint
+reviewGroup: interpreter_conditional
+enrollment: pending_independent_review
+searchRecords: []
+authoritySourceIds: []
+claims: []
+cases: []
+explicitBlockers: []

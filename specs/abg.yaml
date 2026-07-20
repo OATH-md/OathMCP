@@ -1,0 +1,277 @@
+id: abg
+version: 1.1.0
+name: ABG/VBG Acid-Base Findings
+clinicalModel:
+  modelKind: decision_tree
+  modelId: abg_deterministic_findings
+  modelVersion: 1.1.0
+  reviewDate: 2026-07-15
+  evidenceRefs: [source_1, source_2, source_3, source_4, source_5]
+applicability:
+  population: Adults with a contemporaneous blood-gas sample and serum electrolytes.
+  setting: Deterministic acid-base findings for clinician review; not a diagnosis or treatment recommendation.
+  exclusions:
+    - Peripheral venous PCO2 is not interchangeable with arterial PCO2, so compensation and respiratory mixed-disorder branches are suppressed for venous samples.
+    - Delta ratios are returned only when their anion-gap and bicarbonate prerequisites are met.
+  evidenceRefs: [source_1, source_3, source_5]
+purposeForAgents: Return typed acid-base findings, provenance, availability, and limitations without inventing a diagnosis or treatment plan.
+whenNotToUse: Do not use venous PCO2 for arterial ventilatory decisions or interpret any branch without the clinical context and laboratory reference interval.
+evidence:
+  - id: source_1
+    type: review
+    citation: Berend K, de Vries AP, Gans RO. Physiological approach to assessment of acid-base disturbances. N Engl J Med. 2014;371(15):1434-1445.
+    locator: doi:10.1056/NEJMra1003327
+    doi: 10.1056/NEJMra1003327
+    url: https://doi.org/10.1056/NEJMra1003327
+    reviewed: true
+  - id: source_2
+    type: derivation
+    citation: Figge J, Jabor A, Kazda A, Fencl V. Anion gap and hypoalbuminemia. Crit Care Med. 1998;26(11):1807-1810.
+    locator: doi:10.1097/00003246-199811000-00019
+    doi: 10.1097/00003246-199811000-00019
+    url: https://doi.org/10.1097/00003246-199811000-00019
+    reviewed: true
+  - id: source_3
+    type: reference
+    citation: Rastegar A. Use of the deltaAG/deltaHCO3- ratio in the diagnosis of mixed acid-base disorders. J Am Soc Nephrol. 2007;18(9):2429-2431.
+    locator: doi:10.1681/ASN.2006121408
+    doi: 10.1681/ASN.2006121408
+    url: https://doi.org/10.1681/ASN.2006121408
+    reviewed: true
+  - id: source_4
+    type: derivation
+    citation: Albert MS, Dell RB, Winters RW. Quantitative displacement of acid-base equilibrium in metabolic acidosis. Ann Intern Med. 1967;66(2):312-322.
+    locator: doi:10.7326/0003-4819-66-2-312
+    doi: 10.7326/0003-4819-66-2-312
+    url: https://doi.org/10.7326/0003-4819-66-2-312
+    reviewed: true
+  - id: source_5
+    type: review
+    citation: "Bloom BM, Grundlingh J, Bestwick JP, Harris T. The role of venous blood gas in the emergency department: a systematic review and meta-analysis. Eur J Emerg Med. 2014;21(2):81-88."
+    locator: pmid:23903783
+    doi: 10.1097/MEJ.0b013e32836437cf
+    url: https://pubmed.ncbi.nlm.nih.gov/23903783/
+    reviewed: true
+inputs:
+  ph:
+    title: pH
+    description: Measured blood-gas pH.
+    kind: number
+    plausible: [6.8, 7.8]
+    hardLimits: [6.5, 8]
+    required: true
+    aliases: [pH]
+    conceptId: abg.input.ph
+    examples: [7.3]
+    sourceRefs: [source_1, source_5]
+    sharedKey: ph
+  paco2:
+    title: Measured PCO2
+    description: Measured arterial or peripheral venous PCO2 in mmHg; sample_type controls whether arterial compensation rules are available.
+    kind: number
+    plausible: [10, 100]
+    hardLimits: [5, 200]
+    required: true
+    aliases: [PaCO2]
+    conceptId: abg.input.paco2
+    examples: [30]
+    sourceRefs: [source_1, source_5]
+  bicarbonate:
+    title: Bicarbonate
+    description: Contemporaneous bicarbonate in mEq/L.
+    kind: number
+    plausible: [5, 50]
+    hardLimits: [1, 70]
+    required: true
+    aliases: [HCO3]
+    conceptId: abg.input.bicarbonate
+    examples: [16]
+    sourceRefs: [source_1, source_4]
+  sodium:
+    title: Sodium
+    description: Serum sodium; bare values use mEq/L and mmol/L is accepted explicitly.
+    kind: quantity
+    quantity:
+      analyte: sodium
+      canonicalUnit: mEq/L
+      acceptedUnits: [mEq/L, mmol/L]
+    plausible: [110, 170]
+    hardLimits: [80, 200]
+    required: true
+    aliases: [Na]
+    conceptId: abg.input.sodium
+    examples: [142]
+    sourceRefs: [source_1]
+  chloride:
+    title: Chloride
+    description: Contemporaneous serum chloride in mEq/L.
+    kind: number
+    plausible: [70, 130]
+    hardLimits: [50, 150]
+    required: true
+    aliases: [Cl]
+    conceptId: abg.input.chloride
+    examples: [104]
+    sourceRefs: [source_1]
+  albumin:
+    title: Albumin
+    description: Serum albumin; if omitted, the corrected gap explicitly records use of the 4.0 g/dL reference default.
+    kind: quantity
+    quantity:
+      analyte: albumin
+      canonicalUnit: g/dL
+      acceptedUnits: [g/dL, g/L]
+    plausible: [1, 6]
+    hardLimits: [0.5, 10]
+    required: false
+    conceptId: abg.input.albumin
+    examples: [3]
+    sourceRefs: [source_2]
+  sample_type:
+    title: Sample Type
+    description: Arterial or peripheral venous sample. Defaults to arterial only when neither sample_type nor the deprecated venous_sample flag is supplied.
+    kind: enum
+    enumValues:
+      - { value: arterial, label: Arterial, description: Arterial blood gas. }
+      - { value: peripheral_venous, label: Peripheral venous, description: Peripheral venous blood gas; PCO2-dependent branches are suppressed. }
+    required: false
+    conceptId: abg.input.sample_type
+    examples: [arterial]
+    sourceRefs: [source_5]
+    sharedKey: sample_type
+  venous_sample:
+    title: Deprecated Venous Sample Flag
+    description: Backward-compatible flag; prefer sample_type. True means peripheral_venous and false means arterial.
+    kind: boolean
+    required: false
+    aliases: [is_venous]
+    deprecated: true
+    conceptId: abg.input.venous_sample
+    examples: [true]
+    sourceRefs: [source_5]
+    sharedKey: venous_sample
+constraints:
+  - kind: forbidValueWhen
+    field: sample_type
+    when: ==arterial
+    target: venous_sample
+    value: true
+    message: sample_type=arterial conflicts with venous_sample=true.
+  - kind: forbidValueWhen
+    field: sample_type
+    when: ==peripheral_venous
+    target: venous_sample
+    value: false
+    message: sample_type=peripheral_venous conflicts with venous_sample=false.
+outputs:
+  sample_type:
+    title: Sample Type
+    description: Resolved sample type used by the deterministic branch logic.
+    kind: enum
+    allowedValues: [arterial, peripheral_venous]
+    availability: { kind: always }
+    evidenceRefs: [source_5]
+  sample_type_provenance:
+    title: Sample Type Provenance
+    description: Whether sample type was explicit, supplied by the deprecated flag, or defaulted.
+    kind: enum
+    allowedValues: [explicit, deprecated_flag, defaulted_arterial]
+    availability: { kind: always }
+    evidenceRefs: [source_5]
+  acid_base_branch_id:
+    title: Acid-Base Branch
+    description: Deterministic finding branch; venous samples return screening_only_venous rather than an arterial diagnosis.
+    kind: enum
+    allowedValues: [within_arterial_reference, metabolic_acidemia, respiratory_acidemia, mixed_acidemia, metabolic_alkalemia, respiratory_alkalemia, mixed_alkalemia, compensated_or_mixed_low_values, compensated_or_mixed_high_values, indeterminate_arterial_pattern, screening_only_venous]
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_5]
+  compensation_basis:
+    title: Compensation Basis
+    description: Formula or limitation controlling compensation output availability.
+    kind: enum
+    allowedValues: [winters_metabolic_acidosis, metabolic_alkalosis_empirical, respiratory_compensation_not_evaluated, compensation_indeterminate_or_not_evaluated, not_applicable, venous_pco2_not_interchangeable]
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_4, source_5]
+  expected_paco2_range:
+    title: Expected Arterial PCO2 Range
+    description: Expected arterial PCO2 range for an applicable metabolic branch.
+    kind: number_range
+    unit: mmHg
+    availability: { kind: computeCondition, conditionId: compensation_available }
+    evidenceRefs: [source_1, source_4]
+  compensation_status:
+    title: Compensation Status
+    description: Relationship of measured arterial PCO2 to the expected range.
+    kind: enum
+    allowedValues: [within_expected_range, below_expected_range, above_expected_range]
+    availability: { kind: computeCondition, conditionId: compensation_available }
+    evidenceRefs: [source_1, source_4]
+  anion_gap:
+    title: Anion Gap
+    description: Sodium minus (chloride plus bicarbonate), rounded to one decimal.
+    kind: number
+    unit: mEq/L
+    availability: { kind: always }
+    evidenceRefs: [source_1]
+  albumin_corrected_anion_gap:
+    title: Albumin-Corrected Anion Gap
+    description: Anion gap plus 2.5 times (4 minus albumin), rounded to one decimal.
+    kind: number
+    unit: mEq/L
+    availability: { kind: always }
+    evidenceRefs: [source_2]
+  albumin_provenance:
+    title: Albumin Provenance
+    description: Whether measured albumin or the explicit 4.0 g/dL reference default was used.
+    kind: enum
+    allowedValues: [measured, defaulted_4_g_dl]
+    availability: { kind: always }
+    evidenceRefs: [source_2]
+  delta_ratio:
+    title: Delta Ratio
+    description: Uncorrected delta ratio, present only when anion gap is above 12 and bicarbonate below 24.
+    kind: number
+    availability: { kind: computeCondition, conditionId: delta_ratio_available }
+    evidenceRefs: [source_3]
+  albumin_corrected_delta_ratio:
+    title: Albumin-Corrected Delta Ratio
+    description: Albumin-corrected delta ratio, present only when corrected gap is above 12 and bicarbonate below 24.
+    kind: number
+    availability: { kind: computeCondition, conditionId: corrected_delta_ratio_available }
+    evidenceRefs: [source_2, source_3]
+  mixed_disorder_branch_ids:
+    title: Mixed-Disorder Branch IDs
+    description: Deterministic branch identifiers supported by the available measurements.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_3, source_4]
+  missing_data_notes:
+    title: Missing Data Notes
+    description: Inputs omitted or defaulted that limit interpretation.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_2, source_5]
+  limitations:
+    title: Limitations
+    description: Sample- and method-specific limitations that must accompany the findings.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_3, source_5]
+primaryOutputs: [acid_base_branch_id]
+prompt:
+  description: Ask the host LLM to summarize only the deterministic findings and limitations.
+  template: |
+    Summarize these deterministic acid-base findings for a clinician without adding a diagnosis, cause, prognosis, urgency, or treatment recommendation.
+    Sample type: {{sample_type}} ({{sample_type_provenance}})
+    Acid-base branch: {{acid_base_branch_id}}
+    Compensation basis: {{compensation_basis}}
+    Expected PaCO2 range: {{expected_paco2_range}}
+    Compensation status: {{compensation_status}}
+    Anion gap: {{anion_gap}} mEq/L
+    Albumin-corrected anion gap: {{albumin_corrected_anion_gap}} mEq/L ({{albumin_provenance}})
+    Delta ratio: {{delta_ratio}}
+    Albumin-corrected delta ratio: {{albumin_corrected_delta_ratio}}
+    Mixed-disorder branch IDs: {{mixed_disorder_branch_ids}}
+    Missing-data notes: {{missing_data_notes}}
+    Limitations: {{limitations}}
+    Return one concise paragraph and preserve the uncertainty stated above.

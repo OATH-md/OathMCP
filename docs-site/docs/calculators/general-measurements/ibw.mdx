@@ -1,0 +1,115 @@
+---
+title: "Ideal Body Weight (Devine)"
+description: "Compute the adult Devine ideal-body-weight descriptor from height and formula sex only when a governing protocol requests it."
+sidebar:
+  label: "Ideal Body Weight (Devine)"
+search:
+  tags: ["ibw", "formula"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>formula</Badge> <Badge>Spec 1.0.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Adults at least 152.4 cm tall when a governing protocol explicitly requests the Devine ideal-body-weight descriptor. |
+| Setting | Protocol-specific body-size calculation; the tool does not choose ideal over actual, adjusted, lean, or predicted body weight. |
+| Model | `ibw` · 1.0.0 |
+| Model kind | formula |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Do not calculate below 60 inches (152.4 cm), without a formula sex input, or when the governing protocol specifies another size descriptor.
+
+- The Devine formula is anchored at 60 inches (152.4 cm) and is not accepted below that height. It is not a substitute for adjusted or lean body weight when a dosing protocol specifies another size descriptor.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `height_cm` | number | Yes | — | 152.4–220 | 152.4–300 | Height in centimeters. |
+| `sex` | enum (2 options) | Yes | — | — | — | Biological sex used by the Devine formula (male or female). |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+<Expandable title="Sex options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `male` | male | Sex: male. | — |
+| `female` | female | Sex: female. | — |
+
+</Expandable>
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `ibw` | number · kg | Always | Yes | Ideal body weight in kg, rounded to 1 decimal place. |
+
+## Interpretation bands
+
+No deterministic interpretation bands are declared for this calculator.
+
+## Warnings, constraints, and adjustments
+
+No calculator-specific warning rules or cross-field constraints are declared beyond input validation and applicability.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "ibw",
+  "inputs": {
+    "height_cm": 180,
+    "sex": "male"
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `ibw`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 10/10 | 9/9 | 8/8 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://ibw/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [McCarron MM, Devine BJ. Clinical Pharmacy: Drug Intelligence &amp; Clinical Pharmacy. 1974;8:650-655.](https://journals.sagepub.com/doi/10.1177/106002807400801104)<br />url:https://journals.sagepub.com/doi/10.1177/106002807400801104 |
+
+<Panel title="Repository source">
+  Calculator ID `ibw`; spec version `1.0.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

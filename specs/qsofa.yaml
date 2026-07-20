@@ -1,0 +1,161 @@
+id: qsofa
+version: 1.0.0
+name: qSOFA (Quick Sequential Organ Failure Assessment)
+synonyms:
+  - adult sepsis poor-outcome risk
+  - suspected-infection organ-dysfunction risk
+abbreviations:
+  - qSOFA
+clinicalModel:
+  modelKind: score
+  modelId: qsofa
+  modelVersion: sepsis3_2016_adult_suspected_infection_non_icu_with_ssc_2026_limit
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+    - source_4
+applicability:
+  population: Adults with suspected infection in prehospital, emergency-department, or general-ward settings.
+  setting: Rapid bedside poor-outcome risk prompt outside the ICU; not a standalone sepsis screen or diagnosis.
+  exclusions:
+    - A poor-outcome prompt, not a sepsis diagnosis and not a sufficiently sensitive standalone sepsis screen. The 2026
+      Surviving Sepsis Campaign recommends NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient screening tool.
+      Do not use this adult model in children or as a replacement for SOFA and clinical assessment.
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+    - source_4
+purposeForAgents: Adults with suspected infection in prehospital, emergency-department, or general-ward settings. Return
+  an integer score from 0-3; two or more criteria identify adults with suspected infection at greater risk of death or prolonged
+  ICU stay.
+whenNotToUse: A poor-outcome prompt, not a sepsis diagnosis and not a sufficiently sensitive standalone sepsis screen.
+  The 2026 Surviving Sepsis Campaign recommends NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient screening
+  tool. Do not use this adult model in children or as a replacement for SOFA and clinical assessment.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: "Assessment of Clinical Criteria for Sepsis: For the Third International Consensus Definitions for Sepsis and
+      Septic Shock (Sepsis-3)."
+    locator: "Results and qSOFA model: respiratory rate >=22/min, systolic pressure <=100 mm Hg, altered mentation, and
+      outcome discrimination outside ICU."
+    url: https://pubmed.ncbi.nlm.nih.gov/26903335/
+    reviewed: true
+  - id: source_2
+    type: validation
+    citation: Prognostic Accuracy of Sepsis-3 Criteria for In-Hospital Mortality Among Patients With Suspected Infection
+      Presenting to the Emergency Department.
+    locator: "Methods and Results: prospective multicenter adult ED cohort, suspected infection, qSOFA threshold 2, and
+      in-hospital mortality endpoint."
+    url: https://pubmed.ncbi.nlm.nih.gov/28114554/
+    reviewed: true
+  - id: source_3
+    type: guideline
+    citation: The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3).
+    locator: "Box 4 and accompanying text: three qSOFA criteria, suspected-infection setting, repeated assessment, and
+      prompt to investigate organ dysfunction."
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4968574/
+    reviewed: true
+  - id: source_4
+    type: guideline
+    citation: "Surviving Sepsis Campaign: international guidelines for management of sepsis and septic shock 2026."
+    locator: "Screening recommendations: use NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient sepsis screen."
+    url: https://doi.org/10.1007/s00134-026-08361-1
+    reviewed: true
+inputs:
+  respiratory_rate:
+    title: Respiratory Rate
+    description: Respiratory rate in breaths per minute. Scores a point when >= 22.
+    kind: integer
+    plausible:
+      - 4
+      - 60
+    hardLimits:
+      - 0
+      - 120
+    required: true
+    conceptId: qsofa.input.respiratory_rate
+    examples:
+      - 24
+    sourceRefs:
+      - source_1
+    sharedKey: respiratory_rate
+  systolic_bp:
+    title: Systolic Blood Pressure
+    description: Systolic blood pressure in mmHg. Scores a point when <= 100.
+    kind: integer
+    plausible:
+      - 40
+      - 300
+    hardLimits:
+      - 0
+      - 400
+    required: true
+    conceptId: qsofa.input.systolic_bp
+    examples:
+      - 90
+    sourceRefs:
+      - source_1
+  altered_mental_status:
+    title: Altered Mental Status
+    description: Altered mentation (GCS < 15). Scores a point when true.
+    kind: boolean
+    required: true
+    conceptId: qsofa.input.altered_mental_status
+    examples:
+      - true
+    sourceRefs:
+      - source_1
+    sharedKey: altered_mental_status
+outputs:
+  score:
+    title: qSOFA Score
+    description: qSOFA score (0-3).
+    kind: integer
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - score
+interpretationBands:
+  - code: qsofa_band_1
+    kind: screening
+    when: ">=2"
+    label: Meets the qSOFA >=2 threshold associated with greater risk of poor outcomes; this is not a sepsis diagnosis.
+    severity: critical
+    evidenceRefs:
+      - source_1
+  - code: qsofa_band_2
+    kind: screening
+    when: <2
+    label: Does not meet the qSOFA >=2 threshold; a lower score does not rule out infection or deterioration.
+    severity: normal
+    evidenceRefs:
+      - source_1
+scoring:
+  output: score
+  components:
+    - kind: threshold
+      field: respiratory_rate
+      operator: gte
+      threshold: 22
+      truePoints: 1
+      falsePoints: 0
+    - kind: threshold
+      field: systolic_bp
+      operator: lte
+      threshold: 100
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: altered_mental_status
+      truePoints: 1
+      falsePoints: 0
+  range:
+    - 0
+    - 3
+  evidenceRefs:
+    - source_1

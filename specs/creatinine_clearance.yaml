@@ -1,0 +1,132 @@
+id: creatinine_clearance
+version: 1.0.0
+name: Creatinine Clearance (Cockcroft-Gault)
+synonyms:
+  - Cockcroft-Gault creatinine clearance
+abbreviations:
+  - CrCl
+clinicalModel:
+  modelKind: formula
+  modelId: creatinine_clearance.cockcroft_gault_1976
+  modelVersion: cockcroft_gault_1976
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+applicability:
+  population: Adults with stable serum creatinine when a drug label or protocol
+    specifically requires the 1976 Cockcroft-Gault estimate.
+  setting: Drug- and protocol-specific kidney-function estimation using an
+    explicitly selected body weight.
+  exclusions:
+    - Do not use with changing serum creatinine, as a measured clearance, or for
+      CKD GFR-category staging. Body-weight selection is not standardized; use
+      the exact weight scalar required by the governing drug label or protocol.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Calculate the 1976 Cockcroft-Gault estimate only after the
+  caller explicitly supplies the body weight selected under the relevant drug
+  label or dosing protocol.
+whenNotToUse: Do not silently choose actual, ideal, adjusted, or lean body
+  weight. Do not use with non-steady-state creatinine, as measured clearance, or
+  for KDIGO GFR-category staging.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Cockcroft DW, Gault MH. Prediction of creatinine clearance from serum
+      creatinine. Nephron. 1976;16(1):31-41.
+    locator: url:https://pubmed.ncbi.nlm.nih.gov/1244564/
+    url: https://pubmed.ncbi.nlm.nih.gov/1244564/
+    reviewed: true
+inputs:
+  age:
+    title: Age
+    description: Age in years.
+    kind: integer
+    plausible:
+      - 18
+      - 110
+    hardLimits:
+      - 18
+      - 120
+    required: true
+    conceptId: creatinine_clearance.input.age
+    examples:
+      - 55
+    sourceRefs:
+      - source_1
+  weight_kg:
+    title: Weight
+    description: Body weight in kilograms explicitly selected under the
+      relevant drug label or protocol. The calculator does not choose a weight
+      scalar.
+    aliases:
+      - weight
+    kind: number
+    plausible:
+      - 30
+      - 250
+    hardLimits:
+      - 1
+      - 700
+    required: true
+    conceptId: patient.weight_kg
+    examples:
+      - 70
+    sourceRefs:
+      - source_1
+    sharedKey: weight_kg
+  creatinine:
+    title: Serum Creatinine
+    description: Serum creatinine. Pass a bare number in mg/dL, or {value, unit} for
+      SI (umol/L). Normal 0.7-1.3 mg/dL.
+    kind: quantity
+    quantity:
+      analyte: creatinine
+      canonicalUnit: mg/dL
+      acceptedUnits:
+        - mg/dL
+        - umol/L
+    plausible:
+      - 0.2
+      - 15
+    hardLimits:
+      - 0.1
+      - 40
+    required: true
+    conceptId: creatinine_clearance.input.creatinine
+    examples:
+      - 1.2
+    sourceRefs:
+      - source_1
+  sex:
+    title: Sex
+    description: Biological sex; female applies the 0.85 Cockcroft-Gault factor.
+    aliases:
+      - gender
+    kind: enum
+    enumValues:
+      - value: male
+        label: male
+        description: "Sex: male."
+      - value: female
+        label: female
+        description: "Sex: female."
+    required: true
+    conceptId: creatinine_clearance.input.sex
+    examples:
+      - male
+    sourceRefs:
+      - source_1
+outputs:
+  creatinine_clearance:
+    title: Creatinine Clearance
+    description: ((140 − age) × selected weight) / (72 × Scr) × 0.85 if female,
+      rounded to 1 decimal place.
+    kind: number
+    unit: mL/min
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - creatinine_clearance

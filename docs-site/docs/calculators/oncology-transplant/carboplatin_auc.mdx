@@ -1,0 +1,182 @@
+---
+title: "Carboplatin Dose (Calvert)"
+description: "Compute a protocol-specified adult carboplatin dose with the Calvert formula while making kidney-function method, indexed-to-absolute conversion, treatment intent, cap policy, and rounding provenance explicit."
+sidebar:
+  label: "Carboplatin Dose (Calvert)"
+search:
+  tags: ["carboplatin_auc", "formula", "Calvert carboplatin dose", "carboplatin AUC dose"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>formula</Badge> <Badge>Spec 1.0.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Adults receiving a protocol-specified target AUC. Compute a carboplatin dose (mg) with the Calvert formula: dose = target_AUC × (absolute kidney function in mL/min + 25). The caller must identify the kidney-function method, indexed/absolute status, treatment intent, and cap policy. |
+| Setting | Clinical decision support; apply only in the context declared by this calculator. |
+| Model | `calvert_carboplatin_dose` · calvert_1989_with_explicit_renal_and_cap_policy |
+| Model kind | formula |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Do not infer a kidney-function method, cap, target AUC, or treatment protocol. Prefer measured GFR when estimated kidney function may be unreliable.
+
+- Do not silently substitute Cockcroft-Gault CrCl for measured GFR or BSA-adjusted CKD-EPI eGFR. Measured GFR is preferred when estimates may be unreliable, including curative intent, extremes of body size or muscle mass, amputees, paraplegia, eGFR above 125, or eGFR at or below 45 mL/min/1.73 m².
+- Verify target AUC, kidney-function method, cap policy, and rounding against the governing oncology protocol and pharmacy workflow.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `target_auc` | number | Yes | — | 2–7 | 1–10 | Target area under the curve in mg/mL × min (e.g. 5-6 for ovarian cancer). |
+| `gfr` | number | Yes | — | 15–150 | 10–200 | Measured or estimated kidney-function value. Supply the units/status separately; indexed values are converted to absolute mL/min using patient BSA. |
+| `kidney_function_method` | enum (3 options) | Yes | — | — | — | Exact method used to obtain the supplied kidney-function value. |
+| `kidney_function_indexing` | enum (2 options) | Yes | — | — | — | Whether the supplied value is absolute mL/min or indexed to 1.73 m². |
+| `patient_bsa` | number | No | — | 0.5–3 | 0.1–5 | Patient body surface area in m²; required only for an indexed kidney-function value. |
+| `treatment_intent` | enum (3 options) | Yes | — | — | — | Treatment intent used to judge whether estimated kidney function is appropriate. |
+| `cap_policy` | enum (2 options) | Yes | — | — | — | Explicit governing cap policy. ADDIKD 2022 does not recommend a universal cap; the NCI option applies only to affected protocols using estimated GFR. |
+| `rounding_policy` | enum (1 options) | Yes | — | — | — | Explicit final-dose rounding policy. No intermediate values are rounded before the Calvert result. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+<Expandable title="Kidney Function Method options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `measured_gfr` | Directly measured GFR | Exogenous-marker clearance reported as absolute mL/min. | — |
+| `ckd_epi_2009_no_race_egfr` | CKD-EPI 2009 eGFR (without race) | CKD-EPI 2009 estimate without a race coefficient, as specified by ADDIKD/eviQ; identify indexed status explicitly. | — |
+| `cockcroft_gault_crcl` | Cockcroft-Gault CrCl | Estimated creatinine clearance; not equivalent to measured GFR. | — |
+
+</Expandable>
+
+
+<Expandable title="Kidney Function Indexing options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `absolute_ml_min` | Absolute mL/min | Patient-specific absolute kidney function; no BSA conversion. | — |
+| `indexed_ml_min_1_73m2` | Indexed mL/min/1.73 m² | Convert to absolute mL/min with patient BSA / 1.73. | — |
+
+</Expandable>
+
+
+<Expandable title="Treatment Intent options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `curative` | Curative | Measured GFR is preferred by ADDIKD/eviQ. | — |
+| `non_curative` | Non-curative | BSA-adjusted eGFR may be suitable within defined limits. | — |
+| `unspecified` | Not established | Requires protocol/pharmacy clarification before clinical use. | — |
+
+</Expandable>
+
+
+<Expandable title="Kidney Function Cap Policy options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `no_cap_addikd_2022` | No cap (ADDIKD 2022) | Do not cap kidney function at 125 mL/min. | — |
+| `nci_ctep_estimated_125` | NCI/CTEP estimated-GFR cap | Cap estimated kidney function at 125 mL/min under an applicable protocol. | — |
+
+</Expandable>
+
+
+<Expandable title="Final Dose Rounding Policy options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `nearest_whole_mg_addikd_2022` | Nearest whole mg (ADDIKD 2022) | Round only the final carboplatin dose to the nearest whole milligram. | — |
+
+</Expandable>
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `dose` | integer · mg | Always | Yes | Calculated carboplatin dose in mg, with no intermediate rounding and the final result rounded to the nearest whole milligram. |
+| `kidney_function_absolute` | number · mL/min | Always | No | Supplied kidney function converted, when needed, to absolute mL/min. |
+| `kidney_function_used` | number · mL/min | Always | No | Absolute kidney function used in the Calvert formula after the explicit cap policy. |
+| `gfr_used` | number · mL/min | Always | No | Deprecated compatibility alias for kidney_function_used; retained additively for existing result consumers. |
+| `indexed_conversion_applied` | boolean | Always | No | Whether patient BSA was used to convert an indexed value to absolute mL/min. |
+| `gfr_was_capped` | boolean | Always | No | Whether the explicit NCI/CTEP policy capped estimated kidney function at 125 mL/min. |
+| `cap_policy_applied` | enum | Always | No | Machine-readable cap policy used for this result. |
+| `rounding_policy_applied` | enum | Always | No | Machine-readable final-dose rounding policy used for this result. |
+
+## Interpretation bands
+
+No deterministic interpretation bands are declared for this calculator.
+
+## Warnings, constraints, and adjustments
+
+- **treatment_intent when ==curative; where kidney_function_method ==ckd_epi_2009_no_race_egfr:** ADDIKD/eviQ prefers directly measured GFR for curative treatment intent.
+- **Constraint (requiredWhen):** Patient BSA is required to convert indexed kidney function to absolute mL/min.
+- **Constraint (requireValueWhen):** Directly measured GFR must be supplied as absolute mL/min; do not BSA-index it.
+- **Constraint (requireValueWhen):** The NCI/CTEP estimated-kidney-function cap does not apply to directly measured GFR.
+- **Constraint (requireValueWhen):** Cockcroft-Gault creatinine clearance must be supplied as absolute mL/min; do not BSA-index it.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "carboplatin_auc",
+  "inputs": {
+    "target_auc": 5,
+    "gfr": 150,
+    "kidney_function_method": "ckd_epi_2009_no_race_egfr",
+    "kidney_function_indexing": "absolute_ml_min",
+    "treatment_intent": "non_curative",
+    "cap_policy": "nci_ctep_estimated_125",
+    "rounding_policy": "nearest_whole_mg_addikd_2022"
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `carboplatin_auc`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 36/36 | 35/35 | 26/26 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://carboplatin_auc/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Calvert AH, Newell DR, Gumbrell LA, et al. Carboplatin dosage: prospective evaluation of a simple formula based on renal function. J Clin Oncol. 1989;7(11):1748-1756.](https://pubmed.ncbi.nlm.nih.gov/2681557/)<br />url:https://pubmed.ncbi.nlm.nih.gov/2681557/ |
+| `source_2` | guideline | [eviQ. Carboplatin Dose Calculator, implementing ADDIKD 2022 guidance.](https://www.eviq.org.au/clinical-resources/eviq-calculators/4171-carboplatin-dose-calculator)<br />Practice points; kidney-function options; BSA-adjusted eGFR equation; rounding; history version 1 (24 October 2022) |
+| `source_3` | policy | [NCI Cancer Therapy Evaluation Program. Information letter regarding AUC-based dosing of carboplatin. 2010.](https://dctd.cancer.gov/research/ctep-trials/memos/carboplatin-dosing.pdf)<br />Points 5, 8, and 10; cap applies to estimated GFR under affected protocols |
+| `source_4` | guideline | [U.S. FDA. Carboplatin Injection package insert, application 077139.](https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/077139Orig1s016lbl.pdf)<br />Dosage and Administration; Calvert formula; GFR measured by 51Cr-EDTA clearance |
+
+<Panel title="Repository source">
+  Calculator ID `carboplatin_auc`; spec version `1.0.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

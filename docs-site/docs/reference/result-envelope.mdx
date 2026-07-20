@@ -1,0 +1,60 @@
+---
+title: Result envelope
+description: The normalized successful calculation result returned by OathMCP.
+---
+
+The common schema-1.1 envelope has this shape. Each calculator specializes the
+allowed result names and value types in its own output schema.
+
+```ts
+interface CalcResult {
+  schemaVersion: "1.1";
+  id: string;
+  version: string;
+  clinicalModel: {
+    modelKind: "formula" | "score" | "decision_tree" | "policy" | "lookup";
+    modelId: string;
+    modelVersion: string;
+    jurisdiction?: string;
+    dataSnapshot?: string;
+    effectiveDate?: string;
+    reviewDate?: string;
+    reviewAfter?: string;
+    stale: boolean;
+  };
+  results: Array<{ name: string; title: string; value: unknown; unit?: string }>;
+  interpretation?: {
+    label: string;
+    severity: "normal" | "borderline" | "abnormal" | "critical";
+  };
+  interpretations: Array<{
+    output: string;
+    code: string;
+    kind: "stage" | "risk" | "likelihood" | "severity" | "screening" | "class" | "status";
+    label: string;
+    severity: "normal" | "borderline" | "abnormal" | "critical";
+    evidenceRefs: string[];
+  }>;
+  warnings: string[];
+  inputsUsed: Record<string, { value: number | string | boolean; unit?: string }>;
+  inputProvenance: Record<string, unknown>;
+  adjustments: Array<Record<string, unknown>>;
+  scoringComponents: Array<Record<string, unknown>>;
+  scoreComplete: boolean;
+  scoreMissingReasons: string[];
+  evidence: Array<Record<string, unknown>>;
+  evidenceUri: string;
+}
+```
+
+The exact calculator-specific contract is advertised by the selected calculate
+tool's output schema. Conditional outputs may be unavailable by design.
+Consumers should not synthesize absent values or discard input provenance.
+
+Direct `calculate_<id>` tools return this envelope as their structured content.
+The compact `calculate` tool wraps it under
+`{ result: { calculator, ok: true, result } }`; `calculate_panel` returns the
+same per-calculator entry shape in a `results` array.
+
+Results are returned both as MCP text content and `structuredContent`. Prefer
+the structured form when the client supports it.

@@ -1,0 +1,25 @@
+---
+title: Implementation assurance
+description: What OathMCP's source_verified and scenario_verified states do—and do not—mean.
+---
+
+OathMCP maintains claim-level source links and executable source-derived
+scenarios outside the runtime specs. The release gate checks the declared model,
+version, population, inputs, outputs, limitations, warnings, and selected
+scenarios across the engine and MCP surfaces.
+
+## Repository-defined states
+
+- `source_verified` means the declared claims have the repository-required
+  source linkage and review evidence.
+- `scenario_verified` means the required executable scenarios pass in addition
+  to the source checks.
+
+These are implementation-assurance states. They do not mean regulatory approval,
+medical-device certification, prospective clinical validation, or fitness for a
+particular patient or setting. Never shorten them to “clinically validated.”
+
+Every calculator page shows its current repository assurance state, review
+counts, model
+version, and review date so readers can distinguish implementation evidence from
+clinical applicability.

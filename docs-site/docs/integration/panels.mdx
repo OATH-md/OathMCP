@@ -1,0 +1,27 @@
+---
+title: Calculate panels
+description: Run multiple already-selected calculators while keeping shared inputs explicit and failures isolated.
+---
+
+Use `calculate_panel` only after each calculator has been selected clinically.
+For one calculator, prefer `calculate`.
+
+```json title="calculate_panel"
+{
+  "calculators": ["bmi", "bsa"],
+  "inputs": {
+    "weight_kg": 70,
+    "height_cm": 170
+  }
+}
+```
+
+Shared inputs bind only to reviewed `sharedKey` concepts. Role-specific or
+calculator-specific values belong in `overrides`. Duplicate calculator IDs,
+unused shared keys, and overrides for unrequested calculators are rejected.
+One calculator failure does not discard successful sibling results.
+
+:::warning
+The example illustrates request shape, not a recommendation to calculate BMI
+and Mosteller BSA together for any particular patient.
+:::

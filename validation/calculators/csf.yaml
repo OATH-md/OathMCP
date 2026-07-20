@@ -1,0 +1,4736 @@
+calculatorId: csf
+specVersion: 1.1.0
+clinicalModel: Deterministic CSF derivations and compatible-pattern findings
+variant: context_and_assay_identified_non_diagnostic
+population: People with CSF measurements plus explicitly identified assay and clinical context states.
+setting: Clinician-reviewed CSF findings; not a most-likely diagnosis or treatment recommendation.
+assessmentTiming: Lumbar-puncture measurements interpreted with onset, pretreatment, immune, imaging, and assay context.
+endpoint: Derived values, confirmed assay reports, compatible patterns, broad differentials, missing context, and limitations.
+reviewGroup: interpreter_conditional
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:csf:2026-07-16
+    calculatorId: csf
+    model: Deterministic CSF derivations and compatible-pattern findings
+    variant: context_and_assay_identified_non_diagnostic
+    searchedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    sources:
+      - id: search:csf:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline_interpreter
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed E-utilities exact UID query
+        exactQuery: 39185100[uid] OR 15494903[uid] OR 29275977[uid] OR 26906964[uid]
+        translationExposed: true
+        translatedQuery: '"39185100"[UID] OR "15494903"[UID] OR "29275977"[UID] OR "26906964"[UID]'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 4
+        stableCitationIds:
+          - PMID:39185100
+          - PMID:15494903
+          - PMID:29275977
+          - PMID:26906964
+      - id: search:csf:csf_budhram_2024
+        sourceRole: derivation
+        authorityId: csf_budhram_2024
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact csf formula, finite branch, conditional output, limitation, population, timing, correction,
+          retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID 39185100; doi:10.1212/CPJ.0000000000200350
+      - id: search:csf:csf_nice_ng228
+        sourceRole: controlling_authority
+        authorityId: csf_nice_ng228
+        database: Primary or responsible-authority source
+        site: www.nice.org.uk
+        interface: direct document review
+        exactQuery: Exact csf formula, finite branch, conditional output, limitation, population, timing, correction,
+          retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - NG228 recommendations 1.1.12-1.1.15 checked 2026-07-16
+      - id: search:csf:csf_idsa_2004
+        sourceRole: specialty_guidance
+        authorityId: csf_idsa_2004
+        database: Primary or responsible-authority source
+        site: www.idsociety.org
+        interface: direct document review
+        exactQuery: Exact csf formula, finite branch, conditional output, limitation, population, timing, correction,
+          retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID 15494903; doi:10.1086/425368
+      - id: search:csf:csf_who_tb_diagnostics_2024
+        sourceRole: controlling_authority
+        authorityId: csf_who_tb_diagnostics_2024
+        database: Primary or responsible-authority source
+        site: www.who.int
+        interface: direct document review
+        exactQuery: Exact CSF tuberculous-meningitis assay, specimen, result, limitation, correction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - WHO module 3 rapid diagnostics, 3rd edition, recommendation 6; 20 March 2024
+      - id: search:csf:csf_idsa_asm_lab_2024
+        sourceRole: controlling_authority
+        authorityId: csf_idsa_asm_lab_2024
+        database: Primary or responsible-authority source
+        site: www.idsociety.org
+        interface: direct document review
+        exactQuery: Exact CSF mycobacterial and fungal assay, specimen, result, limitation, correction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - 2024 IDSA-ASM laboratory utilization guide; doi:10.1093/cid/ciae104; Table 6
+      - id: search:csf:csf_mcdonald_2017
+        sourceRole: specialty_guidance
+        authorityId: csf_mcdonald_2017
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact csf formula, finite branch, conditional output, limitation, population, timing, correction,
+          retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID 29275977; doi:10.1016/S1474-4422(17)30470-2
+      - id: search:csf:csf_graus_2016
+        sourceRole: specialty_guidance
+        authorityId: csf_graus_2016
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact csf formula, finite branch, conditional output, limitation, population, timing, correction,
+          retraction, and supersession review
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID 26906964; doi:10.1016/S1474-4422(15)00401-9
+    accounting:
+      retrieved: 4
+      deduplicated: 4
+      screened: 4
+      fullTextAssessed: 4
+      excluded: 0
+      included: 4
+    deduplication:
+      method: PMID-based deduplication of the exact E-utilities result set; direct authority documents and citation chasing
+        are recorded separately and contribute zero bibliographic retrievals.
+      tool: PubMed E-utilities JSON export plus direct full-text review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: csf_budhram_2024
+        title: Clinical Utility of CSF Correction Factors for Traumatic Lumbar Puncture in Adults.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: csf_idsa_2004
+        title: Practice guidelines for the management of bacterial meningitis.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: csf_mcdonald_2017
+        title: "Diagnosis of multiple sclerosis: 2017 revisions of the McDonald criteria."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: csf_graus_2016
+        title: A clinical approach to diagnosis of autoimmune encephalitis.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:csf:pubmed
+      checklist:
+        - Concept coverage and exact model or branch identity
+        - Controlled vocabulary, text words, and stable identifiers
+        - Boolean logic and reproducibility
+        - Population, timing, assay or table provenance, and conditional-output specificity
+        - Corrections, retractions, supersession, and current responsible-authority guidance
+      comments:
+        - The exact UID query returned 4 unique PMID records; every result is represented in the full-text screening
+          ledger.
+        - Direct current authority and specialty documents were checked separately so their update state is not
+          conflated with MEDLINE retrieval accounting.
+      resolution: Exact query results, stable identifiers, full-text dispositions, source roles, claim locators, and current
+        authority checks were reconciled against the live PubMed and official-document surfaces.
+      resolved: true
+      reviewer: OathMCP independent search QA lane
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline_interpreter
+  - csf_budhram_2024
+  - csf_nice_ng228
+  - csf_idsa_2004
+  - csf_who_tb_diagnostics_2024
+  - csf_idsa_asm_lab_2024
+  - csf_mcdonald_2017
+  - csf_graus_2016
+claims:
+  - id: claim:csf:calculator-model
+    kind: applicability
+    statement: csf implements only the model, variant, population, timing, and endpoint declared in this dossier.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and scope are source-governed; every runtime-verifiable surface is covered by
+      separate executable claims.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:formula-implementation
+    kind: formula
+    statement: csf applies the cited deterministic formulas, finite branches, conditional availability rules, and rounding
+      exactly as declared.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_who_tb_diagnostics_2024
+      - csf_idsa_asm_lab_2024
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_who_tb_diagnostics_2024
+        locator: "WHO consolidated TB diagnostic guideline, module 3, recommendation 6: use Xpert MTB/RIF or Xpert Ultra on
+          CSF as the initial molecular test for suspected tuberculous meningitis; a negative result does not rule it out."
+      - sourceId: csf_idsa_asm_lab_2024
+        locator: "IDSA-ASM 2024 laboratory guide, Table 6 and meningitis text: CSF mycobacterial NAAT plus AFB culture and
+          fungal culture, cryptococcal antigen, and microscopy have distinct roles and limitations."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:reference-1
+      - case:csf:reference-2
+      - case:csf:reference-3
+      - case:csf:reference-4
+      - case:csf:reference-5
+      - case:csf:reference-defaults
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:applicability-purpose
+    kind: applicability
+    statement: csf is limited to deterministic findings or initial measurement estimates within the cited clinical context.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:applicability-exclusions
+    kind: applicability
+    statement: csf preserves the cited exclusions and does not turn a compatible pattern or estimate into diagnosis,
+      confidence, prognosis, treatment, or confirmed device position.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-age-years
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:age_years.
+    covers:
+      - input:age_years
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:hard-age_years
+      - case:csf:required-age_years
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-age-years-hard-limits
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:age_years:hard_limits.
+    covers:
+      - input:age_years:hard_limits
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:hard-age_years
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-age-years-plausibility
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:age_years:plausibility.
+    covers:
+      - input:age_years:plausibility
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:plausibility-age_years
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-wbc-per-ul
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:wbc_per_ul.
+    covers:
+      - input:wbc_per_ul
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:hard-wbc_per_ul
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-wbc-per-ul-hard-limits
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:wbc_per_ul:hard_limits.
+    covers:
+      - input:wbc_per_ul:hard_limits
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:hard-wbc_per_ul
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-wbc-per-ul-plausibility
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:wbc_per_ul:plausibility.
+    covers:
+      - input:wbc_per_ul:plausibility
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:plausibility-wbc_per_ul
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-wbc-diff
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:wbc_diff.
+    covers:
+      - input:wbc_diff
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-wbc-diff-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:wbc_diff:options.
+    covers:
+      - input:wbc_diff:options
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-rbc-per-ul
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:rbc_per_ul.
+    covers:
+      - input:rbc_per_ul
+    status: supported
+    sourceIds:
+      - csf_budhram_2024
+    locators:
+      - sourceId: csf_budhram_2024
+        locator: "Budhram et al., Methods and Results: adult 1:500, 1:1000, and 1:1500 traumatic-tap correction factors and the
+          false-positive/false-negative tradeoff."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:hard-rbc_per_ul
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-rbc-per-ul-hard-limits
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:rbc_per_ul:hard_limits.
+    covers:
+      - input:rbc_per_ul:hard_limits
+    status: supported
+    sourceIds:
+      - csf_budhram_2024
+    locators:
+      - sourceId: csf_budhram_2024
+        locator: "Budhram et al., Methods and Results: adult 1:500, 1:1000, and 1:1500 traumatic-tap correction factors and the
+          false-positive/false-negative tradeoff."
+    executable: true
+    scenarioIds:
+      - case:csf:hard-rbc_per_ul
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-rbc-per-ul-plausibility
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:rbc_per_ul:plausibility.
+    covers:
+      - input:rbc_per_ul:plausibility
+    status: supported
+    sourceIds:
+      - csf_budhram_2024
+    locators:
+      - sourceId: csf_budhram_2024
+        locator: "Budhram et al., Methods and Results: adult 1:500, 1:1000, and 1:1500 traumatic-tap correction factors and the
+          false-positive/false-negative tradeoff."
+    executable: true
+    scenarioIds:
+      - case:csf:plausibility-rbc_per_ul
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-traumatic-tap-method
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:traumatic_tap_method.
+    covers:
+      - input:traumatic_tap_method
+    status: supported
+    sourceIds:
+      - csf_budhram_2024
+    locators:
+      - sourceId: csf_budhram_2024
+        locator: "Budhram et al., Methods and Results: adult 1:500, 1:1000, and 1:1500 traumatic-tap correction factors and the
+          false-positive/false-negative tradeoff."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-traumatic-tap-method-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:traumatic_tap_method:options.
+    covers:
+      - input:traumatic_tap_method:options
+    status: supported
+    sourceIds:
+      - csf_budhram_2024
+    locators:
+      - sourceId: csf_budhram_2024
+        locator: "Budhram et al., Methods and Results: adult 1:500, 1:1000, and 1:1500 traumatic-tap correction factors and the
+          false-positive/false-negative tradeoff."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:default-traumatic-tap-method
+    kind: default
+    statement: csf uses the source-defined contract and behavior for default:traumatic_tap_method.
+    covers:
+      - default:traumatic_tap_method
+    status: supported
+    sourceIds:
+      - csf_budhram_2024
+    locators:
+      - sourceId: csf_budhram_2024
+        locator: "Budhram et al., Methods and Results: adult 1:500, 1:1000, and 1:1500 traumatic-tap correction factors and the
+          false-positive/false-negative tradeoff."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-defaults
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-appearance
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:appearance.
+    covers:
+      - input:appearance
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-appearance-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:appearance:options.
+    covers:
+      - input:appearance:options
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-opening-pressure-cm-h2o
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:opening_pressure_cm_h2o.
+    covers:
+      - input:opening_pressure_cm_h2o
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:hard-opening_pressure_cm_h2o
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-opening-pressure-cm-h2o-hard-limits
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:opening_pressure_cm_h2o:hard_limits.
+    covers:
+      - input:opening_pressure_cm_h2o:hard_limits
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:hard-opening_pressure_cm_h2o
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-opening-pressure-cm-h2o-plausibility
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:opening_pressure_cm_h2o:plausibility.
+    covers:
+      - input:opening_pressure_cm_h2o:plausibility
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:plausibility-opening_pressure_cm_h2o
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-csf-glucose-mmol-l
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:csf_glucose_mmol_l.
+    covers:
+      - input:csf_glucose_mmol_l
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:hard-csf_glucose_mmol_l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-csf-glucose-mmol-l-hard-limits
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:csf_glucose_mmol_l:hard_limits.
+    covers:
+      - input:csf_glucose_mmol_l:hard_limits
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:hard-csf_glucose_mmol_l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-csf-glucose-mmol-l-plausibility
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:csf_glucose_mmol_l:plausibility.
+    covers:
+      - input:csf_glucose_mmol_l:plausibility
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:plausibility-csf_glucose_mmol_l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-serum-glucose-mmol-l
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:serum_glucose_mmol_l.
+    covers:
+      - input:serum_glucose_mmol_l
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:hard-serum_glucose_mmol_l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-serum-glucose-mmol-l-hard-limits
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:serum_glucose_mmol_l:hard_limits.
+    covers:
+      - input:serum_glucose_mmol_l:hard_limits
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:hard-serum_glucose_mmol_l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-serum-glucose-mmol-l-plausibility
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:serum_glucose_mmol_l:plausibility.
+    covers:
+      - input:serum_glucose_mmol_l:plausibility
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:plausibility-serum_glucose_mmol_l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-protein-mg-dl
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:protein_mg_dl.
+    covers:
+      - input:protein_mg_dl
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:hard-protein_mg_dl
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-protein-mg-dl-hard-limits
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:protein_mg_dl:hard_limits.
+    covers:
+      - input:protein_mg_dl:hard_limits
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:hard-protein_mg_dl
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-protein-mg-dl-plausibility
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:protein_mg_dl:plausibility.
+    covers:
+      - input:protein_mg_dl:plausibility
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:plausibility-protein_mg_dl
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-gram-stain-result
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:gram_stain_result.
+    covers:
+      - input:gram_stain_result
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-gram-stain-result-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:gram_stain_result:options.
+    covers:
+      - input:gram_stain_result:options
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:default-gram-stain-result
+    kind: default
+    statement: csf uses the source-defined contract and behavior for default:gram_stain_result.
+    covers:
+      - default:gram_stain_result
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-defaults
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-bacterial-culture-result
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:bacterial_culture_result.
+    covers:
+      - input:bacterial_culture_result
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-bacterial-culture-result-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:bacterial_culture_result:options.
+    covers:
+      - input:bacterial_culture_result:options
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:default-bacterial-culture-result
+    kind: default
+    statement: csf uses the source-defined contract and behavior for default:bacterial_culture_result.
+    covers:
+      - default:bacterial_culture_result
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-defaults
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-pathogen-pcr-result
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:pathogen_pcr_result.
+    covers:
+      - input:pathogen_pcr_result
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-pathogen-pcr-result-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:pathogen_pcr_result:options.
+    covers:
+      - input:pathogen_pcr_result:options
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:default-pathogen-pcr-result
+    kind: default
+    statement: csf uses the source-defined contract and behavior for default:pathogen_pcr_result.
+    covers:
+      - default:pathogen_pcr_result
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-defaults
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-pathogen-pcr-identity
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:pathogen_pcr_identity.
+    covers:
+      - input:pathogen_pcr_identity
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-pathogen-pcr-identity-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:pathogen_pcr_identity:options.
+    covers:
+      - input:pathogen_pcr_identity:options
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-mycobacterial-result
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:mycobacterial_result.
+    covers:
+      - input:mycobacterial_result
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_who_tb_diagnostics_2024
+      - csf_idsa_asm_lab_2024
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_who_tb_diagnostics_2024
+        locator: "WHO TB diagnostics module 3, recommendation 6: Xpert MTB/RIF or Xpert Ultra on CSF is the initial molecular
+          test for suspected tuberculous meningitis, with explicit negative-test limitations."
+      - sourceId: csf_idsa_asm_lab_2024
+        locator: "IDSA-ASM 2024 laboratory guide, Table 6: CSF mycobacterial NAAT, AFB smear, and culture are separately
+          identified result-bearing assays."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-mycobacterial-result-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:mycobacterial_result:options.
+    covers:
+      - input:mycobacterial_result:options
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_who_tb_diagnostics_2024
+      - csf_idsa_asm_lab_2024
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_who_tb_diagnostics_2024
+        locator: "WHO TB diagnostics module 3, recommendation 6 and remarks: report detected/not-detected molecular results
+          while preserving the limitation that a negative CSF test does not exclude TB meningitis."
+      - sourceId: csf_idsa_asm_lab_2024
+        locator: "IDSA-ASM 2024 laboratory guide, Table 6: CSF mycobacterial assay results remain explicit laboratory states."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:default-mycobacterial-result
+    kind: default
+    statement: csf uses the source-defined contract and behavior for default:mycobacterial_result.
+    covers:
+      - default:mycobacterial_result
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_who_tb_diagnostics_2024
+      - csf_idsa_asm_lab_2024
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_who_tb_diagnostics_2024
+        locator: "WHO TB diagnostics module 3, recommendation 6: no mycobacterial result may be inferred when the assay was
+          not performed or not supplied."
+      - sourceId: csf_idsa_asm_lab_2024
+        locator: "IDSA-ASM 2024 laboratory guide, Table 6: requested CSF mycobacterial testing is distinct from routine
+          bacterial examination."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-defaults
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-mycobacterial-assay
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:mycobacterial_assay.
+    covers:
+      - input:mycobacterial_assay
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_who_tb_diagnostics_2024
+      - csf_idsa_asm_lab_2024
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_who_tb_diagnostics_2024
+        locator: "WHO TB diagnostics module 3, recommendation 6: identifies Xpert MTB/RIF and Xpert Ultra molecular testing
+          on CSF for suspected tuberculous meningitis."
+      - sourceId: csf_idsa_asm_lab_2024
+        locator: "IDSA-ASM 2024 laboratory guide, Table 6: distinguishes CSF NAAT, AFB smear, and mycobacterial culture."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-mycobacterial-assay-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:mycobacterial_assay:options.
+    covers:
+      - input:mycobacterial_assay:options
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_who_tb_diagnostics_2024
+      - csf_idsa_asm_lab_2024
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_who_tb_diagnostics_2024
+        locator: "WHO TB diagnostics module 3, recommendation 6: identifies Xpert MTB/RIF and Xpert Ultra as molecular CSF
+          assays and contrasts them with smear/culture."
+      - sourceId: csf_idsa_asm_lab_2024
+        locator: "IDSA-ASM 2024 laboratory guide, Table 6: lists the supported CSF mycobacterial assay families and their
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-fungal-result
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:fungal_result.
+    covers:
+      - input:fungal_result
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_idsa_asm_lab_2024
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_idsa_asm_lab_2024
+        locator: "IDSA-ASM 2024 laboratory guide, Table 6 and cryptococcal-meningitis text: fungal culture, cryptococcal
+          antigen, and microscopy produce explicit CSF laboratory results with different sensitivities."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-fungal-result-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:fungal_result:options.
+    covers:
+      - input:fungal_result:options
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_idsa_asm_lab_2024
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_idsa_asm_lab_2024
+        locator: "IDSA-ASM 2024 laboratory guide, Table 6: fungal CSF assays retain explicit positive, negative, or not-tested
+          result states rather than an inferred diagnosis."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:default-fungal-result
+    kind: default
+    statement: csf uses the source-defined contract and behavior for default:fungal_result.
+    covers:
+      - default:fungal_result
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_idsa_asm_lab_2024
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_idsa_asm_lab_2024
+        locator: "IDSA-ASM 2024 laboratory guide, Table 6: fungal testing must be specifically performed; no result is
+          inferred when it was not supplied."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-defaults
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-fungal-assay
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:fungal_assay.
+    covers:
+      - input:fungal_assay
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_idsa_asm_lab_2024
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_idsa_asm_lab_2024
+        locator: "IDSA-ASM 2024 laboratory guide, Table 6: distinguishes fungal culture, cryptococcal antigen, India-ink
+          microscopy, and organism-specific antigen/antibody testing on CSF."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-fungal-assay-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:fungal_assay:options.
+    covers:
+      - input:fungal_assay:options
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_idsa_asm_lab_2024
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_idsa_asm_lab_2024
+        locator: "IDSA-ASM 2024 laboratory guide, Table 6: lists distinct CSF fungal assay families and their limitations."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-oligoclonal-band-status
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:oligoclonal_band_status.
+    covers:
+      - input:oligoclonal_band_status
+    status: supported
+    sourceIds:
+      - csf_mcdonald_2017
+    locators:
+      - sourceId: csf_mcdonald_2017
+        locator: "2017 McDonald criteria, CSF section: CSF-restricted oligoclonal bands require paired testing and are used only
+          within the full clinical and imaging criteria."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-oligoclonal-band-status-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:oligoclonal_band_status:options.
+    covers:
+      - input:oligoclonal_band_status:options
+    status: supported
+    sourceIds:
+      - csf_mcdonald_2017
+    locators:
+      - sourceId: csf_mcdonald_2017
+        locator: "2017 McDonald criteria, CSF section: CSF-restricted oligoclonal bands require paired testing and are used only
+          within the full clinical and imaging criteria."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:default-oligoclonal-band-status
+    kind: default
+    statement: csf uses the source-defined contract and behavior for default:oligoclonal_band_status.
+    covers:
+      - default:oligoclonal_band_status
+    status: supported
+    sourceIds:
+      - csf_mcdonald_2017
+    locators:
+      - sourceId: csf_mcdonald_2017
+        locator: "2017 McDonald criteria, CSF section: CSF-restricted oligoclonal bands require paired testing and are used only
+          within the full clinical and imaging criteria."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-defaults
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-neural-antibody-result
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:neural_antibody_result.
+    covers:
+      - input:neural_antibody_result
+    status: supported
+    sourceIds:
+      - csf_graus_2016
+    locators:
+      - sourceId: csf_graus_2016
+        locator: "Graus et al., diagnostic approach and antibody-testing cautions: identity, specimen, assay, phenotype, and
+          alternative diagnoses must be correlated."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-neural-antibody-result-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:neural_antibody_result:options.
+    covers:
+      - input:neural_antibody_result:options
+    status: supported
+    sourceIds:
+      - csf_graus_2016
+    locators:
+      - sourceId: csf_graus_2016
+        locator: "Graus et al., diagnostic approach and antibody-testing cautions: identity, specimen, assay, phenotype, and
+          alternative diagnoses must be correlated."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:default-neural-antibody-result
+    kind: default
+    statement: csf uses the source-defined contract and behavior for default:neural_antibody_result.
+    covers:
+      - default:neural_antibody_result
+    status: supported
+    sourceIds:
+      - csf_graus_2016
+    locators:
+      - sourceId: csf_graus_2016
+        locator: "Graus et al., diagnostic approach and antibody-testing cautions: identity, specimen, assay, phenotype, and
+          alternative diagnoses must be correlated."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-defaults
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-neural-antibody-identity
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:neural_antibody_identity.
+    covers:
+      - input:neural_antibody_identity
+    status: supported
+    sourceIds:
+      - csf_graus_2016
+    locators:
+      - sourceId: csf_graus_2016
+        locator: "Graus et al., diagnostic approach and antibody-testing cautions: identity, specimen, assay, phenotype, and
+          alternative diagnoses must be correlated."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-neural-antibody-identity-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:neural_antibody_identity:options.
+    covers:
+      - input:neural_antibody_identity:options
+    status: supported
+    sourceIds:
+      - csf_graus_2016
+    locators:
+      - sourceId: csf_graus_2016
+        locator: "Graus et al., diagnostic approach and antibody-testing cautions: identity, specimen, assay, phenotype, and
+          alternative diagnoses must be correlated."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-neural-antibody-specimen
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:neural_antibody_specimen.
+    covers:
+      - input:neural_antibody_specimen
+    status: supported
+    sourceIds:
+      - csf_graus_2016
+    locators:
+      - sourceId: csf_graus_2016
+        locator: "Graus et al., diagnostic approach and antibody-testing cautions: identity, specimen, assay, phenotype, and
+          alternative diagnoses must be correlated."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-neural-antibody-specimen-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:neural_antibody_specimen:options.
+    covers:
+      - input:neural_antibody_specimen:options
+    status: supported
+    sourceIds:
+      - csf_graus_2016
+    locators:
+      - sourceId: csf_graus_2016
+        locator: "Graus et al., diagnostic approach and antibody-testing cautions: identity, specimen, assay, phenotype, and
+          alternative diagnoses must be correlated."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-symptom-onset-days
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:symptom_onset_days.
+    covers:
+      - input:symptom_onset_days
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:hard-symptom_onset_days
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-symptom-onset-days-hard-limits
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:symptom_onset_days:hard_limits.
+    covers:
+      - input:symptom_onset_days:hard_limits
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:hard-symptom_onset_days
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-symptom-onset-days-plausibility
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:symptom_onset_days:plausibility.
+    covers:
+      - input:symptom_onset_days:plausibility
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:plausibility-symptom_onset_days
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-antimicrobial-pretreatment
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:antimicrobial_pretreatment.
+    covers:
+      - input:antimicrobial_pretreatment
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-antimicrobial-pretreatment-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:antimicrobial_pretreatment:options.
+    covers:
+      - input:antimicrobial_pretreatment:options
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-immune-status
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:immune_status.
+    covers:
+      - input:immune_status
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-immune-status-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:immune_status:options.
+    covers:
+      - input:immune_status:options
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-imaging-context
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:imaging_context.
+    covers:
+      - input:imaging_context
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-imaging-context-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:imaging_context:options.
+    covers:
+      - input:imaging_context:options
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-xanthochromia-method
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:xanthochromia_method.
+    covers:
+      - input:xanthochromia_method
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-xanthochromia-method-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:xanthochromia_method:options.
+    covers:
+      - input:xanthochromia_method:options
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:default-xanthochromia-method
+    kind: default
+    statement: csf uses the source-defined contract and behavior for default:xanthochromia_method.
+    covers:
+      - default:xanthochromia_method
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-defaults
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-xanthochromia-result
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:xanthochromia_result.
+    covers:
+      - input:xanthochromia_result
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-xanthochromia-result-options
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:xanthochromia_result:options.
+    covers:
+      - input:xanthochromia_result:options
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:default-xanthochromia-result
+    kind: default
+    statement: csf uses the source-defined contract and behavior for default:xanthochromia_result.
+    covers:
+      - default:xanthochromia_result
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-defaults
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-hours-from-onset-to-lumbar-puncture
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:hours_from_onset_to_lumbar_puncture.
+    covers:
+      - input:hours_from_onset_to_lumbar_puncture
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:hard-hours_from_onset_to_lumbar_puncture
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-hours-from-onset-to-lumbar-puncture-hard-limits
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:hours_from_onset_to_lumbar_puncture:hard_limits.
+    covers:
+      - input:hours_from_onset_to_lumbar_puncture:hard_limits
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:hard-hours_from_onset_to_lumbar_puncture
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:input-hours-from-onset-to-lumbar-puncture-plausibility
+    kind: input
+    statement: csf uses the source-defined contract and behavior for input:hours_from_onset_to_lumbar_puncture:plausibility.
+    covers:
+      - input:hours_from_onset_to_lumbar_puncture:plausibility
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:plausibility-hours_from_onset_to_lumbar_puncture
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:output-corrected-wbc
+    kind: outcome
+    statement: csf uses the source-defined contract and behavior for output:corrected_wbc.
+    covers:
+      - output:corrected_wbc
+    status: supported
+    sourceIds:
+      - csf_budhram_2024
+    locators:
+      - sourceId: csf_budhram_2024
+        locator: "Budhram et al., Methods and Results: adult 1:500, 1:1000, and 1:1500 traumatic-tap correction factors and the
+          false-positive/false-negative tradeoff."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:output-wbc-correction-method
+    kind: outcome
+    statement: csf uses the source-defined contract and behavior for output:wbc_correction_method.
+    covers:
+      - output:wbc_correction_method
+    status: supported
+    sourceIds:
+      - csf_budhram_2024
+    locators:
+      - sourceId: csf_budhram_2024
+        locator: "Budhram et al., Methods and Results: adult 1:500, 1:1000, and 1:1500 traumatic-tap correction factors and the
+          false-positive/false-negative tradeoff."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:output-csf-serum-glucose-ratio
+    kind: outcome
+    statement: csf uses the source-defined contract and behavior for output:csf_serum_glucose_ratio.
+    covers:
+      - output:csf_serum_glucose_ratio
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:output-derived-values
+    kind: outcome
+    statement: csf uses the source-defined contract and behavior for output:derived_values.
+    covers:
+      - output:derived_values
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:output-confirmed-assays
+    kind: outcome
+    statement: csf uses the source-defined contract and behavior for output:confirmed_assays.
+    covers:
+      - output:confirmed_assays
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_who_tb_diagnostics_2024
+      - csf_idsa_asm_lab_2024
+      - csf_graus_2016
+      - csf_mcdonald_2017
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_who_tb_diagnostics_2024
+        locator: "WHO TB diagnostics module 3, recommendation 6: an identified positive Xpert MTB/RIF or Xpert Ultra result
+          is reported as the named CSF molecular assay result, without inventing diagnostic confidence."
+      - sourceId: csf_idsa_asm_lab_2024
+        locator: "IDSA-ASM 2024 laboratory guide, Table 6: identified positive CSF mycobacterial and fungal assays are
+          reported by assay identity while retaining their method-specific limitations."
+      - sourceId: csf_graus_2016
+        locator: "Graus et al., diagnostic approach and antibody-testing cautions: report an identified neural antibody with
+          its specimen context without converting the laboratory result into a diagnosis."
+      - sourceId: csf_mcdonald_2017
+        locator: "2017 McDonald criteria, CSF section: CSF-restricted oligoclonal bands require paired testing and are an
+          explicitly reported laboratory pattern, not a stand-alone diagnosis."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:branch-identified-assays
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:output-support-flags
+    kind: outcome
+    statement: csf uses the source-defined contract and behavior for output:support_flags.
+    covers:
+      - output:support_flags
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_who_tb_diagnostics_2024
+      - csf_idsa_asm_lab_2024
+      - csf_graus_2016
+      - csf_mcdonald_2017
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_graus_2016
+        locator: "Graus et al., diagnostic approach and antibody-testing cautions: an identified antibody is reported with
+          phenotype, assay, and specimen-correlation limitations."
+      - sourceId: csf_mcdonald_2017
+        locator: "2017 McDonald criteria, CSF section: paired testing establishes a CSF-restricted oligoclonal-band pattern
+          that still requires the clinical diagnostic framework."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:branch-bacterial-compatible
+      - case:csf:branch-lymphocytic-preserved-glucose
+      - case:csf:branch-chronic-compatible
+      - case:csf:branch-albuminocytologic
+      - case:csf:branch-identified-assays
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:output-differential-considerations
+    kind: outcome
+    statement: csf uses the source-defined contract and behavior for output:differential_considerations.
+    covers:
+      - output:differential_considerations
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+      - csf_who_tb_diagnostics_2024
+      - csf_idsa_asm_lab_2024
+      - csf_graus_2016
+      - csf_mcdonald_2017
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+      - sourceId: csf_graus_2016
+        locator: "Graus et al., diagnostic approach and antibody-testing cautions: neural-antibody interpretation requires
+          phenotype, assay, specimen, and clinical correlation."
+      - sourceId: csf_mcdonald_2017
+        locator: "2017 McDonald criteria, CSF section: CSF-restricted oligoclonal bands are interpreted only within the full
+          clinical and imaging criteria."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:branch-identified-assays
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:output-xanthochromia-context
+    kind: outcome
+    statement: csf uses the source-defined contract and behavior for output:xanthochromia_context.
+    covers:
+      - output:xanthochromia_context
+    status: supported
+    sourceIds:
+      - csf_nice_ng228
+    locators:
+      - sourceId: csf_nice_ng228
+        locator: "NICE NG228 recommendations 1.1.12-1.1.15: LP after at least 12 hours, spectrophotometric
+          bilirubin/xanthochromia, and imaging/specialist correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:branch-xanth-positive-12h
+      - case:csf:branch-xanth-negative-12h
+      - case:csf:branch-xanth-early
+      - case:csf:branch-xanth-visual
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:output-missing-context
+    kind: outcome
+    statement: csf uses the source-defined contract and behavior for output:missing_context.
+    covers:
+      - output:missing_context
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:branch-unidentified-assays
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:output-limitations
+    kind: outcome
+    statement: csf uses the source-defined contract and behavior for output:limitations.
+    covers:
+      - output:limitations
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:reference-comprehensive
+      - case:csf:branch-pretreatment-ambiguity
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:constraint-0
+    kind: input
+    statement: csf uses the source-defined contract and behavior for constraint:0.
+    covers:
+      - constraint:0
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:constraint-0
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:constraint-1
+    kind: input
+    statement: csf uses the source-defined contract and behavior for constraint:1.
+    covers:
+      - constraint:1
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:constraint-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:constraint-2
+    kind: input
+    statement: csf uses the source-defined contract and behavior for constraint:2.
+    covers:
+      - constraint:2
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:constraint-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:constraint-3
+    kind: input
+    statement: csf uses the source-defined contract and behavior for constraint:3.
+    covers:
+      - constraint:3
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:constraint-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:constraint-4
+    kind: input
+    statement: csf uses the source-defined contract and behavior for constraint:4.
+    covers:
+      - constraint:4
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:constraint-4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:constraint-5
+    kind: input
+    statement: csf uses the source-defined contract and behavior for constraint:5.
+    covers:
+      - constraint:5
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:constraint-5
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:constraint-6
+    kind: input
+    statement: csf uses the source-defined contract and behavior for constraint:6.
+    covers:
+      - constraint:6
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:constraint-6
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+  - id: claim:csf:interpretation-prompt
+    kind: interpretation
+    statement: csf renders only the cited deterministic outputs, missing context, and limitations without adding diagnosis,
+      confidence, prognosis, or management language.
+    covers:
+      - interpretation:prompt
+    status: supported
+    sourceIds:
+      - csf_idsa_2004
+    locators:
+      - sourceId: csf_idsa_2004
+        locator: "IDSA bacterial-meningitis guideline, CSF examination and diagnostic-testing sections: cell count/differential,
+          protein, paired glucose, Gram stain, culture, pretreatment limitations, and clinical correlation."
+    executable: true
+    scenarioIds:
+      - case:csf:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-01-12
+cases:
+  - kind: reference
+    id: case:csf:reference-comprehensive
+    tags:
+      - calculator:csf:core
+      - conditional-output
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected:
+      corrected_wbc: 195
+      wbc_correction_method: one_wbc_per_1000_rbc
+      csf_serum_glucose_ratio: 0.3
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - low_csf_serum_glucose_ratio
+        - red_cells_present
+      confirmed_assays:
+        - pathogen_pcr_positive:bacterial_panel
+        - neural_antibody_positive:nmda_receptor:paired
+        - paired_ocb_csf_restricted
+      support_flags:
+        - bacterial_meningitis_compatible_pattern
+        - csf_restricted_oligoclonal_band_pattern
+        - identified_neural_antibody_reported
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - bacterial_and_other_neutrophilic_meningitis_processes
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context: []
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - traumatic_tap_correction_is_a_heuristic_with_sensitivity_specificity_tradeoffs
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:formula-implementation
+      - claim:csf:input-age-years
+      - claim:csf:input-wbc-per-ul
+      - claim:csf:input-wbc-diff
+      - claim:csf:input-wbc-diff-options
+      - claim:csf:input-rbc-per-ul
+      - claim:csf:input-traumatic-tap-method
+      - claim:csf:input-traumatic-tap-method-options
+      - claim:csf:input-appearance
+      - claim:csf:input-appearance-options
+      - claim:csf:input-opening-pressure-cm-h2o
+      - claim:csf:input-csf-glucose-mmol-l
+      - claim:csf:input-serum-glucose-mmol-l
+      - claim:csf:input-protein-mg-dl
+      - claim:csf:input-gram-stain-result
+      - claim:csf:input-gram-stain-result-options
+      - claim:csf:input-bacterial-culture-result
+      - claim:csf:input-bacterial-culture-result-options
+      - claim:csf:input-pathogen-pcr-result
+      - claim:csf:input-pathogen-pcr-result-options
+      - claim:csf:input-pathogen-pcr-identity
+      - claim:csf:input-pathogen-pcr-identity-options
+      - claim:csf:input-mycobacterial-result
+      - claim:csf:input-mycobacterial-result-options
+      - claim:csf:input-mycobacterial-assay
+      - claim:csf:input-mycobacterial-assay-options
+      - claim:csf:input-fungal-result
+      - claim:csf:input-fungal-result-options
+      - claim:csf:input-fungal-assay
+      - claim:csf:input-fungal-assay-options
+      - claim:csf:input-oligoclonal-band-status
+      - claim:csf:input-oligoclonal-band-status-options
+      - claim:csf:input-neural-antibody-result
+      - claim:csf:input-neural-antibody-result-options
+      - claim:csf:input-neural-antibody-identity
+      - claim:csf:input-neural-antibody-identity-options
+      - claim:csf:input-neural-antibody-specimen
+      - claim:csf:input-neural-antibody-specimen-options
+      - claim:csf:input-symptom-onset-days
+      - claim:csf:input-antimicrobial-pretreatment
+      - claim:csf:input-antimicrobial-pretreatment-options
+      - claim:csf:input-immune-status
+      - claim:csf:input-immune-status-options
+      - claim:csf:input-imaging-context
+      - claim:csf:input-imaging-context-options
+      - claim:csf:input-xanthochromia-method
+      - claim:csf:input-xanthochromia-method-options
+      - claim:csf:input-xanthochromia-result
+      - claim:csf:input-xanthochromia-result-options
+      - claim:csf:input-hours-from-onset-to-lumbar-puncture
+      - claim:csf:output-corrected-wbc
+      - claim:csf:output-wbc-correction-method
+      - claim:csf:output-csf-serum-glucose-ratio
+      - claim:csf:output-derived-values
+      - claim:csf:output-confirmed-assays
+      - claim:csf:output-support-flags
+      - claim:csf:output-differential-considerations
+      - claim:csf:output-xanthochromia-context
+      - claim:csf:output-missing-context
+      - claim:csf:output-limitations
+    sourceIds:
+      - csf_idsa_2004
+      - csf_budhram_2024
+      - csf_who_tb_diagnostics_2024
+      - csf_idsa_asm_lab_2024
+      - csf_mcdonald_2017
+      - csf_graus_2016
+      - csf_nice_ng228
+    witnesses:
+      - formula:implementation
+      - input:age_years
+      - input:wbc_per_ul
+      - input:wbc_diff
+      - input:wbc_diff:options
+      - input:rbc_per_ul
+      - input:traumatic_tap_method
+      - input:traumatic_tap_method:options
+      - input:appearance
+      - input:appearance:options
+      - input:opening_pressure_cm_h2o
+      - input:csf_glucose_mmol_l
+      - input:serum_glucose_mmol_l
+      - input:protein_mg_dl
+      - input:gram_stain_result
+      - input:gram_stain_result:options
+      - input:bacterial_culture_result
+      - input:bacterial_culture_result:options
+      - input:pathogen_pcr_result
+      - input:pathogen_pcr_result:options
+      - input:pathogen_pcr_identity
+      - input:pathogen_pcr_identity:options
+      - input:mycobacterial_result
+      - input:mycobacterial_result:options
+      - input:mycobacterial_assay
+      - input:mycobacterial_assay:options
+      - input:fungal_result
+      - input:fungal_result:options
+      - input:fungal_assay
+      - input:fungal_assay:options
+      - input:oligoclonal_band_status
+      - input:oligoclonal_band_status:options
+      - input:neural_antibody_result
+      - input:neural_antibody_result:options
+      - input:neural_antibody_identity
+      - input:neural_antibody_identity:options
+      - input:neural_antibody_specimen
+      - input:neural_antibody_specimen:options
+      - input:symptom_onset_days
+      - input:antimicrobial_pretreatment
+      - input:antimicrobial_pretreatment:options
+      - input:immune_status
+      - input:immune_status:options
+      - input:imaging_context
+      - input:imaging_context:options
+      - input:xanthochromia_method
+      - input:xanthochromia_method:options
+      - input:xanthochromia_result
+      - input:xanthochromia_result:options
+      - input:hours_from_onset_to_lumbar_puncture
+      - output:corrected_wbc
+      - output:wbc_correction_method
+      - output:csf_serum_glucose_ratio
+      - output:derived_values
+      - output:confirmed_assays
+      - output:support_flags
+      - output:differential_considerations
+      - output:xanthochromia_context
+      - output:missing_context
+      - output:limitations
+  - kind: reference
+    id: case:csf:reference-1
+    tags:
+      - calculator:csf:source-derived
+    inputs:
+      age_years: 45
+      wbc_per_ul: 2000
+      wbc_diff: pmn
+      gram_stain_result: positive
+      protein_mg_dl: 250
+      csf_glucose_mmol_l: 1
+      serum_glucose_mmol_l: 5
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: not_done
+    expected:
+      corrected_wbc: 2000
+      wbc_correction_method: none
+      csf_serum_glucose_ratio: 0.2
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - low_csf_serum_glucose_ratio
+      confirmed_assays:
+        - gram_stain_positive
+      support_flags:
+        - bacterial_meningitis_compatible_pattern
+      differential_considerations:
+        - bacterial_and_other_neutrophilic_meningitis_processes
+      xanthochromia_context: not_assessed
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - symptom_onset_timing
+        - imaging_context
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:formula-implementation
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:csf:reference-2
+    tags:
+      - calculator:csf:source-derived
+    inputs:
+      age_years: 45
+      wbc_per_ul: 50
+      wbc_diff: mixed
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      xanthochromia_result: positive
+      xanthochromia_method: spectrophotometry
+      hours_from_onset_to_lumbar_puncture: 12
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+    expected:
+      corrected_wbc: 45
+      wbc_correction_method: one_wbc_per_1000_rbc
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - mixed_cell_differential
+        - red_cells_present
+      confirmed_assays: []
+      support_flags:
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context:
+        - opening_pressure
+        - csf_glucose
+        - paired_blood_glucose
+        - csf_protein
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - traumatic_tap_correction_is_a_heuristic_with_sensitivity_specificity_tradeoffs
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:formula-implementation
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:csf:reference-3
+    tags:
+      - calculator:csf:source-derived
+    inputs:
+      age_years: 40
+      wbc_per_ul: 2
+      wbc_diff: lymphocyte
+      protein_mg_dl: 120
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: not_done
+    expected:
+      corrected_wbc: 2
+      wbc_correction_method: none
+      derived_values:
+        - adult_reference_protein_elevated
+        - lymphocyte_predominant
+      confirmed_assays: []
+      support_flags:
+        - albuminocytologic_dissociation_compatible_pattern
+      differential_considerations:
+        - multiple_causes_of_albuminocytologic_dissociation
+      xanthochromia_context: not_assessed
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_glucose
+        - paired_blood_glucose
+        - symptom_onset_timing
+        - imaging_context
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:formula-implementation
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:csf:reference-4
+    tags:
+      - calculator:csf:source-derived
+    inputs:
+      age_years: 30
+      wbc_per_ul: 10
+      wbc_diff: lymphocyte
+      oligoclonal_band_status: csf_restricted
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: other_abnormality
+    expected:
+      corrected_wbc: 10
+      wbc_correction_method: none
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - lymphocyte_predominant
+      confirmed_assays:
+        - paired_ocb_csf_restricted
+      support_flags:
+        - csf_restricted_oligoclonal_band_pattern
+      differential_considerations:
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+      xanthochromia_context: not_assessed
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_glucose
+        - paired_blood_glucose
+        - csf_protein
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:formula-implementation
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:csf:reference-5
+    tags:
+      - calculator:csf:source-derived
+    inputs:
+      age_years: 25
+      wbc_per_ul: 20
+      wbc_diff: lymphocyte
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      antimicrobial_pretreatment: yes
+      immune_status: unknown
+      imaging_context: unknown
+    expected:
+      corrected_wbc: 20
+      wbc_correction_method: none
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - lymphocyte_predominant
+      confirmed_assays:
+        - neural_antibody_positive:nmda_receptor:paired
+      support_flags:
+        - identified_neural_antibody_reported
+      differential_considerations:
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+      xanthochromia_context: not_assessed
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_glucose
+        - paired_blood_glucose
+        - csf_protein
+        - symptom_onset_timing
+        - imaging_context
+        - immune_status
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - antimicrobial_pretreatment_can_reduce_test_sensitivity
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:formula-implementation
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - formula:implementation
+  - kind: reference
+    id: case:csf:reference-defaults
+    tags:
+      - defaults
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+    expected:
+      corrected_wbc: 200
+      wbc_correction_method: none
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - pmn_predominant
+      confirmed_assays: []
+      support_flags: []
+      differential_considerations: []
+      xanthochromia_context: not_assessed
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_glucose
+        - paired_blood_glucose
+        - csf_protein
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:formula-implementation
+      - claim:csf:default-traumatic-tap-method
+      - claim:csf:default-gram-stain-result
+      - claim:csf:default-bacterial-culture-result
+      - claim:csf:default-pathogen-pcr-result
+      - claim:csf:default-mycobacterial-result
+      - claim:csf:default-fungal-result
+      - claim:csf:default-oligoclonal-band-status
+      - claim:csf:default-neural-antibody-result
+      - claim:csf:default-xanthochromia-method
+      - claim:csf:default-xanthochromia-result
+    sourceIds:
+      - csf_idsa_2004
+      - csf_budhram_2024
+      - csf_who_tb_diagnostics_2024
+      - csf_idsa_asm_lab_2024
+      - csf_mcdonald_2017
+      - csf_graus_2016
+      - csf_nice_ng228
+    witnesses:
+      - formula:implementation
+      - default:traumatic_tap_method
+      - default:gram_stain_result
+      - default:bacterial_culture_result
+      - default:pathogen_pcr_result
+      - default:mycobacterial_result
+      - default:fungal_result
+      - default:oligoclonal_band_status
+      - default:neural_antibody_result
+      - default:xanthochromia_method
+      - default:xanthochromia_result
+  - kind: edge
+    id: case:csf:hard-age_years
+    tags:
+      - hard-limits
+    inputs:
+      age_years: -1
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: age_years
+      messageIncludes: Age -1 is outside physiological limits [0, 130].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:input-age-years-hard-limits
+      - claim:csf:input-age-years
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:age_years:hard_limits
+      - input:age_years
+  - kind: edge
+    id: case:csf:plausibility-age_years
+    tags:
+      - plausibility
+    inputs:
+      age_years: 120
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected:
+      corrected_wbc: 195
+      wbc_correction_method: one_wbc_per_1000_rbc
+      csf_serum_glucose_ratio: 0.3
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - low_csf_serum_glucose_ratio
+        - red_cells_present
+      confirmed_assays:
+        - pathogen_pcr_positive:bacterial_panel
+        - neural_antibody_positive:nmda_receptor:paired
+        - paired_ocb_csf_restricted
+      support_flags:
+        - bacterial_meningitis_compatible_pattern
+        - csf_restricted_oligoclonal_band_pattern
+        - identified_neural_antibody_reported
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - bacterial_and_other_neutrophilic_meningitis_processes
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context: []
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - traumatic_tap_correction_is_a_heuristic_with_sensitivity_specificity_tradeoffs
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:input-age-years-plausibility
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:age_years:plausibility
+    expectedWarnings:
+      - Age 120 is unusual (expected 0–110).
+  - kind: edge
+    id: case:csf:hard-wbc_per_ul
+    tags:
+      - hard-limits
+    inputs:
+      age_years: 45
+      wbc_per_ul: -1
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: wbc_per_ul
+      messageIncludes: CSF WBC -1 is outside physiological limits [0, 100000].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:input-wbc-per-ul-hard-limits
+      - claim:csf:input-wbc-per-ul
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:wbc_per_ul:hard_limits
+      - input:wbc_per_ul
+  - kind: edge
+    id: case:csf:plausibility-wbc_per_ul
+    tags:
+      - plausibility
+    inputs:
+      age_years: 45
+      wbc_per_ul: 55000
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected:
+      corrected_wbc: 54995
+      wbc_correction_method: one_wbc_per_1000_rbc
+      csf_serum_glucose_ratio: 0.3
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - low_csf_serum_glucose_ratio
+        - red_cells_present
+      confirmed_assays:
+        - pathogen_pcr_positive:bacterial_panel
+        - neural_antibody_positive:nmda_receptor:paired
+        - paired_ocb_csf_restricted
+      support_flags:
+        - bacterial_meningitis_compatible_pattern
+        - csf_restricted_oligoclonal_band_pattern
+        - identified_neural_antibody_reported
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - bacterial_and_other_neutrophilic_meningitis_processes
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context: []
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - traumatic_tap_correction_is_a_heuristic_with_sensitivity_specificity_tradeoffs
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:input-wbc-per-ul-plausibility
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:wbc_per_ul:plausibility
+    expectedWarnings:
+      - CSF WBC 55000 is unusual (expected 0–10000).
+  - kind: edge
+    id: case:csf:hard-rbc_per_ul
+    tags:
+      - hard-limits
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: -1
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: rbc_per_ul
+      messageIncludes: CSF RBC -1 is outside physiological limits [0, 100000000].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:input-rbc-per-ul-hard-limits
+      - claim:csf:input-rbc-per-ul
+    sourceIds:
+      - csf_budhram_2024
+    witnesses:
+      - input:rbc_per_ul:hard_limits
+      - input:rbc_per_ul
+  - kind: edge
+    id: case:csf:plausibility-rbc_per_ul
+    tags:
+      - plausibility
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 50500000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected:
+      corrected_wbc: 0
+      wbc_correction_method: one_wbc_per_1000_rbc
+      csf_serum_glucose_ratio: 0.3
+      derived_values:
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - low_csf_serum_glucose_ratio
+        - red_cells_present
+      confirmed_assays:
+        - pathogen_pcr_positive:bacterial_panel
+        - neural_antibody_positive:nmda_receptor:paired
+        - paired_ocb_csf_restricted
+      support_flags:
+        - albuminocytologic_dissociation_compatible_pattern
+        - csf_restricted_oligoclonal_band_pattern
+        - identified_neural_antibody_reported
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - multiple_causes_of_albuminocytologic_dissociation
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context: []
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - traumatic_tap_correction_is_a_heuristic_with_sensitivity_specificity_tradeoffs
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:input-rbc-per-ul-plausibility
+    sourceIds:
+      - csf_budhram_2024
+    witnesses:
+      - input:rbc_per_ul:plausibility
+    expectedWarnings:
+      - CSF RBC 50500000 is unusual (expected 0–1000000).
+  - kind: edge
+    id: case:csf:hard-opening_pressure_cm_h2o
+    tags:
+      - hard-limits
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: -1
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: opening_pressure_cm_h2o
+      messageIncludes: Opening Pressure -1 is outside physiological limits [0, 120].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:input-opening-pressure-cm-h2o-hard-limits
+      - claim:csf:input-opening-pressure-cm-h2o
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:opening_pressure_cm_h2o:hard_limits
+      - input:opening_pressure_cm_h2o
+  - kind: edge
+    id: case:csf:plausibility-opening_pressure_cm_h2o
+    tags:
+      - plausibility
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 90
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected:
+      corrected_wbc: 195
+      wbc_correction_method: one_wbc_per_1000_rbc
+      csf_serum_glucose_ratio: 0.3
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - low_csf_serum_glucose_ratio
+        - opening_pressure_above_25_cm_h2o
+        - red_cells_present
+      confirmed_assays:
+        - pathogen_pcr_positive:bacterial_panel
+        - neural_antibody_positive:nmda_receptor:paired
+        - paired_ocb_csf_restricted
+      support_flags:
+        - bacterial_meningitis_compatible_pattern
+        - csf_restricted_oligoclonal_band_pattern
+        - identified_neural_antibody_reported
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - bacterial_and_other_neutrophilic_meningitis_processes
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context: []
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - traumatic_tap_correction_is_a_heuristic_with_sensitivity_specificity_tradeoffs
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:input-opening-pressure-cm-h2o-plausibility
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:opening_pressure_cm_h2o:plausibility
+    expectedWarnings:
+      - Opening Pressure 90 is unusual (expected 0–60).
+  - kind: edge
+    id: case:csf:hard-csf_glucose_mmol_l
+    tags:
+      - hard-limits
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: -1
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: csf_glucose_mmol_l
+      messageIncludes: CSF Glucose -1 is outside physiological limits [0, 50].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:input-csf-glucose-mmol-l-hard-limits
+      - claim:csf:input-csf-glucose-mmol-l
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:csf_glucose_mmol_l:hard_limits
+      - input:csf_glucose_mmol_l
+  - kind: edge
+    id: case:csf:plausibility-csf_glucose_mmol_l
+    tags:
+      - plausibility
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 35
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected:
+      corrected_wbc: 195
+      wbc_correction_method: one_wbc_per_1000_rbc
+      csf_serum_glucose_ratio: 7
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - red_cells_present
+      confirmed_assays:
+        - pathogen_pcr_positive:bacterial_panel
+        - neural_antibody_positive:nmda_receptor:paired
+        - paired_ocb_csf_restricted
+      support_flags:
+        - bacterial_meningitis_compatible_pattern
+        - csf_restricted_oligoclonal_band_pattern
+        - identified_neural_antibody_reported
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - bacterial_and_other_neutrophilic_meningitis_processes
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context: []
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - traumatic_tap_correction_is_a_heuristic_with_sensitivity_specificity_tradeoffs
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:input-csf-glucose-mmol-l-plausibility
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:csf_glucose_mmol_l:plausibility
+    expectedWarnings:
+      - CSF Glucose 35 is unusual (expected 0–20).
+  - kind: edge
+    id: case:csf:hard-serum_glucose_mmol_l
+    tags:
+      - hard-limits
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: -0.99
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: serum_glucose_mmol_l
+      messageIncludes: Paired Blood Glucose -0.99 is outside physiological limits [0.01, 100].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:input-serum-glucose-mmol-l-hard-limits
+      - claim:csf:input-serum-glucose-mmol-l
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:serum_glucose_mmol_l:hard_limits
+      - input:serum_glucose_mmol_l
+  - kind: edge
+    id: case:csf:plausibility-serum_glucose_mmol_l
+    tags:
+      - plausibility
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 0.055
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected:
+      corrected_wbc: 195
+      wbc_correction_method: one_wbc_per_1000_rbc
+      csf_serum_glucose_ratio: 27.273
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - red_cells_present
+      confirmed_assays:
+        - pathogen_pcr_positive:bacterial_panel
+        - neural_antibody_positive:nmda_receptor:paired
+        - paired_ocb_csf_restricted
+      support_flags:
+        - bacterial_meningitis_compatible_pattern
+        - csf_restricted_oligoclonal_band_pattern
+        - identified_neural_antibody_reported
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - bacterial_and_other_neutrophilic_meningitis_processes
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context: []
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - traumatic_tap_correction_is_a_heuristic_with_sensitivity_specificity_tradeoffs
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:input-serum-glucose-mmol-l-plausibility
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:serum_glucose_mmol_l:plausibility
+    expectedWarnings:
+      - Paired Blood Glucose 0.055 is unusual (expected 0.1–40).
+  - kind: edge
+    id: case:csf:hard-protein_mg_dl
+    tags:
+      - hard-limits
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: -1
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: protein_mg_dl
+      messageIncludes: CSF Protein -1 is outside physiological limits [0, 5000].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:input-protein-mg-dl-hard-limits
+      - claim:csf:input-protein-mg-dl
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:protein_mg_dl:hard_limits
+      - input:protein_mg_dl
+  - kind: edge
+    id: case:csf:plausibility-protein_mg_dl
+    tags:
+      - plausibility
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 3000
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected:
+      corrected_wbc: 195
+      wbc_correction_method: one_wbc_per_1000_rbc
+      csf_serum_glucose_ratio: 0.3
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - low_csf_serum_glucose_ratio
+        - red_cells_present
+      confirmed_assays:
+        - pathogen_pcr_positive:bacterial_panel
+        - neural_antibody_positive:nmda_receptor:paired
+        - paired_ocb_csf_restricted
+      support_flags:
+        - bacterial_meningitis_compatible_pattern
+        - csf_restricted_oligoclonal_band_pattern
+        - identified_neural_antibody_reported
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - bacterial_and_other_neutrophilic_meningitis_processes
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context: []
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - traumatic_tap_correction_is_a_heuristic_with_sensitivity_specificity_tradeoffs
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:input-protein-mg-dl-plausibility
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:protein_mg_dl:plausibility
+    expectedWarnings:
+      - CSF Protein 3000 is unusual (expected 0–1000).
+  - kind: edge
+    id: case:csf:hard-symptom_onset_days
+    tags:
+      - hard-limits
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: -1
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: symptom_onset_days
+      messageIncludes: Days Since Symptom Onset -1 is outside physiological limits [0, 36500].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:input-symptom-onset-days-hard-limits
+      - claim:csf:input-symptom-onset-days
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:symptom_onset_days:hard_limits
+      - input:symptom_onset_days
+  - kind: edge
+    id: case:csf:plausibility-symptom_onset_days
+    tags:
+      - plausibility
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 18432.5
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected:
+      corrected_wbc: 195
+      wbc_correction_method: one_wbc_per_1000_rbc
+      csf_serum_glucose_ratio: 0.3
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - low_csf_serum_glucose_ratio
+        - red_cells_present
+      confirmed_assays:
+        - pathogen_pcr_positive:bacterial_panel
+        - neural_antibody_positive:nmda_receptor:paired
+        - paired_ocb_csf_restricted
+      support_flags:
+        - bacterial_meningitis_compatible_pattern
+        - csf_restricted_oligoclonal_band_pattern
+        - identified_neural_antibody_reported
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - bacterial_and_other_neutrophilic_meningitis_processes
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context: []
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - traumatic_tap_correction_is_a_heuristic_with_sensitivity_specificity_tradeoffs
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:input-symptom-onset-days-plausibility
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:symptom_onset_days:plausibility
+    expectedWarnings:
+      - Days Since Symptom Onset 18432.5 is unusual (expected 0–365).
+  - kind: edge
+    id: case:csf:hard-hours_from_onset_to_lumbar_puncture
+    tags:
+      - hard-limits
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: -1
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: hours_from_onset_to_lumbar_puncture
+      messageIncludes: Hours From Onset to LP -1 is outside physiological limits [0, 8760].
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:input-hours-from-onset-to-lumbar-puncture-hard-limits
+      - claim:csf:input-hours-from-onset-to-lumbar-puncture
+    sourceIds:
+      - csf_nice_ng228
+    witnesses:
+      - input:hours_from_onset_to_lumbar_puncture:hard_limits
+      - input:hours_from_onset_to_lumbar_puncture
+  - kind: edge
+    id: case:csf:plausibility-hours_from_onset_to_lumbar_puncture
+    tags:
+      - plausibility
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 4548
+    expected:
+      corrected_wbc: 195
+      wbc_correction_method: one_wbc_per_1000_rbc
+      csf_serum_glucose_ratio: 0.3
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - low_csf_serum_glucose_ratio
+        - red_cells_present
+      confirmed_assays:
+        - pathogen_pcr_positive:bacterial_panel
+        - neural_antibody_positive:nmda_receptor:paired
+        - paired_ocb_csf_restricted
+      support_flags:
+        - bacterial_meningitis_compatible_pattern
+        - csf_restricted_oligoclonal_band_pattern
+        - identified_neural_antibody_reported
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - bacterial_and_other_neutrophilic_meningitis_processes
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context: []
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - traumatic_tap_correction_is_a_heuristic_with_sensitivity_specificity_tradeoffs
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:input-hours-from-onset-to-lumbar-puncture-plausibility
+    sourceIds:
+      - csf_nice_ng228
+    witnesses:
+      - input:hours_from_onset_to_lumbar_puncture:plausibility
+    expectedWarnings:
+      - Hours From Onset to LP 4548 is unusual (expected 0–336).
+  - kind: edge
+    id: case:csf:constraint-0
+    tags:
+      - constraints
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      traumatic_tap_method: one_wbc_per_500_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: rbc_per_ul
+      messageIncludes: An RBC count is required when a traumatic-tap correction is selected.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:constraint-0
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - constraint:0
+  - kind: edge
+    id: case:csf:constraint-1
+    tags:
+      - constraints
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: rbc_per_ul
+      messageIncludes: An RBC count is required when a traumatic-tap correction is selected.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:constraint-1
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - constraint:1
+  - kind: edge
+    id: case:csf:constraint-2
+    tags:
+      - constraints
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      traumatic_tap_method: one_wbc_per_1500_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: rbc_per_ul
+      messageIncludes: An RBC count is required when a traumatic-tap correction is selected.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:constraint-2
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - constraint:2
+  - kind: edge
+    id: case:csf:constraint-3
+    tags:
+      - constraints
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: pathogen_pcr_identity
+      messageIncludes: Identify the PCR target for a positive result.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:constraint-3
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - constraint:3
+  - kind: edge
+    id: case:csf:constraint-4
+    tags:
+      - constraints
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: positive
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: mycobacterial_assay
+      messageIncludes: Identify the positive mycobacterial assay.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:constraint-4
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - constraint:4
+  - kind: edge
+    id: case:csf:constraint-5
+    tags:
+      - constraints
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: positive
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: fungal_assay
+      messageIncludes: Identify the positive fungal assay.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:constraint-5
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - constraint:5
+  - kind: edge
+    id: case:csf:constraint-6
+    tags:
+      - constraints
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: neural_antibody_identity | neural_antibody_specimen
+      messageIncludes: Identify the neural antibody and specimen for a positive result.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:constraint-6
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - constraint:6
+  - kind: edge
+    id: case:csf:required-age_years
+    tags:
+      - required-inputs
+    inputs:
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: age_years
+      messageIncludes: Age is required.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:input-age-years
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - input:age_years
+  - kind: agent
+    id: case:csf:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      age_years: 45
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected:
+      corrected_wbc: 195
+      wbc_correction_method: one_wbc_per_1000_rbc
+      csf_serum_glucose_ratio: 0.3
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - low_csf_serum_glucose_ratio
+        - red_cells_present
+      confirmed_assays:
+        - pathogen_pcr_positive:bacterial_panel
+        - neural_antibody_positive:nmda_receptor:paired
+        - paired_ocb_csf_restricted
+      support_flags:
+        - bacterial_meningitis_compatible_pattern
+        - csf_restricted_oligoclonal_band_pattern
+        - identified_neural_antibody_reported
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - bacterial_and_other_neutrophilic_meningitis_processes
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context: []
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - traumatic_tap_correction_is_a_heuristic_with_sensitivity_specificity_tradeoffs
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact deterministic source-derived branch and table expectation.
+    claimIds:
+      - claim:csf:applicability-purpose
+      - claim:csf:interpretation-prompt
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - applicability:purpose
+      - interpretation:prompt
+  - kind: agent
+    id: case:csf:agent-exclusion
+    tags:
+      - calculator:csf:source-derived
+    inputs:
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      rbc_per_ul: 5000
+      traumatic_tap_method: one_wbc_per_1000_rbc
+      appearance: xanthochromic
+      opening_pressure_cm_h2o: 20
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+      gram_stain_result: negative
+      bacterial_culture_result: negative
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: negative
+      mycobacterial_assay: smear
+      fungal_result: negative
+      fungal_assay: india_ink
+      oligoclonal_band_status: csf_restricted
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      symptom_onset_days: 2
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_method: spectrophotometry
+      xanthochromia_result: positive
+      hours_from_onset_to_lumbar_puncture: 12
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: age_years
+      messageIncludes: Age is required.
+    tolerance:
+      mode: exact
+      rationale: Exact fail-loud source-contract expectation.
+    claimIds:
+      - claim:csf:applicability-exclusions
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - applicability:exclusions
+  - kind: reference
+    id: case:csf:branch-bacterial-compatible
+    tags:
+      - calculator:csf:source-branch
+    inputs:
+      age_years: 40
+      wbc_per_ul: 200
+      wbc_diff: pmn
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 80
+    expected:
+      corrected_wbc: 200
+      wbc_correction_method: none
+      csf_serum_glucose_ratio: 0.3
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - pmn_predominant
+        - low_csf_serum_glucose_ratio
+      confirmed_assays: []
+      support_flags:
+        - bacterial_meningitis_compatible_pattern
+      differential_considerations:
+        - bacterial_and_other_neutrophilic_meningitis_processes
+      xanthochromia_context: not_assessed
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:csf:output-support-flags
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - output:support_flags
+  - kind: reference
+    id: case:csf:branch-lymphocytic-preserved-glucose
+    tags:
+      - calculator:csf:source-branch
+    inputs:
+      age_years: 40
+      wbc_per_ul: 40
+      wbc_diff: lymphocyte
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      csf_glucose_mmol_l: 3
+      serum_glucose_mmol_l: 5
+    expected:
+      corrected_wbc: 40
+      wbc_correction_method: none
+      csf_serum_glucose_ratio: 0.6
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - lymphocyte_predominant
+      confirmed_assays: []
+      support_flags:
+        - lymphocytic_inflammation_with_preserved_glucose_pattern
+      differential_considerations:
+        - viral_and_other_lymphocytic_inflammatory_processes
+      xanthochromia_context: not_assessed
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_protein
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:csf:output-support-flags
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - output:support_flags
+  - kind: reference
+    id: case:csf:branch-chronic-compatible
+    tags:
+      - calculator:csf:source-branch
+    inputs:
+      age_years: 40
+      wbc_per_ul: 40
+      wbc_diff: lymphocyte
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      csf_glucose_mmol_l: 1.5
+      serum_glucose_mmol_l: 5
+      protein_mg_dl: 100
+    expected:
+      corrected_wbc: 40
+      wbc_correction_method: none
+      csf_serum_glucose_ratio: 0.3
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - adult_reference_protein_elevated
+        - lymphocyte_predominant
+        - low_csf_serum_glucose_ratio
+      confirmed_assays: []
+      support_flags:
+        - chronic_meningitis_compatible_pattern
+      differential_considerations:
+        - mycobacterial_fungal_and_other_chronic_meningitis_processes
+      xanthochromia_context: not_assessed
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:csf:output-support-flags
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - output:support_flags
+  - kind: reference
+    id: case:csf:branch-albuminocytologic
+    tags:
+      - calculator:csf:source-branch
+    inputs:
+      age_years: 40
+      wbc_per_ul: 2
+      wbc_diff: lymphocyte
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      protein_mg_dl: 120
+    expected:
+      corrected_wbc: 2
+      wbc_correction_method: none
+      derived_values:
+        - adult_reference_protein_elevated
+        - lymphocyte_predominant
+      confirmed_assays: []
+      support_flags:
+        - albuminocytologic_dissociation_compatible_pattern
+      differential_considerations:
+        - multiple_causes_of_albuminocytologic_dissociation
+      xanthochromia_context: not_assessed
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_glucose
+        - paired_blood_glucose
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:csf:output-support-flags
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - output:support_flags
+  - kind: reference
+    id: case:csf:branch-xanth-positive-12h
+    tags:
+      - calculator:csf:source-branch
+    inputs:
+      age_years: 40
+      wbc_per_ul: 10
+      wbc_diff: mixed
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_result: positive
+      xanthochromia_method: spectrophotometry
+      hours_from_onset_to_lumbar_puncture: 12
+    expected:
+      corrected_wbc: 10
+      wbc_correction_method: none
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - mixed_cell_differential
+      confirmed_assays: []
+      support_flags:
+        - spectrophotometric_xanthochromia_after_12h
+      differential_considerations:
+        - subarachnoid_blood_requires_imaging_and_specialist_correlation
+      xanthochromia_context: supported_spectrophotometry_after_12h
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_glucose
+        - paired_blood_glucose
+        - csf_protein
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:csf:output-xanthochromia-context
+    sourceIds:
+      - csf_nice_ng228
+    witnesses:
+      - output:xanthochromia_context
+  - kind: reference
+    id: case:csf:branch-xanth-negative-12h
+    tags:
+      - calculator:csf:source-branch
+    inputs:
+      age_years: 40
+      wbc_per_ul: 10
+      wbc_diff: mixed
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_result: negative
+      xanthochromia_method: spectrophotometry
+      hours_from_onset_to_lumbar_puncture: 12
+    expected:
+      corrected_wbc: 10
+      wbc_correction_method: none
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - mixed_cell_differential
+      confirmed_assays: []
+      support_flags: []
+      differential_considerations: []
+      xanthochromia_context: negative_spectrophotometry_reported
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_glucose
+        - paired_blood_glucose
+        - csf_protein
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:csf:output-xanthochromia-context
+    sourceIds:
+      - csf_nice_ng228
+    witnesses:
+      - output:xanthochromia_context
+  - kind: reference
+    id: case:csf:branch-xanth-early
+    tags:
+      - calculator:csf:source-branch
+    inputs:
+      age_years: 40
+      wbc_per_ul: 10
+      wbc_diff: mixed
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_result: negative
+      xanthochromia_method: spectrophotometry
+      hours_from_onset_to_lumbar_puncture: 11.9
+    expected:
+      corrected_wbc: 10
+      wbc_correction_method: none
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - mixed_cell_differential
+      confirmed_assays: []
+      support_flags: []
+      differential_considerations: []
+      xanthochromia_context: result_or_method_or_timing_insufficient
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_glucose
+        - paired_blood_glucose
+        - csf_protein
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - unknown_visual_or_early_xanthochromia_does_not_satisfy_nice_spectrophotometry_branch
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:csf:output-xanthochromia-context
+    sourceIds:
+      - csf_nice_ng228
+    witnesses:
+      - output:xanthochromia_context
+  - kind: reference
+    id: case:csf:branch-xanth-visual
+    tags:
+      - calculator:csf:source-branch
+    inputs:
+      age_years: 40
+      wbc_per_ul: 10
+      wbc_diff: mixed
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      xanthochromia_result: positive
+      xanthochromia_method: visual
+      hours_from_onset_to_lumbar_puncture: 24
+    expected:
+      corrected_wbc: 10
+      wbc_correction_method: none
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - mixed_cell_differential
+      confirmed_assays: []
+      support_flags: []
+      differential_considerations: []
+      xanthochromia_context: result_or_method_or_timing_insufficient
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_glucose
+        - paired_blood_glucose
+        - csf_protein
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+        - spectrophotometric_xanthochromia_method
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - unknown_visual_or_early_xanthochromia_does_not_satisfy_nice_spectrophotometry_branch
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:csf:output-xanthochromia-context
+    sourceIds:
+      - csf_nice_ng228
+    witnesses:
+      - output:xanthochromia_context
+  - kind: reference
+    id: case:csf:branch-identified-assays
+    tags:
+      - calculator:csf:source-branch
+    inputs:
+      age_years: 40
+      wbc_per_ul: 10
+      wbc_diff: mixed
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: bacterial_panel
+      mycobacterial_result: positive
+      mycobacterial_assay: pcr
+      fungal_result: positive
+      fungal_assay: cryptococcal_antigen
+      neural_antibody_result: positive
+      neural_antibody_identity: nmda_receptor
+      neural_antibody_specimen: paired
+      oligoclonal_band_status: csf_restricted
+    expected:
+      corrected_wbc: 10
+      wbc_correction_method: none
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - mixed_cell_differential
+      confirmed_assays:
+        - pathogen_pcr_positive:bacterial_panel
+        - mycobacterial_assay_positive:pcr
+        - fungal_assay_positive:cryptococcal_antigen
+        - neural_antibody_positive:nmda_receptor:paired
+        - paired_ocb_csf_restricted
+      support_flags:
+        - csf_restricted_oligoclonal_band_pattern
+        - identified_neural_antibody_reported
+      differential_considerations:
+        - intrathecal_immune_activation_requires_clinical_and_imaging_context
+        - antibody_result_requires_phenotype_assay_and_specimen_correlation
+      xanthochromia_context: not_assessed
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_glucose
+        - paired_blood_glucose
+        - csf_protein
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:csf:output-confirmed-assays
+      - claim:csf:output-support-flags
+      - claim:csf:output-differential-considerations
+    sourceIds:
+      - csf_idsa_2004
+      - csf_who_tb_diagnostics_2024
+      - csf_idsa_asm_lab_2024
+      - csf_graus_2016
+      - csf_mcdonald_2017
+    witnesses:
+      - output:confirmed_assays
+      - output:support_flags
+      - output:differential_considerations
+  - kind: reference
+    id: case:csf:branch-unidentified-assays
+    tags:
+      - calculator:csf:source-branch
+    inputs:
+      age_years: 40
+      wbc_per_ul: 10
+      wbc_diff: mixed
+      antimicrobial_pretreatment: no
+      immune_status: immunocompetent
+      imaging_context: normal_or_no_explanation
+      pathogen_pcr_result: positive
+      pathogen_pcr_identity: other
+      mycobacterial_result: positive
+      mycobacterial_assay: other
+      fungal_result: positive
+      fungal_assay: other
+      neural_antibody_result: positive
+      neural_antibody_identity: other
+      neural_antibody_specimen: not_specified
+    expected:
+      corrected_wbc: 10
+      wbc_correction_method: none
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - mixed_cell_differential
+      confirmed_assays: []
+      support_flags: []
+      differential_considerations: []
+      xanthochromia_context: not_assessed
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_glucose
+        - paired_blood_glucose
+        - csf_protein
+        - symptom_onset_timing
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+        - exact_pathogen_pcr_identity
+        - exact_fungal_assay_identity
+        - exact_mycobacterial_assay_identity
+        - exact_neural_antibody_identity_and_specimen
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:csf:output-missing-context
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - output:missing_context
+  - kind: reference
+    id: case:csf:branch-pretreatment-ambiguity
+    tags:
+      - calculator:csf:source-branch
+    inputs:
+      age_years: 40
+      wbc_per_ul: 10
+      wbc_diff: mixed
+      antimicrobial_pretreatment: yes
+      immune_status: unknown
+      imaging_context: unknown
+    expected:
+      corrected_wbc: 10
+      wbc_correction_method: none
+      derived_values:
+        - adult_reference_pleocytosis_present
+        - mixed_cell_differential
+      confirmed_assays: []
+      support_flags: []
+      differential_considerations: []
+      xanthochromia_context: not_assessed
+      missing_context:
+        - appearance
+        - opening_pressure
+        - rbc_count
+        - csf_glucose
+        - paired_blood_glucose
+        - csf_protein
+        - symptom_onset_timing
+        - imaging_context
+        - immune_status
+        - gram_stain_not_tested
+        - bacterial_culture_not_tested
+      limitations:
+        - compatible_patterns_are_not_diagnoses
+        - antimicrobial_pretreatment_can_reduce_test_sensitivity
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Exact source-linked finite-branch expectation.
+    claimIds:
+      - claim:csf:output-limitations
+    sourceIds:
+      - csf_idsa_2004
+    witnesses:
+      - output:limitations
+compatibilityNotes:
+  - Removed the unsupported most-likely diagnosis and invented confidence outputs.
+  - Replaced Boolean unspecified assays and comma-separated strings with explicit assay identities, marker states, and
+    typed lists.
+  - Separated the reported xanthochromia result from visual appearance and withheld confirmation/support labels from
+    unidentified positive assays.
+explicitBlockers: []

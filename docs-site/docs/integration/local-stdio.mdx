@@ -1,0 +1,43 @@
+---
+title: Local stdio
+description: Run OathMCP from source as a local MCP subprocess.
+---
+
+Until the first verified npm publication, clone and build the reviewed source:
+
+```bash
+git clone https://github.com/OATH-md/OathMCP.git
+cd OathMCP
+npm ci
+npm run check
+```
+
+Then configure the built stdio entrypoint:
+
+```json
+{
+  "mcpServers": {
+    "oathmcp": {
+      "command": "node",
+      "args": ["/absolute/path/to/OathMCP/dist/server/stdio.js"]
+    }
+  }
+}
+```
+
+After npm publication, the package will expose the `oath-mcp` binary. Pin the
+exact reviewed package version instead of accepting a moving latest tag:
+
+```json
+{
+  "mcpServers": {
+    "oathmcp": {
+      "command": "npx",
+      "args": ["-y", "oath-mcp@0.1.0"]
+    }
+  }
+}
+```
+
+The server communicates over stdout. Route application logs elsewhere so they
+cannot corrupt the MCP transport. OathMCP requires Node.js 22 or newer.

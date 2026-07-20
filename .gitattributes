@@ -1,0 +1,6 @@
+# Pin LF so the spec-bundle drift guard (src/server/worker.test.ts) compares
+# byte-identical text on every platform: readFileSync of a CRLF-normalized
+# *.yaml would not match the \n escapes baked into the generated bundle.
+*.yaml text eol=lf
+*.yml text eol=lf
+src/server/spec-data.generated.ts text eol=lf

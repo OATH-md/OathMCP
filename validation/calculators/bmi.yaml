@@ -1,0 +1,711 @@
+calculatorId: bmi
+specVersion: 1.0.0
+clinicalModel: Body Mass Index (BMI)
+variant: adult_quetelet_index
+population: Adults aged 20 years or older; BMI is a screening measure rather than a direct measure of adiposity.
+setting: Adult clinical and public-health screening with measured height and weight.
+assessmentTiming: Current measured height and weight.
+endpoint: BMI in kg/m² with CDC adult screening categories.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:bmi:2026-07-16
+    calculatorId: bmi
+    model: Body Mass Index (BMI)
+    variant: adult_quetelet_index
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:bmi:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: Keys[au] AND ("relative weight"[tiab] OR "Quetelet index"[tiab])
+        translationExposed: true
+        translatedQuery: Keys[Author] AND ("relative weight"[Title/Abstract] OR "Quetelet index"[Title/Abstract])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 5
+        exportDigest: sha256:fa25c01c8003ca162ef7e59979a1d090a060cbfb3377bef0268c5cf0f826f19f
+        stableCitationIds:
+          - PMID:24691951
+          - PMID:2765256
+          - PMID:4014179
+          - PMID:6739443
+          - PMID:4650929
+      - id: search:bmi:derivation
+        sourceRole: derivation
+        authorityId: bmi_keys_1972
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for adult_quetelet_index
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bmi_keys_1972
+      - id: search:bmi:controlling_authority
+        sourceRole: controlling_authority
+        authorityId: bmi_cdc_2024
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for adult_quetelet_index
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bmi_cdc_2024
+      - id: search:bmi:specialty_guidance
+        sourceRole: specialty_guidance
+        authorityId: bmi_who_2025
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for adult_quetelet_index
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bmi_who_2025
+      - id: search:bmi:independent_numeric
+        sourceRole: independent_numeric
+        authorityId: bmi_cdc_numeric_2024
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for adult_quetelet_index
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bmi_cdc_numeric_2024
+    accounting:
+      retrieved: 5
+      deduplicated: 5
+      screened: 5
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:24691951
+        title: Indices of relative weight and obesity.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:2765256
+        title: "Longevity of man: relative weight and fatness in middle age."
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:4014179
+        title: Serum cholesterol and cancer mortality in the Seven Countries Study.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:6739443
+        title: "The seven countries study: 2,289 deaths in 15 years."
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: bmi_keys_1972
+        title: Indices of relative weight and obesity.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:bmi:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and historical terminology
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search, not an exhaustive systematic review.
+      resolution: Revised to retain author, historical terminology, and automatic term mapping; paired with current CDC and
+        WHO authority checks.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - bmi_keys_1972
+  - bmi_cdc_2024
+  - bmi_who_2025
+  - bmi_cdc_numeric_2024
+claims:
+  - id: claim:bmi:calculator-model
+    kind: applicability
+    statement: Body Mass Index (BMI) uses the declared population and formula variant. Do not apply these fixed adult
+      categories to children. Interpret adult BMI with other health factors because it is a screening measure and
+      surrogate marker rather than a direct body-fat measurement.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - bmi_cdc_2024
+    locators:
+      - sourceId: bmi_cdc_2024
+        locator: CDC Adult BMI Categories, adults 20 years or older and "BMI is a screening measure" sections.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is descriptive; its executable equation, inputs, outputs, and applicability are scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:formula-implementation
+    kind: formula
+    statement: BMI = weight in kilograms divided by height in metres squared.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    locators:
+      - sourceId: bmi_cdc_numeric_2024
+        locator: CDC BMI FAQ, "How is BMI calculated?", metric kilograms/metres and kilograms/centimetres equations.
+    executable: true
+    scenarioIds:
+      - case:bmi:ref-normal
+      - case:bmi:ref-overweight
+      - case:bmi:ref-obesity
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:applicability-purpose
+    kind: applicability
+    statement: Compute adult BMI from measured weight and height and return the CDC adult screening category. Interpret it
+      with other health factors.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - bmi_cdc_2024
+    locators:
+      - sourceId: bmi_cdc_2024
+        locator: CDC Adult BMI Categories, adult screening categories and screening-measure limitation.
+    executable: true
+    scenarioIds:
+      - case:bmi:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:applicability-exclusions
+    kind: exclusion
+    statement: Do not calculate without establishing adult applicability and obtaining both measured height and measured weight.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - bmi_cdc_2024
+    locators:
+      - sourceId: bmi_cdc_2024
+        locator: "CDC adult BMI calculator input contract: adult scope plus measured height and weight."
+    executable: true
+    scenarioIds:
+      - case:bmi:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:input-weight_kg
+    kind: input
+    statement: Body weight in kilograms.
+    covers:
+      - input:weight_kg
+    status: supported
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    locators:
+      - sourceId: bmi_cdc_numeric_2024
+        locator: CDC BMI FAQ, "How is BMI calculated?", metric kilograms/metres and kilograms/centimetres equations.
+    executable: true
+    scenarioIds:
+      - case:bmi:ref-normal
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:input-weight_kg-hard_limits
+    kind: input
+    statement: OathMCP rejects Weight outside [0.5, 700] as a conservative operational safety envelope, not a clinical
+      decision cutoff.
+    covers:
+      - input:weight_kg:hard_limits
+    status: supported
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    locators:
+      - sourceId: bmi_cdc_numeric_2024
+        locator: CDC BMI FAQ, "How is BMI calculated?", metric kilograms/metres and kilograms/centimetres equations.
+    executable: true
+    scenarioIds:
+      - case:bmi:hard-weight
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:input-weight_kg-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Weight is outside [2, 300]; this is an operational review prompt, not
+      a clinical cutoff.
+    covers:
+      - input:weight_kg:plausibility
+    status: supported
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    locators:
+      - sourceId: bmi_cdc_numeric_2024
+        locator: CDC BMI FAQ, "How is BMI calculated?", metric kilograms/metres and kilograms/centimetres equations.
+    executable: true
+    scenarioIds:
+      - case:bmi:plausibility-weight-height
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:input-weight_kg-aliases
+    kind: input
+    statement: The compatibility alias preserves the same source-defined Weight quantity and unit while the runtime warns
+      that the canonical field is weight_kg.
+    covers:
+      - input:weight_kg:aliases
+    status: supported
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    locators:
+      - sourceId: bmi_cdc_numeric_2024
+        locator: CDC BMI FAQ, "How is BMI calculated?", metric kilograms/metres and kilograms/centimetres equations.
+    executable: true
+    scenarioIds:
+      - case:bmi:alias-weight
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:input-height_cm
+    kind: input
+    statement: Height in centimeters.
+    covers:
+      - input:height_cm
+    status: supported
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    locators:
+      - sourceId: bmi_cdc_numeric_2024
+        locator: CDC BMI FAQ, "How is BMI calculated?", metric kilograms/metres and kilograms/centimetres equations.
+    executable: true
+    scenarioIds:
+      - case:bmi:ref-normal
+      - case:bmi:missing-height
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:input-height_cm-hard_limits
+    kind: input
+    statement: OathMCP rejects Height outside [10, 300] as a conservative operational safety envelope, not a clinical
+      decision cutoff.
+    covers:
+      - input:height_cm:hard_limits
+    status: supported
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    locators:
+      - sourceId: bmi_cdc_numeric_2024
+        locator: CDC BMI FAQ, "How is BMI calculated?", metric kilograms/metres and kilograms/centimetres equations.
+    executable: true
+    scenarioIds:
+      - case:bmi:hard-height_cm
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:input-height_cm-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Height is outside [30, 250]; this is an operational review prompt,
+      not a clinical cutoff.
+    covers:
+      - input:height_cm:plausibility
+    status: supported
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    locators:
+      - sourceId: bmi_cdc_numeric_2024
+        locator: CDC BMI FAQ, "How is BMI calculated?", metric kilograms/metres and kilograms/centimetres equations.
+    executable: true
+    scenarioIds:
+      - case:bmi:plausibility-weight-height
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:output-bmi
+    kind: outcome
+    statement: BMI in kg/m², rounded to 2 decimal places.
+    covers:
+      - output:bmi
+    status: supported
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    locators:
+      - sourceId: bmi_cdc_numeric_2024
+        locator: CDC BMI FAQ, "How is BMI calculated?", metric kilograms/metres and kilograms/centimetres equations.
+    executable: true
+    scenarioIds:
+      - case:bmi:ref-normal
+      - case:bmi:ref-overweight
+      - case:bmi:ref-obesity
+      - case:bmi:plausibility-weight-height
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:band-calculator-0
+    kind: band
+    statement: Obesity is the declared adult BMI band for >=30.
+    covers:
+      - band:calculator:0
+    status: supported
+    sourceIds:
+      - bmi_cdc_2024
+    locators:
+      - sourceId: bmi_cdc_2024
+        locator: CDC Adult BMI Categories table, Obesity, BMI ≥30 row.
+    executable: true
+    scenarioIds:
+      - case:bmi:ref-obesity
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:band-calculator-1
+    kind: band
+    statement: Overweight is the declared adult BMI band for >=25.
+    covers:
+      - band:calculator:1
+    status: supported
+    sourceIds:
+      - bmi_cdc_2024
+    locators:
+      - sourceId: bmi_cdc_2024
+        locator: CDC Adult BMI Categories table, Overweight, BMI 25 to <30 row.
+    executable: true
+    scenarioIds:
+      - case:bmi:ref-overweight
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:band-calculator-2
+    kind: band
+    statement: Normal weight is the declared adult BMI band for >=18.5.
+    covers:
+      - band:calculator:2
+    status: supported
+    sourceIds:
+      - bmi_cdc_2024
+    locators:
+      - sourceId: bmi_cdc_2024
+        locator: CDC Adult BMI Categories table, Healthy Weight, BMI 18.5 to <25 row.
+    executable: true
+    scenarioIds:
+      - case:bmi:ref-normal
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bmi:band-calculator-3
+    kind: band
+    statement: Underweight is the declared adult BMI band for <18.5.
+    covers:
+      - band:calculator:3
+    status: supported
+    sourceIds:
+      - bmi_cdc_2024
+    locators:
+      - sourceId: bmi_cdc_2024
+        locator: CDC Adult BMI Categories table, Underweight, BMI <18.5 row.
+    executable: true
+    scenarioIds:
+      - case:bmi:underweight-boundary
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:bmi:ref-normal
+    tags:
+      - calculator:bmi:core
+    inputs:
+      weight_kg: 58
+      height_cm: 170
+    expected:
+      bmi: 20.07
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Frozen independently checked arithmetic after the calculator declared rounding rule.
+    claimIds:
+      - claim:bmi:formula-implementation
+      - claim:bmi:input-weight_kg
+      - claim:bmi:input-height_cm
+      - claim:bmi:output-bmi
+      - claim:bmi:band-calculator-2
+    sourceIds:
+      - bmi_cdc_numeric_2024
+      - bmi_cdc_2024
+    witnesses:
+      - formula:implementation
+      - input:weight_kg
+      - input:height_cm
+      - output:bmi
+      - band:calculator:2
+    expectedInterpretations:
+      - output: bmi
+        code: bmi_band_3
+        kind: class
+        label: Normal weight
+        severity: normal
+  - kind: reference
+    id: case:bmi:ref-overweight
+    tags:
+      - calculator:bmi:reference
+    inputs:
+      weight_kg: 81
+      height_cm: 180
+    expected:
+      bmi: 25
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:bmi:formula-implementation
+      - claim:bmi:output-bmi
+      - claim:bmi:band-calculator-1
+    sourceIds:
+      - bmi_cdc_numeric_2024
+      - bmi_cdc_2024
+    witnesses:
+      - formula:implementation
+      - output:bmi
+      - band:calculator:1
+    expectedInterpretations:
+      - output: bmi
+        code: bmi_band_2
+        kind: class
+        label: Overweight
+        severity: borderline
+  - kind: reference
+    id: case:bmi:ref-obesity
+    tags:
+      - calculator:bmi:reference
+    inputs:
+      weight_kg: 97.2
+      height_cm: 180
+    expected:
+      bmi: 30
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:bmi:formula-implementation
+      - claim:bmi:output-bmi
+      - claim:bmi:band-calculator-0
+    sourceIds:
+      - bmi_cdc_numeric_2024
+      - bmi_cdc_2024
+    witnesses:
+      - formula:implementation
+      - output:bmi
+      - band:calculator:0
+    expectedInterpretations:
+      - output: bmi
+        code: bmi_band_1
+        kind: class
+        label: Obesity
+        severity: abnormal
+  - kind: edge
+    id: case:bmi:underweight-boundary
+    tags:
+      - interpretation-boundaries
+    inputs:
+      weight_kg: 50
+      height_cm: 170
+    expected:
+      bmi: 17.3
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:bmi:band-calculator-3
+    sourceIds:
+      - bmi_cdc_2024
+    witnesses:
+      - band:calculator:3
+    expectedInterpretations:
+      - output: bmi
+        code: bmi_band_4
+        kind: class
+        label: Underweight
+        severity: borderline
+  - kind: edge
+    id: case:bmi:missing-height
+    tags:
+      - required-inputs
+    inputs:
+      weight_kg: 70
+    expected: {}
+    expectedBehavior: clarify
+    tolerance: *a1
+    claimIds:
+      - claim:bmi:input-height_cm
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    witnesses:
+      - input:height_cm
+    expectedError:
+      code: MISSING_REQUIRED
+      field: height_cm
+      messageIncludes: Height is required.
+  - kind: edge
+    id: case:bmi:hard-weight
+    tags:
+      - hard-limits
+    inputs:
+      weight_kg: 0.4
+      height_cm: 170
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:bmi:input-weight_kg-hard_limits
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    witnesses:
+      - input:weight_kg:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: weight_kg
+      messageIncludes: Weight 0.4 is outside physiological limits [0.5, 700].
+  - kind: edge
+    id: case:bmi:plausibility-weight-height
+    tags:
+      - plausibility
+    inputs:
+      weight_kg: 500
+      height_cm: 260
+    expected:
+      bmi: 73.96
+    expectedBehavior: warn
+    tolerance: *a1
+    claimIds:
+      - claim:bmi:input-weight_kg-plausibility
+      - claim:bmi:input-height_cm-plausibility
+      - claim:bmi:output-bmi
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    witnesses:
+      - input:weight_kg:plausibility
+      - input:height_cm:plausibility
+      - output:bmi
+    expectedWarnings:
+      - Weight 500 is unusual (expected 2–300).
+      - Height 260 is unusual (expected 30–250).
+    expectedInterpretations:
+      - output: bmi
+        code: bmi_band_1
+        kind: class
+        label: Obesity
+        severity: abnormal
+  - kind: edge
+    id: case:bmi:alias-weight
+    tags:
+      - aliases
+    inputs:
+      weight: 70
+      height_cm: 170
+    expected:
+      bmi: 24.22
+    expectedBehavior: warn
+    tolerance: *a1
+    claimIds:
+      - claim:bmi:input-weight_kg-aliases
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    witnesses:
+      - input:weight_kg:aliases
+    expectedWarnings:
+      - Input 'weight' is a compatibility alias; use 'weight_kg'.
+    expectedInterpretations:
+      - output: bmi
+        code: bmi_band_3
+        kind: class
+        label: Normal weight
+        severity: normal
+  - kind: agent
+    id: case:bmi:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      weight_kg: 70
+      height_cm: 170
+    expected:
+      bmi: 24.22
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:bmi:applicability-purpose
+    sourceIds:
+      - bmi_cdc_2024
+    witnesses:
+      - applicability:purpose
+    expectedInterpretations:
+      - output: bmi
+        code: bmi_band_3
+        kind: class
+        label: Normal weight
+        severity: normal
+  - kind: agent
+    id: case:bmi:agent-exclusion
+    tags:
+      - agent-applicability
+    inputs:
+      weight_kg: 70
+    expected: {}
+    expectedBehavior: clarify
+    tolerance: *a1
+    claimIds:
+      - claim:bmi:applicability-exclusions
+    sourceIds:
+      - bmi_cdc_2024
+    witnesses:
+      - applicability:exclusions
+    expectedError:
+      code: MISSING_REQUIRED
+      field: height_cm
+      messageIncludes: Height is required.
+  - kind: edge
+    id: case:bmi:hard-height_cm
+    tags:
+      - calculator:bmi:reference
+    inputs:
+      weight_kg: 58
+      height_cm: 5
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:bmi:input-height_cm-hard_limits
+    sourceIds:
+      - bmi_cdc_numeric_2024
+    witnesses:
+      - input:height_cm:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: height_cm
+      messageIncludes: Height 5 is outside physiological limits [10, 300].
+compatibilityNotes: []
+explicitBlockers: []

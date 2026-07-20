@@ -1,0 +1,297 @@
+id: ranson
+version: 1.2.0
+name: Ranson Criteria for Acute Pancreatitis
+clinicalModel:
+  modelKind: score
+  modelId: ranson
+  modelVersion: raw_observation_non_gallstone_and_gallstone_variants
+  reviewDate: 2026-07-16
+  evidenceRefs: [source_1, source_2]
+applicability:
+  population: Historical prognostic criteria for adults with acute pancreatitis, using an explicit non-gallstone or gallstone threshold set and raw admission and 48-hour observations.
+  setting: Historical risk stratification after the required observation window; current assessment and management should follow current acute-pancreatitis guidance.
+  exclusions:
+    - A completed score is unavailable before 48 hours or while an applicable observation is missing. Historical cohort mortality bands are not individualized predictions and do not determine necrosis, disposition, monitoring, or treatment.
+  evidenceRefs: [source_1, source_2, source_3, source_4]
+purposeForAgents: Derive the selected Ranson variant from raw timestamped observations; expose the admission subtotal, every criterion state, and missing or not-due reasons without treating absent observations as negative.
+whenNotToUse: Do not use an admission subtotal as a completed score, silently select a variant, or infer modern individual mortality, necrosis, disposition, or treatment from this historical model.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Ranson JH, Rifkind KM, Roses DF, et al. Prognostic signs and the role of operative management in acute pancreatitis. Surg Gynecol Obstet. 1974;139(1):69-81.
+    locator: PMID:4834279, criteria table and reported historical mortality strata
+    url: https://pubmed.ncbi.nlm.nih.gov/4834279/
+    reviewed: true
+  - id: source_2
+    type: guideline
+    citation: Hirota M, Takada T, Kawarada Y, et al. JPN Guidelines for the management of acute pancreatitis - severity assessment of acute pancreatitis. J Hepatobiliary Pancreat Surg. 2006;13(1):33-41.
+    locator: Table 2, Ranson and modified gallstone thresholds
+    doi: 10.1007/s00534-005-1049-1
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC2779364/
+    reviewed: true
+  - id: source_3
+    type: guideline
+    citation: Tenner S, Vege SS, Sheth SG, et al. American College of Gastroenterology Guidelines - Management of Acute Pancreatitis. Am J Gastroenterol. 2024;119:419-437.
+    locator: PMID:38857482, current severity-assessment and management recommendations
+    url: https://pubmed.ncbi.nlm.nih.gov/38857482/
+    reviewed: true
+  - id: source_4
+    type: guideline
+    citation: Banks PA, Bollen TL, Dervenis C, et al. Classification of acute pancreatitis - 2012 revision of the Atlanta classification. Gut. 2013;62:102-111.
+    locator: Definitions of organ failure, local complications, and severity
+    doi: 10.1136/gutjnl-2012-302779
+    url: https://gut.bmj.com/content/62/1/102
+    reviewed: true
+inputs:
+  etiology_variant:
+    title: Etiology Variant
+    description: Select the non-gallstone or gallstone threshold set explicitly.
+    kind: enum
+    enumValues:
+      - { value: non_gallstone, label: non-gallstone, description: Original non-gallstone Ranson threshold set. }
+      - { value: gallstone, label: gallstone, description: Modified gallstone threshold set. }
+    required: true
+    conceptId: ranson.input.etiology_variant
+    examples: [non_gallstone]
+    sourceRefs: [source_1, source_2]
+  assessment_hours:
+    title: Completed Hours Since Admission
+    description: Current assessment time. Follow-up criteria remain not due before 48 completed hours.
+    kind: integer
+    hardLimits: [0, 48]
+    required: true
+    conceptId: ranson.input.assessment_hours
+    examples: [0, 47, 48]
+    sourceRefs: [source_1, source_2]
+  admission_observed_at_hours:
+    title: Admission Observation Timestamp
+    description: Hours relative to admission for the admission observation set; admission observations must be timestamped at hour 0.
+    kind: integer
+    hardLimits: [0, 0]
+    required: true
+    conceptId: ranson.input.admission_observed_at_hours
+    examples: [0]
+    sourceRefs: [source_1, source_2]
+  followup_observed_at_hours:
+    title: Follow-Up Observation Timestamp
+    description: Hours relative to admission for the follow-up observation set; completed criteria use hour 48 observations.
+    kind: integer
+    hardLimits: [0, 48]
+    required: false
+    conceptId: ranson.input.followup_observed_at_hours
+    examples: [48]
+    sourceRefs: [source_1, source_2]
+  age_years:
+    title: Age at Admission
+    description: Age in completed years; scores when greater than 55 for non-gallstone or greater than 70 for gallstone pancreatitis.
+    kind: integer
+    plausible: [18, 100]
+    hardLimits: [18, 130]
+    required: true
+    conceptId: ranson.input.age_years
+    examples: [55, 56, 70, 71]
+    sourceRefs: [source_1, source_2]
+  wbc_admission:
+    title: Admission White Blood Cell Count
+    description: Raw WBC; scores when greater than 16,000 cells/mm3 (non-gallstone) or 18,000 cells/mm3 (gallstone).
+    kind: quantity
+    quantity: { analyte: wbc, canonicalUnit: cells/mm3, acceptedUnits: [cells/mm3, 10^9/L] }
+    plausible: [1000, 100000]
+    hardLimits: [0, 1000000]
+    observation: { phase: admission, timestampField: admission_observed_at_hours, derivation: threshold }
+    required: true
+    conceptId: ranson.input.wbc_admission
+    examples: [16000, { value: 18, unit: 10^9/L }]
+    sourceRefs: [source_1, source_2]
+  glucose_admission:
+    title: Admission Serum Glucose
+    description: Raw glucose; scores when greater than 200 mg/dL (non-gallstone) or 220 mg/dL (gallstone).
+    kind: quantity
+    quantity: { analyte: glucose, canonicalUnit: mg/dL, acceptedUnits: [mg/dL, mmol/L] }
+    plausible: [40, 600]
+    hardLimits: [0, 2000]
+    observation: { phase: admission, timestampField: admission_observed_at_hours, derivation: threshold }
+    required: true
+    conceptId: ranson.input.glucose_admission
+    examples: [200, { value: 11.102, unit: mmol/L }]
+    sourceRefs: [source_1, source_2]
+  ast_admission:
+    title: Admission AST
+    description: Raw AST; scores when greater than 250 U/L in either variant.
+    kind: quantity
+    quantity: { analyte: ast, canonicalUnit: U/L, acceptedUnits: [U/L, ukat/L] }
+    plausible: [0, 2000]
+    hardLimits: [0, 20000]
+    observation: { phase: admission, timestampField: admission_observed_at_hours, derivation: threshold }
+    required: true
+    conceptId: ranson.input.ast_admission
+    examples: [250]
+    sourceRefs: [source_1, source_2]
+  ldh_admission:
+    title: Admission LDH
+    description: Raw LDH; scores when greater than 350 U/L (non-gallstone) or 400 U/L (gallstone).
+    kind: quantity
+    quantity: { analyte: ldh, canonicalUnit: U/L, acceptedUnits: [U/L, ukat/L] }
+    plausible: [0, 3000]
+    hardLimits: [0, 30000]
+    observation: { phase: admission, timestampField: admission_observed_at_hours, derivation: threshold }
+    required: true
+    conceptId: ranson.input.ldh_admission
+    examples: [350, 400]
+    sourceRefs: [source_1, source_2]
+  hematocrit_admission:
+    title: Admission Hematocrit
+    description: Baseline hematocrit used to derive the 48-hour percentage-point fall.
+    kind: quantity
+    quantity: { analyte: hematocrit, canonicalUnit: percent, acceptedUnits: [percent, L/L] }
+    plausible: [15, 65]
+    hardLimits: [0, 100]
+    observation: { phase: admission, timestampField: admission_observed_at_hours, derivation: threshold }
+    required: true
+    conceptId: ranson.input.hematocrit_admission
+    examples: [45]
+    sourceRefs: [source_1, source_2]
+  bun_admission:
+    title: Admission BUN
+    description: Baseline blood urea nitrogen used to derive the 48-hour rise despite fluids.
+    kind: quantity
+    quantity: { analyte: bun, canonicalUnit: mg/dL, acceptedUnits: [mg/dL, mmol/L] }
+    plausible: [2, 100]
+    hardLimits: [0, 300]
+    observation: { phase: admission, timestampField: admission_observed_at_hours, derivation: threshold }
+    required: true
+    conceptId: ranson.input.bun_admission
+    examples: [15]
+    sourceRefs: [source_1, source_2]
+  hematocrit_followup:
+    title: 48-Hour Hematocrit
+    description: Raw follow-up hematocrit; scores when the fall from admission is greater than 10 percentage points.
+    kind: quantity
+    quantity: { analyte: hematocrit, canonicalUnit: percent, acceptedUnits: [percent, L/L] }
+    plausible: [10, 65]
+    hardLimits: [0, 100]
+    observation: { phase: follow_up, timestampField: followup_observed_at_hours, derivation: change_from_baseline, baselineField: hematocrit_admission }
+    required: false
+    conceptId: ranson.input.hematocrit_followup
+    examples: [34]
+    sourceRefs: [source_1, source_2]
+  bun_followup:
+    title: 48-Hour BUN
+    description: Raw follow-up BUN; scores when the rise from admission is greater than 5 mg/dL (non-gallstone) or 2 mg/dL (gallstone).
+    kind: quantity
+    quantity: { analyte: bun, canonicalUnit: mg/dL, acceptedUnits: [mg/dL, mmol/L] }
+    plausible: [2, 150]
+    hardLimits: [0, 300]
+    observation: { phase: follow_up, timestampField: followup_observed_at_hours, derivation: change_from_baseline, baselineField: bun_admission }
+    required: false
+    conceptId: ranson.input.bun_followup
+    examples: [21]
+    sourceRefs: [source_1, source_2]
+  calcium_followup:
+    title: 48-Hour Serum Calcium
+    description: Raw calcium; scores when below 8 mg/dL.
+    kind: quantity
+    quantity: { analyte: calcium, canonicalUnit: mg/dL, acceptedUnits: [mg/dL, mmol/L] }
+    plausible: [4, 15]
+    hardLimits: [0, 30]
+    observation: { phase: follow_up, timestampField: followup_observed_at_hours, derivation: threshold }
+    required: false
+    conceptId: ranson.input.calcium_followup
+    examples: [7.9]
+    sourceRefs: [source_1, source_2]
+  pao2_followup:
+    title: 48-Hour Arterial Oxygen Tension
+    description: Non-gallstone only; raw arterial pO2 scores when below 60 mmHg.
+    kind: quantity
+    quantity: { analyte: pao2, canonicalUnit: mmHg, acceptedUnits: [mmHg, kPa] }
+    plausible: [20, 600]
+    hardLimits: [0, 800]
+    observation: { phase: follow_up, timestampField: followup_observed_at_hours, derivation: threshold }
+    required: false
+    conceptId: ranson.input.pao2_followup
+    examples: [59, { value: 8, unit: kPa }]
+    sourceRefs: [source_1, source_2]
+  base_deficit_followup:
+    title: 48-Hour Base Deficit
+    description: Raw base deficit magnitude; scores when greater than 4 mEq/L (non-gallstone) or 5 mEq/L (gallstone).
+    kind: quantity
+    quantity: { analyte: base_deficit, canonicalUnit: mEq/L, acceptedUnits: [mEq/L, mmol/L] }
+    plausible: [0, 20]
+    hardLimits: [0, 50]
+    observation: { phase: follow_up, timestampField: followup_observed_at_hours, derivation: threshold }
+    required: false
+    conceptId: ranson.input.base_deficit_followup
+    examples: [4, 5]
+    sourceRefs: [source_1, source_2]
+  fluid_sequestration_followup:
+    title: 48-Hour Fluid Sequestration
+    description: Raw estimated fluid sequestration; scores when greater than 6 L (non-gallstone) or 4 L (gallstone).
+    kind: quantity
+    quantity: { analyte: fluid_volume, canonicalUnit: L, acceptedUnits: [L, mL] }
+    plausible: [0, 15]
+    hardLimits: [0, 30]
+    observation: { phase: follow_up, timestampField: followup_observed_at_hours, derivation: threshold }
+    required: false
+    conceptId: ranson.input.fluid_sequestration_followup
+    examples: [6, { value: 4000, unit: mL }]
+    sourceRefs: [source_1, source_2]
+constraints:
+  - { kind: requireValueWhen, field: assessment_hours, when: "==48", target: followup_observed_at_hours, value: 48, message: The 48-hour assessment requires follow-up observations timestamped at hour 48. }
+  - { kind: forbidPresentWhen, field: assessment_hours, when: "<48", forbidden: [followup_observed_at_hours], message: Follow-up observations are not due before 48 completed hours. }
+  - { kind: forbidPresentWhen, field: assessment_hours, when: "<48", forbidden: [hematocrit_followup, bun_followup, calcium_followup, pao2_followup, base_deficit_followup, fluid_sequestration_followup], message: Forty-eight-hour observations must be omitted before they are due. }
+  - { kind: forbidPresentWhen, field: etiology_variant, when: "==gallstone", forbidden: [pao2_followup], message: Arterial pO2 is not a criterion in the gallstone variant and must be omitted. }
+outputs:
+  admission_subtotal:
+    title: Admission Subtotal
+    description: Count of admission criteria met from the raw admission observations.
+    kind: integer
+    range: [0, 5]
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2]
+  admission_complete:
+    title: Admission Criteria Complete
+    description: True when all five required admission observations were provided and derived.
+    kind: boolean
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2]
+  score:
+    title: Completed Ranson Score
+    description: Variant-specific total, available only at 48 hours when every applicable raw observation is present.
+    kind: integer
+    range: [0, 11]
+    availability: { kind: computeCondition, conditionId: completed_48_hour_score }
+    evidenceRefs: [source_1, source_2]
+    interpretationBands:
+      - { code: ranson_historical_7_plus, kind: risk, when: ">=7", label: Historical cohort mortality category approximately 100%; not an individual prediction., severity: critical, evidenceRefs: [source_1] }
+      - { code: ranson_historical_5_6, kind: risk, when: ">=5", label: Historical cohort mortality category approximately 40%; not an individual prediction., severity: abnormal, evidenceRefs: [source_1] }
+      - { code: ranson_historical_3_4, kind: risk, when: ">=3", label: Historical cohort mortality category approximately 15%; not an individual prediction., severity: borderline, evidenceRefs: [source_1] }
+      - { code: ranson_historical_0_2, kind: risk, when: <3, label: Historical cohort mortality category approximately 1%; not an individual prediction., severity: normal, evidenceRefs: [source_1] }
+  historical_mortality_band:
+    title: Historical Cohort Mortality Band
+    description: Historical cohort category linked to the completed score; not an individualized prediction under current care.
+    kind: enum
+    allowedValues: ['~1%', '~15%', '~40%', '~100%']
+    availability: { kind: computeCondition, conditionId: completed_48_hour_score }
+    evidenceRefs: [source_1]
+  assessment_complete:
+    title: Full Assessment Complete
+    description: True only when the selected variant has a completed 48-hour total.
+    kind: boolean
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2]
+  missing_component_reasons:
+    title: Missing or Not-Due Criteria
+    description: Exact reasons a completed score is unavailable; empty when complete.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2]
+  criterion_provenance:
+    title: Derived Criterion Provenance
+    description: Per-criterion met, not-met, unknown, not-due, or not-applicable state with points, source input fields, and threshold rationale.
+    kind: criterion_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2]
+primaryOutputs: [score, admission_subtotal]
+completion:
+  completeOutput: assessment_complete
+  missingReasonsOutput: missing_component_reasons

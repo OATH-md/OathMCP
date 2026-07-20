@@ -1,0 +1,516 @@
+calculatorId: bsa_dubois
+specVersion: 1.0.0
+clinicalModel: Body Surface Area (Du Bois and Du Bois)
+variant: dubois_dubois_1916
+population: Patients for whom a protocol explicitly requests the Du Bois BSA estimate.
+setting: Formula-based clinical calculation; the tool returns raw BSA and does not select a dosing protocol or cap.
+assessmentTiming: Current measured height and weight.
+endpoint: Du Bois BSA in m².
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:bsa_dubois:2026-07-16
+    calculatorId: bsa_dubois
+    model: Body Surface Area (Du Bois and Du Bois)
+    variant: dubois_dubois_1916
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:bsa_dubois:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: ("body surface area"[tiab]) AND ("Du Bois"[tiab] OR Dubois[tiab]) AND ("criterion validity"[tiab] OR
+          revisited[tiab])
+        translationExposed: true
+        translatedQuery: '"body surface area"[Title/Abstract] AND ("Du Bois"[Title/Abstract] OR "Dubois"[Title/Abstract]) AND
+          ("criterion validity"[Title/Abstract] OR "revisited"[Title/Abstract])'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 1
+        exportDigest: sha256:8ddac4c057f4a844c448827a6e07b48c1202fa5ae98ae622f60a77f771ce2f96
+        stableCitationIds:
+          - PMID:10929220
+      - id: search:bsa_dubois:derivation
+        sourceRole: derivation
+        authorityId: bsa_dubois_1916
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for dubois_dubois_1916
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bsa_dubois_1916
+      - id: search:bsa_dubois:controlling_authority
+        sourceRole: controlling_authority
+        authorityId: bsa_fda_rofecoxib_review
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for dubois_dubois_1916
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bsa_fda_rofecoxib_review
+      - id: search:bsa_dubois:specialty_guidance
+        sourceRole: specialty_guidance
+        authorityId: bsa_asco_2021
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for dubois_dubois_1916
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bsa_asco_2021
+      - id: search:bsa_dubois:independent_numeric
+        sourceRole: independent_numeric
+        authorityId: bsa_daniell_2012
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for dubois_dubois_1916
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bsa_daniell_2012
+    accounting:
+      retrieved: 1
+      deduplicated: 1
+      screened: 1
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: bsa_dubois_revisited_2000
+        title: "Body surface area: Du Bois and Du Bois revisited."
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:bsa_dubois:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and historical terminology
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search, not an exhaustive systematic review.
+      resolution: Narrowed an overbroad 81-record draft to a focused model-validation strategy; separately checked the
+        original derivation and current protocol guidance.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - bsa_dubois_1916
+  - bsa_fda_rofecoxib_review
+  - bsa_asco_2021
+  - bsa_daniell_2012
+  - bsa_dubois_revisited_2000
+claims:
+  - id: claim:bsa_dubois:calculator-model
+    kind: applicability
+    statement: Body Surface Area (DuBois) uses the declared population and formula variant. The 1916 formula was derived
+      from a very small sample and may be inaccurate at body-size extremes. Apply any dosing cap only when the governing
+      protocol explicitly requires it; this tool reports raw BSA.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - bsa_dubois_1916
+    locators:
+      - sourceId: bsa_dubois_1916
+        locator: Du Bois and Du Bois 1916, derivation sample and named height-weight equation.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is descriptive; its executable equation, inputs, outputs, and applicability are scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa_dubois:formula-implementation
+    kind: formula
+    statement: BSA = 0.007184 × height(cm)^0.725 × weight(kg)^0.425.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - bsa_dubois_1916
+    locators:
+      - sourceId: bsa_dubois_1916
+        locator: Du Bois and Du Bois 1916, Arch Intern Med 17:863-871, equation 0.007184 × H^0.725 × W^0.425.
+    executable: true
+    scenarioIds:
+      - case:bsa_dubois:ref-1
+      - case:bsa_dubois:ref-2
+      - case:bsa_dubois:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa_dubois:applicability-purpose
+    kind: applicability
+    statement: Compute raw BSA (m²) with the Du Bois and Du Bois formula when a governing protocol explicitly names this
+      variant. Do not infer a dose or cap.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - bsa_asco_2021
+    locators:
+      - sourceId: bsa_asco_2021
+        locator: "ASCO 2021 guideline update, Recommendation 1.1 discussion: standard BSA formulas are protocol choices and do
+          not imply a cap."
+    executable: true
+    scenarioIds:
+      - case:bsa_dubois:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa_dubois:applicability-exclusions
+    kind: exclusion
+    statement: Do not calculate without a protocol naming the Du Bois variant and both measured height and measured weight.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - bsa_dubois_1916
+    locators:
+      - sourceId: bsa_dubois_1916
+        locator: Du Bois and Du Bois 1916 equation requires both measured height and measured weight for this named variant.
+    executable: true
+    scenarioIds:
+      - case:bsa_dubois:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa_dubois:input-height_cm
+    kind: input
+    statement: Height in centimeters.
+    covers:
+      - input:height_cm
+    status: supported
+    sourceIds:
+      - bsa_dubois_1916
+    locators:
+      - sourceId: bsa_dubois_1916
+        locator: Du Bois and Du Bois 1916, Arch Intern Med 17:863-871, equation 0.007184 × H^0.725 × W^0.425.
+    executable: true
+    scenarioIds:
+      - case:bsa_dubois:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa_dubois:input-height_cm-hard_limits
+    kind: input
+    statement: OathMCP rejects Height outside [10, 300] as a conservative operational safety envelope, not a clinical
+      decision cutoff.
+    covers:
+      - input:height_cm:hard_limits
+    status: supported
+    sourceIds:
+      - bsa_dubois_1916
+    locators:
+      - sourceId: bsa_dubois_1916
+        locator: Du Bois and Du Bois 1916, Arch Intern Med 17:863-871, equation 0.007184 × H^0.725 × W^0.425.
+    executable: true
+    scenarioIds:
+      - case:bsa_dubois:hard-limit
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa_dubois:input-height_cm-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Height is outside [30, 250]; this is an operational review prompt,
+      not a clinical cutoff.
+    covers:
+      - input:height_cm:plausibility
+    status: supported
+    sourceIds:
+      - bsa_dubois_1916
+    locators:
+      - sourceId: bsa_dubois_1916
+        locator: Du Bois and Du Bois 1916, Arch Intern Med 17:863-871, equation 0.007184 × H^0.725 × W^0.425.
+    executable: true
+    scenarioIds:
+      - case:bsa_dubois:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa_dubois:input-weight_kg
+    kind: input
+    statement: Weight in kilograms.
+    covers:
+      - input:weight_kg
+    status: supported
+    sourceIds:
+      - bsa_dubois_1916
+    locators:
+      - sourceId: bsa_dubois_1916
+        locator: Du Bois and Du Bois 1916, Arch Intern Med 17:863-871, equation 0.007184 × H^0.725 × W^0.425.
+    executable: true
+    scenarioIds:
+      - case:bsa_dubois:ref-1
+      - case:bsa_dubois:missing-required
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa_dubois:input-weight_kg-hard_limits
+    kind: input
+    statement: OathMCP rejects Weight outside [0.5, 700] as a conservative operational safety envelope, not a clinical
+      decision cutoff.
+    covers:
+      - input:weight_kg:hard_limits
+    status: supported
+    sourceIds:
+      - bsa_dubois_1916
+    locators:
+      - sourceId: bsa_dubois_1916
+        locator: Du Bois and Du Bois 1916, Arch Intern Med 17:863-871, equation 0.007184 × H^0.725 × W^0.425.
+    executable: true
+    scenarioIds:
+      - case:bsa_dubois:hard-weight_kg
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa_dubois:input-weight_kg-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Weight is outside [2, 300]; this is an operational review prompt, not
+      a clinical cutoff.
+    covers:
+      - input:weight_kg:plausibility
+    status: supported
+    sourceIds:
+      - bsa_dubois_1916
+    locators:
+      - sourceId: bsa_dubois_1916
+        locator: Du Bois and Du Bois 1916, Arch Intern Med 17:863-871, equation 0.007184 × H^0.725 × W^0.425.
+    executable: true
+    scenarioIds:
+      - case:bsa_dubois:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa_dubois:output-bsa
+    kind: outcome
+    statement: BSA = 0.007184 × height(cm)^0.725 × weight(kg)^0.425, rounded to 2 decimals.
+    covers:
+      - output:bsa
+    status: supported
+    sourceIds:
+      - bsa_dubois_1916
+    locators:
+      - sourceId: bsa_dubois_1916
+        locator: Du Bois and Du Bois 1916, Arch Intern Med 17:863-871, equation 0.007184 × H^0.725 × W^0.425.
+    executable: true
+    scenarioIds:
+      - case:bsa_dubois:ref-1
+      - case:bsa_dubois:ref-2
+      - case:bsa_dubois:ref-3
+      - case:bsa_dubois:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:bsa_dubois:ref-1
+    tags:
+      - calculator:bsa_dubois:core
+    inputs: &a2
+      height_cm: 170
+      weight_kg: 70
+    expected:
+      bsa: 1.81
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Frozen independently checked arithmetic after the calculator declared rounding rule.
+    claimIds:
+      - claim:bsa_dubois:formula-implementation
+      - claim:bsa_dubois:input-height_cm
+      - claim:bsa_dubois:input-weight_kg
+      - claim:bsa_dubois:output-bsa
+    sourceIds:
+      - bsa_dubois_1916
+    witnesses:
+      - formula:implementation
+      - input:height_cm
+      - input:weight_kg
+      - output:bsa
+  - kind: reference
+    id: case:bsa_dubois:ref-2
+    tags:
+      - calculator:bsa_dubois:reference
+    inputs:
+      height_cm: 180
+      weight_kg: 80
+    expected:
+      bsa: 2
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:bsa_dubois:formula-implementation
+      - claim:bsa_dubois:output-bsa
+    sourceIds:
+      - bsa_dubois_1916
+    witnesses:
+      - formula:implementation
+      - output:bsa
+  - kind: reference
+    id: case:bsa_dubois:ref-3
+    tags:
+      - calculator:bsa_dubois:reference
+    inputs:
+      height_cm: 160
+      weight_kg: 50
+    expected:
+      bsa: 1.5
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:bsa_dubois:formula-implementation
+      - claim:bsa_dubois:output-bsa
+    sourceIds:
+      - bsa_dubois_1916
+    witnesses:
+      - formula:implementation
+      - output:bsa
+  - kind: edge
+    id: case:bsa_dubois:missing-required
+    tags:
+      - required-inputs
+    inputs: &a3
+      height_cm: 170
+    expected: {}
+    expectedBehavior: clarify
+    tolerance: *a1
+    claimIds:
+      - claim:bsa_dubois:input-weight_kg
+    sourceIds:
+      - bsa_dubois_1916
+    witnesses:
+      - input:weight_kg
+    expectedError:
+      code: MISSING_REQUIRED
+      field: weight_kg
+      messageIncludes: Weight is required.
+  - kind: edge
+    id: case:bsa_dubois:hard-limit
+    tags:
+      - hard-limits
+    inputs:
+      height_cm: 5
+      weight_kg: 70
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:bsa_dubois:input-height_cm-hard_limits
+    sourceIds:
+      - bsa_dubois_1916
+    witnesses:
+      - input:height_cm:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: height_cm
+      messageIncludes: Height 5 is outside physiological limits [10, 300].
+  - kind: edge
+    id: case:bsa_dubois:plausibility
+    tags:
+      - plausibility
+    inputs:
+      height_cm: 260
+      weight_kg: 500
+    expected:
+      bsa: 5.68
+    expectedBehavior: warn
+    tolerance: *a1
+    claimIds:
+      - claim:bsa_dubois:input-height_cm-plausibility
+      - claim:bsa_dubois:input-weight_kg-plausibility
+      - claim:bsa_dubois:output-bsa
+    sourceIds:
+      - bsa_dubois_1916
+    witnesses:
+      - input:height_cm:plausibility
+      - input:weight_kg:plausibility
+      - output:bsa
+    expectedWarnings:
+      - Height 260 is unusual (expected 30–250).
+      - Weight 500 is unusual (expected 2–300).
+  - kind: agent
+    id: case:bsa_dubois:agent-purpose
+    tags:
+      - agent-applicability
+    inputs: *a2
+    expected:
+      bsa: 1.81
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:bsa_dubois:applicability-purpose
+    sourceIds:
+      - bsa_asco_2021
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:bsa_dubois:agent-exclusion
+    tags:
+      - agent-applicability
+    inputs: *a3
+    expected: {}
+    expectedBehavior: clarify
+    tolerance: *a1
+    claimIds:
+      - claim:bsa_dubois:applicability-exclusions
+    sourceIds:
+      - bsa_dubois_1916
+    witnesses:
+      - applicability:exclusions
+    expectedError:
+      code: MISSING_REQUIRED
+      field: weight_kg
+      messageIncludes: Weight is required.
+  - kind: edge
+    id: case:bsa_dubois:hard-weight_kg
+    tags:
+      - calculator:bsa_dubois:reference
+    inputs:
+      height_cm: 170
+      weight_kg: 0.25
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:bsa_dubois:input-weight_kg-hard_limits
+    sourceIds:
+      - bsa_dubois_1916
+    witnesses:
+      - input:weight_kg:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: weight_kg
+      messageIncludes: Weight 0.25 is outside physiological limits [0.5, 700].
+compatibilityNotes: []
+explicitBlockers: []

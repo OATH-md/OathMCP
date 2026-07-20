@@ -1,0 +1,20 @@
+---
+title: "Oncology and transplant"
+description: "Chemotherapy dosing support and kidney donor profile calculations."
+---
+
+{/* GENERATED from repository-root OathMCP sources. */}
+
+Chemotherapy dosing support and kidney donor profile calculations.
+
+<CardGroup cols={2}>
+  <Card title="Carboplatin Dose (Calvert)" href="/calculators/oncology-transplant/carboplatin_auc" icon="calculator">
+    Compute a protocol-specified adult carboplatin dose with the Calvert formula while making kidney-function method, indexed-to-absolute conversion, treatment intent, cap policy, and rounding provenance explicit.
+  </Card>
+  <Card title="Chemotherapy Dose (BSA-based)" href="/calculators/oncology-transplant/chemo_dose_bsa" icon="calculator">
+    Compute an individual chemotherapy drug dose from a protocol-specified mg/m² dose and the patient's body surface area: calculated_dose = dose_per_m2 × BSA, then final_dose after any percentage reduction. BSA is not capped unless the caller explicitly enables the protocol-specific 2.0 m² cap.
+  </Card>
+  <Card title="Kidney Donor Profile Index (KDPI)" href="/calculators/oncology-transplant/kdpi" icon="calculator">
+    Calculate race- and HCV-free KDRI and map it to the current OPTN deceased-donor KDPI reference population, preserving donor-scoped inputs and the exact annual data snapshot.
+  </Card>
+</CardGroup>

@@ -1,0 +1,111 @@
+---
+title: "Body Mass Index (BMI)"
+description: "Compute adult BMI from measured weight and height and return the CDC adult screening category. Interpret it with other health factors."
+sidebar:
+  label: "Body Mass Index (BMI)"
+search:
+  tags: ["bmi", "formula"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>formula</Badge> <Badge>Spec 1.0.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Adults aged 20 years or older undergoing weight-status screening from measured height and weight. |
+| Setting | Adult clinical and public-health screening; BMI is not a direct measurement of adiposity or a diagnosis by itself. |
+| Model | `bmi` · 1.0.0 |
+| Model kind | formula |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Do not calculate without establishing adult applicability and obtaining both measured height and measured weight.
+
+- Do not apply these fixed adult categories to children. Interpret adult BMI with other health factors because it is a screening measure and surrogate marker rather than a direct body-fat measurement.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `weight_kg` | number | Yes | — | 2–300 | 0.5–700 | Body weight in kilograms. |
+| `height_cm` | number | Yes | — | 30–250 | 10–300 | Height in centimeters. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `bmi` | number · kg/m² | Always | Yes | BMI in kg/m², rounded to 2 decimal places. |
+
+## Interpretation bands
+
+| Output | Code | Condition | Label | Kind | Severity |
+| --- | --- | --- | --- | --- | --- |
+| Primary | `bmi_band_1` | `&gt;=30` | Obesity | class | abnormal |
+| Primary | `bmi_band_2` | `&gt;=25` | Overweight | class | borderline |
+| Primary | `bmi_band_3` | `&gt;=18.5` | Normal weight | class | normal |
+| Primary | `bmi_band_4` | `&lt;18.5` | Underweight | class | borderline |
+
+## Warnings, constraints, and adjustments
+
+No calculator-specific warning rules or cross-field constraints are declared beyond input validation and applicability.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "bmi",
+  "inputs": {
+    "weight_kg": 58,
+    "height_cm": 170
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `bmi`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 16/16 | 15/15 | 11/11 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://bmi/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Centers for Disease Control and Prevention. Adult BMI Categories.](https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html)<br />Adult categories table and screening-measure limitation; reviewed 2026-07-16 |
+
+<Panel title="Repository source">
+  Calculator ID `bmi`; spec version `1.0.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

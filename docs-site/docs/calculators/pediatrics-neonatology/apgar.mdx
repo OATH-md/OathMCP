@@ -1,0 +1,196 @@
+---
+title: "APGAR Score"
+description: "Rapidly assess a newborn's condition at 1 and 5 minutes after birth from five observations (Appearance, Pulse, Grimace, Activity, Respiratory). Each is scored 0-2; the total (0-10) records condition at an explicit assessment minute and supports serial documentation."
+sidebar:
+  label: "APGAR Score"
+search:
+  tags: ["apgar", "score"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>score</Badge> <Badge>Spec 1.1.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Rapidly assess a newborn's condition at 1 and 5 minutes after birth from five observations (Appearance, Pulse, Grimace, Activity, Respiratory). Each is scored 0-2; the total (0-10) records the newborn's condition at the stated assessment minute and response over serial assessments. |
+| Setting | Clinical decision support; apply only in the context declared by this calculator. |
+| Model | `apgar` · 1.0.0 |
+| Model kind | score |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Not a predictor of long-term neurological outcome and not a substitute for cord-blood gas analysis. Never delay or decide initial resuscitation from the score; record concurrent interventions.
+
+- Not a predictor of long-term neurological outcome and not a substitute for cord-blood gas analysis. Do not use the score to decide whether to start resuscitation; record concurrent interventions because they alter the score.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `assessment_minute` | enum (5 options) | Yes | — | — | — | Standard expanded-form time point. Record at 1 and 5 minutes; if the 5-minute score is below 7, record every 5 minutes through 20 minutes while assessments continue. |
+| `oxygen` | boolean | Yes | — | — | — | Whether oxygen was being administered at this assessment time. |
+| `ppv_or_ncpap` | boolean | Yes | — | — | — | Whether positive-pressure ventilation or nasal continuous positive airway pressure was being delivered. |
+| `endotracheal_tube` | boolean | Yes | — | — | — | Whether an endotracheal tube was in place at this assessment time. |
+| `chest_compressions` | boolean | Yes | — | — | — | Whether chest compressions were being delivered at this assessment time. |
+| `epinephrine` | boolean | Yes | — | — | — | Whether epinephrine was being administered at this assessment time. |
+| `appearance` | enum (3 options) | Yes | — | — | — | Skin color and circulation. |
+| `pulse` | enum (3 options) | Yes | — | — | — | Heart rate. |
+| `grimace` | enum (3 options) | Yes | — | — | — | Reflex irritability in response to stimulation. |
+| `activity` | enum (3 options) | Yes | — | — | — | Muscle tone and activity. |
+| `respiratory` | enum (3 options) | Yes | — | — | — | Breathing effort and cry. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+<Expandable title="Assessment Minute After Birth options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `minute_1` | 1 minute | One completed minute after birth. | — |
+| `minute_5` | 5 minutes | Five completed minutes after birth. | — |
+| `minute_10` | 10 minutes | Ten completed minutes after birth when repeat assessment is indicated. | — |
+| `minute_15` | 15 minutes | Fifteen completed minutes after birth when repeat assessment is indicated. | — |
+| `minute_20` | 20 minutes | Twenty completed minutes after birth when repeat assessment is indicated. | — |
+
+</Expandable>
+
+
+<Expandable title="Appearance (Skin Color) options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `blue_or_pale` | blue or pale | Appearance (Skin Color): blue or pale. | 0 |
+| `body_pink_extremities_blue` | body pink extremities blue | Appearance (Skin Color): body pink extremities blue. | 1 |
+| `pink_all_over` | pink all over | Appearance (Skin Color): pink all over. | 2 |
+
+</Expandable>
+
+
+<Expandable title="Pulse (Heart Rate) options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `absent` | absent | Pulse (Heart Rate): absent. | 0 |
+| `less_than_100` | less than 100 | Pulse (Heart Rate): less than 100. | 1 |
+| `at_least_100` | at least 100 | Pulse (Heart Rate): 100 beats/min or greater. | 2 |
+
+</Expandable>
+
+
+<Expandable title="Grimace Response (Reflex Irritability) options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `no_response` | no response | Grimace Response (Reflex Irritability): no response. | 0 |
+| `grimace` | grimace | Grimace Response (Reflex Irritability): grimace. | 1 |
+| `cough_sneeze_cry` | cough sneeze cry | Grimace Response (Reflex Irritability): cough sneeze cry. | 2 |
+
+</Expandable>
+
+
+<Expandable title="Activity (Muscle Tone) options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `limp` | limp | Activity (Muscle Tone): limp. | 0 |
+| `some_flexion` | some flexion | Activity (Muscle Tone): some flexion. | 1 |
+| `active_motion` | active motion | Activity (Muscle Tone): active motion. | 2 |
+
+</Expandable>
+
+
+<Expandable title="Respiratory Effort options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `absent` | absent | Respiratory Effort: absent. | 0 |
+| `weak_or_irregular` | weak or irregular | Respiratory Effort: weak or irregular. | 1 |
+| `strong_cry` | strong cry | Respiratory Effort: strong cry. | 2 |
+
+</Expandable>
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `apgar_score` | integer | Always | Yes | Total APGAR score (0-10). |
+
+## Interpretation bands
+
+| Output | Code | Condition | Label | Kind | Severity |
+| --- | --- | --- | --- | --- | --- |
+| Primary | `apgar_band_1` | `&gt;=7` | Score 7-10 at the recorded minute; interpret with gestational age, medications, interventions, and serial change. | status | normal |
+| Primary | `apgar_band_2` | `&gt;=4` | Score 4-6 at the recorded minute; this documents condition but does not determine whether resuscitation should begin. | status | abnormal |
+| Primary | `apgar_band_3` | `&lt;4` | Score 0-3 at the recorded minute; this documents severe physiologic depression but does not itself determine resuscitation actions or prognosis. | status | critical |
+
+## Warnings, constraints, and adjustments
+
+No calculator-specific warning rules or cross-field constraints are declared beyond input validation and applicability.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "apgar",
+  "inputs": {
+    "appearance": "pink_all_over",
+    "pulse": "at_least_100",
+    "grimace": "cough_sneeze_cry",
+    "activity": "active_motion",
+    "respiratory": "strong_cry",
+    "assessment_minute": "minute_1",
+    "oxygen": false,
+    "ppv_or_ncpap": false,
+    "endotracheal_tube": false,
+    "chest_compressions": false,
+    "epinephrine": false
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `apgar`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 25/25 | 24/24 | 29/29 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://apgar/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Apgar V. A proposal for a new method of evaluation of the newborn infant. Curr Res Anesth Analg. 1953;32(4):260-267.](https://doi.org/10.1213/00000539-195307000-00001)<br />doi:10.1213/00000539-195307000-00001 |
+| `source_2` | guideline | [American Academy of Pediatrics and American College of Obstetricians and Gynecologists. The Apgar Score. Pediatrics. 2015;136(4):819-822.](https://publications.aap.org/pediatrics/article/136/4/819/73821/The-Apgar-Score)<br />doi:10.1542/peds.2015-2651 |
+
+<Panel title="Repository source">
+  Calculator ID `apgar`; spec version `1.1.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

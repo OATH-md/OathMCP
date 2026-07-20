@@ -1,0 +1,69 @@
+---
+title: Quickstart
+description: Connect to OathMCP and complete a safe first calculation.
+sidebar:
+  order: 1
+---
+
+## Hosted Streamable HTTP
+
+Use the official stateless endpoint:
+
+```text
+https://mcp.oath.md/mcp
+```
+
+The public endpoint is unauthenticated and must not receive names, record
+numbers, free-text notes, or other protected or personal health information.
+
+## Local stdio
+
+Until the first verified npm publication, build the server from source:
+
+```bash
+git clone https://github.com/OATH-md/OathMCP.git
+cd OathMCP
+npm ci
+npm run build
+```
+
+```json title="MCP client configuration"
+{
+  "mcpServers": {
+    "oathmcp": {
+      "command": "node",
+      "args": ["/absolute/path/to/OathMCP/dist/server/stdio.js"]
+    }
+  }
+}
+```
+
+## First calculation
+
+Ask the server to describe BMI, then calculate only after confirming the adult
+population and measured inputs:
+
+```json title="describe_calculator"
+{
+  "id": "bmi"
+}
+```
+
+```json title="calculate"
+{
+  "id": "bmi",
+  "inputs": {
+    "weight_kg": 70,
+    "height_cm": 170
+  }
+}
+```
+
+The expected calculated BMI is `24.22 kg/m²`, with the declared adult screening
+band “Normal weight.” The result is decision support, not a diagnosis or direct
+measurement of adiposity.
+
+:::tip
+If you do not know the canonical calculator ID, start with `find_calculator`.
+Do not guess a similarly named score or silently choose among variants.
+:::

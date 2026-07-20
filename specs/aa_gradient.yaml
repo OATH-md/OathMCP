@@ -1,0 +1,143 @@
+id: aa_gradient
+version: 1.0.0
+name: Alveolar-arterial Oxygen Gradient (A-a)
+clinicalModel:
+  modelKind: formula
+  modelId: aa_gradient
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+applicability:
+  population: Compute the alveolar-arterial oxygen gradient and the age-expected
+    gradient to evaluate the mechanism of hypoxemia. A normal A-a gradient
+    points to hypoventilation or low inspired oxygen; an elevated gradient
+    points to V/Q mismatch, shunt, or diffusion limitation.
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - The gradient becomes unreliable at high FiO2 and in the elderly, and is
+      distorted by mechanical ventilation with PEEP; it is not disease-specific
+      and must be read in clinical context.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Compute the alveolar-arterial oxygen gradient and the
+  age-expected gradient to evaluate the mechanism of hypoxemia. A normal A-a
+  gradient points to hypoventilation or low inspired oxygen; an elevated
+  gradient points to V/Q mismatch, shunt, or diffusion limitation.
+whenNotToUse: The gradient becomes unreliable at high FiO2 and in the elderly,
+  and is distorted by mechanical ventilation with PEEP; it is not
+  disease-specific and must be read in clinical context.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Helmholz HF Jr. The abbreviated alveolar air equation. Chest.
+      1979;75(6):748.
+    locator: doi:10.1378/chest.75.6.748
+    doi: 10.1378/chest.75.6.748
+    url: https://doi.org/10.1378/chest.75.6.748
+    reviewed: true
+  - id: source_2
+    type: reference
+    citation: National Aeronautics and Space Administration. Metric
+      standard-atmosphere barometric relationship for the troposphere.
+    locator: url:https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/atmosmet508.html
+    url: https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/atmosmet508.html
+    reviewed: true
+inputs:
+  pao2:
+    title: PaO2
+    description: Arterial oxygen partial pressure (PaO2) in mmHg.
+    kind: number
+    plausible:
+      - 30
+      - 600
+    hardLimits:
+      - 0
+      - 700
+    required: true
+    conceptId: aa_gradient.input.pao2
+    examples:
+      - 90
+    sourceRefs:
+      - source_1
+  paco2:
+    title: PaCO2
+    description: Arterial carbon dioxide partial pressure (PaCO2) in mmHg.
+    kind: number
+    plausible:
+      - 10
+      - 120
+    hardLimits:
+      - 0
+      - 200
+    required: true
+    conceptId: aa_gradient.input.paco2
+    examples:
+      - 40
+    sourceRefs:
+      - source_1
+  fio2:
+    title: FiO2
+    description: Fraction of inspired oxygen as a percentage (21 to 100).
+    kind: number
+    hardLimits:
+      - 21
+      - 100
+    required: true
+    conceptId: aa_gradient.input.fio2
+    examples:
+      - 21
+    sourceRefs:
+      - source_1
+  age:
+    title: Age
+    description: Patient age in years (used for the age-expected gradient).
+    kind: integer
+    hardLimits:
+      - 0
+      - 120
+    required: true
+    conceptId: aa_gradient.input.age
+    examples:
+      - 40
+    sourceRefs:
+      - source_1
+  altitude:
+    title: Altitude
+    description: Altitude in meters; leave unset for sea level.
+    kind: number
+    hardLimits:
+      - 0
+      - 9000
+    required: false
+    default: 0
+    conceptId: aa_gradient.input.altitude
+    examples:
+      - 1600
+    sourceRefs:
+      - source_2
+    sharedKey: altitude
+outputs:
+  aa_gradient:
+    title: A-a Gradient
+    description: Alveolar-arterial oxygen gradient in mmHg, rounded to 2 decimal places.
+    kind: number
+    unit: mmHg
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+      - source_2
+  expected_gradient:
+    title: Expected Gradient for Age
+    description: Age-expected A-a gradient (4 + age/4) in mmHg, rounded to 2 decimal places.
+    kind: number
+    unit: mmHg
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - aa_gradient

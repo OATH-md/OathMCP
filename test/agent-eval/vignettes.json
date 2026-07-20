@@ -1,0 +1,42 @@
+[
+  {
+    "prompt": "Estimate kidney function from a serum creatinine to stage chronic kidney disease before dosing a renally-cleared drug.",
+    "expected": { "calculatorId": "gfr", "criticalInputs": ["creatinine", "age", "sex"] }
+  },
+  {
+    "prompt": "Assign current MELD 3.0 medical-urgency priority for a liver-transplant candidate age 12 years or older.",
+    "expected": { "calculatorId": "meld", "criticalInputs": ["creatinine", "bilirubin", "inr", "sodium", "albumin", "age_at_registration", "sex", "dialysis"] }
+  },
+  {
+    "prompt": "A 72-year-old with non-valvular atrial fibrillation, hypertension, and a prior stroke — estimate stroke risk to decide on anticoagulation.",
+    "expected": { "calculatorId": "chadsvasc", "criticalInputs": ["age_group", "hypertension", "stroke_history"] }
+  },
+  {
+    "prompt": "Grade the severity of an acute stroke from a focused neurological examination.",
+    "expected": { "calculatorId": "nihss", "criticalInputs": ["level_of_consciousness", "language", "facial_palsy"] }
+  },
+  {
+    "prompt": "Document a newborn's condition at one and five minutes after birth while recording concurrent resuscitation interventions.",
+    "expected": { "calculatorId": "apgar", "criticalInputs": ["assessment_minute", "oxygen", "ppv_or_ncpap", "appearance", "pulse", "respiratory"] }
+  },
+  {
+    "prompt": "Estimate the pretest probability of deep vein thrombosis in a patient with a swollen, tender lower leg.",
+    "expected": { "calculatorId": "wells_dvt", "criticalInputs": ["localized_tenderness", "entire_leg_swollen", "alternative_diagnosis"] }
+  },
+  {
+    "prompt": "Compute body surface area for chemotherapy drug dosing.",
+    "expected": { "calculatorId": "bsa_dubois", "criticalInputs": ["height_cm", "weight_kg"] }
+  },
+  {
+    "prompt": "Bedside screen for poor outcomes in a patient with suspected infection using respiratory rate, blood pressure, and mental status.",
+    "expected": { "calculatorId": "qsofa", "criticalInputs": ["respiratory_rate", "systolic_bp", "altered_mental_status"] }
+  },
+  {
+    "prompt": "Screen for and grade generalized anxiety disorder severity over the past two weeks.",
+    "expected": { "calculatorId": "gad7", "criticalInputs": ["feeling_nervous", "worrying_too_much", "trouble_relaxing"] }
+  },
+  {
+    "prompt": "Adjust a measured total calcium for a low serum albumin.",
+    "expected": { "calculatorId": "corrected_calcium", "criticalInputs": ["calcium", "albumin"] }
+  }
+]

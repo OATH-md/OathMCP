@@ -1,0 +1,231 @@
+id: morse_fall_scale
+version: 1.0.0
+name: Morse Fall Scale
+synonyms:
+  - inpatient fall risk
+abbreviations:
+  - MFS
+clinicalModel:
+  modelKind: score
+  modelId: morse_fall_scale
+  modelVersion: morse_six_item_inpatient
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+applicability:
+  population: Adult inpatients screened with the original six-item Morse Fall
+    Scale (history of falling, secondary diagnosis, ambulatory aid, IV/heparin
+    lock, gait/transferring, and mental status).
+  setting: Inpatient fall-risk screening. The displayed AHRQ toolkit categories
+    are descriptive defaults; institutions should validate operational cutoffs
+    for their own population and prevention pathway.
+  exclusions:
+    - A screening aid, not a diagnosis. Risk cut-off scores should be calibrated
+      for each healthcare setting or unit so fall-prevention strategies target
+      those most at risk; operational thresholds vary by institution.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Calculate the original six-item Morse Fall Scale for an adult
+  inpatient and report the total with the AHRQ toolkit's descriptive risk band.
+whenNotToUse: A screening aid, not a diagnosis. Risk cut-off scores should be
+  calibrated for each healthcare setting or unit so fall-prevention strategies
+  target those most at risk; operational thresholds vary by institution.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Morse JM, Black C, Oberle K, Donahue P. A prospective study to
+      identify the fall-prone patient. Soc Sci Med. 1989;28(1):81-86.
+    locator: doi:10.1016/0277-9536(89)90309-2
+    doi: 10.1016/0277-9536(89)90309-2
+    url: https://doi.org/10.1016/0277-9536(89)90309-2
+    reviewed: true
+  - id: source_2
+    type: guideline
+    citation: Agency for Healthcare Research and Quality. Preventing Falls in
+      Hospitals toolkit, Tool 3H Morse Fall Scale.
+    locator: Tool 3H table and threshold footnote; reviewed 2026-07-16
+    url: https://www.ahrq.gov/sites/default/files/publications2/files/fallpxtoolkit-update.pdf
+    reviewed: true
+inputs:
+  history_of_falling:
+    title: History of Falling
+    description: History of falling; immediate or within 3 months.
+    kind: enum
+    enumValues:
+      - value: no
+        points: 0
+        label: no
+        description: "History of Falling: no."
+      - value: yes
+        points: 25
+        label: yes
+        description: "History of Falling: yes."
+    required: true
+    conceptId: morse_fall_scale.input.history_of_falling
+    examples:
+      - no
+    sourceRefs:
+      - source_1
+    sharedKey: history_of_falling
+  secondary_diagnosis:
+    title: Secondary Diagnosis
+    description: More than one medical diagnosis listed on the chart.
+    kind: enum
+    enumValues:
+      - value: no
+        points: 0
+        label: no
+        description: "Secondary Diagnosis: no."
+      - value: yes
+        points: 15
+        label: yes
+        description: "Secondary Diagnosis: yes."
+    required: true
+    conceptId: morse_fall_scale.input.secondary_diagnosis
+    examples:
+      - no
+    sourceRefs:
+      - source_1
+    sharedKey: secondary_diagnosis
+  ambulatory_aid:
+    title: Ambulatory Aid
+    description: Aid used for ambulation; furniture clutching scores highest.
+    kind: enum
+    enumValues:
+      - value: bed_rest_nurse_assist
+        points: 0
+        label: bed rest nurse assist
+        description: "Ambulatory Aid: bed rest nurse assist."
+      - value: crutches_cane_walker
+        points: 15
+        label: crutches cane walker
+        description: "Ambulatory Aid: crutches cane walker."
+      - value: furniture
+        points: 30
+        label: furniture
+        description: "Ambulatory Aid: furniture."
+    required: true
+    conceptId: morse_fall_scale.input.ambulatory_aid
+    examples:
+      - bed_rest_nurse_assist
+    sourceRefs:
+      - source_1
+    sharedKey: ambulatory_aid
+  iv_heparin_lock:
+    title: IV/Heparin Lock
+    description: Intravenous apparatus or heparin lock in place.
+    kind: enum
+    enumValues:
+      - value: no
+        points: 0
+        label: no
+        description: "IV/Heparin Lock: no."
+      - value: yes
+        points: 20
+        label: yes
+        description: "IV/Heparin Lock: yes."
+    required: true
+    conceptId: morse_fall_scale.input.iv_heparin_lock
+    examples:
+      - no
+    sourceRefs:
+      - source_1
+    sharedKey: iv_heparin_lock
+  gait_transferring:
+    title: Gait/Transferring
+    description: Gait and transferring ability.
+    kind: enum
+    enumValues:
+      - value: normal_bedrest_immobile
+        points: 0
+        label: normal bedrest immobile
+        description: "Gait/Transferring: normal bedrest immobile."
+      - value: weak
+        points: 10
+        label: weak
+        description: "Gait/Transferring: weak."
+      - value: impaired
+        points: 20
+        label: impaired
+        description: "Gait/Transferring: impaired."
+    required: true
+    conceptId: morse_fall_scale.input.gait_transferring
+    examples:
+      - normal_bedrest_immobile
+    sourceRefs:
+      - source_1
+    sharedKey: gait_transferring
+  mental_status:
+    title: Mental Status
+    description: Self-assessment of ability versus actual ability.
+    kind: enum
+    enumValues:
+      - value: oriented_to_own_ability
+        points: 0
+        label: oriented to own ability
+        description: "Mental Status: oriented to own ability."
+      - value: forgets_limitations
+        points: 15
+        label: forgets limitations
+        description: "Mental Status: forgets limitations."
+    required: true
+    conceptId: morse_fall_scale.input.mental_status
+    examples:
+      - oriented_to_own_ability
+    sourceRefs:
+      - source_1
+    sharedKey: mental_status
+outputs:
+  mfs_score:
+    title: MFS Score
+    description: Total Morse Fall Scale score (0-125).
+    kind: integer
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - mfs_score
+interpretationBands:
+  - code: morse_fall_scale_band_1
+    kind: status
+    when: ">45"
+    label: Score above 45 (high risk in the AHRQ toolkit); apply a locally validated fall-risk policy rather than inferring an intervention from the score alone.
+    severity: abnormal
+    evidenceRefs:
+      - source_2
+  - code: morse_fall_scale_band_2
+    kind: status
+    when: ">=25"
+    label: Score 25-45 (moderate risk in the AHRQ toolkit); apply a locally validated fall-risk policy.
+    severity: borderline
+    evidenceRefs:
+      - source_2
+  - code: morse_fall_scale_band_3
+    kind: status
+    when: <25
+    label: Score below 25 in this implementation; a low score does not establish absence of fall risk.
+    severity: normal
+    evidenceRefs:
+      - source_2
+scoring:
+  output: mfs_score
+  components:
+    - kind: enum
+      field: history_of_falling
+    - kind: enum
+      field: secondary_diagnosis
+    - kind: enum
+      field: ambulatory_aid
+    - kind: enum
+      field: iv_heparin_lock
+    - kind: enum
+      field: gait_transferring
+    - kind: enum
+      field: mental_status
+  range:
+    - 0
+    - 125
+  evidenceRefs:
+    - source_1

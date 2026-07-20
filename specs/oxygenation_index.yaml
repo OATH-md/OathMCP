@@ -1,0 +1,178 @@
+id: oxygenation_index
+version: 1.0.0
+name: Oxygenation Index (OI / OSI)
+abbreviations:
+  - OI
+  - OSI
+clinicalModel:
+  modelKind: formula
+  modelId: oxygenation_index
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+applicability:
+  population: Compute the neonatal Oxygenation Index (OI, from PaO2) and/or Oxygen
+    Saturation Index (OSI, from SpO2) for hypoxemic respiratory failure or
+    persistent pulmonary hypertension. Provide at least one of PaO2 or SpO2.
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - This calculator is scoped to neonates; do not apply these categories to
+      pediatric ARDS or adults. A single OI value is not by itself a treatment
+      trigger.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Compute the neonatal Oxygenation Index (OI, from PaO2) and/or
+  Oxygen Saturation Index (OSI, from SpO2) for hypoxemic respiratory failure or
+  persistent pulmonary hypertension. Provide at least one of PaO2 or SpO2.
+whenNotToUse: This calculator is scoped to neonates; do not apply these
+  categories to pediatric ARDS or adults. A single OI value is not by itself a
+  treatment trigger.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Rawat M, Chandrasekharan PK, Williams A, et al. Oxygen saturation
+      index and severity of hypoxic respiratory failure. Neonatology.
+      2015;107(3):161-166.
+    locator: doi:10.1159/000369774
+    doi: 10.1159/000369774
+    url: https://doi.org/10.1159/000369774
+    reviewed: true
+  - id: source_2
+    type: reference
+    citation: Muniraman H, Song AY, Ramanathan R, et al. Evaluation of oxygen
+      saturation index compared with oxygenation index in neonates with
+      hypoxemic respiratory failure. JAMA Netw Open. 2019;2(3):e191179.
+    locator: doi:10.1001/jamanetworkopen.2019.1179
+    doi: 10.1001/jamanetworkopen.2019.1179
+    url: https://doi.org/10.1001/jamanetworkopen.2019.1179
+    reviewed: true
+inputs:
+  mean_airway_pressure:
+    title: Mean Airway Pressure (MAP)
+    description: Mean airway pressure in cmH2O.
+    kind: number
+    plausible:
+      - 3
+      - 50
+    hardLimits:
+      - 0.1
+      - 100
+    required: true
+    conceptId: oxygenation_index.input.mean_airway_pressure
+    examples:
+      - 10
+    sourceRefs:
+      - source_1
+    sharedKey: mean_airway_pressure
+  fio2:
+    title: FiO2
+    description: Fraction of inspired oxygen as a percentage (21 to 100).
+    kind: number
+    hardLimits:
+      - 21
+      - 100
+    required: true
+    conceptId: oxygenation_index.input.fio2
+    examples:
+      - 50
+    sourceRefs:
+      - source_1
+  pao2:
+    title: PaO2
+    description: Arterial oxygen partial pressure (PaO2) in mmHg. Provide this or SpO2.
+    kind: number
+    plausible:
+      - 20
+      - 600
+    hardLimits:
+      - 1
+      - 700
+    required: false
+    conceptId: oxygenation_index.input.pao2
+    examples:
+      - 80
+    sourceRefs:
+      - source_1
+  spo2:
+    title: SpO2
+    description: Pulse-oximetry oxygen saturation (SpO2) as a percentage. Provide
+      this or PaO2.
+    kind: number
+    plausible:
+      - 85
+      - 95
+    hardLimits:
+      - 40
+      - 100
+    required: false
+    conceptId: oxygenation_index.input.spo2
+    examples:
+      - 90
+    sourceRefs:
+      - source_1
+    sharedKey: spo2
+outputs:
+  oi:
+    title: Oxygenation Index (OI)
+    description: OI = (MAP × FiO2 × 100)/PaO2, rounded to 2 decimal places (present
+      when PaO2 given).
+    kind: number
+    availability:
+      kind: whenAnyInputPresent
+      fields:
+        - pao2
+    evidenceRefs:
+      - source_1
+    interpretationBands:
+      - code: oi_band_1
+        kind: status
+        when: ">40"
+        label: Very severe neonatal hypoxemic respiratory failure (OI >40); treatment
+          decisions require the complete neonatal context.
+        severity: critical
+        evidenceRefs:
+          - source_1
+      - code: oi_band_2
+        kind: status
+        when: ">25"
+        label: Severe neonatal hypoxemic respiratory failure (OI >25–40).
+        severity: critical
+        evidenceRefs:
+          - source_1
+      - code: oi_band_3
+        kind: status
+        when: ">15"
+        label: Moderate neonatal hypoxemic respiratory failure (OI >15–25).
+        severity: abnormal
+        evidenceRefs:
+          - source_1
+      - code: oi_band_4
+        kind: status
+        when: <=15
+        label: Mild neonatal hypoxemic respiratory failure (OI ≤15).
+        severity: borderline
+        evidenceRefs:
+          - source_1
+  osi:
+    title: Oxygen Saturation Index (OSI)
+    description: OSI = (MAP × FiO2 × 100)/SpO2, rounded to 2 decimal places (present
+      when SpO2 given).
+    kind: number
+    availability:
+      kind: whenAnyInputPresent
+      fields:
+        - spo2
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - oi
+  - osi
+constraints:
+  - kind: atLeastOne
+    fields:
+      - pao2
+      - spo2
+    message: Either PaO2 or SpO2 must be provided to compute an oxygenation index.

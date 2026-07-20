@@ -1,0 +1,180 @@
+---
+title: "Modified Early Warning Score (MEWS)"
+description: "Adults admitted acutely to medical wards and observed with the Subbe five-parameter physiological score. Return an integer score from 0-14; the original cohort associated a score of 5 or more with increased risk of death, ICU admission, or high-dependency admission."
+sidebar:
+  label: "Modified Early Warning Score (MEWS)"
+search:
+  tags: ["mews", "score"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>score</Badge> <Badge>Spec 1.0.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Adults admitted acutely to medical wards and observed with the Subbe five-parameter physiological score. |
+| Setting | Adult acute medical admissions and general-ward deterioration surveillance; local response policies remain setting-specific. |
+| Model | `mews` · subbe_2001_adult_acute_medical_admission_five_parameter |
+| Model kind | score |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** An adult track-and-trigger aid, not a diagnosis or substitute for clinical judgment. The caller must classify observations into the exact Subbe bands. Do not transfer this adult medical-admission variant to children, pregnancy, critical care, or a different local escalation policy.
+
+- An adult track-and-trigger aid, not a diagnosis or substitute for clinical judgment. The caller must classify observations into the exact Subbe bands. Do not transfer this adult medical-admission variant to children, pregnancy, critical care, or a different local escalation policy.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `systolic_bp_category` | enum (5 options) | Yes | — | — | — | Systolic blood pressure band (mmHg). |
+| `heart_rate_category` | enum (6 options) | Yes | — | — | — | Heart rate band (beats per minute). |
+| `respiratory_rate_category` | enum (5 options) | Yes | — | — | — | Respiratory rate band (breaths per minute). |
+| `temperature_category` | enum (3 options) | Yes | — | — | — | Body temperature band. |
+| `avpu` | enum (4 options) | Yes | — | — | — | Level of consciousness on the AVPU scale. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+<Expandable title="Systolic Blood Pressure options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `bp_le_70` | bp le 70 | Systolic Blood Pressure: bp le 70. | 3 |
+| `bp_71_80` | bp 71 80 | Systolic Blood Pressure: bp 71 80. | 2 |
+| `bp_81_100` | bp 81 100 | Systolic Blood Pressure: bp 81 100. | 1 |
+| `bp_101_199` | bp 101 199 | Systolic Blood Pressure: bp 101 199. | 0 |
+| `bp_ge_200` | bp ge 200 | Systolic Blood Pressure: bp ge 200. | 2 |
+
+</Expandable>
+
+
+<Expandable title="Heart Rate options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `hr_le_40` | hr le 40 | Heart Rate: hr le 40. | 2 |
+| `hr_41_50` | hr 41 50 | Heart Rate: hr 41 50. | 1 |
+| `hr_51_100` | hr 51 100 | Heart Rate: hr 51 100. | 0 |
+| `hr_101_110` | hr 101 110 | Heart Rate: hr 101 110. | 1 |
+| `hr_111_129` | hr 111 129 | Heart Rate: hr 111 129. | 2 |
+| `hr_ge_130` | hr ge 130 | Heart Rate: hr ge 130. | 3 |
+
+</Expandable>
+
+
+<Expandable title="Respiratory Rate options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `rr_lt_9` | rr lt 9 | Respiratory Rate: rr lt 9. | 2 |
+| `rr_9_14` | rr 9 14 | Respiratory Rate: rr 9 14. | 0 |
+| `rr_15_20` | rr 15 20 | Respiratory Rate: rr 15 20. | 1 |
+| `rr_21_29` | rr 21 29 | Respiratory Rate: rr 21 29. | 2 |
+| `rr_ge_30` | rr ge 30 | Respiratory Rate: rr ge 30. | 3 |
+
+</Expandable>
+
+
+<Expandable title="Temperature options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `temp_lt_35c` | temp lt 35c | Temperature: temp lt 35c. | 2 |
+| `temp_35_384c` | temp 35 384c | Temperature: temp 35 384c. | 0 |
+| `temp_ge_385c` | temp ge 385c | Temperature: temp ge 385c. | 2 |
+
+</Expandable>
+
+
+<Expandable title="AVPU Score options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `alert` | alert | AVPU Score: alert. | 0 |
+| `voice` | voice | AVPU Score: voice. | 1 |
+| `pain` | pain | AVPU Score: pain. | 2 |
+| `unresponsive` | unresponsive | AVPU Score: unresponsive. | 3 |
+
+</Expandable>
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `mews_score` | integer | Always | Yes | Total Modified Early Warning Score (0-14). |
+
+## Interpretation bands
+
+| Output | Code | Condition | Label | Kind | Severity |
+| --- | --- | --- | --- | --- | --- |
+| Primary | `mews_band_1` | `&gt;=5` | At or above the original MEWS &gt;=5 threshold associated with increased odds of death, ICU admission, and high-dependency-unit admission; response protocols are setting-specific. | risk | abnormal |
+| Primary | `mews_band_2` | `&lt;5` | Below the original MEWS high-risk threshold; this does not rule out deterioration. | risk | normal |
+
+## Warnings, constraints, and adjustments
+
+No calculator-specific warning rules or cross-field constraints are declared beyond input validation and applicability.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "mews",
+  "inputs": {
+    "systolic_bp_category": "bp_101_199",
+    "heart_rate_category": "hr_51_100",
+    "respiratory_rate_category": "rr_9_14",
+    "temperature_category": "temp_35_384c",
+    "avpu": "alert"
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `mews`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 21/21 | 20/20 | 34/34 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://mews/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Validation of a modified Early Warning Score in medical admissions.](https://pubmed.ncbi.nlm.nih.gov/11588210/)<br />Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome threshold. |
+| `source_2` | validation | [Poor performance of the modified early warning score for predicting mortality in critically ill patients presenting to an emergency department.](https://pubmed.ncbi.nlm.nih.gov/25215131/)<br />Methods, Results, and Conclusion: adult ED validation, score performance, and caution against transfer of thresholds across settings. |
+| `source_3` | guideline | [Acutely ill adults in hospital: recognising and responding to deterioration.](https://www.nice.org.uk/guidance/cg50)<br />Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring frequency, and clinical concern. |
+| `source_4` | guideline | [Surviving Sepsis Campaign: international guidelines for management of sepsis and septic shock 2026.](https://doi.org/10.1007/s00134-026-08361-1)<br />Screening recommendations: use NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient sepsis screen. |
+
+<Panel title="Repository source">
+  Calculator ID `mews`; spec version `1.0.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

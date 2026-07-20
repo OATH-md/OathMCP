@@ -1,0 +1,108 @@
+# Responsible Use
+
+This document is the canonical responsibility and use notice for OathMCP. The
+same substance should appear wherever the project is distributed or operated,
+including the repository, package page, documentation website, hosted MCP
+service, and any user-facing integration.
+
+## What OathMCP provides
+
+OathMCP implements established, published clinical calculators, scores,
+formulae, and structured interpretation tables as software tools for AI agents.
+It does not conduct new clinical research, create new clinical instruments, or
+replace the original publications, current governing policies, product labels,
+specialty guidance, or local protocols.
+
+The repository's assurance process checks that the software implements its
+declared model, version, population, inputs, outputs, limitations, warnings, and
+source-derived scenarios consistently across its calculation engine and MCP
+interfaces. That process is implementation assurance. It is not regulatory
+approval, certification as a medical device, or a guarantee that a calculator
+is appropriate for a particular person or clinical setting.
+
+## Clinical responsibility
+
+OathMCP provides clinical decision-support information. It does not provide
+medical advice, diagnosis, prognosis, or treatment and must not be used as the
+sole basis for a clinical decision.
+
+The clinician using a result remains responsible for:
+
+- selecting the appropriate calculator, model, variant, population, setting,
+  assessment time, and endpoint;
+- confirming that every input, unit, default, assumption, and source version is
+  correct and applicable;
+- considering contraindications, exclusions, missing information, local
+  reference intervals, current guidance, and the complete clinical context;
+- independently reviewing unexpected, high-consequence, or management-changing
+  results; and
+- making and documenting every diagnosis, treatment, escalation, disposition,
+  and other clinical decision.
+
+An AI agent or software integrator must preserve this boundary. It must not
+present a calculated result as a diagnosis, invent missing inputs, suppress
+warnings or exclusions, or imply that automation has assumed professional
+responsibility.
+
+OathMCP is not an emergency service. It must never delay emergency assessment,
+local escalation, or contact with an appropriately qualified clinician.
+
+## Deployment and data responsibility
+
+OathMCP is stateless and does not require names, record numbers, free-text
+notes, or other patient identifiers. Do not send protected or personal health
+information unless the deployment has been specifically designed and approved
+to handle it.
+
+Anyone who deploys or integrates OathMCP is responsible for:
+
+- authentication, authorization, transport security, network exposure, origin
+  policy, monitoring, abuse prevention, and availability;
+- data minimization, consent, retention, deletion, audit logging, incident
+  response, and any required contractual safeguards;
+- compliance with the privacy, medical-device, professional-practice,
+  cybersecurity, and health-information requirements that apply in the relevant
+  jurisdiction; and
+- keeping the software, calculator definitions, evidence, and policy-backed
+  data releases current.
+
+Open-source availability does not make a particular deployment compliant,
+secure, approved, or suitable for clinical use.
+
+## No warranty and limitation of liability
+
+To the maximum extent permitted by applicable law, OathMCP is provided **as
+is** and **as available**, without warranties or conditions of any kind,
+whether express, implied, or statutory. This includes warranties of accuracy,
+completeness, currentness, reliability, merchantability, fitness for a
+particular purpose, non-infringement, and uninterrupted or error-free operation.
+
+To the maximum extent permitted by applicable law, the authors, maintainers,
+and contributors are not liable for any direct, indirect, incidental, special,
+exemplary, consequential, or other loss, injury, claim, damage, or expense
+arising from or related to use of, inability to use, reliance on, deployment of,
+or modification of OathMCP.
+
+The [Apache License 2.0](../LICENSE) controls the grant to use, modify, and
+distribute the software and includes its own warranty and liability terms. This
+responsibility notice explains the intended clinical and operational boundary;
+it is not a substitute for legal advice. Before a public or regulated
+deployment, the operator should obtain advice appropriate to its jurisdiction
+and use case.
+
+## Reporting problems
+
+Report implementation errors, citation drift, superseded policies, ambiguous
+contracts, unsafe agent behavior, or documentation problems promptly. Follow
+[SECURITY.md](../SECURITY.md) for security-sensitive or patient-safety-sensitive
+reports, and never include identifiable patient information.
+
+## Short notice for a website or integration
+
+> OathMCP implements established clinical calculators for decision support. It
+> does not provide medical advice, diagnosis, or treatment and must not be used
+> as the sole basis for a clinical decision. A qualified clinician remains
+> responsible for selecting the appropriate calculator, confirming inputs,
+> units, model version, population, and limitations, interpreting the result in
+> context, and making every clinical decision. OathMCP is provided as-is without
+> warranties; see the full Responsible Use notice.

@@ -1,0 +1,839 @@
+calculatorId: ich_volume
+specVersion: 1.0.0
+clinicalModel: Intracerebral hemorrhage volume (simplified slice-count ABC/2)
+variant: spontaneous_intraparenchymal_ct_abc2
+population: Spontaneous intraparenchymal hemorrhage measured on CT.
+setting: Rapid bedside CT approximation, not planimetry or validated segmentation.
+assessmentTiming: Single CT study with consistent linear and slice measurements.
+endpoint: Approximate hematoma volume in mL.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:ich_volume:2026-07-16
+    calculatorId: ich_volume
+    model: Intracerebral hemorrhage volume (simplified slice-count ABC/2)
+    variant: spontaneous_intraparenchymal_ct_abc2
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:ich_volume:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: ("Cerebral Hemorrhage"[Mesh] OR "intracerebral hemorrhage"[tiab] OR "intracerebral haemorrhage"[tiab]) AND
+          ("ABC/2"[tiab] OR "ABC/3"[tiab] OR "ABC method"[tiab]) AND (Kothari[all] OR Hanley[all] OR Delcourt[all] OR
+          INTERACT2[all])
+        translationExposed: true
+        translatedQuery: ("Cerebral Hemorrhage"[MeSH Terms] OR "intracerebral hemorrhage"[Title/Abstract] OR "intracerebral
+          haemorrhage"[Title/Abstract]) AND ("ABC/2"[Title/Abstract] OR "ABC/3"[Title/Abstract] OR "ABC
+          method"[Title/Abstract]) AND ("Kothari"[All Fields] OR "Hanley"[All Fields] OR "Delcourt"[All Fields] OR
+          "INTERACT2"[All Fields])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 7
+        exportDigest: sha256:091e553f509570b5c6179f24b076d6008e6d5c92da760c3e1d390940c8e7ac73
+        stableCitationIds:
+          - PMID:35434846
+          - PMID:34303090
+          - PMID:34214866
+          - PMID:31838472
+          - PMID:29321340
+          - PMID:26243227
+          - PMID:8711791
+      - id: search:ich_volume:derivation
+        sourceRole: derivation
+        authorityId: ich_kothari_1996
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for
+          spontaneous_intraparenchymal_ct_abc2
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - ich_kothari_1996
+      - id: search:ich_volume:controlling_authority
+        sourceRole: controlling_authority
+        authorityId: ich_aha_2022
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for
+          spontaneous_intraparenchymal_ct_abc2
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - ich_aha_2022
+      - id: search:ich_volume:specialty_guidance
+        sourceRole: specialty_guidance
+        authorityId: ich_eso_eans_2025
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for
+          spontaneous_intraparenchymal_ct_abc2
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - ich_eso_eans_2025
+      - id: search:ich_volume:independent_numeric
+        sourceRole: independent_numeric
+        authorityId: ich_hanley_2015
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for
+          spontaneous_intraparenchymal_ct_abc2
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - ich_hanley_2015
+    accounting:
+      retrieved: 7
+      deduplicated: 7
+      screened: 7
+      fullTextAssessed: 3
+      excluded: 0
+      included: 3
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:35434846
+        title: Bayesian deep learning outperforms clinical trial estimators of hemorrhage volume.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:34303090
+        title: Post-Trial Enhanced Deployment and Technical Performance with the MISTIE Procedure.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: ich_chang_2021
+        title: "Intracerebral hemorrhage volume estimation: Is modification of the ABC/2 formula necessary according to the
+          hematoma shape?"
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:31838472
+        title: "Comparison of ABC Methods with Computerized Estimates of Intracerebral Hemorrhage Volume: The INTERACT2 Study."
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:29321340
+        title: Retrospective Methods Analysis of Semiautomated Intracerebral Hemorrhage Volume Quantification.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: ich_hanley_2015
+        title: "Accuracy of the ABC/2 Score for Intracerebral Hemorrhage: Systematic Review and Analysis of MISTIE, CLEAR-IVH,
+          and CLEAR III."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: ich_kothari_1996
+        title: The ABCs of measuring intracerebral hemorrhage volumes.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:ich_volume:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and historical terminology
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search, not an exhaustive systematic review.
+      resolution: Accepted focused model, comparator, and named-study strategy; the review retained derivation,
+        shape-comparison, and planimetry-comparison records and separately checked current guidelines.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - ich_kothari_1996
+  - ich_aha_2022
+  - ich_eso_eans_2025
+  - ich_hanley_2015
+  - ich_chang_2021
+claims:
+  - id: claim:ich_volume:calculator-model
+    kind: applicability
+    statement: Intracerebral Hemorrhage Volume (ABC/2) uses the declared population and formula variant. Accuracy decreases
+      for large, irregular, lobar, multilobar, or heterogeneous hemorrhages and when the simplified slice count does not
+      reproduce Kothari's weighted C method. Prefer planimetry or validated segmentation when precision affects a
+      decision.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - ich_aha_2022
+      - ich_hanley_2015
+    locators:
+      - sourceId: ich_aha_2022
+        locator: "2022 AHA/ASA spontaneous ICH guideline, section 2.2 and page e294: CT hematoma volume is often estimated with
+          ABC/2."
+      - sourceId: ich_hanley_2015
+        locator: "Hanley 2015 systematic review, abstract and accuracy analyses: reduced ABC/2 accuracy for large, irregular,
+          and lobar hemorrhages."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is descriptive; its executable equation, inputs, outputs, and applicability are scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:formula-implementation
+    kind: formula
+    statement: Volume = A × B × slice width × number of involved slices divided by 2; the compatibility shape flag does not
+      select ABC/3.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:ref-small
+      - case:ich_volume:ref-legacy-false
+      - case:ich_volume:ref-decimal
+      - case:ich_volume:legacy-alias
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:applicability-purpose
+    kind: applicability
+    statement: Estimate spontaneous intraparenchymal hemorrhage volume (mL) from CT using the simplified slice-count ABC/2
+      approximation. Do not infer a prognosis or treatment threshold from this estimate alone.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - ich_aha_2022
+    locators:
+      - sourceId: ich_aha_2022
+        locator: "2022 AHA/ASA spontaneous ICH guideline, section 2.2: rapid CT volume estimation with ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:applicability-exclusions
+    kind: exclusion
+    statement: Do not calculate without all four CT measurements and the declared compatibility shape input.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996 Methods: ABC/2 calculation requires A, B, slice thickness/extent, and the involved-slice
+          assessment."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-length_cm
+    kind: input
+    statement: Largest hemorrhage diameter (A) in centimeters.
+    covers:
+      - input:length_cm
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:ref-small
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-length_cm-hard_limits
+    kind: input
+    statement: OathMCP rejects Length (A) outside [0.01, 50] as a conservative operational safety envelope, not a clinical
+      decision cutoff.
+    covers:
+      - input:length_cm:hard_limits
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:hard-length
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-length_cm-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Length (A) is outside [0.1, 20]; this is an operational review
+      prompt, not a clinical cutoff.
+    covers:
+      - input:length_cm:plausibility
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:plausibility-measurements
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-width_cm
+    kind: input
+    statement: Diameter perpendicular to A (B) in centimeters.
+    covers:
+      - input:width_cm
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:ref-small
+      - case:ich_volume:missing-width
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-width_cm-hard_limits
+    kind: input
+    statement: OathMCP rejects Width (B) outside [0.01, 50] as a conservative operational safety envelope, not a clinical
+      decision cutoff.
+    covers:
+      - input:width_cm:hard_limits
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:hard-width_cm
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-width_cm-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Width (B) is outside [0.1, 20]; this is an operational review prompt,
+      not a clinical cutoff.
+    covers:
+      - input:width_cm:plausibility
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:plausibility-measurements
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-slice_width_cm
+    kind: input
+    statement: CT slice thickness (C) in centimeters.
+    covers:
+      - input:slice_width_cm
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:ref-small
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-slice_width_cm-hard_limits
+    kind: input
+    statement: OathMCP rejects Slice Width (C) outside [0.01, 30] as a conservative operational safety envelope, not a
+      clinical decision cutoff.
+    covers:
+      - input:slice_width_cm:hard_limits
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:hard-slice_width_cm
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-slice_width_cm-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Slice Width (C) is outside [0.1, 10]; this is an operational review
+      prompt, not a clinical cutoff.
+    covers:
+      - input:slice_width_cm:plausibility
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:plausibility-measurements
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-num_slices
+    kind: input
+    statement: Number of CT slices on which hemorrhage is seen.
+    covers:
+      - input:num_slices
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:ref-small
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-num_slices-hard_limits
+    kind: input
+    statement: OathMCP rejects Number of Slices outside [1, 200] as a conservative operational safety envelope, not a
+      clinical decision cutoff.
+    covers:
+      - input:num_slices:hard_limits
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:hard-num_slices
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-num_slices-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Number of Slices is outside [1, 60]; this is an operational review
+      prompt, not a clinical cutoff.
+    covers:
+      - input:num_slices:plausibility
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:plausibility-measurements
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-ellipsoid_shape
+    kind: input
+    statement: Compatibility input retained from schema 1.0. Both values use ABC/2; false no longer selects the unsupported
+      ABC/3 shortcut.
+    covers:
+      - input:ellipsoid_shape
+    status: supported
+    sourceIds:
+      - ich_chang_2021
+    locators:
+      - sourceId: ich_chang_2021
+        locator: "Chang 2021 abstract and comparative results: ABC/3 modification showed no advantage over ABC/2 across hematoma
+          shapes."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:ref-small
+      - case:ich_volume:ref-legacy-false
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:input-ellipsoid_shape-aliases
+    kind: input
+    statement: The compatibility alias preserves the same source-defined Legacy Shape Flag quantity and unit while the
+      runtime warns that the canonical field is ellipsoid_shape.
+    covers:
+      - input:ellipsoid_shape:aliases
+    status: supported
+    sourceIds:
+      - ich_chang_2021
+    locators:
+      - sourceId: ich_chang_2021
+        locator: Chang 2021 ABC/2 versus ABC/3 comparison; the retained alias does not select a different clinical equation.
+    executable: true
+    scenarioIds:
+      - case:ich_volume:legacy-alias
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ich_volume:output-volume_ml
+    kind: outcome
+    statement: ICH volume in milliliters (cm³), rounded to 1 decimal place.
+    covers:
+      - output:volume_ml
+    status: supported
+    sourceIds:
+      - ich_kothari_1996
+    locators:
+      - sourceId: ich_kothari_1996
+        locator: "Kothari 1996, Methods: A is greatest diameter, B is perpendicular diameter, C is weighted slice extent, and
+          volume is ABC/2."
+    executable: true
+    scenarioIds:
+      - case:ich_volume:ref-small
+      - case:ich_volume:ref-legacy-false
+      - case:ich_volume:ref-decimal
+      - case:ich_volume:plausibility-measurements
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:ich_volume:ref-small
+    tags:
+      - calculator:ich_volume:core
+    inputs:
+      length_cm: 3
+      width_cm: 2
+      slice_width_cm: 0.5
+      num_slices: 5
+      ellipsoid_shape: true
+    expected:
+      volume_ml: 7.5
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Frozen independently checked arithmetic after the calculator declared rounding rule.
+    claimIds:
+      - claim:ich_volume:formula-implementation
+      - claim:ich_volume:input-length_cm
+      - claim:ich_volume:input-width_cm
+      - claim:ich_volume:input-slice_width_cm
+      - claim:ich_volume:input-num_slices
+      - claim:ich_volume:input-ellipsoid_shape
+      - claim:ich_volume:output-volume_ml
+    sourceIds:
+      - ich_kothari_1996
+      - ich_chang_2021
+    witnesses:
+      - formula:implementation
+      - input:length_cm
+      - input:width_cm
+      - input:slice_width_cm
+      - input:num_slices
+      - input:ellipsoid_shape
+      - output:volume_ml
+  - kind: reference
+    id: case:ich_volume:ref-legacy-false
+    tags:
+      - calculator:ich_volume:reference
+    inputs:
+      length_cm: 4
+      width_cm: 3
+      slice_width_cm: 0.5
+      num_slices: 8
+      ellipsoid_shape: false
+    expected:
+      volume_ml: 24
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ich_volume:formula-implementation
+      - claim:ich_volume:input-ellipsoid_shape
+      - claim:ich_volume:output-volume_ml
+    sourceIds:
+      - ich_kothari_1996
+      - ich_chang_2021
+    witnesses:
+      - formula:implementation
+      - input:ellipsoid_shape
+      - output:volume_ml
+  - kind: reference
+    id: case:ich_volume:ref-decimal
+    tags:
+      - calculator:ich_volume:reference
+    inputs:
+      length_cm: 2.4
+      width_cm: 1.5
+      slice_width_cm: 0.5
+      num_slices: 6
+      ellipsoid_shape: true
+    expected:
+      volume_ml: 5.4
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ich_volume:formula-implementation
+      - claim:ich_volume:output-volume_ml
+    sourceIds:
+      - ich_kothari_1996
+    witnesses:
+      - formula:implementation
+      - output:volume_ml
+  - kind: edge
+    id: case:ich_volume:missing-width
+    tags:
+      - required-inputs
+    inputs:
+      length_cm: 3
+      slice_width_cm: 0.5
+      num_slices: 5
+      ellipsoid_shape: true
+    expected: {}
+    expectedBehavior: clarify
+    tolerance: *a1
+    claimIds:
+      - claim:ich_volume:input-width_cm
+    sourceIds:
+      - ich_kothari_1996
+    witnesses:
+      - input:width_cm
+    expectedError:
+      code: MISSING_REQUIRED
+      field: width_cm
+      messageIncludes: Width (B) is required.
+  - kind: edge
+    id: case:ich_volume:hard-length
+    tags:
+      - hard-limits
+    inputs:
+      length_cm: 51
+      width_cm: 2
+      slice_width_cm: 0.5
+      num_slices: 5
+      ellipsoid_shape: true
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:ich_volume:input-length_cm-hard_limits
+    sourceIds:
+      - ich_kothari_1996
+    witnesses:
+      - input:length_cm:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: length_cm
+      messageIncludes: Length (A) 51 is outside physiological limits [0.01, 50].
+  - kind: edge
+    id: case:ich_volume:plausibility-measurements
+    tags:
+      - plausibility
+    inputs:
+      length_cm: 30
+      width_cm: 25
+      slice_width_cm: 20
+      num_slices: 100
+      ellipsoid_shape: true
+    expected:
+      volume_ml: 750000
+    expectedBehavior: warn
+    tolerance: *a1
+    claimIds:
+      - claim:ich_volume:input-length_cm-plausibility
+      - claim:ich_volume:input-width_cm-plausibility
+      - claim:ich_volume:input-slice_width_cm-plausibility
+      - claim:ich_volume:input-num_slices-plausibility
+      - claim:ich_volume:output-volume_ml
+    sourceIds:
+      - ich_kothari_1996
+    witnesses:
+      - input:length_cm:plausibility
+      - input:width_cm:plausibility
+      - input:slice_width_cm:plausibility
+      - input:num_slices:plausibility
+      - output:volume_ml
+    expectedWarnings:
+      - Length (A) 30 is unusual (expected 0.1–20).
+      - Width (B) 25 is unusual (expected 0.1–20).
+      - Slice Width (C) 20 is unusual (expected 0.1–10).
+      - Number of Slices 100 is unusual (expected 1–60).
+  - kind: edge
+    id: case:ich_volume:legacy-alias
+    tags:
+      - aliases
+    inputs:
+      length_cm: 4
+      width_cm: 3
+      slice_width_cm: 0.5
+      num_slices: 8
+      is_ellipsoid: false
+    expected:
+      volume_ml: 24
+    expectedBehavior: warn
+    tolerance: *a1
+    claimIds:
+      - claim:ich_volume:input-ellipsoid_shape-aliases
+      - claim:ich_volume:formula-implementation
+    sourceIds:
+      - ich_chang_2021
+      - ich_kothari_1996
+    witnesses:
+      - input:ellipsoid_shape:aliases
+      - formula:implementation
+    expectedWarnings:
+      - Input 'is_ellipsoid' is a compatibility alias; use 'ellipsoid_shape'.
+  - kind: agent
+    id: case:ich_volume:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      length_cm: 3
+      width_cm: 2
+      slice_width_cm: 0.5
+      num_slices: 5
+      ellipsoid_shape: true
+    expected:
+      volume_ml: 7.5
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ich_volume:applicability-purpose
+    sourceIds:
+      - ich_aha_2022
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:ich_volume:agent-exclusion
+    tags:
+      - agent-applicability
+    inputs:
+      length_cm: 3
+      slice_width_cm: 0.5
+      num_slices: 5
+      ellipsoid_shape: true
+    expected: {}
+    expectedBehavior: clarify
+    tolerance: *a1
+    claimIds:
+      - claim:ich_volume:applicability-exclusions
+    sourceIds:
+      - ich_kothari_1996
+    witnesses:
+      - applicability:exclusions
+    expectedError:
+      code: MISSING_REQUIRED
+      field: width_cm
+      messageIncludes: Width (B) is required.
+  - kind: edge
+    id: case:ich_volume:hard-width_cm
+    tags:
+      - calculator:ich_volume:reference
+    inputs:
+      length_cm: 3
+      width_cm: 0.005
+      slice_width_cm: 0.5
+      num_slices: 5
+      ellipsoid_shape: true
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:ich_volume:input-width_cm-hard_limits
+    sourceIds:
+      - ich_kothari_1996
+    witnesses:
+      - input:width_cm:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: width_cm
+      messageIncludes: Width (B) 0.005 is outside physiological limits [0.01, 50].
+  - kind: edge
+    id: case:ich_volume:hard-slice_width_cm
+    tags:
+      - calculator:ich_volume:reference
+    inputs:
+      length_cm: 3
+      width_cm: 2
+      slice_width_cm: 0.005
+      num_slices: 5
+      ellipsoid_shape: true
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:ich_volume:input-slice_width_cm-hard_limits
+    sourceIds:
+      - ich_kothari_1996
+    witnesses:
+      - input:slice_width_cm:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: slice_width_cm
+      messageIncludes: Slice Width (C) 0.005 is outside physiological limits [0.01, 30].
+  - kind: edge
+    id: case:ich_volume:hard-num_slices
+    tags:
+      - calculator:ich_volume:reference
+    inputs:
+      length_cm: 3
+      width_cm: 2
+      slice_width_cm: 0.5
+      num_slices: 0
+      ellipsoid_shape: true
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:ich_volume:input-num_slices-hard_limits
+    sourceIds:
+      - ich_kothari_1996
+    witnesses:
+      - input:num_slices:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: num_slices
+      messageIncludes: Number of Slices 0 is outside physiological limits [1, 200].
+compatibilityNotes:
+  - The legacy shape input is retained, but both boolean values now use the source-supported ABC/2 denominator.
+explicitBlockers: []

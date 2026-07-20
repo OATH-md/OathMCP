@@ -1,0 +1,550 @@
+calculatorId: bsa
+specVersion: 1.0.0
+clinicalModel: Body Surface Area (Mosteller)
+variant: mosteller
+population: Patients for whom a protocol explicitly requests the Mosteller BSA estimate.
+setting: Formula-based clinical calculation; the tool returns raw BSA and does not select a dosing protocol or cap.
+assessmentTiming: Current measured height and weight.
+endpoint: Mosteller BSA in m².
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:bsa:2026-07-16
+    calculatorId: bsa
+    model: Body Surface Area (Mosteller)
+    variant: mosteller
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:bsa:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: ("body surface area"[tiab]) AND Mosteller[au]
+        translationExposed: true
+        translatedQuery: '"body surface area"[Title/Abstract] AND Mosteller[Author]'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 1
+        exportDigest: sha256:295a6f8ec0b1c442f0bde75fc51a98bcd9b1ce4de830d3feeb05fa60e27bf9c9
+        stableCitationIds:
+          - PMID:3657876
+      - id: search:bsa:derivation
+        sourceRole: derivation
+        authorityId: bsa_mosteller_1987
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for mosteller
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bsa_mosteller_1987
+      - id: search:bsa:controlling_authority
+        sourceRole: controlling_authority
+        authorityId: bsa_fda_valganciclovir_review
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for mosteller
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bsa_fda_valganciclovir_review
+      - id: search:bsa:specialty_guidance
+        sourceRole: specialty_guidance
+        authorityId: bsa_asco_2021
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for mosteller
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bsa_asco_2021
+      - id: search:bsa:independent_numeric
+        sourceRole: independent_numeric
+        authorityId: bsa_daniell_2012
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for mosteller
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - bsa_daniell_2012
+    accounting:
+      retrieved: 1
+      deduplicated: 1
+      screened: 1
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: bsa_mosteller_1987
+        title: Simplified calculation of body-surface area.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:bsa:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and historical terminology
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search, not an exhaustive systematic review.
+      resolution: Accepted focused author-and-model strategy after confirming the unique derivation result and adding
+        authority, specialty, and independent numeric checks.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - bsa_mosteller_1987
+  - bsa_fda_valganciclovir_review
+  - bsa_asco_2021
+  - bsa_daniell_2012
+claims:
+  - id: claim:bsa:calculator-model
+    kind: applicability
+    statement: Body Surface Area (Mosteller) uses the declared population and formula variant. BSA equations can diverge at
+      body-size extremes. Use the exact formula and any cap named by the governing protocol; no single BSA formula is
+      universally preferred.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - bsa_asco_2021
+    locators:
+      - sourceId: bsa_asco_2021
+        locator: "ASCO 2021 guideline update, Recommendation 1.1 discussion: use a standard BSA formula; no evidence one formula
+          is preferred."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is descriptive; its executable equation, inputs, outputs, and applicability are scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa:formula-implementation
+    kind: formula
+    statement: BSA = square root of height(cm) multiplied by weight(kg), divided by 3600.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - bsa_mosteller_1987
+    locators:
+      - sourceId: bsa_mosteller_1987
+        locator: Mosteller 1987, NEJM 317:1098, square-root equation using height in cm, weight in kg, and denominator 3600.
+    executable: true
+    scenarioIds:
+      - case:bsa:ref-1
+      - case:bsa:ref-2
+      - case:bsa:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa:applicability-purpose
+    kind: applicability
+    statement: Compute raw BSA (m²) with the Mosteller formula when the governing protocol names this variant. Do not infer
+      a dose or cap.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - bsa_asco_2021
+    locators:
+      - sourceId: bsa_asco_2021
+        locator: ASCO 2021 guideline update, Recommendation 1.1 and dose-limitation discussion; formula choice does not itself
+          supply a cap.
+    executable: true
+    scenarioIds:
+      - case:bsa:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa:applicability-exclusions
+    kind: exclusion
+    statement: Do not calculate without a protocol naming the Mosteller variant and both measured height and measured weight.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - bsa_mosteller_1987
+    locators:
+      - sourceId: bsa_mosteller_1987
+        locator: Mosteller 1987 equation requires both measured height and measured weight for the named formula.
+    executable: true
+    scenarioIds:
+      - case:bsa:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa:input-weight_kg
+    kind: input
+    statement: Body weight in kilograms.
+    covers:
+      - input:weight_kg
+    status: supported
+    sourceIds:
+      - bsa_mosteller_1987
+    locators:
+      - sourceId: bsa_mosteller_1987
+        locator: Mosteller 1987, NEJM 317:1098, square-root equation using height in cm, weight in kg, and denominator 3600.
+    executable: true
+    scenarioIds:
+      - case:bsa:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa:input-weight_kg-hard_limits
+    kind: input
+    statement: OathMCP rejects Weight outside [0.5, 700] as a conservative operational safety envelope, not a clinical
+      decision cutoff.
+    covers:
+      - input:weight_kg:hard_limits
+    status: supported
+    sourceIds:
+      - bsa_mosteller_1987
+    locators:
+      - sourceId: bsa_mosteller_1987
+        locator: Mosteller 1987, NEJM 317:1098, square-root equation using height in cm, weight in kg, and denominator 3600.
+    executable: true
+    scenarioIds:
+      - case:bsa:hard-limit
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa:input-weight_kg-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Weight is outside [2, 300]; this is an operational review prompt, not
+      a clinical cutoff.
+    covers:
+      - input:weight_kg:plausibility
+    status: supported
+    sourceIds:
+      - bsa_mosteller_1987
+    locators:
+      - sourceId: bsa_mosteller_1987
+        locator: Mosteller 1987, NEJM 317:1098, square-root equation using height in cm, weight in kg, and denominator 3600.
+    executable: true
+    scenarioIds:
+      - case:bsa:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa:input-weight_kg-aliases
+    kind: input
+    statement: The compatibility alias preserves the same source-defined Weight quantity and unit while the runtime warns
+      that the canonical field is weight_kg.
+    covers:
+      - input:weight_kg:aliases
+    status: supported
+    sourceIds:
+      - bsa_mosteller_1987
+    locators:
+      - sourceId: bsa_mosteller_1987
+        locator: Mosteller 1987, NEJM 317:1098, square-root equation using height in cm, weight in kg, and denominator 3600.
+    executable: true
+    scenarioIds:
+      - case:bsa:alias
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa:input-height_cm
+    kind: input
+    statement: Height in centimeters.
+    covers:
+      - input:height_cm
+    status: supported
+    sourceIds:
+      - bsa_mosteller_1987
+    locators:
+      - sourceId: bsa_mosteller_1987
+        locator: Mosteller 1987, NEJM 317:1098, square-root equation using height in cm, weight in kg, and denominator 3600.
+    executable: true
+    scenarioIds:
+      - case:bsa:ref-1
+      - case:bsa:missing-required
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa:input-height_cm-hard_limits
+    kind: input
+    statement: OathMCP rejects Height outside [10, 300] as a conservative operational safety envelope, not a clinical
+      decision cutoff.
+    covers:
+      - input:height_cm:hard_limits
+    status: supported
+    sourceIds:
+      - bsa_mosteller_1987
+    locators:
+      - sourceId: bsa_mosteller_1987
+        locator: Mosteller 1987, NEJM 317:1098, square-root equation using height in cm, weight in kg, and denominator 3600.
+    executable: true
+    scenarioIds:
+      - case:bsa:hard-height_cm
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa:input-height_cm-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Height is outside [30, 250]; this is an operational review prompt,
+      not a clinical cutoff.
+    covers:
+      - input:height_cm:plausibility
+    status: supported
+    sourceIds:
+      - bsa_mosteller_1987
+    locators:
+      - sourceId: bsa_mosteller_1987
+        locator: Mosteller 1987, NEJM 317:1098, square-root equation using height in cm, weight in kg, and denominator 3600.
+    executable: true
+    scenarioIds:
+      - case:bsa:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:bsa:output-bsa
+    kind: outcome
+    statement: BSA in m², rounded to 2 decimal places.
+    covers:
+      - output:bsa
+    status: supported
+    sourceIds:
+      - bsa_mosteller_1987
+    locators:
+      - sourceId: bsa_mosteller_1987
+        locator: Mosteller 1987, NEJM 317:1098, square-root equation using height in cm, weight in kg, and denominator 3600.
+    executable: true
+    scenarioIds:
+      - case:bsa:ref-1
+      - case:bsa:ref-2
+      - case:bsa:ref-3
+      - case:bsa:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:bsa:ref-1
+    tags:
+      - calculator:bsa:core
+    inputs: &a2
+      weight_kg: 70
+      height_cm: 170
+    expected:
+      bsa: 1.82
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Frozen independently checked arithmetic after the calculator declared rounding rule.
+    claimIds:
+      - claim:bsa:formula-implementation
+      - claim:bsa:input-weight_kg
+      - claim:bsa:input-height_cm
+      - claim:bsa:output-bsa
+    sourceIds:
+      - bsa_mosteller_1987
+    witnesses:
+      - formula:implementation
+      - input:weight_kg
+      - input:height_cm
+      - output:bsa
+  - kind: reference
+    id: case:bsa:ref-2
+    tags:
+      - calculator:bsa:reference
+    inputs:
+      weight_kg: 80
+      height_cm: 180
+    expected:
+      bsa: 2
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:bsa:formula-implementation
+      - claim:bsa:output-bsa
+    sourceIds:
+      - bsa_mosteller_1987
+    witnesses:
+      - formula:implementation
+      - output:bsa
+  - kind: reference
+    id: case:bsa:ref-3
+    tags:
+      - calculator:bsa:reference
+    inputs:
+      weight_kg: 50
+      height_cm: 160
+    expected:
+      bsa: 1.49
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:bsa:formula-implementation
+      - claim:bsa:output-bsa
+    sourceIds:
+      - bsa_mosteller_1987
+    witnesses:
+      - formula:implementation
+      - output:bsa
+  - kind: edge
+    id: case:bsa:missing-required
+    tags:
+      - required-inputs
+    inputs: &a3
+      weight_kg: 70
+    expected: {}
+    expectedBehavior: clarify
+    tolerance: *a1
+    claimIds:
+      - claim:bsa:input-height_cm
+    sourceIds:
+      - bsa_mosteller_1987
+    witnesses:
+      - input:height_cm
+    expectedError:
+      code: MISSING_REQUIRED
+      field: height_cm
+      messageIncludes: Height is required.
+  - kind: edge
+    id: case:bsa:hard-limit
+    tags:
+      - hard-limits
+    inputs:
+      weight_kg: 0.4
+      height_cm: 170
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:bsa:input-weight_kg-hard_limits
+    sourceIds:
+      - bsa_mosteller_1987
+    witnesses:
+      - input:weight_kg:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: weight_kg
+      messageIncludes: Weight 0.4 is outside physiological limits [0.5, 700].
+  - kind: edge
+    id: case:bsa:plausibility
+    tags:
+      - plausibility
+    inputs:
+      weight_kg: 500
+      height_cm: 260
+    expected:
+      bsa: 6.01
+    expectedBehavior: warn
+    tolerance: *a1
+    claimIds:
+      - claim:bsa:input-weight_kg-plausibility
+      - claim:bsa:input-height_cm-plausibility
+      - claim:bsa:output-bsa
+    sourceIds:
+      - bsa_mosteller_1987
+    witnesses:
+      - input:weight_kg:plausibility
+      - input:height_cm:plausibility
+      - output:bsa
+    expectedWarnings:
+      - Weight 500 is unusual (expected 2–300).
+      - Height 260 is unusual (expected 30–250).
+  - kind: edge
+    id: case:bsa:alias
+    tags:
+      - aliases
+    inputs:
+      weight: 70
+      height_cm: 170
+    expected:
+      bsa: 1.82
+    expectedBehavior: warn
+    tolerance: *a1
+    claimIds:
+      - claim:bsa:input-weight_kg-aliases
+    sourceIds:
+      - bsa_mosteller_1987
+    witnesses:
+      - input:weight_kg:aliases
+    expectedWarnings:
+      - Input 'weight' is a compatibility alias; use 'weight_kg'.
+  - kind: agent
+    id: case:bsa:agent-purpose
+    tags:
+      - agent-applicability
+    inputs: *a2
+    expected:
+      bsa: 1.82
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:bsa:applicability-purpose
+    sourceIds:
+      - bsa_asco_2021
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:bsa:agent-exclusion
+    tags:
+      - agent-applicability
+    inputs: *a3
+    expected: {}
+    expectedBehavior: clarify
+    tolerance: *a1
+    claimIds:
+      - claim:bsa:applicability-exclusions
+    sourceIds:
+      - bsa_mosteller_1987
+    witnesses:
+      - applicability:exclusions
+    expectedError:
+      code: MISSING_REQUIRED
+      field: height_cm
+      messageIncludes: Height is required.
+  - kind: edge
+    id: case:bsa:hard-height_cm
+    tags:
+      - calculator:bsa:reference
+    inputs:
+      weight_kg: 70
+      height_cm: 5
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:bsa:input-height_cm-hard_limits
+    sourceIds:
+      - bsa_mosteller_1987
+    witnesses:
+      - input:height_cm:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: height_cm
+      messageIncludes: Height 5 is outside physiological limits [10, 300].
+compatibilityNotes: []
+explicitBlockers: []

@@ -1,0 +1,2755 @@
+schemaVersion: "1.0"
+authorities:
+  - id: pubmed_medline
+    name: PubMed MEDLINE
+    sourceRole: bibliographic_database
+    owner: U.S. National Library of Medicine
+    jurisdiction: International bibliographic index
+    controllingClaimScope:
+      - Literature discovery and reproducible search
+    approvalStatus: authoritative index
+    versionMethod: Record interface and query date
+    currentnessMethod: Re-run exact submitted queries
+    version: E-utilities interface checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: true
+    url: https://pubmed.ncbi.nlm.nih.gov/
+  - id: hrsa_optn
+    name: HRSA OPTN
+    sourceRole: controlling_authority
+    owner: Health Resources and Services Administration
+    jurisdiction: United States
+    controllingClaimScope:
+      - MELD allocation policy
+      - KDPI policy and annual mapping
+    approvalStatus: responsible authority
+    versionMethod: Record policy and data release identifiers
+    currentnessMethod: Check before release and at least every 90 days
+    version: site checked 2026-07-15
+    checkedAt: 2026-07-15
+    reviewBy: 2026-10-13
+    discoveryOnly: false
+    url: https://www.hrsa.gov/optn
+  - id: pubmed_medline_policy
+    name: PubMed MEDLINE policy and versioned-model search
+    sourceRole: bibliographic_database
+    owner: U.S. National Library of Medicine
+    jurisdiction: International bibliographic index
+    controllingClaimScope:
+      - Reproducible policy-model derivation and external-validation searches
+    approvalStatus: authoritative bibliographic index
+    versionMethod: Exact submitted query, translated query, stable PMID set, and interface date
+    currentnessMethod: Re-run the exact searches every 90 days with each policy-model review
+    version: PubMed web interface checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: true
+    url: https://pubmed.ncbi.nlm.nih.gov/
+  - id: cdc_guidance
+    name: Centers for Disease Control and Prevention
+    sourceRole: controlling_authority
+    owner: Centers for Disease Control and Prevention
+    jurisdiction: United States
+    controllingClaimScope:
+      - Current public-health interpretation guidance
+    approvalStatus: responsible authority
+    versionMethod: Record page revision and retrieval dates
+    currentnessMethod: Check before release and at least every 180 days
+    version: site checked 2026-07-15
+    checkedAt: 2026-07-15
+    reviewBy: 2027-01-11
+    discoveryOnly: false
+    url: https://www.cdc.gov/
+  - id: nice_guidance
+    name: NICE guidance
+    sourceRole: specialty_guidance
+    owner: National Institute for Health and Care Excellence
+    jurisdiction: United Kingdom
+    controllingClaimScope:
+      - Current clinical guidance and evidence-search method
+    approvalStatus: national guidance body
+    versionMethod: Record guidance identifier and update date
+    currentnessMethod: Check current guidance before release
+    version: site checked 2026-07-15
+    checkedAt: 2026-07-15
+    reviewBy: 2027-01-11
+    discoveryOnly: false
+    url: https://www.nice.org.uk/guidance
+  - id: drugs_fda
+    name: Drugs@FDA
+    sourceRole: approved_label
+    owner: U.S. Food and Drug Administration
+    jurisdiction: United States
+    controllingClaimScope:
+      - US approved-label dosing and product claims
+    approvalStatus: regulator-approved source
+    versionMethod: Record application, label, and supplement version
+    currentnessMethod: Check before release and at least every 90 days
+    version: site checked 2026-07-15
+    checkedAt: 2026-07-15
+    reviewBy: 2026-10-13
+    discoveryOnly: false
+    url: https://www.accessdata.fda.gov/scripts/cder/daf/
+  - id: bmi_keys_1972
+    name: Keys et al. indices of relative weight and obesity
+    sourceRole: derivation
+    owner: Journal of Chronic Diseases
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - BMI model identity and weight divided by squared height
+    approvalStatus: primary model paper
+    versionMethod: DOI and republished PMID checked
+    currentnessMethod: Check correction, retraction, and supersession records annually
+    version: doi:10.1016/0021-9681(72)90027-6
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/4650929/
+  - id: bmi_cdc_2024
+    name: CDC Adult BMI Categories
+    sourceRole: controlling_authority
+    owner: Centers for Disease Control and Prevention
+    jurisdiction: United States
+    controllingClaimScope:
+      - Adult BMI formula
+      - screening role
+      - and category boundaries
+    approvalStatus: current responsible public-health authority
+    versionMethod: Page revision date and content checked
+    currentnessMethod: Check current page and linked adult guidance annually
+    version: page dated 2024-03-19; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html
+  - id: bmi_who_2025
+    name: WHO obesity and overweight fact sheet
+    sourceRole: specialty_guidance
+    owner: World Health Organization
+    jurisdiction: International
+    controllingClaimScope:
+      - Adult BMI formula
+      - overweight and obesity thresholds
+      - and limitations
+    approvalStatus: current international public-health guidance
+    versionMethod: Page publication date and content checked
+    currentnessMethod: Check current WHO definition annually
+    version: page dated 2025-12-08; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight
+  - id: bmi_cdc_numeric_2024
+    name: CDC BMI calculation FAQ
+    sourceRole: independent_numeric
+    owner: Centers for Disease Control and Prevention
+    jurisdiction: United States
+    controllingClaimScope:
+      - Independent metric BMI equations and hand-calculation anchors
+    approvalStatus: responsible-authority calculation reference
+    versionMethod: Page revision date and equations checked
+    currentnessMethod: Check current calculation page annually
+    version: page dated 2024-06-28; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.cdc.gov/bmi/faq/index.html
+  - id: bsa_mosteller_1987
+    name: Mosteller simplified body-surface area calculation
+    sourceRole: derivation
+    owner: New England Journal of Medicine
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Mosteller BSA equation
+    approvalStatus: primary formula paper
+    versionMethod: PMID and DOI checked
+    currentnessMethod: Check correction, retraction, and supersession records annually
+    version: PMID 3657876; doi:10.1056/NEJM198710223171717
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/3657876/
+  - id: bsa_fda_valganciclovir_review
+    name: FDA clinical pharmacology review using Mosteller BSA
+    sourceRole: controlling_authority
+    owner: U.S. Food and Drug Administration
+    jurisdiction: United States
+    controllingClaimScope:
+      - Regulatory worked use of the Mosteller equation
+    approvalStatus: regulator review record
+    versionMethod: FDA review PDF content and formula checked
+    currentnessMethod: Check source availability and supersession annually
+    version: FDA media 92286; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.fda.gov/media/92286/download
+  - id: bsa_asco_2021
+    name: ASCO systemic therapy dosing guideline update
+    sourceRole: specialty_guidance
+    owner: American Society of Clinical Oncology
+    jurisdiction: International oncology practice
+    controllingClaimScope:
+      - BSA formula selection and prohibition on inferred dose caps
+    approvalStatus: evidence-based specialty guideline
+    versionMethod: Guideline DOI and recommendation text checked
+    currentnessMethod: Check ASCO guideline status before release and at least every 90 days
+    version: doi:10.1200/JCO.21.00471
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://ascopubs.org/doi/10.1200/JCO.21.00471
+  - id: bsa_daniell_2012
+    name: Criterion validity of whole body surface area equations
+    sourceRole: independent_numeric
+    owner: American Journal of Physical Anthropology
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Independent measured-surface comparison of BSA equations
+    approvalStatus: independent criterion-validity study
+    versionMethod: PMID, DOI, and methods checked
+    currentnessMethod: Check correction and retraction records annually
+    version: PMID 22460277; doi:10.1002/ajpa.22051
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/22460277/
+  - id: bsa_dubois_1916
+    name: Du Bois and Du Bois body-surface area formula
+    sourceRole: derivation
+    owner: Archives of Internal Medicine
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Du Bois coefficient and height and weight exponents
+    approvalStatus: primary formula paper
+    versionMethod: DOI, article pages, and equation checked
+    currentnessMethod: Check correction and supersession literature annually
+    version: doi:10.1001/archinte.1916.00080130010002
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://jamanetwork.com/journals/jamainternalmedicine/article-abstract/654069
+  - id: bsa_fda_rofecoxib_review
+    name: FDA rofecoxib clinical pharmacology review using Du Bois BSA
+    sourceRole: controlling_authority
+    owner: U.S. Food and Drug Administration
+    jurisdiction: United States
+    controllingClaimScope:
+      - Regulatory worked use of the Du Bois equation
+    approvalStatus: regulator review record
+    versionMethod: FDA pediatric review PDF content checked
+    currentnessMethod: Check source availability and supersession annually
+    version: NDA 21042s026 and 21052s019 review; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.accessdata.fda.gov/drugsatfda_docs/pediatric/rofecoxib_Vioxx-ClinPharmRev-21042s026_21052s019.pdf
+  - id: ibw_devine_1974
+    name: Devine gentamicin therapy ideal-weight equation
+    sourceRole: derivation
+    owner: Drug Intelligence and Clinical Pharmacy
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Devine adult ideal body weight equation
+    approvalStatus: primary formula publication
+    versionMethod: Journal DOI and bibliographic record checked
+    currentnessMethod: Check correction and historical-source reviews annually
+    version: doi:10.1177/106002807400801104
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://journals.sagepub.com/doi/10.1177/106002807400801104
+  - id: ibw_fda_ocs_2017
+    name: FDA OCS Lung clinical user guide Appendix B
+    sourceRole: controlling_authority
+    owner: U.S. Food and Drug Administration
+    jurisdiction: United States
+    controllingClaimScope:
+      - Regulatory reproduction of the adult Devine equation
+    approvalStatus: FDA-hosted device user guide
+    versionMethod: Document revision and Appendix B checked
+    currentnessMethod: Check FDA-hosted guide and device supersession annually
+    version: PN 100004071 Rev 2, Appendix B
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.fda.gov/media/105167/download
+  - id: ibw_accp_2020
+    name: ACCP special-populations dosing reference
+    sourceRole: specialty_guidance
+    owner: American College of Clinical Pharmacy
+    jurisdiction: International pharmacy practice
+    controllingClaimScope:
+      - Devine equation identity and protocol-specific weight selection
+    approvalStatus: specialty educational guidance
+    versionMethod: CCSAP chapter table and publication version checked
+    currentnessMethod: Check ACCP successor guidance annually
+    version: CCSAP 2020 Book 2 sample
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.accp.com/docs/bookstore/CCSAP/cc2020b2_sample.pdf
+  - id: ibw_pai_2000
+    name: Origin of the ideal body weight equations
+    sourceRole: independent_numeric
+    owner: Annals of Pharmacotherapy
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Independent reconstruction and limitations of the Devine equation
+    approvalStatus: independent historical and numeric review
+    versionMethod: PMID, DOI, and formula table checked
+    currentnessMethod: Check correction and retraction records annually
+    version: PMID 10981254; doi:10.1345/aph.19381
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/10981254/
+  - id: map_clinical_methods_1990
+    name: Clinical Methods blood pressure chapter
+    sourceRole: derivation
+    owner: U.S. National Library of Medicine
+    jurisdiction: International clinical reference
+    controllingClaimScope:
+      - Standard one-third pulse-pressure MAP approximation
+    approvalStatus: authoritative clinical methods reference
+    versionMethod: NCBI Bookshelf chapter and equation checked
+    currentnessMethod: Check successor measurement guidance annually
+    version: Clinical Methods 3rd edition, chapter 16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.ncbi.nlm.nih.gov/books/NBK268/
+  - id: map_aha_measurement_2024
+    name: AHA scientific statement on blood pressure measurement
+    sourceRole: controlling_authority
+    owner: American Heart Association
+    jurisdiction: United States
+    controllingClaimScope:
+      - MAP approximation and normal-heart-rate limitation
+    approvalStatus: current scientific statement
+    versionMethod: Published statement text and DOI checked
+    currentnessMethod: Check AHA scientific-statement status annually
+    version: PMCID PMC11409525; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11409525/
+  - id: map_accaha_2017
+    name: ACC/AHA high blood pressure clinical practice guideline
+    sourceRole: specialty_guidance
+    owner: American College of Cardiology and American Heart Association
+    jurisdiction: United States
+    controllingClaimScope:
+      - Calculated MAP definition and normal-heart-rate assumption
+    approvalStatus: clinical practice guideline
+    versionMethod: Guideline DOI and table text checked
+    currentnessMethod: Check successor hypertension guideline annually
+    version: doi:10.1161/HYP.0000000000000065
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://doi.org/10.1161/HYP.0000000000000065
+  - id: map_papaioannou_2020
+    name: Brachial pulse-wave MAP algorithm comparison
+    sourceRole: independent_numeric
+    owner: Journal of Hypertension
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Independent comparison and limitations of the one-third formula
+    approvalStatus: independent validation study
+    versionMethod: PMID, DOI, and reported standard equation checked
+    currentnessMethod: Check correction and retraction records annually
+    version: PMID 32694334; doi:10.1097/HJH.0000000000002564
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/32694334/
+  - id: ich_kothari_1996
+    name: Kothari ABCs of measuring ICH volumes
+    sourceRole: derivation
+    owner: Stroke
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - ABC/2 measurements
+      - weighted C method
+      - and rapid estimate
+    approvalStatus: primary derivation and validation paper
+    versionMethod: PMID, DOI, abstract, and method checked
+    currentnessMethod: Check correction, retraction, and supersession records annually
+    version: PMID 8711791; doi:10.1161/01.STR.27.8.1304
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/8711791/
+  - id: ich_aha_2022
+    name: AHA ASA spontaneous ICH guideline
+    sourceRole: controlling_authority
+    owner: American Heart Association and American Stroke Association
+    jurisdiction: United States
+    controllingClaimScope:
+      - Spontaneous ICH population
+      - CT context
+      - and ABC/2 use
+    approvalStatus: current clinical practice guideline
+    versionMethod: Guideline DOI, section 2.2, and page e294 checked
+    currentnessMethod: Check AHA ASA guideline status annually
+    version: doi:10.1161/STR.0000000000000407
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.heart.org/en/-/media/CPR2-Files/Private/2022-Guideline-for-the-Management-of-Patients-With-Spontaneous-Intracerebral-Hemorrhage-1.pdf
+  - id: ich_eso_eans_2025
+    name: ESO EANS spontaneous ICH guideline
+    sourceRole: specialty_guidance
+    owner: European Stroke Organisation and European Association of Neurosurgical Societies
+    jurisdiction: Europe
+    controllingClaimScope:
+      - Current spontaneous ICH assessment and volume context
+    approvalStatus: current specialty guideline
+    versionMethod: Published guideline version and DOI page checked
+    currentnessMethod: Check ESO EANS guideline status annually
+    version: European Stroke Journal 2025 volume 10 issue 4
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://academic.oup.com/esj/article/10/4/1007/8377192
+  - id: ich_hanley_2015
+    name: ABC/2 accuracy systematic review and pooled trial analysis
+    sourceRole: independent_numeric
+    owner: Stroke
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Independent planimetry comparison and irregular-clot limitations
+    approvalStatus: systematic review and multicohort validation
+    versionMethod: PMID, DOI, methods, and accuracy results checked
+    currentnessMethod: Check correction, retraction, and supersession records annually
+    version: PMID 26243227; doi:10.1161/STROKEAHA.114.007343
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/26243227/
+  - id: bsa_dubois_revisited_2000
+    name: Body surface area Du Bois and Du Bois revisited
+    sourceRole: independent_numeric
+    owner: European Journal of Applied Physiology
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Independent reconstruction of the Du Bois equation and derivation sample
+    approvalStatus: independent formula review
+    versionMethod: PMID and article title checked
+    currentnessMethod: Check correction and retraction records annually
+    version: PMID 10929220
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/10929220/
+  - id: map_razminia_2004
+    name: Validation of a new mean arterial pressure formula
+    sourceRole: independent_numeric
+    owner: Catheterization and Cardiovascular Interventions
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Independent comparison and heart-rate limitations of the standard one-third formula
+    approvalStatus: independent validation study
+    versionMethod: PMID, title, and equation comparison checked
+    currentnessMethod: Check correction and retraction records annually
+    version: PMID 15558774
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/15558774/
+  - id: ich_chang_2021
+    name: ICH volume estimation and ABC formula modification study
+    sourceRole: independent_numeric
+    owner: Clinical Neurology and Neurosurgery
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Independent ABC/2 versus ABC/3 comparison across hematoma shapes
+    approvalStatus: independent comparative study
+    versionMethod: PMID, abstract, methods, and conclusions checked
+    currentnessMethod: Check correction and retraction records annually
+    version: PMID 34214866
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/34214866/
+  - id: gfr_inker_2021
+    name: 2021 CKD-EPI race-free creatinine and cystatin C equations
+    sourceRole: derivation
+    owner: New England Journal of Medicine
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - 2021 CKD-EPI creatinine equation
+      - coefficients
+      - population
+      - and measured-GFR validation
+    approvalStatus: primary equation development and validation study
+    versionMethod: PMID, DOI, article equation, supplement, and correction record checked
+    currentnessMethod: Check correction, retraction, and supersession records annually
+    version: PMID 34554658; doi:10.1056/NEJMoa2102953
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/34554658/
+  - id: gfr_kdigo_2024
+    name: KDIGO 2024 CKD evaluation and management guideline
+    sourceRole: controlling_authority
+    owner: Kidney Disease Improving Global Outcomes
+    jurisdiction: International nephrology practice
+    controllingClaimScope:
+      - Adult CKD evaluation
+      - GFR categories
+      - chronicity
+      - albuminuria context
+      - and confirmatory testing
+    approvalStatus: current clinical practice guideline
+    versionMethod: Guideline DOI, executive summary, equations, and GFR category table checked
+    currentnessMethod: Check KDIGO guideline and errata status annually
+    version: Kidney International 2024;105(4S):S117-S314; doi:10.1016/j.kint.2023.10.018
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://kdigo.org/wp-content/uploads/2024/03/KDIGO-2024-CKD-Guideline.pdf
+  - id: gfr_nkf_asn_2021
+    name: NKF ASN race-free GFR estimation task-force report
+    sourceRole: specialty_guidance
+    owner: National Kidney Foundation and American Society of Nephrology
+    jurisdiction: United States
+    controllingClaimScope:
+      - Implementation of the 2021 race-free CKD-EPI creatinine equation and cystatin C confirmation
+    approvalStatus: joint specialty task-force recommendation
+    versionMethod: PMID, report recommendations, and implementation statement checked
+    currentnessMethod: Check NKF and ASN successor recommendations annually
+    version: PMID 34563581; 2021 final report
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/34563581/
+  - id: gfr_niddk_equations_2026
+    name: NIDDK adult eGFR equations reference
+    sourceRole: independent_numeric
+    owner: National Institute of Diabetes and Digestive and Kidney Diseases
+    jurisdiction: United States
+    controllingClaimScope:
+      - Independent literal equation
+      - units
+      - coefficients
+      - branches
+      - and critical-decision limitations
+    approvalStatus: current federal clinical-research reference
+    versionMethod: Adult equation page, branch table, units, and conversion anchors checked
+    currentnessMethod: Check the NIDDK equation page and revision date annually
+    version: 2021 CKD-EPI adult equations page checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.niddk.nih.gov/research-funding/research-programs/kidney-clinical-research-epidemiology/laboratory/glomerular-filtration-rate-equations/adults
+  - id: crcl_cockcroft_1976
+    name: Cockcroft Gault prediction of creatinine clearance
+    sourceRole: derivation
+    owner: Nephron
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Original adult Cockcroft-Gault equation
+      - age
+      - weight
+      - serum creatinine
+      - and female factor
+    approvalStatus: primary derivation and validation study
+    versionMethod: PMID, abstract, original equation, population, and female adjustment checked
+    currentnessMethod: Check correction and retraction records annually
+    version: PMID 1244564; Nephron 1976;16:31-41
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/1244564/
+  - id: crcl_fda_2024
+    name: FDA pharmacokinetics in impaired renal function guidance
+    sourceRole: controlling_authority
+    owner: U.S. Food and Drug Administration
+    jurisdiction: United States
+    controllingClaimScope:
+      - Renal-function method selection for drug development and label-specific dosing decisions
+    approvalStatus: final FDA guidance for industry
+    versionMethod: Final guidance date, renal-function methods, and dosing sections checked
+    currentnessMethod: Check FDA guidance and drug-specific labels at each review
+    version: March 2024 final guidance
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.fda.gov/media/78573/download
+  - id: crcl_nkf_2026
+    name: NKF Cockcroft-Gault medication-dosing position
+    sourceRole: specialty_guidance
+    owner: National Kidney Foundation
+    jurisdiction: United States
+    controllingClaimScope:
+      - Medication-dosing history
+      - weight-scalar limitations
+      - and transition to race-free eGFR
+    approvalStatus: current specialty position and practice reference
+    versionMethod: NKF professional page, limitations, and recommendations checked
+    currentnessMethod: Check NKF medication-dosing guidance annually
+    version: NKF professional page checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.kidney.org/professionals/kdoqi/cockcroft-gault-equation-estimating-creatinine-clearance
+  - id: crcl_winter_2012
+    name: Cockcroft-Gault body-weight accuracy study
+    sourceRole: independent_numeric
+    owner: Pharmacotherapy
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Independent measured-clearance comparison across body-weight scalars and creatinine values
+    approvalStatus: independent retrospective validation study
+    versionMethod: PMID, methods, weight strata, and measured-clearance comparison checked
+    currentnessMethod: Check correction, retraction, and supersession records annually
+    version: PMID 22576791; doi:10.1002/j.1875-9114.2012.01098.x
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/22576791/
+  - id: fwd_adrogue_2000
+    name: Adrogue and Madias hypernatremia review
+    sourceRole: derivation
+    owner: New England Journal of Medicine
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Static free-water-deficit equation
+      - total-body-water fractions
+      - and treatment limitations
+    approvalStatus: peer-reviewed clinical derivation review
+    versionMethod: PMID, DOI, equation, worked arithmetic, and treatment context checked
+    currentnessMethod: Check correction, retraction, and successor reviews annually
+    version: PMID 10816188; doi:10.1056/NEJM200005183422006
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/10816188/
+  - id: fwd_nhsaaa_2026
+    name: NHS Ayrshire and Arran adult hypernatraemia guideline
+    sourceRole: controlling_authority
+    owner: NHS Ayrshire and Arran Medicines
+    jurisdiction: Scotland
+    controllingClaimScope:
+      - Adult hypernatraemia assessment
+      - cause-directed management
+      - fluid choice
+      - and monitoring
+    approvalStatus: current health-system clinical guideline
+    versionMethod: Guideline page, scope, investigations, fluid guidance, and review state checked
+    currentnessMethod: Check NHS guideline review status annually
+    version: adult management page checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://aaamedicines.org.uk/guidelines/electrolyte-disturbances/management-of-hypernatraemia/
+  - id: fwd_yun_2023
+    name: Evaluation and management of hypernatremia in adults
+    sourceRole: specialty_guidance
+    owner: Korean Association of Internal Medicine
+    jurisdiction: International adult internal medicine
+    controllingClaimScope:
+      - Adult static water-deficit estimate
+      - ongoing losses
+      - serial sodium
+      - and treatment context
+    approvalStatus: current peer-reviewed clinical review
+    versionMethod: PMCID, equation section, management algorithm, and limitations checked
+    currentnessMethod: Check correction, retraction, and successor guidance annually
+    version: PMCID PMC10175862; Korean J Intern Med 2023
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10175862/
+  - id: fwd_uw_nephrology_2026
+    name: University of Washington nephrology hypernatremia curriculum
+    sourceRole: independent_numeric
+    owner: University of Washington Division of Nephrology
+    jurisdiction: United States academic nephrology
+    controllingClaimScope:
+      - Independent free-water-deficit teaching cases and hypernatremia context
+    approvalStatus: academic specialty curriculum
+    versionMethod: Curriculum page, definition, equation teaching, and case context checked
+    currentnessMethod: Check curriculum revision annually
+    version: curriculum checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://nephrology.uw.edu/education/educational-curricula/hypernatremia
+  - id: sodium_adrogue_2000
+    name: Adrogue and Madias hyponatremia review
+    sourceRole: derivation
+    owner: New England Journal of Medicine
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Theoretical sodium-content arithmetic and hyponatremia treatment context
+    approvalStatus: peer-reviewed clinical derivation review
+    versionMethod: PMID, DOI, equation, and treatment limitations checked
+    currentnessMethod: Check correction, retraction, and successor guidance annually
+    version: PMID 10824078; doi:10.1056/NEJM200005253422107
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/10824078/
+  - id: sodium_european_guideline_2014
+    name: European clinical practice guideline on hyponatraemia
+    sourceRole: controlling_authority
+    owner: European Society of Endocrinology, ESICM, and ERA ERBP
+    jurisdiction: Europe and international practice
+    controllingClaimScope:
+      - Cause- and symptom-directed hyponatraemia diagnosis
+      - treatment
+      - monitoring
+      - and correction limits
+    approvalStatus: multisociety clinical practice guideline with published correction
+    versionMethod: Guideline DOI, correction, diagnostic algorithm, and treatment recommendations checked
+    currentnessMethod: Check owner-society successor guideline and correction status annually
+    version: doi:10.1530/EJE-13-1020 plus 2014 correction
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://academic.oup.com/ejendo/article/170/3/G1/6668028
+  - id: sodium_expert_panel_2013
+    name: Hyponatremia expert-panel recommendations
+    sourceRole: specialty_guidance
+    owner: American Journal of Medicine expert panel
+    jurisdiction: United States and international practice
+    controllingClaimScope:
+      - Diagnosis
+      - cause-directed treatment
+      - monitoring
+      - and avoidance of overly rapid correction
+    approvalStatus: expert-panel clinical recommendations
+    versionMethod: PMID, DOI, diagnosis, treatment, and monitoring sections checked
+    currentnessMethod: Check correction and successor consensus statements annually
+    version: PMID 24074529; doi:10.1016/j.amjmed.2013.07.006
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/24074529/
+  - id: sodium_watson_1980
+    name: Watson adult total-body-water equations
+    sourceRole: independent_numeric
+    owner: American Journal of Clinical Nutrition
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Adult male and female anthropometric total-body-water regression equations
+    approvalStatus: primary measured-total-body-water regression study
+    versionMethod: PMID, DOI, coefficients, units, adult population, and equation tables checked
+    currentnessMethod: Check correction, retraction, and validation literature annually
+    version: PMID 6986753; doi:10.1093/ajcn/33.1.27
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/6986753/
+  - id: anion_oh_carroll_1977
+    name: Oh and Carroll anion-gap review
+    sourceRole: derivation
+    owner: New England Journal of Medicine
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Sodium-minus-chloride-and-bicarbonate anion-gap arithmetic and clinical context
+    approvalStatus: foundational clinical methods review
+    versionMethod: DOI, article formula, normal-gap convention, and applications checked
+    currentnessMethod: Check correction and successor reviews annually
+    version: PMID 895822; doi:10.1056/NEJM197710132971507
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.nejm.org/doi/full/10.1056/NEJM197710132971507
+  - id: anion_merck_2025
+    name: Merck Manual professional acid-base disorders reference
+    sourceRole: controlling_authority
+    owner: Merck Manual Professional Edition
+    jurisdiction: International clinical reference
+    controllingClaimScope:
+      - Current anion-gap formula
+      - albumin effect
+      - delta-gap context
+      - and mixed-disorder limitations
+    approvalStatus: current professionally reviewed clinical reference
+    versionMethod: Formula, albumin adjustment, delta-gap example, and page review date checked
+    currentnessMethod: Check the continuously updated professional reference annually
+    version: professional page checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.merckmanuals.com/professional/nephrology/acid-base-regulation-and-disorders/acid-base-disorders
+  - id: anion_kraut_nagami_2013
+    name: ASN review of serum anion-gap limitations
+    sourceRole: specialty_guidance
+    owner: Clinical Journal of the American Society of Nephrology
+    jurisdiction: International nephrology practice
+    controllingClaimScope:
+      - Local reference intervals
+      - albumin context
+      - delta-gap limitations
+      - and diagnostic interpretation
+    approvalStatus: specialty-journal systematic clinical review
+    versionMethod: PMID, PMCID, methods, equations, and limitations checked
+    currentnessMethod: Check correction, retraction, and successor reviews annually
+    version: PMID 23833313; PMCID PMC3817910; doi:10.2215/CJN.04040413
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3817910/
+  - id: anion_figge_1998
+    name: Figge albumin-adjusted anion-gap study
+    sourceRole: independent_numeric
+    owner: Critical Care Medicine
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Independent albumin correction factor and hypoalbuminemia effect
+    approvalStatus: comparative derivation study
+    versionMethod: PMID, DOI, objective, equation, units, and conclusions checked
+    currentnessMethod: Check correction, retraction, and validation literature annually
+    version: PMID 9824071; doi:10.1097/00003246-199811000-00019
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/9824071/
+  - id: calcium_payne_1973
+    name: Payne serum-calcium adjustment paper
+    sourceRole: derivation
+    owner: British Medical Journal
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Historical albumin-adjusted total-calcium equation and original study population
+    approvalStatus: primary historical formula publication
+    versionMethod: PMID, DOI, full text, original units, equation, and population checked
+    currentnessMethod: Check correction, retraction, and supersession literature annually
+    version: PMID 4758544; doi:10.1136/bmj.4.5893.643
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/4758544/
+  - id: calcium_bmj_1977
+    name: Conventional 0.8-factor albumin-adjusted calcium editorial
+    sourceRole: derivation
+    owner: British Medical Journal
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Historical conventional 0.8-factor albumin-adjusted total-calcium equation
+    approvalStatus: primary historical equation publication
+    versionMethod: PMID, PMCID, full-text page, original SI equation, and equivalent conventional units checked
+    currentnessMethod: Check correction, retraction, and supersession literature annually
+    version: PMID 843828; PMCID PMC1605322; doi:10.1136/bmj.1.6061.598
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC1605322/
+  - id: calcium_ifcc_eflm_2026
+    name: Joint IOF IFCC EFLM position on albumin-adjusted calcium
+    sourceRole: controlling_authority
+    owner: International Osteoporosis Foundation, IFCC, and EFLM
+    jurisdiction: International laboratory medicine
+    controllingClaimScope:
+      - Recommendation to stop reporting albumin-adjusted calcium and use total or ionized calcium appropriately
+    approvalStatus: current multisociety position statement
+    versionMethod: PMID, DOI, free full text, recommendations, and evidence table checked
+    currentnessMethod: Check society position and correction status annually
+    version: PMID 42035248; doi:10.1515/cclm-2026-0545
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/42035248/
+  - id: calcium_acb_2015
+    name: Association for Laboratory Medicine adjusted-calcium position paper
+    sourceRole: specialty_guidance
+    owner: Association for Laboratory Medicine
+    jurisdiction: United Kingdom laboratory medicine
+    controllingClaimScope:
+      - Assay-specific adjustment
+      - limitations
+      - and laboratory governance
+    approvalStatus: professional laboratory-medicine position paper
+    versionMethod: Position-paper PDF, scope, equation governance, and limitations checked
+    currentnessMethod: Check Association successor position annually
+    version: March 2015 position paper
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://labmed.org.uk/static/687cfd25-e2f1-4a88-b46972741321932a/adjusted-calcium-position-paper-march-2015.pdf
+  - id: calcium_desgagnes_2025
+    name: Albumin-adjusted calcium versus ionized calcium study
+    sourceRole: independent_numeric
+    owner: JAMA Network Open
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Independent classification accuracy of unadjusted and adjusted total calcium against ionized calcium
+    approvalStatus: large cross-sectional independent validation study
+    versionMethod: PMID, DOI, cohort, formulas, ionized-calcium reference, and classification results checked
+    currentnessMethod: Check correction, retraction, and successor studies annually
+    version: PMID 39836424; doi:10.1001/jamanetworkopen.2024.55251
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11751745/
+  - id: pubmed_medline_dosing
+    name: PubMed MEDLINE dosing release search
+    sourceRole: bibliographic_database
+    owner: U.S. National Library of Medicine
+    jurisdiction: International bibliographic index
+    controllingClaimScope:
+      - Quarterly literature discovery for calculators bound to approved-label release cadence
+    approvalStatus: authoritative index
+    versionMethod: Record interface and query date
+    currentnessMethod: Re-run exact submitted queries before release and at least every 90 days
+    version: E-utilities interface checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: true
+    url: https://pubmed.ncbi.nlm.nih.gov/
+  - id: aa_helmholz_1979
+    name: Helmholz abbreviated alveolar air equation
+    sourceRole: derivation
+    owner: Chest
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Simplified alveolar air equation
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: PMID 436542; doi:10.1378/chest.75.6.748
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/436542/
+  - id: aa_ncbi_bookshelf_2024
+    name: NCBI Bookshelf alveolar gas equation
+    sourceRole: controlling_authority
+    owner: U.S. National Library of Medicine
+    jurisdiction: United States
+    controllingClaimScope:
+      - Clinical use, steady-state limitation, and age-reference equation
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: NCBI Bookshelf NBK482268 and NBK545153; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.ncbi.nlm.nih.gov/books/NBK482268/
+  - id: aa_ers_2015
+    name: ERS physiological basis of pulmonary gas exchange
+    sourceRole: specialty_guidance
+    owner: European Respiratory Society
+    jurisdiction: International respiratory medicine
+    controllingClaimScope:
+      - Alveolar gas equation, A-a difference, and age reference
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: European Respiratory Journal 2015;45:227-243
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://publications.ersnet.org/content/erj/45/1/227
+  - id: aa_nasa_atmosphere
+    name: NASA metric standard atmosphere
+    sourceRole: independent_numeric
+    owner: NASA Glenn Research Center
+    jurisdiction: International engineering reference
+    controllingClaimScope:
+      - Altitude-to-barometric-pressure conversion
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: Metric atmosphere page checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/atmosmet508.html
+  - id: oi_rawat_2015
+    name: Rawat neonatal OSI derivation study
+    sourceRole: derivation
+    owner: Neonatology
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - OI and OSI equations and neonatal severity categories
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: PMID 25592054; doi:10.1159/000369774
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4405613/
+  - id: oi_nsw_ino_2025
+    name: NSW neonatal inhaled nitric oxide guideline
+    sourceRole: controlling_authority
+    owner: South Eastern Sydney Local Health District
+    jurisdiction: New South Wales, Australia
+    controllingClaimScope:
+      - Neonatal OI use and need for full ECMO context
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: RHW neonatal iNO guideline checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Neonatal/Medical/Inhaled%20Nitric%20Oxide%20%28iNO%29%20in%20Neonates.pdf
+  - id: oi_aha_ats_2015
+    name: AHA/ATS pediatric pulmonary hypertension guideline
+    sourceRole: specialty_guidance
+    owner: American Heart Association and American Thoracic Society
+    jurisdiction: United States
+    controllingClaimScope:
+      - Neonatal PPHN severity context and OI above 40 referral consideration
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: Circulation 2015 guideline checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.ahajournals.org/doi/10.1161/CIR.0000000000000329
+  - id: oi_muniraman_2019
+    name: Muniraman neonatal OSI validation study
+    sourceRole: independent_numeric
+    owner: JAMA Network Open
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Independent OI/OSI equations, correlation, and category mapping
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: PMID 30924897; doi:10.1001/jamanetworkopen.2019.1179
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6450323/
+  - id: r_benichou_1990
+    name: International consensus criteria for drug-induced liver disorders
+    sourceRole: derivation
+    owner: Journal of Hepatology
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Original R-ratio classification
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: PMID 2254635; doi:10.1016/0168-8278(90)90124-A
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/2254635/
+  - id: r_easl_2019
+    name: EASL drug-induced liver injury guideline
+    sourceRole: controlling_authority
+    owner: European Association for the Study of the Liver
+    jurisdiction: International hepatology
+    controllingClaimScope:
+      - Current R-ratio equation, exact boundaries, timing, and limitations
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: J Hepatol 2019;70:1222-1261
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://easl.eu/wp-content/uploads/2019/04/EASL-CPG-Drug-induced-liver-injury-2019-04.pdf
+  - id: r_aasld_2023
+    name: AASLD DILI practice guidance
+    sourceRole: specialty_guidance
+    owner: American Association for the Study of Liver Diseases
+    jurisdiction: United States
+    controllingClaimScope:
+      - R-value use, timing, and differential diagnosis
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: PMID 35899384; doi:10.1002/hep.32689
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9936988/
+  - id: r_fda_dili_2009
+    name: FDA DILI premarketing guidance
+    sourceRole: independent_numeric
+    owner: U.S. Food and Drug Administration
+    jurisdiction: United States
+    controllingClaimScope:
+      - Independent R-ratio equation and pattern thresholds
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: Final guidance July 2009; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.fda.gov/media/116737/download
+  - id: r_livertox_rucam_2019
+    name: LiverTox RUCAM clinical guidance
+    sourceRole: independent_numeric
+    owner: U.S. National Library of Medicine
+    jurisdiction: United States
+    controllingClaimScope:
+      - Local laboratory ULN preference and fallback ALT 40 U/L and ALP 115 U/L values
+    approvalStatus: reviewed responsible-authority clinical source
+    versionMethod: Stable NCBI Bookshelf chapter and exact recommendation checked
+    currentnessMethod: Check chapter revision and supersession annually
+    version: NCBI Bookshelf NBK548272; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.ncbi.nlm.nih.gov/books/NBK548272/
+  - id: gir_cowett_1983
+    name: Cowett neonatal glucose infusion physiology study
+    sourceRole: derivation
+    owner: Journal of Clinical Investigation
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Weight-normalized glucose infusion in mg/kg/min
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: PMID 6338038; doi:10.1172/JCI110791
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC436894/
+  - id: gir_nigeria_2021
+    name: National Guidelines for Comprehensive Newborn Care
+    sourceRole: controlling_authority
+    owner: Federal Ministry of Health Nigeria
+    jurisdiction: Nigeria
+    controllingClaimScope:
+      - Exact GIR concentration-rate-weight equation and worked conversion
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: First edition November 2021; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://platform.who.int/docs/default-source/mca-documents/policy-documents/by-country/nga/nga-ngcnc-nov-2021-first-edition-print-ready---08-11-2021--mnx38-fu-bpvgkat5x74ppg6.pdf?Status=Master&sfvrsn=e99cf9b0_2
+  - id: gir_ucdavis_2025
+    name: UC Davis NICU nutrition guideline
+    sourceRole: specialty_guidance
+    owner: UC Davis Health
+    jurisdiction: United States
+    controllingClaimScope:
+      - Current neonatal GIR monitoring and context
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: NICU Nutrition Guideline updated 2025; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://health.ucdavis.edu/media-resources/pediatrics/documents/pdfs/clinical-guidelines/NICU-Nutrition-Guideline-PCG-2025.pdf
+  - id: gir_rch_2026
+    name: Royal Children's Hospital neonatal hypoglycaemia guideline
+    sourceRole: independent_numeric
+    owner: Royal Children's Hospital Melbourne
+    jurisdiction: Australia
+    controllingClaimScope:
+      - Independent definition, concentration anchors, and mg/kg/min context
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check correction, retraction, supersession, and current page annually
+    version: Clinical guideline checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.rch.org.au/rchcpg/hospital_clinical_guideline_index/Neonatal_hypoglycaemia/
+  - id: chemo_vandenbongard_2000
+    name: Pharmacokinetically guided administration review
+    sourceRole: derivation
+    owner: Clinical Pharmacokinetics
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Conventional mg/m² chemotherapy dosing identity
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check before release and at least every 90 days
+    version: PMID 11108434; doi:10.2165/00003088-200039050-00004
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/11108434/
+  - id: chemo_fda_optimization_2024
+    name: FDA oncology dosage optimization guidance
+    sourceRole: controlling_authority
+    owner: U.S. Food and Drug Administration Oncology Center of Excellence
+    jurisdiction: United States
+    controllingClaimScope:
+      - Drug-specific dosage selection and benefit-risk review
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check before release and at least every 90 days
+    version: Final guidance August 2024; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://www.fda.gov/regulatory-information/search-fda-guidance-documents/optimizing-dosage-human-prescription-drugs-and-biological-products-treatment-oncologic-diseases
+  - id: chemo_paclitaxel_label_2015
+    name: FDA paclitaxel approved label
+    sourceRole: approved_label
+    owner: U.S. Food and Drug Administration
+    jurisdiction: United States
+    controllingClaimScope:
+      - Worked approved-label doses expressed in mg/m²
+    approvalStatus: regulator-approved prescribing information
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check before release and at least every 90 days
+    version: NDA 020262 supplement 051 label; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://www.accessdata.fda.gov/drugsatfda_docs/label/2015/020262s051lbl.pdf
+  - id: chemo_kmcc_bsa_cap_2024
+    name: Kent and Medway Cancer Collaborative BSA capping guidance
+    sourceRole: independent_numeric
+    owner: Kent and Medway Cancer Collaborative
+    jurisdiction: United Kingdom
+    controllingClaimScope:
+      - Explicit local cytotoxic chemotherapy BSA cap at 2.0 m²
+    approvalStatus: reviewed current regional chemotherapy policy
+    versionMethod: Versioned policy PDF and exact cap language checked
+    currentnessMethod: Check policy owner for revision before release and at least every 90 days
+    version: Version 2; policy review date March 2026; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://www.kmcc.nhs.uk/s3/assets/guidance-on-capping-of-bsa-for-the-purposes-of-calculating-cytotoxic-chemotherapy-v2.pdf
+  - id: carb_calvert_1989
+    name: Calvert carboplatin dosage study
+    sourceRole: derivation
+    owner: Journal of Clinical Oncology
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Calvert dose-AUC-kidney-function model
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check before release and at least every 90 days
+    version: PMID 2681557; doi:10.1200/JCO.1989.7.11.1748
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/2681557/
+  - id: carb_nci_ctep_2010
+    name: NCI CTEP carboplatin AUC dosing information letter
+    sourceRole: controlling_authority
+    owner: U.S. National Cancer Institute Cancer Therapy Evaluation Program
+    jurisdiction: United States
+    controllingClaimScope:
+      - Affected-protocol estimated kidney-function cap at 125 mL/min
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check before release and at least every 90 days
+    version: Information letter October 2010; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://dctd.cancer.gov/research/ctep-trials/memos/carboplatin-dosing.pdf
+  - id: carb_eviq_addikd_2022
+    name: eviQ carboplatin dose calculator implementing ADDIKD 2022
+    sourceRole: specialty_guidance
+    owner: Cancer Institute NSW
+    jurisdiction: Australia
+    controllingClaimScope:
+      - Adult method selection, indexed conversion, no universal cap, and final-only rounding
+    approvalStatus: reviewed primary or responsible-authority source
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check before release and at least every 90 days
+    version: Version 1 published 2022-10-24; site checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://www.eviq.org.au/clinical-resources/eviq-calculators/4171-carboplatin-dose-calculator
+  - id: carb_fda_label_2012
+    name: FDA carboplatin injection approved label
+    sourceRole: approved_label
+    owner: U.S. Food and Drug Administration
+    jurisdiction: United States
+    controllingClaimScope:
+      - Calvert formula and measured GFR label semantics
+    approvalStatus: regulator-approved prescribing information
+    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    currentnessMethod: Check before release and at least every 90 days
+    version: Application 077139 supplement 016 label; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/077139Orig1s016lbl.pdf
+  - id: apgar_apgar_1953
+    name: Virginia Apgar original newborn score
+    sourceRole: derivation
+    owner: Current Researches in Anesthesia and Analgesia
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Original five-component newborn score and 0-2 weights
+    approvalStatus: primary derivation paper
+    versionMethod: DOI and bibliographic identity checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: doi:10.1213/00000539-195307000-00001
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://doi.org/10.1213/00000539-195307000-00001
+  - id: apgar_acog_2015
+    name: ACOG and AAP Apgar Score Committee Opinion
+    sourceRole: controlling_authority
+    owner: American College of Obstetricians and Gynecologists and American Academy of Pediatrics
+    jurisdiction: United States
+    controllingClaimScope:
+      - Current clinical use
+      - timing
+      - concurrent interventions
+      - and limitations
+    approvalStatus: joint professional-society committee opinion available on the current ACOG guidance site
+    versionMethod: Committee Opinion 644 page and content checked
+    currentnessMethod: Check the live ACOG guidance page and replacement notices annually
+    version: Committee Opinion 644, October 2015; site checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2015/10/the-apgar-score
+  - id: apgar_aap_utstein_2023
+    name: Neonatal Utstein reporting guideline
+    sourceRole: specialty_guidance
+    owner: International Liaison Committee on Resuscitation Neonatal Life Support Task Force
+    jurisdiction: International
+    controllingClaimScope:
+      - Standardized reporting of neonatal condition
+      - interventions
+      - and Apgar timing
+    approvalStatus: international specialty reporting guideline
+    versionMethod: DOI and AAP publication page checked
+    currentnessMethod: Check ILCOR and AAP reporting updates annually
+    version: Pediatrics 2023;151:e2022059631
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://publications.aap.org/pediatrics/article/151/2/e2022059631/190463/Recommended-Guideline-for-Uniform-Reporting-of
+  - id: apgar_cnattingius_2017
+    name: Five-minute Apgar component external cohort
+    sourceRole: external_validation
+    owner: JAMA Pediatrics
+    jurisdiction: Sweden population cohort
+    controllingClaimScope:
+      - External cohort behavior of five-minute component scores and mortality association
+    approvalStatus: peer-reviewed external cohort
+    versionMethod: PMID and DOI checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 28493508
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/28493508/
+  - id: gcs_teasdale_jennett_1974
+    name: Teasdale and Jennett consciousness scale
+    sourceRole: derivation
+    owner: The Lancet
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Original eye
+      - verbal
+      - and motor response scale
+    approvalStatus: primary derivation paper
+    versionMethod: DOI and bibliographic identity checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: doi:10.1016/S0140-6736(74)91639-0
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://doi.org/10.1016/S0140-6736(74)91639-0
+  - id: gcs_official_faq_2026
+    name: Official Glasgow Coma Scale assessment aid and FAQ
+    sourceRole: controlling_authority
+    owner: Glasgow Coma Scale project, University of Glasgow
+    jurisdiction: International
+    controllingClaimScope:
+      - Component assessment
+      - interfering factors
+      - Not Testable reporting
+      - and total completeness
+    approvalStatus: official scale-owner guidance
+    versionMethod: Live assessment aid and FAQ content checked
+    currentnessMethod: Check official project pages annually
+    version: site checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.glasgowcomascale.org/faq/
+  - id: gcs_nice_ng232_2023
+    name: NICE head injury guideline NG232
+    sourceRole: specialty_guidance
+    owner: National Institute for Health and Care Excellence
+    jurisdiction: United Kingdom
+    controllingClaimScope:
+      - Head-injury GCS component reporting
+      - total format
+      - timing
+      - and TBI context
+    approvalStatus: current national specialty guideline
+    versionMethod: NG232 publication and live recommendation text checked
+    currentnessMethod: Check NICE update and replacement notices annually
+    version: NG232 published 2023; site checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.nice.org.uk/guidance/ng232/chapter/recommendations
+  - id: gcs_reith_2016
+    name: Glasgow Coma Scale reliability systematic review
+    sourceRole: external_validation
+    owner: Intensive Care Medicine
+    jurisdiction: International evidence synthesis
+    controllingClaimScope:
+      - External reliability
+      - standardization
+      - and assessment limitations
+    approvalStatus: peer-reviewed systematic review
+    versionMethod: PMID and DOI checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 26564211
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/26564211/
+  - id: nihss_brott_1989
+    name: Brott acute cerebral infarction examination scale
+    sourceRole: derivation
+    owner: Stroke
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - NIHSS item definitions
+      - weights
+      - and total range
+    approvalStatus: primary derivation paper
+    versionMethod: DOI and PMID checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: doi:10.1161/01.STR.20.7.864
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://doi.org/10.1161/01.STR.20.7.864
+  - id: nihss_ninds_2024
+    name: NINDS NIH Stroke Scale 2024 form
+    sourceRole: controlling_authority
+    owner: National Institute of Neurological Disorders and Stroke
+    jurisdiction: United States
+    controllingClaimScope:
+      - Current examination instructions
+      - visual stimuli
+      - item weights
+      - and UN semantics
+    approvalStatus: official scale form
+    versionMethod: February 2024 form identity and live NINDS file checked
+    currentnessMethod: Check the NINDS NIHSS publication page annually
+    version: updated February 2024; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.ninds.nih.gov/sites/default/files/documents/NIH-Stroke-Scale_updatedFeb2024_508.pdf
+  - id: nihss_aha_asa_2026
+    name: AHA ASA 2026 acute ischemic stroke guideline
+    sourceRole: specialty_guidance
+    owner: American Heart Association and American Stroke Association
+    jurisdiction: United States
+    controllingClaimScope:
+      - Current acute-stroke use and limitations of NIHSS thresholds in treatment decisions
+    approvalStatus: current professional-society guideline
+    versionMethod: Guideline DOI and Professional Heart Daily hub checked
+    currentnessMethod: Check AHA ASA guideline surveillance annually
+    version: doi:10.1161/STR.0000000000000513
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://professional.heart.org/en/science-news/2026-guideline-for-the-early-management-of-patients-with-acute-ischemic-stroke
+  - id: nihss_stockbridge_2024
+    name: NIHSS 2024 picture-stimulus validation
+    sourceRole: external_validation
+    owner: Stroke
+    jurisdiction: United States validation cohort
+    controllingClaimScope:
+      - Validation of the updated NIHSS language and object-picture stimuli
+    approvalStatus: peer-reviewed external validation study
+    versionMethod: PMID, PMCID, and DOI checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 38252764; doi:10.1161/STROKEAHA.123.044384
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/38252764/
+  - id: nihss_zero_2011
+    name: NIHSS zero stroke limitation study
+    sourceRole: external_validation
+    owner: Annals of Emergency Medicine
+    jurisdiction: United States stroke-center cohort
+    controllingClaimScope:
+      - NIHSS zero does not exclude ischemic stroke
+    approvalStatus: peer-reviewed external clinical study
+    versionMethod: PMID, PMCID, and DOI checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 20828876; doi:10.1016/j.annemergmed.2010.06.564
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/20828876/
+  - id: morse_morse_1989
+    name: Morse Fall Scale development study
+    sourceRole: derivation
+    owner: Canadian Journal on Aging
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Six-item Morse Fall Scale identity and weights
+    approvalStatus: primary development and internal validation paper
+    versionMethod: DOI and journal record checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: doi:10.1017/S0714980800008576
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://doi.org/10.1017/S0714980800008576
+  - id: morse_ahrq_toolkit_2026
+    name: AHRQ Preventing Falls in Hospitals toolkit
+    sourceRole: controlling_authority
+    owner: Agency for Healthcare Research and Quality
+    jurisdiction: United States
+    controllingClaimScope:
+      - Published Morse item table
+      - descriptive thresholds
+      - and local-cutoff caveat
+    approvalStatus: current federal patient-safety toolkit
+    versionMethod: Live toolkit PDF and Tool 3H table checked
+    currentnessMethod: Check AHRQ toolkit updates annually
+    version: toolkit PDF checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.ahrq.gov/sites/default/files/publications2/files/fallpxtoolkit-update.pdf
+  - id: morse_ahrq_psnet_2026
+    name: AHRQ PSNet inpatient fall-risk guidance
+    sourceRole: specialty_guidance
+    owner: Agency for Healthcare Research and Quality Patient Safety Network
+    jurisdiction: United States
+    controllingClaimScope:
+      - Hospital fall-risk screening context and limits of score-only prevention
+    approvalStatus: federal patient-safety guidance
+    versionMethod: Live PSNet clinical commentary and Morse table checked
+    currentnessMethod: Check AHRQ PSNet updates annually
+    version: page checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://psnet.ahrq.gov/web-mm/falling-through-crack-bedrails
+  - id: morse_chow_2007
+    name: Morse Fall Scale external hospital-population evaluation
+    sourceRole: external_validation
+    owner: International Journal of Nursing Studies
+    jurisdiction: Hong Kong rehabilitation hospitals
+    controllingClaimScope:
+      - External predictive validity
+      - inter-rater reliability
+      - and population-specific cutoff performance
+    approvalStatus: peer-reviewed external validation study
+    versionMethod: PMID and DOI checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 16464453; doi:10.1016/j.ijnurstu.2005.12.003
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/16464453/
+  - id: gad7_spitzer_2006
+    name: GAD-7 derivation and criterion-standard validation
+    sourceRole: derivation
+    owner: Archives of Internal Medicine
+    jurisdiction: United States primary-care clinics
+    controllingClaimScope:
+      - Seven item wording, 0-3 response weights, 0-21 total, severity ranges, and score-10 screening cut point
+    approvalStatus: primary derivation and criterion-standard validation study
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: PMID 16717171; doi:10.1001/archinte.166.10.1092
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/16717171/
+  - id: gad7_nih_form_2026
+    name: NIH GAD-7 form
+    sourceRole: controlling_authority
+    owner: National Institutes of Health
+    jurisdiction: United States
+    controllingClaimScope:
+      - Current official seven-item form identity and response-frequency wording
+    approvalStatus: official federal instrument page
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: live page checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.nih.gov/node/19876
+  - id: gad7_uspstf_2023
+    name: USPSTF anxiety screening recommendation 2023
+    sourceRole: specialty_guidance
+    owner: U.S. Preventive Services Task Force
+    jurisdiction: United States adults
+    controllingClaimScope:
+      - Screening population, evidence limits in older adults, and requirement for diagnostic follow-up after a positive
+        screen
+    approvalStatus: current federal preventive-services recommendation
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: JAMA 2023 recommendation; live statement checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/anxiety-adults-screening
+  - id: gad7_lowe_2008
+    name: GAD-7 general-population external validation
+    sourceRole: external_validation
+    owner: Medical Care
+    jurisdiction: German general population
+    controllingClaimScope:
+      - External psychometric validation, age and population applicability, and absence of diagnostic substitution
+    approvalStatus: peer-reviewed independent external validation
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: PMID 18388841; doi:10.1097/MLR.0b013e318160d093
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/18388841/
+  - id: mews_subbe_2001
+    name: Subbe five-parameter MEWS validation
+    sourceRole: derivation
+    owner: QJM
+    jurisdiction: United Kingdom acute medical admissions
+    controllingClaimScope:
+      - Five observation bands and weights, 0-14 total, serial-observation setting, and score-5 risk threshold
+    approvalStatus: primary model development and validation study
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: PMID 11588210; doi:10.1093/qjmed/94.10.521
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/11588210/
+  - id: mews_nice_cg50_2026
+    name: NICE CG50 acute deterioration guidance
+    sourceRole: controlling_authority
+    owner: National Institute for Health and Care Excellence
+    jurisdiction: England and Wales adult hospital care
+    controllingClaimScope:
+      - Current adult inpatient physiological observation, aggregate track-and-trigger, escalation, and clinical-concern
+        requirements
+    approvalStatus: current national clinical guideline with 2020 surveillance retained
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: CG50; live guidance checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.nice.org.uk/guidance/cg50
+  - id: ssc_adult_2026
+    name: Surviving Sepsis Campaign adult guideline 2026
+    sourceRole: specialty_guidance
+    owner: Society of Critical Care Medicine and European Society of Intensive Care Medicine
+    jurisdiction: International adult hospital, immediate prehospital, and immediate post-hospital care
+    controllingClaimScope:
+      - Current inpatient sepsis-screening role of MEWS and the limitation against qSOFA as a single screening tool
+    approvalStatus: current international professional-society guideline
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: doi:10.1007/s00134-026-08361-1; published 2026-03-23
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://doi.org/10.1007/s00134-026-08361-1
+  - id: mews_ho_2014
+    name: MEWS external emergency-department validation
+    sourceRole: external_validation
+    owner: World Journal of Emergency Medicine
+    jurisdiction: Singapore adult emergency department
+    controllingClaimScope:
+      - External discrimination, high negative predictive value, poor sensitivity, and setting-specific performance
+    approvalStatus: peer-reviewed independent external validation
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: PMID 25215131
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/25215131/
+  - id: pews_monaghan_2005
+    name: Brighton PEWS implementation report
+    sourceRole: derivation
+    owner: Paediatric Nursing
+    jurisdiction: Brighton, United Kingdom pediatric inpatient unit
+    controllingClaimScope:
+      - Three domain 0-3 score, exact option descriptions, quarter-hourly nebulizer and postoperative-vomiting
+        modifiers, and inpatient purpose
+    approvalStatus: primary score implementation report
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: doi:10.7748/paed2005.02.17.1.32.c964
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://doi.org/10.7748/paed2005.02.17.1.32.c964
+  - id: pews_nhs_england_2023
+    name: NHS England National PEWS charts 2023
+    sourceRole: controlling_authority
+    owner: NHS England
+    jurisdiction: England general pediatric wards
+    controllingClaimScope:
+      - Current age-banded National PEWS chart identity and explicit distinction from legacy Brighton PEWS
+    approvalStatus: current national observation and escalation charts
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: published 2023-11-03; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.england.nhs.uk/publication/national-pews-observation-and-escalation-charts/
+  - id: pews_rcpch_national_2023
+    name: RCPCH and NHS England National PEWS safety guidance
+    sourceRole: specialty_guidance
+    owner: Royal College of Paediatrics and Child Health with NHS England and Royal College of Nursing
+    jurisdiction: United Kingdom pediatric inpatient care
+    controllingClaimScope:
+      - Current escalation system, parent or carer concern override, and non-interchangeability of local PEWS variants
+    approvalStatus: current national pediatric safety guidance
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: national PEWS launch 2023; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.england.nhs.uk/2023/11/new-nhs-warning-system-to-spot-deterioration-in-childrens-health-faster/
+  - id: pews_roland_2016
+    name: Brighton PEWS external emergency-department accuracy study
+    sourceRole: external_validation
+    owner: Emergency Medicine Journal
+    jurisdiction: United Kingdom pediatric emergency departments
+    controllingClaimScope:
+      - External Brighton PEWS diagnostic accuracy and poor rule-out performance in the emergency department
+    approvalStatus: peer-reviewed independent external validation
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: PMID 26531861; doi:10.1136/emermed-2015-204951
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/26531861/
+  - id: qsofa_seymour_2016
+    name: qSOFA derivation and validation study
+    sourceRole: derivation
+    owner: JAMA
+    jurisdiction: Large United States and international adult suspected-infection cohorts
+    controllingClaimScope:
+      - Respiratory-rate, systolic-pressure, and mentation criteria, score threshold, non-ICU setting, and poor-outcome
+        endpoint
+    approvalStatus: primary Sepsis-3 clinical-criteria derivation and validation study
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: PMID 26903335; doi:10.1001/jama.2016.0288
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/26903335/
+  - id: qsofa_sepsis3_2016
+    name: Third International Consensus Definitions for Sepsis and Septic Shock
+    sourceRole: controlling_authority
+    owner: ESICM and SCCM Sepsis-3 task force
+    jurisdiction: International adult suspected-infection care
+    controllingClaimScope:
+      - qSOFA Box 4 identity, adult suspected-infection applicability, GCS-less-than-15 mentation definition, and
+        prompt-not-diagnosis role
+    approvalStatus: international consensus definition
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: PMID 26903338; doi:10.1001/jama.2016.0287
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4968574/
+  - id: qsofa_freund_2017
+    name: qSOFA multicenter emergency-department external validation
+    sourceRole: external_validation
+    owner: JAMA
+    jurisdiction: European adult emergency departments
+    controllingClaimScope:
+      - External prognostic accuracy for in-hospital mortality in adults with suspected infection
+    approvalStatus: peer-reviewed prospective multicenter external validation
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: PMID 28114554; doi:10.1001/jama.2016.20329
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/28114554/
+  - id: child_pugh_pugh_1973
+    name: Pugh modification of the Child classification
+    sourceRole: derivation
+    owner: British Journal of Surgery
+    jurisdiction: United Kingdom patients undergoing surgery for bleeding esophageal varices
+    controllingClaimScope:
+      - Five-component 1-3 score, replacement of nutrition with prothrombin time, and class boundaries
+    approvalStatus: primary derivation paper
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: PMID 4541913; doi:10.1002/bjs.1800600817
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/4541913/
+  - id: child_pugh_va_2026
+    name: VA Child-Turcotte-Pugh cirrhosis calculator
+    sourceRole: controlling_authority
+    owner: U.S. Department of Veterans Affairs
+    jurisdiction: United States adult cirrhosis care
+    controllingClaimScope:
+      - Current modified INR thresholds, bilirubin and albumin categories, ascites and encephalopathy definitions,
+        total, and class boundaries
+    approvalStatus: current federal clinical reference
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: live table checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.hepatitis.va.gov/cirrhosis/background/child-pugh-calculator.asp
+  - id: child_pugh_aasld_2024
+    name: AASLD cirrhosis and portal-hypertension practice guidance
+    sourceRole: specialty_guidance
+    owner: American Association for the Study of Liver Diseases
+    jurisdiction: United States adult cirrhosis care
+    controllingClaimScope:
+      - Contemporary cirrhosis context, decompensation features, and use of multidimensional assessment rather than a
+        score as a treatment directive
+    approvalStatus: current professional-society practice guidance hub
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: guidance hub checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.aasld.org/practice-guidelines/portal-hypertension-bleeding-cirrhosis
+  - id: child_pugh_albers_1989
+    name: Child-Pugh prognostic external evaluation
+    sourceRole: external_validation
+    owner: Scandinavian Journal of Gastroenterology
+    jurisdiction: German adult cirrhosis cohort
+    controllingClaimScope:
+      - External prognostic association and limitations of broad class-based prognosis
+    approvalStatus: peer-reviewed independent external evaluation
+    versionMethod: Primary URL, DOI, PMID, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates annually
+    version: PMID 2734585; doi:10.3109/00365528909093045
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/2734585/
+  - id: chadsvasc_lip_2010
+    name: CHA2DS2-VASc derivation and refinement cohort
+    sourceRole: derivation
+    owner: Chest
+    jurisdiction: European nonvalvular atrial-fibrillation cohort
+    controllingClaimScope:
+      - Score components
+      - weights
+      - population
+      - and thromboembolism endpoint
+    approvalStatus: peer-reviewed primary derivation report
+    versionMethod: DOI and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: doi:10.1378/chest.09-1584
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/19762550/
+  - id: chadsvasc_olesen_2011
+    name: Nationwide CHA2DS2-VASc external validation
+    sourceRole: external_validation
+    owner: BMJ
+    jurisdiction: Danish non-anticoagulated atrial-fibrillation cohort
+    controllingClaimScope:
+      - Independent thromboembolism validation and low-risk performance
+    approvalStatus: peer-reviewed nationwide external validation
+    versionMethod: PMID, DOI, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 21282258; doi:10.1136/bmj.d124
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/21282258/
+  - id: chadsvasc_friberg_2012
+    name: Swedish AF cohort CHA2DS2-VASc annual event-rate study
+    sourceRole: external_validation
+    owner: European Heart Journal
+    jurisdiction: Swedish hospital-treated atrial-fibrillation cohort
+    controllingClaimScope:
+      - Observed annual ischemic-stroke and composite thromboembolism rates by CHA2DS2-VASc score
+    approvalStatus: peer-reviewed nationwide cohort study
+    versionMethod: PMID, DOI, cohort identity, and published event-rate figure checked directly
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 22246443; doi:10.1093/eurheartj/ehr488
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/22246443/
+  - id: chadsvasc_accaha_2023
+    name: 2023 ACC AHA ACCP HRS atrial-fibrillation guideline
+    sourceRole: controlling_authority
+    owner: American College of Cardiology and American Heart Association
+    jurisdiction: United States atrial-fibrillation care
+    controllingClaimScope:
+      - Current score interpretation
+      - sex-modifier semantics
+      - exclusions
+      - and annual-risk context
+    approvalStatus: current multisociety clinical-practice guideline
+    versionMethod: Guideline DOI and official hub checked directly
+    currentnessMethod: Check official update and replacement notices annually
+    version: 2023 guideline; doi:10.1161/CIR.0000000000001193
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://professional.heart.org/en/science-news/2023-acc-aha-accp-hrs-guideline-for-the-diagnosis-and-management-of-atrial-fibrillation
+  - id: chadsvasc_esc_2024
+    name: 2024 ESC atrial-fibrillation guideline
+    sourceRole: specialty_guidance
+    owner: European Society of Cardiology
+    jurisdiction: European atrial-fibrillation care
+    controllingClaimScope:
+      - Contemporary limitations
+      - dynamic risk reassessment
+      - and distinction from CHA2DS2-VA guidance
+    approvalStatus: current specialty-society guideline
+    versionMethod: Official ESC guideline version checked directly
+    currentnessMethod: Check ESC corrections and replacement guidance annually
+    version: 2024 ESC AF guideline
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.escardio.org/Guidelines/Clinical-Practice-Guidelines/Atrial-Fibrillation
+  - id: timi_antman_2000
+    name: TIMI UA NSTEMI risk-score derivation and validation
+    sourceRole: derivation
+    owner: JAMA
+    jurisdiction: International TIMI 11B and ESSENCE UA NSTEMI trial cohorts
+    controllingClaimScope:
+      - Seven predictors
+      - equal weights
+      - exact 14-day composite endpoint
+      - and cohort event rates
+    approvalStatus: peer-reviewed primary derivation and internal validation report
+    versionMethod: PMID, DOI, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 10938172; doi:10.1001/jama.284.7.835
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/10938172/
+  - id: timi_polonio_2010
+    name: Independent prospective TIMI UA NSTEMI evaluation
+    sourceRole: external_validation
+    owner: International Journal of Cardiology
+    jurisdiction: Spanish consecutive UA NSTEMI cohort
+    controllingClaimScope:
+      - Independent prognostic evaluation and model limitations
+    approvalStatus: peer-reviewed independent prospective evaluation
+    versionMethod: PMID, DOI, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 20439123; doi:10.1016/j.ijcard.2010.04.016
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/20439123/
+  - id: timi_accaha_2025
+    name: 2025 ACC AHA acute-coronary-syndromes guideline
+    sourceRole: controlling_authority
+    owner: American College of Cardiology and American Heart Association
+    jurisdiction: United States acute-coronary-syndrome care
+    controllingClaimScope:
+      - Current ACS risk-assessment context and non-diagnostic use
+    approvalStatus: current multisociety clinical-practice guideline
+    versionMethod: Official guideline hub and publication version checked directly
+    currentnessMethod: Check official update and replacement notices annually
+    version: 2025 ACS guideline
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://professional.heart.org/en/science-news/2025-guideline-for-the-management-of-patients-with-acute-coronary-syndromes
+  - id: timi_esc_2023
+    name: 2023 ESC acute-coronary-syndromes guideline
+    sourceRole: specialty_guidance
+    owner: European Society of Cardiology
+    jurisdiction: European acute-coronary-syndrome care
+    controllingClaimScope:
+      - Contemporary NSTE ACS risk stratification
+      - diagnosis
+      - and management context
+    approvalStatus: current specialty-society guideline
+    versionMethod: Official ESC guideline version checked directly
+    currentnessMethod: Check ESC corrections and replacement guidance annually
+    version: 2023 ESC ACS guideline
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.escardio.org/Guidelines/Clinical-Practice-Guidelines/Acute-Coronary-Syndromes-ACS-Guidelines
+  - id: wells_dvt_wells_2003
+    name: Modified two-level Wells DVT derivation pathway
+    sourceRole: derivation
+    owner: New England Journal of Medicine
+    jurisdiction: Outpatients with suspected lower-extremity DVT
+    controllingClaimScope:
+      - Ten components
+      - negative weight
+      - two-level threshold
+      - and diagnostic-pathway endpoint
+    approvalStatus: peer-reviewed prospective randomized diagnostic-management study
+    versionMethod: PMID, DOI, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 14507948; doi:10.1056/NEJMoa023153
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/14507948/
+  - id: wells_dvt_geersing_2014
+    name: Wells DVT individual-patient-data external validation
+    sourceRole: external_validation
+    owner: BMJ
+    jurisdiction: Clinically important suspected-DVT subgroups
+    controllingClaimScope:
+      - Independent diagnostic performance and subgroup limitations
+    approvalStatus: peer-reviewed individual-patient-data meta-analysis
+    versionMethod: DOI and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: doi:10.1136/bmj.g1340
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.bmj.com/content/348/bmj.g1340
+  - id: wells_dvt_nice_ng158
+    name: NICE NG158 two-level DVT Wells pathway
+    sourceRole: controlling_authority
+    owner: National Institute for Health and Care Excellence
+    jurisdiction: United Kingdom suspected venous-thromboembolic disease
+    controllingClaimScope:
+      - Current two-level components
+      - at-least-3-cm boundary
+      - threshold
+      - and diagnostic pathway
+    approvalStatus: current national clinical guideline
+    versionMethod: Official recommendation and update history checked directly
+    currentnessMethod: Check NICE update and replacement notices annually
+    version: NG158 recommendations checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://www.nice.org.uk/guidance/ng158/chapter/Recommendations
+  - id: wells_dvt_ash_2018
+    name: ASH venous-thromboembolism diagnosis guideline
+    sourceRole: specialty_guidance
+    owner: American Society of Hematology
+    jurisdiction: Suspected venous thromboembolism diagnosis
+    controllingClaimScope:
+      - Use of validated pretest-probability rules with D-dimer and imaging
+    approvalStatus: current specialty-society guideline
+    versionMethod: Guideline DOI and official society page checked directly
+    currentnessMethod: Check ASH corrections and replacement guidance annually
+    version: 2018 diagnosis guideline
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://ashpublications.org/bloodadvances/article/2/22/3226/16138/American-Society-of-Hematology-2018-guidelines-for
+  - id: ranson_ranson_1974
+    name: Original non-gallstone Ranson criteria
+    sourceRole: derivation
+    owner: Surgery Gynecology and Obstetrics
+    jurisdiction: Historical adults with acute pancreatitis
+    controllingClaimScope:
+      - Original admission and 48-hour thresholds and historical mortality strata
+    approvalStatus: peer-reviewed primary derivation report
+    versionMethod: PMID and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 4834279
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/4834279/
+  - id: ranson_jpn_2006
+    name: JPN guideline comparison of original and modified Ranson criteria
+    sourceRole: specialty_guidance
+    owner: Japanese Society of Hepato-Biliary-Pancreatic Surgery
+    jurisdiction: Historical acute-pancreatitis severity assessment
+    controllingClaimScope:
+      - Etiology-specific Ranson identity
+      - modified gallstone thresholds
+      - and 48-hour completion requirement
+    approvalStatus: peer-reviewed national clinical-practice guideline
+    versionMethod: PMID, DOI, PMC full text, historical-progress section, and Table 2 checked directly
+    currentnessMethod: Treat as historical model documentation and check replacement guidance annually
+    version: PMID 16463209; doi:10.1007/s00534-005-1049-1
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC2779364/
+  - id: ranson_meta_2023
+    name: Independent Ranson severe-pancreatitis meta-analysis
+    sourceRole: external_validation
+    owner: United European Gastroenterology Journal
+    jurisdiction: International acute-pancreatitis cohorts
+    controllingClaimScope:
+      - External predictive performance
+      - heterogeneity
+      - and limitations
+    approvalStatus: peer-reviewed systematic review and meta-analysis
+    versionMethod: PMID and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, and newer systematic reviews annually
+    version: PMID 37755341
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/37755341/
+  - id: ranson_acg_2024
+    name: 2024 ACG acute-pancreatitis guideline
+    sourceRole: controlling_authority
+    owner: American College of Gastroenterology
+    jurisdiction: United States adult acute-pancreatitis care
+    controllingClaimScope:
+      - Current severity assessment
+      - management context
+      - and limitations of historical scores
+    approvalStatus: current specialty-society clinical guideline
+    versionMethod: PMID and guideline publication checked directly
+    currentnessMethod: Check ACG corrections and replacement guidance annually
+    version: PMID 38857482
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/38857482/
+  - id: ranson_atlanta_2012
+    name: Revised Atlanta acute-pancreatitis classification
+    sourceRole: specialty_guidance
+    owner: International Acute Pancreatitis Classification Working Group
+    jurisdiction: International adult acute-pancreatitis classification
+    controllingClaimScope:
+      - Current severity
+      - organ-failure
+      - and local-complication definitions
+    approvalStatus: international consensus classification
+    versionMethod: DOI and publication identity checked directly
+    currentnessMethod: Check corrections and replacement consensus annually
+    version: doi:10.1136/gutjnl-2012-302779
+    checkedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    discoveryOnly: false
+    url: https://gut.bmj.com/content/62/1/102
+  - id: eos_kuzniewicz_2017_2024
+    name: Kaiser EOS original and 2024 model reports
+    sourceRole: derivation
+    owner: Kaiser Permanente Northern California and Pediatrics
+    jurisdiction: Infants born at 35 weeks gestation or later in the Kaiser model cohorts
+    controllingClaimScope:
+      - Original corrected equation, updated coefficients, clinical likelihood ratios, model populations, and validation
+        cohorts
+    approvalStatus: peer-reviewed primary model reports
+    versionMethod: DOI, PMID, publication supplement, and operator model-update page checked directly
+    currentnessMethod: Check corrections, retractions, operator revisions, and replacement model reports every 90 days
+    version: PMID 28114554; PMID 39314183; doi:10.1542/peds.2023-065267
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/39314183/
+  - id: eos_technical_assessment_2021
+    name: Independent technical assessment of the neonatal EOS calculator
+    sourceRole: external_validation
+    owner: The Lancet Infectious Diseases
+    jurisdiction: External neonatal EOS calculator evidence and transportability review
+    controllingClaimScope:
+      - Independent sensitivity, transportability, and implementation-limit assessment
+    approvalStatus: peer-reviewed independent technical assessment
+    versionMethod: PMID, DOI, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, and newer independent validations every 90 days
+    version: PMID 33129425; doi:10.1016/S1473-3099(20)30490-4
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/33129425/
+  - id: eos_aap_2018
+    name: AAP management of infants at least 35 weeks with suspected EOS
+    sourceRole: controlling_authority
+    owner: American Academy of Pediatrics
+    jurisdiction: United States neonatal care for infants born at 35 weeks gestation or later
+    controllingClaimScope:
+      - Multivariate EOS risk-assessment context, gestational-age scope, and precedence of clinical illness
+    approvalStatus: AAP clinical report
+    versionMethod: Official AAP article, DOI, and current page status checked directly
+    currentnessMethod: Check AAP reaffirmation, replacement, and correction notices every 90 days
+    version: Pediatrics 2018;142:e20182894; official page checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://publications.aap.org/pediatrics/article/142/6/e20182894/37522/Management-of-Neonates-Born-at-35-0-7-Weeks
+  - id: eos_acog_2020
+    name: ACOG prevention of GBS early-onset disease
+    sourceRole: specialty_guidance
+    owner: American College of Obstetricians and Gynecologists
+    jurisdiction: United States obstetric GBS screening and intrapartum prophylaxis
+    controllingClaimScope:
+      - Universal GBS screening, prophylaxis agent identity, and antibiotic timing context for the updated EOS model
+    approvalStatus: ACOG Committee Opinion 797 with interim update
+    versionMethod: Official guidance page, committee-opinion number, and interim-update status checked directly
+    currentnessMethod: Check ACOG replacement and interim-update notices every 90 days
+    version: Committee Opinion 797; official page checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2020/02/prevention-of-group-b-streptococcal-early-onset-disease-in-newborns
+  - id: eos_acog_term_2013
+    name: ACOG and SMFM definition of term pregnancy
+    sourceRole: specialty_guidance
+    owner: American College of Obstetricians and Gynecologists and Society for Maternal-Fetal Medicine
+    jurisdiction: United States obstetric and neonatal gestational-age terminology
+    controllingClaimScope:
+      - Late-term and postterm gestational-age definitions used to flag unusual EOS calculator inputs
+    approvalStatus: ACOG Committee Opinion 579
+    versionMethod: Official ACOG committee-opinion page, number, classification box, and current page status checked directly
+    currentnessMethod: Check ACOG replacement, reaffirmation, and correction notices every 90 days
+    version: Committee Opinion 579; postterm begins at 42 0/7 weeks; official page checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2013/11/definition-of-term-pregnancy
+  - id: eos_kaiser_2024_release
+    name: Kaiser EOS Calculator 2024 operator release
+    sourceRole: data_release
+    owner: Kaiser Permanente Northern California
+    jurisdiction: Kaiser EOS calculator operator implementation
+    controllingClaimScope:
+      - Updated intercepts, coefficients, likelihood ratios, workbook examples, and recommendation thresholds
+    approvalStatus: responsible-operator model release
+    versionMethod: Live model-update FAQ, downloadable workbook, calculator version selector, and EMR notes checked directly
+    currentnessMethod: Check the live operator calculator and FAQ for silent coefficient or recommendation changes every 90 days
+    version: Kaiser EOS Calculator 2.0 updated 2024; live release checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://neonatalsepsiscalculator.kaiserpermanente.org/ModelUpdateFAQ.aspx
+  - id: grace_fox_2006
+    name: Fox 2006 cumulative admission-to-six-month GRACE model
+    sourceRole: derivation
+    owner: BMJ and the GRACE investigators
+    jurisdiction: Multinational acute-coronary-syndrome registry
+    controllingClaimScope:
+      - Eight-variable simplified nomogram, cumulative mortality endpoint, and prospective and GUSTO IIb validation
+    approvalStatus: peer-reviewed primary model report
+    versionMethod: PMID, PMCID, DOI, full text, tables, and Figure 3 checked directly
+    currentnessMethod: Check corrections, retractions, and model-supersession literature every 90 days
+    version: PMID 17032691; PMCID PMC1661748; doi:10.1136/bmj.38985.646481.55
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC1661748/
+  - id: grace_effect_2006
+    name: Independent EFFECT validation of the GRACE six-month model family
+    sourceRole: external_validation
+    owner: Heart
+    jurisdiction: Canadian community acute-myocardial-infarction cohort
+    controllingClaimScope:
+      - Independent discrimination/calibration review and explicit endpoint-variant limitation
+    approvalStatus: peer-reviewed independent external validation
+    versionMethod: PMID, PMCID, DOI, full text, and endpoint identity checked directly
+    currentnessMethod: Check corrections, retractions, and newer external validations every 90 days
+    version: PMID 16387810; PMCID PMC1860727
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC1860727/
+  - id: grace_nice_ng185
+    name: NICE NG185 acute coronary syndromes
+    sourceRole: controlling_authority
+    owner: National Institute for Health and Care Excellence
+    jurisdiction: United Kingdom acute-coronary-syndrome care
+    controllingClaimScope:
+      - Established six-month mortality scoring and exact five-band risk categorization
+    approvalStatus: current national clinical guideline
+    versionMethod: Official recommendation text and update history checked directly
+    currentnessMethod: Check NICE surveillance, replacement, and correction notices every 90 days
+    version: NG185 recommendation 1.2.11 checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://www.nice.org.uk/guidance/ng185/chapter/recommendations
+  - id: grace_esc_2023
+    name: 2023 ESC acute coronary syndromes guideline
+    sourceRole: specialty_guidance
+    owner: European Society of Cardiology
+    jurisdiction: European acute-coronary-syndrome care
+    controllingClaimScope:
+      - Contemporary ACS risk stratification, prognostic-score context, and separation from diagnosis
+    approvalStatus: current specialty-society clinical guideline
+    versionMethod: Official ESC guideline hub and publication version checked directly
+    currentnessMethod: Check ESC corrections and replacement guidance every 90 days
+    version: 2023 ESC ACS guideline checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/acute-coronary-syndromes/
+  - id: grace_nomogram_archive
+    name: Archived GRACE admission-to-six-month nomogram data release
+    sourceRole: data_release
+    owner: GRACE investigators and University of Massachusetts Medical School
+    jurisdiction: GRACE bedside calculator implementation
+    controllingClaimScope:
+      - Every input point knot and cumulative admission-to-six-month mortality lookup row
+    approvalStatus: archived responsible-model-owner coefficient release
+    versionMethod: Archived PDF identity, page numbers, table rows, and archive timestamp checked directly
+    currentnessMethod: Preserve immutable archive identity and check the current GRACE/NICE context every 90 days
+    version: GRACE Risk Model Coefficients PDF pages 12-13; archive snapshot 2015-09-07
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://web.archive.org/web/20150907141447id_/http://www.outcomes-umassmed.org/grace/files/GRACE_RiskModel_Coefficients.pdf
+  - id: kdpi_rao_2009
+    name: Rao deceased-donor kidney risk index
+    sourceRole: derivation
+    owner: Transplantation
+    jurisdiction: United States deceased-donor kidney transplantation
+    controllingClaimScope:
+      - Original donor-factor coefficients, graft-failure endpoint, and reference-donor interpretation
+    approvalStatus: peer-reviewed primary derivation report
+    versionMethod: PMID, DOI, and publication identity checked directly
+    currentnessMethod: Check corrections, retractions, and OPTN model revisions every 90 days
+    version: PMID 19118111; doi:10.1097/TP.0b013e318190f14b
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/19118111/
+  - id: kdpi_dahmen_2019
+    name: European external validation of KDPI
+    sourceRole: external_validation
+    owner: Scientific Reports
+    jurisdiction: European deceased-donor kidney recipients
+    controllingClaimScope:
+      - Independent graft-outcome validation and transportability limitations
+    approvalStatus: peer-reviewed independent external validation
+    versionMethod: PMID, PMCID, DOI, and full-text model identity checked directly
+    currentnessMethod: Check corrections, retractions, and newer transportability studies every 90 days
+    version: PMID 31375750; PMCID PMC6677881; doi:10.1038/s41598-019-47772-7
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/31375750/
+  - id: kdpi_optn_guide_2025
+    name: OPTN guide to calculating and interpreting KDPI
+    sourceRole: specialty_guidance
+    owner: Health Resources and Services Administration / OPTN
+    jurisdiction: United States deceased-donor kidney allocation
+    controllingClaimScope:
+      - Donor-only factor definitions, current race/HCV-free calculation, creatinine cap, and non-directive
+        interpretation
+    approvalStatus: current responsible-authority technical guide
+    versionMethod: Official PDF revision date, data date, equations, worked example, and interpretation text checked directly
+    currentnessMethod: Check the official guide and annual mapping replacement every 90 days
+    version: Updated 2025-04-21; OPTN data through 2025-04-18
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://optn.transplant.hrsa.gov/media/j34dm4mv/kdpi_guide.pdf
+  - id: kdpi_optn_mapping_2026
+    name: OPTN 2025 reference-population KDRI-to-KDPI mapping
+    sourceRole: data_release
+    owner: Health Resources and Services Administration / OPTN
+    jurisdiction: United States deceased-donor kidney allocation
+    controllingClaimScope:
+      - 2025 donor reference population, scaling factor, database snapshot, and every KDPI percentile threshold
+    approvalStatus: current annual responsible-authority mapping release
+    versionMethod: Official mapping PDF header, database date, reference year, scaling factor, and all table rows checked directly
+    currentnessMethod: Check for the annual mapping replacement on or before June 1 and before each release
+    version: 2025 reference population; database snapshot 2026-04-03
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://www.hrsa.gov/sites/default/files/hrsa/optn/kdpi_mapping_table.pdf
+  - id: meld_kim_2021
+    name: MELD 3.0 derivation and validation
+    sourceRole: derivation
+    owner: Gastroenterology
+    jurisdiction: United States adult liver-transplant waiting list
+    controllingClaimScope:
+      - Adult equation, laboratory bounds, interaction terms, female coefficient, and 90-day endpoint
+    approvalStatus: peer-reviewed primary derivation and validation report
+    versionMethod: PMID, PMCID, DOI, full text, equation, and supplement checked directly
+    currentnessMethod: Check corrections, retractions, and allocation-model revisions every 90 days
+    version: PMID 34481845; PMCID PMC8608337; doi:10.1053/j.gastro.2021.08.050
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8608337/
+  - id: meld_kwong_2023
+    name: MELD 3.0 external evaluation in adolescents
+    sourceRole: external_validation
+    owner: Hepatology
+    jurisdiction: United States adolescent liver-transplant registrations
+    controllingClaimScope:
+      - Age 12-17 equation branch, adolescent constant, absence of adult sex coefficient, and 90-day discrimination
+    approvalStatus: peer-reviewed external population evaluation
+    versionMethod: PMID, PMCID, DOI, full text, equation, and cohort identity checked directly
+    currentnessMethod: Check corrections, retractions, and newer adolescent validation studies every 90 days
+    version: PMID 36943091; PMCID PMC10363200; doi:10.1097/HEP.0000000000000352
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10363200/
+  - id: meld_aasld_guidance
+    name: AASLD liver transplantation evaluation guidance
+    sourceRole: specialty_guidance
+    owner: American Association for the Study of Liver Diseases
+    jurisdiction: United States adult liver-transplant evaluation
+    controllingClaimScope:
+      - MELD-based urgency assessment, multidisciplinary candidacy, and exception pathways outside the laboratory score
+    approvalStatus: professional-society practice-guidance hub
+    versionMethod: Official AASLD guidance page and replacement status checked directly
+    currentnessMethod: Check AASLD updates and replacement guidance every 90 days
+    version: official guidance hub checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://www.aasld.org/practice-guidelines/evaluation-adult-liver-transplant-patient
+  - id: meld_optn_policy_2023
+    name: OPTN MELD 3.0 implementation release
+    sourceRole: data_release
+    owner: Health Resources and Services Administration / OPTN
+    jurisdiction: United States liver allocation
+    controllingClaimScope:
+      - Effective 2023-07-13 equations, candidate-age branches, dialysis rule, laboratory bounds, and worked examples
+    approvalStatus: responsible-authority policy and calculator release
+    versionMethod: Official policy-change notice, FAQ, calculator guide, effective date, and current policy cross-check
+    currentnessMethod: Check the live OPTN calculator and Policy 9 before release and every 90 days
+    version: MELD 3.0 implementation effective 2023-07-13; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    discoveryOnly: false
+    url: https://www.hrsa.gov/optn/data-calculators/allocation-calculators/meld-calculator
+  - id: pubmed_medline_interpreter
+    name: PubMed MEDLINE interpreter and conditional-output search
+    sourceRole: bibliographic_database
+    owner: U.S. National Library of Medicine
+    jurisdiction: International bibliographic index
+    controllingClaimScope:
+      - Reproducible interpreter derivation, diagnostic-guidance, and conditional-output searches
+    approvalStatus: authoritative bibliographic index
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PubMed E-utilities interface checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/
+  - id: abg_winters_1965
+    name: Winters quantitative metabolic-acidosis compensation report
+    sourceRole: derivation
+    owner: Annals of Internal Medicine
+    jurisdiction: Adult acid-base physiology
+    controllingClaimScope:
+      - Expected arterial PCO2 response in metabolic acidosis and mixed-disorder detection
+    approvalStatus: peer-reviewed primary physiology report
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMID 6016545
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/6016545/
+  - id: abg_figge_1998
+    name: Figge albumin-corrected anion-gap derivation
+    sourceRole: derivation
+    owner: Critical Care Medicine
+    jurisdiction: Critical-care acid-base assessment
+    controllingClaimScope:
+      - Anion gap, albumin correction coefficient, and hypoalbuminemia limitation
+    approvalStatus: peer-reviewed primary derivation report
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMID 9824071
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/9824071/
+  - id: abg_ats_interpretation
+    name: American Thoracic Society arterial blood-gas interpretation resource
+    sourceRole: controlling_authority
+    owner: American Thoracic Society
+    jurisdiction: Pulmonary and critical-care practice
+    controllingClaimScope:
+      - Arterial sample context, pH/PCO2/bicarbonate branch framing, anion gap, and non-diagnostic limitations
+    approvalStatus: current specialty-society clinical education resource
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: web resource checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://www.thoracic.org/professionals/clinical-resources/critical-care/clinical-education/abgs.php
+  - id: abg_french_guideline_2019
+    name: French expert-panel metabolic-acidosis guideline
+    sourceRole: specialty_guidance
+    owner: French intensive-care and emergency-medicine expert panel
+    jurisdiction: Adult emergency and intensive care
+    controllingClaimScope:
+      - Albumin-corrected anion-gap use, blood-gas assessment, and clinical-context limitations
+    approvalStatus: peer-reviewed multidisciplinary expert guideline
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMCID PMC6695455; 2019 guideline
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6695455/
+  - id: csf_budhram_2024
+    name: Adult traumatic-lumbar-puncture correction-factor study
+    sourceRole: derivation
+    owner: Neurology Clinical Practice
+    jurisdiction: Adult lumbar puncture interpretation
+    controllingClaimScope:
+      - One-WBC-per-500/1000/1500-RBC correction factors and their sensitivity/specificity limitations
+    approvalStatus: peer-reviewed primary diagnostic study
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMID 39185100; doi:10.1212/CPJ.0000000000200350
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/39185100/
+  - id: csf_nice_ng228
+    name: NICE NG228 subarachnoid-haemorrhage diagnostic guidance
+    sourceRole: controlling_authority
+    owner: National Institute for Health and Care Excellence
+    jurisdiction: United Kingdom acute neurological care
+    controllingClaimScope:
+      - Lumbar-puncture timing, spectrophotometric xanthochromia, and imaging correlation
+    approvalStatus: current national clinical guideline
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: NG228 recommendations 1.1.12-1.1.15 checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://www.nice.org.uk/guidance/ng228/chapter/Recommendations
+  - id: csf_idsa_2004
+    name: IDSA bacterial-meningitis practice guideline
+    sourceRole: specialty_guidance
+    owner: Infectious Diseases Society of America
+    jurisdiction: Bacterial meningitis assessment
+    controllingClaimScope:
+      - CSF cell count, differential, protein, glucose, Gram stain, culture, pretreatment, and non-diagnostic pattern
+        limits
+    approvalStatus: professional-society practice guideline
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMID 15494903; doi:10.1086/425368
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://www.idsociety.org/practice-guideline/bacterial-meningitis/
+  - id: csf_who_tb_diagnostics_2024
+    name: WHO consolidated TB rapid-diagnostics guideline
+    sourceRole: controlling_authority
+    owner: World Health Organization
+    jurisdiction: Global tuberculosis diagnostic practice
+    controllingClaimScope:
+      - CSF Xpert MTB/RIF or Xpert Ultra as the initial molecular test for suspected tuberculous meningitis, with negative-test limitations
+    approvalStatus: current WHO consolidated diagnostic guideline
+    versionMethod: Official publication identity, edition, recommendation number, URL, and update history checked directly
+    currentnessMethod: Check supersession and WHO rapid-diagnostic updates before release and at least every 180 days
+    version: WHO module 3 rapid diagnostics, 3rd edition, recommendation 6; 20 March 2024
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://www.who.int/publications/i/item/9789240089488
+  - id: csf_idsa_asm_lab_2024
+    name: IDSA-ASM microbiology laboratory utilization guide
+    sourceRole: controlling_authority
+    owner: Infectious Diseases Society of America and American Society for Microbiology
+    jurisdiction: Infectious-disease diagnostic microbiology
+    controllingClaimScope:
+      - CSF mycobacterial NAAT, AFB smear/culture, fungal culture, cryptococcal antigen, and India-ink assay roles and limitations
+    approvalStatus: current professional-society laboratory practice guideline
+    versionMethod: Stable DOI, official document identity, table locator, URL, and update history checked directly
+    currentnessMethod: Check corrections, supersession, and IDSA-ASM updates before release and at least every 180 days
+    version: 2024 update; doi:10.1093/cid/ciae104; Table 6
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://www.idsociety.org/globalassets/idsa/practice-guidelines/ciae104.pdf
+  - id: csf_mcdonald_2017
+    name: 2017 McDonald multiple-sclerosis diagnostic criteria
+    sourceRole: specialty_guidance
+    owner: International Panel on Diagnosis of Multiple Sclerosis
+    jurisdiction: Multiple-sclerosis diagnostic assessment
+    controllingClaimScope:
+      - Paired CSF-restricted oligoclonal-band context and requirement for clinical/imaging correlation
+    approvalStatus: peer-reviewed international diagnostic criteria
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMID 29275977; doi:10.1016/S1474-4422(17)30470-2
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/29275977/
+  - id: csf_graus_2016
+    name: Graus clinical approach to autoimmune encephalitis
+    sourceRole: specialty_guidance
+    owner: International autoimmune-encephalitis expert panel
+    jurisdiction: Autoimmune encephalitis assessment
+    controllingClaimScope:
+      - Identified neural-antibody, specimen, phenotype, assay, and differential-correlation requirements
+    approvalStatus: peer-reviewed international clinical criteria
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMID 26906964; doi:10.1016/S1474-4422(15)00401-9
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/26906964/
+  - id: hepb_cdc_2023_table1
+    name: CDC 2023 hepatitis-B screening-test interpretation table
+    sourceRole: derivation
+    owner: U.S. Centers for Disease Control and Prevention
+    jurisdiction: United States HBV screening
+    controllingClaimScope:
+      - HBsAg, anti-HBs, total anti-HBc, and IgM anti-HBc pattern mapping and limitations
+    approvalStatus: peer-reviewed CDC recommendation report
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMID 36893044; MMWR 72(RR-1), Table 1
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://www.cdc.gov/mmwr/volumes/72/rr/rr7201a1.htm
+  - id: hepb_cdc_clinical_2025
+    name: CDC clinical overview of hepatitis B
+    sourceRole: controlling_authority
+    owner: U.S. Centers for Disease Control and Prevention
+    jurisdiction: United States HBV screening and testing
+    controllingClaimScope:
+      - Current triple-panel composition, screening purpose, marker limitations, and follow-up context
+    approvalStatus: current responsible-authority clinical guidance
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: CDC clinical overview updated 2025-09-18; checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://www.cdc.gov/hepatitis-b/hcp/clinical-overview/
+  - id: hepb_aasld_2018
+    name: AASLD 2018 hepatitis-B guidance
+    sourceRole: specialty_guidance
+    owner: American Association for the Study of Liver Diseases
+    jurisdiction: Hepatitis-B specialist care
+    controllingClaimScope:
+      - Serologic marker context, isolated anti-HBc explanations, HBe/HBV-DNA context, and limits on phase/prognosis
+        inference
+    approvalStatus: professional-society practice guidance
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMID 29405329; doi:10.1002/hep.29800
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5975958/
+  - id: neonatal_shukla_1986
+    name: Shukla-Ferrara umbilical-catheter insertion-length formulas
+    sourceRole: derivation
+    owner: American Journal of Diseases of Children
+    jurisdiction: Newborn umbilical-catheter placement
+    controllingClaimScope:
+      - Original birth-weight UAC and UVC insertion-length formulas
+    approvalStatus: peer-reviewed primary derivation report
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMID 3728405
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/3728405/
+  - id: neonatal_kempley_2008
+    name: Kempley gestation-based neonatal ETT length table
+    sourceRole: derivation
+    owner: Resuscitation
+    jurisdiction: Neonatal oral endotracheal intubation
+    controllingClaimScope:
+      - Gestational-age groups and initial oral ETT depth at the lip
+    approvalStatus: peer-reviewed primary derivation report
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMID 18372092; doi:10.1016/j.resuscitation.2008.02.002
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/18372092/
+  - id: neonatal_zubrow_1995
+    name: Philadelphia neonatal blood-pressure reference study
+    sourceRole: derivation
+    owner: Journal of Perinatology
+    jurisdiction: NICU neonatal blood-pressure reference values
+    controllingClaimScope:
+      - Day-one gestational-age and corrected-age systolic, diastolic, mean, and pulse-pressure references
+    approvalStatus: peer-reviewed prospective multicenter reference study
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMID 8648456
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/8648456/
+  - id: neonatal_aha_aap_2025
+    name: 2025 AHA/AAP neonatal-resuscitation guideline
+    sourceRole: controlling_authority
+    owner: American Heart Association and American Academy of Pediatrics
+    jurisdiction: Newborn resuscitation and airway/access care
+    controllingClaimScope:
+      - Newborn airway and umbilical-access context, trained-clinician use, and confirmation requirements
+    approvalStatus: current multidisciplinary resuscitation guideline
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: 2025 AHA/AAP Part 5 checked 2026-07-16
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/neonatal-resuscitation
+  - id: neonatal_procedures_review_2023
+    name: Essential neonatal-procedures measurement review
+    sourceRole: specialty_guidance
+    owner: International Journal of Pediatrics
+    jurisdiction: Neonatal intensive-care procedures
+    controllingClaimScope:
+      - Shukla and Kempley measurement tables, final-position confirmation, and procedural limitations
+    approvalStatus: peer-reviewed neonatal-procedure review
+    versionMethod: Stable PMID, DOI, official document identity, exact locator, and version/update history checked directly
+    currentnessMethod: Check corrections, retractions, supersession, and responsible-authority updates before release and at
+      least every 180 days
+    version: PMCID PMC10497369; 2023
+    checkedAt: 2026-07-16
+    reviewBy: 2027-01-12
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10497369/

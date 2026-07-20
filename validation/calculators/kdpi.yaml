@@ -1,0 +1,1534 @@
+calculatorId: kdpi
+specVersion: 2026.2.0
+clinicalModel: OPTN race- and HCV-free KDRI with 2025 KDPI reference mapping
+variant: optn_2025_reference_population
+population: Deceased kidney donors evaluated for United States OPTN allocation.
+setting: Donor risk characterization as one input to organ evaluation, never a standalone accept-or-decline rule.
+assessmentTiming: At deceased-donor kidney evaluation using the current annual OPTN reference population.
+endpoint: Relative graft-failure risk (KDRI) and percentile mapping against the 2025 OPTN donor population (KDPI).
+reviewGroup: policy_versioned
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:kdpi:2026-07-16
+    calculatorId: kdpi
+    model: OPTN race- and HCV-free KDRI with 2025 KDPI reference mapping
+    variant: optn_2025_reference_population
+    searchedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    sources:
+      - id: search:kdpi:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline_policy
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web search
+        exactQuery: ("kidney donor profile index"[Title/Abstract] OR KDPI[Title/Abstract]) AND (derivation[Title/Abstract] OR
+          validat*[Title/Abstract] OR calibration[Title/Abstract])
+        translationExposed: true
+        translatedQuery: ("kidney donor profile index"[Title/Abstract] OR "KDPI"[Title/Abstract]) AND
+          ("derivation"[Title/Abstract] OR "validat*"[Title/Abstract] OR "calibration"[Title/Abstract])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 43
+        stableCitationIds:
+          - PMID:42394433
+          - PMID:42272126
+          - PMID:42004654
+          - PMID:41954271
+          - PMID:41895700
+          - PMID:41777292
+          - PMID:41589160
+          - PMID:41255475
+          - PMID:41183750
+          - PMID:41056073
+          - PMID:40694366
+          - PMID:40646454
+          - PMID:40429534
+          - PMID:40217795
+          - PMID:38684469
+          - PMID:38552178
+          - PMID:38184216
+          - PMID:38137683
+          - PMID:37910090
+          - PMID:37722724
+          - PMID:37525450
+          - PMID:36983440
+          - PMID:36909033
+          - PMID:36372566
+          - PMID:35474655
+          - PMID:34922456
+          - PMID:34902188
+          - PMID:33692117
+          - PMID:33051519
+          - PMID:32444117
+          - PMID:32217013
+          - PMID:32197867
+          - PMID:32128225
+          - PMID:31375750
+          - PMID:30086093
+          - PMID:30015701
+          - PMID:29952816
+          - PMID:29746671
+          - PMID:29132985
+          - PMID:28992075
+          - PMID:27862962
+          - PMID:26986138
+          - PMID:25282158
+      - id: search:kdpi:kdpi_rao_2009
+        sourceRole: derivation
+        authorityId: kdpi_rao_2009
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for kdpi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID:19118111
+      - id: search:kdpi:kdpi_dahmen_2019
+        sourceRole: external_validation
+        authorityId: kdpi_dahmen_2019
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for kdpi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID:31375750
+      - id: search:kdpi:hrsa_optn
+        sourceRole: controlling_authority
+        authorityId: hrsa_optn
+        database: Primary or responsible-authority source
+        site: www.hrsa.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for kdpi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - OPTN:POLICY8:2025-12-10
+      - id: search:kdpi:kdpi_optn_guide_2025
+        sourceRole: specialty_guidance
+        authorityId: kdpi_optn_guide_2025
+        database: Primary or responsible-authority source
+        site: optn.transplant.hrsa.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for kdpi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - OPTN:KDPI-GUIDE:2025-04-21
+      - id: search:kdpi:kdpi_optn_mapping_2026
+        sourceRole: data_release
+        authorityId: kdpi_optn_mapping_2026
+        database: Primary or responsible-authority source
+        site: www.hrsa.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for kdpi
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - OPTN:KDPI-MAP:2026-04-03
+    accounting:
+      retrieved: 43
+      deduplicated: 43
+      screened: 43
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID-based deduplication of the exact PubMed export; citation-chased derivation records and direct operator/authority records are listed separately under sources and are not counted as PubMed retrievals.
+      tool: PubMed exact-query export plus separately documented citation chasing and direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:42394433
+        title: "A dynamic machine learning model for predicting organ transplant success to optimize donor organ utilization and reduce costs."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:42272126
+        title: "Predicting long-term allograft outcomes in kidney transplant recipients using a machine learning approach: a 5-year retrospective cohort study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:42004654
+        title: "Engaging Dialysis Teams in Shared Decision-Making Conversations With Patients to Improve Rates of Kidney Transplantation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41954271
+        title: "Outcomes of Kidney Transplants From Donors With Stage 3 Acute Kidney Injury Requiring Dialysis: A National Cohort Study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41895700
+        title: "A Sliding Scale AdaptiVe Expedited rescue algorithm for deceased donor kidney transplantation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41777292
+        title: "Equitable Donor Assessment Model of Deceased Donor Kidney Quality."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41589160
+        title: "Artificial Intelligence in Renal Transplantation Over the Past Decade: A Narrative Review of Clinical Applications, Current Limitations, and Future Directions."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41255475
+        title: "Predictive value of aortoiliac calcification of deceased donors for chronicity score of allograft baseline biopsies and graft outcomes in kidney transplantation: a retrospective cohort study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41183750
+        title: "The rapidly shifting calibration between kidney donor risk index, kidney donor profile index, and graft survival: Is it time to stop moving the goalposts?"
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41056073
+        title: "External Validation of the Kidney Donor Profile Index to Predict Long-Term Graft Survival in Kidney Transplant Recipients."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40694366
+        title: "The association between the Kidney Donor Profile Index and one-year outcomes in Brazilian kidney transplant recipients of standard criteria donors."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40646454
+        title: "Clinical outcomes of kidney transplantation from expanded-criteria donors and KDPI>85% kidneys in deceased Chinese donors."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40429534
+        title: "Validation of Kidney Donor Profile Index and Estimated Post-Transplant Survival Scores in an Eastern European Transplantation Center-A Seven-Year Retrospective Observational Study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40217795
+        title: "Kidney Donor Risk Index and Cardiovascular Complications in a Long-Term Follow-Up Observation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:38684469
+        title: "Live-Donor Kidney Transplant Outcome Prediction (L-TOP) using artificial intelligence."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:38552178
+        title: "Deceased-Donor Kidney Transplant Outcome Prediction Using Artificial Intelligence to Aid Decision-Making in Kidney Allocation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:38184216
+        title: "Validation of the kidney donor profile index (KDPI) for deceased donor kidney transplants in China."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:38137683
+        title: "The Seattle Heart Failure Model in Kidney Transplant Recipients."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:37910090
+        title: "Prediction of High-Risk Donors for Kidney Discard and Nonrecovery Using Structured Donor Characteristics and Unstructured Donor Narratives."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:37722724
+        title: "Contrast-enhanced ultrasonography-based renal blood perfusion in brain-dead donors predicts early graft function."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:37525450
+        title: "Graft and Patient Survival in Kidney Transplant with Deceased Donor Using KDRI (Kidney Donor Risk Index), KDPI (Kidney Donor Profile Index), and EPTS (Estimated Post-Transplant Survival) in Colombia."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:36983440
+        title: "Evaluation of Kidney Donor Risk Index/Kidney Donor Profile Index as Predictor Tools of Deceased-Donor Kidney Transplant Outcomes in a Greek Cohort."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:36909033
+        title: "United Network for Organ Sharing (UNOS) Database Analysis of Factors Associated With Kidney Transplant Time on Waiting List."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:36372566
+        title: "A Multiparametric Nomogram for Predicting Delayed Graft Function in Adult Recipients of Pediatric Donor Kidneys."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:35474655
+        title: "Beyond Graft Survivl: A National Cohort Study Quantifying the Impact of Increasing Kidney Donor Profile Index on Recipient Outcomes 1 Year Post-transplantation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:34922456
+        title: "Bioinformatic comparison of Kunitz protease inhibitors in Echinococcus granulosus sensu stricto and E. multilocularis and the genes expressed in different developmental stages of E. granulosus s.s."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:34902188
+        title: "First Asian Kidney Donor Profile Index (KDPI) and Estimated Post-Transplant Survival (EPTS) models, with validation against US models in Thai population."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:33692117
+        title: "Deceased-Donor Acute Kidney Injury and BK Polyomavirus in Kidney Transplant Recipients."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:33051519
+        title: "Validation of a survival benefit estimator tool in a cohort of European kidney transplant recipients."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:32444117
+        title: "Is the Living Donor Kidney Profile Index Valuable in Japanese Patients?"
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:32217013
+        title: "Validation of the Kidney Donor Profile Index in Argentina."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:32197867
+        title: "Retroactive Application of a New Risk Index for Living Donor Kidney Transplantation to Renal Transplants in Veracruz, Mexico."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:32128225
+        title: "Use of the Living Kidney Donor Profile Index in the Canadian Kidney Transplant Recipient Population: A Validation Study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: kdpi_dahmen_2019
+        title: "Validation of the Kidney Donor Profile Index (KDPI) to assess a deceased donor's kidneys' outcome in a European cohort."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:30086093
+        title: "Patient Functional Status at Transplant and Its Impact on Posttransplant Survival of Adult Deceased-donor Kidney Recipients."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:30015701
+        title: "Prospective Validation of Prediction Model for Kidney Discard."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:29952816
+        title: "Combined Ex Vivo Hypothermic and Normothermic Perfusion for Assessment of High-risk Deceased Donor Human Kidneys for Transplantation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:29746671
+        title: "Validation of the Living Kidney Donor Profile Index in a European cohort and comparison of long-term outcomes with US results."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:29132985
+        title: "Validation of KDRI/KDPI for the selection of expanded criteria kidney donors."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:28992075
+        title: "Does Kidney Donor Risk Index implementation lead to the transplantation of more and higher-quality donor kidneys?"
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:27862962
+        title: "Effect of Replacing Race With Apolipoprotein L1 Genotype in Calculation of Kidney Donor Risk Index."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:26986138
+        title: "Pre-transplant Evaluation of Donor Urinary Biomarkers can Predict Reduced Graft Function After Deceased Donor Kidney Transplantation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:25282158
+        title: "Is the Kidney Donor Risk Index a step forward in the assessment of deceased donor kidney quality?"
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:kdpi:pubmed
+      checklist:
+        - Concept coverage
+        - Controlled vocabulary and text words
+        - Boolean logic
+        - Limits and reproducibility
+        - Exact model/variant, endpoint, data-release, and currentness specificity
+      comments:
+        - The exact PubMed query returned 43 unique PMID records; every result is represented in the title/abstract screening ledger above.
+        - PMID 19118111 was identified by backward citation chasing and reviewed through the separate derivation source record; current OPTN guide and mapping releases were reviewed directly.
+      resolution: Exact query results, screening decisions, and counts were reconciled against the live PubMed export; citation-chased and direct operator/authority sources remain explicitly separate from the PubMed accounting.
+      resolved: true
+      reviewer: OathMCP independent search QA lane
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline_policy
+  - kdpi_rao_2009
+  - kdpi_dahmen_2019
+  - hrsa_optn
+  - kdpi_optn_guide_2025
+  - kdpi_optn_mapping_2026
+claims:
+  - id: d002.kdpi_donor_age_alias
+    scope: compatibility
+    kind: input
+    statement: Generic patient age must not populate deceased-donor age.
+    covers:
+      - compatibility:safeAliases:kdpi.donor_age_years
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: D002 records an immediate compatibility safety correction.
+    compatibilityDecision:
+      oldBehavior: Generic age was accepted as deceased-donor age.
+      replacement: Only donor_age_years is accepted.
+      rationale: Generic patient age must not populate deceased-donor age.
+    reviewedAt: 2026-07-15
+    reviewBy: 2026-10-13
+  - id: d002.kdpi_donor_height_alias
+    scope: compatibility
+    kind: input
+    statement: Generic patient height must not populate deceased-donor height.
+    covers:
+      - compatibility:safeAliases:kdpi.height_cm
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: D002 records an immediate compatibility safety correction.
+    compatibilityDecision:
+      oldBehavior: Generic height was accepted as deceased-donor height.
+      replacement: Only donor_height_cm supplied in the KDPI override is accepted.
+      rationale: Generic patient height must not populate deceased-donor height.
+    reviewedAt: 2026-07-15
+    reviewBy: 2026-10-13
+  - id: d002.kdpi_donor_weight_alias
+    scope: compatibility
+    kind: input
+    statement: Generic patient weight must not populate deceased-donor weight.
+    covers:
+      - compatibility:safeAliases:kdpi.weight_kg
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: D002 records an immediate compatibility safety correction.
+    compatibilityDecision:
+      oldBehavior: Generic weight was accepted as deceased-donor weight.
+      replacement: Only donor_weight_kg supplied in the KDPI override is accepted.
+      rationale: Generic patient weight must not populate deceased-donor weight.
+    reviewedAt: 2026-07-15
+    reviewBy: 2026-10-13
+  - id: claim:kdpi:calculator-model
+    kind: applicability
+    statement: kdpi implements only the exact clinical model, version, population, setting, endpoint, and data snapshot
+      declared in this dossier.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - kdpi_optn_guide_2025
+      - kdpi_optn_mapping_2026
+    locators:
+      - sourceId: kdpi_optn_guide_2025
+        locator: "OPTN KDPI Guide pages 1-9: donor-only inputs, raw/scaled KDRI, creatinine cap, unknown-history prevalence,
+          interpretation, and non-directive limitations."
+      - sourceId: kdpi_optn_mapping_2026
+        locator: "Current KDRI-to-KDPI mapping PDF: 2025 recovered-donor reference population, 2026-04-03 database snapshot,
+          scaling factor, and all 0-100 percentile upper bounds."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is a source-governed scope assertion; every runtime-verifiable surface is covered
+      by separate executable claims.
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:formula-implementation
+    kind: formula
+    statement: kdpi combines the declared inputs using the cited coefficients, lookup rows, policy branches, bounds, and
+      rounding rules.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - kdpi_rao_2009
+      - kdpi_optn_guide_2025
+    locators:
+      - sourceId: kdpi_rao_2009
+        locator: "Rao 2009 derivation model: donor-factor coefficients, graft-failure endpoint, and reference donor
+          interpretation."
+      - sourceId: kdpi_optn_guide_2025
+        locator: "Current OPTN KDPI Guide, calculation section and coefficient table: race/HCV-free refit coefficients,
+          reference donor, creatinine cap at 8 mg/dL, and worked donor vector."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+      - case:kdpi:reference-official-guide
+      - case:kdpi:reference-creatinine-cap
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:applicability-purpose
+    kind: applicability
+    statement: kdpi is limited to the cited population, assessment timing, setting, and endpoint.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "OPTN Policy 8 Table 8-5 and KDRI-to-KDPI procedure: current race/HCV-free factors, annual mapping, and
+          allocation semantics."
+    executable: true
+    scenarioIds:
+      - case:kdpi:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:applicability-exclusions
+    kind: applicability
+    statement: kdpi preserves the cited exclusions and does not turn a risk estimate into a treatment, acceptance, or
+      allocation directive.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "OPTN Policy 8 Table 8-5 and KDRI-to-KDPI procedure: current race/HCV-free factors, annual mapping, and
+          allocation semantics."
+    executable: true
+    scenarioIds:
+      - case:kdpi:agent-exclusion-missing-context
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_age_years
+    kind: input
+    statement: kdpi uses the cited definition, role, timing, and domain for donor_age_years.
+    covers:
+      - input:donor_age_years
+    status: supported
+    sourceIds:
+      - kdpi_rao_2009
+    locators:
+      - sourceId: kdpi_rao_2009
+        locator: "Rao 2009 derivation model: donor-factor coefficients, graft-failure endpoint, and reference donor
+          interpretation."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+      - case:kdpi:agent-exclusion-missing-context
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_age_years-hard_limits
+    kind: input
+    statement: kdpi rejects values outside the declared operational safety envelope; this envelope is not a clinical
+      decision threshold.
+    covers:
+      - input:donor_age_years:hard_limits
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "OPTN Policy 8 Table 8-5 and KDRI-to-KDPI procedure: current race/HCV-free factors, annual mapping, and
+          allocation semantics."
+    executable: true
+    scenarioIds:
+      - case:kdpi:hard-donor_age_years
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_age_years-plausibility
+    kind: input
+    statement: kdpi warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:donor_age_years:plausibility
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "OPTN Policy 8 Table 8-5 and KDRI-to-KDPI procedure: current race/HCV-free factors, annual mapping, and
+          allocation semantics."
+    executable: true
+    scenarioIds:
+      - case:kdpi:plausibility-donor_age_years
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_height_cm
+    kind: input
+    statement: kdpi uses the cited definition, role, timing, and domain for donor_height_cm.
+    covers:
+      - input:donor_height_cm
+    status: supported
+    sourceIds:
+      - kdpi_rao_2009
+    locators:
+      - sourceId: kdpi_rao_2009
+        locator: "Rao 2009 derivation model: donor-factor coefficients, graft-failure endpoint, and reference donor
+          interpretation."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_height_cm-hard_limits
+    kind: input
+    statement: kdpi rejects values outside the declared operational safety envelope; this envelope is not a clinical
+      decision threshold.
+    covers:
+      - input:donor_height_cm:hard_limits
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "OPTN Policy 8 Table 8-5 and KDRI-to-KDPI procedure: current race/HCV-free factors, annual mapping, and
+          allocation semantics."
+    executable: true
+    scenarioIds:
+      - case:kdpi:hard-donor_height_cm
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_height_cm-plausibility
+    kind: input
+    statement: kdpi warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:donor_height_cm:plausibility
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "OPTN Policy 8 Table 8-5 and KDRI-to-KDPI procedure: current race/HCV-free factors, annual mapping, and
+          allocation semantics."
+    executable: true
+    scenarioIds:
+      - case:kdpi:plausibility-donor_height_cm
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_weight_kg
+    kind: input
+    statement: kdpi uses the cited definition, role, timing, and domain for donor_weight_kg.
+    covers:
+      - input:donor_weight_kg
+    status: supported
+    sourceIds:
+      - kdpi_rao_2009
+    locators:
+      - sourceId: kdpi_rao_2009
+        locator: "Rao 2009 derivation model: donor-factor coefficients, graft-failure endpoint, and reference donor
+          interpretation."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_weight_kg-hard_limits
+    kind: input
+    statement: kdpi rejects values outside the declared operational safety envelope; this envelope is not a clinical
+      decision threshold.
+    covers:
+      - input:donor_weight_kg:hard_limits
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "OPTN Policy 8 Table 8-5 and KDRI-to-KDPI procedure: current race/HCV-free factors, annual mapping, and
+          allocation semantics."
+    executable: true
+    scenarioIds:
+      - case:kdpi:hard-donor_weight_kg
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_weight_kg-plausibility
+    kind: input
+    statement: kdpi warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:donor_weight_kg:plausibility
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "OPTN Policy 8 Table 8-5 and KDRI-to-KDPI procedure: current race/HCV-free factors, annual mapping, and
+          allocation semantics."
+    executable: true
+    scenarioIds:
+      - case:kdpi:plausibility-donor_weight_kg
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_hypertension
+    kind: input
+    statement: kdpi uses the cited definition, role, timing, and domain for donor_hypertension.
+    covers:
+      - input:donor_hypertension
+    status: supported
+    sourceIds:
+      - kdpi_rao_2009
+    locators:
+      - sourceId: kdpi_rao_2009
+        locator: "Rao 2009 derivation model: donor-factor coefficients, graft-failure endpoint, and reference donor
+          interpretation."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_diabetes
+    kind: input
+    statement: kdpi uses the cited definition, role, timing, and domain for donor_diabetes.
+    covers:
+      - input:donor_diabetes
+    status: supported
+    sourceIds:
+      - kdpi_rao_2009
+    locators:
+      - sourceId: kdpi_rao_2009
+        locator: "Rao 2009 derivation model: donor-factor coefficients, graft-failure endpoint, and reference donor
+          interpretation."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-cause_of_death_cva
+    kind: input
+    statement: kdpi uses the cited definition, role, timing, and domain for cause_of_death_cva.
+    covers:
+      - input:cause_of_death_cva
+    status: supported
+    sourceIds:
+      - kdpi_rao_2009
+    locators:
+      - sourceId: kdpi_rao_2009
+        locator: "Rao 2009 derivation model: donor-factor coefficients, graft-failure endpoint, and reference donor
+          interpretation."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-cause_of_death_cva-aliases
+    kind: input
+    statement: kdpi accepts only the declared compatibility alias for the same source-defined field and keeps role-specific
+      canonical naming.
+    covers:
+      - input:cause_of_death_cva:aliases
+    status: supported
+    sourceIds:
+      - kdpi_rao_2009
+    locators:
+      - sourceId: kdpi_rao_2009
+        locator: "Rao 2009 derivation model: donor-factor coefficients, graft-failure endpoint, and reference donor
+          interpretation."
+    executable: true
+    scenarioIds:
+      - case:kdpi:alias-cause_of_death_cva
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_creatinine
+    kind: input
+    statement: kdpi uses the cited definition, role, timing, and domain for donor_creatinine.
+    covers:
+      - input:donor_creatinine
+    status: supported
+    sourceIds:
+      - kdpi_rao_2009
+    locators:
+      - sourceId: kdpi_rao_2009
+        locator: "Rao 2009 derivation model: donor-factor coefficients, graft-failure endpoint, and reference donor
+          interpretation."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_creatinine-hard_limits
+    kind: input
+    statement: kdpi rejects values outside the declared operational safety envelope; this envelope is not a clinical
+      decision threshold.
+    covers:
+      - input:donor_creatinine:hard_limits
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "OPTN Policy 8 Table 8-5 and KDRI-to-KDPI procedure: current race/HCV-free factors, annual mapping, and
+          allocation semantics."
+    executable: true
+    scenarioIds:
+      - case:kdpi:hard-donor_creatinine
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donor_creatinine-plausibility
+    kind: input
+    statement: kdpi warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:donor_creatinine:plausibility
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "OPTN Policy 8 Table 8-5 and KDRI-to-KDPI procedure: current race/HCV-free factors, annual mapping, and
+          allocation semantics."
+    executable: true
+    scenarioIds:
+      - case:kdpi:plausibility-donor_creatinine
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:unit-donor_creatinine
+    kind: unit
+    statement: kdpi normalizes the declared US and SI units to the same source-defined canonical input before calculation.
+    covers:
+      - unit:donor_creatinine
+    status: supported
+    sourceIds:
+      - kdpi_rao_2009
+    locators:
+      - sourceId: kdpi_rao_2009
+        locator: "Rao 2009 derivation model: donor-factor coefficients, graft-failure endpoint, and reference donor
+          interpretation."
+    executable: true
+    scenarioIds:
+      - case:kdpi:unit-donor_creatinine-canonical
+      - case:kdpi:unit-donor_creatinine-alternate
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donation_after_circulatory_death
+    kind: input
+    statement: kdpi uses the cited definition, role, timing, and domain for donation_after_circulatory_death.
+    covers:
+      - input:donation_after_circulatory_death
+    status: supported
+    sourceIds:
+      - kdpi_rao_2009
+    locators:
+      - sourceId: kdpi_rao_2009
+        locator: "Rao 2009 derivation model: donor-factor coefficients, graft-failure endpoint, and reference donor
+          interpretation."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:input-donation_after_circulatory_death-aliases
+    kind: input
+    statement: kdpi accepts only the declared compatibility alias for the same source-defined field and keeps role-specific
+      canonical naming.
+    covers:
+      - input:donation_after_circulatory_death:aliases
+    status: supported
+    sourceIds:
+      - kdpi_rao_2009
+    locators:
+      - sourceId: kdpi_rao_2009
+        locator: "Rao 2009 derivation model: donor-factor coefficients, graft-failure endpoint, and reference donor
+          interpretation."
+    executable: true
+    scenarioIds:
+      - case:kdpi:alias-donation_after_circulatory_death
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:output-kdpi
+    kind: outcome
+    statement: kdpi returns kdpi with the cited meaning, version, units, and rounding.
+    covers:
+      - output:kdpi
+    status: supported
+    sourceIds:
+      - kdpi_optn_mapping_2026
+    locators:
+      - sourceId: kdpi_optn_mapping_2026
+        locator: "Current KDRI-to-KDPI mapping PDF: 2025 recovered-donor reference population, 2026-04-03 database snapshot,
+          scaling factor, and all 0-100 percentile upper bounds."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+      - case:kdpi:reference-official-guide
+      - case:kdpi:reference-creatinine-cap
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:output-kdri_raw
+    kind: outcome
+    statement: kdpi returns kdri_raw with the cited meaning, version, units, and rounding.
+    covers:
+      - output:kdri_raw
+    status: supported
+    sourceIds:
+      - kdpi_optn_guide_2025
+      - kdpi_optn_mapping_2026
+    locators:
+      - sourceId: kdpi_optn_guide_2025
+        locator: "OPTN KDPI Guide, What is the KDRI and calculation sections: raw KDRI is donor-associated relative graft-
+          failure risk before normalization to the median donor."
+      - sourceId: kdpi_optn_mapping_2026
+        locator: "Current KDRI-to-KDPI mapping PDF: 2025 recovered-donor reference population, 2026-04-03 database snapshot,
+          scaling factor, and all 0-100 percentile upper bounds."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+      - case:kdpi:reference-official-guide
+      - case:kdpi:reference-creatinine-cap
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:output-kdri_scaled
+    kind: outcome
+    statement: kdpi returns kdri_scaled with the cited meaning, version, units, and rounding.
+    covers:
+      - output:kdri_scaled
+    status: supported
+    sourceIds:
+      - kdpi_optn_mapping_2026
+    locators:
+      - sourceId: kdpi_optn_mapping_2026
+        locator: "Current KDRI-to-KDPI mapping PDF: 2025 recovered-donor reference population, 2026-04-03 database snapshot,
+          scaling factor, and all 0-100 percentile upper bounds."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+      - case:kdpi:reference-official-guide
+      - case:kdpi:reference-creatinine-cap
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:output-reference_population_year
+    kind: outcome
+    statement: kdpi returns reference_population_year with the cited meaning, version, units, and rounding.
+    covers:
+      - output:reference_population_year
+    status: supported
+    sourceIds:
+      - kdpi_optn_mapping_2026
+    locators:
+      - sourceId: kdpi_optn_mapping_2026
+        locator: "Current KDRI-to-KDPI mapping PDF: 2025 recovered-donor reference population, 2026-04-03 database snapshot,
+          scaling factor, and all 0-100 percentile upper bounds."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+      - case:kdpi:reference-official-guide
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:output-mapping_as_of
+    kind: outcome
+    statement: kdpi returns mapping_as_of with the cited meaning, version, units, and rounding.
+    covers:
+      - output:mapping_as_of
+    status: supported
+    sourceIds:
+      - kdpi_optn_mapping_2026
+    locators:
+      - sourceId: kdpi_optn_mapping_2026
+        locator: "Current KDRI-to-KDPI mapping PDF: 2025 recovered-donor reference population, 2026-04-03 database snapshot,
+          scaling factor, and all 0-100 percentile upper bounds."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+      - case:kdpi:reference-official-guide
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:output-interpretation
+    kind: outcome
+    statement: kdpi returns interpretation with the cited meaning, version, units, and rounding.
+    covers:
+      - output:interpretation
+    status: supported
+    sourceIds:
+      - kdpi_optn_guide_2025
+    locators:
+      - sourceId: kdpi_optn_guide_2025
+        locator: "OPTN KDPI Guide, interpretation section: KDPI is a relative donor-quality measure and should not function
+          as a standalone accept-or-decline directive."
+    executable: true
+    scenarioIds:
+      - case:kdpi:reference-median-donor
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:kdpi:warning-0
+    kind: warning
+    statement: kdpi emits the source- or policy-linked warning for warning:0 without hiding the underlying input or adjustment.
+    covers:
+      - warning:0
+    status: supported
+    sourceIds:
+      - kdpi_optn_guide_2025
+    locators:
+      - sourceId: kdpi_optn_guide_2025
+        locator: "Current OPTN KDPI Guide, calculation instructions: serum creatinine values greater than 8 mg/dL are set to
+          8 mg/dL for KDRI calculation."
+    executable: true
+    scenarioIds:
+      - case:kdpi:creatinine-cap-warning
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+cases:
+  - kind: reference
+    id: case:kdpi:reference-median-donor
+    tags:
+      - calculator:kdpi:core
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 175
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 1
+      donation_after_circulatory_death: false
+    expected:
+      kdpi: 20
+      kdri_raw: 1.0663
+      kdri_scaled: 0.7316
+      reference_population_year: 2025
+      mapping_as_of: 2026-04-03
+      interpretation: KDPI 20% is a reference-population percentile, not a standalone accept/decline category; interpret it
+        with the full donor, recipient, and offer context.
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Frozen source-derived expectation after applying the calculator declared rounding and lookup rules.
+    witnesses:
+      - formula:implementation
+      - input:donor_age_years
+      - input:donor_height_cm
+      - input:donor_weight_kg
+      - input:donor_hypertension
+      - input:donor_diabetes
+      - input:cause_of_death_cva
+      - input:donor_creatinine
+      - input:donation_after_circulatory_death
+      - output:kdpi
+      - output:kdri_raw
+      - output:kdri_scaled
+      - output:reference_population_year
+      - output:mapping_as_of
+      - output:interpretation
+    claimIds:
+      - claim:kdpi:formula-implementation
+      - claim:kdpi:input-donor_age_years
+      - claim:kdpi:input-donor_height_cm
+      - claim:kdpi:input-donor_weight_kg
+      - claim:kdpi:input-donor_hypertension
+      - claim:kdpi:input-donor_diabetes
+      - claim:kdpi:input-cause_of_death_cva
+      - claim:kdpi:input-donor_creatinine
+      - claim:kdpi:input-donation_after_circulatory_death
+      - claim:kdpi:output-kdpi
+      - claim:kdpi:output-kdri_raw
+      - claim:kdpi:output-kdri_scaled
+      - claim:kdpi:output-reference_population_year
+      - claim:kdpi:output-mapping_as_of
+      - claim:kdpi:output-interpretation
+    sourceIds:
+      - kdpi_rao_2009
+      - kdpi_optn_guide_2025
+      - kdpi_optn_mapping_2026
+  - kind: reference
+    id: case:kdpi:reference-official-guide
+    tags:
+      - calculator:kdpi:reference
+    inputs:
+      donor_age_years: 52
+      donor_height_cm: 183
+      donor_weight_kg: 81
+      donor_hypertension: true
+      donor_diabetes: false
+      cause_of_death_cva: true
+      donor_creatinine: 1.7
+      donation_after_circulatory_death: true
+    expected:
+      kdpi: 67
+      kdri_raw: 1.7124
+      kdri_scaled: 1.175
+      reference_population_year: 2025
+      mapping_as_of: 2026-04-03
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - formula:implementation
+      - output:kdpi
+      - output:kdri_raw
+      - output:kdri_scaled
+      - output:reference_population_year
+      - output:mapping_as_of
+    claimIds:
+      - claim:kdpi:formula-implementation
+      - claim:kdpi:output-kdpi
+      - claim:kdpi:output-kdri_raw
+      - claim:kdpi:output-kdri_scaled
+      - claim:kdpi:output-reference_population_year
+      - claim:kdpi:output-mapping_as_of
+    sourceIds:
+      - kdpi_optn_guide_2025
+      - kdpi_optn_mapping_2026
+  - kind: reference
+    id: case:kdpi:reference-creatinine-cap
+    tags:
+      - calculator:kdpi:reference
+    inputs:
+      donor_age_years: 60
+      donor_height_cm: 170
+      donor_weight_kg: 70
+      donor_hypertension: true
+      donor_diabetes: true
+      cause_of_death_cva: true
+      donor_creatinine: 9
+      donation_after_circulatory_death: true
+    expected:
+      kdpi: 99
+      kdri_raw: 2.765
+      kdri_scaled: 1.8973
+    expectedBehavior: warn
+    expectedWarnings:
+      - Serum creatinine exceeds 8 mg/dL and was capped at 8 mg/dL for the KDRI, per the OPTN KDPI methodology.
+    tolerance: *a1
+    witnesses:
+      - formula:implementation
+      - output:kdpi
+      - output:kdri_raw
+      - output:kdri_scaled
+    claimIds:
+      - claim:kdpi:formula-implementation
+      - claim:kdpi:output-kdpi
+      - claim:kdpi:output-kdri_raw
+      - claim:kdpi:output-kdri_scaled
+    sourceIds:
+      - kdpi_optn_guide_2025
+      - kdpi_optn_mapping_2026
+  - kind: agent
+    id: case:kdpi:agent-exclusion-missing-context
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      donor_height_cm: 175
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 1
+      donation_after_circulatory_death: false
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: donor_age_years
+      messageIncludes: Donor Age is required.
+    tolerance: *a1
+    witnesses:
+      - applicability:exclusions
+      - input:donor_age_years
+    claimIds:
+      - claim:kdpi:applicability-exclusions
+      - claim:kdpi:input-donor_age_years
+    sourceIds:
+      - hrsa_optn
+      - kdpi_rao_2009
+  - kind: agent
+    id: case:kdpi:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 175
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 1
+      donation_after_circulatory_death: false
+    expected:
+      kdpi: 20
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - applicability:purpose
+    claimIds:
+      - claim:kdpi:applicability-purpose
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:kdpi:hard-donor_age_years
+    tags:
+      - hard-limits
+    inputs:
+      donor_age_years: 100
+      donor_height_cm: 175
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 1
+      donation_after_circulatory_death: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: donor_age_years
+      messageIncludes: Donor Age 100 is outside physiological limits [0, 99].
+    tolerance: *a1
+    witnesses:
+      - input:donor_age_years:hard_limits
+    claimIds:
+      - claim:kdpi:input-donor_age_years-hard_limits
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:kdpi:plausibility-donor_age_years
+    tags:
+      - plausibility
+    inputs:
+      donor_age_years: 94.5
+      donor_height_cm: 175
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 1
+      donation_after_circulatory_death: false
+    expected:
+      kdpi: 89
+    expectedBehavior: warn
+    expectedWarnings:
+      - Donor Age 94.5 is unusual (expected 1–90).
+    tolerance: *a1
+    witnesses:
+      - input:donor_age_years:plausibility
+    claimIds:
+      - claim:kdpi:input-donor_age_years-plausibility
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:kdpi:hard-donor_height_cm
+    tags:
+      - hard-limits
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 243.71300000000002
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 1
+      donation_after_circulatory_death: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: donor_height_cm
+      messageIncludes: Donor Height 243.71300000000002 is outside physiological limits [30, 241.3].
+    tolerance: *a1
+    witnesses:
+      - input:donor_height_cm:hard_limits
+    claimIds:
+      - claim:kdpi:input-donor_height_cm-hard_limits
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:kdpi:plausibility-donor_height_cm
+    tags:
+      - plausibility
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 230.65
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 1
+      donation_after_circulatory_death: false
+    expected:
+      kdpi: 2
+    expectedBehavior: warn
+    expectedWarnings:
+      - Donor Height 230.65 is unusual (expected 100–220).
+    tolerance: *a1
+    witnesses:
+      - input:donor_height_cm:plausibility
+    claimIds:
+      - claim:kdpi:input-donor_height_cm-plausibility
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:kdpi:hard-donor_weight_kg
+    tags:
+      - hard-limits
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 175
+      donor_weight_kg: 297.748
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 1
+      donation_after_circulatory_death: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: donor_weight_kg
+      messageIncludes: Donor Weight 297.748 is outside physiological limits [0.454, 294.8].
+    tolerance: *a1
+    witnesses:
+      - input:donor_weight_kg:hard_limits
+    claimIds:
+      - claim:kdpi:input-donor_weight_kg-hard_limits
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:kdpi:plausibility-donor_weight_kg
+    tags:
+      - plausibility
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 175
+      donor_weight_kg: 272.4
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 1
+      donation_after_circulatory_death: false
+    expected:
+      kdpi: 20
+    expectedBehavior: warn
+    expectedWarnings:
+      - Donor Weight 272.4 is unusual (expected 3–250).
+    tolerance: *a1
+    witnesses:
+      - input:donor_weight_kg:plausibility
+    claimIds:
+      - claim:kdpi:input-donor_weight_kg-plausibility
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:kdpi:alias-cause_of_death_cva
+    tags:
+      - aliases
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 175
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      donor_creatinine: 1
+      donation_after_circulatory_death: false
+      cod_cva: false
+    expected:
+      kdpi: 20
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'cod_cva' is a compatibility alias; use 'cause_of_death_cva'.
+    tolerance: *a1
+    witnesses:
+      - input:cause_of_death_cva:aliases
+    claimIds:
+      - claim:kdpi:input-cause_of_death_cva-aliases
+    sourceIds:
+      - kdpi_rao_2009
+  - kind: edge
+    id: case:kdpi:hard-donor_creatinine
+    tags:
+      - hard-limits
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 175
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 41
+      donation_after_circulatory_death: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: donor_creatinine
+      messageIncludes: Serum Creatinine 41 mg/dL is outside physiological limits [0.1, 40] mg/dL.
+    tolerance: *a1
+    witnesses:
+      - input:donor_creatinine:hard_limits
+    claimIds:
+      - claim:kdpi:input-donor_creatinine-hard_limits
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:kdpi:plausibility-donor_creatinine
+    tags:
+      - plausibility
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 175
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 27.5
+      donation_after_circulatory_death: false
+    expected:
+      kdpi: 25
+    expectedBehavior: warn
+    expectedWarnings:
+      - Serum Creatinine 27.5 mg/dL is unusual (expected 0.2–15 mg/dL); if the source uses another unit, pass it
+        explicitly as { value, unit }.
+      - Serum creatinine exceeds 8 mg/dL and was capped at 8 mg/dL for the KDRI, per the OPTN KDPI methodology.
+    tolerance: *a1
+    witnesses:
+      - input:donor_creatinine:plausibility
+    claimIds:
+      - claim:kdpi:input-donor_creatinine-plausibility
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:kdpi:alias-donation_after_circulatory_death
+    tags:
+      - aliases
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 175
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 1
+      dcd: false
+    expected:
+      kdpi: 20
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'dcd' is a compatibility alias; use 'donation_after_circulatory_death'.
+    tolerance: *a1
+    witnesses:
+      - input:donation_after_circulatory_death:aliases
+    claimIds:
+      - claim:kdpi:input-donation_after_circulatory_death-aliases
+    sourceIds:
+      - kdpi_rao_2009
+  - kind: edge
+    id: case:kdpi:unit-donor_creatinine-canonical
+    tags:
+      - unit-equivalence
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 175
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine:
+        value: 1
+        unit: mg/dL
+      donation_after_circulatory_death: false
+    expected:
+      kdpi: 20
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - unit:donor_creatinine
+    claimIds:
+      - claim:kdpi:unit-donor_creatinine
+    sourceIds:
+      - kdpi_rao_2009
+  - kind: edge
+    id: case:kdpi:unit-donor_creatinine-alternate
+    tags:
+      - unit-equivalence
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 175
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine:
+        value: 88.4
+        unit: umol/L
+      donation_after_circulatory_death: false
+    expected:
+      kdpi: 20
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - unit:donor_creatinine
+    claimIds:
+      - claim:kdpi:unit-donor_creatinine
+    sourceIds:
+      - kdpi_rao_2009
+  - kind: edge
+    id: case:kdpi:creatinine-cap-warning
+    tags:
+      - plausibility
+    inputs:
+      donor_age_years: 50
+      donor_height_cm: 175
+      donor_weight_kg: 80
+      donor_hypertension: false
+      donor_diabetes: false
+      cause_of_death_cva: false
+      donor_creatinine: 9
+      donation_after_circulatory_death: false
+    expected:
+      kdpi: 25
+    expectedBehavior: warn
+    expectedWarnings:
+      - Serum creatinine exceeds 8 mg/dL and was capped at 8 mg/dL for the KDRI, per the OPTN KDPI methodology.
+    tolerance: *a1
+    witnesses:
+      - warning:0
+    claimIds:
+      - claim:kdpi:warning-0
+    sourceIds:
+      - kdpi_optn_guide_2025
+compatibilityNotes:
+  - The OPTN guide's worked donor vector is recomputed with the current 2025 reference-population mapping; therefore its raw
+    KDRI remains 1.7124 while the current mapping yields KDPI 67 rather than the guide's older illustrative percentile.
+explicitBlockers: []

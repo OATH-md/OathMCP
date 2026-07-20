@@ -1,0 +1,27 @@
+draft:
+  draftVersion: "1.0"
+  archetype: score
+  todos: [TODO replace every placeholder with reviewed score content]
+id: __CALCULATOR_ID__
+version: 0.1.0
+name: TODO score name
+clinicalModel:
+  modelKind: score
+  modelId: __CALCULATOR_ID__
+  modelVersion: TODO exact model version
+  evidenceRefs: [TODO_source_id]
+applicability:
+  population: TODO population
+  setting: TODO setting
+  exclusions: [TODO exclusions]
+  evidenceRefs: [TODO_source_id]
+purposeForAgents: TODO explain the exact score use case
+evidence: []
+inputs: {}
+outputs: {}
+primaryOutputs: [score]
+scoring:
+  output: score
+  components: []
+  range: [0, 0]
+  evidenceRefs: [TODO_source_id]

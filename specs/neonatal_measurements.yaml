@@ -1,0 +1,188 @@
+id: neonatal_measurements
+version: 1.1.0
+name: Neonatal Measurement Estimates
+clinicalModel:
+  modelKind: lookup
+  modelId: neonatal_measurement_estimates
+  modelVersion: shukla_1986_kempley_2008_zubrow_1995
+  effectiveDate: 1995-12-01
+  dataSnapshot: neonatal_tables_reviewed_2026-07-15
+  reviewDate: 2026-07-15
+  evidenceRefs: [source_1, source_2, source_3, source_4]
+applicability:
+  population: Newborn infants within the source-table gestational-age and weight ranges.
+  setting: Initial catheter, ETT, and reference blood-pressure estimates requiring direct confirmation.
+  exclusions:
+    - Estimates do not confirm final catheter or ETT position and blood-pressure ranges are descriptive references, not treatment targets.
+    - The original Shukla UVC formula has documented over-insertion risk and must be reported with that limitation.
+  evidenceRefs: [source_1, source_2, source_3, source_4]
+purposeForAgents: Return only the output families supported by the supplied weight, gestational age, postnatal timing, or corrected age, using typed numeric estimates and ranges.
+whenNotToUse: Do not treat insertion estimates as confirmed position or reference BP distributions as intervention thresholds.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Shukla H, Ferrara A. Rapid estimation of insertional length of umbilical catheters in newborns. Am J Dis Child. 1986;140(8):786-788.
+    locator: equations:UA=3*BWkg+9;UV=UA/2+1
+    doi: 10.1001/archpedi.1986.02140220068034
+    url: https://doi.org/10.1001/archpedi.1986.02140220068034
+    reviewed: true
+  - id: source_2
+    type: validation
+    citation: Verheij GH, et al. Revised formula to determine the insertion length of umbilical vein catheters. Eur J Pediatr. 2013;172(8):1011-1015.
+    locator: pmid:23503982
+    doi: 10.1007/s00431-013-1981-z
+    url: https://pubmed.ncbi.nlm.nih.gov/23503982/
+    reviewed: true
+  - id: source_3
+    type: derivation
+    citation: Kempley ST, Moreiras JW, Petrone FL. Endotracheal tube length for neonatal intubation. Resuscitation. 2008;77(3):369-373.
+    locator: doi:10.1016/j.resuscitation.2008.02.002
+    doi: 10.1016/j.resuscitation.2008.02.002
+    url: https://doi.org/10.1016/j.resuscitation.2008.02.002
+    reviewed: true
+  - id: source_4
+    type: reference
+    citation: Zubrow AB, Hulman S, Kushner H, Falkner B. Determinants of blood pressure in infants admitted to neonatal intensive care units. J Perinatol. 1995;15(6):470-479.
+    locator: pmid:8648456
+    url: https://pubmed.ncbi.nlm.nih.gov/8648456/
+    reviewed: true
+inputs:
+  weight_grams:
+    title: Birth Weight
+    description: Birth weight in grams; drives Shukla UAC/UVC estimates.
+    kind: number
+    plausible: [400, 6000]
+    hardLimits: [1, 10000]
+    required: false
+    conceptId: neonatal_measurements.input.weight_grams
+    examples: [1200]
+    sourceRefs: [source_1, source_2]
+    sharedKey: weight_grams
+  gestational_age_weeks:
+    title: Gestational Age
+    description: Completed gestational weeks 22-43; drives Kempley ETT depth and, with explicit day-one timing, BP reference outputs where tabled.
+    aliases: [gestational_age]
+    kind: integer
+    hardLimits: [22, 43]
+    required: false
+    conceptId: neonatal_measurements.input.gestational_age_weeks
+    examples: [30]
+    sourceRefs: [source_3, source_4]
+    sharedKey: gestational_age_weeks
+  postnatal_age_hours:
+    title: Postnatal Age
+    description: Hours since birth; day-one BP references are emitted only when this is explicitly 0 through 24 hours.
+    kind: number
+    plausible: [0, 168]
+    hardLimits: [0, 8760]
+    required: false
+    conceptId: neonatal_measurements.input.postnatal_age_hours
+    examples: [12]
+    sourceRefs: [source_4]
+  corrected_gestational_age_weeks:
+    title: Corrected Gestational Age
+    description: Corrected gestational age in completed weeks 24-46; drives corrected-age BP reference outputs.
+    aliases: [corrected_gestational_age]
+    kind: integer
+    hardLimits: [24, 46]
+    required: false
+    conceptId: neonatal_measurements.input.corrected_gestational_age_weeks
+    examples: [36]
+    sourceRefs: [source_4]
+    sharedKey: corrected_gestational_age_weeks
+constraints:
+  - kind: atLeastOne
+    fields: [weight_grams, gestational_age_weeks, corrected_gestational_age_weeks]
+    message: Provide at least one supported neonatal measurement input.
+outputs:
+  uac_depth_estimate_cm:
+    title: UAC Depth Estimate
+    description: Shukla birth-weight estimate; final tip position requires direct confirmation.
+    kind: number
+    unit: cm
+    availability: { kind: computeCondition, conditionId: weight_supported }
+    evidenceRefs: [source_1]
+  uvc_depth_estimate_cm:
+    title: UVC Depth Estimate
+    description: Original Shukla birth-weight estimate with documented over-insertion limitation.
+    kind: number
+    unit: cm
+    availability: { kind: computeCondition, conditionId: weight_supported }
+    evidenceRefs: [source_1, source_2]
+  catheter_formula_id:
+    title: Catheter Formula ID
+    description: Exact formula variant used for catheter estimates.
+    kind: enum
+    allowedValues: [shukla_1986_original]
+    availability: { kind: computeCondition, conditionId: weight_supported }
+    evidenceRefs: [source_1]
+  ett_depth_at_lip_cm:
+    title: Initial ETT Depth at Lip
+    description: Initial oral ETT insertion estimate requiring confirmation of final position.
+    kind: number
+    unit: cm
+    availability: { kind: computeCondition, conditionId: gestational_age_ett_supported }
+    evidenceRefs: [source_3]
+  day_one_systolic_bp_mm_hg: &day_one_bp
+    title: Day-One Systolic BP Reference
+    description: Low, mean, and high descriptive reference values for gestational age.
+    kind: number_range
+    unit: mmHg
+    availability: { kind: computeCondition, conditionId: gestational_age_bp_supported }
+    evidenceRefs: [source_4]
+  day_one_diastolic_bp_mm_hg:
+    title: Day-One Diastolic BP Reference
+    description: Low, mean, and high descriptive reference values for gestational age.
+    kind: number_range
+    unit: mmHg
+    availability: { kind: computeCondition, conditionId: gestational_age_bp_supported }
+    evidenceRefs: [source_4]
+  day_one_map_mm_hg:
+    title: Day-One MAP Reference
+    description: Low, mean, and high descriptive reference values for gestational age.
+    kind: number_range
+    unit: mmHg
+    availability: { kind: computeCondition, conditionId: gestational_age_bp_supported }
+    evidenceRefs: [source_4]
+  day_one_pulse_pressure_mm_hg:
+    title: Day-One Pulse-Pressure Reference
+    description: Low, mean, and high descriptive reference values for gestational age.
+    kind: number_range
+    unit: mmHg
+    availability: { kind: computeCondition, conditionId: gestational_age_bp_supported }
+    evidenceRefs: [source_4]
+  corrected_systolic_bp_mm_hg: &corrected_bp
+    title: Corrected-Age Systolic BP Reference
+    description: Low, mean, and high descriptive reference values for corrected age.
+    kind: number_range
+    unit: mmHg
+    availability: { kind: computeCondition, conditionId: corrected_age_bp_supported }
+    evidenceRefs: [source_4]
+  corrected_diastolic_bp_mm_hg:
+    title: Corrected-Age Diastolic BP Reference
+    description: Low, mean, and high descriptive reference values for corrected age.
+    kind: number_range
+    unit: mmHg
+    availability: { kind: computeCondition, conditionId: corrected_age_bp_supported }
+    evidenceRefs: [source_4]
+  corrected_map_mm_hg:
+    title: Corrected-Age MAP Reference
+    description: Low, mean, and high descriptive reference values for corrected age.
+    kind: number_range
+    unit: mmHg
+    availability: { kind: computeCondition, conditionId: corrected_age_bp_supported }
+    evidenceRefs: [source_4]
+  corrected_pulse_pressure_mm_hg:
+    title: Corrected-Age Pulse-Pressure Reference
+    description: Low, mean, and high descriptive reference values for corrected age.
+    kind: number_range
+    unit: mmHg
+    availability: { kind: computeCondition, conditionId: corrected_age_bp_supported }
+    evidenceRefs: [source_4]
+  limitations:
+    title: Limitations
+    description: Output-family-specific confirmation and applicability limitations.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2, source_3, source_4]
+primaryOutputs: [uac_depth_estimate_cm, ett_depth_at_lip_cm, day_one_map_mm_hg, corrected_map_mm_hg]

@@ -1,0 +1,265 @@
+id: wells_dvt
+version: 1.1.0
+name: Modified Wells DVT Score (Two-Level)
+family: wells_dvt
+variant: modified_2003_two_level
+synonyms:
+  - deep vein thrombosis pretest probability
+  - DVT likely
+abbreviations:
+  - DVT
+clinicalModel:
+  modelKind: score
+  modelId: wells_dvt.modified_2003_two_level
+  modelVersion: modified_2003_two_level
+  reviewDate: 2026-07-16
+  evidenceRefs: [source_1, source_2, source_3]
+applicability:
+  population: Estimate the pretest probability of deep vein thrombosis (DVT) in a
+    patient with a suspected lower-extremity DVT. Awards +1 for each of nine
+    clinical features (active cancer, paralysis/cast, recent bedridden/surgery,
+    localized tenderness, entire-leg swelling, calf swelling at least 3 cm, pitting
+    edema, collateral superficial veins, previously diagnosed DVT) and SUBTRACTS
+    2 when an alternative diagnosis is at least as likely as DVT. Score ranges
+    -2 to 9; higher scores mean higher risk.
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - A pretest-probability stratifier, not a diagnosis. Apply the full
+      validated diagnostic algorithm with D-dimer and ultrasonography; do not
+      use for upper- extremity DVT or pulmonary embolism.
+  evidenceRefs: [source_1, source_2]
+purposeForAgents: Estimate the pretest probability of deep vein thrombosis (DVT)
+  in a patient with a suspected lower-extremity DVT. Awards +1 for each of nine
+  clinical features (active cancer, paralysis/cast, recent bedridden/surgery,
+  localized tenderness, entire-leg swelling, calf swelling at least 3 cm, pitting
+  edema, collateral superficial veins, previously diagnosed DVT) and SUBTRACTS 2
+  when an alternative diagnosis is at least as likely as DVT. Score ranges -2 to
+  9; higher scores mean higher risk.
+whenNotToUse: A pretest-probability stratifier, not a diagnosis. Apply the full
+  validated diagnostic algorithm with D-dimer and ultrasonography; do not use
+  for upper- extremity DVT or pulmonary embolism.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Wells PS, Anderson DR, Rodger M, et al. Evaluation of D-dimer in the
+      diagnosis of suspected deep-vein thrombosis. N Engl J Med.
+      2003;349(13):1227-1235.
+    locator: doi:10.1056/NEJMoa023153
+    doi: 10.1056/NEJMoa023153
+    url: https://doi.org/10.1056/NEJMoa023153
+    reviewed: true
+  - id: source_2
+    type: guideline
+    citation: NICE NG158. Venous thromboembolic diseases - diagnosis, management and thrombophilia testing.
+    locator: Recommendation 1.1.2 and Table 1, two-level DVT Wells score
+    url: https://www.nice.org.uk/guidance/ng158/chapter/Recommendations
+    reviewed: true
+  - id: source_3
+    type: validation
+    citation: Geersing GJ, Zuithoff NPA, Kearon C, et al. Exclusion of deep vein thrombosis using the Wells rule in clinically important subgroups. BMJ. 2014;348:g1340.
+    locator: doi:10.1136/bmj.g1340, individual-patient-data meta-analysis
+    doi: 10.1136/bmj.g1340
+    url: https://www.bmj.com/content/348/bmj.g1340
+    reviewed: true
+inputs:
+  active_cancer:
+    title: Active cancer (treatment ongoing, within 6 months, or palliative)
+    description: Active cancer (treatment ongoing, within 6 months, or palliative).
+      Scores +1.
+    kind: boolean
+    required: true
+    conceptId: wells_dvt.input.active_cancer
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: active_cancer
+  paralysis_or_cast:
+    title: Paralysis, paresis or recent plaster immobilization of the lower
+      extremities
+    description: Paralysis, paresis or recent plaster immobilization of the lower
+      extremities. Scores +1.
+    kind: boolean
+    required: true
+    conceptId: wells_dvt.input.paralysis_or_cast
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: paralysis_or_cast
+  bedridden:
+    title: Recently bedridden for 3 days or more, or major surgery within 12 weeks
+    description: Recently bedridden for 3 days or more, or major surgery within 12
+      weeks. Scores +1.
+    kind: boolean
+    required: true
+    conceptId: wells_dvt.input.bedridden
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: bedridden
+  localized_tenderness:
+    title: Localized tenderness along the distribution of the deep venous system
+    description: Localized tenderness along the distribution of the deep venous
+      system. Scores +1.
+    kind: boolean
+    required: true
+    conceptId: wells_dvt.input.localized_tenderness
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: localized_tenderness
+  entire_leg_swollen:
+    title: Entire leg swollen
+    description: Entire leg swollen. Scores +1.
+    kind: boolean
+    required: true
+    conceptId: wells_dvt.input.entire_leg_swollen
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: entire_leg_swollen
+  calf_swelling:
+    title: Calf swelling at least 3 cm compared to asymptomatic leg
+    description: Calf swelling at least 3 cm compared to asymptomatic leg (measured 10 cm
+      below tibial tuberosity). Scores +1.
+    kind: boolean
+    required: true
+    conceptId: wells_dvt.input.calf_swelling
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: calf_swelling
+  pitting_edema:
+    title: Pitting edema confined to the symptomatic leg
+    description: Pitting edema confined to the symptomatic leg. Scores +1.
+    kind: boolean
+    required: true
+    conceptId: wells_dvt.input.pitting_edema
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: pitting_edema
+  collateral_veins:
+    title: Collateral superficial veins (non-varicose)
+    description: Collateral superficial veins (non-varicose). Scores +1.
+    kind: boolean
+    required: true
+    conceptId: wells_dvt.input.collateral_veins
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: collateral_veins
+  alternative_diagnosis:
+    title: Alternative diagnosis at least as likely as DVT
+    description: Alternative diagnosis at least as likely as DVT. SUBTRACTS 2 from
+      the score (the only criterion that is not +1).
+    kind: boolean
+    required: true
+    conceptId: wells_dvt.input.alternative_diagnosis
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: alternative_diagnosis
+  previously_diagnosed:
+    title: Previously diagnosed with DVT
+    description: Previously diagnosed with DVT. Scores +1.
+    kind: boolean
+    required: true
+    conceptId: wells_dvt.input.previously_diagnosed
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: previously_diagnosed
+outputs:
+  score:
+    title: Wells DVT Score
+    description: Wells' DVT score (ranges -2 to 9).
+    kind: integer
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+  risk_category:
+    title: Risk Category
+    description: Modified two-level category (DVT likely or DVT unlikely).
+    kind: enum
+    allowedValues: [likely, unlikely]
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - score
+interpretationBands:
+  - code: wells_dvt_band_1
+    kind: likelihood
+    when: ">=2"
+    label: DVT likely in the validated two-level pathway; this is a pretest category, not a diagnosis.
+    severity: abnormal
+    evidenceRefs:
+      - source_1
+  - code: wells_dvt_band_2
+    kind: likelihood
+    when: <2
+    label: DVT unlikely in the validated two-level pathway; a negative score does not independently exclude DVT.
+    severity: normal
+    evidenceRefs:
+      - source_1
+scoring:
+  output: score
+  components:
+    - kind: boolean
+      field: active_cancer
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: paralysis_or_cast
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: bedridden
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: localized_tenderness
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: entire_leg_swollen
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: calf_swelling
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: pitting_edema
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: collateral_veins
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: alternative_diagnosis
+      truePoints: -2
+      falsePoints: 0
+    - kind: boolean
+      field: previously_diagnosed
+      truePoints: 1
+      falsePoints: 0
+  range:
+    - -2
+    - 9
+  evidenceRefs:
+    - source_1

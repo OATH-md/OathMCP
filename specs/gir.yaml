@@ -1,0 +1,103 @@
+id: gir
+version: 1.0.0
+name: Glucose Infusion Rate (GIR)
+clinicalModel:
+  modelKind: formula
+  modelId: gir
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+applicability:
+  population: Compute the glucose infusion rate (mg/kg/min) delivered by a
+    dextrose infusion, from patient weight, dextrose concentration, and infusion
+    rate. Used chiefly in neonatal and parenteral-nutrition management.
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - Reflects only the carbohydrate delivered by the specified infusion; it
+      does not account for enteral intake or other dextrose-containing fluids
+      running concurrently.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Compute the glucose infusion rate (mg/kg/min) delivered by a
+  dextrose infusion, from patient weight, dextrose concentration, and infusion
+  rate. Used chiefly in neonatal and parenteral-nutrition management.
+whenNotToUse: Reflects only the carbohydrate delivered by the specified
+  infusion; it does not account for enteral intake or other dextrose-containing
+  fluids running concurrently.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Guenst JM, Nelson LD. Predictors of total parenteral nutrition-induced
+      lipogenesis. Chest. 1994;105(2):553-559.
+    locator: doi:10.1378/chest.105.2.553
+    doi: 10.1378/chest.105.2.553
+    url: https://doi.org/10.1378/chest.105.2.553
+    reviewed: true
+inputs:
+  weight_kg:
+    title: Weight
+    description: Patient weight in kilograms.
+    aliases:
+      - weight
+    kind: number
+    plausible:
+      - 0.3
+      - 300
+    hardLimits:
+      - 0.1
+      - 700
+    required: true
+    conceptId: patient.weight_kg
+    examples:
+      - 3
+    sourceRefs:
+      - source_1
+    sharedKey: weight_kg
+  dextrose_concentration:
+    title: Dextrose Concentration
+    description: Dextrose concentration as a percentage (g/100 mL), e.g. 10 for D10.
+    kind: number
+    plausible:
+      - 2
+      - 70
+    hardLimits:
+      - 0.1
+      - 100
+    required: true
+    conceptId: gir.input.dextrose_concentration
+    examples:
+      - 10
+    sourceRefs:
+      - source_1
+    sharedKey: dextrose_concentration
+  infusion_rate:
+    title: Infusion Rate
+    description: Infusion rate in mL/hr.
+    kind: number
+    plausible:
+      - 0.1
+      - 1000
+    hardLimits:
+      - 0.01
+      - 5000
+    required: true
+    conceptId: gir.input.infusion_rate
+    examples:
+      - 5
+    sourceRefs:
+      - source_1
+    sharedKey: infusion_rate
+outputs:
+  gir:
+    title: Glucose Infusion Rate
+    description: GIR in mg/kg/min, rounded to 2 decimal places.
+    kind: number
+    unit: mg/kg/min
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - gir

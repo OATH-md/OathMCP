@@ -1,0 +1,125 @@
+---
+title: "Glomerular Filtration Rate (GFR)"
+description: "Calculate adult 2021 CKD-EPI creatinine eGFR and its KDIGO GFR category. Do not diagnose CKD from a single category or silently substitute indexed eGFR for a drug label's required kidney-function method."
+sidebar:
+  label: "Glomerular Filtration Rate (GFR)"
+search:
+  tags: ["gfr", "formula", "kidney function", "renal function", "chronic kidney disease", "eGFR", "CKD-EPI", "CKD"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>formula</Badge> <Badge>Spec 1.0.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Adults aged 18 years or older with stable kidney function and standardized serum creatinine, using the 2021 race-free CKD-EPI creatinine equation. |
+| Setting | Adult kidney-function assessment. Interpret the estimate with urine albumin and clinical context; confirm near critical decisions with cystatin C, measured GFR, or the method required by the relevant drug label. |
+| Model | `estimated_gfr.ckd_epi_2021_creatinine` · ckd_epi_2021_creatinine |
+| Model kind | formula |
+| Variant | ckd_epi_2021_creatinine |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Do not use in patients under 18, during acute kidney injury, as an exact GFR measurement, or when creatinine is changing rapidly or strongly affected by non-GFR factors. Confirm values near critical decisions with cystatin C or measured GFR.
+
+- Do not use this adult creatinine-only estimate in patients under 18, in acute kidney injury or other non-steady-state creatinine conditions, or as a precise GFR measurement. It is less reliable when non-GFR determinants of creatinine are important.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `creatinine` | quantity (mg/dL \| umol/L) | Yes | — | 0.2–20 | 0.01–60 | Standardized serum creatinine. Pass a bare number in mg/dL, or an object &#123;value, unit&#125; to supply SI units (umol/L). |
+| `age` | integer | Yes | — | 18–120 | 18–120 | Age in years. |
+| `sex` | enum (2 options) | Yes | — | — | — | Biological sex used by the CKD-EPI equation (male or female). |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+<Expandable title="Sex options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `male` | male | Sex: male. | — |
+| `female` | female | Sex: female. | — |
+
+</Expandable>
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `gfr` | number · mL/min/1.73m² | Always | Yes | Estimated, indexed GFR in mL/min/1.73m², rounded to 2 decimal places; this is not an absolute mL/min drug-dosing value. |
+
+## Interpretation bands
+
+| Output | Code | Condition | Label | Kind | Severity |
+| --- | --- | --- | --- | --- | --- |
+| Primary | `gfr_band_1` | `&gt;=90` | G1 — Normal or high; this category alone does not establish CKD | stage | normal |
+| Primary | `gfr_band_2` | `&gt;=60` | G2 — Mildly decreased; this category alone does not establish CKD | stage | borderline |
+| Primary | `gfr_band_3` | `&gt;=45` | G3a — Mildly to moderately decreased | stage | abnormal |
+| Primary | `gfr_band_4` | `&gt;=30` | G3b — Moderately to severely decreased | stage | abnormal |
+| Primary | `gfr_band_5` | `&gt;=15` | G4 — Severely decreased | stage | critical |
+| Primary | `gfr_band_6` | `&lt;15` | G5 — Kidney failure | stage | critical |
+
+## Warnings, constraints, and adjustments
+
+No calculator-specific warning rules or cross-field constraints are declared beyond input validation and applicability.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "gfr",
+  "inputs": {
+    "creatinine": 1.2,
+    "age": 55,
+    "sex": "male"
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `gfr`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 20/20 | 19/19 | 26/26 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://gfr/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Inker LA, Eneanya ND, Coresh J, et al. New Creatinine- and Cystatin C-Based Equations to Estimate GFR without Race. N Engl J Med. 2021;385:1737-1749.](https://doi.org/10.1056/NEJMoa2102953)<br />doi:10.1056/NEJMoa2102953 |
+| `source_2` | reference | [Kidney Disease: Improving Global Outcomes. KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease. Kidney Int. 2024;105(4S):S117-S314.](https://doi.org/10.1016/j.kint.2023.10.018)<br />doi:10.1016/j.kint.2023.10.018 |
+
+<Panel title="Repository source">
+  Calculator ID `gfr`; spec version `1.0.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

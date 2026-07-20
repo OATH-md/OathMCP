@@ -1,0 +1,1036 @@
+calculatorId: anion_gap
+specVersion: 1.0.0
+clinicalModel: Serum anion gap with optional historical Figge albumin adjustment and conditional delta arithmetic
+variant: sodium_without_potassium_figge_optional_contextual_delta
+population: Patients with concurrent sodium, chloride, and bicarbonate measurements during acid-base evaluation.
+setting: Clinical acid-base assessment using the local laboratory reference interval and other clinical data.
+assessmentTiming: Concurrent electrolyte and optional albumin measurements; do not mix samples from different times.
+endpoint: Uncorrected gap, optional albumin-adjusted gap, delta gaps, and conditional delta ratios.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:anion_gap:2026-07-16
+    calculatorId: anion_gap
+    model: Serum anion gap with optional historical Figge albumin adjustment and conditional delta arithmetic
+    variant: sodium_without_potassium_figge_optional_contextual_delta
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:anion_gap:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: (Figge J[au] AND "anion gap"[ti]) OR (Kraut JA[au] AND Madias NE[au] AND "anion gap"[ti])
+        translationExposed: true
+        translatedQuery: (figge j[Author] AND "anion gap"[Title]) OR ((kraut, ja[Author] OR kraut ja[Author]) AND
+          (madias, ne[Author] OR madias ne[Author]) AND "anion gap"[Title])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 3
+        stableCitationIds:
+          - PMID:29080515
+          - PMID:17699401
+          - PMID:9824071
+      - id: search:anion_gap:derivation
+        sourceRole: derivation
+        authorityId: anion_oh_carroll_1977
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          sodium_without_potassium_figge_optional_contextual_delta
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - anion_oh_carroll_1977
+      - id: search:anion_gap:controlling
+        sourceRole: controlling_authority
+        authorityId: anion_merck_2025
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          sodium_without_potassium_figge_optional_contextual_delta
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - anion_merck_2025
+      - id: search:anion_gap:specialty
+        sourceRole: specialty_guidance
+        authorityId: anion_kraut_nagami_2013
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          sodium_without_potassium_figge_optional_contextual_delta
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - anion_kraut_nagami_2013
+      - id: search:anion_gap:independent
+        sourceRole: independent_numeric
+        authorityId: anion_figge_1998
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          sodium_without_potassium_figge_optional_contextual_delta
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - anion_figge_1998
+    accounting:
+      retrieved: 3
+      deduplicated: 3
+      screened: 3
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:29080515
+        title: Quantitative relationships among plasma lactate, inorganic phosphorus, albumin, unmeasured anions and
+          the anion gap in lactic acidosis.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:17699401
+        title: "Serum anion gap: its uses and limitations in clinical medicine."
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: anion_figge_1998
+        title: Anion gap and hypoalbuminemia.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:anion_gap:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and historical terminology
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search, not an exhaustive systematic review.
+      resolution: Resolved by retaining exact author/model terms, checking automatic translation, screening every
+        result, and pairing the database search with current authority, specialty, derivation, and independent
+        numeric sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - anion_oh_carroll_1977
+  - anion_merck_2025
+  - anion_kraut_nagami_2013
+  - anion_figge_1998
+claims:
+  - id: claim:anion_gap:calculator-model
+    kind: applicability
+    statement: Serum anion gap with optional historical Figge albumin adjustment and conditional delta arithmetic
+      is limited to Patients with concurrent sodium, chloride, and bicarbonate measurements during acid-base
+      evaluation. Clinical acid-base assessment using the local laboratory reference interval and other
+      clinical data.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - anion_merck_2025
+    locators:
+      - sourceId: anion_merck_2025
+        locator: Merck Manual Acid-Base Disorders, Calculation of the anion gap, albumin effect, delta-gap example,
+          and mixed-disorder context.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad clinical limitations are descriptive; every
+      runtime-verifiable surface is separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:formula-implementation
+    kind: formula
+    statement: AG = sodium - chloride - bicarbonate; optional historical Figge adjustment adds 2.5 × (4 - albumin
+      g/dL); delta arithmetic uses AG - 12 and 24 - bicarbonate only when applicable.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - anion_oh_carroll_1977
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_oh_carroll_1977
+        locator: Oh and Carroll 1977, anion-gap equation and clinical applications.
+      - sourceId: anion_figge_1998
+        locator: Figge 1998 abstract, objective and equation, adding 0.25 mEq/L per g/L albumin deficit.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:ref-elevated-gap
+      - case:anion_gap:ref-hypoalbumin
+      - case:anion_gap:ref-correction-unmasks-gap
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:applicability-purpose
+    kind: applicability
+    statement: Compute uncorrected anion gap plus optional historical albumin correction and delta arithmetic from
+      concurrent laboratories. Treat every result as an aid requiring local reference intervals and clinical
+      context.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - anion_merck_2025
+    locators:
+      - sourceId: anion_merck_2025
+        locator: Merck Manual Acid-Base Disorders, Calculation of the anion gap, albumin effect, delta-gap example,
+          and mixed-disorder context.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:applicability-exclusions
+    kind: exclusion
+    statement: Do not calculate until the runtime's required discriminator 'bicarbonate' is supplied; the broader
+      clinical limitations remain descriptive context.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - anion_merck_2025
+    locators:
+      - sourceId: anion_merck_2025
+        locator: Merck Manual Acid-Base Disorders, Calculation of the anion gap, albumin effect, delta-gap example,
+          and mixed-disorder context.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:input-sodium
+    kind: input
+    statement: Serum sodium in mEq/L (numerically equal to mmol/L). Normal 135-145.
+    covers:
+      - input:sodium
+    status: supported
+    sourceIds:
+      - anion_oh_carroll_1977
+    locators:
+      - sourceId: anion_oh_carroll_1977
+        locator: Oh and Carroll 1977, anion-gap equation and clinical applications.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:ref-elevated-gap
+      - case:anion_gap:ref-hypoalbumin
+      - case:anion_gap:ref-correction-unmasks-gap
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:input-sodium-hard_limits
+    kind: input
+    statement: OathMCP rejects Sodium outside [80, 200] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:sodium:hard_limits
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: "Figge 1998 abstract, objective and equation: +0.25 per g/L albumin deficit, equivalent to +2.5 per
+          g/dL."
+    executable: true
+    scenarioIds:
+      - case:anion_gap:hard-sodium
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:input-sodium-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Sodium is outside [120, 160]; this is an operational review
+      prompt.
+    covers:
+      - input:sodium:plausibility
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: "Figge 1998 abstract, objective and equation: +0.25 per g/L albumin deficit, equivalent to +2.5 per
+          g/dL."
+    executable: true
+    scenarioIds:
+      - case:anion_gap:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:unit-sodium
+    kind: unit
+    statement: Sodium accepts exactly mEq/L and mmol/L, normalized to the declared canonical unit.
+    covers:
+      - unit:sodium
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: "Figge 1998 abstract, objective and equation: +0.25 per g/L albumin deficit, equivalent to +2.5 per
+          g/dL."
+    executable: true
+    scenarioIds:
+      - case:anion_gap:unit-us
+      - case:anion_gap:unit-si
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:input-chloride
+    kind: input
+    statement: Serum chloride in mEq/L (numerically equal to mmol/L). Normal 96-106.
+    covers:
+      - input:chloride
+    status: supported
+    sourceIds:
+      - anion_oh_carroll_1977
+    locators:
+      - sourceId: anion_oh_carroll_1977
+        locator: Oh and Carroll 1977, anion-gap equation and clinical applications.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:ref-elevated-gap
+      - case:anion_gap:ref-hypoalbumin
+      - case:anion_gap:ref-correction-unmasks-gap
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:input-chloride-hard_limits
+    kind: input
+    statement: OathMCP rejects Chloride outside [50, 150] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:chloride:hard_limits
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: "Figge 1998 abstract, objective and equation: +0.25 per g/L albumin deficit, equivalent to +2.5 per
+          g/dL."
+    executable: true
+    scenarioIds:
+      - case:anion_gap:hard-chloride
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:input-chloride-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Chloride is outside [80, 120]; this is an operational
+      review prompt.
+    covers:
+      - input:chloride:plausibility
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: "Figge 1998 abstract, objective and equation: +0.25 per g/L albumin deficit, equivalent to +2.5 per
+          g/dL."
+    executable: true
+    scenarioIds:
+      - case:anion_gap:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:input-bicarbonate
+    kind: input
+    statement: Serum bicarbonate in mEq/L (numerically equal to mmol/L). Normal 22-29.
+    covers:
+      - input:bicarbonate
+    status: supported
+    sourceIds:
+      - anion_oh_carroll_1977
+    locators:
+      - sourceId: anion_oh_carroll_1977
+        locator: Oh and Carroll 1977, anion-gap equation and clinical applications.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:ref-elevated-gap
+      - case:anion_gap:ref-hypoalbumin
+      - case:anion_gap:ref-correction-unmasks-gap
+      - case:anion_gap:missing-bicarbonate
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:input-bicarbonate-hard_limits
+    kind: input
+    statement: OathMCP rejects Bicarbonate outside [1, 60] as a conservative operational envelope, not a clinical
+      cutoff.
+    covers:
+      - input:bicarbonate:hard_limits
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: "Figge 1998 abstract, objective and equation: +0.25 per g/L albumin deficit, equivalent to +2.5 per
+          g/dL."
+    executable: true
+    scenarioIds:
+      - case:anion_gap:hard-bicarbonate
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:input-bicarbonate-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Bicarbonate is outside [5, 45]; this is an operational
+      review prompt.
+    covers:
+      - input:bicarbonate:plausibility
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: "Figge 1998 abstract, objective and equation: +0.25 per g/L albumin deficit, equivalent to +2.5 per
+          g/dL."
+    executable: true
+    scenarioIds:
+      - case:anion_gap:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:input-albumin
+    kind: input
+    statement: Serum albumin. Pass a bare number in g/dL, or {value, unit} for SI (g/L). When omitted, only
+      uncorrected outputs are returned; the calculator does not silently assume 4.0 g/dL.
+    covers:
+      - input:albumin
+    status: supported
+    sourceIds:
+      - anion_oh_carroll_1977
+    locators:
+      - sourceId: anion_oh_carroll_1977
+        locator: Oh and Carroll 1977, anion-gap equation and clinical applications.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:ref-elevated-gap
+      - case:anion_gap:ref-hypoalbumin
+      - case:anion_gap:ref-correction-unmasks-gap
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:input-albumin-hard_limits
+    kind: input
+    statement: OathMCP rejects Albumin outside [0.5, 10] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:albumin:hard_limits
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: "Figge 1998 abstract, objective and equation: +0.25 per g/L albumin deficit, equivalent to +2.5 per
+          g/dL."
+    executable: true
+    scenarioIds:
+      - case:anion_gap:hard-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:input-albumin-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Albumin is outside [1, 6]; this is an operational review prompt.
+    covers:
+      - input:albumin:plausibility
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: "Figge 1998 abstract, objective and equation: +0.25 per g/L albumin deficit, equivalent to +2.5 per
+          g/dL."
+    executable: true
+    scenarioIds:
+      - case:anion_gap:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:unit-albumin
+    kind: unit
+    statement: Albumin accepts exactly g/dL and g/L, normalized to the declared canonical unit.
+    covers:
+      - unit:albumin
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: "Figge 1998 abstract, objective and equation: +0.25 per g/L albumin deficit, equivalent to +2.5 per
+          g/dL."
+    executable: true
+    scenarioIds:
+      - case:anion_gap:unit-us
+      - case:anion_gap:unit-si
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:output-anion_gap
+    kind: outcome
+    statement: Na − (Cl + HCO3), rounded to 1 decimal place.
+    covers:
+      - output:anion_gap
+    status: supported
+    sourceIds:
+      - anion_oh_carroll_1977
+    locators:
+      - sourceId: anion_oh_carroll_1977
+        locator: Oh and Carroll 1977, anion-gap equation and clinical applications.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:ref-elevated-gap
+      - case:anion_gap:ref-hypoalbumin
+      - case:anion_gap:ref-correction-unmasks-gap
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:output-albumin_corrected_anion_gap
+    kind: outcome
+    statement: Anion gap + 2.5 × (4 − albumin), rounded to 1 decimal place.
+    covers:
+      - output:albumin_corrected_anion_gap
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: Figge 1998 abstract, objective and equation, adding 0.25 mEq/L per g/L albumin deficit.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:ref-elevated-gap
+      - case:anion_gap:ref-hypoalbumin
+      - case:anion_gap:ref-correction-unmasks-gap
+      - case:anion_gap:omit-albumin-omitted
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:output-delta_anion_gap
+    kind: outcome
+    statement: ΔAG = anion gap − 12, rounded to 1 decimal place.
+    covers:
+      - output:delta_anion_gap
+    status: supported
+    sourceIds:
+      - anion_oh_carroll_1977
+    locators:
+      - sourceId: anion_oh_carroll_1977
+        locator: Oh and Carroll 1977, anion-gap equation and clinical applications.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:ref-elevated-gap
+      - case:anion_gap:ref-hypoalbumin
+      - case:anion_gap:ref-correction-unmasks-gap
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:output-albumin_corrected_delta_anion_gap
+    kind: outcome
+    statement: Albumin-corrected ΔAG = corrected anion gap − 12, rounded to 1 decimal place.
+    covers:
+      - output:albumin_corrected_delta_anion_gap
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: Figge 1998 abstract, objective and equation, applied before the declared delta arithmetic.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:ref-elevated-gap
+      - case:anion_gap:ref-hypoalbumin
+      - case:anion_gap:ref-correction-unmasks-gap
+      - case:anion_gap:omit-albumin-omitted
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:output-delta_ratio
+    kind: outcome
+    statement: Delta gap / (24 − HCO3), rounded to 2 decimals. Returned only when bicarbonate is below 24 mEq/L
+      and the uncorrected anion gap exceeds 12 mEq/L.
+    covers:
+      - output:delta_ratio
+    status: supported
+    sourceIds:
+      - anion_oh_carroll_1977
+    locators:
+      - sourceId: anion_oh_carroll_1977
+        locator: Oh and Carroll 1977, anion-gap equation and clinical applications.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:ref-elevated-gap
+      - case:anion_gap:ref-hypoalbumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:anion_gap:output-albumin_corrected_delta_ratio
+    kind: outcome
+    statement: Albumin-corrected delta gap / (24 − HCO3), rounded to 2 decimals. Returned only when albumin is
+      supplied, bicarbonate is below 24 mEq/L, and the corrected anion gap exceeds 12 mEq/L.
+    covers:
+      - output:albumin_corrected_delta_ratio
+    status: supported
+    sourceIds:
+      - anion_figge_1998
+    locators:
+      - sourceId: anion_figge_1998
+        locator: Figge 1998 abstract, objective and equation, applied before the declared delta-ratio arithmetic.
+    executable: true
+    scenarioIds:
+      - case:anion_gap:ref-elevated-gap
+      - case:anion_gap:ref-hypoalbumin
+      - case:anion_gap:ref-correction-unmasks-gap
+      - case:anion_gap:omit-albumin-omitted
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:anion_gap:ref-elevated-gap
+    tags:
+      - calculator:anion_gap:core
+    inputs: &a2
+      sodium: 140
+      chloride: 104
+      bicarbonate: 14
+      albumin: 4
+    expected: &a3
+      anion_gap: 22
+      delta_anion_gap: 10
+      albumin_corrected_anion_gap: 22
+      albumin_corrected_delta_anion_gap: 10
+      delta_ratio: 1
+      albumin_corrected_delta_ratio: 1
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:formula-implementation
+      - claim:anion_gap:input-sodium
+      - claim:anion_gap:input-chloride
+      - claim:anion_gap:input-bicarbonate
+      - claim:anion_gap:input-albumin
+      - claim:anion_gap:output-anion_gap
+      - claim:anion_gap:output-delta_anion_gap
+      - claim:anion_gap:output-albumin_corrected_anion_gap
+      - claim:anion_gap:output-albumin_corrected_delta_anion_gap
+      - claim:anion_gap:output-delta_ratio
+      - claim:anion_gap:output-albumin_corrected_delta_ratio
+    sourceIds:
+      - anion_oh_carroll_1977
+      - anion_figge_1998
+    witnesses:
+      - formula:implementation
+      - input:sodium
+      - input:chloride
+      - input:bicarbonate
+      - input:albumin
+      - output:anion_gap
+      - output:delta_anion_gap
+      - output:albumin_corrected_anion_gap
+      - output:albumin_corrected_delta_anion_gap
+      - output:delta_ratio
+      - output:albumin_corrected_delta_ratio
+  - kind: reference
+    id: case:anion_gap:ref-hypoalbumin
+    tags:
+      - calculator:anion_gap:reference
+    inputs: &a4
+      sodium: 140
+      chloride: 100
+      bicarbonate: 15
+      albumin: 2
+    expected: &a5
+      anion_gap: 25
+      delta_anion_gap: 13
+      albumin_corrected_anion_gap: 30
+      albumin_corrected_delta_anion_gap: 18
+      delta_ratio: 1.44
+      albumin_corrected_delta_ratio: 2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:formula-implementation
+      - claim:anion_gap:input-sodium
+      - claim:anion_gap:input-chloride
+      - claim:anion_gap:input-bicarbonate
+      - claim:anion_gap:input-albumin
+      - claim:anion_gap:output-anion_gap
+      - claim:anion_gap:output-delta_anion_gap
+      - claim:anion_gap:output-albumin_corrected_anion_gap
+      - claim:anion_gap:output-albumin_corrected_delta_anion_gap
+      - claim:anion_gap:output-delta_ratio
+      - claim:anion_gap:output-albumin_corrected_delta_ratio
+    sourceIds:
+      - anion_oh_carroll_1977
+      - anion_figge_1998
+    witnesses:
+      - formula:implementation
+      - input:sodium
+      - input:chloride
+      - input:bicarbonate
+      - input:albumin
+      - output:anion_gap
+      - output:delta_anion_gap
+      - output:albumin_corrected_anion_gap
+      - output:albumin_corrected_delta_anion_gap
+      - output:delta_ratio
+      - output:albumin_corrected_delta_ratio
+  - kind: reference
+    id: case:anion_gap:ref-correction-unmasks-gap
+    tags:
+      - calculator:anion_gap:reference
+    inputs: &a6
+      sodium: 138
+      chloride: 114
+      bicarbonate: 14
+      albumin: 1
+    expected: &a7
+      anion_gap: 10
+      delta_anion_gap: -2
+      albumin_corrected_anion_gap: 17.5
+      albumin_corrected_delta_anion_gap: 5.5
+      albumin_corrected_delta_ratio: 0.55
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:formula-implementation
+      - claim:anion_gap:input-sodium
+      - claim:anion_gap:input-chloride
+      - claim:anion_gap:input-bicarbonate
+      - claim:anion_gap:input-albumin
+      - claim:anion_gap:output-anion_gap
+      - claim:anion_gap:output-delta_anion_gap
+      - claim:anion_gap:output-albumin_corrected_anion_gap
+      - claim:anion_gap:output-albumin_corrected_delta_anion_gap
+      - claim:anion_gap:output-albumin_corrected_delta_ratio
+    sourceIds:
+      - anion_oh_carroll_1977
+      - anion_figge_1998
+    witnesses:
+      - formula:implementation
+      - input:sodium
+      - input:chloride
+      - input:bicarbonate
+      - input:albumin
+      - output:anion_gap
+      - output:delta_anion_gap
+      - output:albumin_corrected_anion_gap
+      - output:albumin_corrected_delta_anion_gap
+      - output:albumin_corrected_delta_ratio
+  - kind: edge
+    id: case:anion_gap:missing-bicarbonate
+    tags:
+      - required-inputs
+    inputs: &a1
+      sodium: 140
+      chloride: 104
+      albumin: 4
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: bicarbonate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:input-bicarbonate
+    sourceIds:
+      - anion_oh_carroll_1977
+    witnesses:
+      - input:bicarbonate
+  - kind: edge
+    id: case:anion_gap:hard-sodium
+    tags:
+      - hard-limits
+    inputs:
+      sodium: 40
+      chloride: 104
+      bicarbonate: 14
+      albumin: 4
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: sodium
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:input-sodium-hard_limits
+    sourceIds:
+      - anion_figge_1998
+    witnesses:
+      - input:sodium:hard_limits
+  - kind: edge
+    id: case:anion_gap:hard-chloride
+    tags:
+      - calculator:anion_gap:hard-limit
+    inputs:
+      sodium: 140
+      chloride: 25
+      bicarbonate: 14
+      albumin: 4
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: chloride
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:input-chloride-hard_limits
+    sourceIds:
+      - anion_figge_1998
+    witnesses:
+      - input:chloride:hard_limits
+  - kind: edge
+    id: case:anion_gap:hard-bicarbonate
+    tags:
+      - calculator:anion_gap:hard-limit
+    inputs:
+      sodium: 140
+      chloride: 104
+      bicarbonate: 0.5
+      albumin: 4
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: bicarbonate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:input-bicarbonate-hard_limits
+    sourceIds:
+      - anion_figge_1998
+    witnesses:
+      - input:bicarbonate:hard_limits
+  - kind: edge
+    id: case:anion_gap:hard-albumin
+    tags:
+      - calculator:anion_gap:hard-limit
+    inputs:
+      sodium: 140
+      chloride: 104
+      bicarbonate: 14
+      albumin: 0.25
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: albumin
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:input-albumin-hard_limits
+    sourceIds:
+      - anion_figge_1998
+    witnesses:
+      - input:albumin:hard_limits
+  - kind: edge
+    id: case:anion_gap:plausibility
+    tags:
+      - plausibility
+    inputs:
+      sodium: 190
+      chloride: 140
+      bicarbonate: 50
+      albumin: 8
+    expected:
+      anion_gap: 0
+      delta_anion_gap: -12
+      albumin_corrected_anion_gap: -10
+      albumin_corrected_delta_anion_gap: -22
+    expectedBehavior: warn
+    expectedWarnings:
+      - Sodium 190 mEq/L is unusual (expected 120–160 mEq/L); if the source uses another unit, pass it
+        explicitly as { value, unit }.
+      - Chloride 140 is unusual (expected 80–120).
+      - Bicarbonate 50 is unusual (expected 5–45).
+      - Albumin 8 g/dL is unusual (expected 1–6 g/dL); if the source uses another unit, pass it explicitly as
+        { value, unit }.
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:input-sodium-plausibility
+      - claim:anion_gap:input-chloride-plausibility
+      - claim:anion_gap:input-bicarbonate-plausibility
+      - claim:anion_gap:input-albumin-plausibility
+    sourceIds:
+      - anion_figge_1998
+    witnesses:
+      - input:sodium:plausibility
+      - input:chloride:plausibility
+      - input:bicarbonate:plausibility
+      - input:albumin:plausibility
+  - kind: edge
+    id: case:anion_gap:unit-us
+    tags:
+      - unit-equivalence
+    inputs:
+      sodium:
+        value: 140
+        unit: mEq/L
+      chloride: 100
+      bicarbonate: 15
+      albumin:
+        value: 2
+        unit: g/dL
+    expected:
+      anion_gap: 25
+      delta_anion_gap: 13
+      albumin_corrected_anion_gap: 30
+      albumin_corrected_delta_anion_gap: 18
+      delta_ratio: 1.44
+      albumin_corrected_delta_ratio: 2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:unit-sodium
+      - claim:anion_gap:unit-albumin
+    sourceIds:
+      - anion_figge_1998
+    witnesses:
+      - unit:sodium
+      - unit:albumin
+  - kind: edge
+    id: case:anion_gap:unit-si
+    tags:
+      - unit-equivalence
+    inputs:
+      sodium:
+        value: 140
+        unit: mmol/L
+      chloride: 100
+      bicarbonate: 15
+      albumin:
+        value: 20
+        unit: g/L
+    expected:
+      anion_gap: 25
+      delta_anion_gap: 13
+      albumin_corrected_anion_gap: 30
+      albumin_corrected_delta_anion_gap: 18
+      delta_ratio: 1.44
+      albumin_corrected_delta_ratio: 2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:unit-sodium
+      - claim:anion_gap:unit-albumin
+    sourceIds:
+      - anion_figge_1998
+    witnesses:
+      - unit:sodium
+      - unit:albumin
+  - kind: edge
+    id: case:anion_gap:omit-albumin-omitted
+    tags:
+      - conditional-output
+    inputs:
+      sodium: 140
+      chloride: 104
+      bicarbonate: 14
+    expected:
+      anion_gap: 22
+      delta_anion_gap: 10
+      delta_ratio: 1
+    expectedBehavior: omit
+    omittedOutputs:
+      - albumin_corrected_anion_gap
+      - albumin_corrected_delta_anion_gap
+      - albumin_corrected_delta_ratio
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:output-albumin_corrected_anion_gap
+      - claim:anion_gap:output-albumin_corrected_delta_anion_gap
+      - claim:anion_gap:output-albumin_corrected_delta_ratio
+    sourceIds:
+      - anion_figge_1998
+    witnesses:
+      - output:albumin_corrected_anion_gap
+      - output:albumin_corrected_delta_anion_gap
+      - output:albumin_corrected_delta_ratio
+  - kind: agent
+    id: case:anion_gap:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      sodium: 140
+      chloride: 104
+      bicarbonate: 14
+      albumin: 4
+    expected:
+      anion_gap: 22
+      delta_anion_gap: 10
+      albumin_corrected_anion_gap: 22
+      albumin_corrected_delta_anion_gap: 10
+      delta_ratio: 1
+      albumin_corrected_delta_ratio: 1
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:applicability-purpose
+    sourceIds:
+      - anion_merck_2025
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:anion_gap:agent-exclusion
+    tags:
+      - agent-applicability
+    inputs: *a1
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: bicarbonate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:anion_gap:applicability-exclusions
+    sourceIds:
+      - anion_merck_2025
+    witnesses:
+      - applicability:exclusions
+compatibilityNotes:
+  - Albumin remains optional with no silent 4 g/dL default; conditional ratios are omitted instead of
+    returning a zero sentinel.
+explicitBlockers: []

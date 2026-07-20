@@ -1,0 +1,823 @@
+calculatorId: creatinine_clearance
+specVersion: 1.0.0
+clinicalModel: 1976 Cockcroft-Gault estimated creatinine clearance
+variant: cockcroft_gault_1976_selected_weight
+population: Adults with stable serum creatinine when a drug label or protocol specifically requires Cockcroft-Gault.
+setting: Drug- and protocol-specific kidney-function estimation with a caller-selected body-weight scalar.
+assessmentTiming: Stable serum creatinine; not acute kidney injury or rapidly changing kidney function.
+endpoint: Estimated creatinine clearance in mL/min, not measured clearance or indexed eGFR.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:creatinine_clearance:2026-07-16
+    calculatorId: creatinine_clearance
+    model: 1976 Cockcroft-Gault estimated creatinine clearance
+    variant: cockcroft_gault_1976_selected_weight
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:creatinine_clearance:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: Cockcroft DW[au] AND Gault MH[au]
+        translationExposed: true
+        translatedQuery: (cockcroft, dw[Author] OR cockcroft dw[Author]) AND (gault, mh[Author] OR gault mh[Author])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 2
+        stableCitationIds:
+          - PMID:1244564
+          - PMID:51444
+      - id: search:creatinine_clearance:derivation
+        sourceRole: derivation
+        authorityId: crcl_cockcroft_1976
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          cockcroft_gault_1976_selected_weight
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - crcl_cockcroft_1976
+      - id: search:creatinine_clearance:controlling
+        sourceRole: controlling_authority
+        authorityId: crcl_fda_2024
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          cockcroft_gault_1976_selected_weight
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - crcl_fda_2024
+      - id: search:creatinine_clearance:specialty
+        sourceRole: specialty_guidance
+        authorityId: crcl_nkf_2026
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          cockcroft_gault_1976_selected_weight
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - crcl_nkf_2026
+      - id: search:creatinine_clearance:independent
+        sourceRole: independent_numeric
+        authorityId: crcl_winter_2012
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          cockcroft_gault_1976_selected_weight
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - crcl_winter_2012
+    accounting:
+      retrieved: 2
+      deduplicated: 2
+      screened: 2
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: crcl_cockcroft_1976
+        title: Prediction of creatinine clearance from serum creatinine.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:51444
+        title: "Letter: Creatinine clearance and age."
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:creatinine_clearance:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and historical terminology
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search, not an exhaustive systematic review.
+      resolution: Resolved by retaining exact author/model terms, checking automatic translation, screening every
+        result, and pairing the database search with current authority, specialty, derivation, and independent
+        numeric sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - crcl_cockcroft_1976
+  - crcl_fda_2024
+  - crcl_nkf_2026
+  - crcl_winter_2012
+claims:
+  - id: claim:creatinine_clearance:calculator-model
+    kind: applicability
+    statement: 1976 Cockcroft-Gault estimated creatinine clearance is limited to Adults with stable serum
+      creatinine when a drug label or protocol specifically requires Cockcroft-Gault. Drug- and
+      protocol-specific kidney-function estimation with a caller-selected body-weight scalar.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - crcl_fda_2024
+    locators:
+      - sourceId: crcl_fda_2024
+        locator: FDA 2024 final renal-impairment guidance, kidney-function assessment and label-specific dosing
+          sections.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad clinical limitations are descriptive; every
+      runtime-verifiable surface is separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:formula-implementation
+    kind: formula
+    statement: CrCl = ((140 - age) × selected body weight)/(72 × SCr), multiplied by 0.85 for female sex.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - crcl_cockcroft_1976
+    locators:
+      - sourceId: crcl_cockcroft_1976
+        locator: Cockcroft and Gault 1976 abstract and original equation, adult ages 18-92 and 15% female reduction.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:ref-male
+      - case:creatinine_clearance:ref-female
+      - case:creatinine_clearance:ref-selected-weight
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:applicability-purpose
+    kind: applicability
+    statement: Calculate the 1976 Cockcroft-Gault estimate only after the caller explicitly supplies the body
+      weight selected under the relevant drug label or dosing protocol.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - crcl_fda_2024
+    locators:
+      - sourceId: crcl_fda_2024
+        locator: FDA 2024 final renal-impairment guidance, kidney-function assessment and label-specific dosing
+          sections.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:applicability-exclusions
+    kind: exclusion
+    statement: Do not calculate until the runtime's required discriminator 'weight_kg' is supplied; the broader
+      clinical limitations remain descriptive context.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - crcl_fda_2024
+    locators:
+      - sourceId: crcl_fda_2024
+        locator: FDA 2024 final renal-impairment guidance, kidney-function assessment and label-specific dosing
+          sections.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-age
+    kind: input
+    statement: Age in years.
+    covers:
+      - input:age
+    status: supported
+    sourceIds:
+      - crcl_cockcroft_1976
+    locators:
+      - sourceId: crcl_cockcroft_1976
+        locator: Cockcroft and Gault 1976 abstract and original equation, adult ages 18-92 and 15% female reduction.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:ref-male
+      - case:creatinine_clearance:ref-female
+      - case:creatinine_clearance:ref-selected-weight
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-age-hard_limits
+    kind: input
+    statement: OathMCP rejects Age outside [18, 120] to enforce the adult population boundary.
+    covers:
+      - input:age:hard_limits
+    status: supported
+    sourceIds:
+      - crcl_cockcroft_1976
+    locators:
+      - sourceId: crcl_cockcroft_1976
+        locator: Cockcroft and Gault 1976 abstract and original equation, adult ages 18-92.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:hard-age
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-age-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Age is outside [18, 110]; this is an operational review prompt.
+    covers:
+      - input:age:plausibility
+    status: supported
+    sourceIds:
+      - crcl_winter_2012
+    locators:
+      - sourceId: crcl_winter_2012
+        locator: Winter 2012 methods and results comparing measured 24-hour clearance across body-weight scalars.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-weight_kg
+    kind: input
+    statement: Body weight in kilograms explicitly selected under the relevant drug label or protocol. The
+      calculator does not choose a weight scalar.
+    covers:
+      - input:weight_kg
+    status: supported
+    sourceIds:
+      - crcl_cockcroft_1976
+    locators:
+      - sourceId: crcl_cockcroft_1976
+        locator: Cockcroft and Gault 1976 abstract and original equation, adult ages 18-92 and 15% female reduction.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:ref-male
+      - case:creatinine_clearance:ref-female
+      - case:creatinine_clearance:ref-selected-weight
+      - case:creatinine_clearance:missing-weight_kg
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-weight_kg-hard_limits
+    kind: input
+    statement: OathMCP rejects Weight outside [1, 700] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:weight_kg:hard_limits
+    status: supported
+    sourceIds:
+      - crcl_winter_2012
+    locators:
+      - sourceId: crcl_winter_2012
+        locator: Winter 2012 methods and results comparing measured 24-hour clearance across body-weight scalars.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:hard-weight_kg
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-weight_kg-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Weight is outside [30, 250]; this is an operational review
+      prompt.
+    covers:
+      - input:weight_kg:plausibility
+    status: supported
+    sourceIds:
+      - crcl_winter_2012
+    locators:
+      - sourceId: crcl_winter_2012
+        locator: Winter 2012 methods and results comparing measured 24-hour clearance across body-weight scalars.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-weight_kg-aliases
+    kind: input
+    statement: Weight compatibility aliases normalize to the same source-defined input and emit a
+      noncanonical-input warning.
+    covers:
+      - input:weight_kg:aliases
+    status: supported
+    sourceIds:
+      - crcl_winter_2012
+    locators:
+      - sourceId: crcl_winter_2012
+        locator: Winter 2012 methods and results comparing measured 24-hour clearance across body-weight scalars.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-creatinine
+    kind: input
+    statement: Serum creatinine. Pass a bare number in mg/dL, or {value, unit} for SI (umol/L). Normal 0.7-1.3 mg/dL.
+    covers:
+      - input:creatinine
+    status: supported
+    sourceIds:
+      - crcl_cockcroft_1976
+    locators:
+      - sourceId: crcl_cockcroft_1976
+        locator: Cockcroft and Gault 1976 abstract and original equation, adult ages 18-92 and 15% female reduction.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:ref-male
+      - case:creatinine_clearance:ref-female
+      - case:creatinine_clearance:ref-selected-weight
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-creatinine-hard_limits
+    kind: input
+    statement: OathMCP rejects Serum Creatinine outside [0.1, 40] as a conservative operational envelope, not a
+      clinical cutoff.
+    covers:
+      - input:creatinine:hard_limits
+    status: supported
+    sourceIds:
+      - crcl_winter_2012
+    locators:
+      - sourceId: crcl_winter_2012
+        locator: Winter 2012 methods and results comparing measured 24-hour clearance across body-weight scalars.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:hard-creatinine
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-creatinine-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Serum Creatinine is outside [0.2, 15]; this is an
+      operational review prompt.
+    covers:
+      - input:creatinine:plausibility
+    status: supported
+    sourceIds:
+      - crcl_winter_2012
+    locators:
+      - sourceId: crcl_winter_2012
+        locator: Winter 2012 methods and results comparing measured 24-hour clearance across body-weight scalars.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:unit-creatinine
+    kind: unit
+    statement: Serum Creatinine accepts exactly mg/dL and umol/L, normalized to the declared canonical unit.
+    covers:
+      - unit:creatinine
+    status: supported
+    sourceIds:
+      - crcl_winter_2012
+    locators:
+      - sourceId: crcl_winter_2012
+        locator: Winter 2012 methods and results comparing measured 24-hour clearance across body-weight scalars.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:unit-us
+      - case:creatinine_clearance:unit-si
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-sex
+    kind: input
+    statement: Biological sex; female applies the 0.85 Cockcroft-Gault factor.
+    covers:
+      - input:sex
+    status: supported
+    sourceIds:
+      - crcl_cockcroft_1976
+    locators:
+      - sourceId: crcl_cockcroft_1976
+        locator: Cockcroft and Gault 1976 abstract and original equation, adult ages 18-92 and 15% female reduction.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:ref-male
+      - case:creatinine_clearance:ref-female
+      - case:creatinine_clearance:ref-selected-weight
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-sex-aliases
+    kind: input
+    statement: Sex compatibility aliases normalize to the same source-defined input and emit a noncanonical-input
+      warning.
+    covers:
+      - input:sex:aliases
+    status: supported
+    sourceIds:
+      - crcl_winter_2012
+    locators:
+      - sourceId: crcl_winter_2012
+        locator: Winter 2012 methods and results comparing measured 24-hour clearance across body-weight scalars.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:input-sex-options
+    kind: input
+    statement: Sex accepts only the declared source-bound options.
+    covers:
+      - input:sex:options
+    status: supported
+    sourceIds:
+      - crcl_cockcroft_1976
+    locators:
+      - sourceId: crcl_cockcroft_1976
+        locator: Cockcroft and Gault 1976 abstract and original equation, adult ages 18-92 and 15% female reduction.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:ref-male
+      - case:creatinine_clearance:ref-female
+      - case:creatinine_clearance:ref-selected-weight
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:creatinine_clearance:output-creatinine_clearance
+    kind: outcome
+    statement: ((140 − age) × selected weight) / (72 × Scr) × 0.85 if female, rounded to 1 decimal place.
+    covers:
+      - output:creatinine_clearance
+    status: supported
+    sourceIds:
+      - crcl_cockcroft_1976
+    locators:
+      - sourceId: crcl_cockcroft_1976
+        locator: Cockcroft and Gault 1976 abstract and original equation, adult ages 18-92 and 15% female reduction.
+    executable: true
+    scenarioIds:
+      - case:creatinine_clearance:ref-male
+      - case:creatinine_clearance:ref-female
+      - case:creatinine_clearance:ref-selected-weight
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:creatinine_clearance:ref-male
+    tags:
+      - calculator:creatinine_clearance:core
+    inputs: &a2
+      age: 55
+      weight_kg: 70
+      creatinine: 1.2
+      sex: male
+    expected: &a3
+      creatinine_clearance: 68.9
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:formula-implementation
+      - claim:creatinine_clearance:input-age
+      - claim:creatinine_clearance:input-weight_kg
+      - claim:creatinine_clearance:input-creatinine
+      - claim:creatinine_clearance:input-sex
+      - claim:creatinine_clearance:input-sex-options
+      - claim:creatinine_clearance:output-creatinine_clearance
+    sourceIds:
+      - crcl_cockcroft_1976
+    witnesses:
+      - formula:implementation
+      - input:age
+      - input:weight_kg
+      - input:creatinine
+      - input:sex
+      - input:sex:options
+      - output:creatinine_clearance
+  - kind: reference
+    id: case:creatinine_clearance:ref-female
+    tags:
+      - calculator:creatinine_clearance:reference
+    inputs: &a4
+      age: 70
+      weight_kg: 60
+      creatinine: 1.5
+      sex: female
+    expected: &a5
+      creatinine_clearance: 33.1
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:formula-implementation
+      - claim:creatinine_clearance:input-age
+      - claim:creatinine_clearance:input-weight_kg
+      - claim:creatinine_clearance:input-creatinine
+      - claim:creatinine_clearance:input-sex
+      - claim:creatinine_clearance:input-sex-options
+      - claim:creatinine_clearance:output-creatinine_clearance
+    sourceIds:
+      - crcl_cockcroft_1976
+    witnesses:
+      - formula:implementation
+      - input:age
+      - input:weight_kg
+      - input:creatinine
+      - input:sex
+      - input:sex:options
+      - output:creatinine_clearance
+  - kind: reference
+    id: case:creatinine_clearance:ref-selected-weight
+    tags:
+      - calculator:creatinine_clearance:reference
+    inputs: &a6
+      age: 60
+      weight_kg: 110
+      creatinine: 1
+      sex: male
+    expected: &a7
+      creatinine_clearance: 122.2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:formula-implementation
+      - claim:creatinine_clearance:input-age
+      - claim:creatinine_clearance:input-weight_kg
+      - claim:creatinine_clearance:input-creatinine
+      - claim:creatinine_clearance:input-sex
+      - claim:creatinine_clearance:input-sex-options
+      - claim:creatinine_clearance:output-creatinine_clearance
+    sourceIds:
+      - crcl_cockcroft_1976
+    witnesses:
+      - formula:implementation
+      - input:age
+      - input:weight_kg
+      - input:creatinine
+      - input:sex
+      - input:sex:options
+      - output:creatinine_clearance
+  - kind: edge
+    id: case:creatinine_clearance:missing-weight_kg
+    tags:
+      - required-inputs
+    inputs: &a1
+      age: 55
+      creatinine: 1.2
+      sex: male
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: weight_kg
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:input-weight_kg
+    sourceIds:
+      - crcl_cockcroft_1976
+    witnesses:
+      - input:weight_kg
+  - kind: edge
+    id: case:creatinine_clearance:hard-age
+    tags:
+      - hard-limits
+    inputs:
+      age: 17
+      weight_kg: 70
+      creatinine: 1.2
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: age
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:input-age-hard_limits
+    sourceIds:
+      - crcl_cockcroft_1976
+    witnesses:
+      - input:age:hard_limits
+  - kind: edge
+    id: case:creatinine_clearance:hard-weight_kg
+    tags:
+      - calculator:creatinine_clearance:hard-limit
+    inputs:
+      age: 55
+      weight_kg: 0.5
+      creatinine: 1.2
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: weight_kg
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:input-weight_kg-hard_limits
+    sourceIds:
+      - crcl_winter_2012
+    witnesses:
+      - input:weight_kg:hard_limits
+  - kind: edge
+    id: case:creatinine_clearance:hard-creatinine
+    tags:
+      - calculator:creatinine_clearance:hard-limit
+    inputs:
+      age: 55
+      weight_kg: 70
+      creatinine: 0.05
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: creatinine
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:input-creatinine-hard_limits
+    sourceIds:
+      - crcl_winter_2012
+    witnesses:
+      - input:creatinine:hard_limits
+  - kind: edge
+    id: case:creatinine_clearance:plausibility
+    tags:
+      - plausibility
+    inputs:
+      age: 115
+      weight_kg: 300
+      creatinine: 20
+      sex: male
+    expected:
+      creatinine_clearance: 5.2
+    expectedBehavior: warn
+    expectedWarnings:
+      - Age 115 is unusual (expected 18–110).
+      - Weight 300 is unusual (expected 30–250).
+      - Serum Creatinine 20 mg/dL is unusual (expected 0.2–15 mg/dL); if the source uses another unit, pass it
+        explicitly as { value, unit }.
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:input-age-plausibility
+      - claim:creatinine_clearance:input-weight_kg-plausibility
+      - claim:creatinine_clearance:input-creatinine-plausibility
+    sourceIds:
+      - crcl_winter_2012
+    witnesses:
+      - input:age:plausibility
+      - input:weight_kg:plausibility
+      - input:creatinine:plausibility
+  - kind: edge
+    id: case:creatinine_clearance:aliases
+    tags:
+      - aliases
+    inputs:
+      age: 55
+      weight: 70
+      creatinine: 1.2
+      gender: male
+    expected:
+      creatinine_clearance: 68.9
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'weight' is a compatibility alias; use 'weight_kg'.
+      - Input 'gender' is a compatibility alias; use 'sex'.
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:input-weight_kg-aliases
+      - claim:creatinine_clearance:input-sex-aliases
+    sourceIds:
+      - crcl_winter_2012
+    witnesses:
+      - input:weight_kg:aliases
+      - input:sex:aliases
+  - kind: edge
+    id: case:creatinine_clearance:unit-us
+    tags:
+      - unit-equivalence
+    inputs:
+      age: 55
+      weight_kg: 70
+      creatinine:
+        value: 1.2
+        unit: mg/dL
+      sex: male
+    expected:
+      creatinine_clearance: 68.9
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:unit-creatinine
+    sourceIds:
+      - crcl_winter_2012
+    witnesses:
+      - unit:creatinine
+  - kind: edge
+    id: case:creatinine_clearance:unit-si
+    tags:
+      - unit-equivalence
+    inputs:
+      age: 55
+      weight_kg: 70
+      creatinine:
+        value: 106.08
+        unit: umol/L
+      sex: male
+    expected:
+      creatinine_clearance: 68.9
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:unit-creatinine
+    sourceIds:
+      - crcl_winter_2012
+    witnesses:
+      - unit:creatinine
+  - kind: agent
+    id: case:creatinine_clearance:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      age: 55
+      weight_kg: 70
+      creatinine: 1.2
+      sex: male
+    expected:
+      creatinine_clearance: 68.9
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:applicability-purpose
+    sourceIds:
+      - crcl_fda_2024
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:creatinine_clearance:agent-exclusion
+    tags:
+      - agent-applicability
+    inputs: *a1
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: weight_kg
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:creatinine_clearance:applicability-exclusions
+    sourceIds:
+      - crcl_fda_2024
+    witnesses:
+      - applicability:exclusions
+compatibilityNotes:
+  - Removed the unsupported height-driven IBW/adjusted-weight branch and CKD staging bands; callers must
+    supply the weight selected by the governing label or protocol.
+explicitBlockers: []

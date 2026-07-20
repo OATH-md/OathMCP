@@ -1,0 +1,85 @@
+id: bsa
+version: 1.0.0
+name: Body Surface Area (Mosteller)
+family: body_surface_area
+variant: mosteller
+clinicalModel:
+  modelKind: formula
+  modelId: bsa
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+applicability:
+  population: Patients for whom a governing protocol explicitly requests a
+    Mosteller body-surface-area estimate from current height and weight.
+  setting: Formula calculation only; the tool returns raw BSA and does not
+    select a dosing protocol, dose, or cap.
+  exclusions:
+    - BSA equations can diverge at body-size extremes. Use the exact formula and
+      any cap named by the governing protocol; no single BSA formula is
+      universally preferred.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Compute raw BSA (m²) with the Mosteller formula when the
+  governing protocol names this variant. Do not infer a dose or cap.
+whenNotToUse: Do not calculate without a protocol naming the Mosteller variant
+  and both measured height and measured weight.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Mosteller RD. Simplified calculation of body-surface area. N Engl J
+      Med. 1987;317(17):1098.
+    locator: Equation in PMID 3657876; doi:10.1056/NEJM198710223171717
+    doi: 10.1056/NEJM198710223171717
+    url: https://pubmed.ncbi.nlm.nih.gov/3657876/
+    reviewed: true
+inputs:
+  weight_kg:
+    title: Weight
+    description: Body weight in kilograms.
+    aliases:
+      - weight
+    kind: number
+    plausible:
+      - 2
+      - 300
+    hardLimits:
+      - 0.5
+      - 700
+    required: true
+    conceptId: patient.weight_kg
+    examples:
+      - 70
+    sourceRefs:
+      - source_1
+    sharedKey: weight_kg
+  height_cm:
+    title: Height
+    description: Height in centimeters.
+    kind: number
+    plausible:
+      - 30
+      - 250
+    hardLimits:
+      - 10
+      - 300
+    required: true
+    conceptId: patient.height_cm
+    examples:
+      - 170
+    sourceRefs:
+      - source_1
+    sharedKey: height_cm
+outputs:
+  bsa:
+    title: Body Surface Area
+    description: BSA in m², rounded to 2 decimal places.
+    kind: number
+    unit: m²
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - bsa

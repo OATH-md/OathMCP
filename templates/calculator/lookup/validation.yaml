@@ -1,0 +1,19 @@
+draft:
+  draftVersion: "1.0"
+  archetype: lookup
+  todos: ["TODO verify data version, search, claims, and source-derived cases"]
+calculatorId: __CALCULATOR_ID__
+specVersion: 0.1.0
+clinicalModel: TODO exact clinical model and data snapshot
+variant: TODO exact variant
+population: TODO population
+setting: TODO setting
+assessmentTiming: TODO timing
+endpoint: TODO endpoint
+reviewGroup: policy_versioned
+enrollment: pending_independent_review
+searchRecords: []
+authoritySourceIds: []
+claims: []
+cases: []
+explicitBlockers: []

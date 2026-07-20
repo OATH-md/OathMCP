@@ -1,0 +1,1665 @@
+calculatorId: apgar
+specVersion: 1.1.0
+clinicalModel: APGAR newborn condition score with the AAP/ACOG expanded intervention form
+variant: original_five_component_score_with_aap_acog_expanded_form
+population: Newborn infants during transition immediately after birth.
+setting: Delivery and neonatal resuscitation documentation.
+assessmentTiming: Completed minutes after birth, ordinarily 1 and 5 minutes and every 5 minutes through 20 when
+  continued assessment is indicated.
+endpoint: Condition at the recorded minute and serial response, not a trigger for initial resuscitation or an individual
+  prognosis.
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:apgar:2026-07-16
+    calculatorId: apgar
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:apgar:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: '"Apgar Score"[Title] AND (Apgar[Author] OR Cnattingius[Author] OR American Academy of Pediatrics[Corporate
+          Author] OR reporting[Title/Abstract])'
+        translationExposed: true
+        translatedQuery: '"Apgar Score"[Title] AND (Apgar[Author] OR Cnattingius[Author] OR "american academy of
+          pediatrics"[Author - Corporate] OR "reporting"[Title/Abstract])'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 17
+        exportDigest: sha256:902295e388e846f687fbfdfb5581c37fce9f8570ad6730e73bc6b451c5fc0375
+        stableCitationIds:
+          - PMID:36643664
+          - PMID:36562300
+          - PMID:36044835
+          - PMID:32609981
+          - PMID:32286248
+          - PMID:32016603
+          - PMID:31388116
+          - PMID:28493508
+          - PMID:27884069
+          - PMID:26416932
+          - PMID:26393460
+          - PMID:26008749
+          - PMID:20549871
+          - PMID:20545673
+          - PMID:16890134
+          - PMID:16648434
+          - PMID:16585348
+      - id: search:apgar:apgar_apgar_1953
+        sourceRole: derivation
+        authorityId: apgar_apgar_1953
+        database: Primary or responsible-authority source
+        site: Current Researches in Anesthesia and Analgesia
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for apgar
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - apgar_apgar_1953
+      - id: search:apgar:apgar_acog_2015
+        sourceRole: controlling_authority
+        authorityId: apgar_acog_2015
+        database: Primary or responsible-authority source
+        site: ACOG
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for apgar
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - apgar_acog_2015
+      - id: search:apgar:apgar_aap_utstein_2023
+        sourceRole: specialty_guidance
+        authorityId: apgar_aap_utstein_2023
+        database: Primary or responsible-authority source
+        site: American Academy of Pediatrics
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for apgar
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - apgar_aap_utstein_2023
+      - id: search:apgar:apgar_cnattingius_2017
+        sourceRole: external_validation
+        authorityId: apgar_cnattingius_2017
+        database: Primary or responsible-authority source
+        site: JAMA Pediatrics
+        interface: direct document review
+        exactQuery: Exact score form, option weights, timing, modifier, cutoff, currentness, and limitation review for apgar
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - apgar_cnattingius_2017
+    accounting:
+      retrieved: 19
+      deduplicated: 19
+      screened: 19
+      fullTextAssessed: 4
+      excluded: 0
+      included: 4
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:36643664
+        title: "Low Apgar score and asphyxia complications at birth and risk of longer-term cardiovascular disease: a nationwide
+          population-based study of term infants."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:36562300
+        title: Low Apgar score and need for resuscitation increased the probability of receiving therapeutic hypothermia more
+          strongly than acidosis at birth.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:36044835
+        title: "Outcomes of Neonates with a 10-min Apgar Score of Zero: A Systematic Review and Meta-Analysis."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32609981
+        title: Apgar Score and Risk of Neonatal Death among Preterm Infants.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32286248
+        title: "Rates of metabolic acidosis at birth and Apgar score values at 1, 5, and 10 min in term infants: a Swedish
+          cohort study."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32016603
+        title: "Low Apgar score in term newborns and long-term infectious morbidity: a population-based cohort study with up to
+          18 years of follow-up."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31388116
+        title: "Apgar score of 0 at 10 min and survival to 1 year of age: a retrospective cohort study in Washington state."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: apgar_cnattingius_2017
+        title: "Apgar Score Components at 5 Minutes: Risks and Prediction of Neonatal Mortality."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:27884069
+        title: "Risk factors of incomplete Apgar score and umbilical cord blood gas analysis: a retrospective observational
+          study."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: apgar_acog_2015
+        title: The Apgar Score.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:26393460
+        title: "Committee Opinion No. 644: The Apgar Score."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:26008749
+        title: Prolonged second stage of labor is associated with low Apgar score.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:20549871
+        title: How often is a low Apgar score the result of substandard care during labour?
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:20545673
+        title: How often is a low Apgar score the result of substandard care during labour?
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:16890134
+        title: The Apgar score.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:16648434
+        title: "ACOG Committee Opinion. Number 333, May 2006 (replaces No. 174, July 1996): The Apgar score."
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:16585348
+        title: The Apgar score.
+        disposition: excluded
+        exclusionReason: Focused search result did not supply a distinct retained component, timing, modifier, cutoff, or
+          limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: apgar_apgar_1953
+        title: A proposal for a new method of evaluation of the newborn infant.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: apgar_aap_utstein_2023
+        title: "Recommended Guideline for Uniform Reporting of Neonatal Resuscitation: The Neonatal Utstein Style."
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:apgar:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - score names and author synonyms
+        - derivation and external validation concepts
+        - assessment modifiers and applicability limits
+        - current authority and supersession
+      comments:
+        - The focused author/model query was paired with direct review of the primary score form, current responsible
+          authority, specialty guidance, and an external validation.
+      resolution: Resolved by retaining exact model and author terms, checking PubMed translation, screening every result,
+        chasing citations, and reviewing current authority sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+    model: APGAR newborn condition score with the AAP/ACOG expanded intervention form
+    variant: original_five_component_score_with_aap_acog_expanded_form
+authoritySourceIds:
+  - pubmed_medline
+  - apgar_apgar_1953
+  - apgar_acog_2015
+  - apgar_aap_utstein_2023
+  - apgar_cnattingius_2017
+claims:
+  - id: claim:apgar:calculator:model
+    kind: applicability
+    statement: APGAR newborn condition score with expanded intervention context is scoped to Newborn infants during
+      transition immediately after birth. Delivery and neonatal resuscitation documentation.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+      - apgar_aap_utstein_2023
+      - apgar_cnattingius_2017
+    locators:
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+      - sourceId: apgar_aap_utstein_2023
+        locator: Neonatal Utstein core reporting elements and intervention context.
+      - sourceId: apgar_cnattingius_2017
+        locator: Five-minute component-score cohort methods and outcome analysis.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad population scope are descriptive; every runtime-verifiable surface is
+      separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:formula:implementation
+    kind: formula
+    statement: The total is the exact sum of the cited score form component weights; a total is returned only when the
+      declared testability rules permit it.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    locators:
+      - sourceId: apgar_apgar_1953
+        locator: Apgar 1953, Table I and component definitions.
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+      - case:apgar:ref-2
+      - case:apgar:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:applicability:purpose
+    kind: applicability
+    statement: Rapidly assess a newborn's condition at 1 and 5 minutes after birth from five observations (Appearance,
+      Pulse, Grimace, Activity, Respiratory). Each is scored 0-2; the total (0-10) records condition at an explicit
+      assessment minute and supports serial documentation.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+      - apgar_aap_utstein_2023
+      - apgar_cnattingius_2017
+    locators:
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+      - sourceId: apgar_aap_utstein_2023
+        locator: Neonatal Utstein core reporting elements and intervention context.
+      - sourceId: apgar_cnattingius_2017
+        locator: Five-minute component-score cohort methods and outcome analysis.
+    executable: true
+    scenarioIds:
+      - case:apgar:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:applicability:exclusions
+    kind: exclusion
+    statement: Not a predictor of long-term neurological outcome and not a substitute for cord-blood gas analysis. Never
+      delay or decide initial resuscitation from the score; record concurrent interventions.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+      - apgar_aap_utstein_2023
+      - apgar_cnattingius_2017
+    locators:
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+      - sourceId: apgar_aap_utstein_2023
+        locator: Neonatal Utstein core reporting elements and intervention context.
+      - sourceId: apgar_cnattingius_2017
+        locator: Five-minute component-score cohort methods and outcome analysis.
+    executable: true
+    scenarioIds:
+      - case:apgar:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:assessment_minute
+    kind: input
+    statement: "Assessment Minute After Birth is one of the expanded-form time points: 1, 5, 10, 15, or 20 completed minutes
+      after birth."
+    covers:
+      - input:assessment_minute
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+    locators:
+      - &a1
+        sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644, Figure 1: discrete 1-, 5-, 10-, 15-, and 20-minute columns and independent checkboxes
+          for oxygen, PPV/NCPAP, ETT, chest compressions, and epinephrine."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+      - case:apgar:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:assessment_minute:options
+    scope: clinical
+    kind: input
+    statement: "Assessment Minute After Birth uses the closed expanded-form option set: minute_1, minute_5, minute_10,
+      minute_15, minute_20."
+    covers:
+      - input:assessment_minute:options
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+    locators:
+      - *a1
+    executable: true
+    scenarioIds:
+      - case:apgar:option-assessment_minute-minute_1
+      - case:apgar:option-assessment_minute-minute_5
+      - case:apgar:option-assessment_minute-minute_10
+      - case:apgar:option-assessment_minute-minute_15
+      - case:apgar:option-assessment_minute-minute_20
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:oxygen
+    scope: clinical
+    kind: input
+    statement: Whether oxygen was being administered at the assessment time.
+    covers:
+      - input:oxygen
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+    locators:
+      - *a1
+    executable: true
+    scenarioIds:
+      - case:apgar:concurrent-interventions
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:ppv_or_ncpap
+    scope: clinical
+    kind: input
+    statement: Whether positive-pressure ventilation or nasal continuous positive airway pressure was being delivered at the
+      assessment time.
+    covers:
+      - input:ppv_or_ncpap
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+    locators:
+      - *a1
+    executable: true
+    scenarioIds:
+      - case:apgar:concurrent-interventions
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:endotracheal_tube
+    scope: clinical
+    kind: input
+    statement: Whether an endotracheal tube was in place at the assessment time.
+    covers:
+      - input:endotracheal_tube
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+    locators:
+      - *a1
+    executable: true
+    scenarioIds:
+      - case:apgar:concurrent-interventions
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:chest_compressions
+    scope: clinical
+    kind: input
+    statement: Whether chest compressions were being delivered at the assessment time.
+    covers:
+      - input:chest_compressions
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+    locators:
+      - *a1
+    executable: true
+    scenarioIds:
+      - case:apgar:concurrent-interventions
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:epinephrine
+    scope: clinical
+    kind: input
+    statement: Whether epinephrine was being administered at the assessment time.
+    covers:
+      - input:epinephrine
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+    locators:
+      - *a1
+    executable: true
+    scenarioIds:
+      - case:apgar:concurrent-interventions
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:appearance
+    kind: input
+    statement: "Appearance (Skin Color): Skin color and circulation."
+    covers:
+      - input:appearance
+    status: supported
+    sourceIds:
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    locators:
+      - sourceId: apgar_apgar_1953
+        locator: Apgar 1953, Table I and component definitions.
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:appearance:options
+    kind: input
+    statement: "Appearance (Skin Color) uses the closed cited option set: blue_or_pale=0, body_pink_extremities_blue=1,
+      pink_all_over=2."
+    covers:
+      - input:appearance:options
+    status: supported
+    sourceIds: &a2
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    locators:
+      - sourceId: apgar_apgar_1953
+        locator: Apgar 1953, Table I and component definitions.
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+      - case:apgar:option-appearance-blue_or_pale
+      - case:apgar:option-appearance-body_pink_extremities_blue
+      - case:apgar:option-appearance-pink_all_over
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:pulse
+    kind: input
+    statement: "Pulse (Heart Rate): Heart rate."
+    covers:
+      - input:pulse
+    status: supported
+    sourceIds:
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    locators:
+      - sourceId: apgar_apgar_1953
+        locator: Apgar 1953, Table I and component definitions.
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:pulse:options
+    kind: input
+    statement: "Pulse (Heart Rate) uses the closed cited option set: absent=0, less_than_100=1, at_least_100=2."
+    covers:
+      - input:pulse:options
+    status: supported
+    sourceIds: &a3
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    locators:
+      - sourceId: apgar_apgar_1953
+        locator: Apgar 1953, Table I and component definitions.
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+      - case:apgar:option-pulse-absent
+      - case:apgar:option-pulse-less_than_100
+      - case:apgar:option-pulse-at_least_100
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:grimace
+    kind: input
+    statement: "Grimace Response (Reflex Irritability): Reflex irritability in response to stimulation."
+    covers:
+      - input:grimace
+    status: supported
+    sourceIds:
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    locators:
+      - sourceId: apgar_apgar_1953
+        locator: Apgar 1953, Table I and component definitions.
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:grimace:options
+    kind: input
+    statement: "Grimace Response (Reflex Irritability) uses the closed cited option set: no_response=0, grimace=1,
+      cough_sneeze_cry=2."
+    covers:
+      - input:grimace:options
+    status: supported
+    sourceIds: &a4
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    locators:
+      - sourceId: apgar_apgar_1953
+        locator: Apgar 1953, Table I and component definitions.
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+      - case:apgar:option-grimace-no_response
+      - case:apgar:option-grimace-grimace
+      - case:apgar:option-grimace-cough_sneeze_cry
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:activity
+    kind: input
+    statement: "Activity (Muscle Tone): Muscle tone and activity."
+    covers:
+      - input:activity
+    status: supported
+    sourceIds:
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    locators:
+      - sourceId: apgar_apgar_1953
+        locator: Apgar 1953, Table I and component definitions.
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:activity:options
+    kind: input
+    statement: "Activity (Muscle Tone) uses the closed cited option set: limp=0, some_flexion=1, active_motion=2."
+    covers:
+      - input:activity:options
+    status: supported
+    sourceIds: &a5
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    locators:
+      - sourceId: apgar_apgar_1953
+        locator: Apgar 1953, Table I and component definitions.
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+      - case:apgar:option-activity-limp
+      - case:apgar:option-activity-some_flexion
+      - case:apgar:option-activity-active_motion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:respiratory
+    kind: input
+    statement: "Respiratory Effort: Breathing effort and cry."
+    covers:
+      - input:respiratory
+    status: supported
+    sourceIds:
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    locators:
+      - sourceId: apgar_apgar_1953
+        locator: Apgar 1953, Table I and component definitions.
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:input:respiratory:options
+    kind: input
+    statement: "Respiratory Effort uses the closed cited option set: absent=0, weak_or_irregular=1, strong_cry=2."
+    covers:
+      - input:respiratory:options
+    status: supported
+    sourceIds: &a6
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    locators:
+      - sourceId: apgar_apgar_1953
+        locator: Apgar 1953, Table I and component definitions.
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+      - case:apgar:option-respiratory-absent
+      - case:apgar:option-respiratory-weak_or_irregular
+      - case:apgar:option-respiratory-strong_cry
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:output:apgar_score
+    kind: outcome
+    statement: "APGAR Score: Total APGAR score (0-10)."
+    covers:
+      - output:apgar_score
+    status: supported
+    sourceIds:
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    locators:
+      - sourceId: apgar_apgar_1953
+        locator: Apgar 1953, Table I and component definitions.
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+    executable: true
+    scenarioIds:
+      - case:apgar:ref-1
+      - case:apgar:ref-2
+      - case:apgar:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:band:calculator:0
+    kind: band
+    statement: ">=7: Score 7-10 at the recorded minute; interpret with gestational age, medications, interventions, and
+      serial change."
+    covers:
+      - band:calculator:0
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+      - apgar_cnattingius_2017
+    locators:
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+      - sourceId: apgar_cnattingius_2017
+        locator: Five-minute component-score cohort methods and outcome analysis.
+    executable: true
+    scenarioIds:
+      - case:apgar:band-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:band:calculator:1
+    kind: band
+    statement: ">=4: Score 4-6 at the recorded minute; this documents condition but does not determine whether resuscitation
+      should begin."
+    covers:
+      - band:calculator:1
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+      - apgar_cnattingius_2017
+    locators:
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+      - sourceId: apgar_cnattingius_2017
+        locator: Five-minute component-score cohort methods and outcome analysis.
+    executable: true
+    scenarioIds:
+      - case:apgar:band-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:apgar:band:calculator:2
+    kind: band
+    statement: "<4: Score 0-3 at the recorded minute; this documents severe physiologic depression but does not itself
+      determine resuscitation actions or prognosis."
+    covers:
+      - band:calculator:2
+    status: supported
+    sourceIds:
+      - apgar_acog_2015
+      - apgar_cnattingius_2017
+    locators:
+      - sourceId: apgar_acog_2015
+        locator: "Committee Opinion 644: five components, 1/5-minute timing, repeated assessment, intervention context, and
+          limitations."
+      - sourceId: apgar_cnattingius_2017
+        locator: Five-minute component-score cohort methods and outcome analysis.
+    executable: true
+    scenarioIds:
+      - case:apgar:band-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:apgar:ref-1
+    kind: reference
+    tags:
+      - source-reference
+      - calculator:apgar:core
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:apgar:formula:implementation
+      - claim:apgar:output:apgar_score
+      - claim:apgar:input:assessment_minute
+      - claim:apgar:input:appearance
+      - claim:apgar:input:appearance:options
+      - claim:apgar:input:pulse
+      - claim:apgar:input:pulse:options
+      - claim:apgar:input:grimace
+      - claim:apgar:input:grimace:options
+      - claim:apgar:input:activity
+      - claim:apgar:input:activity:options
+      - claim:apgar:input:respiratory
+      - claim:apgar:input:respiratory:options
+    sourceIds:
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    witnesses:
+      - formula:implementation
+      - output:apgar_score
+      - input:assessment_minute
+      - input:appearance
+      - input:appearance:options
+      - input:pulse
+      - input:pulse:options
+      - input:grimace
+      - input:grimace:options
+      - input:activity
+      - input:activity:options
+      - input:respiratory
+      - input:respiratory:options
+  - id: case:apgar:ref-2
+    kind: reference
+    tags:
+      - source-reference
+    inputs:
+      appearance: body_pink_extremities_blue
+      pulse: at_least_100
+      grimace: grimace
+      activity: some_flexion
+      respiratory: weak_or_irregular
+      assessment_minute: minute_5
+      oxygen: false
+      ppv_or_ncpap: true
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 6
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:apgar:formula:implementation
+      - claim:apgar:output:apgar_score
+    sourceIds:
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    witnesses:
+      - formula:implementation
+      - output:apgar_score
+  - id: case:apgar:ref-3
+    kind: reference
+    tags:
+      - source-reference
+    inputs:
+      appearance: blue_or_pale
+      pulse: absent
+      grimace: no_response
+      activity: limp
+      respiratory: absent
+      assessment_minute: minute_10
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: true
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 0
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:apgar:formula:implementation
+      - claim:apgar:output:apgar_score
+    sourceIds:
+      - apgar_apgar_1953
+      - apgar_acog_2015
+    witnesses:
+      - formula:implementation
+      - output:apgar_score
+  - id: case:apgar:agent-purpose
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:apgar:applicability:purpose
+    sourceIds:
+      - apgar_acog_2015
+      - apgar_aap_utstein_2023
+      - apgar_cnattingius_2017
+    witnesses:
+      - applicability:purpose
+  - id: case:apgar:agent-exclusion
+    kind: agent
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: assessment_minute
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:apgar:applicability:exclusions
+      - claim:apgar:input:assessment_minute
+    sourceIds:
+      - apgar_acog_2015
+      - apgar_aap_utstein_2023
+      - apgar_cnattingius_2017
+    witnesses:
+      - applicability:exclusions
+      - input:assessment_minute
+  - id: case:apgar:band-1
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: apgar_score
+        code: apgar_band_1
+        kind: status
+        label: Score 7-10 at the recorded minute; interpret with gestational age, medications, interventions, and serial change.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:apgar:band:calculator:0
+    sourceIds:
+      - apgar_acog_2015
+      - apgar_cnattingius_2017
+    witnesses:
+      - band:calculator:0
+  - id: case:apgar:band-2
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      appearance: body_pink_extremities_blue
+      pulse: at_least_100
+      grimace: grimace
+      activity: some_flexion
+      respiratory: weak_or_irregular
+      assessment_minute: minute_5
+      oxygen: false
+      ppv_or_ncpap: true
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 6
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: apgar_score
+        code: apgar_band_2
+        kind: status
+        label: Score 4-6 at the recorded minute; this documents condition but does not determine whether resuscitation should
+          begin.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:apgar:band:calculator:1
+    sourceIds:
+      - apgar_acog_2015
+      - apgar_cnattingius_2017
+    witnesses:
+      - band:calculator:1
+  - id: case:apgar:band-3
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      appearance: blue_or_pale
+      pulse: absent
+      grimace: no_response
+      activity: limp
+      respiratory: absent
+      assessment_minute: minute_10
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: true
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: apgar_score
+        code: apgar_band_3
+        kind: status
+        label: Score 0-3 at the recorded minute; this documents severe physiologic depression but does not itself determine
+          resuscitation actions or prognosis.
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Integer score and categorical outputs are asserted exactly from the cited score form.
+    claimIds:
+      - claim:apgar:band:calculator:2
+    sourceIds:
+      - apgar_acog_2015
+      - apgar_cnattingius_2017
+    witnesses:
+      - band:calculator:2
+  - id: case:apgar:option-assessment_minute-minute_1
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+      assessment_minute: minute_1
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Expanded-form time points are enrolled and executed exactly.
+    claimIds:
+      - claim:apgar:input:assessment_minute:options
+    sourceIds:
+      - apgar_acog_2015
+    witnesses:
+      - input:assessment_minute:options
+  - id: case:apgar:option-assessment_minute-minute_5
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+      assessment_minute: minute_5
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Expanded-form time points are enrolled and executed exactly.
+    claimIds:
+      - claim:apgar:input:assessment_minute:options
+    sourceIds:
+      - apgar_acog_2015
+    witnesses:
+      - input:assessment_minute:options
+  - id: case:apgar:option-assessment_minute-minute_10
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+      assessment_minute: minute_10
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Expanded-form time points are enrolled and executed exactly.
+    claimIds:
+      - claim:apgar:input:assessment_minute:options
+    sourceIds:
+      - apgar_acog_2015
+    witnesses:
+      - input:assessment_minute:options
+  - id: case:apgar:option-assessment_minute-minute_15
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+      assessment_minute: minute_15
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Expanded-form time points are enrolled and executed exactly.
+    claimIds:
+      - claim:apgar:input:assessment_minute:options
+    sourceIds:
+      - apgar_acog_2015
+    witnesses:
+      - input:assessment_minute:options
+  - id: case:apgar:option-assessment_minute-minute_20
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+      assessment_minute: minute_20
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Expanded-form time points are enrolled and executed exactly.
+    claimIds:
+      - claim:apgar:input:assessment_minute:options
+    sourceIds:
+      - apgar_acog_2015
+    witnesses:
+      - input:assessment_minute:options
+  - id: case:apgar:concurrent-interventions
+    kind: edge
+    tags:
+      - concurrent-interventions
+    inputs:
+      appearance: body_pink_extremities_blue
+      pulse: less_than_100
+      grimace: grimace
+      activity: some_flexion
+      respiratory: weak_or_irregular
+      oxygen: true
+      ppv_or_ncpap: true
+      endotracheal_tube: true
+      chest_compressions: true
+      epinephrine: true
+      assessment_minute: minute_5
+    expected:
+      apgar_score: 5
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Independent expanded-form intervention checkboxes preserve simultaneous interventions without changing
+        component arithmetic.
+    claimIds:
+      - claim:apgar:input:oxygen
+      - claim:apgar:input:ppv_or_ncpap
+      - claim:apgar:input:endotracheal_tube
+      - claim:apgar:input:chest_compressions
+      - claim:apgar:input:epinephrine
+    sourceIds:
+      - apgar_acog_2015
+    witnesses:
+      - input:oxygen
+      - input:ppv_or_ncpap
+      - input:endotracheal_tube
+      - input:chest_compressions
+      - input:epinephrine
+  - id: case:apgar:option-appearance-blue_or_pale
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: blue_or_pale
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 8
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:appearance:options
+    sourceIds: *a2
+    witnesses:
+      - input:appearance:options
+  - id: case:apgar:option-appearance-body_pink_extremities_blue
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: body_pink_extremities_blue
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 9
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:appearance:options
+    sourceIds: *a2
+    witnesses:
+      - input:appearance:options
+  - id: case:apgar:option-appearance-pink_all_over
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:appearance:options
+    sourceIds: *a2
+    witnesses:
+      - input:appearance:options
+  - id: case:apgar:option-pulse-absent
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: absent
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 8
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:pulse:options
+    sourceIds: *a3
+    witnesses:
+      - input:pulse:options
+  - id: case:apgar:option-pulse-less_than_100
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: less_than_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 9
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:pulse:options
+    sourceIds: *a3
+    witnesses:
+      - input:pulse:options
+  - id: case:apgar:option-pulse-at_least_100
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:pulse:options
+    sourceIds: *a3
+    witnesses:
+      - input:pulse:options
+  - id: case:apgar:option-grimace-no_response
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: no_response
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 8
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:grimace:options
+    sourceIds: *a4
+    witnesses:
+      - input:grimace:options
+  - id: case:apgar:option-grimace-grimace
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: grimace
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 9
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:grimace:options
+    sourceIds: *a4
+    witnesses:
+      - input:grimace:options
+  - id: case:apgar:option-grimace-cough_sneeze_cry
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:grimace:options
+    sourceIds: *a4
+    witnesses:
+      - input:grimace:options
+  - id: case:apgar:option-activity-limp
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: limp
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 8
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:activity:options
+    sourceIds: *a5
+    witnesses:
+      - input:activity:options
+  - id: case:apgar:option-activity-some_flexion
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: some_flexion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 9
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:activity:options
+    sourceIds: *a5
+    witnesses:
+      - input:activity:options
+  - id: case:apgar:option-activity-active_motion
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:activity:options
+    sourceIds: *a5
+    witnesses:
+      - input:activity:options
+  - id: case:apgar:option-respiratory-absent
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: absent
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 8
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:respiratory:options
+    sourceIds: *a6
+    witnesses:
+      - input:respiratory:options
+  - id: case:apgar:option-respiratory-weak_or_irregular
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: weak_or_irregular
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 9
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:respiratory:options
+    sourceIds: *a6
+    witnesses:
+      - input:respiratory:options
+  - id: case:apgar:option-respiratory-strong_cry
+    kind: edge
+    tags:
+      - exhaustive-option
+    inputs:
+      appearance: pink_all_over
+      pulse: at_least_100
+      grimace: cough_sneeze_cry
+      activity: active_motion
+      respiratory: strong_cry
+      assessment_minute: minute_1
+      oxygen: false
+      ppv_or_ncpap: false
+      endotracheal_tube: false
+      chest_compressions: false
+      epinephrine: false
+    expected:
+      apgar_score: 10
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Source-form option weights and completeness semantics are asserted exactly.
+    claimIds:
+      - claim:apgar:input:respiratory:options
+    sourceIds: *a6
+    witnesses:
+      - input:respiratory:options
+compatibilityNotes:
+  - Replaced the ambiguous greater-than-100 pulse category with at-least-100; the old token remains a safe option alias.
+  - Restricted assessment time to the expanded-form 1-, 5-, 10-, 15-, and 20-minute columns.
+  - Replaced the lossy highest-intensity intervention enum with five independent expanded-form resuscitation checkboxes.
+explicitBlockers: []

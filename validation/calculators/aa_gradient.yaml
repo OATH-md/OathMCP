@@ -1,0 +1,830 @@
+calculatorId: aa_gradient
+specVersion: 1.0.0
+clinicalModel: Simplified alveolar gas equation and alveolar-arterial oxygen difference
+variant: steady_state_rq_0_8_age_reference_altitude_adjusted
+population: Patients with contemporaneous arterial oxygen and carbon-dioxide tensions under steady-state conditions.
+setting: Respiratory gas-exchange assessment with explicit inspired oxygen and altitude.
+assessmentTiming: Contemporaneous stable PaO2, PaCO2, FiO2, and altitude; the age reference is contextual
+  rather than diagnostic.
+endpoint: Calculated A-a oxygen difference and the declared age-reference value in mmHg.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:aa_gradient:2026-07-16
+    calculatorId: aa_gradient
+    model: Simplified alveolar gas equation and alveolar-arterial oxygen difference
+    variant: steady_state_rq_0_8_age_reference_altitude_adjusted
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:aa_gradient:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: '("alveolar gas equation"[Title/Abstract] AND ("alveolar-arterial"[Title/Abstract] OR
+          hypoxemia[Title/Abstract]) AND (age[Title/Abstract] OR altitude[Title/Abstract] OR
+          limitation*[Title/Abstract] OR validation[Title/Abstract])) OR (Helmholz HF[Author] AND "alveolar air
+          equation"[Title])'
+        translationExposed: true
+        translatedQuery: Field-tagged query retained as entered; PubMed automatic term mapping was not invoked.
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 4
+        exportDigest: sha256:16f6ab5b003edde6fac0d403e7314d64e92bc2716ce2fb91ae5152ee5eef2e5b
+        stableCitationIds:
+          - PMID:31424737
+          - PMID:36776206
+          - PMID:10194147
+          - PMID:436542
+      - id: search:aa_gradient:derivation
+        sourceRole: derivation
+        authorityId: aa_helmholz_1979
+        database: Primary or responsible-authority source
+        site: Chest
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          steady_state_rq_0_8_age_reference_altitude_adjusted
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - aa_helmholz_1979
+      - id: search:aa_gradient:controlling_authority
+        sourceRole: controlling_authority
+        authorityId: aa_ncbi_bookshelf_2024
+        database: Primary or responsible-authority source
+        site: U.S. National Library of Medicine
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          steady_state_rq_0_8_age_reference_altitude_adjusted
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - aa_ncbi_bookshelf_2024
+      - id: search:aa_gradient:specialty_guidance
+        sourceRole: specialty_guidance
+        authorityId: aa_ers_2015
+        database: Primary or responsible-authority source
+        site: European Respiratory Society
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          steady_state_rq_0_8_age_reference_altitude_adjusted
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - aa_ers_2015
+      - id: search:aa_gradient:independent_numeric
+        sourceRole: independent_numeric
+        authorityId: aa_nasa_atmosphere
+        database: Primary or responsible-authority source
+        site: NASA Glenn Research Center
+        interface: direct document review
+        exactQuery: Exact formula, inputs, outputs, limits, currentness, and policy semantics for
+          steady_state_rq_0_8_age_reference_altitude_adjusted
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - aa_nasa_atmosphere
+    accounting:
+      retrieved: 4
+      deduplicated: 4
+      screened: 4
+      fullTextAssessed: 2
+      excluded: 0
+      included: 2
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: aa_ncbi_bookshelf_2024
+        title: Physiology, Alveolar to Arterial Oxygen Gradient.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:36776206
+        title: Temporary hypoxemia at high altitude in an intensive care unit physician.
+        disposition: excluded
+        exclusionReason: Single case report without a distinct retained equation, boundary, or validation claim.
+        fullTextAssessed: false
+      - citationId: pmid:10194147
+        title: Effect of body position changes on pulmonary gas exchange in Eisenmenger's syndrome.
+        disposition: excluded
+        exclusionReason: Population-specific gas-exchange study without a distinct retained calculator claim.
+        fullTextAssessed: false
+      - citationId: aa_helmholz_1979
+        title: The abbreviated alveolar air equation.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:aa_gradient:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and synonyms
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search paired with direct primary and responsible-authority review.
+      resolution: Resolved by retaining exact model and author terms, checking translation, screening every result,
+        chasing citations, and reviewing current authority and specialty sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - aa_helmholz_1979
+  - aa_ncbi_bookshelf_2024
+  - aa_ers_2015
+  - aa_nasa_atmosphere
+claims:
+  - id: claim:aa_gradient:calculator-model
+    kind: applicability
+    statement: Simplified alveolar gas equation and alveolar-arterial oxygen difference is limited to Patients
+      with contemporaneous arterial oxygen and carbon-dioxide tensions under steady-state conditions.
+      Respiratory gas-exchange assessment with explicit inspired oxygen and altitude.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - aa_ncbi_bookshelf_2024
+    locators:
+      - sourceId: aa_ncbi_bookshelf_2024
+        locator: NCBI Bookshelf NBK482268, sea-level worked equation and NBK545153, steady-state limitation and
+          expected-gradient equation.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad clinical limitations are descriptive; every
+      runtime-verifiable surface is separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:formula-implementation
+    kind: formula
+    statement: The calculator implements the source-bound simplified alveolar gas equation, NASA metric
+      troposphere pressure curve fit, alveolar-arterial oxygen difference arithmetic, and declared final rounding.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+      - aa_nasa_atmosphere
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+      - sourceId: aa_nasa_atmosphere
+        locator: NASA metric atmosphere model, troposphere lines 7-12 defining T=15.04-.00649h and
+          p=101.29*((T+273.1)/288.08)^5.256 for altitude below 11,000 m.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:ref-1
+      - case:aa_gradient:ref-2
+      - case:aa_gradient:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:applicability-purpose
+    kind: applicability
+    statement: Compute the alveolar-arterial oxygen gradient and the age-expected gradient to evaluate the
+      mechanism of hypoxemia. A normal A-a gradient points to hypoventilation or low inspired oxygen; an
+      elevated gradient points to V/Q mismatch, shunt, or diffusion limitation.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - aa_ers_2015
+    locators:
+      - sourceId: aa_ers_2015
+        locator: ERS review, Level 2 alveolar gas equation and normal room-air A-a difference section; age/4 + 4 mmHg
+          reference.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:applicability-exclusions
+    kind: exclusion
+    statement: The gradient becomes unreliable at high FiO2 and in the elderly, and is distorted by mechanical
+      ventilation with PEEP; it is not disease-specific and must be read in clinical context.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - aa_ers_2015
+    locators:
+      - sourceId: aa_ers_2015
+        locator: ERS review, Level 2 alveolar gas equation and normal room-air A-a difference section; age/4 + 4 mmHg
+          reference.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:input-pao2
+    kind: input
+    statement: Arterial oxygen partial pressure (PaO2) in mmHg.
+    covers:
+      - input:pao2
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:ref-1
+      - case:aa_gradient:ref-2
+      - case:aa_gradient:ref-3
+      - case:aa_gradient:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:input-pao2-hard_limits
+    kind: input
+    statement: OathMCP rejects PaO2 outside [0,700] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:pao2:hard_limits
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:hard-pao2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:input-pao2-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when PaO2 is outside [30,600]; this is an operational review prompt.
+    covers:
+      - input:pao2:plausibility
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:plausibility-pao2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:input-paco2
+    kind: input
+    statement: Arterial carbon dioxide partial pressure (PaCO2) in mmHg.
+    covers:
+      - input:paco2
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:ref-1
+      - case:aa_gradient:ref-2
+      - case:aa_gradient:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:input-paco2-hard_limits
+    kind: input
+    statement: OathMCP rejects PaCO2 outside [0,200] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:paco2:hard_limits
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:hard-paco2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:input-paco2-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when PaCO2 is outside [10,120]; this is an operational review prompt.
+    covers:
+      - input:paco2:plausibility
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:plausibility-paco2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:input-fio2
+    kind: input
+    statement: Fraction of inspired oxygen as a percentage (21 to 100).
+    covers:
+      - input:fio2
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:ref-1
+      - case:aa_gradient:ref-2
+      - case:aa_gradient:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:input-fio2-hard_limits
+    kind: input
+    statement: OathMCP rejects FiO2 outside [21,100] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:fio2:hard_limits
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:hard-fio2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:input-age
+    kind: input
+    statement: Patient age in years (used for the age-expected gradient).
+    covers:
+      - input:age
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:ref-1
+      - case:aa_gradient:ref-2
+      - case:aa_gradient:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:input-age-hard_limits
+    kind: input
+    statement: OathMCP rejects Age outside [0,120] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:age:hard_limits
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:hard-age
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:input-altitude
+    kind: input
+    statement: Altitude in meters; leave unset for sea level.
+    covers:
+      - input:altitude
+    status: supported
+    sourceIds:
+      - aa_nasa_atmosphere
+    locators:
+      - sourceId: aa_nasa_atmosphere
+        locator: NASA metric atmosphere model, troposphere lines 7-12 defining altitude h in metres and the
+          corresponding pressure curve fit.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:ref-1
+      - case:aa_gradient:ref-2
+      - case:aa_gradient:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:input-altitude-hard_limits
+    kind: input
+    statement: OathMCP rejects Altitude outside [0,9000] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:altitude:hard_limits
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:hard-altitude
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:default-altitude
+    kind: default
+    statement: Altitude defaults to 0 and remains visible in input provenance.
+    covers:
+      - default:altitude
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:ref-1
+      - case:aa_gradient:ref-2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:output-aa_gradient
+    kind: outcome
+    statement: Alveolar-arterial oxygen gradient in mmHg, rounded to 2 decimal places.
+    covers:
+      - output:aa_gradient
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:ref-1
+      - case:aa_gradient:ref-2
+      - case:aa_gradient:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:aa_gradient:output-expected_gradient
+    kind: outcome
+    statement: Age-expected A-a gradient (4 + age/4) in mmHg, rounded to 2 decimal places.
+    covers:
+      - output:expected_gradient
+    status: supported
+    sourceIds:
+      - aa_helmholz_1979
+    locators:
+      - sourceId: aa_helmholz_1979
+        locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
+    executable: true
+    scenarioIds:
+      - case:aa_gradient:ref-1
+      - case:aa_gradient:ref-2
+      - case:aa_gradient:ref-3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:aa_gradient:ref-1
+    tags:
+      - calculator:aa_gradient:core
+      - defaults
+    inputs: &a1
+      pao2: 90
+      paco2: 40
+      fio2: 21
+      age: 40
+    expected: &a2
+      aa_gradient: 9.85
+      expected_gradient: 14
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:aa_gradient:formula-implementation
+      - claim:aa_gradient:input-pao2
+      - claim:aa_gradient:input-paco2
+      - claim:aa_gradient:input-fio2
+      - claim:aa_gradient:input-age
+      - claim:aa_gradient:input-altitude
+      - claim:aa_gradient:default-altitude
+      - claim:aa_gradient:output-aa_gradient
+      - claim:aa_gradient:output-expected_gradient
+    sourceIds:
+      - aa_helmholz_1979
+      - aa_nasa_atmosphere
+    witnesses:
+      - formula:implementation
+      - input:pao2
+      - input:paco2
+      - input:fio2
+      - input:age
+      - input:altitude
+      - default:altitude
+      - output:aa_gradient
+      - output:expected_gradient
+  - kind: reference
+    id: case:aa_gradient:ref-2
+    tags:
+      - calculator:aa_gradient:reference
+      - defaults
+    inputs:
+      pao2: 80
+      paco2: 45
+      fio2: 40
+      age: 60
+    expected:
+      aa_gradient: 149.18
+      expected_gradient: 19
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:aa_gradient:formula-implementation
+      - claim:aa_gradient:input-pao2
+      - claim:aa_gradient:input-paco2
+      - claim:aa_gradient:input-fio2
+      - claim:aa_gradient:input-age
+      - claim:aa_gradient:input-altitude
+      - claim:aa_gradient:default-altitude
+      - claim:aa_gradient:output-aa_gradient
+      - claim:aa_gradient:output-expected_gradient
+    sourceIds:
+      - aa_helmholz_1979
+      - aa_nasa_atmosphere
+    witnesses:
+      - formula:implementation
+      - input:pao2
+      - input:paco2
+      - input:fio2
+      - input:age
+      - input:altitude
+      - default:altitude
+      - output:aa_gradient
+      - output:expected_gradient
+  - kind: reference
+    id: case:aa_gradient:ref-3
+    tags:
+      - calculator:aa_gradient:reference
+    inputs:
+      pao2: 70
+      paco2: 40
+      fio2: 21
+      age: 40
+      altitude: 1600
+    expected:
+      aa_gradient: 1.83
+      expected_gradient: 14
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:aa_gradient:formula-implementation
+      - claim:aa_gradient:input-pao2
+      - claim:aa_gradient:input-paco2
+      - claim:aa_gradient:input-fio2
+      - claim:aa_gradient:input-age
+      - claim:aa_gradient:input-altitude
+      - claim:aa_gradient:output-aa_gradient
+      - claim:aa_gradient:output-expected_gradient
+    sourceIds:
+      - aa_helmholz_1979
+      - aa_nasa_atmosphere
+    witnesses:
+      - formula:implementation
+      - input:pao2
+      - input:paco2
+      - input:fio2
+      - input:age
+      - input:altitude
+      - output:aa_gradient
+      - output:expected_gradient
+  - kind: agent
+    id: case:aa_gradient:agent-purpose
+    tags:
+      - agent-applicability
+    inputs: *a1
+    expected: *a2
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:aa_gradient:applicability-purpose
+    sourceIds:
+      - aa_ers_2015
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:aa_gradient:agent-exclusion
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      paco2: 40
+      fio2: 21
+      age: 40
+    expected: {}
+    expectedBehavior: clarify
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:aa_gradient:applicability-exclusions
+      - claim:aa_gradient:input-pao2
+    sourceIds:
+      - aa_ers_2015
+      - aa_helmholz_1979
+    witnesses:
+      - applicability:exclusions
+      - input:pao2
+    expectedError:
+      code: MISSING_REQUIRED
+      field: pao2
+  - kind: edge
+    id: case:aa_gradient:hard-pao2
+    tags:
+      - hard-limits
+    inputs:
+      pao2: -1
+      paco2: 40
+      fio2: 21
+      age: 40
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:aa_gradient:input-pao2-hard_limits
+    sourceIds:
+      - aa_helmholz_1979
+    witnesses:
+      - input:pao2:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: pao2
+  - kind: edge
+    id: case:aa_gradient:plausibility-pao2
+    tags:
+      - plausibility
+    inputs:
+      pao2: 15
+      paco2: 40
+      fio2: 21
+      age: 40
+    expected:
+      aa_gradient: 84.85
+      expected_gradient: 14
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:aa_gradient:input-pao2-plausibility
+    sourceIds:
+      - aa_helmholz_1979
+    witnesses:
+      - input:pao2:plausibility
+    expectedWarnings:
+      - PaO2 15 is unusual (expected 30–600).
+  - kind: edge
+    id: case:aa_gradient:hard-paco2
+    tags:
+      - hard-limits
+    inputs:
+      pao2: 90
+      paco2: -1
+      fio2: 21
+      age: 40
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:aa_gradient:input-paco2-hard_limits
+    sourceIds:
+      - aa_helmholz_1979
+    witnesses:
+      - input:paco2:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: paco2
+  - kind: edge
+    id: case:aa_gradient:plausibility-paco2
+    tags:
+      - plausibility
+    inputs:
+      pao2: 90
+      paco2: 5
+      fio2: 21
+      age: 40
+    expected:
+      aa_gradient: 53.6
+      expected_gradient: 14
+    expectedBehavior: warn
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:aa_gradient:input-paco2-plausibility
+    sourceIds:
+      - aa_helmholz_1979
+    witnesses:
+      - input:paco2:plausibility
+    expectedWarnings:
+      - PaCO2 5 is unusual (expected 10–120).
+  - kind: edge
+    id: case:aa_gradient:hard-fio2
+    tags:
+      - hard-limits
+    inputs:
+      pao2: 90
+      paco2: 40
+      fio2: 18.9
+      age: 40
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:aa_gradient:input-fio2-hard_limits
+    sourceIds:
+      - aa_helmholz_1979
+    witnesses:
+      - input:fio2:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: fio2
+  - kind: edge
+    id: case:aa_gradient:hard-age
+    tags:
+      - hard-limits
+    inputs:
+      pao2: 90
+      paco2: 40
+      fio2: 21
+      age: -1
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:aa_gradient:input-age-hard_limits
+    sourceIds:
+      - aa_helmholz_1979
+    witnesses:
+      - input:age:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: age
+  - kind: edge
+    id: case:aa_gradient:hard-altitude
+    tags:
+      - hard-limits
+    inputs:
+      pao2: 90
+      paco2: 40
+      fio2: 21
+      age: 40
+      altitude: -1
+    expected: {}
+    expectedBehavior: reject
+    tolerance:
+      mode: exact
+      rationale: Frozen source-derived arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:aa_gradient:input-altitude-hard_limits
+    sourceIds:
+      - aa_helmholz_1979
+    witnesses:
+      - input:altitude:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: altitude
+compatibilityNotes: []
+explicitBlockers: []

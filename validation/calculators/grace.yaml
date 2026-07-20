@@ -1,0 +1,1310 @@
+calculatorId: grace
+specVersion: 2006.2.0
+clinicalModel: GRACE admission-to-6-month mortality nomogram (Fox 2006)
+variant: admission_to_6_month_mortality_2006
+population: Adults presenting with acute coronary syndrome in the multinational GRACE cohort context.
+setting: Admission risk stratification for acute coronary syndrome; not a general cardiovascular-risk score.
+assessmentTiming: Hospital admission, predicting cumulative mortality through six months.
+endpoint: Fox 2006 nomogram score and its published admission-to-6-month mortality percentage.
+reviewGroup: policy_versioned
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:grace:2026-07-16
+    calculatorId: grace
+    model: GRACE admission-to-6-month mortality nomogram (Fox 2006)
+    variant: admission_to_6_month_mortality_2006
+    searchedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    sources:
+      - id: search:grace:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline_policy
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web search
+        exactQuery: (GRACE[Title/Abstract] AND "acute coronary syndrome"[Title/Abstract]) AND ("six month"[Title/Abstract] OR
+          "6-month"[Title/Abstract]) AND (nomogram[Title/Abstract] OR validat*[Title/Abstract])
+        translationExposed: true
+        translatedQuery: ("GRACE"[Title/Abstract] AND "acute coronary syndrome"[Title/Abstract]) AND ("six
+          month"[Title/Abstract] OR "6-month"[Title/Abstract]) AND ("nomogram"[Title/Abstract] OR
+          "validat*"[Title/Abstract])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 13
+        stableCitationIds:
+          - PMID:36645940
+          - PMID:31328004
+          - PMID:31030570
+          - PMID:30838085
+          - PMID:27432444
+          - PMID:25544887
+          - PMID:23818444
+          - PMID:22199121
+          - PMID:21521903
+          - PMID:17174633
+          - PMID:17032691
+          - PMID:16387810
+          - PMID:15187054
+      - id: search:grace:grace_fox_2006
+        sourceRole: derivation
+        authorityId: grace_fox_2006
+        database: Primary or responsible-authority source
+        site: pmc.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for grace
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID:17032691
+      - id: search:grace:grace_effect_2006
+        sourceRole: external_validation
+        authorityId: grace_effect_2006
+        database: Primary or responsible-authority source
+        site: pmc.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for grace
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID:16387810
+      - id: search:grace:grace_nice_ng185
+        sourceRole: controlling_authority
+        authorityId: grace_nice_ng185
+        database: Primary or responsible-authority source
+        site: www.nice.org.uk
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for grace
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - NICE:NG185
+      - id: search:grace:grace_esc_2023
+        sourceRole: specialty_guidance
+        authorityId: grace_esc_2023
+        database: Primary or responsible-authority source
+        site: www.escardio.org
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for grace
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - ESC:ACS:2023
+      - id: search:grace:grace_nomogram_archive
+        sourceRole: data_release
+        authorityId: grace_nomogram_archive
+        database: Primary or responsible-authority source
+        site: web.archive.org
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for grace
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - GRACE:COEFFICIENTS:2014-01-30
+    accounting:
+      retrieved: 13
+      deduplicated: 13
+      screened: 13
+      fullTextAssessed: 2
+      excluded: 0
+      included: 2
+    deduplication:
+      method: PMID-based deduplication of the exact PubMed export; citation-chased derivation records and direct operator/authority records are listed separately under sources and are not counted as PubMed retrievals.
+      tool: PubMed exact-query export plus separately documented citation chasing and direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:36645940
+        title: "An interpretable machine learning approach to estimate the influence of inflammation biomarkers on cardiovascular risk assessment."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:31328004
+        title: "Left ventricular ejection fraction adds value over the GRACE score in prediction of 6-month mortality after ACS: the MADDEC study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:31030570
+        title: "Extensive phenotype data and machine learning in prediction of mortality in acute coronary syndrome - the MADDEC study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:30838085
+        title: "Predicting Long-Term Mortality after Acute Coronary Syndrome Using Machine Learning Techniques and Hematological Markers."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:27432444
+        title: "Validation of the 6-Month GRACE Score in Predicting 1-Year Mortality of Patients With Acute Coronary Syndrome Admitted to the Arabian Gulf Hospitals."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:25544887
+        title: "Is 6-month GRACE risk score a useful tool to predict stroke after an acute coronary syndrome?"
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:23818444
+        title: "Incremental prognostic value of biomarkers beyond the GRACE (Global Registry of Acute Coronary Events) score and high-sensitivity cardiac troponin T in non-ST-elevation acute coronary syndrome."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:22199121
+        title: "Adjustment of the GRACE score by growth differentiation factor 15 enables a more accurate appreciation of risk in non-ST-elevation acute coronary syndrome."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:21521903
+        title: "Addition of B-type natriuretic peptide to the GRACE score to predict outcome in acute coronary syndrome: a retrospective (development) and prospective (validation) cohort-based study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:17174633
+        title: "Global Registry of Acute Coronary Events (GRACE) hospital discharge risk score accurately predicts long-term mortality post acute coronary syndrome."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: grace_fox_2006
+        title: "Prediction of risk of death and myocardial infarction in the six months after presentation with acute coronary syndrome: prospective multinational observational study (GRACE)."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: grace_effect_2006
+        title: "Validity of the GRACE (Global Registry of Acute Coronary Events) acute coronary syndrome prediction model for six month post-discharge death in an independent data set."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:15187054
+        title: "A validated prediction model for all forms of acute coronary syndrome: estimating the risk of 6-month postdischarge death in an international registry."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:grace:pubmed
+      checklist:
+        - Concept coverage
+        - Controlled vocabulary and text words
+        - Boolean logic
+        - Limits and reproducibility
+        - Exact model/variant, endpoint, data-release, and currentness specificity
+      comments:
+        - The exact PubMed query returned 13 unique PMID records; every result is represented in the title/abstract screening ledger above.
+        - Both retained article sources were present in the exact PubMed result set; operator and guidance sources were reviewed separately through their direct-source records.
+      resolution: Exact query results, screening decisions, and counts were reconciled against the live PubMed export; citation-chased and direct operator/authority sources remain explicitly separate from the PubMed accounting.
+      resolved: true
+      reviewer: OathMCP independent search QA lane
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline_policy
+  - grace_fox_2006
+  - grace_effect_2006
+  - grace_nice_ng185
+  - grace_esc_2023
+  - grace_nomogram_archive
+claims:
+  - id: claim:grace:calculator-model
+    kind: applicability
+    statement: grace implements only the exact clinical model, version, population, setting, endpoint, and data snapshot
+      declared in this dossier.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+      - grace_nomogram_archive
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods, Tables 1-3, and Figure 3: exact admission-to-six-month model identity, eight inputs,
+          endpoint, nomogram, and validation cohorts."
+      - sourceId: grace_nomogram_archive
+        locator: "Archived GRACE Risk Model Coefficients pages 12-13: exact point knots and cumulative admission-to-six-month
+          mortality lookup implemented by this calculator."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is a source-governed scope assertion; every runtime-verifiable surface is covered
+      by separate executable claims.
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:formula-implementation
+    kind: formula
+    statement: grace combines the declared inputs using the cited coefficients, lookup rows, policy branches, bounds, and
+      rounding rules.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods, Tables 1-3, and Figure 3: eight-variable simplified nomogram, cumulative
+          admission-to-six-month mortality endpoint, prospective validation, and GUSTO IIb external validation."
+    executable: true
+    scenarioIds:
+      - case:grace:reference-low
+      - case:grace:reference-middle
+      - case:grace:reference-high
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:applicability-purpose
+    kind: applicability
+    statement: grace is limited to the cited population, assessment timing, setting, and endpoint.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:applicability-exclusions
+    kind: applicability
+    statement: grace preserves the cited exclusions and does not turn a risk estimate into a treatment, acceptance, or
+      allocation directive.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:agent-exclusion-missing-context
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-age
+    kind: input
+    statement: grace uses the cited definition, role, timing, and domain for age.
+    covers:
+      - input:age
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods, Tables 1-3, and Figure 3: eight-variable simplified nomogram, cumulative
+          admission-to-six-month mortality endpoint, prospective validation, and GUSTO IIb external validation."
+    executable: true
+    scenarioIds:
+      - case:grace:reference-low
+      - case:grace:agent-exclusion-missing-context
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-age-hard_limits
+    kind: input
+    statement: The 18-120 age interval is an OathMCP operational machine-safety envelope around the adult GRACE input, not a
+      source-derived clinical decision threshold or a claim that age 120 was validated.
+    covers:
+      - input:age:hard_limits
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods and Tables 1-3 establish age as an adult admission-time GRACE predictor; the 120-year
+          rejection ceiling is explicitly an internal compatibility/safety guard."
+    executable: true
+    scenarioIds:
+      - case:grace:hard-age
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-age-plausibility
+    kind: input
+    statement: The 18-100 expected interval is an OathMCP operational data-quality guard; accepted ages above 100 warn for
+      verification without changing the GRACE calculation.
+    covers:
+      - input:age:plausibility
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods and Tables 1-3 establish age as a model predictor; the 100-year warning ceiling is
+          explicitly an internal compatibility/data-quality guard."
+    executable: true
+    scenarioIds:
+      - case:grace:plausibility-age
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-heart_rate
+    kind: input
+    statement: grace uses the cited definition, role, timing, and domain for heart_rate.
+    covers:
+      - input:heart_rate
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods, Tables 1-3, and Figure 3: eight-variable simplified nomogram, cumulative
+          admission-to-six-month mortality endpoint, prospective validation, and GUSTO IIb external validation."
+    executable: true
+    scenarioIds:
+      - case:grace:reference-low
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-heart_rate-hard_limits
+    kind: input
+    statement: grace rejects values outside the declared operational safety envelope; this envelope is not a clinical
+      decision threshold.
+    covers:
+      - input:heart_rate:hard_limits
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:hard-heart_rate
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-heart_rate-plausibility
+    kind: input
+    statement: grace warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:heart_rate:plausibility
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:plausibility-heart_rate
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-systolic_bp
+    kind: input
+    statement: grace uses the cited definition, role, timing, and domain for systolic_bp.
+    covers:
+      - input:systolic_bp
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods, Tables 1-3, and Figure 3: eight-variable simplified nomogram, cumulative
+          admission-to-six-month mortality endpoint, prospective validation, and GUSTO IIb external validation."
+    executable: true
+    scenarioIds:
+      - case:grace:reference-low
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-systolic_bp-hard_limits
+    kind: input
+    statement: grace rejects values outside the declared operational safety envelope; this envelope is not a clinical
+      decision threshold.
+    covers:
+      - input:systolic_bp:hard_limits
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:hard-systolic_bp
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-systolic_bp-plausibility
+    kind: input
+    statement: grace warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:systolic_bp:plausibility
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:plausibility-systolic_bp
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-creatinine
+    kind: input
+    statement: grace uses the cited definition, role, timing, and domain for creatinine.
+    covers:
+      - input:creatinine
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods, Tables 1-3, and Figure 3: eight-variable simplified nomogram, cumulative
+          admission-to-six-month mortality endpoint, prospective validation, and GUSTO IIb external validation."
+    executable: true
+    scenarioIds:
+      - case:grace:reference-low
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-creatinine-hard_limits
+    kind: input
+    statement: grace rejects values outside the declared operational safety envelope; this envelope is not a clinical
+      decision threshold.
+    covers:
+      - input:creatinine:hard_limits
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:hard-creatinine
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-creatinine-plausibility
+    kind: input
+    statement: grace warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:creatinine:plausibility
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:plausibility-creatinine
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:unit-creatinine
+    kind: unit
+    statement: grace normalizes the declared US and SI units to the same source-defined canonical input before calculation.
+    covers:
+      - unit:creatinine
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods, Tables 1-3, and Figure 3: eight-variable simplified nomogram, cumulative
+          admission-to-six-month mortality endpoint, prospective validation, and GUSTO IIb external validation."
+    executable: true
+    scenarioIds:
+      - case:grace:unit-creatinine-canonical
+      - case:grace:unit-creatinine-alternate
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-killip_class
+    kind: input
+    statement: grace uses the cited definition, role, timing, and domain for killip_class.
+    covers:
+      - input:killip_class
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods, Tables 1-3, and Figure 3: eight-variable simplified nomogram, cumulative
+          admission-to-six-month mortality endpoint, prospective validation, and GUSTO IIb external validation."
+    executable: true
+    scenarioIds:
+      - case:grace:reference-low
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-killip_class-options
+    kind: input
+    statement: grace accepts only the source-defined finite option vocabulary for this input.
+    covers:
+      - input:killip_class:options
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods, Tables 1-3, and Figure 3: eight-variable simplified nomogram, cumulative
+          admission-to-six-month mortality endpoint, prospective validation, and GUSTO IIb external validation."
+    executable: true
+    scenarioIds:
+      - case:grace:reference-low
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-cardiac_arrest
+    kind: input
+    statement: grace uses the cited definition, role, timing, and domain for cardiac_arrest.
+    covers:
+      - input:cardiac_arrest
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods, Tables 1-3, and Figure 3: eight-variable simplified nomogram, cumulative
+          admission-to-six-month mortality endpoint, prospective validation, and GUSTO IIb external validation."
+    executable: true
+    scenarioIds:
+      - case:grace:reference-low
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-st_segment_deviation
+    kind: input
+    statement: grace uses the cited definition, role, timing, and domain for st_segment_deviation.
+    covers:
+      - input:st_segment_deviation
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods, Tables 1-3, and Figure 3: eight-variable simplified nomogram, cumulative
+          admission-to-six-month mortality endpoint, prospective validation, and GUSTO IIb external validation."
+    executable: true
+    scenarioIds:
+      - case:grace:reference-low
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:input-elevated_cardiac_enzymes
+    kind: input
+    statement: grace uses the cited definition, role, timing, and domain for elevated_cardiac_enzymes.
+    covers:
+      - input:elevated_cardiac_enzymes
+    status: supported
+    sourceIds:
+      - grace_fox_2006
+    locators:
+      - sourceId: grace_fox_2006
+        locator: "Fox 2006 Methods, Tables 1-3, and Figure 3: eight-variable simplified nomogram, cumulative
+          admission-to-six-month mortality endpoint, prospective validation, and GUSTO IIb external validation."
+    executable: true
+    scenarioIds:
+      - case:grace:reference-low
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:output-score
+    kind: outcome
+    statement: grace returns score with the cited meaning, version, units, and rounding.
+    covers:
+      - output:score
+    status: supported
+    sourceIds:
+      - grace_nomogram_archive
+    locators:
+      - sourceId: grace_nomogram_archive
+        locator: "Archived GRACE Risk Model Coefficients PDF pages 12-13: every age, pulse, SBP, creatinine, Killip, arrest,
+          ST-deviation, enzyme, and mortality lookup knot."
+    executable: true
+    scenarioIds:
+      - case:grace:reference-low
+      - case:grace:reference-middle
+      - case:grace:reference-high
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:output-mortality_risk
+    kind: outcome
+    statement: grace returns mortality_risk with the cited meaning, version, units, and rounding.
+    covers:
+      - output:mortality_risk
+    status: supported
+    sourceIds:
+      - grace_nomogram_archive
+    locators:
+      - sourceId: grace_nomogram_archive
+        locator: "Archived GRACE Risk Model Coefficients PDF pages 12-13: every age, pulse, SBP, creatinine, Killip, arrest,
+          ST-deviation, enzyme, and mortality lookup knot."
+    executable: true
+    scenarioIds:
+      - case:grace:reference-low
+      - case:grace:reference-middle
+      - case:grace:reference-high
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:band-mortality_risk-0
+    kind: band
+    statement: grace applies the exact cited interpretation boundary and inclusive/exclusive semantics for band:mortality_risk:0.
+    covers:
+      - band:mortality_risk:0
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:band-mortality_risk_band_1
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:band-mortality_risk-1
+    kind: band
+    statement: grace applies the exact cited interpretation boundary and inclusive/exclusive semantics for band:mortality_risk:1.
+    covers:
+      - band:mortality_risk:1
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:band-mortality_risk_band_2
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:band-mortality_risk-2
+    kind: band
+    statement: grace applies the exact cited interpretation boundary and inclusive/exclusive semantics for band:mortality_risk:2.
+    covers:
+      - band:mortality_risk:2
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:band-mortality_risk_band_3
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:band-mortality_risk-3
+    kind: band
+    statement: grace applies the exact cited interpretation boundary and inclusive/exclusive semantics for band:mortality_risk:3.
+    covers:
+      - band:mortality_risk:3
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:band-mortality_risk_band_4
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:grace:band-mortality_risk-4
+    kind: band
+    statement: grace applies the exact cited interpretation boundary and inclusive/exclusive semantics for band:mortality_risk:4.
+    covers:
+      - band:mortality_risk:4
+    status: supported
+    sourceIds:
+      - grace_nice_ng185
+    locators:
+      - sourceId: grace_nice_ng185
+        locator: "NICE NG185 recommendation 1.2.11: established six-month mortality score and exact
+          lowest/low/intermediate/high/highest risk percentages."
+    executable: true
+    scenarioIds:
+      - case:grace:band-mortality_risk_band_5
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+cases:
+  - kind: reference
+    id: case:grace:reference-low
+    tags:
+      - calculator:grace:core
+    inputs:
+      age: 30
+      heart_rate: 60
+      systolic_bp: 140
+      creatinine: 1
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      score: 27
+      mortality_risk: 0.4
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Frozen source-derived expectation after applying the calculator declared rounding and lookup rules.
+    witnesses:
+      - formula:implementation
+      - input:age
+      - input:heart_rate
+      - input:systolic_bp
+      - input:creatinine
+      - input:killip_class
+      - input:killip_class:options
+      - input:cardiac_arrest
+      - input:st_segment_deviation
+      - input:elevated_cardiac_enzymes
+      - output:score
+      - output:mortality_risk
+    claimIds:
+      - claim:grace:formula-implementation
+      - claim:grace:input-age
+      - claim:grace:input-heart_rate
+      - claim:grace:input-systolic_bp
+      - claim:grace:input-creatinine
+      - claim:grace:input-killip_class
+      - claim:grace:input-killip_class-options
+      - claim:grace:input-cardiac_arrest
+      - claim:grace:input-st_segment_deviation
+      - claim:grace:input-elevated_cardiac_enzymes
+      - claim:grace:output-score
+      - claim:grace:output-mortality_risk
+    sourceIds:
+      - grace_fox_2006
+      - grace_nomogram_archive
+  - kind: reference
+    id: case:grace:reference-middle
+    tags:
+      - calculator:grace:reference
+    inputs:
+      age: 65
+      heart_rate: 80
+      systolic_bp: 120
+      creatinine: 1.2
+      killip_class: ii
+      cardiac_arrest: false
+      st_segment_deviation: true
+      elevated_cardiac_enzymes: true
+    expected:
+      score: 137
+      mortality_risk: 14
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - formula:implementation
+      - output:score
+      - output:mortality_risk
+    claimIds:
+      - claim:grace:formula-implementation
+      - claim:grace:output-score
+      - claim:grace:output-mortality_risk
+    sourceIds:
+      - grace_fox_2006
+      - grace_nomogram_archive
+  - kind: reference
+    id: case:grace:reference-high
+    tags:
+      - calculator:grace:reference
+    inputs:
+      age: 75
+      heart_rate: 110
+      systolic_bp: 90
+      creatinine: 2.5
+      killip_class: iv
+      cardiac_arrest: true
+      st_segment_deviation: true
+      elevated_cardiac_enzymes: true
+    expected:
+      score: 242
+      mortality_risk: 99
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - formula:implementation
+      - output:score
+      - output:mortality_risk
+    claimIds:
+      - claim:grace:formula-implementation
+      - claim:grace:output-score
+      - claim:grace:output-mortality_risk
+    sourceIds:
+      - grace_fox_2006
+      - grace_nomogram_archive
+  - kind: agent
+    id: case:grace:agent-exclusion-missing-context
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      heart_rate: 60
+      systolic_bp: 140
+      creatinine: 1
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: age
+      messageIncludes: Age is required.
+    tolerance: *a1
+    witnesses:
+      - applicability:exclusions
+      - input:age
+    claimIds:
+      - claim:grace:applicability-exclusions
+      - claim:grace:input-age
+    sourceIds:
+      - grace_nice_ng185
+      - grace_fox_2006
+  - kind: agent
+    id: case:grace:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      age: 30
+      heart_rate: 60
+      systolic_bp: 140
+      creatinine: 1
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      mortality_risk: 0.4
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - applicability:purpose
+    claimIds:
+      - claim:grace:applicability-purpose
+    sourceIds:
+      - grace_nice_ng185
+  - kind: edge
+    id: case:grace:hard-age
+    tags:
+      - hard-limits
+    inputs:
+      age: 121
+      heart_rate: 60
+      systolic_bp: 140
+      creatinine: 1
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: age
+      messageIncludes: Age 121 is outside physiological limits [18, 120].
+    tolerance: *a1
+    witnesses:
+      - input:age:hard_limits
+    claimIds:
+      - claim:grace:input-age-hard_limits
+    sourceIds:
+      - grace_fox_2006
+  - kind: edge
+    id: case:grace:plausibility-age
+    tags:
+      - plausibility
+    inputs:
+      age: 110
+      heart_rate: 60
+      systolic_bp: 140
+      creatinine: 1
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      mortality_risk: 11
+    expectedBehavior: warn
+    expectedWarnings:
+      - Age 110 is unusual (expected 18–100).
+    tolerance: *a1
+    witnesses:
+      - input:age:plausibility
+    claimIds:
+      - claim:grace:input-age-plausibility
+    sourceIds:
+      - grace_fox_2006
+  - kind: edge
+    id: case:grace:hard-heart_rate
+    tags:
+      - hard-limits
+    inputs:
+      age: 30
+      heart_rate: 303
+      systolic_bp: 140
+      creatinine: 1
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: heart_rate
+      messageIncludes: Heart Rate 303 is outside physiological limits [20, 300].
+    tolerance: *a1
+    witnesses:
+      - input:heart_rate:hard_limits
+    claimIds:
+      - claim:grace:input-heart_rate-hard_limits
+    sourceIds:
+      - grace_nice_ng185
+  - kind: edge
+    id: case:grace:plausibility-heart_rate
+    tags:
+      - plausibility
+    inputs:
+      age: 30
+      heart_rate: 250
+      systolic_bp: 140
+      creatinine: 1
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      mortality_risk: 1.4
+    expectedBehavior: warn
+    expectedWarnings:
+      - Heart Rate 250 is unusual (expected 30–200).
+    tolerance: *a1
+    witnesses:
+      - input:heart_rate:plausibility
+    claimIds:
+      - claim:grace:input-heart_rate-plausibility
+    sourceIds:
+      - grace_nice_ng185
+  - kind: edge
+    id: case:grace:hard-systolic_bp
+    tags:
+      - hard-limits
+    inputs:
+      age: 30
+      heart_rate: 60
+      systolic_bp: 303
+      creatinine: 1
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: systolic_bp
+      messageIncludes: Systolic Blood Pressure 303 is outside physiological limits [40, 300].
+    tolerance: *a1
+    witnesses:
+      - input:systolic_bp:hard_limits
+    claimIds:
+      - claim:grace:input-systolic_bp-hard_limits
+    sourceIds:
+      - grace_nice_ng185
+  - kind: edge
+    id: case:grace:plausibility-systolic_bp
+    tags:
+      - plausibility
+    inputs:
+      age: 30
+      heart_rate: 60
+      systolic_bp: 275
+      creatinine: 1
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      mortality_risk: 0.4
+    expectedBehavior: warn
+    expectedWarnings:
+      - Systolic Blood Pressure 275 is unusual (expected 60–250).
+    tolerance: *a1
+    witnesses:
+      - input:systolic_bp:plausibility
+    claimIds:
+      - claim:grace:input-systolic_bp-plausibility
+    sourceIds:
+      - grace_nice_ng185
+  - kind: edge
+    id: case:grace:hard-creatinine
+    tags:
+      - hard-limits
+    inputs:
+      age: 30
+      heart_rate: 60
+      systolic_bp: 140
+      creatinine: 26
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: creatinine
+      messageIncludes: Serum Creatinine 26 mg/dL is outside physiological limits [0.1, 25] mg/dL.
+    tolerance: *a1
+    witnesses:
+      - input:creatinine:hard_limits
+    claimIds:
+      - claim:grace:input-creatinine-hard_limits
+    sourceIds:
+      - grace_nice_ng185
+  - kind: edge
+    id: case:grace:plausibility-creatinine
+    tags:
+      - plausibility
+    inputs:
+      age: 30
+      heart_rate: 60
+      systolic_bp: 140
+      creatinine: 20
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      mortality_risk: 0.8
+    expectedBehavior: warn
+    expectedWarnings:
+      - Serum Creatinine 20 mg/dL is unusual (expected 0.2–15 mg/dL); if the source uses another unit, pass it
+        explicitly as { value, unit }.
+    tolerance: *a1
+    witnesses:
+      - input:creatinine:plausibility
+    claimIds:
+      - claim:grace:input-creatinine-plausibility
+    sourceIds:
+      - grace_nice_ng185
+  - kind: edge
+    id: case:grace:unit-creatinine-canonical
+    tags:
+      - unit-equivalence
+    inputs:
+      age: 30
+      heart_rate: 60
+      systolic_bp: 140
+      creatinine:
+        value: 1.2
+        unit: mg/dL
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      mortality_risk: 0.6
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - unit:creatinine
+    claimIds:
+      - claim:grace:unit-creatinine
+    sourceIds:
+      - grace_fox_2006
+  - kind: edge
+    id: case:grace:unit-creatinine-alternate
+    tags:
+      - unit-equivalence
+    inputs:
+      age: 30
+      heart_rate: 60
+      systolic_bp: 140
+      creatinine:
+        value: 106.08
+        unit: umol/L
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      mortality_risk: 0.6
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - unit:creatinine
+    claimIds:
+      - claim:grace:unit-creatinine
+    sourceIds:
+      - grace_fox_2006
+  - kind: edge
+    id: case:grace:band-mortality_risk_band_1
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age: 20
+      heart_rate: 150
+      systolic_bp: 60
+      creatinine: 4
+      killip_class: iv
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      mortality_risk: 13
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mortality_risk
+        code: mortality_risk_band_1
+        kind: risk
+        label: Highest risk
+        severity: critical
+    tolerance: *a1
+    witnesses:
+      - band:mortality_risk:0
+    claimIds:
+      - claim:grace:band-mortality_risk-0
+    sourceIds:
+      - grace_nice_ng185
+  - kind: edge
+    id: case:grace:band-mortality_risk_band_2
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age: 20
+      heart_rate: 50
+      systolic_bp: 60
+      creatinine: 4
+      killip_class: iv
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      mortality_risk: 7
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mortality_risk
+        code: mortality_risk_band_2
+        kind: risk
+        label: High risk
+        severity: abnormal
+    tolerance: *a1
+    witnesses:
+      - band:mortality_risk:1
+    claimIds:
+      - claim:grace:band-mortality_risk-1
+    sourceIds:
+      - grace_nice_ng185
+  - kind: edge
+    id: case:grace:band-mortality_risk_band_3
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age: 20
+      heart_rate: 50
+      systolic_bp: 60
+      creatinine: 1
+      killip_class: iv
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      mortality_risk: 4
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mortality_risk
+        code: mortality_risk_band_3
+        kind: risk
+        label: Intermediate risk
+        severity: borderline
+    tolerance: *a1
+    witnesses:
+      - band:mortality_risk:2
+    claimIds:
+      - claim:grace:band-mortality_risk-2
+    sourceIds:
+      - grace_nice_ng185
+  - kind: edge
+    id: case:grace:band-mortality_risk_band_4
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age: 20
+      heart_rate: 50
+      systolic_bp: 60
+      creatinine: 0.2
+      killip_class: iii
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      mortality_risk: 1.8
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mortality_risk
+        code: mortality_risk_band_4
+        kind: risk
+        label: Low risk
+        severity: borderline
+    tolerance: *a1
+    witnesses:
+      - band:mortality_risk:3
+    claimIds:
+      - claim:grace:band-mortality_risk-3
+    sourceIds:
+      - grace_nice_ng185
+  - kind: edge
+    id: case:grace:band-mortality_risk_band_5
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age: 20
+      heart_rate: 50
+      systolic_bp: 60
+      creatinine: 0.2
+      killip_class: i
+      cardiac_arrest: false
+      st_segment_deviation: false
+      elevated_cardiac_enzymes: false
+    expected:
+      mortality_risk: 0.8
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: mortality_risk
+        code: mortality_risk_band_5
+        kind: risk
+        label: Lowest risk
+        severity: normal
+    tolerance: *a1
+    witnesses:
+      - band:mortality_risk:4
+    claimIds:
+      - claim:grace:band-mortality_risk-4
+    sourceIds:
+      - grace_nice_ng185
+explicitBlockers: []

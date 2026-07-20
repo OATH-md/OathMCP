@@ -1,0 +1,316 @@
+id: gad7
+version: 1.0.0
+name: GAD-7 (Generalized Anxiety Disorder-7)
+clinicalModel:
+  modelKind: score
+  modelId: gad7
+  modelVersion: spitzer_2006_original_english_adult_primary_care
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+    - source_4
+applicability:
+  population: Adults completing the original seven self-reported symptom-frequency items for the preceding two weeks.
+  setting: Primary-care anxiety screening and symptom-severity follow-up; not a diagnostic interview or crisis assessment.
+  exclusions:
+    - A screening and symptom-severity instrument, not a diagnosis. A positive screen requires diagnostic assessment. It
+      does not assess suicidality or replace urgent crisis and safety evaluation.
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+    - source_4
+purposeForAgents: Adults completing the original seven self-reported symptom-frequency items for the preceding two
+  weeks. Return an integer symptom score from 0-21 with minimal, mild, moderate, and severe ranges; score 10 is a screening cut
+  point, not a diagnosis.
+whenNotToUse: A screening and symptom-severity instrument, not a diagnosis. A positive screen requires diagnostic
+  assessment. It does not assess suicidality or replace urgent crisis and safety evaluation.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: "A brief measure for assessing generalized anxiety disorder: the GAD-7."
+    locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+      5/10/15, and criterion interview at score 10."
+    url: https://pubmed.ncbi.nlm.nih.gov/16717171/
+    reviewed: true
+  - id: source_2
+    type: validation
+    citation: Validation and standardization of the Generalized Anxiety Disorder Screener (GAD-7) in the general population.
+    locator: "Methods and Results: nationally representative adult sample, construct validity, reliability, and population
+      norms."
+    url: https://pubmed.ncbi.nlm.nih.gov/18388841/
+    reviewed: true
+  - id: source_3
+    type: guideline
+    citation: Generalized Anxiety Disorder 7 (GAD 7).
+    locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    url: https://www.nih.gov/node/19876
+    reviewed: true
+  - id: source_4
+    type: guideline
+    citation: "Screening for Anxiety Disorders in Adults: US Preventive Services Task Force Recommendation Statement."
+    locator: "Practice considerations: screening applies to adults without recognized symptoms and positive results require
+      diagnostic assessment and follow-up."
+    url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/anxiety-adults-screening
+    reviewed: true
+inputs:
+  feeling_nervous:
+    title: Feeling nervous, anxious, or on edge
+    description: How often have you been bothered by feeling nervous, anxious, or on edge over the last 2 weeks?
+    kind: enum
+    enumValues:
+      - value: not_at_all
+        points: 0
+        label: not at all
+        description: "Feeling nervous, anxious, or on edge: not at all."
+      - value: several_days
+        points: 1
+        label: several days
+        description: "Feeling nervous, anxious, or on edge: several days."
+      - value: more_than_half_the_days
+        points: 2
+        label: more than half the days
+        description: "Feeling nervous, anxious, or on edge: more than half the days."
+      - value: nearly_every_day
+        points: 3
+        label: nearly every day
+        description: "Feeling nervous, anxious, or on edge: nearly every day."
+    required: true
+    conceptId: gad7.input.feeling_nervous
+    examples:
+      - not_at_all
+    sourceRefs:
+      - source_1
+    sharedKey: feeling_nervous
+  cannot_control_worrying:
+    title: Not being able to stop or control worrying
+    description: How often have you been bothered by not being able to stop or control worrying over the last 2 weeks?
+    kind: enum
+    enumValues:
+      - value: not_at_all
+        points: 0
+        label: not at all
+        description: "Not being able to stop or control worrying: not at all."
+      - value: several_days
+        points: 1
+        label: several days
+        description: "Not being able to stop or control worrying: several days."
+      - value: more_than_half_the_days
+        points: 2
+        label: more than half the days
+        description: "Not being able to stop or control worrying: more than half the days."
+      - value: nearly_every_day
+        points: 3
+        label: nearly every day
+        description: "Not being able to stop or control worrying: nearly every day."
+    required: true
+    conceptId: gad7.input.cannot_control_worrying
+    examples:
+      - not_at_all
+    sourceRefs:
+      - source_1
+    sharedKey: cannot_control_worrying
+  worrying_too_much:
+    title: Worrying too much about different things
+    description: How often have you been bothered by worrying too much about different things over the last 2 weeks?
+    kind: enum
+    enumValues:
+      - value: not_at_all
+        points: 0
+        label: not at all
+        description: "Worrying too much about different things: not at all."
+      - value: several_days
+        points: 1
+        label: several days
+        description: "Worrying too much about different things: several days."
+      - value: more_than_half_the_days
+        points: 2
+        label: more than half the days
+        description: "Worrying too much about different things: more than half the days."
+      - value: nearly_every_day
+        points: 3
+        label: nearly every day
+        description: "Worrying too much about different things: nearly every day."
+    required: true
+    conceptId: gad7.input.worrying_too_much
+    examples:
+      - not_at_all
+    sourceRefs:
+      - source_1
+    sharedKey: worrying_too_much
+  trouble_relaxing:
+    title: Trouble relaxing
+    description: How often have you been bothered by trouble relaxing over the last 2 weeks?
+    kind: enum
+    enumValues:
+      - value: not_at_all
+        points: 0
+        label: not at all
+        description: "Trouble relaxing: not at all."
+      - value: several_days
+        points: 1
+        label: several days
+        description: "Trouble relaxing: several days."
+      - value: more_than_half_the_days
+        points: 2
+        label: more than half the days
+        description: "Trouble relaxing: more than half the days."
+      - value: nearly_every_day
+        points: 3
+        label: nearly every day
+        description: "Trouble relaxing: nearly every day."
+    required: true
+    conceptId: gad7.input.trouble_relaxing
+    examples:
+      - not_at_all
+    sourceRefs:
+      - source_1
+    sharedKey: trouble_relaxing
+  restlessness:
+    title: Being so restless that it's hard to sit still
+    description: How often have you been bothered by being so restless that it's hard to sit still over the last 2 weeks?
+    kind: enum
+    enumValues:
+      - value: not_at_all
+        points: 0
+        label: not at all
+        description: "Being so restless that it's hard to sit still: not at all."
+      - value: several_days
+        points: 1
+        label: several days
+        description: "Being so restless that it's hard to sit still: several days."
+      - value: more_than_half_the_days
+        points: 2
+        label: more than half the days
+        description: "Being so restless that it's hard to sit still: more than half the days."
+      - value: nearly_every_day
+        points: 3
+        label: nearly every day
+        description: "Being so restless that it's hard to sit still: nearly every day."
+    required: true
+    conceptId: gad7.input.restlessness
+    examples:
+      - not_at_all
+    sourceRefs:
+      - source_1
+    sharedKey: restlessness
+  easily_annoyed:
+    title: Becoming easily annoyed or irritable
+    description: How often have you been bothered by becoming easily annoyed or irritable over the last 2 weeks?
+    kind: enum
+    enumValues:
+      - value: not_at_all
+        points: 0
+        label: not at all
+        description: "Becoming easily annoyed or irritable: not at all."
+      - value: several_days
+        points: 1
+        label: several days
+        description: "Becoming easily annoyed or irritable: several days."
+      - value: more_than_half_the_days
+        points: 2
+        label: more than half the days
+        description: "Becoming easily annoyed or irritable: more than half the days."
+      - value: nearly_every_day
+        points: 3
+        label: nearly every day
+        description: "Becoming easily annoyed or irritable: nearly every day."
+    required: true
+    conceptId: gad7.input.easily_annoyed
+    examples:
+      - not_at_all
+    sourceRefs:
+      - source_1
+    sharedKey: easily_annoyed
+  feeling_afraid:
+    title: Feeling afraid as if something awful might happen
+    description: How often have you been bothered by feeling afraid as if something awful might happen over the last 2 weeks?
+    kind: enum
+    enumValues:
+      - value: not_at_all
+        points: 0
+        label: not at all
+        description: "Feeling afraid as if something awful might happen: not at all."
+      - value: several_days
+        points: 1
+        label: several days
+        description: "Feeling afraid as if something awful might happen: several days."
+      - value: more_than_half_the_days
+        points: 2
+        label: more than half the days
+        description: "Feeling afraid as if something awful might happen: more than half the days."
+      - value: nearly_every_day
+        points: 3
+        label: nearly every day
+        description: "Feeling afraid as if something awful might happen: nearly every day."
+    required: true
+    conceptId: gad7.input.feeling_afraid
+    examples:
+      - not_at_all
+    sourceRefs:
+      - source_1
+    sharedKey: feeling_afraid
+outputs:
+  gad7_score:
+    title: GAD-7 Score
+    description: Total GAD-7 score (0-21).
+    kind: integer
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - gad7_score
+interpretationBands:
+  - code: gad7_band_1
+    kind: screening
+    when: ">=15"
+    label: Severe symptom range on this screening and severity-tracking instrument; clinical evaluation is required.
+    severity: critical
+    evidenceRefs:
+      - source_1
+  - code: gad7_band_2
+    kind: screening
+    when: ">=10"
+    label: Moderate symptom range; score >=10 is a reasonable screening cut point, not a standalone diagnosis.
+    severity: abnormal
+    evidenceRefs:
+      - source_1
+  - code: gad7_band_3
+    kind: screening
+    when: ">=5"
+    label: Mild symptom range on the GAD-7 screening instrument.
+    severity: borderline
+    evidenceRefs:
+      - source_1
+  - code: gad7_band_4
+    kind: screening
+    when: <5
+    label: Minimal symptom range on the GAD-7 screening instrument.
+    severity: normal
+    evidenceRefs:
+      - source_1
+scoring:
+  output: gad7_score
+  components:
+    - kind: enum
+      field: feeling_nervous
+    - kind: enum
+      field: cannot_control_worrying
+    - kind: enum
+      field: worrying_too_much
+    - kind: enum
+      field: trouble_relaxing
+    - kind: enum
+      field: restlessness
+    - kind: enum
+      field: easily_annoyed
+    - kind: enum
+      field: feeling_afraid
+  range:
+    - 0
+    - 21
+  evidenceRefs:
+    - source_1

@@ -1,0 +1,296 @@
+id: apgar
+version: 1.1.0
+name: APGAR Score
+clinicalModel:
+  modelKind: score
+  modelId: apgar
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+applicability:
+  population: Rapidly assess a newborn's condition at 1 and 5 minutes after birth
+    from five observations (Appearance, Pulse, Grimace, Activity, Respiratory).
+    Each is scored 0-2; the total (0-10) records the newborn's condition at the
+    stated assessment minute and response over serial assessments.
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - Not a predictor of long-term neurological outcome and not a substitute for
+      cord-blood gas analysis. Do not use the score to decide whether to start
+      resuscitation; record concurrent interventions because they alter the score.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Rapidly assess a newborn's condition at 1 and 5 minutes after
+  birth from five observations (Appearance, Pulse, Grimace, Activity,
+  Respiratory). Each is scored 0-2; the total (0-10) records condition at an
+  explicit assessment minute and supports serial documentation.
+whenNotToUse: Not a predictor of long-term neurological outcome and not a
+  substitute for cord-blood gas analysis. Never delay or decide initial
+  resuscitation from the score; record concurrent interventions.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Apgar V. A proposal for a new method of evaluation of the newborn
+      infant. Curr Res Anesth Analg. 1953;32(4):260-267.
+    locator: doi:10.1213/00000539-195307000-00001
+    doi: 10.1213/00000539-195307000-00001
+    url: https://doi.org/10.1213/00000539-195307000-00001
+    reviewed: true
+  - id: source_2
+    type: guideline
+    citation: American Academy of Pediatrics and American College of Obstetricians
+      and Gynecologists. The Apgar Score. Pediatrics. 2015;136(4):819-822.
+    locator: doi:10.1542/peds.2015-2651
+    doi: 10.1542/peds.2015-2651
+    url: https://publications.aap.org/pediatrics/article/136/4/819/73821/The-Apgar-Score
+    reviewed: true
+inputs:
+  assessment_minute:
+    title: Assessment Minute After Birth
+    description: Standard expanded-form time point. Record at 1 and 5 minutes;
+      if the 5-minute score is below 7, record every 5 minutes through 20 minutes
+      while assessments continue.
+    kind: enum
+    enumValues:
+      - value: minute_1
+        label: 1 minute
+        description: One completed minute after birth.
+      - value: minute_5
+        label: 5 minutes
+        description: Five completed minutes after birth.
+      - value: minute_10
+        label: 10 minutes
+        description: Ten completed minutes after birth when repeat assessment is indicated.
+      - value: minute_15
+        label: 15 minutes
+        description: Fifteen completed minutes after birth when repeat assessment is indicated.
+      - value: minute_20
+        label: 20 minutes
+        description: Twenty completed minutes after birth when repeat assessment is indicated.
+    required: true
+    conceptId: apgar.input.assessment_minute
+    examples: [minute_1, minute_5, minute_10, minute_15, minute_20]
+    sourceRefs:
+      - source_2
+  oxygen:
+    title: Concurrent Oxygen
+    description: Whether oxygen was being administered at this assessment time.
+    kind: boolean
+    required: true
+    conceptId: apgar.input.oxygen
+    examples: [false]
+    sourceRefs:
+      - source_2
+  ppv_or_ncpap:
+    title: Concurrent PPV or NCPAP
+    description: Whether positive-pressure ventilation or nasal continuous positive airway pressure was being delivered.
+    kind: boolean
+    required: true
+    conceptId: apgar.input.ppv_or_ncpap
+    examples: [false]
+    sourceRefs:
+      - source_2
+  endotracheal_tube:
+    title: Endotracheal Tube In Place
+    description: Whether an endotracheal tube was in place at this assessment time.
+    kind: boolean
+    required: true
+    conceptId: apgar.input.endotracheal_tube
+    examples: [false]
+    sourceRefs:
+      - source_2
+  chest_compressions:
+    title: Concurrent Chest Compressions
+    description: Whether chest compressions were being delivered at this assessment time.
+    kind: boolean
+    required: true
+    conceptId: apgar.input.chest_compressions
+    examples: [false]
+    sourceRefs:
+      - source_2
+  epinephrine:
+    title: Concurrent Epinephrine
+    description: Whether epinephrine was being administered at this assessment time.
+    kind: boolean
+    required: true
+    conceptId: apgar.input.epinephrine
+    examples: [false]
+    sourceRefs:
+      - source_2
+  appearance:
+    title: Appearance (Skin Color)
+    description: Skin color and circulation.
+    kind: enum
+    enumValues:
+      - value: blue_or_pale
+        points: 0
+        label: blue or pale
+        description: "Appearance (Skin Color): blue or pale."
+      - value: body_pink_extremities_blue
+        points: 1
+        label: body pink extremities blue
+        description: "Appearance (Skin Color): body pink extremities blue."
+      - value: pink_all_over
+        points: 2
+        label: pink all over
+        description: "Appearance (Skin Color): pink all over."
+    required: true
+    conceptId: apgar.input.appearance
+    examples:
+      - pink_all_over
+    sourceRefs:
+      - source_1
+  pulse:
+    title: Pulse (Heart Rate)
+    description: Heart rate.
+    kind: enum
+    enumValues:
+      - value: absent
+        points: 0
+        label: absent
+        description: "Pulse (Heart Rate): absent."
+      - value: less_than_100
+        points: 1
+        label: less than 100
+        description: "Pulse (Heart Rate): less than 100."
+      - value: at_least_100
+        aliases: [greater_than_100]
+        points: 2
+        label: at least 100
+        description: "Pulse (Heart Rate): 100 beats/min or greater."
+    required: true
+    conceptId: apgar.input.pulse
+    examples:
+      - at_least_100
+    sourceRefs:
+      - source_1
+      - source_2
+    sharedKey: pulse
+  grimace:
+    title: Grimace Response (Reflex Irritability)
+    description: Reflex irritability in response to stimulation.
+    kind: enum
+    enumValues:
+      - value: no_response
+        points: 0
+        label: no response
+        description: "Grimace Response (Reflex Irritability): no response."
+      - value: grimace
+        points: 1
+        label: grimace
+        description: "Grimace Response (Reflex Irritability): grimace."
+      - value: cough_sneeze_cry
+        points: 2
+        label: cough sneeze cry
+        description: "Grimace Response (Reflex Irritability): cough sneeze cry."
+    required: true
+    conceptId: apgar.input.grimace
+    examples:
+      - cough_sneeze_cry
+    sourceRefs:
+      - source_1
+    sharedKey: grimace
+  activity:
+    title: Activity (Muscle Tone)
+    description: Muscle tone and activity.
+    kind: enum
+    enumValues:
+      - value: limp
+        points: 0
+        label: limp
+        description: "Activity (Muscle Tone): limp."
+      - value: some_flexion
+        points: 1
+        label: some flexion
+        description: "Activity (Muscle Tone): some flexion."
+      - value: active_motion
+        points: 2
+        label: active motion
+        description: "Activity (Muscle Tone): active motion."
+    required: true
+    conceptId: apgar.input.activity
+    examples:
+      - active_motion
+    sourceRefs:
+      - source_1
+    sharedKey: activity
+  respiratory:
+    title: Respiratory Effort
+    description: Breathing effort and cry.
+    kind: enum
+    enumValues:
+      - value: absent
+        points: 0
+        label: absent
+        description: "Respiratory Effort: absent."
+      - value: weak_or_irregular
+        points: 1
+        label: weak or irregular
+        description: "Respiratory Effort: weak or irregular."
+      - value: strong_cry
+        points: 2
+        label: strong cry
+        description: "Respiratory Effort: strong cry."
+    required: true
+    conceptId: apgar.input.respiratory
+    examples:
+      - strong_cry
+    sourceRefs:
+      - source_1
+outputs:
+  apgar_score:
+    title: APGAR Score
+    description: Total APGAR score (0-10).
+    kind: integer
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - apgar_score
+interpretationBands:
+  - code: apgar_band_1
+    kind: status
+    when: ">=7"
+    label: Score 7-10 at the recorded minute; interpret with gestational age,
+      medications, interventions, and serial change.
+    severity: normal
+    evidenceRefs:
+      - source_1
+  - code: apgar_band_2
+    kind: status
+    when: ">=4"
+    label: Score 4-6 at the recorded minute; this documents condition but does
+      not determine whether resuscitation should begin.
+    severity: abnormal
+    evidenceRefs:
+      - source_1
+  - code: apgar_band_3
+    kind: status
+    when: <4
+    label: Score 0-3 at the recorded minute; this documents severe physiologic
+      depression but does not itself determine resuscitation actions or prognosis.
+    severity: critical
+    evidenceRefs:
+      - source_1
+scoring:
+  output: apgar_score
+  components:
+    - kind: enum
+      field: appearance
+    - kind: enum
+      field: pulse
+    - kind: enum
+      field: grimace
+    - kind: enum
+      field: activity
+    - kind: enum
+      field: respiratory
+  range:
+    - 0
+    - 10
+  evidenceRefs:
+    - source_1
+    - source_2

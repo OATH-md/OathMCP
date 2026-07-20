@@ -1,0 +1,150 @@
+---
+title: "CHA₂DS₂-VASc Score"
+description: "Estimate annual stroke and thromboembolism risk in a patient with non-valvular atrial fibrillation from eight weighted risk factors (congestive heart failure, hypertension, age, diabetes, prior stroke/TIA/thromboembolism, vascular disease, and sex). Use the score with current annual-risk guidance and patient-specific modifiers, not alone."
+sidebar:
+  label: "CHA₂DS₂-VASc Score"
+search:
+  tags: ["chadsvasc", "score", "atrial fibrillation stroke risk", "afib stroke risk", "anticoagulation risk score", "AF", "CHA2DS2-VASc"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>score</Badge> <Badge>Spec 1.1.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Estimate annual stroke and thromboembolism risk in a patient with non-valvular atrial fibrillation from eight weighted risk factors (congestive heart failure, hypertension, age, diabetes, prior stroke/TIA/thromboembolism, vascular disease, and sex). The score supports risk estimation but does not by itself determine anticoagulation. |
+| Setting | Clinical decision support; apply only in the context declared by this calculator. |
+| Model | `atrial_fibrillation_stroke_risk.cha2ds2_vasc` · cha2ds2_vasc |
+| Model kind | score |
+| Variant | cha2ds2_vasc |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Do not apply these treatment thresholds in patients with a mechanical heart valve or moderate-to-severe rheumatic mitral stenosis. This score does not estimate bleeding risk; assess that separately.
+
+- Do not apply these treatment thresholds in patients with a mechanical heart valve or moderate-to-severe rheumatic mitral stenosis. This score does not estimate bleeding risk; assess that separately.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `age_group` | enum (3 options) | Yes | — | — | — | Patient's age group. Age 65-74 scores +1, age &gt;= 75 scores +2. |
+| `sex` | enum (2 options) | Yes | — | — | — | Biological sex. Female sex scores +1 as a risk modifier. |
+| `chf` | boolean | Yes | — | — | — | Congestive heart failure. Scores +1. |
+| `hypertension` | boolean | Yes | — | — | — | Hypertension. Scores +1. |
+| `stroke_history` | boolean | Yes | — | — | — | Prior stroke, TIA, or thromboembolism. Scores +2. |
+| `vascular_disease` | boolean | Yes | — | — | — | Vascular disease (MI, PAD, or aortic plaque). Scores +1. |
+| `diabetes` | boolean | Yes | — | — | — | Diabetes mellitus. Scores +1. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+<Expandable title="Age Group options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `under_65` | under 65 | Age Group: under 65. | 0 |
+| `age_65_74` | age 65 74 | Age Group: age 65 74. | 1 |
+| `age_75_plus` | age 75 plus | Age Group: age 75 plus. | 2 |
+
+</Expandable>
+
+
+<Expandable title="Sex options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `male` | male | Sex: male. | 0 |
+| `female` | female | Sex: female. | 1 |
+
+</Expandable>
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `score` | integer | Always | Yes | Total CHA₂DS₂-VASc score (0-9). |
+| `stroke_risk` | enum | Always | No | Observed one-year stroke rate in the enrolled Swedish cohort table; not a universal individual probability. |
+| `embolism_risk` | enum | Always | No | Observed one-year thromboembolism rate in the enrolled Swedish cohort table; not a universal individual probability. |
+| `stroke_risk_percent` | number · percent | Always | No | Numeric one-year stroke rate from the enrolled lookup cohort. |
+| `thromboembolism_risk_percent` | number · percent | Always | No | Numeric one-year stroke or systemic thromboembolism rate from the enrolled lookup cohort. |
+| `risk_time_horizon` | enum | Always | No | Time horizon for both numeric lookup estimates. |
+
+## Interpretation bands
+
+| Output | Code | Condition | Label | Kind | Severity |
+| --- | --- | --- | --- | --- | --- |
+| Primary | `chadsvasc_band_1` | `&gt;=2` | Elevated score category; use the estimated annual risk and patient-specific modifiers for anticoagulation decisions. | risk | abnormal |
+| Primary | `chadsvasc_band_2` | `&gt;=1` | Intermediate score category; the score alone does not determine anticoagulation. | risk | borderline |
+| Primary | `chadsvasc_band_3` | `&lt;1` | Lower score category; reassess annual risk and modifiers rather than using the score alone. | risk | normal |
+| Primary | `chadsvasc_band_4` | `&gt;=3` | Elevated score category; use the estimated annual risk and patient-specific modifiers for anticoagulation decisions. | risk | abnormal |
+| Primary | `chadsvasc_band_5` | `&gt;=2` | Intermediate score category; the score alone does not determine anticoagulation. | risk | borderline |
+| Primary | `chadsvasc_band_6` | `&lt;2` | Lower score category; female sex alone is a risk modifier and the score alone does not determine anticoagulation. | risk | normal |
+
+## Warnings, constraints, and adjustments
+
+No calculator-specific warning rules or cross-field constraints are declared beyond input validation and applicability.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "chadsvasc",
+  "inputs": {
+    "age_group": "under_65",
+    "sex": "male",
+    "chf": false,
+    "hypertension": false,
+    "stroke_history": false,
+    "vascular_disease": false,
+    "diabetes": false
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `chadsvasc`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 26/26 | 25/25 | 23/23 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://chadsvasc/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Lip GY, Nieuwlaat R, Pisters R, et al. Refining clinical risk stratification for predicting stroke and thromboembolism in atrial fibrillation using a novel risk factor-based approach: the euro heart survey on atrial fibrillation. Chest. 2010;137(2):263-272.](https://doi.org/10.1378/chest.09-1584)<br />doi:10.1378/chest.09-1584 |
+| `source_2` | reference | [Friberg L, Rosenqvist M, Lip GYH. Evaluation of risk stratification schemes for ischaemic stroke and bleeding in 182,678 patients with atrial fibrillation. Eur Heart J. 2012;33(12):1500-1510.](https://doi.org/10.1093/eurheartj/ehr488)<br />doi:10.1093/eurheartj/ehr488 |
+| `source_3` | reference | [Joglar JA, Chung MK, Armbruster AL, et al. 2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation. Circulation. 2024.](https://doi.org/10.1161/CIR.0000000000001193)<br />doi:10.1161/CIR.0000000000001193 |
+
+<Panel title="Repository source">
+  Calculator ID `chadsvasc`; spec version `1.1.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

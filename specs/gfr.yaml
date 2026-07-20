@@ -1,0 +1,174 @@
+id: gfr
+version: 1.0.0
+name: Glomerular Filtration Rate (GFR)
+family: estimated_gfr
+variant: ckd_epi_2021_creatinine
+synonyms:
+  - kidney function
+  - renal function
+  - chronic kidney disease
+abbreviations:
+  - eGFR
+  - CKD-EPI
+  - CKD
+clinicalModel:
+  modelKind: formula
+  modelId: estimated_gfr.ckd_epi_2021_creatinine
+  modelVersion: ckd_epi_2021_creatinine
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+applicability:
+  population: Adults aged 18 years or older with stable kidney function and
+    standardized serum creatinine, using the 2021 race-free CKD-EPI creatinine
+    equation.
+  setting: Adult kidney-function assessment. Interpret the estimate with urine
+    albumin and clinical context; confirm near critical decisions with cystatin
+    C, measured GFR, or the method required by the relevant drug label.
+  exclusions:
+    - Do not use this adult creatinine-only estimate in patients under 18, in
+      acute kidney injury or other non-steady-state creatinine conditions, or as
+      a precise GFR measurement. It is less reliable when non-GFR determinants
+      of creatinine are important.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Calculate adult 2021 CKD-EPI creatinine eGFR and its KDIGO GFR
+  category. Do not diagnose CKD from a single category or silently substitute
+  indexed eGFR for a drug label's required kidney-function method.
+whenNotToUse: Do not use in patients under 18, during acute kidney injury, as an
+  exact GFR measurement, or when creatinine is changing rapidly or strongly
+  affected by non-GFR factors.
+  Confirm values near critical decisions with cystatin C or measured GFR.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Inker LA, Eneanya ND, Coresh J, et al. New Creatinine- and Cystatin
+      C-Based Equations to Estimate GFR without Race. N Engl J Med.
+      2021;385:1737-1749.
+    locator: doi:10.1056/NEJMoa2102953
+    doi: 10.1056/NEJMoa2102953
+    url: https://doi.org/10.1056/NEJMoa2102953
+    reviewed: true
+  - id: source_2
+    type: reference
+    citation: "Kidney Disease: Improving Global Outcomes. KDIGO 2024 Clinical
+      Practice Guideline for the Evaluation and Management of Chronic Kidney
+      Disease. Kidney Int. 2024;105(4S):S117-S314."
+    locator: doi:10.1016/j.kint.2023.10.018
+    doi: 10.1016/j.kint.2023.10.018
+    url: https://doi.org/10.1016/j.kint.2023.10.018
+    reviewed: true
+inputs:
+  creatinine:
+    title: Serum Creatinine
+    description: Standardized serum creatinine. Pass a bare number in mg/dL, or
+      an object {value, unit} to supply SI units (umol/L).
+    kind: quantity
+    quantity:
+      analyte: creatinine
+      canonicalUnit: mg/dL
+      acceptedUnits:
+        - mg/dL
+        - umol/L
+    plausible:
+      - 0.2
+      - 20
+    hardLimits:
+      - 0.01
+      - 60
+    required: true
+    conceptId: gfr.input.creatinine
+    examples:
+      - 1.2
+    sourceRefs:
+      - source_1
+  age:
+    title: Age
+    description: Age in years.
+    kind: integer
+    plausible:
+      - 18
+      - 120
+    hardLimits:
+      - 18
+      - 120
+    required: true
+    conceptId: gfr.input.age
+    examples:
+      - 55
+    sourceRefs:
+      - source_1
+  sex:
+    title: Sex
+    description: Biological sex used by the CKD-EPI equation (male or female).
+    kind: enum
+    enumValues:
+      - value: male
+        label: male
+        description: "Sex: male."
+      - value: female
+        label: female
+        description: "Sex: female."
+    required: true
+    conceptId: gfr.input.sex
+    examples:
+      - male
+    sourceRefs:
+      - source_1
+outputs:
+  gfr:
+    title: Estimated GFR
+    description: Estimated, indexed GFR in mL/min/1.73m², rounded to 2 decimal
+      places; this is not an absolute mL/min drug-dosing value.
+    kind: number
+    unit: mL/min/1.73m²
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - gfr
+interpretationBands:
+  - code: gfr_band_1
+    kind: stage
+    when: ">=90"
+    label: G1 — Normal or high; this category alone does not establish CKD
+    severity: normal
+    evidenceRefs:
+      - source_2
+  - code: gfr_band_2
+    kind: stage
+    when: ">=60"
+    label: G2 — Mildly decreased; this category alone does not establish CKD
+    severity: borderline
+    evidenceRefs:
+      - source_2
+  - code: gfr_band_3
+    kind: stage
+    when: ">=45"
+    label: G3a — Mildly to moderately decreased
+    severity: abnormal
+    evidenceRefs:
+      - source_2
+  - code: gfr_band_4
+    kind: stage
+    when: ">=30"
+    label: G3b — Moderately to severely decreased
+    severity: abnormal
+    evidenceRefs:
+      - source_2
+  - code: gfr_band_5
+    kind: stage
+    when: ">=15"
+    label: G4 — Severely decreased
+    severity: critical
+    evidenceRefs:
+      - source_2
+  - code: gfr_band_6
+    kind: stage
+    when: <15
+    label: G5 — Kidney failure
+    severity: critical
+    evidenceRefs:
+      - source_2

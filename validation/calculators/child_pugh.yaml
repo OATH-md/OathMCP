@@ -1,0 +1,1806 @@
+calculatorId: child_pugh
+specVersion: 1.1.0
+clinicalModel: Modified Child-Turcotte-Pugh cirrhosis score using INR thresholds
+variant: modified_ctp_va_inr_1_7_2_3_adult_cirrhosis
+population: Adults with established cirrhosis whose bilirubin, albumin, INR, ascites, and encephalopathy categories are available.
+setting: Cirrhosis severity classification; not individualized survival, operative-risk, transplant-allocation, or
+  treatment advice.
+assessmentTiming: At a clinically coherent assessment time after grading ascites and encephalopathy under the same encounter context.
+endpoint: Integer score 5-15 and descriptive class A (5-6), B (7-9), or C (10-15).
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:child_pugh:2026-07-16
+    calculatorId: child_pugh
+    model: Modified Child-Turcotte-Pugh cirrhosis score using INR thresholds
+    variant: modified_ctp_va_inr_1_7_2_3_adult_cirrhosis
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:child_pugh:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web flat-file export
+        exactQuery: ("Child-Pugh"[Title] OR "Child Pugh"[Title]) AND (cirrhosis[Title/Abstract] AND (systematic
+          review[Title/Abstract] OR prognos*[Title]))
+        translationExposed: true
+        translatedQuery: ("Child-Pugh"[Title] OR "Child Pugh"[Title]) AND (cirrhosis[Title/Abstract] AND (systematic
+          review[Title/Abstract] OR prognos*[Title]))
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 37
+        stableCitationIds:
+          - PMID:26937922
+          - PMID:37157959
+          - PMID:16305721
+          - PMID:39006578
+          - PMID:15777564
+          - PMID:31700241
+          - PMID:39421189
+          - PMID:41890893
+          - PMID:32419396
+          - PMID:35637856
+          - PMID:31215410
+          - PMID:32698637
+          - PMID:28604642
+          - PMID:18609128
+          - PMID:10755262
+          - PMID:29438135
+          - PMID:32148566
+          - PMID:19877551
+          - PMID:41573251
+          - PMID:14642610
+          - PMID:24281026
+          - PMID:9759595
+          - PMID:24855028
+          - PMID:10606325
+          - PMID:28393965
+          - PMID:10638235
+          - PMID:8438845
+          - PMID:37476625
+          - PMID:15253024
+          - PMID:42325018
+          - PMID:2734585
+          - PMID:20524472
+          - PMID:1812046
+          - PMID:7563862
+          - PMID:26802883
+          - PMID:9867102
+          - PMID:15946154
+      - id: search:child_pugh:child_pugh_pugh_1973
+        sourceRole: derivation
+        authorityId: child_pugh_pugh_1973
+        database: Primary or responsible-authority source
+        site: British Journal of Surgery
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for
+          child_pugh
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - child_pugh_pugh_1973
+      - id: search:child_pugh:child_pugh_va_2026
+        sourceRole: controlling_authority
+        authorityId: child_pugh_va_2026
+        database: Primary or responsible-authority source
+        site: U.S. Department of Veterans Affairs
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for
+          child_pugh
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - child_pugh_va_2026
+      - id: search:child_pugh:child_pugh_aasld_2024
+        sourceRole: specialty_guidance
+        authorityId: child_pugh_aasld_2024
+        database: Primary or responsible-authority source
+        site: American Association for the Study of Liver Diseases
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for
+          child_pugh
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - child_pugh_aasld_2024
+      - id: search:child_pugh:child_pugh_albers_1989
+        sourceRole: external_validation
+        authorityId: child_pugh_albers_1989
+        database: Primary or responsible-authority source
+        site: Scandinavian Journal of Gastroenterology
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for
+          child_pugh
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - child_pugh_albers_1989
+    accounting:
+      retrieved: 40
+      deduplicated: 40
+      screened: 40
+      fullTextAssessed: 4
+      excluded: 0
+      included: 4
+    deduplication:
+      method: PMID, DOI, and responsible-authority URL identity with manual title reconciliation
+      tool: PubMed flat-file export plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:26937922
+        title: "Child-Pugh Versus MELD Score for the Assessment of Prognosis in Liver Cirrhosis:"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:37157959
+        title: Safety of endoscopic retrograde cholangiopancreatography (ERCP) in cirrhosis
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:16305721
+        title: "Systematic review: The model for end-stage liver disease--should it replace"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:39006578
+        title: Comparison Between Creatinine-Modified Pugh Score and Child-Pugh Score for
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:15777564
+        title: "Assessment of the prognosis of cirrhosis: Child-Pugh versus MELD."
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31700241
+        title: Comparative evaluation of ALBI, MELD, and Child-Pugh scores in prognosis of
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:39421189
+        title: Prognostic role of albumin-bilirubin (ALBI) score and Child-Pugh classification
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41890893
+        title: Efficacy and safety of tyrosine kinase inhibitors in advanced hepatocellular
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32419396
+        title: Differential Impact of Serum 25-Hydroxyvitamin D3 Levels on the Prognosis of
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:35637856
+        title: Prognostic Nomograms Based on the Cirrhotic Severity Scoring for Preoperative
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31215410
+        title: Epstein-Barr virus infection is associated with a higher Child-Pugh score and may
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32698637
+        title: "Child-Pugh, MELD, MELD-Na, and ALBI scores: which liver function models best"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:28604642
+        title: Comparison of Prognostic Impact between the Child-Pugh Score and Skeletal Muscle
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:18609128
+        title: ASAT/ALAT ratio provides prognostic information independently of Child-Pugh
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:10755262
+        title: Can the MEGX test and serum bile acids improve the prognostic ability of
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:29438135
+        title: Assessment of prognostic performance of Albumin-Bilirubin, Child-Pugh, and Model
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32148566
+        title: Assessing the Prognostic Performance of the Child-Pugh, Model for End-Stage Liver
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:19877551
+        title: The model for the end-stage liver disease and Child-Pugh score in predicting
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41573251
+        title: Analysis of the impact of urological malignant tumor surgery on child-pugh
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:14642610
+        title: Improvement of prognostic power of the Child-Pugh classification of liver
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:24281026
+        title: "Hepatocellular carcinoma in Child-Pugh C cirrhosis: prognostic factors and"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:9759595
+        title: Updating prognosis of cirrhosis by Cox's regression model using Child-Pugh score
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:24855028
+        title: Number of nodules, Child-Pugh status, margin positivity, and microvascular
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:10606325
+        title: Prognostic usefulness of ultrasonographic signs of portal hypertension in
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:28393965
+        title: "[Comparative evaluation of survival prognosis using MELD or Child-Pugh scores in"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:10638235
+        title: "[Clinical profile and prognosis of bacteremia in patients with cirrhosis based on"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:8438845
+        title: Routine tests of renal function, alcoholism, and nutrition improve the prognostic
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:37476625
+        title: "Retracted: Assessing the Prognostic Performance of the Child-Pugh, Model for"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:15253024
+        title: "[Prognostic value of plasmatic fibronectin and Child-Pugh classification in"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:42325018
+        title: Potential Role of Liver Transplantation for Child-Pugh Class A Hepatocellular
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: child_pugh_albers_1989
+        title: Superiority of the Child-Pugh classification to quantitative liver function tests
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:20524472
+        title: Evaluation of creatinine-modified Child Pugh score for predicting short-term
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:1812046
+        title: Prognostic value of the intravenous 14C-aminopyrine breath test compared to the
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:7563862
+        title: "[Clinical course and prognostic value of Child-Turcotte criteria and Child-Pugh"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:26802883
+        title: "[Comparison of the prognostic value of mortality Child Pugh Score and forecasting"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:9867102
+        title: Prognostic value of progressive decrease in serum cholesterol in predicting
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:15946154
+        title: Impact of tumor factors on the prognosis of patients with advanced cirrhosis
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: child_pugh_pugh_1973
+        title: Transection of the oesophagus for bleeding oesophageal varices.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: child_pugh_va_2026
+        title: Child-Turcotte-Pugh Calculator - Cirrhosis.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: child_pugh_aasld_2024
+        title: Portal Hypertension and Bleeding in Cirrhosis practice guidance.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:child_pugh:pubmed
+      checklist:
+        - Exact model and variant terms retained
+        - Population and setting concepts included
+        - Validation and update concepts represented
+        - No date restriction on foundational evidence
+        - Translation and result ledger checked
+      comments:
+        - The initial strategy was widened beyond known-title retrieval while retaining exact model identity and a
+          screenable result set.
+        - Current responsible-authority and specialty-guidance searches were reviewed separately from MEDLINE.
+      resolution: Resolved by retaining exact model terms, adding population and validation concepts, screening every
+        retrieved record, and separately checking current responsible-authority guidance, citation chains, corrections,
+        retractions, and supersession.
+      resolved: true
+      reviewer: Independent PRESS search specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - child_pugh_pugh_1973
+  - child_pugh_va_2026
+  - child_pugh_aasld_2024
+  - child_pugh_albers_1989
+claims:
+  - id: claim:child_pugh:calculator-model
+    kind: applicability
+    statement: Modified Child-Turcotte-Pugh cirrhosis score using INR thresholds; exact variant
+      modified_ctp_va_inr_1_7_2_3_adult_cirrhosis.
+    covers:
+      - calculator:model
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+      - child_pugh_albers_1989
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+      - sourceId: child_pugh_albers_1989
+        locator: "Methods and Results: adult cirrhosis cohort and association of increasing Child-Pugh score with prognosis."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and setting are verified by source review; runtime scenarios separately witness
+      every executable component and output.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:formula-implementation
+    kind: formula
+    statement: The declared component weights are summed exactly and the resulting outputs follow the reviewed
+      modified_ctp_va_inr_1_7_2_3_adult_cirrhosis model.
+    covers:
+      - formula:implementation
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:reference-1
+      - case:child_pugh:reference-2
+      - case:child_pugh:reference-3
+      - case:child_pugh:boundary-score-6
+      - case:child_pugh:boundary-score-7
+      - case:child_pugh:boundary-score-9
+      - case:child_pugh:boundary-score-10
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:applicability-purpose
+    kind: applicability
+    statement: Adults with established cirrhosis whose bilirubin, albumin, INR, ascites, and encephalopathy categories are
+      available. Cirrhosis severity classification; not individualized survival, operative-risk, transplant-allocation,
+      or treatment advice.
+    covers:
+      - applicability:purpose
+    status: variant_specific
+    sourceIds:
+      - child_pugh_va_2026
+      - child_pugh_aasld_2024
+      - child_pugh_albers_1989
+    locators:
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+      - sourceId: child_pugh_aasld_2024
+        locator: "Practice-guidance scope: adult cirrhosis, portal-hypertension complications, and clinical management context
+          beyond a classification score."
+      - sourceId: child_pugh_albers_1989
+        locator: "Methods and Results: adult cirrhosis cohort and association of increasing Child-Pugh score with prognosis."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:agent-intended
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:applicability-exclusions
+    kind: exclusion
+    statement: A broad cirrhosis severity class, not individualized survival, operative-risk, transplant-allocation, or
+      treatment advice. Ascites and encephalopathy grading are subjective; apply only to the explicit modified INR
+      variant in established cirrhosis.
+    covers:
+      - applicability:exclusions
+    status: variant_specific
+    sourceIds:
+      - child_pugh_va_2026
+      - child_pugh_aasld_2024
+      - child_pugh_albers_1989
+    locators:
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+      - sourceId: child_pugh_aasld_2024
+        locator: "Practice-guidance scope: adult cirrhosis, portal-hypertension complications, and clinical management context
+          beyond a classification score."
+      - sourceId: child_pugh_albers_1989
+        locator: "Methods and Results: adult cirrhosis cohort and association of increasing Child-Pugh score with prognosis."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-bilirubin_category
+    kind: input
+    statement: "Total Bilirubin: Total serum bilirubin: <2 mg/dL (1), 2-3 mg/dL (2), or >3 mg/dL (3)."
+    covers:
+      - input:bilirubin_category
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:reference-1
+      - case:child_pugh:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-bilirubin_category-aliases
+    kind: input
+    statement: Total Bilirubin accepts only the declared compatibility aliases bilirubin.
+    covers:
+      - input:bilirubin_category:aliases
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:alias-bilirubin_category-bilirubin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-bilirubin_category-options
+    kind: input
+    statement: "Total Bilirubin: low=1, moderate=2, high=3."
+    covers:
+      - input:bilirubin_category:options
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:option-bilirubin_category-low
+      - case:child_pugh:option-bilirubin_category-moderate
+      - case:child_pugh:option-bilirubin_category-high
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-albumin_category
+    kind: input
+    statement: "Serum Albumin: Serum albumin: >3.5 g/dL (1), 2.8-3.5 g/dL (2), or <2.8 g/dL (3)."
+    covers:
+      - input:albumin_category
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-albumin_category-aliases
+    kind: input
+    statement: Serum Albumin accepts only the declared compatibility aliases albumin.
+    covers:
+      - input:albumin_category:aliases
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:alias-albumin_category-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-albumin_category-options
+    kind: input
+    statement: "Serum Albumin: high=1, moderate=2, low=3."
+    covers:
+      - input:albumin_category:options
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:option-albumin_category-high
+      - case:child_pugh:option-albumin_category-moderate
+      - case:child_pugh:option-albumin_category-low
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-inr_category
+    kind: input
+    statement: "INR: International Normalized Ratio: <1.7 (1), 1.7-2.3 (2), or >2.3 (3)."
+    covers:
+      - input:inr_category
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-inr_category-aliases
+    kind: input
+    statement: INR accepts only the declared compatibility aliases inr.
+    covers:
+      - input:inr_category:aliases
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:alias-inr_category-inr
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-inr_category-options
+    kind: input
+    statement: "INR: low=1, moderate=2, high=3."
+    covers:
+      - input:inr_category:options
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:option-inr_category-low
+      - case:child_pugh:option-inr_category-moderate
+      - case:child_pugh:option-inr_category-high
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-ascites
+    kind: input
+    statement: "Ascites: Ascites: none (1), mild/medication-controlled (2), or moderate-to-severe refractory (3)."
+    covers:
+      - input:ascites
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-ascites-options
+    kind: input
+    statement: "Ascites: none=1, mild=2, moderate=3."
+    covers:
+      - input:ascites:options
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:option-ascites-none
+      - case:child_pugh:option-ascites-mild
+      - case:child_pugh:option-ascites-moderate
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-encephalopathy
+    kind: input
+    statement: "Hepatic Encephalopathy: Hepatic encephalopathy: none (1), Grade 1-2 (2), or Grade 3-4 (3)."
+    covers:
+      - input:encephalopathy
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:input-encephalopathy-options
+    kind: input
+    statement: "Hepatic Encephalopathy: none=1, mild=2, severe=3."
+    covers:
+      - input:encephalopathy:options
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:option-encephalopathy-none
+      - case:child_pugh:option-encephalopathy-mild
+      - case:child_pugh:option-encephalopathy-severe
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:output-score
+    kind: outcome
+    statement: Total Child-Pugh score (5-15 points).
+    covers:
+      - output:score
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:output-class
+    kind: outcome
+    statement: Child-Pugh classification (A, B, or C).
+    covers:
+      - output:class
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:output-prognosis
+    kind: outcome
+    statement: Clinical prognosis based on Child-Pugh class.
+    covers:
+      - output:prognosis
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:band-calculator-0
+    kind: band
+    statement: "child_pugh_band_1: >=10 — Class C (10-15); do not infer individualized prognosis or management from the
+      class alone."
+    covers:
+      - band:calculator:0
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:boundary-score-10
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:band-calculator-1
+    kind: band
+    statement: "child_pugh_band_2: >=7 — Class B (7-9); do not infer individualized prognosis or management from the class alone."
+    covers:
+      - band:calculator:1
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:boundary-score-7
+      - case:child_pugh:boundary-score-9
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:child_pugh:band-calculator-2
+    kind: band
+    statement: "child_pugh_band_3: <7 — Class A (5-6); do not infer individualized prognosis or management from the class alone."
+    covers:
+      - band:calculator:2
+    status: variant_specific
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    locators:
+      - sourceId: child_pugh_pugh_1973
+        locator: "Methods: modified five-factor Child classification and grouped operative-risk classes."
+      - sourceId: child_pugh_va_2026
+        locator: "Criterion table and class rows: bilirubin <2/2-3/>3, albumin >3.5/2.8-3.5/<2.8, INR <1.7/1.7-2.3/>2.3, ascites
+          and encephalopathy definitions, classes A/B/C."
+    executable: true
+    scenarioIds:
+      - case:child_pugh:boundary-score-6
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:child_pugh:reference-1
+    kind: reference
+    tags:
+      - calculator:child_pugh:core
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 5
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:formula-implementation
+      - claim:child_pugh:input-bilirubin_category
+      - claim:child_pugh:input-albumin_category
+      - claim:child_pugh:input-inr_category
+      - claim:child_pugh:input-ascites
+      - claim:child_pugh:input-encephalopathy
+      - claim:child_pugh:output-score
+      - claim:child_pugh:output-class
+      - claim:child_pugh:output-prognosis
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - formula:implementation
+      - input:bilirubin_category
+      - input:albumin_category
+      - input:inr_category
+      - input:ascites
+      - input:encephalopathy
+      - output:score
+      - output:class
+      - output:prognosis
+  - id: case:child_pugh:reference-2
+    kind: reference
+    tags:
+      - calculator:child_pugh:core
+    inputs:
+      bilirubin_category: moderate
+      albumin_category: moderate
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 7
+      class: B
+      prognosis: Moderately impaired liver function
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_2
+        kind: class
+        label: Class B (7-9); do not infer individualized prognosis or management from the class alone.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:formula-implementation
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - formula:implementation
+  - id: case:child_pugh:reference-3
+    kind: reference
+    tags:
+      - calculator:child_pugh:core
+    inputs:
+      bilirubin_category: high
+      albumin_category: low
+      inr_category: high
+      ascites: moderate
+      encephalopathy: severe
+    expected:
+      score: 15
+      class: C
+      prognosis: Advanced hepatic dysfunction
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_1
+        kind: class
+        label: Class C (10-15); do not infer individualized prognosis or management from the class alone.
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:formula-implementation
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - formula:implementation
+  - id: case:child_pugh:agent-intended
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 5
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:applicability-purpose
+    sourceIds:
+      - child_pugh_va_2026
+      - child_pugh_aasld_2024
+      - child_pugh_albers_1989
+    witnesses:
+      - applicability:purpose
+  - id: case:child_pugh:agent-exclusion
+    kind: agent
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: bilirubin_category
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:applicability-exclusions
+      - claim:child_pugh:input-bilirubin_category
+    sourceIds:
+      - child_pugh_va_2026
+      - child_pugh_aasld_2024
+      - child_pugh_albers_1989
+      - child_pugh_pugh_1973
+    witnesses:
+      - applicability:exclusions
+      - input:bilirubin_category
+  - id: case:child_pugh:option-bilirubin_category-low
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 5
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-bilirubin_category-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:bilirubin_category:options
+  - id: case:child_pugh:option-bilirubin_category-moderate
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: moderate
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 6
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-bilirubin_category-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:bilirubin_category:options
+  - id: case:child_pugh:option-bilirubin_category-high
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: high
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 7
+      class: B
+      prognosis: Moderately impaired liver function
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_2
+        kind: class
+        label: Class B (7-9); do not infer individualized prognosis or management from the class alone.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-bilirubin_category-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:bilirubin_category:options
+  - id: case:child_pugh:alias-bilirubin_category-bilirubin
+    kind: edge
+    tags:
+      - aliases
+    inputs:
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+      bilirubin: low
+    expected:
+      score: 5
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'bilirubin' is a compatibility alias; use 'bilirubin_category'.
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-bilirubin_category-aliases
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:bilirubin_category:aliases
+  - id: case:child_pugh:option-albumin_category-high
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 5
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-albumin_category-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:albumin_category:options
+  - id: case:child_pugh:option-albumin_category-moderate
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: moderate
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 6
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-albumin_category-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:albumin_category:options
+  - id: case:child_pugh:option-albumin_category-low
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: low
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 7
+      class: B
+      prognosis: Moderately impaired liver function
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_2
+        kind: class
+        label: Class B (7-9); do not infer individualized prognosis or management from the class alone.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-albumin_category-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:albumin_category:options
+  - id: case:child_pugh:alias-albumin_category-albumin
+    kind: edge
+    tags:
+      - aliases
+    inputs:
+      bilirubin_category: low
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+      albumin: high
+    expected:
+      score: 5
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'albumin' is a compatibility alias; use 'albumin_category'.
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-albumin_category-aliases
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:albumin_category:aliases
+  - id: case:child_pugh:option-inr_category-low
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 5
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-inr_category-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:inr_category:options
+  - id: case:child_pugh:option-inr_category-moderate
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: moderate
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 6
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-inr_category-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:inr_category:options
+  - id: case:child_pugh:option-inr_category-high
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: high
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 7
+      class: B
+      prognosis: Moderately impaired liver function
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_2
+        kind: class
+        label: Class B (7-9); do not infer individualized prognosis or management from the class alone.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-inr_category-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:inr_category:options
+  - id: case:child_pugh:alias-inr_category-inr
+    kind: edge
+    tags:
+      - aliases
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      ascites: none
+      encephalopathy: none
+      inr: low
+    expected:
+      score: 5
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'inr' is a compatibility alias; use 'inr_category'.
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-inr_category-aliases
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:inr_category:aliases
+  - id: case:child_pugh:option-ascites-none
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 5
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-ascites-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:ascites:options
+  - id: case:child_pugh:option-ascites-mild
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: low
+      ascites: mild
+      encephalopathy: none
+    expected:
+      score: 6
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-ascites-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:ascites:options
+  - id: case:child_pugh:option-ascites-moderate
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: low
+      ascites: moderate
+      encephalopathy: none
+    expected:
+      score: 7
+      class: B
+      prognosis: Moderately impaired liver function
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_2
+        kind: class
+        label: Class B (7-9); do not infer individualized prognosis or management from the class alone.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-ascites-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:ascites:options
+  - id: case:child_pugh:option-encephalopathy-none
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 5
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-encephalopathy-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:encephalopathy:options
+  - id: case:child_pugh:option-encephalopathy-mild
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: mild
+    expected:
+      score: 6
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-encephalopathy-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:encephalopathy:options
+  - id: case:child_pugh:option-encephalopathy-severe
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      bilirubin_category: low
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: severe
+    expected:
+      score: 7
+      class: B
+      prognosis: Moderately impaired liver function
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_2
+        kind: class
+        label: Class B (7-9); do not infer individualized prognosis or management from the class alone.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:input-encephalopathy-options
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - input:encephalopathy:options
+  - id: case:child_pugh:boundary-score-6
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      bilirubin_category: moderate
+      albumin_category: high
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 6
+      class: A
+      prognosis: Well-compensated liver disease
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_3
+        kind: class
+        label: Class A (5-6); do not infer individualized prognosis or management from the class alone.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:formula-implementation
+      - claim:child_pugh:band-calculator-2
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - formula:implementation
+      - band:calculator:2
+  - id: case:child_pugh:boundary-score-7
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      bilirubin_category: moderate
+      albumin_category: moderate
+      inr_category: low
+      ascites: none
+      encephalopathy: none
+    expected:
+      score: 7
+      class: B
+      prognosis: Moderately impaired liver function
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_2
+        kind: class
+        label: Class B (7-9); do not infer individualized prognosis or management from the class alone.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:formula-implementation
+      - claim:child_pugh:band-calculator-1
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - formula:implementation
+      - band:calculator:1
+  - id: case:child_pugh:boundary-score-9
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      bilirubin_category: moderate
+      albumin_category: moderate
+      inr_category: moderate
+      ascites: mild
+      encephalopathy: none
+    expected:
+      score: 9
+      class: B
+      prognosis: Moderately impaired liver function
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_2
+        kind: class
+        label: Class B (7-9); do not infer individualized prognosis or management from the class alone.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:formula-implementation
+      - claim:child_pugh:band-calculator-1
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - formula:implementation
+      - band:calculator:1
+  - id: case:child_pugh:boundary-score-10
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      bilirubin_category: moderate
+      albumin_category: moderate
+      inr_category: moderate
+      ascites: mild
+      encephalopathy: mild
+    expected:
+      score: 10
+      class: C
+      prognosis: Advanced hepatic dysfunction
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: child_pugh_band_1
+        kind: class
+        label: Class C (10-15); do not infer individualized prognosis or management from the class alone.
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:child_pugh:formula-implementation
+      - claim:child_pugh:band-calculator-0
+    sourceIds:
+      - child_pugh_pugh_1973
+      - child_pugh_va_2026
+    witnesses:
+      - formula:implementation
+      - band:calculator:0
+explicitBlockers: []

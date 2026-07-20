@@ -1,0 +1,207 @@
+id: anion_gap
+version: 1.0.0
+name: Anion Gap (with albumin correction)
+clinicalModel:
+  modelKind: formula
+  modelId: anion_gap
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+    - source_4
+applicability:
+  population: Patients with concurrent sodium, chloride, and bicarbonate
+    measurements during acid-base evaluation; optional albumin correction is a
+    historical Figge estimate.
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - Laboratory-specific reference intervals and the patient's baseline matter.
+      Albumin correction and delta ratios have important validation limitations
+      and must not diagnose a mixed disorder in isolation.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Compute uncorrected anion gap plus optional historical albumin
+  correction and delta arithmetic from concurrent laboratories. Treat every
+  result as an aid requiring local reference intervals and clinical context.
+whenNotToUse: The delta ratio is only meaningful in metabolic acidosis with an
+  elevated anion gap; it is omitted when those conditions are not met. Do not
+  interpret it in isolation from the clinical picture.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Oh MS, Carroll HJ. The anion gap. N Engl J Med. 1977;297(15):814-817.
+    locator: doi:10.1056/NEJM197710132971507
+    doi: 10.1056/NEJM197710132971507
+    url: https://doi.org/10.1056/NEJM197710132971507
+    reviewed: true
+  - id: source_2
+    type: reference
+    citation: Figge J, Jabor A, Kazda A, Fencl V. Anion gap and hypoalbuminemia.
+      Crit Care Med. 1998;26(11):1807-1810.
+    locator: doi:10.1097/00003246-199811000-00019
+    doi: 10.1097/00003246-199811000-00019
+    url: https://doi.org/10.1097/00003246-199811000-00019
+    reviewed: true
+  - id: source_3
+    type: reference
+    citation: Rastegar A. Use of the deltaAG/deltaHCO3- ratio in the diagnosis of
+      mixed acid-base disorders. J Am Soc Nephrol. 2007;18(9):2429-2431.
+    locator: doi:10.1681/ASN.2006121408
+    doi: 10.1681/ASN.2006121408
+    url: https://doi.org/10.1681/ASN.2006121408
+    reviewed: true
+  - id: source_4
+    type: review
+    citation: Kraut JA, Madias NE. The serum anion gap in the evaluation of acid-base
+      disorders. Clin J Am Soc Nephrol. 2007;2(1):162-174.
+    locator: doi:10.2215/CJN.03020906
+    doi: 10.2215/CJN.03020906
+    url: https://pubmed.ncbi.nlm.nih.gov/17699401/
+    reviewed: true
+inputs:
+  sodium:
+    title: Sodium
+    description: Serum sodium in mEq/L (numerically equal to mmol/L). Normal 135-145.
+    kind: quantity
+    quantity:
+      analyte: sodium
+      canonicalUnit: mEq/L
+      acceptedUnits:
+        - mEq/L
+        - mmol/L
+    plausible:
+      - 120
+      - 160
+    hardLimits:
+      - 80
+      - 200
+    required: true
+    conceptId: anion_gap.input.sodium
+    examples:
+      - 140
+    sourceRefs:
+      - source_1
+  chloride:
+    title: Chloride
+    description: Serum chloride in mEq/L (numerically equal to mmol/L). Normal 96-106.
+    kind: number
+    plausible:
+      - 80
+      - 120
+    hardLimits:
+      - 50
+      - 150
+    required: true
+    conceptId: anion_gap.input.chloride
+    examples:
+      - 104
+    sourceRefs:
+      - source_1
+  bicarbonate:
+    title: Bicarbonate
+    description: Serum bicarbonate in mEq/L (numerically equal to mmol/L). Normal 22-29.
+    kind: number
+    plausible:
+      - 5
+      - 45
+    hardLimits:
+      - 1
+      - 60
+    required: true
+    conceptId: anion_gap.input.bicarbonate
+    examples:
+      - 14
+    sourceRefs:
+      - source_1
+  albumin:
+    title: Albumin
+    description: Serum albumin. Pass a bare number in g/dL, or {value, unit} for SI
+      (g/L). When omitted, only uncorrected outputs are returned; the calculator
+      does not silently assume 4.0 g/dL.
+    kind: quantity
+    quantity:
+      analyte: albumin
+      canonicalUnit: g/dL
+      acceptedUnits:
+        - g/dL
+        - g/L
+    plausible:
+      - 1
+      - 6
+    hardLimits:
+      - 0.5
+      - 10
+    required: false
+    conceptId: anion_gap.input.albumin
+    examples:
+      - 4
+    sourceRefs:
+      - source_1
+outputs:
+  anion_gap:
+    title: Anion Gap
+    description: Na − (Cl + HCO3), rounded to 1 decimal place.
+    kind: number
+    unit: mEq/L
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+  albumin_corrected_anion_gap:
+    title: Albumin-Corrected Anion Gap
+    description: Anion gap + 2.5 × (4 − albumin), rounded to 1 decimal place.
+    kind: number
+    unit: mEq/L
+    availability:
+      kind: whenAnyInputPresent
+      fields:
+        - albumin
+    evidenceRefs:
+      - source_2
+  delta_anion_gap:
+    title: Delta Anion Gap
+    description: ΔAG = anion gap − 12, rounded to 1 decimal place.
+    kind: number
+    unit: mEq/L
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_3
+  albumin_corrected_delta_anion_gap:
+    title: Albumin-Corrected Delta Anion Gap
+    description: Albumin-corrected ΔAG = corrected anion gap − 12, rounded to 1
+      decimal place.
+    kind: number
+    unit: mEq/L
+    availability:
+      kind: whenAnyInputPresent
+      fields:
+        - albumin
+    evidenceRefs:
+      - source_3
+  delta_ratio:
+    title: Delta Ratio
+    description: Delta gap / (24 − HCO3), rounded to 2 decimals. Returned only when
+      bicarbonate is below 24 mEq/L and the uncorrected anion gap exceeds 12 mEq/L.
+    kind: number
+    availability:
+      kind: computeCondition
+      conditionId: uncorrected_delta_ratio_applicable
+    evidenceRefs:
+      - source_1
+  albumin_corrected_delta_ratio:
+    title: Albumin-Corrected Delta Ratio
+    description: Albumin-corrected delta gap / (24 − HCO3), rounded to 2 decimals.
+      Returned only when albumin is supplied, bicarbonate is below 24 mEq/L, and
+      the corrected anion gap exceeds 12 mEq/L.
+    kind: number
+    availability:
+      kind: computeCondition
+      conditionId: corrected_delta_ratio_applicable
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - anion_gap

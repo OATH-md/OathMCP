@@ -1,0 +1,84 @@
+id: bsa_dubois
+version: 1.0.0
+name: Body Surface Area (DuBois)
+family: body_surface_area
+variant: dubois_dubois
+clinicalModel:
+  modelKind: formula
+  modelId: bsa_dubois
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+applicability:
+  population: Patients for whom a governing protocol explicitly requests the
+    Du Bois and Du Bois body-surface-area estimate.
+  setting: Formula calculation only; the tool returns raw BSA and does not
+    select a dosing protocol, dose, or cap.
+  exclusions:
+    - The 1916 formula was derived from a very small sample and may be inaccurate
+      at body-size extremes. Apply any dosing cap only when the governing protocol
+      explicitly requires it; this tool reports raw BSA.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Compute raw BSA (m²) with the Du Bois and Du Bois formula when
+  a governing protocol explicitly names this variant. Do not infer a dose or cap.
+whenNotToUse: Do not calculate without a protocol naming the Du Bois variant and
+  both measured height and measured weight.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: DuBois D, DuBois EF. A formula to estimate the approximate surface
+      area if height and weight be known. Arch Intern Med. 1916;17:863-871.
+    locator: doi:10.1001/archinte.1916.00080130010002
+    doi: 10.1001/archinte.1916.00080130010002
+    url: https://doi.org/10.1001/archinte.1916.00080130010002
+    reviewed: true
+inputs:
+  height_cm:
+    title: Height
+    description: Height in centimeters.
+    kind: number
+    plausible:
+      - 30
+      - 250
+    hardLimits:
+      - 10
+      - 300
+    required: true
+    conceptId: patient.height_cm
+    examples:
+      - 170
+    sourceRefs:
+      - source_1
+    sharedKey: height_cm
+  weight_kg:
+    title: Weight
+    description: Weight in kilograms.
+    kind: number
+    plausible:
+      - 2
+      - 300
+    hardLimits:
+      - 0.5
+      - 700
+    required: true
+    conceptId: patient.weight_kg
+    examples:
+      - 70
+    sourceRefs:
+      - source_1
+    sharedKey: weight_kg
+outputs:
+  bsa:
+    title: Body Surface Area
+    description: BSA = 0.007184 × height(cm)^0.725 × weight(kg)^0.425, rounded to 2
+      decimals.
+    kind: number
+    unit: m²
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - bsa

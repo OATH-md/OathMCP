@@ -1,0 +1,245 @@
+id: timi
+version: 1.1.0
+name: TIMI Risk Score (UA/NSTEMI)
+clinicalModel:
+  modelKind: score
+  modelId: timi.ua_nstemi_2000
+  modelVersion: timi_11b_essence_14_day_composite
+  reviewDate: 2026-07-16
+  evidenceRefs: [source_1, source_2, source_3]
+applicability:
+  population: Risk-stratify a patient with unstable angina or non-ST-elevation MI
+    by awarding one point each for seven clinical criteria (age >= 65, >= 3 CAD
+    risk factors, known CAD with stenosis >= 50%, aspirin use in the past 7
+    days, severe angina, EKG ST-segment changes >= 0.5mm, positive cardiac
+    marker). Score 0-7 maps to the 14-day risk of all-cause mortality, new or
+    recurrent MI, or severe recurrent ischemia requiring urgent
+    revascularization.
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - Validated for non-ST-elevation acute coronary syndromes (unstable angina /
+      NSTEMI); it is not a diagnostic test and does not apply to ST-elevation MI
+      or to undifferentiated chest pain.
+  evidenceRefs: [source_1, source_3]
+purposeForAgents: Risk-stratify a patient with unstable angina or
+  non-ST-elevation MI by awarding one point each for seven clinical criteria
+  (age >= 65, >= 3 CAD risk factors, known CAD with stenosis >= 50%, aspirin use
+  in the past 7 days, severe angina, EKG ST-segment changes >= 0.5mm, positive
+  cardiac marker). Score 0-7 maps to the 14-day risk of all-cause mortality, new
+  or recurrent MI, or severe recurrent ischemia requiring urgent
+  revascularization.
+whenNotToUse: Validated for non-ST-elevation acute coronary syndromes (unstable
+  angina / NSTEMI); it is not a diagnostic test and does not apply to
+  ST-elevation MI or to undifferentiated chest pain.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: "Antman EM, Cohen M, Bernink PJ, et al. The TIMI risk score for
+      unstable angina/non-ST elevation MI: A method for prognostication and
+      therapeutic decision making. JAMA. 2000;284(7):835-842."
+    locator: doi:10.1001/jama.284.7.835
+    doi: 10.1001/jama.284.7.835
+    url: https://doi.org/10.1001/jama.284.7.835
+    reviewed: true
+  - id: source_2
+    type: validation
+    citation: Sabatine MS, Antman EM. The thrombolysis in myocardial infarction risk score in unstable angina/non-ST-segment elevation myocardial infarction. J Am Coll Cardiol. 2003;41 Suppl S:89S-95S.
+    locator: PMID:12644346, predictor definitions and validation summary
+    url: https://pubmed.ncbi.nlm.nih.gov/12644346/
+    reviewed: true
+  - id: source_3
+    type: guideline
+    citation: 2025 ACC/AHA/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes.
+    locator: Current ACS risk-stratification context; TIMI does not diagnose ACS or replace current management guidance
+    url: https://professional.heart.org/en/science-news/2025-guideline-for-the-management-of-patients-with-acute-coronary-syndromes
+    reviewed: true
+inputs:
+  age_65_or_older:
+    title: Patient is 65 years or older
+    description: Age >= 65 years. Scores a point when true.
+    kind: boolean
+    required: true
+    conceptId: timi.input.age_65_or_older
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: age_65_or_older
+  cad_risk_factors:
+    title: ">= 3 CAD risk factors"
+    description: At least three coronary artery disease risk factors (family
+      history, hyperlipidemia, diabetes, hypertension, current smoker). Scores a
+      point when true.
+    kind: boolean
+    required: true
+    conceptId: timi.input.cad_risk_factors
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: cad_risk_factors
+  known_cad:
+    title: Known CAD with stenosis >= 50%
+    description: Known coronary artery disease with stenosis >= 50%. Scores a point
+      when true.
+    kind: boolean
+    required: true
+    conceptId: timi.input.known_cad
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: known_cad
+  asa_use:
+    title: ASA use in past 7 days
+    description: Use of aspirin in the past 7 days. Scores a point when true.
+    kind: boolean
+    required: true
+    conceptId: timi.input.asa_use
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: asa_use
+  severe_angina:
+    title: Severe angina (>= 2 episodes in 24 hrs)
+    description: Severe angina, at least two episodes in 24 hours. Scores a point when true.
+    kind: boolean
+    required: true
+    conceptId: timi.input.severe_angina
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: severe_angina
+  ekg_st_changes:
+    title: EKG ST changes >= 0.5mm
+    description: EKG ST-segment deviation >= 0.5mm. Scores a point when true.
+    kind: boolean
+    required: true
+    conceptId: timi.input.ekg_st_changes
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: ekg_st_changes
+  positive_cardiac_marker:
+    title: Positive cardiac marker
+    description: Elevated cardiac biomarker (e.g. troponin, CK-MB). Scores a point
+      when true.
+    kind: boolean
+    required: true
+    conceptId: timi.input.positive_cardiac_marker
+    examples:
+      - false
+    sourceRefs:
+      - source_1
+    sharedKey: positive_cardiac_marker
+outputs:
+  score:
+    title: TIMI Risk Score
+    description: Total TIMI Risk Score (0-7).
+    kind: integer
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+  risk_percentage:
+    title: Risk at 14 Days
+    description: Risk at 14 days of all-cause mortality, new or recurrent MI, or
+      severe recurrent ischemia requiring urgent revascularization.
+    kind: enum
+    allowedValues: [4.7%, 8.3%, 13.2%, 19.9%, 26.2%, 40.9%]
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+  risk_percent:
+    title: Numeric 14-Day Composite Risk Percent
+    description: Numeric risk percent for the enrolled 14-day composite endpoint.
+    kind: number
+    unit: percent
+    availability: { kind: always }
+    evidenceRefs: [source_1]
+  risk_horizon_days:
+    title: Risk Horizon
+    description: Time horizon in days for the risk estimate.
+    kind: integer
+    unit: days
+    availability: { kind: always }
+    evidenceRefs: [source_1]
+  risk_endpoint:
+    title: Risk Endpoint
+    description: Composite endpoint represented by the risk estimate.
+    kind: enum
+    allowedValues: [death_mi_or_urgent_revascularization]
+    availability: { kind: always }
+    evidenceRefs: [source_1]
+primaryOutputs:
+  - score
+interpretationBands:
+  - code: timi_band_1
+    kind: risk
+    when: ">=5"
+    label: Enrolled trial-cohort 14-day composite event rate 26.2-40.9%; not an individualized prediction.
+    severity: critical
+    evidenceRefs:
+      - source_1
+  - code: timi_band_2
+    kind: risk
+    when: ">=3"
+    label: Enrolled trial-cohort 14-day composite event rate 13.2-19.9%; not an individualized prediction.
+    severity: abnormal
+    evidenceRefs:
+      - source_1
+  - code: timi_band_3
+    kind: risk
+    when: ">=2"
+    label: Enrolled trial-cohort 14-day composite event rate 8.3%; not an individualized prediction.
+    severity: borderline
+    evidenceRefs:
+      - source_1
+  - code: timi_band_4
+    kind: risk
+    when: <2
+    label: Enrolled trial-cohort 14-day composite event rate 4.7%; not an individualized prediction.
+    severity: normal
+    evidenceRefs:
+      - source_1
+scoring:
+  output: score
+  components:
+    - kind: boolean
+      field: age_65_or_older
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: cad_risk_factors
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: known_cad
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: asa_use
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: severe_angina
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: ekg_st_changes
+      truePoints: 1
+      falsePoints: 0
+    - kind: boolean
+      field: positive_cardiac_marker
+      truePoints: 1
+      falsePoints: 0
+  range:
+    - 0
+    - 7
+  evidenceRefs:
+    - source_1

@@ -1,0 +1,150 @@
+id: r_factor
+version: 1.0.0
+name: R Factor for Liver Injury
+clinicalModel:
+  modelKind: formula
+  modelId: r_factor
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+applicability:
+  population: "Classify a pattern of liver injury from ALT and ALP using the R
+    factor: R = (ALT/ALT_ULN) / (ALP/ALP_ULN). R ≥ 5 is hepatocellular, 2 < R <
+    5 is mixed, and R ≤ 2 is cholestatic. Returns the R value and injury type.
+    Default upper limits of normal are ALT 40 U/L and ALP 115 U/L; override them
+    with your lab's ULNs if they differ."
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - Normal ULN values vary by lab — pass the correct alt_uln/alp_uln if yours
+      differ. The R factor characterises a pattern; it does not identify the
+      cause.
+  evidenceRefs:
+    - source_1
+purposeForAgents: "Classify a pattern of liver injury from ALT and ALP using the
+  R factor: R = (ALT/ALT_ULN) / (ALP/ALP_ULN). R ≥ 5 is hepatocellular, 2 < R <
+  5 is mixed, and R ≤ 2 is cholestatic. Returns the R value and injury type.
+  Default upper limits of normal are ALT 40 U/L and ALP 115 U/L; override them
+  with your lab's ULNs if they differ."
+whenNotToUse: Normal ULN values vary by lab — pass the correct alt_uln/alp_uln
+  if yours differ. The R factor characterises a pattern; it does not identify
+  the cause.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Bénichou C. Criteria of drug-induced liver disorders. Report of an
+      international consensus meeting. J Hepatol. 1990;11(2):272-276.
+    locator: doi:10.1016/0168-8278(90)90124-a
+    doi: 10.1016/0168-8278(90)90124-a
+    url: https://doi.org/10.1016/0168-8278(90)90124-a
+    reviewed: true
+  - id: source_2
+    type: reference
+    citation: "European Association for the Study of the Liver. EASL Clinical
+      Practice Guidelines: Drug-induced liver injury. J Hepatol.
+      2019;70(6):1222-1261."
+    locator: doi:10.1016/j.jhep.2019.02.014
+    doi: 10.1016/j.jhep.2019.02.014
+    url: https://doi.org/10.1016/j.jhep.2019.02.014
+    reviewed: true
+  - id: source_3
+    type: reference
+    citation: LiverTox. Roussel Uclaf Causality Assessment Method (RUCAM) in Drug Induced Liver Injury.
+      National Library of Medicine (US); updated 2019.
+    locator: NCBI Bookshelf NBK548272, recommendation on laboratory-specific ULNs and fallback values
+    url: https://www.ncbi.nlm.nih.gov/books/NBK548272/
+    reviewed: true
+inputs:
+  alt:
+    title: ALT
+    description: Alanine aminotransferase in U/L.
+    kind: number
+    plausible:
+      - 1
+      - 2000
+    hardLimits:
+      - 0.1
+      - 100000
+    required: true
+    conceptId: r_factor.input.alt
+    examples:
+      - 200
+    sourceRefs:
+      - source_1
+    sharedKey: alt
+  alp:
+    title: ALP
+    description: Alkaline phosphatase in U/L.
+    kind: number
+    plausible:
+      - 1
+      - 2000
+    hardLimits:
+      - 0.1
+      - 100000
+    required: true
+    conceptId: r_factor.input.alp
+    examples:
+      - 100
+    sourceRefs:
+      - source_1
+    sharedKey: alp
+  alt_uln:
+    title: ALT Upper Limit of Normal
+    description: Upper limit of normal for ALT in U/L (default 40).
+    kind: number
+    plausible:
+      - 10
+      - 100
+    hardLimits:
+      - 0.1
+      - 1000
+    required: false
+    default: 40
+    conceptId: r_factor.input.alt_uln
+    examples:
+      - 40
+    sourceRefs:
+      - source_3
+    sharedKey: alt_uln
+  alp_uln:
+    title: ALP Upper Limit of Normal
+    description: Upper limit of normal for ALP in U/L (default 115).
+    kind: number
+    plausible:
+      - 30
+      - 200
+    hardLimits:
+      - 0.1
+      - 1000
+    required: false
+    default: 115
+    conceptId: r_factor.input.alp_uln
+    examples:
+      - 115
+    sourceRefs:
+      - source_3
+    sharedKey: alp_uln
+outputs:
+  r_factor:
+    title: R Factor
+    description: The R factor (dimensionless), rounded to 2 decimal places.
+    kind: number
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+  injury_type:
+    title: Injury Type
+    description: Liver injury pattern — Hepatocellular (R≥5), Mixed (2<R<5), or
+      Cholestatic (R≤2).
+    kind: enum
+    allowedValues: [Hepatocellular, Mixed, Cholestatic]
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - r_factor

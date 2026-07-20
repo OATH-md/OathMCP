@@ -1,0 +1,546 @@
+id: csf
+version: 1.1.0
+name: CSF Deterministic Findings
+clinicalModel:
+  modelKind: decision_tree
+  modelId: csf_deterministic_findings
+  modelVersion: 1.1.0
+  reviewDate: 2026-07-15
+  evidenceRefs: [source_1, source_2, source_3, source_4, source_5, source_6, source_7]
+applicability:
+  population: People with CSF measurements and explicitly identified assay/context states.
+  setting: Deterministic derivations and pattern-compatible findings for clinician review.
+  exclusions:
+    - The tool does not produce a most-likely diagnosis, confidence score, treatment, or prognosis.
+    - Age, pretreatment, immune status, assay identity, paired serum testing, imaging, and xanthochromia method/timing materially limit interpretation.
+  evidenceRefs: [source_1, source_2, source_3, source_4, source_5, source_6, source_7]
+purposeForAgents: Separate derived values, confirmed assay reports, compatible patterns, differentials, missing context, and limitations.
+whenNotToUse: Do not convert a nonspecific CSF pattern or unidentified positive assay into a disease diagnosis.
+evidence:
+  - id: source_1
+    type: guideline
+    citation: NICE. Meningitis (bacterial) and meningococcal disease NG240. Recommendations 1.4.13-1.4.19. 2024.
+    locator: recommendations:1.4.13-1.4.19
+    url: https://www.nice.org.uk/guidance/ng240/chapter/recommendations
+    reviewed: true
+  - id: source_2
+    type: guideline
+    citation: NICE. Subarachnoid haemorrhage caused by a ruptured aneurysm NG228. Recommendations 1.1.12-1.1.15. 2022.
+    locator: recommendations:1.1.12-1.1.15
+    url: https://www.nice.org.uk/guidance/ng228/chapter/Recommendations
+    reviewed: true
+  - id: source_3
+    type: guideline
+    citation: Thompson AJ, et al. Diagnosis of multiple sclerosis 2017 revisions of the McDonald criteria. Lancet Neurol. 2018;17(2):162-173.
+    locator: pmid:29275977
+    doi: 10.1016/S1474-4422(17)30470-2
+    url: https://pubmed.ncbi.nlm.nih.gov/29275977/
+    reviewed: true
+  - id: source_4
+    type: guideline
+    citation: Graus F, et al. A clinical approach to diagnosis of autoimmune encephalitis. Lancet Neurol. 2016;15(4):391-404.
+    locator: pmid:26906964
+    doi: 10.1016/S1474-4422(15)00401-9
+    url: https://pubmed.ncbi.nlm.nih.gov/26906964/
+    reviewed: true
+  - id: source_5
+    type: validation
+    citation: Zhou RW, Sangam K, Budhram A. Clinical Utility of CSF Correction Factors for Traumatic Lumbar Puncture in Adults. Neurol Clin Pract. 2024;14(6):e200350.
+    locator: pmid:39185100
+    doi: 10.1212/CPJ.0000000000200350
+    url: https://pubmed.ncbi.nlm.nih.gov/39185100/
+    reviewed: true
+  - id: source_6
+    type: guideline
+    citation: van Doorn PA, et al. EAN/PNS Guideline on diagnosis and treatment of Guillain-Barre syndrome. Eur J Neurol. 2023;30(12):3646-3674.
+    locator: pmid:37814551
+    doi: 10.1111/ene.16073
+    url: https://pubmed.ncbi.nlm.nih.gov/37814551/
+    reviewed: true
+  - id: source_7
+    type: guideline
+    citation: IDSA. Healthcare-Associated Ventriculitis and Meningitis Clinical Practice Guideline. 2017.
+    locator: section:CSF tests and pretreatment limitations
+    url: https://www.idsociety.org/practice-guideline/healthcare-associated-ventriculitis-and-meningitis/
+    reviewed: true
+inputs:
+  age_years:
+    title: Age
+    description: Age in completed years; adult reference flags are suppressed below 18.
+    kind: integer
+    plausible: [0, 110]
+    hardLimits: [0, 130]
+    required: true
+    conceptId: csf.input.age_years
+    examples: [45]
+    sourceRefs: [source_1]
+    sharedKey: age_years
+  wbc_per_ul:
+    title: CSF WBC
+    description: Observed white-cell count per microlitre before any selected traumatic-tap correction.
+    kind: integer
+    plausible: [0, 10000]
+    hardLimits: [0, 100000]
+    required: true
+    conceptId: csf.input.wbc_per_ul
+    examples: [200]
+    sourceRefs: [source_1, source_5]
+    sharedKey: wbc_per_ul
+  wbc_diff:
+    title: WBC Differential
+    description: Dominant white-cell population.
+    kind: enum
+    enumValues:
+      - { value: pmn, aliases: [PMN], label: PMN predominant, description: Neutrophil-predominant differential. }
+      - { value: lymphocyte, label: Lymphocyte predominant, description: Lymphocyte-predominant differential. }
+      - { value: mixed, label: Mixed, description: No single dominant population. }
+      - { value: unknown, label: Unknown, description: Differential unavailable or indeterminate. }
+    required: true
+    conceptId: csf.input.wbc_diff
+    examples: [pmn]
+    sourceRefs: [source_1]
+    sharedKey: wbc_diff
+  rbc_per_ul:
+    title: CSF RBC
+    description: Red-cell count per microlitre.
+    kind: integer
+    plausible: [0, 1000000]
+    hardLimits: [0, 100000000]
+    required: false
+    conceptId: csf.input.rbc_per_ul
+    examples: [5000]
+    sourceRefs: [source_1, source_5]
+    sharedKey: rbc_per_ul
+  traumatic_tap_method:
+    title: Traumatic-Tap Correction Method
+    description: Explicit selected heuristic; none preserves the observed WBC.
+    kind: enum
+    enumValues:
+      - { value: none, label: No correction, description: Do not apply a heuristic correction. }
+      - { value: one_wbc_per_500_rbc, label: 1 per 500, description: Subtract one WBC per 500 RBC. }
+      - { value: one_wbc_per_1000_rbc, label: 1 per 1000, description: Subtract one WBC per 1000 RBC. }
+      - { value: one_wbc_per_1500_rbc, label: 1 per 1500, description: Subtract one WBC per 1500 RBC. }
+    required: false
+    default: none
+    conceptId: csf.input.traumatic_tap_method
+    examples: [none]
+    sourceRefs: [source_5]
+  appearance:
+    title: Appearance
+    description: Reported CSF appearance; visual xanthochromia is not equivalent to spectrophotometric bilirubin.
+    kind: enum
+    enumValues:
+      - { value: clear, label: Clear, description: Clear appearance. }
+      - { value: cloudy, label: Cloudy, description: Cloudy appearance. }
+      - { value: bloody, label: Bloody, description: Visibly bloody appearance. }
+      - { value: xanthochromic, label: Xanthochromic, description: Xanthochromia reported. }
+      - { value: unknown, label: Unknown, description: Appearance unknown. }
+    required: false
+    conceptId: csf.input.appearance
+    examples: [clear]
+    sourceRefs: [source_1, source_2]
+  opening_pressure_cm_h2o:
+    title: Opening Pressure
+    description: Opening pressure in cm H2O.
+    kind: number
+    plausible: [0, 60]
+    hardLimits: [0, 120]
+    required: false
+    conceptId: csf.input.opening_pressure_cm_h2o
+    examples: [25]
+    sourceRefs: [source_1]
+    sharedKey: opening_pressure_cm_h2o
+  csf_glucose_mmol_l:
+    title: CSF Glucose
+    description: CSF glucose in mmol/L.
+    kind: number
+    plausible: [0, 20]
+    hardLimits: [0, 50]
+    required: false
+    conceptId: csf.input.csf_glucose_mmol_l
+    examples: [2]
+    sourceRefs: [source_1]
+    sharedKey: csf_glucose_mmol_l
+  serum_glucose_mmol_l:
+    title: Paired Blood Glucose
+    description: Blood glucose measured immediately before lumbar puncture for the CSF-to-blood ratio.
+    kind: number
+    plausible: [0.1, 40]
+    hardLimits: [0.01, 100]
+    required: false
+    conceptId: csf.input.serum_glucose_mmol_l
+    examples: [5]
+    sourceRefs: [source_1]
+    sharedKey: serum_glucose_mmol_l
+  protein_mg_dl:
+    title: CSF Protein
+    description: Total CSF protein in mg/dL; reference limits are age and laboratory dependent.
+    kind: number
+    plausible: [0, 1000]
+    hardLimits: [0, 5000]
+    required: false
+    conceptId: csf.input.protein_mg_dl
+    examples: [80]
+    sourceRefs: [source_1, source_6]
+    sharedKey: protein_mg_dl
+  gram_stain_result: &assay_result
+    title: Gram Stain Result
+    description: Explicit laboratory state.
+    kind: enum
+    enumValues:
+      - { value: positive, label: Positive, description: Reported positive. }
+      - { value: negative, label: Negative, description: Reported negative. }
+      - { value: unknown, label: Unknown, description: Result indeterminate or unavailable. }
+      - { value: not_tested, label: Not tested, description: Assay not performed. }
+    required: false
+    default: not_tested
+    conceptId: csf.input.gram_stain_result
+    examples: [not_tested]
+    sourceRefs: [source_1, source_7]
+  bacterial_culture_result:
+    title: Bacterial Culture Result
+    description: Explicit laboratory state.
+    kind: enum
+    enumValues:
+      - { value: positive, label: Positive, description: Reported positive. }
+      - { value: negative, label: Negative, description: Reported negative. }
+      - { value: unknown, label: Unknown, description: Result indeterminate or unavailable. }
+      - { value: not_tested, label: Not tested, description: Assay not performed. }
+    required: false
+    default: not_tested
+    conceptId: csf.input.bacterial_culture_result
+    examples: [not_tested]
+    sourceRefs: [source_1, source_7]
+  pathogen_pcr_result:
+    title: Pathogen PCR Result
+    description: Explicit laboratory state.
+    kind: enum
+    enumValues:
+      - { value: positive, label: Positive, description: Reported positive. }
+      - { value: negative, label: Negative, description: Reported negative. }
+      - { value: unknown, label: Unknown, description: Result indeterminate or unavailable. }
+      - { value: not_tested, label: Not tested, description: Assay not performed. }
+    required: false
+    default: not_tested
+    conceptId: csf.input.pathogen_pcr_result
+    examples: [not_tested]
+    sourceRefs: [source_1, source_7]
+  pathogen_pcr_identity:
+    title: Pathogen PCR Identity
+    description: Exact positive/ordered PCR target family.
+    kind: enum
+    enumValues:
+      - { value: hsv1, label: HSV-1, description: HSV-1 PCR. }
+      - { value: hsv2, label: HSV-2, description: HSV-2 PCR. }
+      - { value: vzv, label: VZV, description: VZV PCR. }
+      - { value: enterovirus, label: Enterovirus, description: Enterovirus PCR. }
+      - { value: bacterial_panel, label: Bacterial panel, description: Validated bacterial molecular panel. }
+      - { value: other, label: Other, description: Other explicitly documented target. }
+      - { value: not_specified, label: Not specified, description: Positive/result state lacks target identity. }
+    required: false
+    conceptId: csf.input.pathogen_pcr_identity
+    examples: [hsv1]
+    sourceRefs: [source_1, source_7]
+  mycobacterial_result:
+    title: Mycobacterial Assay Result
+    description: Explicit laboratory state.
+    kind: enum
+    enumValues:
+      - { value: positive, label: Positive, description: Reported positive. }
+      - { value: negative, label: Negative, description: Reported negative. }
+      - { value: unknown, label: Unknown, description: Result indeterminate or unavailable. }
+      - { value: not_tested, label: Not tested, description: Assay not performed. }
+    required: false
+    default: not_tested
+    conceptId: csf.input.mycobacterial_result
+    examples: [not_tested]
+    sourceRefs: [source_1]
+  mycobacterial_assay:
+    title: Mycobacterial Assay
+    description: Identity of the mycobacterial assay.
+    kind: enum
+    enumValues:
+      - { value: smear, label: Smear, description: AFB smear. }
+      - { value: culture, label: Culture, description: Mycobacterial culture. }
+      - { value: pcr, label: PCR, description: Mycobacterial PCR. }
+      - { value: other, label: Other, description: Other specified assay. }
+      - { value: not_specified, label: Not specified, description: Assay identity unavailable. }
+    required: false
+    conceptId: csf.input.mycobacterial_assay
+    examples: [culture]
+    sourceRefs: [source_1]
+  fungal_result:
+    title: Fungal Assay Result
+    description: Explicit laboratory state.
+    kind: enum
+    enumValues:
+      - { value: positive, label: Positive, description: Reported positive. }
+      - { value: negative, label: Negative, description: Reported negative. }
+      - { value: unknown, label: Unknown, description: Result indeterminate or unavailable. }
+      - { value: not_tested, label: Not tested, description: Assay not performed. }
+    required: false
+    default: not_tested
+    conceptId: csf.input.fungal_result
+    examples: [not_tested]
+    sourceRefs: [source_1]
+  fungal_assay:
+    title: Fungal Assay
+    description: Identity of the fungal assay; nonspecific beta-D-glucan is kept distinct from organism-specific testing.
+    kind: enum
+    enumValues:
+      - { value: cryptococcal_antigen, label: Cryptococcal antigen, description: Cryptococcal antigen assay. }
+      - { value: india_ink, label: India ink, description: India ink microscopy. }
+      - { value: beta_d_glucan, label: Beta-D-glucan, description: Nonspecific beta-D-glucan assay. }
+      - { value: culture, label: Culture, description: Fungal culture. }
+      - { value: other, label: Other, description: Other specified assay. }
+      - { value: not_specified, label: Not specified, description: Assay identity unavailable. }
+    required: false
+    conceptId: csf.input.fungal_assay
+    examples: [cryptococcal_antigen]
+    sourceRefs: [source_1]
+  oligoclonal_band_status:
+    title: Oligoclonal Band Status
+    description: Paired CSF/serum OCB relationship, not a standalone multiple-sclerosis diagnosis.
+    kind: enum
+    enumValues:
+      - { value: csf_restricted, label: CSF restricted, description: CSF-restricted bands on paired testing. }
+      - { value: matched_serum_and_csf, label: Matched, description: Matching serum and CSF bands. }
+      - { value: absent, label: Absent, description: No OCB detected. }
+      - { value: unknown, label: Unknown, description: Result indeterminate. }
+      - { value: not_tested, label: Not tested, description: Paired OCB testing not performed. }
+    required: false
+    default: not_tested
+    conceptId: csf.input.oligoclonal_band_status
+    examples: [not_tested]
+    sourceRefs: [source_3]
+  neural_antibody_result:
+    title: Neural Antibody Result
+    description: Explicit laboratory state.
+    kind: enum
+    enumValues:
+      - { value: positive, label: Positive, description: Reported positive. }
+      - { value: negative, label: Negative, description: Reported negative. }
+      - { value: unknown, label: Unknown, description: Result indeterminate or unavailable. }
+      - { value: not_tested, label: Not tested, description: Assay not performed. }
+    required: false
+    default: not_tested
+    conceptId: csf.input.neural_antibody_result
+    examples: [not_tested]
+    sourceRefs: [source_4]
+  neural_antibody_identity:
+    title: Neural Antibody Identity
+    description: Exact reported neural antibody family.
+    kind: enum
+    enumValues:
+      - { value: nmda_receptor, label: NMDA receptor, description: NMDAR antibody. }
+      - { value: lgi1, label: LGI1, description: LGI1 antibody. }
+      - { value: caspr2, label: CASPR2, description: CASPR2 antibody. }
+      - { value: gaba_b, label: GABA-B, description: GABA-B receptor antibody. }
+      - { value: ampa, label: AMPA, description: AMPA receptor antibody. }
+      - { value: other, label: Other, description: Other explicitly identified antibody. }
+      - { value: not_specified, label: Not specified, description: Antibody identity unavailable. }
+    required: false
+    conceptId: csf.input.neural_antibody_identity
+    examples: [nmda_receptor]
+    sourceRefs: [source_4]
+  neural_antibody_specimen:
+    title: Neural Antibody Specimen
+    description: Specimen context for the neural-antibody result.
+    kind: enum
+    enumValues:
+      - { value: csf, label: CSF, description: CSF tested. }
+      - { value: serum, label: Serum, description: Serum tested. }
+      - { value: paired, label: Paired, description: Paired CSF and serum testing. }
+      - { value: not_specified, label: Not specified, description: Specimen unavailable. }
+    required: false
+    conceptId: csf.input.neural_antibody_specimen
+    examples: [paired]
+    sourceRefs: [source_4]
+  symptom_onset_days:
+    title: Days Since Symptom Onset
+    description: Approximate days from symptom onset to lumbar puncture.
+    kind: number
+    plausible: [0, 365]
+    hardLimits: [0, 36500]
+    required: false
+    conceptId: csf.input.symptom_onset_days
+    examples: [2]
+    sourceRefs: [source_1, source_4, source_6]
+  antimicrobial_pretreatment:
+    title: Antimicrobial Pretreatment
+    description: Whether antimicrobials preceded lumbar puncture.
+    kind: enum
+    enumValues:
+      - { value: yes, label: Yes, description: Antimicrobials preceded sampling. }
+      - { value: no, label: No, description: No antimicrobial pretreatment. }
+      - { value: unknown, label: Unknown, description: Pretreatment state unknown. }
+    required: true
+    conceptId: csf.input.antimicrobial_pretreatment
+    examples: [no]
+    sourceRefs: [source_1, source_7]
+  immune_status:
+    title: Immune Status
+    description: Broad immune-status context that changes pattern and assay interpretation.
+    kind: enum
+    enumValues:
+      - { value: immunocompetent, label: Immunocompetent, description: No known material immunocompromise. }
+      - { value: immunocompromised, label: Immunocompromised, description: Clinically material immunocompromise. }
+      - { value: unknown, label: Unknown, description: Immune status unknown. }
+    required: true
+    conceptId: csf.input.immune_status
+    examples: [immunocompetent]
+    sourceRefs: [source_1]
+  imaging_context:
+    title: Imaging Context
+    description: Imaging context relevant to haemorrhage and alternative diagnoses.
+    kind: enum
+    enumValues:
+      - { value: normal_or_no_explanation, label: No explanation, description: Imaging does not explain the suspected process. }
+      - { value: supports_sah, label: Supports SAH, description: Imaging supports subarachnoid haemorrhage. }
+      - { value: other_abnormality, label: Other abnormality, description: Other relevant abnormality. }
+      - { value: not_done, label: Not done, description: Imaging not performed. }
+      - { value: unknown, label: Unknown, description: Imaging context unknown. }
+    required: true
+    conceptId: csf.input.imaging_context
+    examples: [not_done]
+    sourceRefs: [source_2, source_4]
+  xanthochromia_method:
+    title: Xanthochromia Method
+    description: Method used to assess xanthochromia.
+    kind: enum
+    enumValues:
+      - { value: spectrophotometry, label: Spectrophotometry, description: Elevated bilirubin assessed by spectrophotometry. }
+      - { value: visual, label: Visual, description: Visual inspection only. }
+      - { value: not_tested, label: Not tested, description: Xanthochromia not assessed. }
+      - { value: unknown, label: Unknown, description: Method unknown. }
+    required: false
+    default: not_tested
+    conceptId: csf.input.xanthochromia_method
+    examples: [not_tested]
+    sourceRefs: [source_2]
+  xanthochromia_result:
+    title: Xanthochromia Result
+    description: Explicit reported result of the selected xanthochromia assessment; visual appearance is not substituted for a spectrophotometric bilirubin result.
+    kind: enum
+    enumValues:
+      - { value: positive, label: Positive, description: Assessment reported positive. }
+      - { value: negative, label: Negative, description: Assessment reported negative. }
+      - { value: unknown, label: Unknown, description: Result unavailable or indeterminate. }
+      - { value: not_tested, label: Not tested, description: Xanthochromia was not assessed. }
+    required: false
+    default: not_tested
+    conceptId: csf.input.xanthochromia_result
+    examples: [not_tested]
+    sourceRefs: [source_2]
+  hours_from_onset_to_lumbar_puncture:
+    title: Hours From Onset to LP
+    description: Timing used only for the NICE spectrophotometric xanthochromia context.
+    kind: number
+    plausible: [0, 336]
+    hardLimits: [0, 8760]
+    required: false
+    conceptId: csf.input.hours_from_onset_to_lumbar_puncture
+    examples: [12]
+    sourceRefs: [source_2]
+constraints:
+  - { kind: requiredWhen, field: traumatic_tap_method, when: ==one_wbc_per_500_rbc, required: [rbc_per_ul], message: An RBC count is required when a traumatic-tap correction is selected. }
+  - { kind: requiredWhen, field: traumatic_tap_method, when: ==one_wbc_per_1000_rbc, required: [rbc_per_ul], message: An RBC count is required when a traumatic-tap correction is selected. }
+  - { kind: requiredWhen, field: traumatic_tap_method, when: ==one_wbc_per_1500_rbc, required: [rbc_per_ul], message: An RBC count is required when a traumatic-tap correction is selected. }
+  - kind: requiredWhen
+    field: pathogen_pcr_result
+    when: ==positive
+    required: [pathogen_pcr_identity]
+    message: Identify the PCR target for a positive result.
+  - kind: requiredWhen
+    field: mycobacterial_result
+    when: ==positive
+    required: [mycobacterial_assay]
+    message: Identify the positive mycobacterial assay.
+  - kind: requiredWhen
+    field: fungal_result
+    when: ==positive
+    required: [fungal_assay]
+    message: Identify the positive fungal assay.
+  - kind: requiredWhen
+    field: neural_antibody_result
+    when: ==positive
+    required: [neural_antibody_identity, neural_antibody_specimen]
+    message: Identify the neural antibody and specimen for a positive result.
+outputs:
+  corrected_wbc:
+    title: Corrected WBC
+    description: Observed or explicitly selected heuristic-corrected WBC per microlitre.
+    kind: number
+    unit: cells/uL
+    availability: { kind: always }
+    evidenceRefs: [source_5]
+  wbc_correction_method:
+    title: WBC Correction Method
+    description: Exact correction method used.
+    kind: enum
+    allowedValues: [none, one_wbc_per_500_rbc, one_wbc_per_1000_rbc, one_wbc_per_1500_rbc]
+    availability: { kind: always }
+    evidenceRefs: [source_5]
+  csf_serum_glucose_ratio:
+    title: CSF-to-Serum Glucose Ratio
+    description: CSF glucose divided by paired blood glucose.
+    kind: number
+    availability: { kind: computeCondition, conditionId: glucose_ratio_available }
+    evidenceRefs: [source_1]
+  derived_values:
+    title: Derived Value Flags
+    description: Typed deterministic threshold and measurement flags.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_5]
+  confirmed_assays:
+    title: Confirmed Assay Reports
+    description: Positive assays echoed with their explicit identity; no disease certainty is added.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_3, source_4, source_7]
+  support_flags:
+    title: Pattern Support Flags
+    description: Pattern-compatible findings that remain nondiagnostic.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2, source_3, source_4, source_6]
+  differential_considerations:
+    title: Differential Considerations
+    description: Broad alternatives supported by the pattern and context, never a ranked diagnosis.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2, source_3, source_4, source_6]
+  xanthochromia_context:
+    title: Xanthochromia Context
+    description: Whether the reported method/timing supports the NICE spectrophotometric branch.
+    kind: enum
+    allowedValues: [supported_spectrophotometry_after_12h, negative_spectrophotometry_reported, result_or_method_or_timing_insufficient, not_assessed]
+    availability: { kind: always }
+    evidenceRefs: [source_2]
+  missing_context:
+    title: Missing Context
+    description: Missing measurements, assay identities, timing, or paired tests that limit interpretation.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2, source_3, source_4, source_6, source_7]
+  limitations:
+    title: Limitations
+    description: Age-, pretreatment-, immune-, assay-, and heuristic-specific limitations.
+    kind: string_list
+    availability: { kind: always }
+    evidenceRefs: [source_1, source_2, source_3, source_4, source_5, source_6, source_7]
+primaryOutputs: [support_flags, differential_considerations]
+prompt:
+  description: Ask the host LLM to summarize deterministic CSF findings without turning them into a diagnosis or treatment plan.
+  template: |
+    Summarize these deterministic CSF findings for a clinician. Do not name a most-likely diagnosis, assign confidence, recommend treatment, or convert a compatible pattern into confirmation.
+    Corrected WBC: {{corrected_wbc}} cells/uL using {{wbc_correction_method}}
+    Derived values: {{derived_values}}
+    Confirmed assay reports: {{confirmed_assays}}
+    Support flags: {{support_flags}}
+    Differential considerations: {{differential_considerations}}
+    Xanthochromia context: {{xanthochromia_context}}
+    Missing context: {{missing_context}}
+    Limitations: {{limitations}}
+    Return at most two concise paragraphs and preserve every stated uncertainty.

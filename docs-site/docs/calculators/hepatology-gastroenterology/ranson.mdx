@@ -1,0 +1,162 @@
+---
+title: "Ranson Criteria for Acute Pancreatitis"
+description: "Derive the selected Ranson variant from raw timestamped observations; expose the admission subtotal, every criterion state, and missing or not-due reasons without treating absent observations as negative."
+sidebar:
+  label: "Ranson Criteria for Acute Pancreatitis"
+search:
+  tags: ["ranson", "score"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>score</Badge> <Badge>Spec 1.2.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Historical prognostic criteria for adults with acute pancreatitis, using an explicit non-gallstone or gallstone threshold set and raw admission and 48-hour observations. |
+| Setting | Historical risk stratification after the required observation window; current assessment and management should follow current acute-pancreatitis guidance. |
+| Model | `ranson` · raw_observation_non_gallstone_and_gallstone_variants |
+| Model kind | score |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** Do not use an admission subtotal as a completed score, silently select a variant, or infer modern individual mortality, necrosis, disposition, or treatment from this historical model.
+
+- A completed score is unavailable before 48 hours or while an applicable observation is missing. Historical cohort mortality bands are not individualized predictions and do not determine necrosis, disposition, monitoring, or treatment.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `etiology_variant` | enum (2 options) | Yes | — | — | — | Select the non-gallstone or gallstone threshold set explicitly. |
+| `assessment_hours` | integer | Yes | — | — | 0–48 | Current assessment time. Follow-up criteria remain not due before 48 completed hours. |
+| `admission_observed_at_hours` | integer | Yes | — | — | 0–0 | Hours relative to admission for the admission observation set; admission observations must be timestamped at hour 0. |
+| `followup_observed_at_hours` | integer | No | — | — | 0–48 | Hours relative to admission for the follow-up observation set; completed criteria use hour 48 observations. |
+| `age_years` | integer | Yes | — | 18–100 | 18–130 | Age in completed years; scores when greater than 55 for non-gallstone or greater than 70 for gallstone pancreatitis. |
+| `wbc_admission` | quantity (cells/mm3 \| 10^9/L) | Yes | — | 1000–100000 | 0–1000000 | Raw WBC; scores when greater than 16,000 cells/mm3 (non-gallstone) or 18,000 cells/mm3 (gallstone). |
+| `glucose_admission` | quantity (mg/dL \| mmol/L) | Yes | — | 40–600 | 0–2000 | Raw glucose; scores when greater than 200 mg/dL (non-gallstone) or 220 mg/dL (gallstone). |
+| `ast_admission` | quantity (U/L \| ukat/L) | Yes | — | 0–2000 | 0–20000 | Raw AST; scores when greater than 250 U/L in either variant. |
+| `ldh_admission` | quantity (U/L \| ukat/L) | Yes | — | 0–3000 | 0–30000 | Raw LDH; scores when greater than 350 U/L (non-gallstone) or 400 U/L (gallstone). |
+| `hematocrit_admission` | quantity (percent \| L/L) | Yes | — | 15–65 | 0–100 | Baseline hematocrit used to derive the 48-hour percentage-point fall. |
+| `bun_admission` | quantity (mg/dL \| mmol/L) | Yes | — | 2–100 | 0–300 | Baseline blood urea nitrogen used to derive the 48-hour rise despite fluids. |
+| `hematocrit_followup` | quantity (percent \| L/L) | No | — | 10–65 | 0–100 | Raw follow-up hematocrit; scores when the fall from admission is greater than 10 percentage points. |
+| `bun_followup` | quantity (mg/dL \| mmol/L) | No | — | 2–150 | 0–300 | Raw follow-up BUN; scores when the rise from admission is greater than 5 mg/dL (non-gallstone) or 2 mg/dL (gallstone). |
+| `calcium_followup` | quantity (mg/dL \| mmol/L) | No | — | 4–15 | 0–30 | Raw calcium; scores when below 8 mg/dL. |
+| `pao2_followup` | quantity (mmHg \| kPa) | No | — | 20–600 | 0–800 | Non-gallstone only; raw arterial pO2 scores when below 60 mmHg. |
+| `base_deficit_followup` | quantity (mEq/L \| mmol/L) | No | — | 0–20 | 0–50 | Raw base deficit magnitude; scores when greater than 4 mEq/L (non-gallstone) or 5 mEq/L (gallstone). |
+| `fluid_sequestration_followup` | quantity (L \| mL) | No | — | 0–15 | 0–30 | Raw estimated fluid sequestration; scores when greater than 6 L (non-gallstone) or 4 L (gallstone). |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+<Expandable title="Etiology Variant options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `non_gallstone` | non-gallstone | Original non-gallstone Ranson threshold set. | — |
+| `gallstone` | gallstone | Modified gallstone threshold set. | — |
+
+</Expandable>
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `admission_subtotal` | integer | Always | Yes | Count of admission criteria met from the raw admission observations. |
+| `admission_complete` | boolean | Always | No | True when all five required admission observations were provided and derived. |
+| `score` | integer | Compute condition: completed_48_hour_score | Yes | Variant-specific total, available only at 48 hours when every applicable raw observation is present. |
+| `historical_mortality_band` | enum | Compute condition: completed_48_hour_score | No | Historical cohort category linked to the completed score; not an individualized prediction under current care. |
+| `assessment_complete` | boolean | Always | No | True only when the selected variant has a completed 48-hour total. |
+| `missing_component_reasons` | string_list | Always | No | Exact reasons a completed score is unavailable; empty when complete. |
+| `criterion_provenance` | criterion_list | Always | No | Per-criterion met, not-met, unknown, not-due, or not-applicable state with points, source input fields, and threshold rationale. |
+
+## Interpretation bands
+
+| Output | Code | Condition | Label | Kind | Severity |
+| --- | --- | --- | --- | --- | --- |
+| score | `ranson_historical_7_plus` | `&gt;=7` | Historical cohort mortality category approximately 100%; not an individual prediction. | risk | critical |
+| score | `ranson_historical_5_6` | `&gt;=5` | Historical cohort mortality category approximately 40%; not an individual prediction. | risk | abnormal |
+| score | `ranson_historical_3_4` | `&gt;=3` | Historical cohort mortality category approximately 15%; not an individual prediction. | risk | borderline |
+| score | `ranson_historical_0_2` | `&lt;3` | Historical cohort mortality category approximately 1%; not an individual prediction. | risk | normal |
+
+## Warnings, constraints, and adjustments
+
+- **Constraint (requireValueWhen):** The 48-hour assessment requires follow-up observations timestamped at hour 48.
+- **Constraint (forbidPresentWhen):** Follow-up observations are not due before 48 completed hours.
+- **Constraint (forbidPresentWhen):** Forty-eight-hour observations must be omitted before they are due.
+- **Constraint (forbidPresentWhen):** Arterial pO2 is not a criterion in the gallstone variant and must be omitted.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "ranson",
+  "inputs": {
+    "etiology_variant": "non_gallstone",
+    "assessment_hours": 48,
+    "admission_observed_at_hours": 0,
+    "followup_observed_at_hours": 48,
+    "age_years": 55,
+    "wbc_admission": 16000,
+    "glucose_admission": 200,
+    "ast_admission": 250,
+    "ldh_admission": 350,
+    "hematocrit_admission": 45,
+    "bun_admission": 15,
+    "hematocrit_followup": 35,
+    "bun_followup": 20,
+    "calcium_followup": 8,
+    "pao2_followup": 60,
+    "base_deficit_followup": 4,
+    "fluid_sequestration_followup": 6
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `ranson`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 78/78 | 77/77 | 74/74 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://ranson/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Ranson JH, Rifkind KM, Roses DF, et al. Prognostic signs and the role of operative management in acute pancreatitis. Surg Gynecol Obstet. 1974;139(1):69-81.](https://pubmed.ncbi.nlm.nih.gov/4834279/)<br />PMID:4834279, criteria table and reported historical mortality strata |
+| `source_2` | guideline | [Hirota M, Takada T, Kawarada Y, et al. JPN Guidelines for the management of acute pancreatitis - severity assessment of acute pancreatitis. J Hepatobiliary Pancreat Surg. 2006;13(1):33-41.](https://pmc.ncbi.nlm.nih.gov/articles/PMC2779364/)<br />Table 2, Ranson and modified gallstone thresholds |
+| `source_3` | guideline | [Tenner S, Vege SS, Sheth SG, et al. American College of Gastroenterology Guidelines - Management of Acute Pancreatitis. Am J Gastroenterol. 2024;119:419-437.](https://pubmed.ncbi.nlm.nih.gov/38857482/)<br />PMID:38857482, current severity-assessment and management recommendations |
+| `source_4` | guideline | [Banks PA, Bollen TL, Dervenis C, et al. Classification of acute pancreatitis - 2012 revision of the Atlanta classification. Gut. 2013;62:102-111.](https://gut.bmj.com/content/62/1/102)<br />Definitions of organ failure, local complications, and severity |
+
+<Panel title="Repository source">
+  Calculator ID `ranson`; spec version `1.2.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

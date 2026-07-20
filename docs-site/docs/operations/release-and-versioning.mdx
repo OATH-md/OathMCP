@@ -1,0 +1,17 @@
+---
+title: Release and versioning
+description: Track package, calculator, model, evidence, and policy snapshot versions explicitly.
+---
+
+There are several versions in play:
+
+- the OathMCP package version;
+- each calculator spec version;
+- the named clinical model and model version;
+- policy or lookup data snapshots where applicable;
+- source review and review-after dates; and
+- the release-currentness attestation.
+
+Consumers should retain enough metadata to reproduce a result and identify
+which model was used. Before upgrading, compare the affected calculator
+contracts and clinical model metadata, not only the npm semantic version.

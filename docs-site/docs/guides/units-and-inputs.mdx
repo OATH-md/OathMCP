@@ -1,0 +1,36 @@
+---
+title: Units and inputs
+description: Submit explicit, typed values and use OathMCP's per-value unit contract correctly.
+---
+
+OathMCP specs use five input kinds: `number`, `integer`, `boolean`, `enum`, and
+`quantity`. A quantity carries a value and a supported unit so the engine can
+normalize it to the calculator's canonical unit.
+
+```json title="Quantity input example"
+{
+  "creatinine": {
+    "value": 88.4,
+    "unit": "umol/L"
+  }
+}
+```
+
+Each calculator page lists accepted units. Use the field name and unit exactly
+as documented. Compatibility aliases may work with a warning, but canonical
+names are the stable integration contract.
+
+## Limits
+
+- **Hard limits** are conservative operational safety envelopes. Values outside
+  them are rejected; they are not clinical decision thresholds.
+- **Plausible ranges** identify unusual values. Values outside them but inside
+  hard limits may calculate with a warning.
+- **Defaults** are applied only where the live spec explicitly declares them.
+  Never assume that an omitted value means normal, negative, zero, or unknown.
+
+## Unit responsibility
+
+The engine performs declared conversions, but the caller remains responsible
+for matching each numeric value to the correct analyte, specimen, unit, timing,
+and measurement context.

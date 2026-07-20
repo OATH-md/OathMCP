@@ -1,0 +1,25 @@
+draft:
+  draftVersion: "1.0"
+  archetype: interpreter
+  todos: [TODO replace every placeholder with deterministic, reviewed branches]
+id: __CALCULATOR_ID__
+version: 0.1.0
+name: TODO interpreter name
+clinicalModel:
+  modelKind: decision_tree
+  modelId: __CALCULATOR_ID__
+  modelVersion: TODO exact model version
+  evidenceRefs: [TODO_source_id]
+applicability:
+  population: TODO population
+  setting: TODO setting
+  exclusions: [TODO exclusions]
+  evidenceRefs: [TODO_source_id]
+purposeForAgents: TODO explain the deterministic interpretation boundary
+evidence: []
+inputs: {}
+outputs: {}
+primaryOutputs: [TODO_output]
+prompt:
+  description: TODO constrain the host interpretation
+  template: TODO render only declared inputs and outputs

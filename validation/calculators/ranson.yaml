@@ -1,0 +1,5473 @@
+calculatorId: ranson
+specVersion: 1.2.0
+clinicalModel: Ranson historical acute-pancreatitis criteria derived from raw observations
+variant: explicit_non_gallstone_or_gallstone_raw_observations
+population: Adults with acute pancreatitis in the historical model populations,
+  with an explicitly selected etiologic threshold set.
+setting: Historical prognostic scoring alongside current acute-pancreatitis
+  severity assessment and management guidance.
+assessmentTiming: Admission observations at hour 0 and a completed assessment
+  only at 48 hours; earlier follow-up criteria are not due.
+endpoint: Historical completed score and cohort mortality band after all
+  applicable 48-hour observations are available.
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:ranson:2026-07-16
+    calculatorId: ranson
+    model: Ranson historical acute-pancreatitis criteria derived from raw observations
+    variant: explicit_non_gallstone_or_gallstone_raw_observations
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:ranson:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web search
+        exactQuery: Ranson score[Title/Abstract] AND acute pancreatitis[Title/Abstract]
+          AND (validation[Title/Abstract] OR meta-analysis[Publication Type])
+        translationExposed: true
+        translatedQuery: Ranson score[Title/Abstract] AND acute
+          pancreatitis[Title/Abstract] AND (validation[Title/Abstract] OR
+          meta-analysis[Publication Type])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:4834279
+      - id: search:ranson:ranson_ranson_1974
+        sourceRole: derivation
+        authorityId: ranson_ranson_1974
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for ranson
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:4834279
+      - id: search:ranson:ranson_jpn_2006
+        sourceRole: specialty_guidance
+        authorityId: ranson_jpn_2006
+        database: Primary or responsible-authority source
+        site: pmc.ncbi.nlm.nih.gov
+        interface: direct full-text review
+        exactQuery: Hirota Takada JPN guideline Table 2 Ranson modified gallstone
+          thresholds 48 hours
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:16463209
+      - id: search:ranson:ranson_meta_2023
+        sourceRole: external_validation
+        authorityId: ranson_meta_2023
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for ranson
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:37755341
+      - id: search:ranson:ranson_acg_2024
+        sourceRole: controlling_authority
+        authorityId: ranson_acg_2024
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for ranson
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:38857482
+      - id: search:ranson:ranson_atlanta_2012
+        sourceRole: specialty_guidance
+        authorityId: ranson_atlanta_2012
+        database: Primary or responsible-authority source
+        site: gut.bmj.com
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for ranson
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - doi:10.1136/gutjnl-2012-302779
+    accounting:
+      retrieved: 6
+      deduplicated: 5
+      screened: 5
+      fullTextAssessed: 5
+      excluded: 0
+      included: 5
+    deduplication:
+      method: PMID, DOI, and responsible-authority URL identity with manual title
+        reconciliation
+      tool: PubMed plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: ranson_ranson_1974
+        title: Original non-gallstone Ranson criteria
+        disposition: included
+        fullTextAssessed: true
+      - citationId: ranson_jpn_2006
+        title: JPN guideline comparison of original and modified Ranson criteria
+        disposition: included
+        fullTextAssessed: true
+      - citationId: ranson_meta_2023
+        title: Independent Ranson severe-pancreatitis meta-analysis
+        disposition: included
+        fullTextAssessed: true
+      - citationId: ranson_acg_2024
+        title: 2024 ACG acute-pancreatitis guideline
+        disposition: included
+        fullTextAssessed: true
+      - citationId: ranson_atlanta_2012
+        title: Revised Atlanta acute-pancreatitis classification
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:ranson:pubmed
+      checklist:
+        - Concept coverage
+        - Controlled vocabulary and text words
+        - Boolean logic
+        - Limits and reproducibility
+        - Variant and endpoint specificity
+      comments:
+        - Strategy checked independently against the retained derivation,
+          external validation, current authority, and specialty-guidance
+          sources.
+      resolution: All checklist comments resolved; exact query, source identities,
+        accounting, and citation chasing recorded.
+      resolved: true
+      reviewer: OathMCP independent search QA lane
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - ranson_ranson_1974
+  - ranson_jpn_2006
+  - ranson_meta_2023
+  - ranson_acg_2024
+  - ranson_atlanta_2012
+claims:
+  - id: d002.ranson_direct_inputs
+    scope: compatibility
+    kind: input
+    statement: The direct Ranson tool must derive criteria from raw observations instead of trusting caller classification.
+    covers:
+      - compatibility:calculatorContracts:ranson.directTool.inputs
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced threshold, timing, and variant requirements.
+    compatibilityDecision:
+      oldBehavior: The direct tool accepted caller-classified criterion states plus phase and elapsed hours.
+      replacement: The direct tool accepts raw timestamped observations for engine-owned threshold derivation.
+      rationale: The direct Ranson tool must derive criteria from raw observations instead of trusting caller classification.
+    reviewedAt: 2026-07-17
+    reviewBy: 2027-07-16
+  - id: d002.ranson_compact_inputs
+    scope: compatibility
+    kind: input
+    statement: Compact Ranson dispatch must derive criteria from raw observations instead of trusting caller classification.
+    covers: [compatibility:calculatorContracts:ranson.compactDispatcher.inputs]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced safety requirement.
+    compatibilityDecision:
+      oldBehavior: Compact dispatch accepted caller-classified criterion states plus phase and elapsed hours.
+      replacement: Compact dispatch accepts raw timestamped observations for engine-owned threshold derivation.
+      rationale: Compact Ranson dispatch must derive criteria from raw observations instead of trusting caller classification.
+    reviewedAt: 2026-07-17
+    reviewBy: 2027-07-16
+  - id: d002.ranson_direct_constraints
+    scope: compatibility
+    kind: input
+    statement: Direct Ranson constraints must enforce exact timing and gallstone/non-gallstone observation rules.
+    covers: [compatibility:calculatorContracts:ranson.directTool.conditionalRequirements]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced safety requirement.
+    compatibilityDecision:
+      oldBehavior: The direct tool constrained caller-classified phase and criterion-state combinations.
+      replacement: The direct tool enforces exact admission/follow-up timestamps and variant-specific observation presence.
+      rationale: Direct Ranson constraints must enforce exact timing and gallstone/non-gallstone observation rules.
+    reviewedAt: 2026-07-17
+    reviewBy: 2027-07-16
+  - id: d002.ranson_compact_constraints
+    scope: compatibility
+    kind: input
+    statement: Compact Ranson constraints must enforce exact timing and gallstone/non-gallstone observation rules.
+    covers: [compatibility:calculatorContracts:ranson.compactDispatcher.conditionalRequirements]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced safety requirement.
+    compatibilityDecision:
+      oldBehavior: Compact dispatch constrained caller-classified phase and criterion-state combinations.
+      replacement: Compact dispatch enforces exact admission/follow-up timestamps and variant-specific observation presence.
+      rationale: Compact Ranson constraints must enforce exact timing and gallstone/non-gallstone observation rules.
+    reviewedAt: 2026-07-17
+    reviewBy: 2027-07-16
+  - id: d002.ranson_direct_criterion_provenance
+    scope: compatibility
+    kind: formula
+    statement: The direct result must expose source-supported per-criterion provenance.
+    covers: [compatibility:calculatorContracts:ranson.directTool.outputs.criterion_provenance]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced output requirement.
+    compatibilityDecision:
+      oldBehavior: The output was absent from the direct tool.
+      replacement: The direct tool adds the always-available criterion_provenance criterion list.
+      rationale: The direct result must expose source-supported per-criterion provenance.
+    reviewedAt: 2026-07-17
+    reviewBy: 2027-07-16
+  - id: d002.ranson_compact_criterion_provenance
+    scope: compatibility
+    kind: formula
+    statement: The compact result must expose source-supported per-criterion provenance.
+    covers: [compatibility:calculatorContracts:ranson.compactDispatcher.outputs.criterion_provenance]
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: This is the reviewed public-surface decision; the separately linked clinical claim owns the sourced output requirement.
+    compatibilityDecision:
+      oldBehavior: The output was absent from compact dispatch.
+      replacement: Compact dispatch adds the always-available criterion_provenance criterion list.
+      rationale: The compact result must expose source-supported per-criterion provenance.
+    reviewedAt: 2026-07-17
+    reviewBy: 2027-07-16
+  - id: claim:ranson:calculator-model
+    kind: applicability
+    statement: ranson is the exact model and variant named by this dossier; adjacent
+      scores and variants are out of scope.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - ranson_acg_2024
+      - ranson_atlanta_2012
+    locators:
+      - sourceId: ranson_acg_2024
+        locator: "Recommendations 4-5 and severity-assessment text: current early risk
+          assessment, organ-failure monitoring, and limits of historical scoring
+          for management."
+      - sourceId: ranson_atlanta_2012
+        locator: "Table 2 and consensus definitions: mild, moderately severe, and severe
+          acute pancreatitis, including persistent organ failure beyond 48
+          hours."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is a source-governed scope assertion
+      rather than a numerical runtime output.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:formula-implementation
+    kind: formula
+    statement: The declared ranson inputs are combined exactly according to the
+      cited score definition.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+      - case:ranson:reference-gallstone-equality
+      - case:ranson:reference-non-gallstone-seven
+      - case:ranson:reference-gallstone-all-met
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:applicability-purpose
+    kind: applicability
+    statement: The calculator purpose is limited to the cited population, setting,
+      timing, and endpoint.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - ranson_acg_2024
+      - ranson_atlanta_2012
+    locators:
+      - sourceId: ranson_acg_2024
+        locator: "Recommendations 4-5 and severity-assessment text: current early risk
+          assessment, organ-failure monitoring, and limits of historical scoring
+          for management."
+      - sourceId: ranson_atlanta_2012
+        locator: "Table 2 and consensus definitions: mild, moderately severe, and severe
+          acute pancreatitis, including persistent organ failure beyond 48
+          hours."
+    executable: true
+    scenarioIds:
+      - case:ranson:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:applicability-exclusions
+    kind: applicability
+    statement: The calculator exclusions and non-directive limitations must remain
+      visible to agents.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - ranson_acg_2024
+      - ranson_atlanta_2012
+    locators:
+      - sourceId: ranson_acg_2024
+        locator: "Recommendations 4-5 and severity-assessment text: current early risk
+          assessment, organ-failure monitoring, and limits of historical scoring
+          for management."
+      - sourceId: ranson_atlanta_2012
+        locator: "Table 2 and consensus definitions: mild, moderately severe, and severe
+          acute pancreatitis, including persistent organ failure beyond 48
+          hours."
+    executable: true
+    scenarioIds:
+      - case:ranson:agent-exclusion-missing-context
+      - case:ranson:retired-preclassified-input
+      - case:ranson:duplicate-observation-field
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-etiology-variant
+    kind: input
+    statement: The runtime surface input:etiology_variant matches the cited ranson
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:etiology_variant
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+      - case:ranson:missing-etiology_variant
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-etiology-variant-options
+    kind: input
+    statement: The runtime surface input:etiology_variant:options matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:etiology_variant:options
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+      - case:ranson:option-etiology_variant-non_gallstone
+      - case:ranson:option-etiology_variant-gallstone
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-assessment-hours
+    kind: input
+    statement: The runtime surface input:assessment_hours matches the cited ranson
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:assessment_hours
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-assessment-hours-hard-limits
+    kind: input
+    statement: The runtime surface input:assessment_hours:hard_limits matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:assessment_hours:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-assessment_hours
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-admission-observed-at-hours
+    kind: input
+    statement: The runtime surface input:admission_observed_at_hours matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:admission_observed_at_hours
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-admission-observed-at-hours-hard-limits
+    kind: input
+    statement: The runtime surface input:admission_observed_at_hours:hard_limits
+      matches the cited ranson model definition, threshold semantics, units,
+      availability, or interpretation.
+    covers:
+      - input:admission_observed_at_hours:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-admission_observed_at_hours
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-followup-observed-at-hours
+    kind: input
+    statement: The runtime surface input:followup_observed_at_hours matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:followup_observed_at_hours
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-followup-observed-at-hours-hard-limits
+    kind: input
+    statement: The runtime surface input:followup_observed_at_hours:hard_limits
+      matches the cited ranson model definition, threshold semantics, units,
+      availability, or interpretation.
+    covers:
+      - input:followup_observed_at_hours:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-followup_observed_at_hours
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-age-years
+    kind: input
+    statement: The runtime surface input:age_years matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - input:age_years
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-age-years-hard-limits
+    kind: input
+    statement: The runtime surface input:age_years:hard_limits matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:age_years:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-age_years
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-age-years-plausibility
+    kind: input
+    statement: The runtime surface input:age_years:plausibility matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:age_years:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-age_years
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-wbc-admission
+    kind: input
+    statement: The runtime surface input:wbc_admission matches the cited ranson
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:wbc_admission
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-wbc-admission-hard-limits
+    kind: input
+    statement: The runtime surface input:wbc_admission:hard_limits matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:wbc_admission:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-wbc_admission
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-wbc-admission-plausibility
+    kind: input
+    statement: The runtime surface input:wbc_admission:plausibility matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:wbc_admission:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-wbc_admission
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:unit-wbc-admission
+    kind: unit
+    statement: The runtime surface unit:wbc_admission matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - unit:wbc_admission
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:unit-wbc_admission-cells-mm3
+      - case:ranson:unit-wbc_admission-10-9-l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-glucose-admission
+    kind: input
+    statement: The runtime surface input:glucose_admission matches the cited ranson
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:glucose_admission
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-glucose-admission-hard-limits
+    kind: input
+    statement: The runtime surface input:glucose_admission:hard_limits matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:glucose_admission:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-glucose_admission
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-glucose-admission-plausibility
+    kind: input
+    statement: The runtime surface input:glucose_admission:plausibility matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:glucose_admission:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-glucose_admission
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:unit-glucose-admission
+    kind: unit
+    statement: The runtime surface unit:glucose_admission matches the cited ranson
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - unit:glucose_admission
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:unit-glucose_admission-mg-dl
+      - case:ranson:unit-glucose_admission-mmol-l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-ast-admission
+    kind: input
+    statement: The runtime surface input:ast_admission matches the cited ranson
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:ast_admission
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-ast-admission-hard-limits
+    kind: input
+    statement: The runtime surface input:ast_admission:hard_limits matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:ast_admission:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-ast_admission
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-ast-admission-plausibility
+    kind: input
+    statement: The runtime surface input:ast_admission:plausibility matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:ast_admission:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-ast_admission
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:unit-ast-admission
+    kind: unit
+    statement: The runtime surface unit:ast_admission matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - unit:ast_admission
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:unit-ast_admission-u-l
+      - case:ranson:unit-ast_admission-ukat-l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-ldh-admission
+    kind: input
+    statement: The runtime surface input:ldh_admission matches the cited ranson
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:ldh_admission
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-ldh-admission-hard-limits
+    kind: input
+    statement: The runtime surface input:ldh_admission:hard_limits matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:ldh_admission:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-ldh_admission
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-ldh-admission-plausibility
+    kind: input
+    statement: The runtime surface input:ldh_admission:plausibility matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:ldh_admission:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-ldh_admission
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:unit-ldh-admission
+    kind: unit
+    statement: The runtime surface unit:ldh_admission matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - unit:ldh_admission
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:unit-ldh_admission-u-l
+      - case:ranson:unit-ldh_admission-ukat-l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-hematocrit-admission
+    kind: input
+    statement: The runtime surface input:hematocrit_admission matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:hematocrit_admission
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-hematocrit-admission-hard-limits
+    kind: input
+    statement: The runtime surface input:hematocrit_admission:hard_limits matches
+      the cited ranson model definition, threshold semantics, units,
+      availability, or interpretation.
+    covers:
+      - input:hematocrit_admission:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-hematocrit_admission
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-hematocrit-admission-plausibility
+    kind: input
+    statement: The runtime surface input:hematocrit_admission:plausibility matches
+      the cited ranson model definition, threshold semantics, units,
+      availability, or interpretation.
+    covers:
+      - input:hematocrit_admission:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-hematocrit_admission
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:unit-hematocrit-admission
+    kind: unit
+    statement: The runtime surface unit:hematocrit_admission matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - unit:hematocrit_admission
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:unit-hematocrit_admission-percent
+      - case:ranson:unit-hematocrit_admission-l-l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-bun-admission
+    kind: input
+    statement: The runtime surface input:bun_admission matches the cited ranson
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:bun_admission
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-bun-admission-hard-limits
+    kind: input
+    statement: The runtime surface input:bun_admission:hard_limits matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:bun_admission:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-bun_admission
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-bun-admission-plausibility
+    kind: input
+    statement: The runtime surface input:bun_admission:plausibility matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:bun_admission:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-bun_admission
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:unit-bun-admission
+    kind: unit
+    statement: The runtime surface unit:bun_admission matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - unit:bun_admission
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:unit-bun_admission-mg-dl
+      - case:ranson:unit-bun_admission-mmol-l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-hematocrit-followup
+    kind: input
+    statement: The runtime surface input:hematocrit_followup matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:hematocrit_followup
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-hematocrit-followup-hard-limits
+    kind: input
+    statement: The runtime surface input:hematocrit_followup:hard_limits matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:hematocrit_followup:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-hematocrit_followup
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-hematocrit-followup-plausibility
+    kind: input
+    statement: The runtime surface input:hematocrit_followup:plausibility matches
+      the cited ranson model definition, threshold semantics, units,
+      availability, or interpretation.
+    covers:
+      - input:hematocrit_followup:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-hematocrit_followup
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:unit-hematocrit-followup
+    kind: unit
+    statement: The runtime surface unit:hematocrit_followup matches the cited ranson
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - unit:hematocrit_followup
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:unit-hematocrit_followup-percent
+      - case:ranson:unit-hematocrit_followup-l-l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-bun-followup
+    kind: input
+    statement: The runtime surface input:bun_followup matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - input:bun_followup
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-bun-followup-hard-limits
+    kind: input
+    statement: The runtime surface input:bun_followup:hard_limits matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:bun_followup:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-bun_followup
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-bun-followup-plausibility
+    kind: input
+    statement: The runtime surface input:bun_followup:plausibility matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:bun_followup:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-bun_followup
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:unit-bun-followup
+    kind: unit
+    statement: The runtime surface unit:bun_followup matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - unit:bun_followup
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:unit-bun_followup-mg-dl
+      - case:ranson:unit-bun_followup-mmol-l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-calcium-followup
+    kind: input
+    statement: The runtime surface input:calcium_followup matches the cited ranson
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:calcium_followup
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+      - case:ranson:48-hours-unknown-observation
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-calcium-followup-hard-limits
+    kind: input
+    statement: The runtime surface input:calcium_followup:hard_limits matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:calcium_followup:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-calcium_followup
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-calcium-followup-plausibility
+    kind: input
+    statement: The runtime surface input:calcium_followup:plausibility matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:calcium_followup:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-calcium_followup
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:unit-calcium-followup
+    kind: unit
+    statement: The runtime surface unit:calcium_followup matches the cited ranson
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - unit:calcium_followup
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:unit-calcium_followup-mg-dl
+      - case:ranson:unit-calcium_followup-mmol-l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-pao2-followup
+    kind: input
+    statement: The runtime surface input:pao2_followup matches the cited ranson
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:pao2_followup
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-pao2-followup-hard-limits
+    kind: input
+    statement: The runtime surface input:pao2_followup:hard_limits matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:pao2_followup:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-pao2_followup
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-pao2-followup-plausibility
+    kind: input
+    statement: The runtime surface input:pao2_followup:plausibility matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:pao2_followup:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-pao2_followup
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:unit-pao2-followup
+    kind: unit
+    statement: The runtime surface unit:pao2_followup matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - unit:pao2_followup
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:unit-pao2_followup-mmhg
+      - case:ranson:unit-pao2_followup-kpa
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-base-deficit-followup
+    kind: input
+    statement: The runtime surface input:base_deficit_followup matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:base_deficit_followup
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-base-deficit-followup-hard-limits
+    kind: input
+    statement: The runtime surface input:base_deficit_followup:hard_limits matches
+      the cited ranson model definition, threshold semantics, units,
+      availability, or interpretation.
+    covers:
+      - input:base_deficit_followup:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-base_deficit_followup
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-base-deficit-followup-plausibility
+    kind: input
+    statement: The runtime surface input:base_deficit_followup:plausibility matches
+      the cited ranson model definition, threshold semantics, units,
+      availability, or interpretation.
+    covers:
+      - input:base_deficit_followup:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-base_deficit_followup
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:unit-base-deficit-followup
+    kind: unit
+    statement: The runtime surface unit:base_deficit_followup matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - unit:base_deficit_followup
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:unit-base_deficit_followup-meq-l
+      - case:ranson:unit-base_deficit_followup-mmol-l
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-fluid-sequestration-followup
+    kind: input
+    statement: The runtime surface input:fluid_sequestration_followup matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - input:fluid_sequestration_followup
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-fluid-sequestration-followup-hard-limits
+    kind: input
+    statement: The runtime surface input:fluid_sequestration_followup:hard_limits
+      matches the cited ranson model definition, threshold semantics, units,
+      availability, or interpretation.
+    covers:
+      - input:fluid_sequestration_followup:hard_limits
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:hard-limit-fluid_sequestration_followup
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:input-fluid-sequestration-followup-plausibility
+    kind: input
+    statement: The runtime surface input:fluid_sequestration_followup:plausibility
+      matches the cited ranson model definition, threshold semantics, units,
+      availability, or interpretation.
+    covers:
+      - input:fluid_sequestration_followup:plausibility
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:plausibility-fluid_sequestration_followup
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:unit-fluid-sequestration-followup
+    kind: unit
+    statement: The runtime surface unit:fluid_sequestration_followup matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - unit:fluid_sequestration_followup
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:unit-fluid_sequestration_followup-l
+      - case:ranson:unit-fluid_sequestration_followup-ml
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:output-admission-subtotal
+    kind: outcome
+    statement: The runtime surface output:admission_subtotal matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - output:admission_subtotal
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:output-admission-complete
+    kind: outcome
+    statement: The runtime surface output:admission_complete matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - output:admission_complete
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:output-score
+    kind: outcome
+    statement: The runtime surface output:score matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - output:score
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+      - case:ranson:47-hours-not-due
+      - case:ranson:reference-gallstone-all-met
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:output-historical-mortality-band
+    kind: outcome
+    statement: The runtime surface output:historical_mortality_band matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - output:historical_mortality_band
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+      - case:ranson:47-hours-not-due
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:output-assessment-complete
+    kind: outcome
+    statement: The runtime surface output:assessment_complete matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - output:assessment_complete
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+      - case:ranson:48-hours-unknown-observation
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:output-missing-component-reasons
+    kind: outcome
+    statement: The runtime surface output:missing_component_reasons matches the
+      cited ranson model definition, threshold semantics, units, availability,
+      or interpretation.
+    covers:
+      - output:missing_component_reasons
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:reference-non-gallstone-equality
+      - case:ranson:48-hours-unknown-observation
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:output-criterion-provenance
+    kind: outcome
+    statement: The runtime surface output:criterion_provenance matches the cited
+      ranson model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - output:criterion_provenance
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:47-hours-not-due
+      - case:ranson:reference-gallstone-all-met
+      - case:ranson:48-hours-unknown-observation
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:constraint-0
+    kind: input
+    statement: The runtime surface constraint:0 matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - constraint:0
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:constraint-followup-timestamp-required
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:constraint-1
+    kind: input
+    statement: The runtime surface constraint:1 matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - constraint:1
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:constraint-followup-timestamp-not-due
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:constraint-2
+    kind: input
+    statement: The runtime surface constraint:2 matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - constraint:2
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:constraint-followup-values-not-due
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:constraint-3
+    kind: input
+    statement: The runtime surface constraint:3 matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - constraint:3
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:constraint-pao2-gallstone
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:band-score-0
+    kind: band
+    statement: The runtime surface band:score:0 matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - band:score:0
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:band-ranson_historical_7_plus
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:band-score-1
+    kind: band
+    statement: The runtime surface band:score:1 matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - band:score:1
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:band-ranson_historical_5_6
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:band-score-2
+    kind: band
+    statement: The runtime surface band:score:2 matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - band:score:2
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:band-ranson_historical_3_4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ranson:band-score-3
+    kind: band
+    statement: The runtime surface band:score:3 matches the cited ranson model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - band:score:3
+    status: supported
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    locators:
+      - sourceId: ranson_ranson_1974
+        locator: "Criteria table on pp 70-71 and mortality table on p 74: five admission
+          and six 48-hour non-gallstone signs, strict thresholds, and historical
+          mortality strata."
+      - sourceId: ranson_meta_2023
+        locator: "Methods and pooled Results: external evaluation of Ranson performance,
+          heterogeneity, and the limitation that the score requires 48 hours."
+      - sourceId: ranson_jpn_2006
+        locator: "Historical progress and Table 2: the 1974 eleven-sign score, the 1982
+          etiology-specific revision, modified gallstone thresholds, and the
+          48-hour completion requirement."
+    executable: true
+    scenarioIds:
+      - case:ranson:band-ranson_historical_0_2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:ranson:reference-non-gallstone-equality
+    kind: reference
+    tags:
+      - calculator:ranson:core
+      - source-derived-reference
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      admission_subtotal: 0
+      admission_complete: true
+      score: 0
+      historical_mortality_band: ~1%
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Integer scores, cohort lookup values, categorical outputs, warnings,
+        omissions, and interpretation codes are asserted exactly from the cited
+        model definition.
+    claimIds:
+      - claim:ranson:formula-implementation
+      - claim:ranson:input-etiology-variant
+      - claim:ranson:input-etiology-variant-options
+      - claim:ranson:input-assessment-hours
+      - claim:ranson:input-admission-observed-at-hours
+      - claim:ranson:input-followup-observed-at-hours
+      - claim:ranson:input-age-years
+      - claim:ranson:input-wbc-admission
+      - claim:ranson:input-glucose-admission
+      - claim:ranson:input-ast-admission
+      - claim:ranson:input-ldh-admission
+      - claim:ranson:input-hematocrit-admission
+      - claim:ranson:input-bun-admission
+      - claim:ranson:input-hematocrit-followup
+      - claim:ranson:input-bun-followup
+      - claim:ranson:input-calcium-followup
+      - claim:ranson:input-pao2-followup
+      - claim:ranson:input-base-deficit-followup
+      - claim:ranson:input-fluid-sequestration-followup
+      - claim:ranson:output-admission-subtotal
+      - claim:ranson:output-admission-complete
+      - claim:ranson:output-score
+      - claim:ranson:output-historical-mortality-band
+      - claim:ranson:output-assessment-complete
+      - claim:ranson:output-missing-component-reasons
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - formula:implementation
+      - input:etiology_variant
+      - input:etiology_variant:options
+      - input:assessment_hours
+      - input:admission_observed_at_hours
+      - input:followup_observed_at_hours
+      - input:age_years
+      - input:wbc_admission
+      - input:glucose_admission
+      - input:ast_admission
+      - input:ldh_admission
+      - input:hematocrit_admission
+      - input:bun_admission
+      - input:hematocrit_followup
+      - input:bun_followup
+      - input:calcium_followup
+      - input:pao2_followup
+      - input:base_deficit_followup
+      - input:fluid_sequestration_followup
+      - output:admission_subtotal
+      - output:admission_complete
+      - output:score
+      - output:historical_mortality_band
+      - output:assessment_complete
+      - output:missing_component_reasons
+  - id: case:ranson:reference-gallstone-equality
+    kind: reference
+    tags:
+      - calculator:ranson:core
+      - source-derived-reference
+    inputs:
+      etiology_variant: gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 70
+      wbc_admission: 18000
+      glucose_admission: 220
+      ast_admission: 250
+      ldh_admission: 400
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 17
+      calcium_followup: 8
+      base_deficit_followup: 5
+      fluid_sequestration_followup: 4
+    expected:
+      admission_subtotal: 0
+      admission_complete: true
+      score: 0
+      historical_mortality_band: ~1%
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:formula-implementation
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - formula:implementation
+  - id: case:ranson:reference-non-gallstone-seven
+    kind: reference
+    tags:
+      - calculator:ranson:core
+      - source-derived-reference
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 56
+      wbc_admission: 16001
+      glucose_admission: 201
+      ast_admission: 251
+      ldh_admission: 351
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 34.9
+      bun_followup: 20.1
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      admission_subtotal: 5
+      admission_complete: true
+      score: 7
+      historical_mortality_band: ~100%
+      assessment_complete: true
+      missing_component_reasons: []
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:formula-implementation
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - formula:implementation
+  - id: case:ranson:missing-etiology_variant
+    kind: agent
+    tags:
+      - required-inputs
+    inputs: &a2
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: etiology_variant
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-etiology-variant
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:etiology_variant
+  - id: case:ranson:agent-purpose
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:applicability-purpose
+    sourceIds:
+      - ranson_acg_2024
+      - ranson_atlanta_2012
+    witnesses:
+      - applicability:purpose
+  - id: case:ranson:agent-exclusion-missing-context
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs: *a2
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: etiology_variant
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:applicability-exclusions
+    sourceIds:
+      - ranson_acg_2024
+      - ranson_atlanta_2012
+    witnesses:
+      - applicability:exclusions
+  - id: case:ranson:band-ranson_historical_7_plus
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 56
+      wbc_admission: 16001
+      glucose_admission: 201
+      ast_admission: 251
+      ldh_admission: 351
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 34.9
+      bun_followup: 20.1
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 7
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: ranson_historical_7_plus
+        kind: risk
+        label: Historical cohort mortality category approximately 100%; not an
+          individual prediction.
+        severity: critical
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:band-score-0
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - band:score:0
+  - id: case:ranson:band-ranson_historical_5_6
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 56
+      wbc_admission: 16001
+      glucose_admission: 201
+      ast_admission: 251
+      ldh_admission: 351
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 5
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: ranson_historical_5_6
+        kind: risk
+        label: Historical cohort mortality category approximately 40%; not an individual
+          prediction.
+        severity: abnormal
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:band-score-1
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - band:score:1
+  - id: case:ranson:band-ranson_historical_3_4
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 56
+      wbc_admission: 16001
+      glucose_admission: 201
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: ranson_historical_3_4
+        kind: risk
+        label: Historical cohort mortality category approximately 15%; not an individual
+          prediction.
+        severity: borderline
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:band-score-2
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - band:score:2
+  - id: case:ranson:band-ranson_historical_0_2
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: ranson_historical_0_2
+        kind: risk
+        label: Historical cohort mortality category approximately 1%; not an individual
+          prediction.
+        severity: normal
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:band-score-3
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - band:score:3
+  - id: case:ranson:option-etiology_variant-non_gallstone
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-etiology-variant-options
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:etiology_variant:options
+  - id: case:ranson:option-etiology_variant-gallstone
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      etiology_variant: gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 2
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-etiology-variant-options
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:etiology_variant:options
+  - id: case:ranson:hard-limit-assessment_hours
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: -1
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: assessment_hours
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-assessment-hours-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:assessment_hours:hard_limits
+  - id: case:ranson:hard-limit-admission_observed_at_hours
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: -1
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: admission_observed_at_hours
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-admission-observed-at-hours-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:admission_observed_at_hours:hard_limits
+  - id: case:ranson:hard-limit-followup_observed_at_hours
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: -1
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: followup_observed_at_hours
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-followup-observed-at-hours-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:followup_observed_at_hours:hard_limits
+  - id: case:ranson:hard-limit-age_years
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 17
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: age_years
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-age-years-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:age_years:hard_limits
+  - id: case:ranson:plausibility-age_years
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 101
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 1
+    expectedBehavior: warn
+    expectedWarnings:
+      - Age at Admission 101 is unusual (expected 18–100).
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-age-years-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:age_years:plausibility
+  - id: case:ranson:hard-limit-wbc_admission
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: -1
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: wbc_admission
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-wbc-admission-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:wbc_admission:hard_limits
+  - id: case:ranson:plausibility-wbc_admission
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 999
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: warn
+    expectedWarnings:
+      - Admission White Blood Cell Count 999 cells/mm3 is unusual (expected
+        1000–100000 cells/mm3); if the source uses another unit, pass it
+        explicitly as { value, unit }.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-wbc-admission-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:wbc_admission:plausibility
+  - id: case:ranson:unit-wbc_admission-cells-mm3
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission:
+        value: 16000
+        unit: cells/mm3
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-wbc-admission
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:wbc_admission
+  - id: case:ranson:unit-wbc_admission-10-9-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission:
+        value: 16
+        unit: 10^9/L
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-wbc-admission
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:wbc_admission
+  - id: case:ranson:hard-limit-glucose_admission
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: -1
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: glucose_admission
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-glucose-admission-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:glucose_admission:hard_limits
+  - id: case:ranson:plausibility-glucose_admission
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 39
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: warn
+    expectedWarnings:
+      - Admission Serum Glucose 39 mg/dL is unusual (expected 40–600 mg/dL); if
+        the source uses another unit, pass it explicitly as { value, unit }.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-glucose-admission-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:glucose_admission:plausibility
+  - id: case:ranson:unit-glucose_admission-mg-dl
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission:
+        value: 200
+        unit: mg/dL
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-glucose-admission
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:glucose_admission
+  - id: case:ranson:unit-glucose_admission-mmol-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission:
+        value: 11.101999999999999
+        unit: mmol/L
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-glucose-admission
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:glucose_admission
+  - id: case:ranson:hard-limit-ast_admission
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: -1
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: ast_admission
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-ast-admission-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:ast_admission:hard_limits
+  - id: case:ranson:plausibility-ast_admission
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 2001
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 1
+    expectedBehavior: warn
+    expectedWarnings:
+      - Admission AST 2001 U/L is unusual (expected 0–2000 U/L); if the source
+        uses another unit, pass it explicitly as { value, unit }.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-ast-admission-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:ast_admission:plausibility
+  - id: case:ranson:unit-ast_admission-u-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission:
+        value: 250
+        unit: U/L
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-ast-admission
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:ast_admission
+  - id: case:ranson:unit-ast_admission-ukat-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission:
+        value: 4.1675
+        unit: ukat/L
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-ast-admission
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:ast_admission
+  - id: case:ranson:hard-limit-ldh_admission
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: -1
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: ldh_admission
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-ldh-admission-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:ldh_admission:hard_limits
+  - id: case:ranson:plausibility-ldh_admission
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 3001
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 1
+    expectedBehavior: warn
+    expectedWarnings:
+      - Admission LDH 3001 U/L is unusual (expected 0–3000 U/L); if the source
+        uses another unit, pass it explicitly as { value, unit }.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-ldh-admission-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:ldh_admission:plausibility
+  - id: case:ranson:unit-ldh_admission-u-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission:
+        value: 350
+        unit: U/L
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-ldh-admission
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:ldh_admission
+  - id: case:ranson:unit-ldh_admission-ukat-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission:
+        value: 5.8345
+        unit: ukat/L
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-ldh-admission
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:ldh_admission
+  - id: case:ranson:hard-limit-hematocrit_admission
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: -1
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: hematocrit_admission
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-hematocrit-admission-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:hematocrit_admission:hard_limits
+  - id: case:ranson:plausibility-hematocrit_admission
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 14
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: warn
+    expectedWarnings:
+      - Admission Hematocrit 14 percent is unusual (expected 15–65 percent); if
+        the source uses another unit, pass it explicitly as { value, unit }.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-hematocrit-admission-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:hematocrit_admission:plausibility
+  - id: case:ranson:unit-hematocrit_admission-percent
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission:
+        value: 45
+        unit: percent
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-hematocrit-admission
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:hematocrit_admission
+  - id: case:ranson:unit-hematocrit_admission-l-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission:
+        value: 0.45
+        unit: L/L
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-hematocrit-admission
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:hematocrit_admission
+  - id: case:ranson:hard-limit-bun_admission
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: -1
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: bun_admission
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-bun-admission-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:bun_admission:hard_limits
+  - id: case:ranson:plausibility-bun_admission
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 1
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 1
+    expectedBehavior: warn
+    expectedWarnings:
+      - Admission BUN 1 mg/dL is unusual (expected 2–100 mg/dL); if the source
+        uses another unit, pass it explicitly as { value, unit }.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-bun-admission-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:bun_admission:plausibility
+  - id: case:ranson:unit-bun_admission-mg-dl
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission:
+        value: 15
+        unit: mg/dL
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-bun-admission
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:bun_admission
+  - id: case:ranson:unit-bun_admission-mmol-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission:
+        value: 5.3549999999999995
+        unit: mmol/L
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-bun-admission
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:bun_admission
+  - id: case:ranson:hard-limit-hematocrit_followup
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: -1
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: hematocrit_followup
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-hematocrit-followup-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:hematocrit_followup:hard_limits
+  - id: case:ranson:plausibility-hematocrit_followup
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 9
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 1
+    expectedBehavior: warn
+    expectedWarnings:
+      - 48-Hour Hematocrit 9 percent is unusual (expected 10–65 percent); if the
+        source uses another unit, pass it explicitly as { value, unit }.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-hematocrit-followup-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:hematocrit_followup:plausibility
+  - id: case:ranson:unit-hematocrit_followup-percent
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup:
+        value: 35
+        unit: percent
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-hematocrit-followup
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:hematocrit_followup
+  - id: case:ranson:unit-hematocrit_followup-l-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup:
+        value: 0.35000000000000003
+        unit: L/L
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-hematocrit-followup
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:hematocrit_followup
+  - id: case:ranson:hard-limit-bun_followup
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: -1
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: bun_followup
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-bun-followup-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:bun_followup:hard_limits
+  - id: case:ranson:plausibility-bun_followup
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 1
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: warn
+    expectedWarnings:
+      - 48-Hour BUN 1 mg/dL is unusual (expected 2–150 mg/dL); if the source
+        uses another unit, pass it explicitly as { value, unit }.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-bun-followup-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:bun_followup:plausibility
+  - id: case:ranson:unit-bun_followup-mg-dl
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup:
+        value: 20
+        unit: mg/dL
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-bun-followup
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:bun_followup
+  - id: case:ranson:unit-bun_followup-mmol-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup:
+        value: 7.14
+        unit: mmol/L
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-bun-followup
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:bun_followup
+  - id: case:ranson:hard-limit-calcium_followup
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: -1
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: calcium_followup
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-calcium-followup-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:calcium_followup:hard_limits
+  - id: case:ranson:plausibility-calcium_followup
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 3
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 1
+    expectedBehavior: warn
+    expectedWarnings:
+      - 48-Hour Serum Calcium 3 mg/dL is unusual (expected 4–15 mg/dL); if the
+        source uses another unit, pass it explicitly as { value, unit }.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-calcium-followup-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:calcium_followup:plausibility
+  - id: case:ranson:unit-calcium_followup-mg-dl
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup:
+        value: 8
+        unit: mg/dL
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-calcium-followup
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:calcium_followup
+  - id: case:ranson:unit-calcium_followup-mmol-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup:
+        value: 1.996
+        unit: mmol/L
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-calcium-followup
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:calcium_followup
+  - id: case:ranson:hard-limit-pao2_followup
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: -1
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: pao2_followup
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-pao2-followup-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:pao2_followup:hard_limits
+  - id: case:ranson:plausibility-pao2_followup
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 19
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 1
+    expectedBehavior: warn
+    expectedWarnings:
+      - 48-Hour Arterial Oxygen Tension 19 mmHg is unusual (expected 20–600
+        mmHg); if the source uses another unit, pass it explicitly as { value,
+        unit }.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-pao2-followup-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:pao2_followup:plausibility
+  - id: case:ranson:unit-pao2_followup-mmhg
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup:
+        value: 60
+        unit: mmHg
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-pao2-followup
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:pao2_followup
+  - id: case:ranson:unit-pao2_followup-kpa
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup:
+        value: 7.99932
+        unit: kPa
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-pao2-followup
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:pao2_followup
+  - id: case:ranson:hard-limit-base_deficit_followup
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: -1
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: base_deficit_followup
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-base-deficit-followup-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:base_deficit_followup:hard_limits
+  - id: case:ranson:plausibility-base_deficit_followup
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 21
+      fluid_sequestration_followup: 6
+    expected:
+      score: 1
+    expectedBehavior: warn
+    expectedWarnings:
+      - 48-Hour Base Deficit 21 mEq/L is unusual (expected 0–20 mEq/L); if the
+        source uses another unit, pass it explicitly as { value, unit }.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-base-deficit-followup-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:base_deficit_followup:plausibility
+  - id: case:ranson:unit-base_deficit_followup-meq-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup:
+        value: 4
+        unit: mEq/L
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-base-deficit-followup
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:base_deficit_followup
+  - id: case:ranson:unit-base_deficit_followup-mmol-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup:
+        value: 4
+        unit: mmol/L
+      fluid_sequestration_followup: 6
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-base-deficit-followup
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:base_deficit_followup
+  - id: case:ranson:hard-limit-fluid_sequestration_followup
+    kind: edge
+    tags:
+      - hard-limits
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: -1
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: fluid_sequestration_followup
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-fluid-sequestration-followup-hard-limits
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:fluid_sequestration_followup:hard_limits
+  - id: case:ranson:plausibility-fluid_sequestration_followup
+    kind: edge
+    tags:
+      - plausibility
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 16
+    expected:
+      score: 1
+    expectedBehavior: warn
+    expectedWarnings:
+      - 48-Hour Fluid Sequestration 16 L is unusual (expected 0–15 L); if the
+        source uses another unit, pass it explicitly as { value, unit }.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-fluid-sequestration-followup-plausibility
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - input:fluid_sequestration_followup:plausibility
+  - id: case:ranson:unit-fluid_sequestration_followup-l
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup:
+        value: 6
+        unit: L
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-fluid-sequestration-followup
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:fluid_sequestration_followup
+  - id: case:ranson:unit-fluid_sequestration_followup-ml
+    kind: edge
+    tags:
+      - unit-equivalence
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup:
+        value: 6000
+        unit: mL
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:unit-fluid-sequestration-followup
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - unit:fluid_sequestration_followup
+  - id: case:ranson:47-hours-not-due
+    kind: edge
+    tags:
+      - conditional-output
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 47
+      admission_observed_at_hours: 0
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+    expected:
+      admission_subtotal: 0
+      assessment_complete: false
+      criterion_provenance:
+        - criterion: wbc
+          state: not_met
+          points: 0
+          observedInputs:
+            - wbc_admission
+          rationale: 16000 cells/mm3 > 16000 cells/mm3 is false; equality does not meet
+            this criterion.
+        - criterion: age
+          state: not_met
+          points: 0
+          observedInputs:
+            - age_years
+          rationale: 55 years > 55 years is false; equality does not meet this criterion.
+        - criterion: glucose
+          state: not_met
+          points: 0
+          observedInputs:
+            - glucose_admission
+          rationale: 200 mg/dL > 200 mg/dL is false; equality does not meet this
+            criterion.
+        - criterion: ast
+          state: not_met
+          points: 0
+          observedInputs:
+            - ast_admission
+          rationale: 250 U/L > 250 U/L is false; equality does not meet this criterion.
+        - criterion: ldh
+          state: not_met
+          points: 0
+          observedInputs:
+            - ldh_admission
+          rationale: 350 U/L > 350 U/L is false; equality does not meet this criterion.
+        - criterion: hematocrit_drop
+          state: not_due
+          observedInputs: []
+          rationale: The follow-up criterion is not due before 48 completed hours.
+        - criterion: bun_increase
+          state: not_due
+          observedInputs: []
+          rationale: The follow-up criterion is not due before 48 completed hours.
+        - criterion: calcium
+          state: not_due
+          observedInputs: []
+          rationale: The follow-up criterion is not due before 48 completed hours.
+        - criterion: pao2
+          state: not_due
+          observedInputs: []
+          rationale: The follow-up criterion is not due before 48 completed hours.
+        - criterion: base_deficit
+          state: not_due
+          observedInputs: []
+          rationale: The follow-up criterion is not due before 48 completed hours.
+        - criterion: fluid_sequestration
+          state: not_due
+          observedInputs: []
+          rationale: The follow-up criterion is not due before 48 completed hours.
+    expectedBehavior: omit
+    omittedOutputs:
+      - score
+      - historical_mortality_band
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:output-score
+      - claim:ranson:output-historical-mortality-band
+      - claim:ranson:output-criterion-provenance
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - output:score
+      - output:historical_mortality_band
+      - output:criterion_provenance
+  - id: case:ranson:retired-preclassified-input
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+      wbc_criterion: met
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: UNKNOWN_INPUT
+      field: wbc_criterion
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:applicability-exclusions
+    sourceIds:
+      - ranson_acg_2024
+      - ranson_atlanta_2012
+    witnesses:
+      - applicability:exclusions
+  - id: case:ranson:duplicate-observation-field
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+      wbc_admission_duplicate: 16000
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: UNKNOWN_INPUT
+      field: wbc_admission_duplicate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:applicability-exclusions
+    sourceIds:
+      - ranson_acg_2024
+      - ranson_atlanta_2012
+    witnesses:
+      - applicability:exclusions
+  - id: case:ranson:constraint-followup-timestamp-required
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      calcium_followup: 8
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: followup_observed_at_hours
+      messageIncludes: The 48-hour assessment requires follow-up observations
+        timestamped at hour 48.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:constraint-0
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - constraint:0
+  - id: case:ranson:constraint-followup-timestamp-not-due
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 47
+      admission_observed_at_hours: 0
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      followup_observed_at_hours: 48
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: followup_observed_at_hours
+      messageIncludes: Follow-up observations are not due before 48 completed hours.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:constraint-1
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - constraint:1
+  - id: case:ranson:constraint-followup-values-not-due
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 47
+      admission_observed_at_hours: 0
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: hematocrit_followup
+      messageIncludes: Forty-eight-hour observations must be omitted before they are due.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:constraint-2
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - constraint:2
+  - id: case:ranson:constraint-pao2-gallstone
+    kind: edge
+    tags:
+      - constraints
+    inputs:
+      etiology_variant: gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 70
+      wbc_admission: 18000
+      glucose_admission: 220
+      ast_admission: 250
+      ldh_admission: 400
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 17
+      calcium_followup: 8
+      base_deficit_followup: 5
+      fluid_sequestration_followup: 4
+      pao2_followup: 60
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: pao2_followup
+      messageIncludes: Arterial pO2 is not a criterion in the gallstone variant and
+        must be omitted.
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:constraint-3
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_meta_2023
+      - ranson_jpn_2006
+    witnesses:
+      - constraint:3
+  - id: case:ranson:reference-gallstone-all-met
+    kind: reference
+    tags:
+      - calculator:ranson:core
+      - source-derived-reference
+      - component-options
+    inputs:
+      etiology_variant: gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 71
+      wbc_admission: 18001
+      glucose_admission: 221
+      ast_admission: 251
+      ldh_admission: 401
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 34.9
+      bun_followup: 17.1
+      calcium_followup: 7.9
+      base_deficit_followup: 5.1
+      fluid_sequestration_followup: 4.1
+    expected:
+      admission_subtotal: 5
+      admission_complete: true
+      score: 10
+      historical_mortality_band: ~100%
+      assessment_complete: true
+      missing_component_reasons: []
+      criterion_provenance:
+        - criterion: wbc
+          state: met
+          points: 1
+          observedInputs: [ wbc_admission ]
+          rationale: 18001 cells/mm3 > 18000 cells/mm3 is true; equality does not meet
+            this criterion.
+        - criterion: age
+          state: met
+          points: 1
+          observedInputs: [ age_years ]
+          rationale: 71 years > 70 years is true; equality does not meet this criterion.
+        - criterion: glucose
+          state: met
+          points: 1
+          observedInputs: [ glucose_admission ]
+          rationale: 221 mg/dL > 220 mg/dL is true; equality does not meet this criterion.
+        - criterion: ast
+          state: met
+          points: 1
+          observedInputs: [ ast_admission ]
+          rationale: 251 U/L > 250 U/L is true; equality does not meet this criterion.
+        - criterion: ldh
+          state: met
+          points: 1
+          observedInputs: [ ldh_admission ]
+          rationale: 401 U/L > 400 U/L is true; equality does not meet this criterion.
+        - criterion: hematocrit_drop
+          state: met
+          points: 1
+          observedInputs: [ hematocrit_admission, hematocrit_followup ]
+          rationale: 10.1 percentage points > 10 percentage points is true; equality does
+            not meet this criterion.
+        - criterion: bun_increase
+          state: met
+          points: 1
+          observedInputs: [ bun_admission, bun_followup ]
+          rationale: 2.1 mg/dL > 2 mg/dL is true; equality does not meet this criterion.
+        - criterion: calcium
+          state: met
+          points: 1
+          observedInputs: [ calcium_followup ]
+          rationale: 7.9 mg/dL < 8 mg/dL is true; equality does not meet this criterion.
+        - criterion: pao2
+          state: not_applicable
+          points: 0
+          observedInputs: []
+          rationale: Arterial pO2 is not part of the gallstone threshold set.
+        - criterion: base_deficit
+          state: met
+          points: 1
+          observedInputs: [ base_deficit_followup ]
+          rationale: 5.1 mEq/L > 5 mEq/L is true; equality does not meet this criterion.
+        - criterion: fluid_sequestration
+          state: met
+          points: 1
+          observedInputs: [ fluid_sequestration_followup ]
+          rationale: 4.1 L > 4 L is true; equality does not meet this criterion.
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:formula-implementation
+      - claim:ranson:output-score
+      - claim:ranson:output-criterion-provenance
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_jpn_2006
+      - ranson_meta_2023
+    witnesses:
+      - formula:implementation
+      - output:score
+      - output:criterion_provenance
+  - id: case:ranson:48-hours-unknown-observation
+    kind: edge
+    tags:
+      - required-inputs
+      - conditional-outputs
+    inputs:
+      etiology_variant: non_gallstone
+      assessment_hours: 48
+      admission_observed_at_hours: 0
+      followup_observed_at_hours: 48
+      age_years: 55
+      wbc_admission: 16000
+      glucose_admission: 200
+      ast_admission: 250
+      ldh_admission: 350
+      hematocrit_admission: 45
+      bun_admission: 15
+      hematocrit_followup: 35
+      bun_followup: 20
+      pao2_followup: 60
+      base_deficit_followup: 4
+      fluid_sequestration_followup: 6
+    expected:
+      admission_subtotal: 0
+      admission_complete: true
+      assessment_complete: false
+      missing_component_reasons:
+        - 'calcium: Missing required raw observation(s): calcium_followup.'
+      criterion_provenance:
+        - criterion: wbc
+          state: not_met
+          points: 0
+          observedInputs: [ wbc_admission ]
+          rationale: 16000 cells/mm3 > 16000 cells/mm3 is false; equality does not meet
+            this criterion.
+        - criterion: age
+          state: not_met
+          points: 0
+          observedInputs: [ age_years ]
+          rationale: 55 years > 55 years is false; equality does not meet this criterion.
+        - criterion: glucose
+          state: not_met
+          points: 0
+          observedInputs: [ glucose_admission ]
+          rationale: 200 mg/dL > 200 mg/dL is false; equality does not meet this
+            criterion.
+        - criterion: ast
+          state: not_met
+          points: 0
+          observedInputs: [ ast_admission ]
+          rationale: 250 U/L > 250 U/L is false; equality does not meet this criterion.
+        - criterion: ldh
+          state: not_met
+          points: 0
+          observedInputs: [ ldh_admission ]
+          rationale: 350 U/L > 350 U/L is false; equality does not meet this criterion.
+        - criterion: hematocrit_drop
+          state: not_met
+          points: 0
+          observedInputs: [ hematocrit_admission, hematocrit_followup ]
+          rationale: 10 percentage points > 10 percentage points is false; equality does
+            not meet this criterion.
+        - criterion: bun_increase
+          state: not_met
+          points: 0
+          observedInputs: [ bun_admission, bun_followup ]
+          rationale: 5 mg/dL > 5 mg/dL is false; equality does not meet this criterion.
+        - criterion: calcium
+          state: unknown
+          observedInputs: []
+          rationale: 'Missing required raw observation(s): calcium_followup.'
+        - criterion: pao2
+          state: not_met
+          points: 0
+          observedInputs: [ pao2_followup ]
+          rationale: 60 mmHg < 60 mmHg is false; equality does not meet this criterion.
+        - criterion: base_deficit
+          state: not_met
+          points: 0
+          observedInputs: [ base_deficit_followup ]
+          rationale: 4 mEq/L > 4 mEq/L is false; equality does not meet this criterion.
+        - criterion: fluid_sequestration
+          state: not_met
+          points: 0
+          observedInputs: [ fluid_sequestration_followup ]
+          rationale: 6 L > 6 L is false; equality does not meet this criterion.
+    expectedBehavior: omit
+    omittedOutputs:
+      - score
+      - historical_mortality_band
+    tolerance: *a1
+    claimIds:
+      - claim:ranson:input-calcium-followup
+      - claim:ranson:output-assessment-complete
+      - claim:ranson:output-missing-component-reasons
+      - claim:ranson:output-criterion-provenance
+    sourceIds:
+      - ranson_ranson_1974
+      - ranson_jpn_2006
+      - ranson_meta_2023
+    witnesses:
+      - input:calcium_followup
+      - output:assessment_complete
+      - output:missing_component_reasons
+      - output:criterion_provenance
+compatibilityNotes:
+  - Retired all caller-classified criterion inputs in favor of raw timestamped
+    observations.
+  - Added structured per-criterion provenance and omitted completed outputs
+    until the 48-hour data are complete.
+explicitBlockers: []

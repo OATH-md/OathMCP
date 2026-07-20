@@ -1,0 +1,17 @@
+---
+title: Transport behavior
+description: Stdio and stateless Streamable HTTP behavior for OathMCP clients.
+---
+
+OathMCP supports stdio, stateless Streamable HTTP, and Cloudflare Workers. MCP
+SDK imports remain confined to the server boundary; calculation behavior is
+shared with the pure engine.
+
+The official Worker:
+
+- returns JSON rather than holding an SSE stream;
+- accepts one MCP JSON-RPC message per POST and rejects JSON-RPC batches;
+- uses `Cache-Control: no-store` for MCP responses;
+- rejects request bodies over 100 KiB;
+- redirects plaintext HTTP to HTTPS and sends HSTS on HTTPS responses; and
+- applies a per-client rate limit at the public edge.

@@ -1,0 +1,14 @@
+/docs
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+
+/docs/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+
+/docs/*.md
+  Content-Type: text/markdown; charset=utf-8
+/docs/*.mdx
+  Content-Type: text/markdown; charset=utf-8
+/docs/*.txt
+  Content-Type: text/plain; charset=utf-8

@@ -1,0 +1,207 @@
+---
+title: "GAD-7 (Generalized Anxiety Disorder-7)"
+description: "Adults completing the original seven self-reported symptom-frequency items for the preceding two weeks. Return an integer symptom score from 0-21 with minimal, mild, moderate, and severe ranges; score 10 is a screening cut point, not a diagnosis."
+sidebar:
+  label: "GAD-7 (Generalized Anxiety Disorder-7)"
+search:
+  tags: ["gad7", "score"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>score</Badge> <Badge>Spec 1.0.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Adults completing the original seven self-reported symptom-frequency items for the preceding two weeks. |
+| Setting | Primary-care anxiety screening and symptom-severity follow-up; not a diagnostic interview or crisis assessment. |
+| Model | `gad7` · spitzer_2006_original_english_adult_primary_care |
+| Model kind | score |
+| Variant | Not separately declared |
+| Review date | 2026-07-16 |
+| Review after | Not separately declared |
+
+### Exclusions and limitations
+
+**When not to use:** A screening and symptom-severity instrument, not a diagnosis. A positive screen requires diagnostic assessment. It does not assess suicidality or replace urgent crisis and safety evaluation.
+
+- A screening and symptom-severity instrument, not a diagnosis. A positive screen requires diagnostic assessment. It does not assess suicidality or replace urgent crisis and safety evaluation.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `feeling_nervous` | enum (4 options) | Yes | — | — | — | How often have you been bothered by feeling nervous, anxious, or on edge over the last 2 weeks? |
+| `cannot_control_worrying` | enum (4 options) | Yes | — | — | — | How often have you been bothered by not being able to stop or control worrying over the last 2 weeks? |
+| `worrying_too_much` | enum (4 options) | Yes | — | — | — | How often have you been bothered by worrying too much about different things over the last 2 weeks? |
+| `trouble_relaxing` | enum (4 options) | Yes | — | — | — | How often have you been bothered by trouble relaxing over the last 2 weeks? |
+| `restlessness` | enum (4 options) | Yes | — | — | — | How often have you been bothered by being so restless that it's hard to sit still over the last 2 weeks? |
+| `easily_annoyed` | enum (4 options) | Yes | — | — | — | How often have you been bothered by becoming easily annoyed or irritable over the last 2 weeks? |
+| `feeling_afraid` | enum (4 options) | Yes | — | — | — | How often have you been bothered by feeling afraid as if something awful might happen over the last 2 weeks? |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+<Expandable title="Feeling nervous, anxious, or on edge options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `not_at_all` | not at all | Feeling nervous, anxious, or on edge: not at all. | 0 |
+| `several_days` | several days | Feeling nervous, anxious, or on edge: several days. | 1 |
+| `more_than_half_the_days` | more than half the days | Feeling nervous, anxious, or on edge: more than half the days. | 2 |
+| `nearly_every_day` | nearly every day | Feeling nervous, anxious, or on edge: nearly every day. | 3 |
+
+</Expandable>
+
+
+<Expandable title="Not being able to stop or control worrying options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `not_at_all` | not at all | Not being able to stop or control worrying: not at all. | 0 |
+| `several_days` | several days | Not being able to stop or control worrying: several days. | 1 |
+| `more_than_half_the_days` | more than half the days | Not being able to stop or control worrying: more than half the days. | 2 |
+| `nearly_every_day` | nearly every day | Not being able to stop or control worrying: nearly every day. | 3 |
+
+</Expandable>
+
+
+<Expandable title="Worrying too much about different things options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `not_at_all` | not at all | Worrying too much about different things: not at all. | 0 |
+| `several_days` | several days | Worrying too much about different things: several days. | 1 |
+| `more_than_half_the_days` | more than half the days | Worrying too much about different things: more than half the days. | 2 |
+| `nearly_every_day` | nearly every day | Worrying too much about different things: nearly every day. | 3 |
+
+</Expandable>
+
+
+<Expandable title="Trouble relaxing options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `not_at_all` | not at all | Trouble relaxing: not at all. | 0 |
+| `several_days` | several days | Trouble relaxing: several days. | 1 |
+| `more_than_half_the_days` | more than half the days | Trouble relaxing: more than half the days. | 2 |
+| `nearly_every_day` | nearly every day | Trouble relaxing: nearly every day. | 3 |
+
+</Expandable>
+
+
+<Expandable title="Being so restless that it's hard to sit still options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `not_at_all` | not at all | Being so restless that it's hard to sit still: not at all. | 0 |
+| `several_days` | several days | Being so restless that it's hard to sit still: several days. | 1 |
+| `more_than_half_the_days` | more than half the days | Being so restless that it's hard to sit still: more than half the days. | 2 |
+| `nearly_every_day` | nearly every day | Being so restless that it's hard to sit still: nearly every day. | 3 |
+
+</Expandable>
+
+
+<Expandable title="Becoming easily annoyed or irritable options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `not_at_all` | not at all | Becoming easily annoyed or irritable: not at all. | 0 |
+| `several_days` | several days | Becoming easily annoyed or irritable: several days. | 1 |
+| `more_than_half_the_days` | more than half the days | Becoming easily annoyed or irritable: more than half the days. | 2 |
+| `nearly_every_day` | nearly every day | Becoming easily annoyed or irritable: nearly every day. | 3 |
+
+</Expandable>
+
+
+<Expandable title="Feeling afraid as if something awful might happen options">
+
+| Value | Label | Description | Points |
+| --- | --- | --- | ---: |
+| `not_at_all` | not at all | Feeling afraid as if something awful might happen: not at all. | 0 |
+| `several_days` | several days | Feeling afraid as if something awful might happen: several days. | 1 |
+| `more_than_half_the_days` | more than half the days | Feeling afraid as if something awful might happen: more than half the days. | 2 |
+| `nearly_every_day` | nearly every day | Feeling afraid as if something awful might happen: nearly every day. | 3 |
+
+</Expandable>
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `gad7_score` | integer | Always | Yes | Total GAD-7 score (0-21). |
+
+## Interpretation bands
+
+| Output | Code | Condition | Label | Kind | Severity |
+| --- | --- | --- | --- | --- | --- |
+| Primary | `gad7_band_1` | `&gt;=15` | Severe symptom range on this screening and severity-tracking instrument; clinical evaluation is required. | screening | critical |
+| Primary | `gad7_band_2` | `&gt;=10` | Moderate symptom range; score &gt;=10 is a reasonable screening cut point, not a standalone diagnosis. | screening | abnormal |
+| Primary | `gad7_band_3` | `&gt;=5` | Mild symptom range on the GAD-7 screening instrument. | screening | borderline |
+| Primary | `gad7_band_4` | `&lt;5` | Minimal symptom range on the GAD-7 screening instrument. | screening | normal |
+
+## Warnings, constraints, and adjustments
+
+No calculator-specific warning rules or cross-field constraints are declared beyond input validation and applicability.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "gad7",
+  "inputs": {
+    "feeling_nervous": "not_at_all",
+    "cannot_control_worrying": "not_at_all",
+    "worrying_too_much": "not_at_all",
+    "trouble_relaxing": "not_at_all",
+    "restlessness": "not_at_all",
+    "easily_annoyed": "not_at_all",
+    "feeling_afraid": "not_at_all"
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `gad7`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 23/23 | 22/22 | 39/39 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://gad7/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [A brief measure for assessing generalized anxiety disorder: the GAD-7.](https://pubmed.ncbi.nlm.nih.gov/16717171/)<br />Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points 5/10/15, and criterion interview at score 10. |
+| `source_2` | validation | [Validation and standardization of the Generalized Anxiety Disorder Screener (GAD-7) in the general population.](https://pubmed.ncbi.nlm.nih.gov/18388841/)<br />Methods and Results: nationally representative adult sample, construct validity, reliability, and population norms. |
+| `source_3` | guideline | [Generalized Anxiety Disorder 7 (GAD 7).](https://www.nih.gov/node/19876)<br />Official form: seven symptom items and four response-frequency choices for the preceding two weeks. |
+| `source_4` | guideline | [Screening for Anxiety Disorders in Adults: US Preventive Services Task Force Recommendation Statement.](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/anxiety-adults-screening)<br />Practice considerations: screening applies to adults without recognized symptoms and positive results require diagnostic assessment and follow-up. |
+
+<Panel title="Repository source">
+  Calculator ID `gad7`; spec version `1.0.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

@@ -1,0 +1,80 @@
+schemaVersion: "1.0"
+generatedAt: 2026-07-15
+sourcePolicies:
+  formula_unit_dosing:
+    roles: [bibliographic_database, controlling_authority, specialty_guidance, derivation, independent_numeric]
+    minimumExternalValidations: 0
+    controllingAuthorityRequired: true
+  additive_criteria_scores:
+    roles: [bibliographic_database, controlling_authority, specialty_guidance, derivation, external_validation]
+    minimumExternalValidations: 1
+    controllingAuthorityRequired: true
+  policy_versioned:
+    roles: [bibliographic_database, controlling_authority, specialty_guidance, derivation, external_validation, data_release]
+    minimumExternalValidations: 1
+    controllingAuthorityRequired: true
+  interpreter_conditional:
+    roles: [bibliographic_database, controlling_authority, specialty_guidance, derivation]
+    minimumExternalValidations: 0
+    controllingAuthorityRequired: true
+calculatorSourcePolicyOverrides:
+  carboplatin_auc:
+    roles: [bibliographic_database, controlling_authority, specialty_guidance, derivation, approved_label]
+    minimumExternalValidations: 0
+    controllingAuthorityRequired: true
+  chemo_dose_bsa:
+    roles: [bibliographic_database, controlling_authority, specialty_guidance, derivation, approved_label]
+    minimumExternalValidations: 0
+    controllingAuthorityRequired: true
+groups:
+  - id: formula_unit_dosing
+    label: Formula, unit, anthropometric, fluid, and dosing
+    calculatorIds:
+      - aa_gradient
+      - anion_gap
+      - bmi
+      - bsa
+      - bsa_dubois
+      - carboplatin_auc
+      - chemo_dose_bsa
+      - corrected_calcium
+      - creatinine_clearance
+      - free_water_deficit
+      - gfr
+      - gir
+      - ibw
+      - ich_volume
+      - map
+      - oxygenation_index
+      - r_factor
+      - sodium_deficit
+  - id: additive_criteria_scores
+    label: Additive scores and boolean criteria
+    calculatorIds:
+      - apgar
+      - chadsvasc
+      - child_pugh
+      - gad7
+      - gcs
+      - mews
+      - morse_fall_scale
+      - nihss
+      - pews
+      - qsofa
+      - ranson
+      - timi
+      - wells_dvt
+  - id: policy_versioned
+    label: Policy, nomogram, and data-versioned models
+    calculatorIds:
+      - eos
+      - grace
+      - kdpi
+      - meld
+  - id: interpreter_conditional
+    label: Interpreters and conditional outputs
+    calculatorIds:
+      - abg
+      - csf
+      - hepb
+      - neonatal_measurements

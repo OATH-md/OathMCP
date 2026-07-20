@@ -1,0 +1,48 @@
+# Node
+node_modules/
+dist/
+drafts/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local agent and workflow tooling. The OathMCP skill is a public distribution
+# asset; every other local skill or agent file remains ignored.
+.agents/*
+!.agents/skills/
+.agents/skills/*
+!.agents/skills/oathmcp/
+!.agents/skills/oathmcp/**
+.claude/
+.codex/
+.cursor/
+.orchestra/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.npmrc
+.netrc
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local tool caches
+.impeccable/
+.wrangler/
+coverage/
+.nyc_output/
+*.log
+*.tgz

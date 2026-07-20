@@ -1,0 +1,701 @@
+calculatorId: corrected_calcium
+specVersion: 1.0.0
+clinicalModel: Legacy conventional BMJ 1977 0.8-factor albumin-adjusted calcium arithmetic
+variant: conventional_bmj_1977_legacy_not_for_classification
+population: Historical adult formula reproduction only when the legacy value is explicitly requested.
+setting: Compatibility and educational arithmetic, not calcium-status classification or treatment support.
+assessmentTiming: Concurrent total calcium and albumin measurements.
+endpoint: Legacy conventional 0.8-factor estimate plus an explicit false clinical-use-supported flag.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:corrected_calcium:2026-07-16
+    calculatorId: corrected_calcium
+    model: Legacy conventional BMJ 1977 0.8-factor albumin-adjusted calcium arithmetic
+    variant: conventional_bmj_1977_legacy_not_for_classification
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:corrected_calcium:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: (Payne RB[au] AND "serum calcium"[ti]) OR (Desgagnes N[au] AND calcium[ti]) OR (Cavalier E[au] AND
+          "albumin-adjusted"[ti])
+        translationExposed: true
+        translatedQuery: ((payne, rb[Author] OR payne rb[Author]) AND "serum calcium"[Title]) OR (desgagnes n[Author]
+          AND "calcium"[Title]) OR ((e, cavalier[Author] OR cavalier e[Author]) AND "albumin-adjusted"[Title])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 5
+        stableCitationIds:
+          - PMID:42035248
+          - PMID:39836424
+          - PMID:3943197
+          - PMID:87718
+          - PMID:4758544
+      - id: search:corrected_calcium:derivation
+        sourceRole: derivation
+        authorityId: calcium_bmj_1977
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          conventional_bmj_1977_legacy_not_for_classification
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - calcium_bmj_1977
+      - id: search:corrected_calcium:controlling
+        sourceRole: controlling_authority
+        authorityId: calcium_ifcc_eflm_2026
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          conventional_bmj_1977_legacy_not_for_classification
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - calcium_ifcc_eflm_2026
+      - id: search:corrected_calcium:specialty
+        sourceRole: specialty_guidance
+        authorityId: calcium_acb_2015
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          conventional_bmj_1977_legacy_not_for_classification
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - calcium_acb_2015
+      - id: search:corrected_calcium:independent
+        sourceRole: independent_numeric
+        authorityId: calcium_desgagnes_2025
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact equation, inputs, units, population, limitations, corrections, and currentness for
+          conventional_bmj_1977_legacy_not_for_classification
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - calcium_desgagnes_2025
+    accounting:
+      retrieved: 5
+      deduplicated: 5
+      screened: 5
+      fullTextAssessed: 3
+      excluded: 0
+      included: 3
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: calcium_ifcc_eflm_2026
+        title: "Albumin-adjusted (corrected) calcium should no longer be reported: a position statement from the Joint
+          IOF Working Group and IFCC Committee on Bone Metabolism and EFLM Committee on CKD."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: calcium_desgagnes_2025
+        title: Use of Albumin-Adjusted Calcium Measurements in Clinical Practice.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:3943197
+        title: Clustering of serum calcium and magnesium concentrations in siblings.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:87718
+        title: Serum-calcium.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: calcium_payne_1973
+        title: Interpretation of serum calcium in patients with abnormal serum proteins.
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:corrected_calcium:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and historical terminology
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search, not an exhaustive systematic review.
+      resolution: Resolved by retaining exact author/model terms, checking automatic translation, screening every
+        result, and pairing the database search with current authority, specialty, derivation, and independent
+        numeric sources.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - calcium_payne_1973
+  - calcium_bmj_1977
+  - calcium_ifcc_eflm_2026
+  - calcium_acb_2015
+  - calcium_desgagnes_2025
+claims:
+  - id: claim:corrected_calcium:calculator-model
+    kind: applicability
+    statement: Legacy conventional BMJ 1977 0.8-factor albumin-adjusted calcium arithmetic is limited to historical formula
+      reproduction only when the legacy value is explicitly requested. Compatibility and educational
+      arithmetic, not calcium-status classification or treatment support.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - calcium_ifcc_eflm_2026
+    locators:
+      - sourceId: calcium_ifcc_eflm_2026
+        locator: Joint IOF/IFCC/EFLM 2026 position statement, recommendation that albumin-adjusted calcium should no
+          longer be reported.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and broad clinical limitations are descriptive; every
+      runtime-verifiable surface is separately scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:formula-implementation
+    kind: formula
+    statement: "Legacy conventional BMJ 1977 arithmetic: adjusted calcium mg/dL = measured total calcium + 0.8 × (4 - albumin
+      g/dL)."
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - calcium_bmj_1977
+    locators:
+      - sourceId: calcium_bmj_1977
+        locator: BMJ 1977 page 598, conventional 0.02 mmol/L per g/L equation, equivalent to 0.8 mg/dL per g/dL.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:ref-low-albumin
+      - case:corrected_calcium:ref-normal-albumin
+      - case:corrected_calcium:ref-high-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:applicability-purpose
+    kind: applicability
+    statement: Reproduce the legacy conventional 0.8-factor arithmetic only when a user explicitly asks for that
+      historical value; state that it is not a proxy for ionized calcium and is not supported for
+      calcium-status classification.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - calcium_ifcc_eflm_2026
+    locators:
+      - sourceId: calcium_ifcc_eflm_2026
+        locator: Joint IOF/IFCC/EFLM 2026 position statement, recommendation that albumin-adjusted calcium should no
+          longer be reported.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:applicability-exclusions
+    kind: exclusion
+    statement: Do not calculate until the runtime's required discriminator 'albumin' is supplied; the broader
+      clinical limitations remain descriptive context.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - calcium_ifcc_eflm_2026
+    locators:
+      - sourceId: calcium_ifcc_eflm_2026
+        locator: Joint IOF/IFCC/EFLM 2026 position statement, recommendation that albumin-adjusted calcium should no
+          longer be reported.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:input-calcium
+    kind: input
+    statement: Measured total calcium. Pass a bare number in mg/dL, or {value, unit} for SI (mmol/L).
+    covers:
+      - input:calcium
+    status: supported
+    sourceIds:
+      - calcium_bmj_1977
+    locators:
+      - sourceId: calcium_bmj_1977
+        locator: BMJ 1977 page 598, conventional 0.02 mmol/L per g/L equation and its calcium input.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:ref-low-albumin
+      - case:corrected_calcium:ref-normal-albumin
+      - case:corrected_calcium:ref-high-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:input-calcium-hard_limits
+    kind: input
+    statement: OathMCP rejects Calcium outside [1, 25] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:calcium:hard_limits
+    status: supported
+    sourceIds:
+      - calcium_desgagnes_2025
+    locators:
+      - sourceId: calcium_desgagnes_2025
+        locator: Desgagnes 2025 Methods and Results, ionized-calcium reference and classification agreement for
+          unadjusted versus adjusted calcium.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:hard-calcium
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:input-calcium-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Calcium is outside [4, 15]; this is an operational review prompt.
+    covers:
+      - input:calcium:plausibility
+    status: supported
+    sourceIds:
+      - calcium_desgagnes_2025
+    locators:
+      - sourceId: calcium_desgagnes_2025
+        locator: Desgagnes 2025 Methods and Results, ionized-calcium reference and classification agreement for
+          unadjusted versus adjusted calcium.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:unit-calcium
+    kind: unit
+    statement: Calcium accepts exactly mg/dL and mmol/L, normalized to the declared canonical unit.
+    covers:
+      - unit:calcium
+    status: supported
+    sourceIds:
+      - calcium_desgagnes_2025
+    locators:
+      - sourceId: calcium_desgagnes_2025
+        locator: Desgagnes 2025 Methods and Results, ionized-calcium reference and classification agreement for
+          unadjusted versus adjusted calcium.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:unit-us
+      - case:corrected_calcium:unit-si
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:input-albumin
+    kind: input
+    statement: Serum albumin. Pass a bare number in g/dL, or {value, unit} for SI (g/L).
+    covers:
+      - input:albumin
+    status: supported
+    sourceIds:
+      - calcium_bmj_1977
+    locators:
+      - sourceId: calcium_bmj_1977
+        locator: BMJ 1977 page 598, conventional 0.02 mmol/L per g/L equation and its albumin input.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:ref-low-albumin
+      - case:corrected_calcium:ref-normal-albumin
+      - case:corrected_calcium:ref-high-albumin
+      - case:corrected_calcium:missing-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:input-albumin-hard_limits
+    kind: input
+    statement: OathMCP rejects Albumin outside [0.5, 10] as a conservative operational envelope, not a clinical cutoff.
+    covers:
+      - input:albumin:hard_limits
+    status: supported
+    sourceIds:
+      - calcium_desgagnes_2025
+    locators:
+      - sourceId: calcium_desgagnes_2025
+        locator: Desgagnes 2025 Methods and Results, ionized-calcium reference and classification agreement for
+          unadjusted versus adjusted calcium.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:hard-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:input-albumin-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Albumin is outside [1, 6]; this is an operational review prompt.
+    covers:
+      - input:albumin:plausibility
+    status: supported
+    sourceIds:
+      - calcium_desgagnes_2025
+    locators:
+      - sourceId: calcium_desgagnes_2025
+        locator: Desgagnes 2025 Methods and Results, ionized-calcium reference and classification agreement for
+          unadjusted versus adjusted calcium.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:plausibility
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:unit-albumin
+    kind: unit
+    statement: Albumin accepts exactly g/dL and g/L, normalized to the declared canonical unit.
+    covers:
+      - unit:albumin
+    status: supported
+    sourceIds:
+      - calcium_desgagnes_2025
+    locators:
+      - sourceId: calcium_desgagnes_2025
+        locator: Desgagnes 2025 Methods and Results, ionized-calcium reference and classification agreement for
+          unadjusted versus adjusted calcium.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:unit-us
+      - case:corrected_calcium:unit-si
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:output-corrected_calcium
+    kind: outcome
+    statement: Historical arithmetic measured Ca + 0.8 × (4 − albumin), in mg/dL rounded to 1 decimal place; not a
+      substitute for ionized calcium.
+    covers:
+      - output:corrected_calcium
+    status: supported
+    sourceIds:
+      - calcium_bmj_1977
+    locators:
+      - sourceId: calcium_bmj_1977
+        locator: BMJ 1977 page 598, conventional 0.02 mmol/L per g/L equation, equivalent to 0.8 mg/dL per g/dL.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:ref-low-albumin
+      - case:corrected_calcium:ref-normal-albumin
+      - case:corrected_calcium:ref-high-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:corrected_calcium:output-clinical_use_supported
+    kind: outcome
+    statement: Always false because current laboratory-medicine guidance does not support albumin-adjusted calcium
+      for calcium-status classification.
+    covers:
+      - output:clinical_use_supported
+    status: supported
+    sourceIds:
+      - calcium_ifcc_eflm_2026
+    locators:
+      - sourceId: calcium_ifcc_eflm_2026
+        locator: Joint IOF/IFCC/EFLM 2026 position statement, recommendation that albumin-adjusted calcium should no
+          longer be reported.
+    executable: true
+    scenarioIds:
+      - case:corrected_calcium:ref-low-albumin
+      - case:corrected_calcium:ref-normal-albumin
+      - case:corrected_calcium:ref-high-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:corrected_calcium:ref-low-albumin
+    tags:
+      - calculator:corrected_calcium:core
+    inputs: &a2
+      calcium: 8
+      albumin: 2
+    expected: &a3
+      corrected_calcium: 9.6
+      clinical_use_supported: false
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:corrected_calcium:formula-implementation
+      - claim:corrected_calcium:input-calcium
+      - claim:corrected_calcium:input-albumin
+      - claim:corrected_calcium:output-corrected_calcium
+      - claim:corrected_calcium:output-clinical_use_supported
+    sourceIds:
+      - calcium_bmj_1977
+      - calcium_ifcc_eflm_2026
+    witnesses:
+      - formula:implementation
+      - input:calcium
+      - input:albumin
+      - output:corrected_calcium
+      - output:clinical_use_supported
+  - kind: reference
+    id: case:corrected_calcium:ref-normal-albumin
+    tags:
+      - calculator:corrected_calcium:reference
+    inputs: &a4
+      calcium: 10
+      albumin: 4
+    expected: &a5
+      corrected_calcium: 10
+      clinical_use_supported: false
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:corrected_calcium:formula-implementation
+      - claim:corrected_calcium:input-calcium
+      - claim:corrected_calcium:input-albumin
+      - claim:corrected_calcium:output-corrected_calcium
+      - claim:corrected_calcium:output-clinical_use_supported
+    sourceIds:
+      - calcium_bmj_1977
+      - calcium_ifcc_eflm_2026
+    witnesses:
+      - formula:implementation
+      - input:calcium
+      - input:albumin
+      - output:corrected_calcium
+      - output:clinical_use_supported
+  - kind: reference
+    id: case:corrected_calcium:ref-high-albumin
+    tags:
+      - calculator:corrected_calcium:reference
+    inputs: &a6
+      calcium: 12
+      albumin: 5
+    expected: &a7
+      corrected_calcium: 11.2
+      clinical_use_supported: false
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:corrected_calcium:formula-implementation
+      - claim:corrected_calcium:input-calcium
+      - claim:corrected_calcium:input-albumin
+      - claim:corrected_calcium:output-corrected_calcium
+      - claim:corrected_calcium:output-clinical_use_supported
+    sourceIds:
+      - calcium_bmj_1977
+      - calcium_ifcc_eflm_2026
+    witnesses:
+      - formula:implementation
+      - input:calcium
+      - input:albumin
+      - output:corrected_calcium
+      - output:clinical_use_supported
+  - kind: edge
+    id: case:corrected_calcium:missing-albumin
+    tags:
+      - required-inputs
+    inputs: &a1
+      calcium: 8
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: albumin
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:corrected_calcium:input-albumin
+    sourceIds:
+      - calcium_bmj_1977
+    witnesses:
+      - input:albumin
+  - kind: edge
+    id: case:corrected_calcium:hard-calcium
+    tags:
+      - hard-limits
+    inputs:
+      calcium: 0.5
+      albumin: 2
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: calcium
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:corrected_calcium:input-calcium-hard_limits
+    sourceIds:
+      - calcium_desgagnes_2025
+    witnesses:
+      - input:calcium:hard_limits
+  - kind: edge
+    id: case:corrected_calcium:hard-albumin
+    tags:
+      - calculator:corrected_calcium:hard-limit
+    inputs:
+      calcium: 8
+      albumin: 0.25
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: albumin
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:corrected_calcium:input-albumin-hard_limits
+    sourceIds:
+      - calcium_desgagnes_2025
+    witnesses:
+      - input:albumin:hard_limits
+  - kind: edge
+    id: case:corrected_calcium:plausibility
+    tags:
+      - plausibility
+    inputs:
+      calcium: 20
+      albumin: 8
+    expected:
+      corrected_calcium: 16.8
+      clinical_use_supported: false
+    expectedBehavior: warn
+    expectedWarnings:
+      - Calcium 20 mg/dL is unusual (expected 4–15 mg/dL); if the source uses another unit, pass it explicitly
+        as { value, unit }.
+      - Albumin 8 g/dL is unusual (expected 1–6 g/dL); if the source uses another unit, pass it explicitly as
+        { value, unit }.
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:corrected_calcium:input-calcium-plausibility
+      - claim:corrected_calcium:input-albumin-plausibility
+    sourceIds:
+      - calcium_desgagnes_2025
+    witnesses:
+      - input:calcium:plausibility
+      - input:albumin:plausibility
+  - kind: edge
+    id: case:corrected_calcium:unit-us
+    tags:
+      - unit-equivalence
+    inputs:
+      calcium:
+        value: 8.016
+        unit: mg/dL
+      albumin:
+        value: 2
+        unit: g/dL
+    expected:
+      corrected_calcium: 9.6
+      clinical_use_supported: false
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:corrected_calcium:unit-calcium
+      - claim:corrected_calcium:unit-albumin
+    sourceIds:
+      - calcium_desgagnes_2025
+    witnesses:
+      - unit:calcium
+      - unit:albumin
+  - kind: edge
+    id: case:corrected_calcium:unit-si
+    tags:
+      - unit-equivalence
+    inputs:
+      calcium:
+        value: 2
+        unit: mmol/L
+      albumin:
+        value: 20
+        unit: g/L
+    expected:
+      corrected_calcium: 9.6
+      clinical_use_supported: false
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:corrected_calcium:unit-calcium
+      - claim:corrected_calcium:unit-albumin
+    sourceIds:
+      - calcium_desgagnes_2025
+    witnesses:
+      - unit:calcium
+      - unit:albumin
+  - kind: agent
+    id: case:corrected_calcium:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      calcium: 8
+      albumin: 2
+    expected:
+      corrected_calcium: 9.6
+      clinical_use_supported: false
+    expectedBehavior: calculate
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:corrected_calcium:applicability-purpose
+    sourceIds:
+      - calcium_ifcc_eflm_2026
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:corrected_calcium:agent-exclusion
+    tags:
+      - agent-applicability
+    inputs: *a1
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: albumin
+    tolerance:
+      mode: exact
+      rationale: Frozen independent arithmetic after the declared public rounding rule.
+    claimIds:
+      - claim:corrected_calcium:applicability-exclusions
+    sourceIds:
+      - calcium_ifcc_eflm_2026
+    witnesses:
+      - applicability:exclusions
+compatibilityNotes:
+  - Preserved the historical arithmetic but added clinical_use_supported=false and removed any implication
+    that the value classifies calcium status.
+explicitBlockers: []

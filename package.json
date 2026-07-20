@@ -1,0 +1,89 @@
+{
+  "name": "oath-mcp",
+  "version": "0.1.0",
+  "description": "Agent-native MCP server for evidence-backed clinical calculators.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "oath-mcp": "./dist/server/stdio.js"
+  },
+  "files": [
+    "dist",
+    "!dist/cli",
+    "specs",
+    "validation",
+    "templates",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "docs/AUTHORING.md",
+    "docs/HOSTING.md",
+    "docs/HOUSE_STYLE.md",
+    "docs/RELEASE.md",
+    "docs/RESPONSIBLE_USE.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "exports": {
+    ".": "./dist/engine/index.js",
+    "./server": "./dist/server/mcp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OATH-md/OathMCP.git"
+  },
+  "homepage": "https://github.com/OATH-md/OathMCP#readme",
+  "bugs": {
+    "url": "https://github.com/OATH-md/OathMCP/issues"
+  },
+  "keywords": [
+    "mcp",
+    "clinical-calculators",
+    "medical",
+    "model-context-protocol"
+  ],
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "prebuild": "npm run clean && npm run gen:specs",
+    "build": "tsc -p tsconfig.json",
+    "gen:specs": "tsx src/cli/index.ts bundle-specs",
+    "check:generated": "tsx src/cli/index.ts bundle-specs --check",
+    "lint:specs": "tsx src/cli/index.ts lint-specs",
+    "validate:clinical": "tsx src/cli/index.ts validate-clinical",
+    "new:calculator": "tsx src/cli/index.ts new-calculator",
+    "check:calculator": "tsx src/cli/index.ts check-calculator",
+    "promote:calculator": "tsx src/cli/index.ts promote-calculator",
+    "check:clinical-release": "npm run validate:clinical -- --require-source-verified --require-scenario-verified --release-attestation validation/releases/0.1.0.yaml",
+    "check:package": "vitest run test/package-manifest.test.ts",
+    "check": "npm run check:generated && npm run lint:specs && npm run validate:clinical -- --require-scenario-verified && npm run typecheck && npm run build && npm run test:run && npm run check:package",
+    "prepublishOnly": "npm run check && npm run check:clinical-release",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "test": "npm run build && npm run test:run",
+    "test:run": "vitest run --exclude test/package-manifest.test.ts",
+    "test:watch": "vitest",
+    "start:stdio": "node dist/server/stdio.js",
+    "start:http": "node dist/server/http.js",
+    "types:worker": "wrangler types src/server/worker-configuration.d.ts --strict-vars false",
+    "check:worker": "npm run build && wrangler types src/server/worker-configuration.d.ts --strict-vars false --check && wrangler deploy --dry-run",
+    "check:deploy": "npm run check && npm run check:clinical-release && wrangler types src/server/worker-configuration.d.ts --strict-vars false --check && wrangler deploy --dry-run",
+    "deploy:worker": "npm run check:deploy && wrangler deploy"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "express": "^4",
+    "yaml": "^2.9.0",
+    "zod": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22",
+    "fast-check": "^4.9.0",
+    "tsx": "^4",
+    "typescript": "^5",
+    "vitest": "^3",
+    "wrangler": "^4.112.0"
+  }
+}

@@ -1,0 +1,1540 @@
+calculatorId: chadsvasc
+specVersion: 1.1.0
+clinicalModel: CHA2DS2-VASc atrial-fibrillation thromboembolism score
+variant: cha2ds2_vasc_with_sex_as_risk_modifier_and_friberg_one_year_lookup
+population: Adults with atrial fibrillation in the declared
+  non-mechanical-valve, non-rheumatic-mitral-stenosis context.
+setting: Stroke and systemic-thromboembolism risk estimation with current
+  guideline interpretation and separate bleeding-risk assessment.
+assessmentTiming: At clinical assessment and repeated as age, comorbidity, and AF context change.
+endpoint: Score 0-9 plus observed one-year stroke and thromboembolism rates from
+  the enrolled cohort table.
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:chadsvasc:2026-07-16
+    calculatorId: chadsvasc
+    model: CHA2DS2-VASc atrial-fibrillation thromboembolism score
+    variant: cha2ds2_vasc_with_sex_as_risk_modifier_and_friberg_one_year_lookup
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:chadsvasc:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web search
+        exactQuery: CHA2DS2-VASc[Title/Abstract] AND (validation[Title/Abstract] OR
+          guideline[Publication Type])
+        translationExposed: true
+        translatedQuery: CHA2DS2-VASc[Title/Abstract] AND (validation[Title/Abstract] OR
+          guideline[Publication Type])
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:19762550
+      - id: search:chadsvasc:chadsvasc_lip_2010
+        sourceRole: derivation
+        authorityId: chadsvasc_lip_2010
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for chadsvasc
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:19762550
+      - id: search:chadsvasc:chadsvasc_olesen_2011
+        sourceRole: external_validation
+        authorityId: chadsvasc_olesen_2011
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for chadsvasc
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:21282258
+      - id: search:chadsvasc:chadsvasc_friberg_2012
+        sourceRole: external_validation
+        authorityId: chadsvasc_friberg_2012
+        database: Primary or responsible-authority source
+        site: pubmed.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Friberg Rosenqvist Lip CHA2DS2-VASc 182678 annual ischemic stroke
+          thromboembolism event rates
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - PMID:22246443
+      - id: search:chadsvasc:chadsvasc_accaha_2023
+        sourceRole: controlling_authority
+        authorityId: chadsvasc_accaha_2023
+        database: Primary or responsible-authority source
+        site: professional.heart.org
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for chadsvasc
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - doi:10.1161/CIR.0000000000001193
+      - id: search:chadsvasc:chadsvasc_esc_2024
+        sourceRole: specialty_guidance
+        authorityId: chadsvasc_esc_2024
+        database: Primary or responsible-authority source
+        site: www.escardio.org
+        interface: direct document review
+        exactQuery: Exact model identity, components, thresholds, endpoint, horizon,
+          currentness, and limitations for chadsvasc
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - ESC:AF:2024
+    accounting:
+      retrieved: 6
+      deduplicated: 5
+      screened: 5
+      fullTextAssessed: 5
+      excluded: 0
+      included: 5
+    deduplication:
+      method: PMID, DOI, and responsible-authority URL identity with manual title
+        reconciliation
+      tool: PubMed plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: chadsvasc_lip_2010
+        title: CHA2DS2-VASc derivation and refinement cohort
+        disposition: included
+        fullTextAssessed: true
+      - citationId: chadsvasc_olesen_2011
+        title: Nationwide CHA2DS2-VASc external validation
+        disposition: included
+        fullTextAssessed: true
+      - citationId: chadsvasc_friberg_2012
+        title: Swedish AF cohort annual event rates by CHA2DS2-VASc score
+        disposition: included
+        fullTextAssessed: true
+      - citationId: chadsvasc_accaha_2023
+        title: 2023 ACC AHA ACCP HRS atrial-fibrillation guideline
+        disposition: included
+        fullTextAssessed: true
+      - citationId: chadsvasc_esc_2024
+        title: 2024 ESC atrial-fibrillation guideline
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:chadsvasc:pubmed
+      checklist:
+        - Concept coverage
+        - Controlled vocabulary and text words
+        - Boolean logic
+        - Limits and reproducibility
+        - Variant and endpoint specificity
+      comments:
+        - Strategy checked independently against the retained derivation,
+          external validation, current authority, and specialty-guidance
+          sources.
+      resolution: All checklist comments resolved; exact query, source identities,
+        accounting, and citation chasing recorded.
+      resolved: true
+      reviewer: OathMCP independent search QA lane
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - chadsvasc_lip_2010
+  - chadsvasc_olesen_2011
+  - chadsvasc_friberg_2012
+  - chadsvasc_accaha_2023
+  - chadsvasc_esc_2024
+claims:
+  - id: claim:chadsvasc:calculator-model
+    kind: applicability
+    statement: chadsvasc is the exact model and variant named by this dossier;
+      adjacent scores and variants are out of scope.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - chadsvasc_accaha_2023
+      - chadsvasc_esc_2024
+    locators:
+      - sourceId: chadsvasc_accaha_2023
+        locator: "Section 6.1 recommendations and Table 12: use of a validated annual
+          thromboembolic-risk score, sex-specific intermediate-risk context, and
+          cohort event-rate limitations."
+      - sourceId: chadsvasc_esc_2024
+        locator: "Section 6.1 and Recommendation Table 6: dynamic thromboembolic-risk
+          reassessment and the contemporary distinction between CHA2DS2-VASc and
+          CHA2DS2-VA."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is a source-governed scope assertion
+      rather than a numerical runtime output.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:formula-implementation
+    kind: formula
+    statement: The declared chadsvasc inputs are combined exactly according to the
+      cited score definition.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+      - case:chadsvasc:reference-female-sex-alone
+      - case:chadsvasc:reference-maximum
+      - case:chadsvasc:component-chf-true
+      - case:chadsvasc:component-hypertension-true
+      - case:chadsvasc:component-stroke_history-true
+      - case:chadsvasc:component-vascular_disease-true
+      - case:chadsvasc:component-diabetes-true
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:applicability-purpose
+    kind: applicability
+    statement: The calculator purpose is limited to the cited population, setting,
+      timing, and endpoint.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - chadsvasc_accaha_2023
+      - chadsvasc_esc_2024
+    locators:
+      - sourceId: chadsvasc_accaha_2023
+        locator: "Section 6.1 recommendations and Table 12: use of a validated annual
+          thromboembolic-risk score, sex-specific intermediate-risk context, and
+          cohort event-rate limitations."
+      - sourceId: chadsvasc_esc_2024
+        locator: "Section 6.1 and Recommendation Table 6: dynamic thromboembolic-risk
+          reassessment and the contemporary distinction between CHA2DS2-VASc and
+          CHA2DS2-VA."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:applicability-exclusions
+    kind: applicability
+    statement: The calculator exclusions and non-directive limitations must remain
+      visible to agents.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - chadsvasc_accaha_2023
+      - chadsvasc_esc_2024
+    locators:
+      - sourceId: chadsvasc_accaha_2023
+        locator: "Section 6.1 recommendations and Table 12: use of a validated annual
+          thromboembolic-risk score, sex-specific intermediate-risk context, and
+          cohort event-rate limitations."
+      - sourceId: chadsvasc_esc_2024
+        locator: "Section 6.1 and Recommendation Table 6: dynamic thromboembolic-risk
+          reassessment and the contemporary distinction between CHA2DS2-VASc and
+          CHA2DS2-VA."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:agent-exclusion-missing-context
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:input-age-group
+    kind: input
+    statement: The runtime surface input:age_group matches the cited chadsvasc model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - input:age_group
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+      - case:chadsvasc:missing-age_group
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:input-age-group-options
+    kind: input
+    statement: The runtime surface input:age_group:options matches the cited
+      chadsvasc model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:age_group:options
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+      - case:chadsvasc:option-age_group-under_65
+      - case:chadsvasc:option-age_group-age_65_74
+      - case:chadsvasc:option-age_group-age_75_plus
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:input-sex
+    kind: input
+    statement: The runtime surface input:sex matches the cited chadsvasc model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - input:sex
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:input-sex-aliases
+    kind: input
+    statement: The runtime surface input:sex:aliases matches the cited chadsvasc
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:sex:aliases
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:alias-sex-gender
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:input-sex-options
+    kind: input
+    statement: The runtime surface input:sex:options matches the cited chadsvasc
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:sex:options
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+      - case:chadsvasc:option-sex-male
+      - case:chadsvasc:option-sex-female
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:input-chf
+    kind: input
+    statement: The runtime surface input:chf matches the cited chadsvasc model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - input:chf
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:input-hypertension
+    kind: input
+    statement: The runtime surface input:hypertension matches the cited chadsvasc
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:hypertension
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:input-stroke-history
+    kind: input
+    statement: The runtime surface input:stroke_history matches the cited chadsvasc
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:stroke_history
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:input-vascular-disease
+    kind: input
+    statement: The runtime surface input:vascular_disease matches the cited
+      chadsvasc model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - input:vascular_disease
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:input-diabetes
+    kind: input
+    statement: The runtime surface input:diabetes matches the cited chadsvasc model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - input:diabetes
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:output-score
+    kind: outcome
+    statement: The runtime surface output:score matches the cited chadsvasc model
+      definition, threshold semantics, units, availability, or interpretation.
+    covers:
+      - output:score
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:output-stroke-risk
+    kind: outcome
+    statement: The runtime surface output:stroke_risk matches the cited chadsvasc
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - output:stroke_risk
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:output-embolism-risk
+    kind: outcome
+    statement: The runtime surface output:embolism_risk matches the cited chadsvasc
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - output:embolism_risk
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:output-stroke-risk-percent
+    kind: outcome
+    statement: The runtime surface output:stroke_risk_percent matches the cited
+      chadsvasc model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - output:stroke_risk_percent
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:output-thromboembolism-risk-percent
+    kind: outcome
+    statement: The runtime surface output:thromboembolism_risk_percent matches the
+      cited chadsvasc model definition, threshold semantics, units,
+      availability, or interpretation.
+    covers:
+      - output:thromboembolism_risk_percent
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:output-risk-time-horizon
+    kind: outcome
+    statement: The runtime surface output:risk_time_horizon matches the cited
+      chadsvasc model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - output:risk_time_horizon
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:reference-zero-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:band-calculator-0
+    kind: band
+    statement: The runtime surface band:calculator:0 matches the cited chadsvasc
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - band:calculator:0
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:band-chadsvasc_band_1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:band-calculator-1
+    kind: band
+    statement: The runtime surface band:calculator:1 matches the cited chadsvasc
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - band:calculator:1
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:band-chadsvasc_band_2
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:band-calculator-2
+    kind: band
+    statement: The runtime surface band:calculator:2 matches the cited chadsvasc
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - band:calculator:2
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:band-chadsvasc_band_3
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:band-calculator-3
+    kind: band
+    statement: The runtime surface band:calculator:3 matches the cited chadsvasc
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - band:calculator:3
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:band-chadsvasc_band_4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:band-calculator-4
+    kind: band
+    statement: The runtime surface band:calculator:4 matches the cited chadsvasc
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - band:calculator:4
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:band-chadsvasc_band_5
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:chadsvasc:band-calculator-5
+    kind: band
+    statement: The runtime surface band:calculator:5 matches the cited chadsvasc
+      model definition, threshold semantics, units, availability, or
+      interpretation.
+    covers:
+      - band:calculator:5
+    status: supported
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    locators:
+      - sourceId: chadsvasc_lip_2010
+        locator: "Methods and Table 1: CHA2DS2-VASc factor definitions and one- or
+          two-point weights in the Euro Heart Survey cohort."
+      - sourceId: chadsvasc_olesen_2011
+        locator: "Table 2 and Results: thromboembolism rates per 100 person-years by
+          CHA2DS2-VASc score in the non-anticoagulated Danish cohort."
+      - sourceId: chadsvasc_friberg_2012
+        locator: "Methods and Results/Figure 1: annual ischemic-stroke and composite
+          thromboembolism event rates by CHA2DS2-VASc score among patients
+          without warfarin."
+    executable: true
+    scenarioIds:
+      - case:chadsvasc:band-chadsvasc_band_6
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:chadsvasc:reference-zero-male
+    kind: reference
+    tags:
+      - calculator:chadsvasc:core
+      - source-derived-reference
+    inputs: &a2
+      age_group: under_65
+      sex: male
+      chf: false
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 0
+      stroke_risk: 0.2%
+      embolism_risk: 0.3%
+      stroke_risk_percent: 0.2
+      thromboembolism_risk_percent: 0.3
+      risk_time_horizon: one_year
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Integer scores, cohort lookup values, categorical outputs, warnings,
+        omissions, and interpretation codes are asserted exactly from the cited
+        model definition.
+    claimIds:
+      - claim:chadsvasc:formula-implementation
+      - claim:chadsvasc:input-age-group
+      - claim:chadsvasc:input-age-group-options
+      - claim:chadsvasc:input-sex
+      - claim:chadsvasc:input-sex-options
+      - claim:chadsvasc:input-chf
+      - claim:chadsvasc:input-hypertension
+      - claim:chadsvasc:input-stroke-history
+      - claim:chadsvasc:input-vascular-disease
+      - claim:chadsvasc:input-diabetes
+      - claim:chadsvasc:output-score
+      - claim:chadsvasc:output-stroke-risk
+      - claim:chadsvasc:output-embolism-risk
+      - claim:chadsvasc:output-stroke-risk-percent
+      - claim:chadsvasc:output-thromboembolism-risk-percent
+      - claim:chadsvasc:output-risk-time-horizon
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - formula:implementation
+      - input:age_group
+      - input:age_group:options
+      - input:sex
+      - input:sex:options
+      - input:chf
+      - input:hypertension
+      - input:stroke_history
+      - input:vascular_disease
+      - input:diabetes
+      - output:score
+      - output:stroke_risk
+      - output:embolism_risk
+      - output:stroke_risk_percent
+      - output:thromboembolism_risk_percent
+      - output:risk_time_horizon
+  - id: case:chadsvasc:reference-female-sex-alone
+    kind: reference
+    tags:
+      - calculator:chadsvasc:core
+      - source-derived-reference
+    inputs:
+      age_group: under_65
+      sex: female
+      chf: false
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 1
+      stroke_risk: 0.6%
+      embolism_risk: 0.9%
+      stroke_risk_percent: 0.6
+      thromboembolism_risk_percent: 0.9
+      risk_time_horizon: one_year
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:formula-implementation
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - formula:implementation
+  - id: case:chadsvasc:reference-maximum
+    kind: reference
+    tags:
+      - calculator:chadsvasc:core
+      - source-derived-reference
+    inputs:
+      age_group: age_75_plus
+      sex: female
+      chf: true
+      hypertension: true
+      stroke_history: true
+      vascular_disease: true
+      diabetes: true
+    expected:
+      score: 9
+      stroke_risk: 12.2%
+      embolism_risk: 17.4%
+      stroke_risk_percent: 12.2
+      thromboembolism_risk_percent: 17.4
+      risk_time_horizon: one_year
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:formula-implementation
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - formula:implementation
+  - id: case:chadsvasc:missing-age_group
+    kind: agent
+    tags:
+      - required-inputs
+    inputs: &a3
+      sex: male
+      chf: false
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: age_group
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:input-age-group
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - input:age_group
+  - id: case:chadsvasc:agent-purpose
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs: *a2
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:applicability-purpose
+    sourceIds:
+      - chadsvasc_accaha_2023
+      - chadsvasc_esc_2024
+    witnesses:
+      - applicability:purpose
+  - id: case:chadsvasc:agent-exclusion-missing-context
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs: *a3
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: age_group
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:applicability-exclusions
+    sourceIds:
+      - chadsvasc_accaha_2023
+      - chadsvasc_esc_2024
+    witnesses:
+      - applicability:exclusions
+  - id: case:chadsvasc:band-chadsvasc_band_1
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age_group: under_65
+      sex: male
+      chf: true
+      hypertension: true
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: chadsvasc_band_1
+        kind: risk
+        label: Elevated score category; use the estimated annual risk and
+          patient-specific modifiers for anticoagulation decisions.
+        severity: abnormal
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:band-calculator-0
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - band:calculator:0
+  - id: case:chadsvasc:band-chadsvasc_band_2
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age_group: under_65
+      sex: male
+      chf: true
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: chadsvasc_band_2
+        kind: risk
+        label: Intermediate score category; the score alone does not determine
+          anticoagulation.
+        severity: borderline
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:band-calculator-1
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - band:calculator:1
+  - id: case:chadsvasc:band-chadsvasc_band_3
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs: *a2
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: chadsvasc_band_3
+        kind: risk
+        label: Lower score category; reassess annual risk and modifiers rather than
+          using the score alone.
+        severity: normal
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:band-calculator-2
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - band:calculator:2
+  - id: case:chadsvasc:band-chadsvasc_band_4
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age_group: under_65
+      sex: female
+      chf: true
+      hypertension: true
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: chadsvasc_band_4
+        kind: risk
+        label: Elevated score category; use the estimated annual risk and
+          patient-specific modifiers for anticoagulation decisions.
+        severity: abnormal
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:band-calculator-3
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - band:calculator:3
+  - id: case:chadsvasc:band-chadsvasc_band_5
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age_group: under_65
+      sex: female
+      chf: true
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: chadsvasc_band_5
+        kind: risk
+        label: Intermediate score category; the score alone does not determine
+          anticoagulation.
+        severity: borderline
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:band-calculator-4
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - band:calculator:4
+  - id: case:chadsvasc:band-chadsvasc_band_6
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      age_group: under_65
+      sex: female
+      chf: false
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: score
+        code: chadsvasc_band_6
+        kind: risk
+        label: Lower score category; female sex alone is a risk modifier and the score
+          alone does not determine anticoagulation.
+        severity: normal
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:band-calculator-5
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - band:calculator:5
+  - id: case:chadsvasc:option-age_group-under_65
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_group: under_65
+      sex: male
+      chf: false
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:input-age-group-options
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - input:age_group:options
+  - id: case:chadsvasc:option-age_group-age_65_74
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_group: age_65_74
+      sex: male
+      chf: false
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:input-age-group-options
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - input:age_group:options
+  - id: case:chadsvasc:option-age_group-age_75_plus
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_group: age_75_plus
+      sex: male
+      chf: false
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 2
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:input-age-group-options
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - input:age_group:options
+  - id: case:chadsvasc:option-sex-male
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_group: under_65
+      sex: male
+      chf: false
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 0
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:input-sex-options
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - input:sex:options
+  - id: case:chadsvasc:option-sex-female
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_group: under_65
+      sex: female
+      chf: false
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:input-sex-options
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - input:sex:options
+  - id: case:chadsvasc:alias-sex-gender
+    kind: edge
+    tags:
+      - aliases
+    inputs:
+      age_group: under_65
+      chf: false
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+      gender: male
+    expected:
+      score: 0
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'gender' is a compatibility alias; use 'sex'.
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:input-sex-aliases
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - input:sex:aliases
+  - id: case:chadsvasc:component-chf-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_group: under_65
+      sex: male
+      chf: true
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:formula-implementation
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - formula:implementation
+  - id: case:chadsvasc:component-hypertension-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_group: under_65
+      sex: male
+      chf: false
+      hypertension: true
+      stroke_history: false
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:formula-implementation
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - formula:implementation
+  - id: case:chadsvasc:component-stroke_history-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_group: under_65
+      sex: male
+      chf: false
+      hypertension: false
+      stroke_history: true
+      vascular_disease: false
+      diabetes: false
+    expected:
+      score: 2
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:formula-implementation
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - formula:implementation
+  - id: case:chadsvasc:component-vascular_disease-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_group: under_65
+      sex: male
+      chf: false
+      hypertension: false
+      stroke_history: false
+      vascular_disease: true
+      diabetes: false
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:formula-implementation
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - formula:implementation
+  - id: case:chadsvasc:component-diabetes-true
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      age_group: under_65
+      sex: male
+      chf: false
+      hypertension: false
+      stroke_history: false
+      vascular_disease: false
+      diabetes: true
+    expected:
+      score: 1
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:chadsvasc:formula-implementation
+    sourceIds:
+      - chadsvasc_lip_2010
+      - chadsvasc_olesen_2011
+      - chadsvasc_friberg_2012
+    witnesses:
+      - formula:implementation
+compatibilityNotes: []
+explicitBlockers: []

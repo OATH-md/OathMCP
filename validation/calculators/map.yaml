@@ -1,0 +1,628 @@
+calculatorId: map
+specVersion: 1.0.0
+clinicalModel: Mean Arterial Pressure (one-third pulse-pressure approximation)
+variant: normal_heart_rate_brachial_approximation
+population: Patients with systolic and diastolic pressure for whom the standard normal-heart-rate approximation is appropriate.
+setting: Calculated approximation from systolic and diastolic blood pressure, not an invasive waveform mean.
+assessmentTiming: Same-observation systolic and diastolic pressure.
+endpoint: Estimated MAP in mmHg.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:map:2026-07-16
+    calculatorId: map
+    model: Mean Arterial Pressure (one-third pulse-pressure approximation)
+    variant: normal_heart_rate_brachial_approximation
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:map:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: ("mean arterial pressure"[tiab]) AND Razminia[au] AND (formula*[tiab] OR validat*[tiab])
+        translationExposed: true
+        translatedQuery: '"mean arterial pressure"[Title/Abstract] AND Razminia[Author] AND ("formula*"[Title/Abstract] OR
+          "validat*"[Title/Abstract])'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 1
+        exportDigest: sha256:45e3c8e0723c6edf619a09310cf9dd1e5a200e4162a9df2842e8c965f685a9b2
+        stableCitationIds:
+          - PMID:15558774
+      - id: search:map:derivation
+        sourceRole: derivation
+        authorityId: map_clinical_methods_1990
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for
+          normal_heart_rate_brachial_approximation
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - map_clinical_methods_1990
+      - id: search:map:controlling_authority
+        sourceRole: controlling_authority
+        authorityId: map_aha_measurement_2024
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for
+          normal_heart_rate_brachial_approximation
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - map_aha_measurement_2024
+      - id: search:map:specialty_guidance
+        sourceRole: specialty_guidance
+        authorityId: map_accaha_2017
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for
+          normal_heart_rate_brachial_approximation
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - map_accaha_2017
+      - id: search:map:independent_numeric
+        sourceRole: independent_numeric
+        authorityId: map_papaioannou_2020
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for
+          normal_heart_rate_brachial_approximation
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - map_papaioannou_2020
+    accounting:
+      retrieved: 1
+      deduplicated: 1
+      screened: 1
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: map_razminia_2004
+        title: "Validation of a new formula for mean arterial pressure calculation: the new formula is superior to the standard
+          formula."
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:map:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and historical terminology
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search, not an exhaustive systematic review.
+      resolution: Narrowed to the named validation comparison; current AHA guidance and a second independent comparison were
+        checked separately.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - map_clinical_methods_1990
+  - map_aha_measurement_2024
+  - map_accaha_2017
+  - map_papaioannou_2020
+  - map_razminia_2004
+claims:
+  - id: claim:map:calculator-model
+    kind: applicability
+    statement: Mean Arterial Pressure (MAP) uses the declared population and formula variant. The 1/3–2/3 estimate assumes a
+      normal heart rate and waveform; it is less accurate at extremes of heart rate or with significant arrhythmia,
+      where a measured (invasive) MAP is preferred.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - map_razminia_2004
+    locators:
+      - sourceId: map_razminia_2004
+        locator: "Razminia 2004 abstract and methods: standard one-third formula is an approximation whose accuracy changes with
+          heart rate."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is descriptive; its executable equation, inputs, outputs, and applicability are scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:formula-implementation
+    kind: formula
+    statement: MAP = diastolic pressure + one third of the pulse pressure.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: "AHA blood-pressure measurement statement, PMCID PMC11409525, calculated MAP at normal heart rate: one-third
+          SBP plus two-thirds DBP."
+    executable: true
+    scenarioIds:
+      - case:map:ref-usual
+      - case:map:ref-low
+      - case:map:ref-high
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:applicability-purpose
+    kind: applicability
+    statement: Approximate MAP from systolic and diastolic blood pressure using DBP plus one third of pulse pressure at a
+      normal heart rate.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: AHA statement, calculated MAP definition at normal heart rate.
+    executable: true
+    scenarioIds:
+      - case:map:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:applicability-exclusions
+    kind: exclusion
+    statement: Do not calculate from a missing pressure or when systolic pressure is not greater than diastolic pressure.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: AHA statement calculated-MAP equation requires a paired systolic and diastolic pressure; the runtime
+          additionally enforces SBP greater than DBP.
+    executable: true
+    scenarioIds:
+      - case:map:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:input-systolic_bp
+    kind: input
+    statement: Systolic blood pressure in mmHg.
+    covers:
+      - input:systolic_bp
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: "AHA blood-pressure measurement statement, PMCID PMC11409525, calculated MAP at normal heart rate: one-third
+          SBP plus two-thirds DBP."
+    executable: true
+    scenarioIds:
+      - case:map:ref-usual
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:input-systolic_bp-hard_limits
+    kind: input
+    statement: OathMCP rejects Systolic Blood Pressure outside [10, 400] as a conservative operational safety envelope, not
+      a clinical decision cutoff.
+    covers:
+      - input:systolic_bp:hard_limits
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: "AHA blood-pressure measurement statement, PMCID PMC11409525, calculated MAP at normal heart rate: one-third
+          SBP plus two-thirds DBP."
+    executable: true
+    scenarioIds:
+      - case:map:hard-systolic
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:input-systolic_bp-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Systolic Blood Pressure is outside [50, 250]; this is an operational
+      review prompt, not a clinical cutoff.
+    covers:
+      - input:systolic_bp:plausibility
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: "AHA blood-pressure measurement statement, PMCID PMC11409525, calculated MAP at normal heart rate: one-third
+          SBP plus two-thirds DBP."
+    executable: true
+    scenarioIds:
+      - case:map:plausibility-pressure
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:input-systolic_bp-aliases
+    kind: input
+    statement: The compatibility alias preserves the same source-defined Systolic Blood Pressure quantity and unit while the
+      runtime warns that the canonical field is systolic_bp.
+    covers:
+      - input:systolic_bp:aliases
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: "AHA blood-pressure measurement statement, PMCID PMC11409525, calculated MAP at normal heart rate: one-third
+          SBP plus two-thirds DBP."
+    executable: true
+    scenarioIds:
+      - case:map:aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:input-diastolic_bp
+    kind: input
+    statement: Diastolic blood pressure in mmHg.
+    covers:
+      - input:diastolic_bp
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: "AHA blood-pressure measurement statement, PMCID PMC11409525, calculated MAP at normal heart rate: one-third
+          SBP plus two-thirds DBP."
+    executable: true
+    scenarioIds:
+      - case:map:ref-usual
+      - case:map:missing-diastolic
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:input-diastolic_bp-hard_limits
+    kind: input
+    statement: OathMCP rejects Diastolic Blood Pressure outside [5, 300] as a conservative operational safety envelope, not
+      a clinical decision cutoff.
+    covers:
+      - input:diastolic_bp:hard_limits
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: "AHA blood-pressure measurement statement, PMCID PMC11409525, calculated MAP at normal heart rate: one-third
+          SBP plus two-thirds DBP."
+    executable: true
+    scenarioIds:
+      - case:map:hard-diastolic_bp
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:input-diastolic_bp-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Diastolic Blood Pressure is outside [30, 150]; this is an operational
+      review prompt, not a clinical cutoff.
+    covers:
+      - input:diastolic_bp:plausibility
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: "AHA blood-pressure measurement statement, PMCID PMC11409525, calculated MAP at normal heart rate: one-third
+          SBP plus two-thirds DBP."
+    executable: true
+    scenarioIds:
+      - case:map:plausibility-pressure
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:input-diastolic_bp-aliases
+    kind: input
+    statement: The compatibility alias preserves the same source-defined Diastolic Blood Pressure quantity and unit while
+      the runtime warns that the canonical field is diastolic_bp.
+    covers:
+      - input:diastolic_bp:aliases
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: "AHA blood-pressure measurement statement, PMCID PMC11409525, calculated MAP at normal heart rate: one-third
+          SBP plus two-thirds DBP."
+    executable: true
+    scenarioIds:
+      - case:map:aliases
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:output-map
+    kind: outcome
+    statement: MAP in mmHg, rounded to 2 decimal places.
+    covers:
+      - output:map
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: "AHA blood-pressure measurement statement, PMCID PMC11409525, calculated MAP at normal heart rate: one-third
+          SBP plus two-thirds DBP."
+    executable: true
+    scenarioIds:
+      - case:map:ref-usual
+      - case:map:ref-low
+      - case:map:ref-high
+      - case:map:plausibility-pressure
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:map:constraint-0
+    kind: input
+    statement: Systolic blood pressure must be greater than diastolic blood pressure.
+    covers:
+      - constraint:0
+    status: supported
+    sourceIds:
+      - map_aha_measurement_2024
+    locators:
+      - sourceId: map_aha_measurement_2024
+        locator: AHA statement calculated-MAP equation requires a paired systolic and diastolic pressure; the runtime
+          additionally enforces SBP greater than DBP.
+    executable: true
+    scenarioIds:
+      - case:map:constraint
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:map:ref-usual
+    tags:
+      - calculator:map:core
+    inputs:
+      systolic_bp: 120
+      diastolic_bp: 80
+    expected:
+      map: 93.33
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Frozen independently checked arithmetic after the calculator declared rounding rule.
+    claimIds:
+      - claim:map:formula-implementation
+      - claim:map:input-systolic_bp
+      - claim:map:input-diastolic_bp
+      - claim:map:output-map
+    sourceIds:
+      - map_aha_measurement_2024
+    witnesses:
+      - formula:implementation
+      - input:systolic_bp
+      - input:diastolic_bp
+      - output:map
+  - kind: reference
+    id: case:map:ref-low
+    tags:
+      - calculator:map:reference
+    inputs:
+      systolic_bp: 90
+      diastolic_bp: 60
+    expected:
+      map: 70
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:map:formula-implementation
+      - claim:map:output-map
+    sourceIds:
+      - map_aha_measurement_2024
+    witnesses:
+      - formula:implementation
+      - output:map
+  - kind: reference
+    id: case:map:ref-high
+    tags:
+      - calculator:map:reference
+    inputs:
+      systolic_bp: 180
+      diastolic_bp: 100
+    expected:
+      map: 126.67
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:map:formula-implementation
+      - claim:map:output-map
+    sourceIds:
+      - map_aha_measurement_2024
+    witnesses:
+      - formula:implementation
+      - output:map
+  - kind: edge
+    id: case:map:missing-diastolic
+    tags:
+      - required-inputs
+    inputs:
+      systolic_bp: 120
+    expected: {}
+    expectedBehavior: clarify
+    tolerance: *a1
+    claimIds:
+      - claim:map:input-diastolic_bp
+    sourceIds:
+      - map_aha_measurement_2024
+    witnesses:
+      - input:diastolic_bp
+    expectedError:
+      code: MISSING_REQUIRED
+      field: diastolic_bp
+      messageIncludes: Diastolic Blood Pressure is required.
+  - kind: edge
+    id: case:map:hard-systolic
+    tags:
+      - hard-limits
+    inputs:
+      systolic_bp: 401
+      diastolic_bp: 80
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:map:input-systolic_bp-hard_limits
+    sourceIds:
+      - map_aha_measurement_2024
+    witnesses:
+      - input:systolic_bp:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: systolic_bp
+      messageIncludes: Systolic Blood Pressure 401 is outside physiological limits [10, 400].
+  - kind: edge
+    id: case:map:plausibility-pressure
+    tags:
+      - plausibility
+    inputs:
+      systolic_bp: 350
+      diastolic_bp: 200
+    expected:
+      map: 250
+    expectedBehavior: warn
+    tolerance: *a1
+    claimIds:
+      - claim:map:input-systolic_bp-plausibility
+      - claim:map:input-diastolic_bp-plausibility
+      - claim:map:output-map
+    sourceIds:
+      - map_aha_measurement_2024
+    witnesses:
+      - input:systolic_bp:plausibility
+      - input:diastolic_bp:plausibility
+      - output:map
+    expectedWarnings:
+      - Systolic Blood Pressure 350 is unusual (expected 50–250).
+      - Diastolic Blood Pressure 200 is unusual (expected 30–150).
+  - kind: edge
+    id: case:map:aliases
+    tags:
+      - aliases
+    inputs:
+      systolic: 120
+      diastolic: 80
+    expected:
+      map: 93.33
+    expectedBehavior: warn
+    tolerance: *a1
+    claimIds:
+      - claim:map:input-systolic_bp-aliases
+      - claim:map:input-diastolic_bp-aliases
+    sourceIds:
+      - map_aha_measurement_2024
+    witnesses:
+      - input:systolic_bp:aliases
+      - input:diastolic_bp:aliases
+    expectedWarnings:
+      - Input 'systolic' is a compatibility alias; use 'systolic_bp'.
+      - Input 'diastolic' is a compatibility alias; use 'diastolic_bp'.
+  - kind: edge
+    id: case:map:constraint
+    tags:
+      - constraints
+    inputs:
+      systolic_bp: 80
+      diastolic_bp: 90
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:map:constraint-0
+    sourceIds:
+      - map_aha_measurement_2024
+    witnesses:
+      - constraint:0
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: systolic_bp
+      messageIncludes: Systolic blood pressure must be greater than diastolic blood pressure.
+  - kind: agent
+    id: case:map:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      systolic_bp: 120
+      diastolic_bp: 80
+    expected:
+      map: 93.33
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:map:applicability-purpose
+    sourceIds:
+      - map_aha_measurement_2024
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:map:agent-exclusion
+    tags:
+      - agent-applicability
+    inputs:
+      systolic_bp: 80
+      diastolic_bp: 90
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:map:applicability-exclusions
+    sourceIds:
+      - map_aha_measurement_2024
+    witnesses:
+      - applicability:exclusions
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: systolic_bp
+      messageIncludes: Systolic blood pressure must be greater than diastolic blood pressure.
+  - kind: edge
+    id: case:map:hard-diastolic_bp
+    tags:
+      - calculator:map:reference
+    inputs:
+      systolic_bp: 120
+      diastolic_bp: 4
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:map:input-diastolic_bp-hard_limits
+    sourceIds:
+      - map_aha_measurement_2024
+    witnesses:
+      - input:diastolic_bp:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: diastolic_bp
+      messageIncludes: Diastolic Blood Pressure 4 is outside physiological limits [5, 300].
+compatibilityNotes: []
+explicitBlockers: []

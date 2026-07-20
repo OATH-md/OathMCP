@@ -1,0 +1,2255 @@
+calculatorId: gad7
+specVersion: 1.0.0
+clinicalModel: GAD-7 original seven-item adult primary-care screening and symptom-severity instrument
+variant: spitzer_2006_original_english_adult_primary_care
+population: Adults completing the original seven self-reported symptom-frequency items for the preceding two weeks.
+setting: Primary-care anxiety screening and symptom-severity follow-up; not a diagnostic interview or crisis assessment.
+assessmentTiming: Self-report for symptoms during the preceding two weeks.
+endpoint: Integer symptom score 0-21 with minimal, mild, moderate, and severe ranges; score 10 is a screening cut point,
+  not a diagnosis.
+reviewGroup: additive_criteria_scores
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:gad7:2026-07-16
+    calculatorId: gad7
+    model: GAD-7 original seven-item adult primary-care screening and symptom-severity instrument
+    variant: spitzer_2006_original_english_adult_primary_care
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:gad7:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web flat-file export
+        exactQuery: '"GAD-7"[Title] AND ("primary care"[Title/Abstract] OR "general population"[Title/Abstract] OR systematic
+          review[Title/Abstract] OR meta-analysis[Title/Abstract])'
+        translationExposed: true
+        translatedQuery: '"GAD-7"[Title] AND ("primary care"[Title/Abstract] OR "general population"[Title/Abstract] OR
+          systematic review[Title/Abstract] OR meta-analysis[Title/Abstract])'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 44
+        stableCitationIds:
+          - PMID:16717171
+          - PMID:18388841
+          - PMID:26719105
+          - PMID:40130828
+          - PMID:38415869
+          - PMID:40669726
+          - PMID:32582485
+          - PMID:36209615
+          - PMID:40079046
+          - PMID:31498233
+          - PMID:37118684
+          - PMID:40181894
+          - PMID:34287885
+          - PMID:30936840
+          - PMID:39418267
+          - PMID:36276320
+          - PMID:38566138
+          - PMID:34556185
+          - PMID:36376799
+          - PMID:35232409
+          - PMID:28666201
+          - PMID:22377544
+          - PMID:41856008
+          - PMID:41968509
+          - PMID:28771530
+          - PMID:30981054
+          - PMID:30579178
+          - PMID:34819104
+          - PMID:40907717
+          - PMID:28977285
+          - PMID:28088111
+          - PMID:33133222
+          - PMID:20692043
+          - PMID:41228095
+          - PMID:24920316
+          - PMID:23768681
+          - PMID:40029834
+          - PMID:40098282
+          - PMID:25956759
+          - PMID:42277957
+          - PMID:42400687
+          - PMID:24983795
+          - PMID:27809821
+          - PMID:25402534
+      - id: search:gad7:gad7_spitzer_2006
+        sourceRole: derivation
+        authorityId: gad7_spitzer_2006
+        database: Primary or responsible-authority source
+        site: Archives of Internal Medicine
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for gad7
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - gad7_spitzer_2006
+      - id: search:gad7:gad7_nih_form_2026
+        sourceRole: controlling_authority
+        authorityId: gad7_nih_form_2026
+        database: Primary or responsible-authority source
+        site: National Institutes of Health
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for gad7
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - gad7_nih_form_2026
+      - id: search:gad7:gad7_uspstf_2023
+        sourceRole: specialty_guidance
+        authorityId: gad7_uspstf_2023
+        database: Primary or responsible-authority source
+        site: U.S. Preventive Services Task Force
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for gad7
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 1
+        stableCitationIds:
+          - gad7_uspstf_2023
+      - id: search:gad7:gad7_lowe_2008
+        sourceRole: external_validation
+        authorityId: gad7_lowe_2008
+        database: Primary or responsible-authority source
+        site: Medical Care
+        interface: direct document review
+        exactQuery: Exact score form, option weights, thresholds, variant, setting, currentness, and limitation review for gad7
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - gad7_lowe_2008
+    accounting:
+      retrieved: 46
+      deduplicated: 46
+      screened: 46
+      fullTextAssessed: 4
+      excluded: 0
+      included: 4
+    deduplication:
+      method: PMID, DOI, and responsible-authority URL identity with manual title reconciliation
+      tool: PubMed flat-file export plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: gad7_spitzer_2006
+        title: "A brief measure for assessing generalized anxiety disorder: the GAD-7."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: gad7_lowe_2008
+        title: Validation and standardization of the Generalized Anxiety Disorder Screener
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:26719105
+        title: "Screening for anxiety disorders with the GAD-7 and GAD-2: a systematic review and"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:40130828
+        title: Generalized Anxiety Disorder 7-item (GAD-7) and 2-item (GAD-2) scales for
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:38415869
+        title: PHQ-9 and GAD-7 Score Response After Parathyroidectomy for Primary
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:40669726
+        title: An updated systematic review and meta-analysis of the predictive validity of the
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:32582485
+        title: Using Generalized Anxiety Disorder-2 (GAD-2) and GAD-7 in a Primary Care Setting.
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:36209615
+        title: Value added? A pragmatic analysis of the routine use of PHQ-9 and GAD-7 scales in
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:40079046
+        title: Internal Validity and Reliability of the GAD-7 Test in Latin America.
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:31498233
+        title: Linking the GAD-7 and PHQ-9 to the TBI-QOL Anxiety and Depression Item Banks.
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:37118684
+        title: Measurement invariance of the PHQ-9 and GAD-7 across males and females seeking
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:40181894
+        title: Psychometric evaluation and community norms of the GAD-7, based on a
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:34287885
+        title: Exploring the structure of the GAD-7 scale in primary care patients with
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:30936840
+        title: The Psychometric Properties and Clinical Utility of the Korean Version of GAD-7
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:39418267
+        title: Translation, cultural adaptation, and validation of the PHQ-9 and GAD-7 in
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:36276320
+        title: Validation of the generalized anxiety disorder scales (GAD-7 and GAD-2) in
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:38566138
+        title: "Psychometric properties of the GAD-7 (General Anxiety Disorder-7): a"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:34556185
+        title: The GAD-7 and the PHQ-8 exhibit the same mathematical pattern of item responses
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:36376799
+        title: "Assessing anxiety among adolescents in Hong Kong: psychometric properties and"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:35232409
+        title: Measurement invariance of the Patient Health Questionnaire (PHQ-9) and
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:28666201
+        title: Screening for generalized anxiety disorder in Spanish primary care centers with
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:22377544
+        title: Validation of the GAD-7 (Malay version) among women attending a primary care
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41856008
+        title: Validity and factor structure of the Czech GAD-7 across twenty samples and four
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41968509
+        title: "Cross-cultural validity of the generalized anxiety disorder 7-item scale (GAD-7):"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:28771530
+        title: Psychometric analysis of the Generalized Anxiety Disorder scale (GAD-7) in
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:30981054
+        title: Factorial invariance of a computerized version of the GAD-7 across various
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:30579178
+        title: Psychometric properties of the 7-item Generalized Anxiety Disorder Scale (GAD-7)
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:34819104
+        title: "Short Warwick-Edinburgh Mental Well-being Scale (SWEMWBS): performance in a"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:40907717
+        title: What do the PHQ-9, the GAD-7 and their variants miss in assessing young people
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:28977285
+        title: Factor structure and construct validity of the Generalized Anxiety Disorder
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:28088111
+        title: Psychometric evaluation of the Generalized Anxiety Disorder Screener GAD-7, based
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:33133222
+        title: The reliability, validity and factorial structure of the Swahili version of the
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:20692043
+        title: Validity of the GAD-7 scale as an outcome measure of disability in patients with
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:41228095
+        title: Association of Chewing Difficulty and Number of Remaining Teeth with Anxiety
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:24920316
+        title: Prevalence of anxiety disorders among Finnish primary care high utilizers and
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:23768681
+        title: Assessing generalized anxiety disorder in elderly people using the GAD-7 and
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:40029834
+        title: Reported severity of psychotic, depressive and anxiety symptoms in relation to
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:40098282
+        title: Psychometric Properties of the Nine-Item Personal Health Questionnaire (PHQ-9)
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:25956759
+        title: "Screening instruments for a population of older adults: The 10-item Kessler"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:42277957
+        title: "The Latent Structure of Depression and Anxiety Symptoms: A Bifactor Exploratory"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:42400687
+        title: Agreement between the EQ-5D-5L anxiety/depression dimension and GAD-7/PHQ-9 for
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:24983795
+        title: "Beyond generalized anxiety disorder: psychometric properties of the GAD-7 in a"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:27809821
+        title: The theoretical and practical determination of clinical cut-offs for the British
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: pmid:25402534
+        title: "ACP Journal Club: review: in primary care, screening with the GAD-7 detected"
+        disposition: excluded
+        exclusionReason: Title and abstract screening did not identify a distinct retained exact-variant component, threshold,
+          current-authority, or limitation claim beyond the included primary and responsible-authority sources.
+        fullTextAssessed: false
+      - citationId: gad7_nih_form_2026
+        title: Generalized Anxiety Disorder 7 (GAD 7).
+        disposition: included
+        fullTextAssessed: true
+      - citationId: gad7_uspstf_2023
+        title: "Screening for Anxiety Disorders in Adults: US Preventive Services Task Force Recommendation Statement."
+        disposition: included
+        fullTextAssessed: true
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:gad7:pubmed
+      checklist:
+        - Exact model and variant terms retained
+        - Population and setting concepts included
+        - Validation and update concepts represented
+        - No date restriction on foundational evidence
+        - Translation and result ledger checked
+      comments:
+        - The initial strategy was widened beyond known-title retrieval while retaining exact model identity and a
+          screenable result set.
+        - Current responsible-authority and specialty-guidance searches were reviewed separately from MEDLINE.
+      resolution: Resolved by retaining exact model terms, adding population and validation concepts, screening every
+        retrieved record, and separately checking current responsible-authority guidance, citation chains, corrections,
+        retractions, and supersession.
+      resolved: true
+      reviewer: Independent PRESS search specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - gad7_spitzer_2006
+  - gad7_nih_form_2026
+  - gad7_uspstf_2023
+  - gad7_lowe_2008
+claims:
+  - id: claim:gad7:calculator-model
+    kind: applicability
+    statement: GAD-7 original seven-item adult primary-care screening and symptom-severity instrument; exact variant
+      spitzer_2006_original_english_adult_primary_care.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+      - gad7_lowe_2008
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+      - sourceId: gad7_lowe_2008
+        locator: "Methods and Results: nationally representative adult sample, construct validity, reliability, and population
+          norms."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity and setting are verified by source review; runtime scenarios separately witness
+      every executable component and output.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:formula-implementation
+    kind: formula
+    statement: The declared component weights are summed exactly and the resulting outputs follow the reviewed
+      spitzer_2006_original_english_adult_primary_care model.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:reference-1
+      - case:gad7:reference-2
+      - case:gad7:reference-3
+      - case:gad7:boundary-score-4
+      - case:gad7:boundary-score-5
+      - case:gad7:boundary-score-9
+      - case:gad7:boundary-score-10
+      - case:gad7:boundary-score-14
+      - case:gad7:boundary-score-15
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:applicability-purpose
+    kind: applicability
+    statement: Adults completing the original seven self-reported symptom-frequency items for the preceding two weeks.
+      Primary-care anxiety screening and symptom-severity follow-up; not a diagnostic interview or crisis assessment.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - gad7_nih_form_2026
+      - gad7_uspstf_2023
+      - gad7_lowe_2008
+    locators:
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+      - sourceId: gad7_uspstf_2023
+        locator: "Practice considerations: screening applies to adults without recognized symptoms and positive results require
+          diagnostic assessment and follow-up."
+      - sourceId: gad7_lowe_2008
+        locator: "Methods and Results: nationally representative adult sample, construct validity, reliability, and population
+          norms."
+    executable: true
+    scenarioIds:
+      - case:gad7:agent-intended
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:applicability-exclusions
+    kind: exclusion
+    statement: A screening and symptom-severity instrument, not a diagnosis. A positive screen requires diagnostic
+      assessment. It does not assess suicidality or replace urgent crisis and safety evaluation.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - gad7_nih_form_2026
+      - gad7_uspstf_2023
+      - gad7_lowe_2008
+    locators:
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+      - sourceId: gad7_uspstf_2023
+        locator: "Practice considerations: screening applies to adults without recognized symptoms and positive results require
+          diagnostic assessment and follow-up."
+      - sourceId: gad7_lowe_2008
+        locator: "Methods and Results: nationally representative adult sample, construct validity, reliability, and population
+          norms."
+    executable: true
+    scenarioIds:
+      - case:gad7:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-feeling_nervous
+    kind: input
+    statement: "Feeling nervous, anxious, or on edge: How often have you been bothered by feeling nervous, anxious, or on
+      edge over the last 2 weeks?"
+    covers:
+      - input:feeling_nervous
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:reference-1
+      - case:gad7:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-feeling_nervous-options
+    kind: input
+    statement: "Feeling nervous, anxious, or on edge: not_at_all=0, several_days=1, more_than_half_the_days=2,
+      nearly_every_day=3."
+    covers:
+      - input:feeling_nervous:options
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:option-feeling_nervous-not_at_all
+      - case:gad7:option-feeling_nervous-several_days
+      - case:gad7:option-feeling_nervous-more_than_half_the_days
+      - case:gad7:option-feeling_nervous-nearly_every_day
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-cannot_control_worrying
+    kind: input
+    statement: "Not being able to stop or control worrying: How often have you been bothered by not being able to stop or
+      control worrying over the last 2 weeks?"
+    covers:
+      - input:cannot_control_worrying
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-cannot_control_worrying-options
+    kind: input
+    statement: "Not being able to stop or control worrying: not_at_all=0, several_days=1, more_than_half_the_days=2,
+      nearly_every_day=3."
+    covers:
+      - input:cannot_control_worrying:options
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:option-cannot_control_worrying-not_at_all
+      - case:gad7:option-cannot_control_worrying-several_days
+      - case:gad7:option-cannot_control_worrying-more_than_half_the_days
+      - case:gad7:option-cannot_control_worrying-nearly_every_day
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-worrying_too_much
+    kind: input
+    statement: "Worrying too much about different things: How often have you been bothered by worrying too much about
+      different things over the last 2 weeks?"
+    covers:
+      - input:worrying_too_much
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-worrying_too_much-options
+    kind: input
+    statement: "Worrying too much about different things: not_at_all=0, several_days=1, more_than_half_the_days=2,
+      nearly_every_day=3."
+    covers:
+      - input:worrying_too_much:options
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:option-worrying_too_much-not_at_all
+      - case:gad7:option-worrying_too_much-several_days
+      - case:gad7:option-worrying_too_much-more_than_half_the_days
+      - case:gad7:option-worrying_too_much-nearly_every_day
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-trouble_relaxing
+    kind: input
+    statement: "Trouble relaxing: How often have you been bothered by trouble relaxing over the last 2 weeks?"
+    covers:
+      - input:trouble_relaxing
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-trouble_relaxing-options
+    kind: input
+    statement: "Trouble relaxing: not_at_all=0, several_days=1, more_than_half_the_days=2, nearly_every_day=3."
+    covers:
+      - input:trouble_relaxing:options
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:option-trouble_relaxing-not_at_all
+      - case:gad7:option-trouble_relaxing-several_days
+      - case:gad7:option-trouble_relaxing-more_than_half_the_days
+      - case:gad7:option-trouble_relaxing-nearly_every_day
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-restlessness
+    kind: input
+    statement: "Being so restless that it's hard to sit still: How often have you been bothered by being so restless that
+      it's hard to sit still over the last 2 weeks?"
+    covers:
+      - input:restlessness
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-restlessness-options
+    kind: input
+    statement: "Being so restless that it's hard to sit still: not_at_all=0, several_days=1, more_than_half_the_days=2,
+      nearly_every_day=3."
+    covers:
+      - input:restlessness:options
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:option-restlessness-not_at_all
+      - case:gad7:option-restlessness-several_days
+      - case:gad7:option-restlessness-more_than_half_the_days
+      - case:gad7:option-restlessness-nearly_every_day
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-easily_annoyed
+    kind: input
+    statement: "Becoming easily annoyed or irritable: How often have you been bothered by becoming easily annoyed or
+      irritable over the last 2 weeks?"
+    covers:
+      - input:easily_annoyed
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-easily_annoyed-options
+    kind: input
+    statement: "Becoming easily annoyed or irritable: not_at_all=0, several_days=1, more_than_half_the_days=2,
+      nearly_every_day=3."
+    covers:
+      - input:easily_annoyed:options
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:option-easily_annoyed-not_at_all
+      - case:gad7:option-easily_annoyed-several_days
+      - case:gad7:option-easily_annoyed-more_than_half_the_days
+      - case:gad7:option-easily_annoyed-nearly_every_day
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-feeling_afraid
+    kind: input
+    statement: "Feeling afraid as if something awful might happen: How often have you been bothered by feeling afraid as if
+      something awful might happen over the last 2 weeks?"
+    covers:
+      - input:feeling_afraid
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:input-feeling_afraid-options
+    kind: input
+    statement: "Feeling afraid as if something awful might happen: not_at_all=0, several_days=1, more_than_half_the_days=2,
+      nearly_every_day=3."
+    covers:
+      - input:feeling_afraid:options
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:option-feeling_afraid-not_at_all
+      - case:gad7:option-feeling_afraid-several_days
+      - case:gad7:option-feeling_afraid-more_than_half_the_days
+      - case:gad7:option-feeling_afraid-nearly_every_day
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:output-gad7_score
+    kind: outcome
+    statement: Total GAD-7 score (0-21).
+    covers:
+      - output:gad7_score
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:reference-1
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:band-calculator-0
+    kind: band
+    statement: "gad7_band_1: >=15 — Severe symptom range on this screening and severity-tracking instrument; clinical
+      evaluation is required."
+    covers:
+      - band:calculator:0
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:boundary-score-15
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:band-calculator-1
+    kind: band
+    statement: "gad7_band_2: >=10 — Moderate symptom range; score >=10 is a reasonable screening cut point, not a standalone
+      diagnosis."
+    covers:
+      - band:calculator:1
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:boundary-score-10
+      - case:gad7:boundary-score-14
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:band-calculator-2
+    kind: band
+    statement: "gad7_band_3: >=5 — Mild symptom range on the GAD-7 screening instrument."
+    covers:
+      - band:calculator:2
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:boundary-score-5
+      - case:gad7:boundary-score-9
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:gad7:band-calculator-3
+    kind: band
+    statement: "gad7_band_4: <5 — Minimal symptom range on the GAD-7 screening instrument."
+    covers:
+      - band:calculator:3
+    status: supported
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    locators:
+      - sourceId: gad7_spitzer_2006
+        locator: "Methods and Results: seven preceding-two-week items, response weights 0-3, total 0-21, severity cut points
+          5/10/15, and criterion interview at score 10."
+      - sourceId: gad7_nih_form_2026
+        locator: "Official form: seven symptom items and four response-frequency choices for the preceding two weeks."
+    executable: true
+    scenarioIds:
+      - case:gad7:boundary-score-4
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - id: case:gad7:reference-1
+    kind: reference
+    tags:
+      - calculator:gad7:core
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:formula-implementation
+      - claim:gad7:input-feeling_nervous
+      - claim:gad7:input-cannot_control_worrying
+      - claim:gad7:input-worrying_too_much
+      - claim:gad7:input-trouble_relaxing
+      - claim:gad7:input-restlessness
+      - claim:gad7:input-easily_annoyed
+      - claim:gad7:input-feeling_afraid
+      - claim:gad7:output-gad7_score
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - formula:implementation
+      - input:feeling_nervous
+      - input:cannot_control_worrying
+      - input:worrying_too_much
+      - input:trouble_relaxing
+      - input:restlessness
+      - input:easily_annoyed
+      - input:feeling_afraid
+      - output:gad7_score
+  - id: case:gad7:reference-2
+    kind: reference
+    tags:
+      - calculator:gad7:core
+    inputs:
+      feeling_nervous: several_days
+      cannot_control_worrying: several_days
+      worrying_too_much: more_than_half_the_days
+      trouble_relaxing: several_days
+      restlessness: not_at_all
+      easily_annoyed: more_than_half_the_days
+      feeling_afraid: several_days
+    expected:
+      gad7_score: 8
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_3
+        kind: screening
+        label: Mild symptom range on the GAD-7 screening instrument.
+        severity: borderline
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:formula-implementation
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - formula:implementation
+  - id: case:gad7:reference-3
+    kind: reference
+    tags:
+      - calculator:gad7:core
+    inputs:
+      feeling_nervous: nearly_every_day
+      cannot_control_worrying: nearly_every_day
+      worrying_too_much: nearly_every_day
+      trouble_relaxing: nearly_every_day
+      restlessness: nearly_every_day
+      easily_annoyed: nearly_every_day
+      feeling_afraid: nearly_every_day
+    expected:
+      gad7_score: 21
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_1
+        kind: screening
+        label: Severe symptom range on this screening and severity-tracking instrument; clinical evaluation is required.
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:formula-implementation
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - formula:implementation
+  - id: case:gad7:agent-intended
+    kind: agent
+    tags:
+      - agent-applicability
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:applicability-purpose
+    sourceIds:
+      - gad7_nih_form_2026
+      - gad7_uspstf_2023
+      - gad7_lowe_2008
+    witnesses:
+      - applicability:purpose
+  - id: case:gad7:agent-exclusion
+    kind: agent
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: feeling_nervous
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:applicability-exclusions
+      - claim:gad7:input-feeling_nervous
+    sourceIds:
+      - gad7_nih_form_2026
+      - gad7_uspstf_2023
+      - gad7_lowe_2008
+      - gad7_spitzer_2006
+    witnesses:
+      - applicability:exclusions
+      - input:feeling_nervous
+  - id: case:gad7:option-feeling_nervous-not_at_all
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-feeling_nervous-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:feeling_nervous:options
+  - id: case:gad7:option-feeling_nervous-several_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: several_days
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-feeling_nervous-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:feeling_nervous:options
+  - id: case:gad7:option-feeling_nervous-more_than_half_the_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: more_than_half_the_days
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-feeling_nervous-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:feeling_nervous:options
+  - id: case:gad7:option-feeling_nervous-nearly_every_day
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: nearly_every_day
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-feeling_nervous-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:feeling_nervous:options
+  - id: case:gad7:option-cannot_control_worrying-not_at_all
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-cannot_control_worrying-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:cannot_control_worrying:options
+  - id: case:gad7:option-cannot_control_worrying-several_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: several_days
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-cannot_control_worrying-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:cannot_control_worrying:options
+  - id: case:gad7:option-cannot_control_worrying-more_than_half_the_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: more_than_half_the_days
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-cannot_control_worrying-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:cannot_control_worrying:options
+  - id: case:gad7:option-cannot_control_worrying-nearly_every_day
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: nearly_every_day
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-cannot_control_worrying-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:cannot_control_worrying:options
+  - id: case:gad7:option-worrying_too_much-not_at_all
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-worrying_too_much-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:worrying_too_much:options
+  - id: case:gad7:option-worrying_too_much-several_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: several_days
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-worrying_too_much-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:worrying_too_much:options
+  - id: case:gad7:option-worrying_too_much-more_than_half_the_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: more_than_half_the_days
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-worrying_too_much-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:worrying_too_much:options
+  - id: case:gad7:option-worrying_too_much-nearly_every_day
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: nearly_every_day
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-worrying_too_much-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:worrying_too_much:options
+  - id: case:gad7:option-trouble_relaxing-not_at_all
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-trouble_relaxing-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:trouble_relaxing:options
+  - id: case:gad7:option-trouble_relaxing-several_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: several_days
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-trouble_relaxing-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:trouble_relaxing:options
+  - id: case:gad7:option-trouble_relaxing-more_than_half_the_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: more_than_half_the_days
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-trouble_relaxing-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:trouble_relaxing:options
+  - id: case:gad7:option-trouble_relaxing-nearly_every_day
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: nearly_every_day
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-trouble_relaxing-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:trouble_relaxing:options
+  - id: case:gad7:option-restlessness-not_at_all
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-restlessness-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:restlessness:options
+  - id: case:gad7:option-restlessness-several_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: several_days
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-restlessness-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:restlessness:options
+  - id: case:gad7:option-restlessness-more_than_half_the_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: more_than_half_the_days
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-restlessness-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:restlessness:options
+  - id: case:gad7:option-restlessness-nearly_every_day
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: nearly_every_day
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-restlessness-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:restlessness:options
+  - id: case:gad7:option-easily_annoyed-not_at_all
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-easily_annoyed-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:easily_annoyed:options
+  - id: case:gad7:option-easily_annoyed-several_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: several_days
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-easily_annoyed-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:easily_annoyed:options
+  - id: case:gad7:option-easily_annoyed-more_than_half_the_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: more_than_half_the_days
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-easily_annoyed-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:easily_annoyed:options
+  - id: case:gad7:option-easily_annoyed-nearly_every_day
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: nearly_every_day
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-easily_annoyed-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:easily_annoyed:options
+  - id: case:gad7:option-feeling_afraid-not_at_all
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 0
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-feeling_afraid-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:feeling_afraid:options
+  - id: case:gad7:option-feeling_afraid-several_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: several_days
+    expected:
+      gad7_score: 1
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-feeling_afraid-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:feeling_afraid:options
+  - id: case:gad7:option-feeling_afraid-more_than_half_the_days
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: more_than_half_the_days
+    expected:
+      gad7_score: 2
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-feeling_afraid-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:feeling_afraid:options
+  - id: case:gad7:option-feeling_afraid-nearly_every_day
+    kind: edge
+    tags:
+      - component-options
+    inputs:
+      feeling_nervous: not_at_all
+      cannot_control_worrying: not_at_all
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: nearly_every_day
+    expected:
+      gad7_score: 3
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:input-feeling_afraid-options
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - input:feeling_afraid:options
+  - id: case:gad7:boundary-score-4
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      feeling_nervous: nearly_every_day
+      cannot_control_worrying: several_days
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 4
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_4
+        kind: screening
+        label: Minimal symptom range on the GAD-7 screening instrument.
+        severity: normal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:formula-implementation
+      - claim:gad7:band-calculator-3
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - formula:implementation
+      - band:calculator:3
+  - id: case:gad7:boundary-score-5
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      feeling_nervous: nearly_every_day
+      cannot_control_worrying: more_than_half_the_days
+      worrying_too_much: not_at_all
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 5
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_3
+        kind: screening
+        label: Mild symptom range on the GAD-7 screening instrument.
+        severity: borderline
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:formula-implementation
+      - claim:gad7:band-calculator-2
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - formula:implementation
+      - band:calculator:2
+  - id: case:gad7:boundary-score-9
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      feeling_nervous: nearly_every_day
+      cannot_control_worrying: nearly_every_day
+      worrying_too_much: nearly_every_day
+      trouble_relaxing: not_at_all
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 9
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_3
+        kind: screening
+        label: Mild symptom range on the GAD-7 screening instrument.
+        severity: borderline
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:formula-implementation
+      - claim:gad7:band-calculator-2
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - formula:implementation
+      - band:calculator:2
+  - id: case:gad7:boundary-score-10
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      feeling_nervous: nearly_every_day
+      cannot_control_worrying: nearly_every_day
+      worrying_too_much: nearly_every_day
+      trouble_relaxing: several_days
+      restlessness: not_at_all
+      easily_annoyed: not_at_all
+      feeling_afraid: not_at_all
+    expected:
+      gad7_score: 10
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_2
+        kind: screening
+        label: Moderate symptom range; score >=10 is a reasonable screening cut point, not a standalone diagnosis.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:formula-implementation
+      - claim:gad7:band-calculator-1
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - formula:implementation
+      - band:calculator:1
+  - id: case:gad7:boundary-score-14
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      feeling_nervous: more_than_half_the_days
+      cannot_control_worrying: more_than_half_the_days
+      worrying_too_much: more_than_half_the_days
+      trouble_relaxing: more_than_half_the_days
+      restlessness: more_than_half_the_days
+      easily_annoyed: more_than_half_the_days
+      feeling_afraid: more_than_half_the_days
+    expected:
+      gad7_score: 14
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_2
+        kind: screening
+        label: Moderate symptom range; score >=10 is a reasonable screening cut point, not a standalone diagnosis.
+        severity: abnormal
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:formula-implementation
+      - claim:gad7:band-calculator-1
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - formula:implementation
+      - band:calculator:1
+  - id: case:gad7:boundary-score-15
+    kind: edge
+    tags:
+      - interpretation-boundaries
+    inputs:
+      feeling_nervous: nearly_every_day
+      cannot_control_worrying: more_than_half_the_days
+      worrying_too_much: more_than_half_the_days
+      trouble_relaxing: more_than_half_the_days
+      restlessness: more_than_half_the_days
+      easily_annoyed: more_than_half_the_days
+      feeling_afraid: more_than_half_the_days
+    expected:
+      gad7_score: 15
+    expectedBehavior: calculate
+    expectedInterpretations:
+      - output: gad7_score
+        code: gad7_band_1
+        kind: screening
+        label: Severe symptom range on this screening and severity-tracking instrument; clinical evaluation is required.
+        severity: critical
+    tolerance:
+      mode: exact
+      rationale: Integer score, categorical outputs, warnings, and interpretation codes are asserted exactly from the cited
+        score definition.
+    claimIds:
+      - claim:gad7:formula-implementation
+      - claim:gad7:band-calculator-0
+    sourceIds:
+      - gad7_spitzer_2006
+      - gad7_nih_form_2026
+    witnesses:
+      - formula:implementation
+      - band:calculator:0
+explicitBlockers: []

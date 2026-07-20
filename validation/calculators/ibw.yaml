@@ -1,0 +1,541 @@
+calculatorId: ibw
+specVersion: 1.0.0
+clinicalModel: Ideal Body Weight (Devine)
+variant: devine_adult_1974
+population: Adults at least 152.4 cm tall when a protocol explicitly requests Devine ideal body weight.
+setting: Protocol-specific body-size descriptor calculation; this tool does not choose IBW over actual, adjusted, lean,
+  or predicted weight.
+assessmentTiming: Current adult height and formula sex input.
+endpoint: Devine ideal body weight in kilograms.
+reviewGroup: formula_unit_dosing
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:ibw:2026-07-16
+    calculatorId: ibw
+    model: Ideal Body Weight (Devine)
+    variant: devine_adult_1974
+    searchedAt: 2026-07-16
+    reviewBy: 2027-07-16
+    sources:
+      - id: search:ibw:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline
+        database: MEDLINE
+        site: PubMed
+        interface: NCBI E-utilities esearch JSON
+        exactQuery: Devine[tiab] AND ("ideal body weight"[tiab] OR IBW[tiab] OR "predicted body weight"[tiab])
+        translationExposed: true
+        translatedQuery: '"Devine"[Title/Abstract] AND ("ideal body weight"[Title/Abstract] OR "IBW"[Title/Abstract] OR
+          "predicted body weight"[Title/Abstract])'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 9
+        exportDigest: sha256:2e54f482ca83f474c077f86c488635fdbc3e33a43a329cef95d3ac74e16bf265
+        stableCitationIds:
+          - PMID:41262415
+          - PMID:41199886
+          - PMID:39222174
+          - PMID:31598106
+          - PMID:29870299
+          - PMID:27885969
+          - PMID:22415154
+          - PMID:10981254
+          - PMID:9243045
+      - id: search:ibw:derivation
+        sourceRole: derivation
+        authorityId: ibw_devine_1974
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for devine_adult_1974
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - ibw_devine_1974
+      - id: search:ibw:controlling_authority
+        sourceRole: controlling_authority
+        authorityId: ibw_fda_ocs_2017
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for devine_adult_1974
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - ibw_fda_ocs_2017
+      - id: search:ibw:specialty_guidance
+        sourceRole: specialty_guidance
+        authorityId: ibw_accp_2020
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for devine_adult_1974
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - ibw_accp_2020
+      - id: search:ibw:independent_numeric
+        sourceRole: independent_numeric
+        authorityId: ibw_pai_2000
+        database: Primary or responsible-authority source
+        site: Source owner
+        interface: direct document review
+        exactQuery: Exact model, equation, applicability, limitations, corrections, and currentness for devine_adult_1974
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - ibw_pai_2000
+    accounting:
+      retrieved: 9
+      deduplicated: 9
+      screened: 9
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID and DOI identity with manual title reconciliation
+      tool: NCBI E-utilities plus direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:41262415
+        title: Ketamine dosing formula in treatment-resistant bipolar depression.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:41199886
+        title: Lean Body Mass as a Predictor of Levothyroxine Requirement in Primary Hypothyroidism as Compared to Actual Body
+          Weight.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:39222174
+        title: The quest for optimal ketamine dosing formula in treatment-resistant major depressive disorder.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:31598106
+        title: Evaluation of Different Methods Used to Calculate Ideal Body Weight in the Pediatric Population.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:29870299
+        title: Intraoperative Ventilation Patterns in Morbidly Obese Patients Undergoing Laparoscopic Bariatric Surgery.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:27885969
+        title: 36th International Symposium on Intensive Care and Emergency Medicine.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: pmid:22415154
+        title: Analysis of sentinel lymph node biopsy results and anthropometric formulas.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+      - citationId: ibw_pai_2000
+        title: The origin of the ideal body weight equations.
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:9243045
+        title: Antimicrobial dosing in obese patients.
+        disposition: excluded
+        exclusionReason: Did not add a distinct retained claim beyond the enrolled derivation, authority, guidance, or
+          independent numeric source.
+        fullTextAssessed: false
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:ibw:pubmed
+      checklist:
+        - translation and automatic term mapping
+        - model names and historical terminology
+        - derivation and validation concepts
+        - applicability and limitations
+        - current authority and supersession
+      comments:
+        - Focused verification search, not an exhaustive systematic review.
+      resolution: Accepted after adding the Devine name and alternative body-size terms; retained the focused origin review
+        and separately checked the primary paper, FDA reproduction, and pharmacy guidance.
+      resolved: true
+      reviewer: Independent PRESS specialist
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline
+  - ibw_devine_1974
+  - ibw_fda_ocs_2017
+  - ibw_accp_2020
+  - ibw_pai_2000
+claims:
+  - id: claim:ibw:calculator-model
+    kind: applicability
+    statement: Ideal Body Weight (Devine) uses the declared population and formula variant. The Devine formula is anchored
+      at 60 inches (152.4 cm) and is not accepted below that height. It is not a substitute for adjusted or lean body
+      weight when a dosing protocol specifies another size descriptor.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - ibw_accp_2020
+    locators:
+      - sourceId: ibw_accp_2020
+        locator: ACCP CCSAP 2020 Book 2 sample, body-size descriptor table and protocol-specific selection discussion.
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is descriptive; its executable equation, inputs, outputs, and applicability are scenario-tested.
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ibw:formula-implementation
+    kind: formula
+    statement: Male IBW = 50 kg and female IBW = 45.5 kg, plus 2.3 kg per inch above 60 inches.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - ibw_fda_ocs_2017
+    locators:
+      - sourceId: ibw_fda_ocs_2017
+        locator: "FDA OCS Lung user guide, Appendix B: male 50 + 2.3 kg/in and female 45.5 + 2.3 kg/in above 5 feet."
+    executable: true
+    scenarioIds:
+      - case:ibw:ref-male
+      - case:ibw:ref-female
+      - case:ibw:ref-anchor
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ibw:applicability-purpose
+    kind: applicability
+    statement: Compute the adult Devine ideal-body-weight descriptor from height and formula sex only when a governing
+      protocol requests it.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - ibw_accp_2020
+    locators:
+      - sourceId: ibw_accp_2020
+        locator: ACCP CCSAP 2020 Book 2 sample, Devine IBW formula table and protocol-specific weight selection.
+    executable: true
+    scenarioIds:
+      - case:ibw:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ibw:applicability-exclusions
+    kind: exclusion
+    statement: Do not calculate below 60 inches (152.4 cm), without a formula sex input, or when the governing protocol
+      specifies another size descriptor.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - ibw_fda_ocs_2017
+    locators:
+      - sourceId: ibw_fda_ocs_2017
+        locator: "FDA OCS Lung user guide, Appendix B: sex-specific formula applies to patients over 5 feet and requires height
+          and sex."
+    executable: true
+    scenarioIds:
+      - case:ibw:agent-exclusion
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ibw:input-height_cm
+    kind: input
+    statement: Height in centimeters.
+    covers:
+      - input:height_cm
+    status: supported
+    sourceIds:
+      - ibw_fda_ocs_2017
+    locators:
+      - sourceId: ibw_fda_ocs_2017
+        locator: "FDA OCS Lung user guide, Appendix B: male 50 + 2.3 kg/in and female 45.5 + 2.3 kg/in above 5 feet."
+    executable: true
+    scenarioIds:
+      - case:ibw:ref-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ibw:input-height_cm-hard_limits
+    kind: input
+    statement: OathMCP rejects Height outside [152.4, 300] as a conservative operational safety envelope, not a clinical
+      decision cutoff.
+    covers:
+      - input:height_cm:hard_limits
+    status: supported
+    sourceIds:
+      - ibw_fda_ocs_2017
+    locators:
+      - sourceId: ibw_fda_ocs_2017
+        locator: "FDA OCS Lung user guide, Appendix B: male 50 + 2.3 kg/in and female 45.5 + 2.3 kg/in above 5 feet."
+    executable: true
+    scenarioIds:
+      - case:ibw:hard-height
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ibw:input-height_cm-plausibility
+    kind: input
+    statement: OathMCP warns but still calculates when Height is outside [152.4, 220]; this is an operational review prompt,
+      not a clinical cutoff.
+    covers:
+      - input:height_cm:plausibility
+    status: supported
+    sourceIds:
+      - ibw_fda_ocs_2017
+    locators:
+      - sourceId: ibw_fda_ocs_2017
+        locator: "FDA OCS Lung user guide, Appendix B: male 50 + 2.3 kg/in and female 45.5 + 2.3 kg/in above 5 feet."
+    executable: true
+    scenarioIds:
+      - case:ibw:plausibility-height
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ibw:input-sex
+    kind: input
+    statement: Biological sex used by the Devine formula (male or female).
+    covers:
+      - input:sex
+    status: supported
+    sourceIds:
+      - ibw_fda_ocs_2017
+    locators:
+      - sourceId: ibw_fda_ocs_2017
+        locator: "FDA OCS Lung user guide, Appendix B: male 50 + 2.3 kg/in and female 45.5 + 2.3 kg/in above 5 feet."
+    executable: true
+    scenarioIds:
+      - case:ibw:ref-male
+      - case:ibw:missing-sex
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ibw:input-sex-options
+    kind: input
+    statement: Sex accepts only the formula-declared options male or female.
+    covers:
+      - input:sex:options
+    status: supported
+    sourceIds:
+      - ibw_fda_ocs_2017
+    locators:
+      - sourceId: ibw_fda_ocs_2017
+        locator: "FDA OCS Lung user guide, Appendix B: male 50 + 2.3 kg/in and female 45.5 + 2.3 kg/in above 5 feet."
+    executable: true
+    scenarioIds:
+      - case:ibw:ref-male
+      - case:ibw:ref-female
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+  - id: claim:ibw:output-ibw
+    kind: outcome
+    statement: Ideal body weight in kg, rounded to 1 decimal place.
+    covers:
+      - output:ibw
+    status: supported
+    sourceIds:
+      - ibw_fda_ocs_2017
+    locators:
+      - sourceId: ibw_fda_ocs_2017
+        locator: "FDA OCS Lung user guide, Appendix B: male 50 + 2.3 kg/in and female 45.5 + 2.3 kg/in above 5 feet."
+    executable: true
+    scenarioIds:
+      - case:ibw:ref-male
+      - case:ibw:ref-female
+      - case:ibw:ref-anchor
+      - case:ibw:plausibility-height
+    reviewedAt: 2026-07-16
+    reviewBy: 2027-07-16
+cases:
+  - kind: reference
+    id: case:ibw:ref-male
+    tags:
+      - calculator:ibw:core
+    inputs:
+      height_cm: 180
+      sex: male
+    expected:
+      ibw: 75
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Frozen independently checked arithmetic after the calculator declared rounding rule.
+    claimIds:
+      - claim:ibw:formula-implementation
+      - claim:ibw:input-height_cm
+      - claim:ibw:input-sex
+      - claim:ibw:input-sex-options
+      - claim:ibw:output-ibw
+    sourceIds:
+      - ibw_fda_ocs_2017
+    witnesses:
+      - formula:implementation
+      - input:height_cm
+      - input:sex
+      - input:sex:options
+      - output:ibw
+  - kind: reference
+    id: case:ibw:ref-female
+    tags:
+      - calculator:ibw:reference
+    inputs:
+      height_cm: 180
+      sex: female
+    expected:
+      ibw: 70.5
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ibw:formula-implementation
+      - claim:ibw:input-sex-options
+      - claim:ibw:output-ibw
+    sourceIds:
+      - ibw_fda_ocs_2017
+    witnesses:
+      - formula:implementation
+      - input:sex:options
+      - output:ibw
+  - kind: reference
+    id: case:ibw:ref-anchor
+    tags:
+      - calculator:ibw:reference
+    inputs:
+      height_cm: 152.4
+      sex: male
+    expected:
+      ibw: 50
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ibw:formula-implementation
+      - claim:ibw:output-ibw
+    sourceIds:
+      - ibw_fda_ocs_2017
+    witnesses:
+      - formula:implementation
+      - output:ibw
+  - kind: edge
+    id: case:ibw:missing-sex
+    tags:
+      - required-inputs
+    inputs:
+      height_cm: 180
+    expected: {}
+    expectedBehavior: clarify
+    tolerance: *a1
+    claimIds:
+      - claim:ibw:input-sex
+    sourceIds:
+      - ibw_fda_ocs_2017
+    witnesses:
+      - input:sex
+    expectedError:
+      code: MISSING_REQUIRED
+      field: sex
+      messageIncludes: Sex is required.
+  - kind: edge
+    id: case:ibw:hard-height
+    tags:
+      - hard-limits
+    inputs:
+      height_cm: 150
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:ibw:input-height_cm-hard_limits
+    sourceIds:
+      - ibw_fda_ocs_2017
+    witnesses:
+      - input:height_cm:hard_limits
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: height_cm
+      messageIncludes: Height 150 is outside physiological limits [152.4, 300].
+  - kind: edge
+    id: case:ibw:plausibility-height
+    tags:
+      - plausibility
+    inputs:
+      height_cm: 250
+      sex: male
+    expected:
+      ibw: 138.4
+    expectedBehavior: warn
+    tolerance: *a1
+    claimIds:
+      - claim:ibw:input-height_cm-plausibility
+      - claim:ibw:output-ibw
+    sourceIds:
+      - ibw_fda_ocs_2017
+    witnesses:
+      - input:height_cm:plausibility
+      - output:ibw
+    expectedWarnings:
+      - Height 250 is unusual (expected 152.4–220).
+  - kind: agent
+    id: case:ibw:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      height_cm: 180
+      sex: male
+    expected:
+      ibw: 75
+    expectedBehavior: calculate
+    tolerance: *a1
+    claimIds:
+      - claim:ibw:applicability-purpose
+    sourceIds:
+      - ibw_accp_2020
+    witnesses:
+      - applicability:purpose
+  - kind: agent
+    id: case:ibw:agent-exclusion
+    tags:
+      - agent-applicability
+    inputs:
+      height_cm: 150
+      sex: male
+    expected: {}
+    expectedBehavior: reject
+    tolerance: *a1
+    claimIds:
+      - claim:ibw:applicability-exclusions
+    sourceIds:
+      - ibw_fda_ocs_2017
+    witnesses:
+      - applicability:exclusions
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: height_cm
+      messageIncludes: Height 150 is outside physiological limits [152.4, 300].
+compatibilityNotes: []
+explicitBlockers: []

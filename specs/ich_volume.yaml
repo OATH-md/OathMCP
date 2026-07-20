@@ -1,0 +1,131 @@
+id: ich_volume
+version: 1.0.0
+name: Intracerebral Hemorrhage Volume (ABC/2)
+clinicalModel:
+  modelKind: formula
+  modelId: ich_volume
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+applicability:
+  population: Estimate the volume of a spontaneous intraparenchymal hemorrhage
+    on CT using the simplified slice-count ABC/2 approximation.
+  setting: Rapid bedside approximation from noncontrast CT measurements; this is
+    not a substitute for planimetry or validated segmentation.
+  exclusions:
+    - Accuracy decreases for large, irregular, lobar, multilobar, or
+      heterogeneous hemorrhages and when the simplified slice count does not
+      reproduce Kothari's weighted C method. Prefer planimetry or validated
+      segmentation when precision affects a decision.
+  evidenceRefs:
+    - source_1
+purposeForAgents: Estimate spontaneous intraparenchymal hemorrhage volume (mL)
+  from CT using the simplified slice-count ABC/2 approximation. Do not infer a
+  prognosis or treatment threshold from this estimate alone.
+whenNotToUse: Do not calculate without all four CT measurements and the declared
+  compatibility shape input.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Kothari RU, Brott T, Broderick JP, et al. The ABCs of measuring
+      intracerebral hemorrhage volumes. Stroke. 1996;27(8):1304-1305.
+    locator: doi:10.1161/01.STR.27.8.1304
+    doi: 10.1161/01.STR.27.8.1304
+    url: https://doi.org/10.1161/01.STR.27.8.1304
+    reviewed: true
+inputs:
+  length_cm:
+    title: Length (A)
+    description: Largest hemorrhage diameter (A) in centimeters.
+    kind: number
+    plausible:
+      - 0.1
+      - 20
+    hardLimits:
+      - 0.01
+      - 50
+    required: true
+    conceptId: ich_volume.input.length_cm
+    examples:
+      - 3
+    sourceRefs:
+      - source_1
+    sharedKey: length_cm
+  width_cm:
+    title: Width (B)
+    description: Diameter perpendicular to A (B) in centimeters.
+    kind: number
+    plausible:
+      - 0.1
+      - 20
+    hardLimits:
+      - 0.01
+      - 50
+    required: true
+    conceptId: ich_volume.input.width_cm
+    examples:
+      - 2
+    sourceRefs:
+      - source_1
+    sharedKey: width_cm
+  slice_width_cm:
+    title: Slice Width (C)
+    description: CT slice thickness (C) in centimeters.
+    kind: number
+    plausible:
+      - 0.1
+      - 10
+    hardLimits:
+      - 0.01
+      - 30
+    required: true
+    conceptId: ich_volume.input.slice_width_cm
+    examples:
+      - 0.5
+    sourceRefs:
+      - source_1
+    sharedKey: slice_width_cm
+  num_slices:
+    title: Number of Slices
+    description: Number of CT slices on which hemorrhage is seen.
+    kind: integer
+    plausible:
+      - 1
+      - 60
+    hardLimits:
+      - 1
+      - 200
+    required: true
+    conceptId: ich_volume.input.num_slices
+    examples:
+      - 5
+    sourceRefs:
+      - source_1
+    sharedKey: num_slices
+  ellipsoid_shape:
+    title: Legacy Shape Flag
+    description: Compatibility input retained from schema 1.0. Both values use
+      ABC/2; false no longer selects the unsupported ABC/3 shortcut.
+    aliases:
+      - is_ellipsoid
+    kind: boolean
+    required: true
+    conceptId: ich_volume.input.ellipsoid_shape
+    examples:
+      - true
+    sourceRefs:
+      - source_1
+    sharedKey: ellipsoid_shape
+outputs:
+  volume_ml:
+    title: Hemorrhage Volume
+    description: ICH volume in milliliters (cm³), rounded to 1 decimal place.
+    kind: number
+    unit: mL
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - volume_ml

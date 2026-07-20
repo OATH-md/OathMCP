@@ -1,0 +1,184 @@
+id: chemo_dose_bsa
+version: 1.0.0
+name: Chemotherapy Dose (BSA-based)
+clinicalModel:
+  modelKind: formula
+  modelId: chemo_dose_bsa
+  modelVersion: 1.0.0
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+applicability:
+  population: "Compute an individual chemotherapy drug dose from a
+    protocol-specified mg/m² dose and the patient's body surface area:
+    calculated_dose = dose_per_m2 × BSA, then final_dose after any percentage
+    reduction. BSA is not capped unless the caller explicitly enables the
+    protocol-specific 2.0 m² cap."
+  setting: Clinical decision support; apply only in the context declared by this
+    calculator.
+  exclusions:
+    - Verify the regimen, body-size dosing policy, dose-reduction rationale, and
+      final rounded dose with oncology pharmacy. Do not enable the BSA cap
+      unless the applicable protocol explicitly requires it.
+  evidenceRefs:
+    - source_1
+purposeForAgents: "Compute an individual chemotherapy drug dose from a
+  protocol-specified mg/m² dose and the patient's body surface area:
+  calculated_dose = dose_per_m2 × BSA, then final_dose after any percentage
+  reduction. BSA is not capped unless the caller explicitly enables the
+  protocol-specific 2.0 m² cap."
+whenNotToUse: Verify the regimen, body-size dosing policy, dose-reduction
+  rationale, and final rounded dose with oncology pharmacy. Do not enable the
+  BSA cap unless the applicable protocol explicitly requires it.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: "Griggs JJ, Bohlke K, Balaban EP, et al. Appropriate Systemic Therapy
+      Dosing for Obese Adult Patients With Cancer: ASCO Guideline Update. J Clin
+      Oncol. 2021;39(18):2037-2048."
+    locator: doi:10.1200/JCO.21.00471
+    doi: 10.1200/JCO.21.00471
+    url: https://doi.org/10.1200/JCO.21.00471
+    reviewed: true
+  - id: source_2
+    type: reference
+    citation: Kent and Medway Cancer Collaborative. Guidance on Capping of BSA for the Purposes of Calculating
+      Cytotoxic Chemotherapy. Version 2.
+    locator: Version 2 policy, recommendation to cap at BSA 2.0 m² unless the clinician specifies otherwise
+    url: https://www.kmcc.nhs.uk/s3/assets/guidance-on-capping-of-bsa-for-the-purposes-of-calculating-cytotoxic-chemotherapy-v2.pdf
+    reviewed: true
+inputs:
+  dose_per_m2:
+    title: Dose per m²
+    description: Protocol-specified dose in mg/m².
+    kind: number
+    plausible:
+      - 1
+      - 3000
+    hardLimits:
+      - 0.1
+      - 10000
+    required: true
+    conceptId: chemo_dose_bsa.input.dose_per_m2
+    examples:
+      - 100
+    sourceRefs:
+      - source_1
+    sharedKey: dose_per_m2
+  bsa:
+    title: Body Surface Area
+    description: Patient body surface area in m².
+    kind: number
+    hardLimits:
+      - 0.5
+      - 3
+    required: true
+    conceptId: chemo_dose_bsa.input.bsa
+    examples:
+      - 2.5
+    sourceRefs:
+      - source_1
+    sharedKey: bsa
+  dose_reduction:
+    title: Dose Reduction
+    description: Percentage dose reduction (0 for full dose, e.g. 25 for a 25% reduction).
+    kind: integer
+    hardLimits:
+      - 0
+      - 100
+    required: false
+    default: 0
+    conceptId: chemo_dose_bsa.input.dose_reduction
+    examples:
+      - 0
+    sourceRefs:
+      - source_1
+    sharedKey: dose_reduction
+  cap_bsa:
+    title: Apply Protocol BSA Cap
+    description: Set true only when the applicable regimen explicitly caps BSA at 2.0 m².
+    kind: boolean
+    required: false
+    default: false
+    conceptId: chemo_dose_bsa.input.cap_bsa
+    examples:
+      - true
+    sourceRefs:
+      - source_2
+    sharedKey: cap_bsa
+outputs:
+  calculated_dose:
+    title: Calculated Dose
+    description: Dose before any reduction, in mg, rounded to 1 decimal place.
+    kind: number
+    unit: mg
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+  final_dose:
+    title: Final Dose
+    description: Dose after any percentage reduction, in mg, rounded to 1 decimal place.
+    kind: number
+    unit: mg
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+  bsa_used:
+    title: BSA Used
+    description: The BSA value used after any explicitly requested cap, rounded to 2
+      decimal places.
+    kind: number
+    unit: m²
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+      - source_2
+  bsa_was_capped:
+    title: BSA Was Capped
+    description: Whether the BSA was capped at 2.0 m².
+    kind: boolean
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_2
+  reduction_applied:
+    title: Reduction Applied
+    description: The percentage dose reduction applied.
+    kind: number
+    unit: "%"
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - final_dose
+adjustments:
+  - id: bsa_cap_2
+    operation: cap
+    target:
+      kind: input
+      field: bsa
+    condition:
+      kind: inputEquals
+      field: cap_bsa
+      value: true
+    verifyOutput: bsa_used
+    verifyTolerance: 0.0051
+    appliedOutput: bsa_was_capped
+    maximum: 2
+    evidenceRefs:
+      - source_2
+warnings:
+  - field: bsa
+    when: ">2.0"
+    where:
+      - field: cap_bsa
+        when: ==true
+    message: BSA above 2.0 m² was capped at 2.0 m² for dosing.
+    evidenceRefs:
+      - source_2
+    adjustmentId: bsa_cap_2

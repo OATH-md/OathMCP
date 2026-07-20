@@ -1,0 +1,2012 @@
+calculatorId: meld
+specVersion: 3.1.0
+clinicalModel: United States OPTN MELD 3.0 allocation policy
+variant: meld_3_0
+population: United States liver-transplant candidates age 12 years and older; adult sex coefficient only when age at
+  registration is at least 18.
+setting: OPTN liver-allocation medical-urgency scoring, excluding exception scores and status determinations.
+assessmentTiming: At each policy-defined MELD laboratory assessment using age at registration.
+endpoint: Policy MELD 3.0 score, rounded to a whole number and bounded from 6 to 40.
+reviewGroup: policy_versioned
+enrollment: pending_independent_review
+searchRecords:
+  - id: search:meld:2026-07-16
+    calculatorId: meld
+    model: United States OPTN MELD 3.0 allocation policy
+    variant: meld_3_0
+    searchedAt: 2026-07-16
+    reviewBy: 2026-10-14
+    sources:
+      - id: search:meld:pubmed
+        sourceRole: bibliographic_database
+        authorityId: pubmed_medline_policy
+        database: MEDLINE
+        site: PubMed
+        interface: PubMed web search
+        exactQuery: ("MELD 3.0"[Title/Abstract]) AND (derivation[Title/Abstract] OR validat*[Title/Abstract] OR
+          adolescent*[Title/Abstract])
+        translationExposed: true
+        translatedQuery: '"MELD 3.0"[Title/Abstract] AND ("derivation"[Title/Abstract] OR "validat*"[Title/Abstract] OR
+          "adolescent*"[Title/Abstract])'
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical search lane
+        recordsRetrieved: 52
+        stableCitationIds:
+          - PMID:42278866
+          - PMID:42223434
+          - PMID:42218308
+          - PMID:42201362
+          - PMID:42172502
+          - PMID:42066035
+          - PMID:41997689
+          - PMID:41738362
+          - PMID:41590616
+          - PMID:41493845
+          - PMID:41428744
+          - PMID:41408097
+          - PMID:41373861
+          - PMID:41225756
+          - PMID:41196122
+          - PMID:41076613
+          - PMID:41070101
+          - PMID:40996603
+          - PMID:40900363
+          - PMID:40889809
+          - PMID:40859003
+          - PMID:40629399
+          - PMID:40618943
+          - PMID:40616239
+          - PMID:40586355
+          - PMID:40474888
+          - PMID:40197882
+          - PMID:40120202
+          - PMID:39802293
+          - PMID:39776102
+          - PMID:39622302
+          - PMID:39606343
+          - PMID:39392334
+          - PMID:39364890
+          - PMID:38920299
+          - PMID:38786278
+          - PMID:38720448
+          - PMID:38705152
+          - PMID:37880845
+          - PMID:37752798
+          - PMID:37695092
+          - PMID:37655999
+          - PMID:37568941
+          - PMID:37456675
+          - PMID:37036734
+          - PMID:37036243
+          - PMID:37029067
+          - PMID:36943091
+          - PMID:36929833
+          - PMID:36825324
+          - PMID:36715817
+          - PMID:35972345
+      - id: search:meld:meld_kim_2021
+        sourceRole: derivation
+        authorityId: meld_kim_2021
+        database: Primary or responsible-authority source
+        site: pmc.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for meld
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID:34481845
+      - id: search:meld:meld_kwong_2023
+        sourceRole: external_validation
+        authorityId: meld_kwong_2023
+        database: Primary or responsible-authority source
+        site: pmc.ncbi.nlm.nih.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for meld
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - PMID:36943091
+      - id: search:meld:hrsa_optn
+        sourceRole: controlling_authority
+        authorityId: hrsa_optn
+        database: Primary or responsible-authority source
+        site: www.hrsa.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for meld
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - OPTN:POLICY9:2026
+      - id: search:meld:meld_aasld_guidance
+        sourceRole: specialty_guidance
+        authorityId: meld_aasld_guidance
+        database: Primary or responsible-authority source
+        site: www.aasld.org
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for meld
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - AASLD:LT-EVALUATION
+      - id: search:meld:meld_optn_policy_2023
+        sourceRole: data_release
+        authorityId: meld_optn_policy_2023
+        database: Primary or responsible-authority source
+        site: www.hrsa.gov
+        interface: direct document review
+        exactQuery: Exact current model, variant, coefficients, lookup/policy branches, population, endpoint, version,
+          corrections, and limitations for meld
+        translationExposed: false
+        filters: []
+        coverageTo: 2026-07-16
+        searchedAt: 2026-07-16
+        reviewer: OathMCP clinical source lane
+        recordsRetrieved: 0
+        stableCitationIds:
+          - OPTN:MELD3:2023-07-13
+    accounting:
+      retrieved: 52
+      deduplicated: 52
+      screened: 52
+      fullTextAssessed: 1
+      excluded: 0
+      included: 1
+    deduplication:
+      method: PMID-based deduplication of the exact PubMed export; citation-chased derivation records and direct operator/authority records are listed separately under sources and are not counted as PubMed retrievals.
+      tool: PubMed exact-query export plus separately documented citation chasing and direct-source review
+      version: 2026-07-16
+    screenedCitations:
+      - citationId: pmid:42278866
+        title: "Impact of Pre-Transplant Frailty on Early Outcomes Following Liver Transplantation: A Propensity-Matched Multicenter Cohort Study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:42223434
+        title: "Gastrointestinal bleeding due to portal hypertension in cirrhosis: Prognostic value of the CAGIB score."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:42218308
+        title: "Exploratory Comparison of Meld, Meld-Na, and Meld 3.0 Scores for Prognostic Assessment at Diagnosis in Hepatocellular Carcinoma Using Machine Learning Approaches."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:42201362
+        title: "A HDL-based cirrhosis risk score improves the prediction of short-term mortality in acutely decompensated cirrhosis."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:42172502
+        title: "Reply: Validation of MELD 3.0 in 2 centers from different continents."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:42066035
+        title: "Examining the Association Between Model for End-Stage Liver Disease 3.0 Scores and Intraoperative Blood Component Transfusion During Liver Transplant Surgery."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41997689
+        title: "Dual biomarker strategy with [TIMP-2]·[IGFBP7] and copeptin enhances early diagnosis and risk prediction in HRS-AKI."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41738362
+        title: "Optimizing Liver Transplant Allocation for Hepatocellular Carcinoma: Development and Validation of a Survival Benefit-Based Model."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41590616
+        title: "Personalized Mortality Risk Stratification in ALD- and MASLD-Related Hepatocellular Carcinoma Using a Machine Learning Approach."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41493845
+        title: "Low serum pseudocholinesterase levels are associated with mortality in patients with hepatocellular carcinoma."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41428744
+        title: "The bilirubin-to-albumin ratio as a potential prognostic biomarker for all-cause mortality in patients with acute decompensated cirrhosis: A prospective study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41408097
+        title: "Pan immune inflammation value improves MELD 3.0 for mortality prediction in critically ill cirrhotic patients."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41373861
+        title: "Diagnostic and Prognostic Potential of CXCL9 and CXCL10 Chemokines in Alcohol-Associated Liver Disease."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41225756
+        title: "A Simplified Risk Assessment Tool to Predict Post Deceased Donor Liver Transplantation Outcomes: A Single, Highly Experienced Medical Center in Taiwan."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41196122
+        title: "Use of Natural Language Processing to Objectively Identify Hepatic Encephalopathy in Multiple Cohorts."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41076613
+        title: "Validation of novel scoring systems for acute decompensated cirrhosis identifies PBC as an independent poor prognostic factor: a single-center Japanese cohort study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:41070101
+        title: "MELD 3.i: A Bayesian framework for updating the model for end-stage liver disease score."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40996603
+        title: "Validation of MELD 3.0 and ReMELD-Na scoring systems: a German clinical cohort study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40900363
+        title: "Real World Performance of the Model for End-Stage Liver Disease Score Across Different Races and Ethnicities."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40889809
+        title: "Predictive machine learning model in intensive care unit patients with acute-on-chronic liver failure and two or more organ failures."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40859003
+        title: "Comment on \"Prognostic Performance of Model for End-Stage Liver Disease (MELD) 3.0 for Transjugular Intrahepatic Portosystemic Shunt (TIPS) Creation\"."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40629399
+        title: "The unwell patient with advanced chronic liver disease: when to use each score?"
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40618943
+        title: "Liver Failure, Hepatic Encephalopathy, and Infection Contribute to Mortality Risk in a Global Cirrhosis Cohort."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40616239
+        title: "MELD 3.0 Improves Risk Stratification and Mortality Prediction in Hepatorenal Syndrome-Acute Kidney Injury: A Multicentre Study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40586355
+        title: "Risk scoring systems to predict in-hospital mortality in patients with cirrhosis admitted with acute upper gastrointestinal bleeding."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40474888
+        title: "Improved Discrimination and Predictive Ability of Novel Prognostic Scores for Long-term Mortality in Hospitalized Patients with Cirrhosis."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40197882
+        title: "PERFORMANCE OF SIX PREDICTIVE MODELS OF DEATH OF PATIENTS HOSPITALIZED FOR DECOMPENSATED CIRRHOSIS: A MULTICENTER STUDY."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:40120202
+        title: "Prevalence and prognostic significance of cachexia diagnosed by novel definition for Asian population among Chinese cirrhotic patients."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:39802293
+        title: "Validation of gender-equity model for liver allocation (GEMA) and its sodium variant (GEMA-Na) in candidates for liver transplantation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:39776102
+        title: "Clinical decision instruments for predicting mortality in patients with cirrhosis seeking emergency department care."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:39622302
+        title: "Model of Urgency for Liver Transplantation in Hepatocellular Carcinoma: A Practical Model to Prioritize Patients With Hepatocellular Carcinoma on the Liver Transplant Waitlist."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:39606343
+        title: "Clinical Sentiment Analysis by Large Language Models Enhances the Prediction of Hepatorenal Syndrome in Decompensated Cirrhosis."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:39392334
+        title: "Robust Predictive Performance of the SALT-M Score for Clinical Outcomes in Asian Patients With Acute-on-Chronic Liver Failure."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:39364890
+        title: "Liver Dysfunction and Systemic Inflammation Drive Organ Failures in Acute Decompensation of Cirrhosis: A Multicentric Study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:38920299
+        title: "Distinct Longitudinal Trajectories of Symptom Burden Predict Clinical Outcomes in End-Stage Liver Disease."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:38786278
+        title: "Machine Learning for Short-Term Mortality in Acute Decompensation of Liver Cirrhosis: Better than MELD Score."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:38720448
+        title: "Validation of MELD 3.0 in patients with alcoholic liver cirrhosis using prospective KACLiF cohort."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:38705152
+        title: "Effect of recipient age on prioritisation for liver transplantation in the UK: a population-based modelling study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:37880845
+        title: "The Effect of Model for End-Stage Liver Disease 3.0 on Disparities between Patients with and without Hepatocellular Carcinoma in Korea."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:37752798
+        title: "Superiority of the new sex-adjusted models to remove the female disadvantage restoring equity in liver transplant allocation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:37695092
+        title: "MELD, MELD 3.0, versus Child score to predict mortality after acute variceal hemorrhage: A multicenter US cohort."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:37655999
+        title: "A model including standardized weight improved predicting waiting list mortality in adolescent liver transplant candidates: A US national study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:37568941
+        title: "A Validated Composite Score Demonstrates Potential Superiority to MELD-Based Systems in Predicting Short-Term Survival in Patients with Liver Cirrhosis and Spontaneous Bacterial Peritonitis-A Preliminary Study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:37456675
+        title: "MELD 3.0 adequately predicts mortality and renal replacement therapy requirements in patients with alcohol-associated hepatitis."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:37036734
+        title: "Reply: Validation of MELD 3.0 scoring system in East Asian patients with cirrhosis awaiting liver transplantation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:37036243
+        title: "Letter to the Editor: Validation of MELD 3.0 scoring system in East Asian patients with cirrhosis awaiting liver transplantation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:37029067
+        title: "The Added Value of Sarcopenia on Existing Risk Scores to Predict Mortality after TIPS Placement: A Multicenter Study."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: meld_kwong_2023
+        title: "MELD 3.0 for adolescent liver transplant candidates."
+        disposition: included
+        fullTextAssessed: true
+      - citationId: pmid:36929833
+        title: "Validation of MELD 3.0 scoring system in East Asian patients with cirrhosis awaiting liver transplantation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:36825324
+        title: "Development and validation of a nomogram to predict recompensation in HBV-related cirrhosis with ascites as the single first decompensating event."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:36715817
+        title: "MELD 3.0 Score for Predicting Survival in Patients with Cirrhosis After Transjugular Intrahepatic Portosystemic Shunt Creation."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+      - citationId: pmid:35972345
+        title: "Development and validation of the Cirrhotic Ascites Severity model-A patient-reported outcome-based model to predict 1-year mortality."
+        disposition: excluded
+        exclusionReason: Title/abstract screening did not identify this record as the pre-specified exact-model derivation, retained independent validation, or governing current operator/authority source.
+        fullTextAssessed: false
+    citationChasing:
+      backward: true
+      forward: true
+    checks:
+      corrections: true
+      retractions: true
+      supersession: true
+    qualityReview:
+      method: PRESS-derived
+      initialMedlineSourceId: search:meld:pubmed
+      checklist:
+        - Concept coverage
+        - Controlled vocabulary and text words
+        - Boolean logic
+        - Limits and reproducibility
+        - Exact model/variant, endpoint, data-release, and currentness specificity
+      comments:
+        - The exact PubMed query returned 52 unique PMID records; every result is represented in the title/abstract screening ledger above.
+        - PMID 34481845 was identified by backward citation chasing and reviewed through the separate derivation source record; current OPTN policy/calculator sources were reviewed directly.
+      resolution: Exact query results, screening decisions, and counts were reconciled against the live PubMed export; citation-chased and direct operator/authority sources remain explicitly separate from the PubMed accounting.
+      resolved: true
+      reviewer: OathMCP independent search QA lane
+      reviewedAt: 2026-07-16
+authoritySourceIds:
+  - pubmed_medline_policy
+  - meld_kim_2021
+  - meld_kwong_2023
+  - hrsa_optn
+  - meld_aasld_guidance
+  - meld_optn_policy_2023
+claims:
+  - id: d002.meld_age_at_registration_alias
+    scope: compatibility
+    kind: input
+    statement: Preserve the former age field only as an unambiguous alias for age at registration.
+    covers:
+      - compatibility:safeAliases:meld.age_at_registration
+    status: supported
+    sourceIds: []
+    locators: []
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: D002 permits a safe canonical-field migration alias.
+    compatibilityDecision:
+      oldBehavior: age was the canonical registration-age field.
+      replacement: age_at_registration is canonical and age remains an accepted alias.
+      rationale: Preserve the former age field only as an unambiguous alias for age at registration.
+    reviewedAt: 2026-07-15
+    reviewBy: 2026-10-13
+  - id: claim:meld:calculator-model
+    kind: applicability
+    statement: meld implements only the exact clinical model, version, population, setting, endpoint, and data snapshot
+      declared in this dossier.
+    covers:
+      - calculator:model
+    status: supported
+    sourceIds:
+      - meld_optn_policy_2023
+      - meld_kim_2021
+      - meld_kwong_2023
+    locators:
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 policy/calculator release effective 2023-07-13: exact adult and adolescent allocation equations,
+          branch precedence, laboratory rules, rounding, and 6-40 range."
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult MELD 3.0 model identity, coefficients, interactions, and 90-day
+          waitlist endpoint."
+      - sourceId: meld_kwong_2023
+        locator: "Kwong 2023 equation and Methods: adolescent MELD 3.0 branch identity, 7.33 constant, no adult female
+          coefficient, and age-12-through-17 evaluation cohort."
+    executable: false
+    scenarioIds: []
+    nonExecutableRationale: Model identity is a source-governed scope assertion; every runtime-verifiable surface is covered
+      by separate executable claims.
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:formula-implementation
+    kind: formula
+    statement: meld combines the declared inputs using the cited coefficients, lookup rows, policy branches, bounds, and
+      rounding rules.
+    covers:
+      - formula:implementation
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+      - meld_kwong_2023
+      - meld_optn_policy_2023
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+      - sourceId: meld_kwong_2023
+        locator: "Kwong 2023 equation and Methods: adolescent 7.33 constant, laboratory terms, absence of the adult female
+          coefficient, and age-12-through-17 evaluation."
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 policy/calculator release: effective adult/adolescent branch selection, laboratory bounds,
+          dialysis rule, rounding, and allocation range."
+    executable: true
+    scenarioIds:
+      - case:meld:reference-adult-male
+      - case:meld:reference-adult-female
+      - case:meld:reference-adolescent
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:applicability-purpose
+    kind: applicability
+    statement: meld is limited to the cited population, assessment timing, setting, and endpoint.
+    covers:
+      - applicability:purpose
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D: MELD candidates age 12 or older, adult/adolescent equations, laboratory bounds,
+          dialysis rule, rounding, and 6-40 allocation score."
+    executable: true
+    scenarioIds:
+      - case:meld:agent-purpose
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:applicability-exclusions
+    kind: applicability
+    statement: meld preserves the cited exclusions and does not turn a risk estimate into a treatment, acceptance, or
+      allocation directive.
+    covers:
+      - applicability:exclusions
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D: MELD candidates age 12 or older, adult/adolescent equations, laboratory bounds,
+          dialysis rule, rounding, and 6-40 allocation score."
+    executable: true
+    scenarioIds:
+      - case:meld:agent-exclusion-missing-context
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-creatinine
+    kind: input
+    statement: meld uses the cited definition, role, timing, and domain for creatinine.
+    covers:
+      - input:creatinine
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:reference-adult-male
+      - case:meld:agent-exclusion-missing-context
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-creatinine-hard_limits
+    kind: input
+    statement: meld rejects values outside the declared operational safety envelope; this envelope is not a clinical
+      decision threshold.
+    covers:
+      - input:creatinine:hard_limits
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D: MELD candidates age 12 or older, adult/adolescent equations, laboratory bounds,
+          dialysis rule, rounding, and 6-40 allocation score."
+    executable: true
+    scenarioIds:
+      - case:meld:hard-creatinine
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-creatinine-plausibility
+    kind: input
+    statement: meld warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:creatinine:plausibility
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D: MELD candidates age 12 or older, adult/adolescent equations, laboratory bounds,
+          dialysis rule, rounding, and 6-40 allocation score."
+    executable: true
+    scenarioIds:
+      - case:meld:plausibility-creatinine
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:unit-creatinine
+    kind: unit
+    statement: meld normalizes the declared US and SI units to the same source-defined canonical input before calculation.
+    covers:
+      - unit:creatinine
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:unit-creatinine-canonical
+      - case:meld:unit-creatinine-alternate
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-bilirubin
+    kind: input
+    statement: meld uses the cited definition, role, timing, and domain for bilirubin.
+    covers:
+      - input:bilirubin
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:reference-adult-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-bilirubin-hard_limits
+    kind: input
+    statement: meld rejects values outside the declared operational safety envelope; this envelope is not a clinical
+      decision threshold.
+    covers:
+      - input:bilirubin:hard_limits
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D: MELD candidates age 12 or older, adult/adolescent equations, laboratory bounds,
+          dialysis rule, rounding, and 6-40 allocation score."
+    executable: true
+    scenarioIds:
+      - case:meld:hard-bilirubin
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-bilirubin-plausibility
+    kind: input
+    statement: meld warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:bilirubin:plausibility
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D: MELD candidates age 12 or older, adult/adolescent equations, laboratory bounds,
+          dialysis rule, rounding, and 6-40 allocation score."
+    executable: true
+    scenarioIds:
+      - case:meld:plausibility-bilirubin
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:unit-bilirubin
+    kind: unit
+    statement: meld normalizes the declared US and SI units to the same source-defined canonical input before calculation.
+    covers:
+      - unit:bilirubin
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:unit-bilirubin-canonical
+      - case:meld:unit-bilirubin-alternate
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-inr
+    kind: input
+    statement: meld uses the cited definition, role, timing, and domain for inr.
+    covers:
+      - input:inr
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:reference-adult-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-inr-hard_limits
+    kind: input
+    statement: meld rejects values outside the declared operational safety envelope; this envelope is not a clinical
+      decision threshold.
+    covers:
+      - input:inr:hard_limits
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D: MELD candidates age 12 or older, adult/adolescent equations, laboratory bounds,
+          dialysis rule, rounding, and 6-40 allocation score."
+    executable: true
+    scenarioIds:
+      - case:meld:hard-inr
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-inr-plausibility
+    kind: input
+    statement: meld warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:inr:plausibility
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D: MELD candidates age 12 or older, adult/adolescent equations, laboratory bounds,
+          dialysis rule, rounding, and 6-40 allocation score."
+    executable: true
+    scenarioIds:
+      - case:meld:plausibility-inr
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-sodium
+    kind: input
+    statement: meld uses the cited definition, role, timing, and domain for sodium.
+    covers:
+      - input:sodium
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:reference-adult-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-sodium-hard_limits
+    kind: input
+    statement: meld rejects values outside the declared operational safety envelope; this envelope is not a clinical
+      decision threshold.
+    covers:
+      - input:sodium:hard_limits
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D: MELD candidates age 12 or older, adult/adolescent equations, laboratory bounds,
+          dialysis rule, rounding, and 6-40 allocation score."
+    executable: true
+    scenarioIds:
+      - case:meld:hard-sodium
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-sodium-plausibility
+    kind: input
+    statement: meld warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:sodium:plausibility
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D: MELD candidates age 12 or older, adult/adolescent equations, laboratory bounds,
+          dialysis rule, rounding, and 6-40 allocation score."
+    executable: true
+    scenarioIds:
+      - case:meld:plausibility-sodium
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:unit-sodium
+    kind: unit
+    statement: meld normalizes the declared US and SI units to the same source-defined canonical input before calculation.
+    covers:
+      - unit:sodium
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:unit-sodium-canonical
+      - case:meld:unit-sodium-alternate
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-albumin
+    kind: input
+    statement: meld uses the cited definition, role, timing, and domain for albumin.
+    covers:
+      - input:albumin
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:reference-adult-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-albumin-hard_limits
+    kind: input
+    statement: meld rejects values outside the declared operational safety envelope; this envelope is not a clinical
+      decision threshold.
+    covers:
+      - input:albumin:hard_limits
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D: MELD candidates age 12 or older, adult/adolescent equations, laboratory bounds,
+          dialysis rule, rounding, and 6-40 allocation score."
+    executable: true
+    scenarioIds:
+      - case:meld:hard-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-albumin-plausibility
+    kind: input
+    statement: meld warns on unusual but accepted values inside the hard limits so the caller can verify units and source data.
+    covers:
+      - input:albumin:plausibility
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D: MELD candidates age 12 or older, adult/adolescent equations, laboratory bounds,
+          dialysis rule, rounding, and 6-40 allocation score."
+    executable: true
+    scenarioIds:
+      - case:meld:plausibility-albumin
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:unit-albumin
+    kind: unit
+    statement: meld normalizes the declared US and SI units to the same source-defined canonical input before calculation.
+    covers:
+      - unit:albumin
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:unit-albumin-canonical
+      - case:meld:unit-albumin-alternate
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-age_at_registration
+    kind: input
+    statement: meld uses the cited definition, role, timing, and domain for age_at_registration.
+    covers:
+      - input:age_at_registration
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:reference-adult-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-age_at_registration-hard_limits
+    kind: input
+    statement: The 12-120 age-at-registration interval combines the policy's age-12 lower boundary with an OathMCP
+      machine-safety ceiling; 120 is not a source-derived clinical decision threshold.
+    covers:
+      - input:age_at_registration:hard_limits
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D establishes the age-12 eligibility/branch boundary; the 120-year rejection ceiling
+          is explicitly an internal compatibility/safety guard."
+    executable: true
+    scenarioIds:
+      - case:meld:hard-age_at_registration
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-age_at_registration-plausibility
+    kind: input
+    statement: The age-100 warning ceiling is an OathMCP operational data-quality guard; it does not change the policy equation
+      or assert a clinical cutoff.
+    covers:
+      - input:age_at_registration:plausibility
+    status: supported
+    sourceIds:
+      - hrsa_optn
+    locators:
+      - sourceId: hrsa_optn
+        locator: "Current OPTN Policy 9.1.D establishes age at registration as the policy branch input; the 100-year warning
+          ceiling is explicitly an internal compatibility/data-quality guard."
+    executable: true
+    scenarioIds:
+      - case:meld:plausibility-age_at_registration
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-age_at_registration-aliases
+    kind: input
+    statement: meld accepts only the declared compatibility alias for the same source-defined field and keeps role-specific
+      canonical naming.
+    covers:
+      - input:age_at_registration:aliases
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:alias-age_at_registration
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-sex
+    kind: input
+    statement: meld uses the cited definition, role, timing, and domain for sex.
+    covers:
+      - input:sex
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:reference-adult-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-sex-options
+    kind: input
+    statement: meld accepts only the source-defined finite option vocabulary for this input.
+    covers:
+      - input:sex:options
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:reference-adult-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:input-dialysis
+    kind: input
+    statement: meld uses the cited definition, role, timing, and domain for dialysis.
+    covers:
+      - input:dialysis
+    status: supported
+    sourceIds:
+      - meld_kim_2021
+    locators:
+      - sourceId: meld_kim_2021
+        locator: "Kim 2021 equation and supplement: adult coefficients, laboratory bounds, interaction terms, 90-day waitlist
+          endpoint, derivation, and validation."
+    executable: true
+    scenarioIds:
+      - case:meld:reference-adult-male
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:output-meld
+    kind: outcome
+    statement: meld returns meld with the cited meaning, version, units, and rounding.
+    covers:
+      - output:meld
+    status: supported
+    sourceIds:
+      - meld_optn_policy_2023
+    locators:
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 calculator, policy-change notice, and FAQ effective 2023-07-13: equations, candidate-age
+          branches, dialysis criteria, bounds, and worked examples."
+    executable: true
+    scenarioIds:
+      - case:meld:reference-adult-male
+      - case:meld:reference-adult-female
+      - case:meld:reference-adolescent
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:constraint-0
+    kind: input
+    statement: meld enforces the cited conditional-input rule for constraint:0.
+    covers:
+      - constraint:0
+    status: supported
+    sourceIds:
+      - meld_optn_policy_2023
+    locators:
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 calculator, policy-change notice, and FAQ effective 2023-07-13: equations, candidate-age
+          branches, dialysis criteria, bounds, and worked examples."
+    executable: true
+    scenarioIds:
+      - case:meld:adult-sex-constraint
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:warning-0
+    kind: warning
+    statement: meld emits the source- or policy-linked warning for warning:0 without hiding the underlying input or adjustment.
+    covers:
+      - warning:0
+    status: supported
+    sourceIds:
+      - meld_optn_policy_2023
+    locators:
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 calculator, policy-change notice, and FAQ effective 2023-07-13: equations, candidate-age
+          branches, dialysis criteria, bounds, and worked examples."
+    executable: true
+    scenarioIds:
+      - case:meld:lower-clamps
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:warning-1
+    kind: warning
+    statement: meld emits the source- or policy-linked warning for warning:1 without hiding the underlying input or adjustment.
+    covers:
+      - warning:1
+    status: supported
+    sourceIds:
+      - meld_optn_policy_2023
+    locators:
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 calculator, policy-change notice, and FAQ effective 2023-07-13: equations, candidate-age
+          branches, dialysis criteria, bounds, and worked examples."
+    executable: true
+    scenarioIds:
+      - case:meld:upper-clamps-dialysis
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:warning-2
+    kind: warning
+    statement: meld emits the source- or policy-linked warning for warning:2 without hiding the underlying input or adjustment.
+    covers:
+      - warning:2
+    status: supported
+    sourceIds:
+      - meld_optn_policy_2023
+    locators:
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 calculator, policy-change notice, and FAQ effective 2023-07-13: equations, candidate-age
+          branches, dialysis criteria, bounds, and worked examples."
+    executable: true
+    scenarioIds:
+      - case:meld:upper-clamps-dialysis
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:warning-3
+    kind: warning
+    statement: meld emits the source- or policy-linked warning for warning:3 without hiding the underlying input or adjustment.
+    covers:
+      - warning:3
+    status: supported
+    sourceIds:
+      - meld_optn_policy_2023
+    locators:
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 calculator, policy-change notice, and FAQ effective 2023-07-13: equations, candidate-age
+          branches, dialysis criteria, bounds, and worked examples."
+    executable: true
+    scenarioIds:
+      - case:meld:lower-clamps
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:warning-4
+    kind: warning
+    statement: meld emits the source- or policy-linked warning for warning:4 without hiding the underlying input or adjustment.
+    covers:
+      - warning:4
+    status: supported
+    sourceIds:
+      - meld_optn_policy_2023
+    locators:
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 calculator, policy-change notice, and FAQ effective 2023-07-13: equations, candidate-age
+          branches, dialysis criteria, bounds, and worked examples."
+    executable: true
+    scenarioIds:
+      - case:meld:lower-clamps
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:warning-5
+    kind: warning
+    statement: meld emits the source- or policy-linked warning for warning:5 without hiding the underlying input or adjustment.
+    covers:
+      - warning:5
+    status: supported
+    sourceIds:
+      - meld_optn_policy_2023
+    locators:
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 calculator, policy-change notice, and FAQ effective 2023-07-13: equations, candidate-age
+          branches, dialysis criteria, bounds, and worked examples."
+    executable: true
+    scenarioIds:
+      - case:meld:lower-clamps
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:warning-6
+    kind: warning
+    statement: meld emits the source- or policy-linked warning for warning:6 without hiding the underlying input or adjustment.
+    covers:
+      - warning:6
+    status: supported
+    sourceIds:
+      - meld_optn_policy_2023
+    locators:
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 calculator, policy-change notice, and FAQ effective 2023-07-13: equations, candidate-age
+          branches, dialysis criteria, bounds, and worked examples."
+    executable: true
+    scenarioIds:
+      - case:meld:upper-clamps-dialysis
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:warning-7
+    kind: warning
+    statement: meld emits the source- or policy-linked warning for warning:7 without hiding the underlying input or adjustment.
+    covers:
+      - warning:7
+    status: supported
+    sourceIds:
+      - meld_optn_policy_2023
+    locators:
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 calculator, policy-change notice, and FAQ effective 2023-07-13: equations, candidate-age
+          branches, dialysis criteria, bounds, and worked examples."
+    executable: true
+    scenarioIds:
+      - case:meld:lower-clamps
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+  - id: claim:meld:warning-8
+    kind: warning
+    statement: meld emits the source- or policy-linked warning for warning:8 without hiding the underlying input or adjustment.
+    covers:
+      - warning:8
+    status: supported
+    sourceIds:
+      - meld_optn_policy_2023
+    locators:
+      - sourceId: meld_optn_policy_2023
+        locator: "OPTN MELD 3.0 calculator, policy-change notice, and FAQ effective 2023-07-13: equations, candidate-age
+          branches, dialysis criteria, bounds, and worked examples."
+    executable: true
+    scenarioIds:
+      - case:meld:upper-clamps-dialysis
+    reviewedAt: 2026-07-16
+    reviewBy: 2026-10-14
+cases:
+  - kind: reference
+    id: case:meld:reference-adult-male
+    tags:
+      - calculator:meld:core
+      - conditional-output
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 22
+    expectedBehavior: calculate
+    tolerance: &a1
+      mode: exact
+      rationale: Frozen source-derived expectation after applying the calculator declared rounding and lookup rules.
+    witnesses:
+      - formula:implementation
+      - input:creatinine
+      - input:bilirubin
+      - input:inr
+      - input:sodium
+      - input:albumin
+      - input:age_at_registration
+      - input:sex
+      - input:sex:options
+      - input:dialysis
+      - output:meld
+    claimIds:
+      - claim:meld:formula-implementation
+      - claim:meld:input-creatinine
+      - claim:meld:input-bilirubin
+      - claim:meld:input-inr
+      - claim:meld:input-sodium
+      - claim:meld:input-albumin
+      - claim:meld:input-age_at_registration
+      - claim:meld:input-sex
+      - claim:meld:input-sex-options
+      - claim:meld:input-dialysis
+      - claim:meld:output-meld
+    sourceIds:
+      - meld_kim_2021
+      - meld_kwong_2023
+      - meld_optn_policy_2023
+  - kind: reference
+    id: case:meld:reference-adult-female
+    tags:
+      - calculator:meld:reference
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: female
+      dialysis: false
+    expected:
+      meld: 23
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - formula:implementation
+      - output:meld
+    claimIds:
+      - claim:meld:formula-implementation
+      - claim:meld:output-meld
+    sourceIds:
+      - meld_kim_2021
+      - meld_optn_policy_2023
+  - kind: reference
+    id: case:meld:reference-adolescent
+    tags:
+      - calculator:meld:reference
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 16
+      dialysis: false
+    expected:
+      meld: 23
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - formula:implementation
+      - output:meld
+    claimIds:
+      - claim:meld:formula-implementation
+      - claim:meld:output-meld
+    sourceIds:
+      - meld_kim_2021
+      - meld_kwong_2023
+      - meld_optn_policy_2023
+  - kind: agent
+    id: case:meld:agent-exclusion-missing-context
+    tags:
+      - agent-applicability
+      - required-inputs
+    inputs:
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected: {}
+    expectedBehavior: clarify
+    expectedError:
+      code: MISSING_REQUIRED
+      field: creatinine
+      messageIncludes: Serum Creatinine is required.
+    tolerance: *a1
+    witnesses:
+      - applicability:exclusions
+      - input:creatinine
+    claimIds:
+      - claim:meld:applicability-exclusions
+      - claim:meld:input-creatinine
+    sourceIds:
+      - hrsa_optn
+      - meld_kim_2021
+  - kind: agent
+    id: case:meld:agent-purpose
+    tags:
+      - agent-applicability
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 22
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - applicability:purpose
+    claimIds:
+      - claim:meld:applicability-purpose
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:hard-creatinine
+    tags:
+      - hard-limits
+    inputs:
+      creatinine: 41
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: creatinine
+      messageIncludes: Serum Creatinine 41 mg/dL is outside physiological limits [0.1, 40] mg/dL.
+    tolerance: *a1
+    witnesses:
+      - input:creatinine:hard_limits
+    claimIds:
+      - claim:meld:input-creatinine-hard_limits
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:plausibility-creatinine
+    tags:
+      - plausibility
+    inputs:
+      creatinine: 27.5
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 26
+    expectedBehavior: warn
+    expectedWarnings:
+      - Serum Creatinine 27.5 mg/dL is unusual (expected 0.2–15 mg/dL); if the source uses another unit, pass it
+        explicitly as { value, unit }.
+      - Creatinine above 3 mg/dL was capped at 3 mg/dL for MELD 3.0.
+    tolerance: *a1
+    witnesses:
+      - input:creatinine:plausibility
+    claimIds:
+      - claim:meld:input-creatinine-plausibility
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:hard-bilirubin
+    tags:
+      - hard-limits
+    inputs:
+      creatinine: 2
+      bilirubin: 81
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: bilirubin
+      messageIncludes: Total Bilirubin 81 mg/dL is outside physiological limits [0.05, 80] mg/dL.
+    tolerance: *a1
+    witnesses:
+      - input:bilirubin:hard_limits
+    claimIds:
+      - claim:meld:input-bilirubin-hard_limits
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:plausibility-bilirubin
+    tags:
+      - plausibility
+    inputs:
+      creatinine: 2
+      bilirubin: 55
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 36
+    expectedBehavior: warn
+    expectedWarnings:
+      - Total Bilirubin 55 mg/dL is unusual (expected 0.1–30 mg/dL); if the source uses another unit, pass it explicitly
+        as { value, unit }.
+    tolerance: *a1
+    witnesses:
+      - input:bilirubin:plausibility
+    claimIds:
+      - claim:meld:input-bilirubin-plausibility
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:hard-inr
+    tags:
+      - hard-limits
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 21
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: inr
+      messageIncludes: INR 21 is outside physiological limits [0.5, 20].
+    tolerance: *a1
+    witnesses:
+      - input:inr:hard_limits
+    claimIds:
+      - claim:meld:input-inr-hard_limits
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:plausibility-inr
+    tags:
+      - plausibility
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 15
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 40
+    expectedBehavior: warn
+    expectedWarnings:
+      - INR 15 is unusual (expected 0.8–10).
+    tolerance: *a1
+    witnesses:
+      - input:inr:plausibility
+    claimIds:
+      - claim:meld:input-inr-plausibility
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:hard-sodium
+    tags:
+      - hard-limits
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 202
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: sodium
+      messageIncludes: Serum Sodium 202 mEq/L is outside physiological limits [90, 200] mEq/L.
+    tolerance: *a1
+    witnesses:
+      - input:sodium:hard_limits
+    claimIds:
+      - claim:meld:input-sodium-hard_limits
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:plausibility-sodium
+    tags:
+      - plausibility
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 180
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 21
+    expectedBehavior: warn
+    expectedWarnings:
+      - Serum Sodium 180 mEq/L is unusual (expected 110–160 mEq/L); if the source uses another unit, pass it explicitly
+        as { value, unit }.
+      - Sodium above 137 mEq/L was capped at 137 mEq/L for MELD 3.0.
+    tolerance: *a1
+    witnesses:
+      - input:sodium:plausibility
+    claimIds:
+      - claim:meld:input-sodium-plausibility
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:hard-albumin
+    tags:
+      - hard-limits
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 9
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: albumin
+      messageIncludes: Serum Albumin 9 g/dL is outside physiological limits [0.5, 8] g/dL.
+    tolerance: *a1
+    witnesses:
+      - input:albumin:hard_limits
+    claimIds:
+      - claim:meld:input-albumin-hard_limits
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:plausibility-albumin
+    tags:
+      - plausibility
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 6.75
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 22
+    expectedBehavior: warn
+    expectedWarnings:
+      - Serum Albumin 6.75 g/dL is unusual (expected 1.5–5.5 g/dL); if the source uses another unit, pass it explicitly
+        as { value, unit }.
+      - Albumin above 3.5 g/dL was capped at 3.5 g/dL for MELD 3.0.
+    tolerance: *a1
+    witnesses:
+      - input:albumin:plausibility
+    claimIds:
+      - claim:meld:input-albumin-plausibility
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:hard-age_at_registration
+    tags:
+      - hard-limits
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 121
+      sex: male
+      dialysis: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: OUT_OF_HARD_LIMITS
+      field: age_at_registration
+      messageIncludes: Age at Registration 121 is outside physiological limits [12, 120].
+    tolerance: *a1
+    witnesses:
+      - input:age_at_registration:hard_limits
+    claimIds:
+      - claim:meld:input-age_at_registration-hard_limits
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:plausibility-age_at_registration
+    tags:
+      - plausibility
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 110
+      sex: male
+      dialysis: false
+    expected:
+      meld: 22
+    expectedBehavior: warn
+    expectedWarnings:
+      - Age at Registration 110 is unusual (expected 12–100).
+    tolerance: *a1
+    witnesses:
+      - input:age_at_registration:plausibility
+    claimIds:
+      - claim:meld:input-age_at_registration-plausibility
+    sourceIds:
+      - hrsa_optn
+  - kind: edge
+    id: case:meld:alias-age_at_registration
+    tags:
+      - aliases
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      sex: male
+      dialysis: false
+      age: 40
+    expected:
+      meld: 22
+    expectedBehavior: warn
+    expectedWarnings:
+      - Input 'age' is a compatibility alias; use 'age_at_registration'.
+    tolerance: *a1
+    witnesses:
+      - input:age_at_registration:aliases
+    claimIds:
+      - claim:meld:input-age_at_registration-aliases
+    sourceIds:
+      - meld_kim_2021
+  - kind: edge
+    id: case:meld:unit-creatinine-canonical
+    tags:
+      - unit-equivalence
+    inputs:
+      creatinine:
+        value: 2
+        unit: mg/dL
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 22
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - unit:creatinine
+    claimIds:
+      - claim:meld:unit-creatinine
+    sourceIds:
+      - meld_kim_2021
+  - kind: edge
+    id: case:meld:unit-creatinine-alternate
+    tags:
+      - unit-equivalence
+    inputs:
+      creatinine:
+        value: 176.8
+        unit: umol/L
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 22
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - unit:creatinine
+    claimIds:
+      - claim:meld:unit-creatinine
+    sourceIds:
+      - meld_kim_2021
+  - kind: edge
+    id: case:meld:unit-bilirubin-canonical
+    tags:
+      - unit-equivalence
+    inputs:
+      creatinine: 2
+      bilirubin:
+        value: 2
+        unit: mg/dL
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 22
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - unit:bilirubin
+    claimIds:
+      - claim:meld:unit-bilirubin
+    sourceIds:
+      - meld_kim_2021
+  - kind: edge
+    id: case:meld:unit-bilirubin-alternate
+    tags:
+      - unit-equivalence
+    inputs:
+      creatinine: 2
+      bilirubin:
+        value: 34.2
+        unit: umol/L
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 22
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - unit:bilirubin
+    claimIds:
+      - claim:meld:unit-bilirubin
+    sourceIds:
+      - meld_kim_2021
+  - kind: edge
+    id: case:meld:unit-sodium-canonical
+    tags:
+      - unit-equivalence
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium:
+        value: 135
+        unit: mEq/L
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 22
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - unit:sodium
+    claimIds:
+      - claim:meld:unit-sodium
+    sourceIds:
+      - meld_kim_2021
+  - kind: edge
+    id: case:meld:unit-sodium-alternate
+    tags:
+      - unit-equivalence
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium:
+        value: 135
+        unit: mmol/L
+      albumin: 3
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 22
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - unit:sodium
+    claimIds:
+      - claim:meld:unit-sodium
+    sourceIds:
+      - meld_kim_2021
+  - kind: edge
+    id: case:meld:unit-albumin-canonical
+    tags:
+      - unit-equivalence
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin:
+        value: 3
+        unit: g/dL
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 22
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - unit:albumin
+    claimIds:
+      - claim:meld:unit-albumin
+    sourceIds:
+      - meld_kim_2021
+  - kind: edge
+    id: case:meld:unit-albumin-alternate
+    tags:
+      - unit-equivalence
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin:
+        value: 30
+        unit: g/L
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 22
+    expectedBehavior: calculate
+    tolerance: *a1
+    witnesses:
+      - unit:albumin
+    claimIds:
+      - claim:meld:unit-albumin
+    sourceIds:
+      - meld_kim_2021
+  - kind: edge
+    id: case:meld:lower-clamps
+    tags:
+      - plausibility
+    inputs:
+      creatinine: 0.8
+      bilirubin: 0.8
+      inr: 0.8
+      sodium: 120
+      albumin: 1
+      age_at_registration: 40
+      sex: male
+      dialysis: false
+    expected:
+      meld: 20
+    expectedBehavior: warn
+    expectedWarnings:
+      - Serum Albumin 1 g/dL is unusual (expected 1.5–5.5 g/dL); if the source uses another unit, pass it explicitly as
+        { value, unit }.
+      - Creatinine below 1 mg/dL was floored to 1 mg/dL for MELD 3.0.
+      - Bilirubin below 1 mg/dL was floored to 1 mg/dL for MELD 3.0.
+      - INR below 1 was floored to 1 for MELD 3.0.
+      - Sodium below 125 mEq/L was floored to 125 mEq/L for MELD 3.0.
+      - Albumin below 1.5 g/dL was floored to 1.5 g/dL for MELD 3.0.
+    tolerance: *a1
+    witnesses:
+      - warning:0
+      - warning:3
+      - warning:4
+      - warning:5
+      - warning:7
+    claimIds:
+      - claim:meld:warning-0
+      - claim:meld:warning-3
+      - claim:meld:warning-4
+      - claim:meld:warning-5
+      - claim:meld:warning-7
+    sourceIds:
+      - meld_optn_policy_2023
+  - kind: edge
+    id: case:meld:upper-clamps-dialysis
+    tags:
+      - plausibility
+    inputs:
+      creatinine: 5
+      bilirubin: 2
+      inr: 1.5
+      sodium: 140
+      albumin: 4
+      age_at_registration: 40
+      sex: male
+      dialysis: true
+    expected:
+      meld: 25
+    expectedBehavior: warn
+    expectedWarnings:
+      - Creatinine above 3 mg/dL was capped at 3 mg/dL for MELD 3.0.
+      - The dialysis criterion sets creatinine to 3 mg/dL for MELD 3.0.
+      - Sodium above 137 mEq/L was capped at 137 mEq/L for MELD 3.0.
+      - Albumin above 3.5 g/dL was capped at 3.5 g/dL for MELD 3.0.
+    tolerance: *a1
+    witnesses:
+      - warning:1
+      - warning:2
+      - warning:6
+      - warning:8
+    claimIds:
+      - claim:meld:warning-1
+      - claim:meld:warning-2
+      - claim:meld:warning-6
+      - claim:meld:warning-8
+    sourceIds:
+      - meld_optn_policy_2023
+  - kind: edge
+    id: case:meld:adult-sex-constraint
+    tags:
+      - constraints
+    inputs:
+      creatinine: 2
+      bilirubin: 2
+      inr: 1.5
+      sodium: 135
+      albumin: 3
+      age_at_registration: 40
+      dialysis: false
+    expected: {}
+    expectedBehavior: reject
+    expectedError:
+      code: CONSTRAINT_FAILED
+      field: sex
+      messageIncludes: Sex is required for the adult MELD 3.0 calculation.
+    tolerance: *a1
+    witnesses:
+      - constraint:0
+    claimIds:
+      - claim:meld:constraint-0
+    sourceIds:
+      - meld_optn_policy_2023
+explicitBlockers: []

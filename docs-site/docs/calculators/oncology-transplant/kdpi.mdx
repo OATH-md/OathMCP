@@ -1,0 +1,126 @@
+---
+title: "Kidney Donor Profile Index (KDPI)"
+description: "Calculate race- and HCV-free KDRI and map it to the current OPTN deceased-donor KDPI reference population, preserving donor-scoped inputs and the exact annual data snapshot."
+sidebar:
+  label: "Kidney Donor Profile Index (KDPI)"
+search:
+  tags: ["kdpi", "lookup", "kidney donor quality", "kidney donor risk index", "KDPI", "KDRI"]
+---
+
+{/* GENERATED from repository-root OathMCP sources. Edit scripts/generate-calculators.mjs, not this page. */}
+
+<Badge variant="success">scenario_verified</Badge> <Badge>lookup</Badge> <Badge>Spec 2026.2.0</Badge>
+
+:::warning
+This calculator provides decision support. Confirm that its declared population,
+setting, model, timing, inputs, units, and limitations apply. A qualified
+clinician remains responsible for interpretation and every clinical decision.
+:::
+
+## Clinical use
+
+| Dimension | Declared contract |
+| --- | --- |
+| Population | Estimate a deceased-donor kidney's relative graft-failure risk as an OPTN reference-population percentile. Higher KDPI means higher relative risk; KDPI does not predict an individual graft-survival time. |
+| Setting | Clinical decision support; apply only in the context declared by this calculator. |
+| Model | `kidney_donor_risk.optn_2025_reference_population` · optn_race_hcv_free_2024_coefficients_2025_mapping |
+| Model kind | lookup |
+| Variant | optn_2025_reference_population |
+| Review date | 2026-07-15 |
+| Review after | 2027-06-01 |
+
+### Exclusions and limitations
+
+**When not to use:** One input among many in donor evaluation, not a standalone accept/decline rule. Uses the 2025 OPTN reference population and the mapping published from the 2026-04-03 database snapshot. OPTN updates this reference annually.
+
+- One input among many in donor evaluation, not a standalone accept/decline rule. Uses the 2025 OPTN reference population and the mapping published from the 2026-04-03 database snapshot. OPTN updates this reference annually.
+
+## Inputs
+
+| Field | Type | Required | Default | Plausible | Hard limits | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `donor_age_years` | number | Yes | — | 1–90 | 0–99 | Donor age in years. |
+| `donor_height_cm` | number | Yes | — | 100–220 | 30–241.3 | Donor height in centimeters. |
+| `donor_weight_kg` | number | Yes | — | 3–250 | 0.454–294.8 | Donor weight in kilograms. |
+| `donor_hypertension` | boolean | Yes | — | — | — | Known donor history of hypertension. If status is unknown, use the official OPTN calculator; do not coerce unknown to false. |
+| `donor_diabetes` | boolean | Yes | — | — | — | Known donor history of diabetes. If status is unknown, use the official OPTN calculator; do not coerce unknown to false. |
+| `cause_of_death_cva` | boolean | Yes | — | — | — | Cause of death is cerebrovascular accident/stroke. |
+| `donor_creatinine` | quantity (mg/dL \| umol/L) | Yes | — | 0.2–15 | 0.1–40 | Donor serum creatinine. Pass a bare number in mg/dL, or &#123;value, unit&#125; for SI (umol/L). Values above 8 mg/dL are capped at 8 for the KDRI. |
+| `donation_after_circulatory_death` | boolean | Yes | — | — | — | Donation after cardiac death. |
+
+For `quantity` fields, submit an object with explicit `value` and `unit` fields.
+Hard limits are operational safety envelopes, not clinical cutoffs. Values
+outside plausible ranges may calculate with a warning when still within hard limits.
+
+
+
+## Outputs
+
+| Field | Type | Availability | Primary | Description |
+| --- | --- | --- | --- | --- |
+| `kdpi` | integer · % | Always | Yes | Kidney Donor Profile Index percentile (0-100%). |
+| `kdri_raw` | number | Always | No | Raw Kidney Donor Risk Index, rounded to 4 decimals. |
+| `kdri_scaled` | number | Always | No | KDRI normalized with the 2025 scaling factor, rounded to 4 decimals. |
+| `reference_population_year` | integer | Always | No | OPTN deceased-donor reference population year used for percentile mapping. |
+| `mapping_as_of` | enum | Always | No | OPTN database snapshot date used to publish the mapping table. |
+| `interpretation` | string | Always | No | Plain-language interpretation of the KDPI score and risk level. |
+
+## Interpretation bands
+
+No deterministic interpretation bands are declared for this calculator.
+
+## Warnings, constraints, and adjustments
+
+- **donor_creatinine when &gt;8:** Serum creatinine exceeds 8 mg/dL and was capped at 8 mg/dL for the KDRI, per the OPTN KDPI methodology.
+- **Adjustment `creatinine_cap_8`:** cap at 8 when its declared condition applies.
+
+## MCP request example
+
+The example is drawn from the source-derived validation dossier when available.
+It demonstrates request shape; it is not a recommendation to use this calculator
+for a particular person.
+
+```json title="calculate"
+{
+  "id": "kdpi",
+  "inputs": {
+    "donor_age_years": 50,
+    "donor_height_cm": 175,
+    "donor_weight_kg": 80,
+    "donor_hypertension": false,
+    "donor_diabetes": false,
+    "cause_of_death_cva": false,
+    "donor_creatinine": 1,
+    "donation_after_circulatory_death": false
+  }
+}
+```
+
+Before first use, call `describe_calculator` with the canonical ID `kdpi`
+and compare the returned contract to this page.
+
+## Implementation assurance
+
+| State | Claims | Executable claims | Required scenarios | Blockers |
+| --- | ---: | ---: | ---: | --- |
+| `scenario_verified` | 30/30 | 29/29 | 18/18 | None recorded |
+
+This is repository-defined implementation assurance, not an unqualified claim
+of clinical validation, regulatory approval, or suitability for an individual patient.
+
+## Evidence
+
+The MCP resource for this calculator is `calc://kdpi/evidence`.
+
+| ID | Role | Citation and locator |
+| --- | --- | --- |
+| `source_1` | derivation | [Health Resources and Services Administration / Organ Procurement and Transplantation Network. KDRI to KDPI Mapping Table; 2025 reference population, database snapshot 2026-04-03.](https://www.hrsa.gov/sites/default/files/hrsa/optn/kdpi_mapping_table.pdf)<br />url:https://www.hrsa.gov/sites/default/files/hrsa/optn/kdpi_mapping_table.pdf |
+| `source_2` | reference | [HRSA OPTN. A Guide to Calculating and Interpreting the Kidney Donor Profile Index (KDPI). Current race- and HCV-free KDRI coefficients and constraints.](https://www.hrsa.gov/sites/default/files/hrsa/optn/kdpi_guide.pdf)<br />pages 2-5 and 8-9 |
+| `source_3` | policy | [HRSA OPTN. Refit Kidney Donor Profile Index without Race and Hepatitis C Virus; implemented October 31, 2024.](https://www.hrsa.gov/optn/news-events/news/race-hepatitis-c-status-no-longer-included-calculation-used-estimate-deceased-donor-kidney-function)<br />implementation notice dated 2024-10-31 |
+
+<Panel title="Repository source">
+  Calculator ID `kdpi`; spec version `2026.2.0`; generated from
+  the checked-in spec, validation dossier, and assurance state in this OathMCP
+  repository. Use the evidence resource and repository history when evaluating
+  source currency.
+</Panel>

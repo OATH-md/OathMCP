@@ -1,0 +1,275 @@
+id: mews
+version: 1.0.0
+name: Modified Early Warning Score (MEWS)
+clinicalModel:
+  modelKind: score
+  modelId: mews
+  modelVersion: subbe_2001_adult_acute_medical_admission_five_parameter
+  reviewDate: 2026-07-16
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+    - source_4
+applicability:
+  population: Adults admitted acutely to medical wards and observed with the Subbe five-parameter physiological score.
+  setting: Adult acute medical admissions and general-ward deterioration surveillance; local response policies remain
+    setting-specific.
+  exclusions:
+    - An adult track-and-trigger aid, not a diagnosis or substitute for clinical judgment. The caller must classify
+      observations into the exact Subbe bands. Do not transfer this adult medical-admission variant to children,
+      pregnancy, critical care, or a different local escalation policy.
+  evidenceRefs:
+    - source_1
+    - source_2
+    - source_3
+    - source_4
+purposeForAgents: Adults admitted acutely to medical wards and observed with the Subbe five-parameter physiological
+  score. Return an integer score from 0-14; the original cohort associated a score of 5 or more with increased risk of death,
+  ICU admission, or high-dependency admission.
+whenNotToUse: An adult track-and-trigger aid, not a diagnosis or substitute for clinical judgment. The caller must
+  classify observations into the exact Subbe bands. Do not transfer this adult medical-admission variant to children,
+  pregnancy, critical care, or a different local escalation policy.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Validation of a modified Early Warning Score in medical admissions.
+    locator: "Table 1 and Results: exact SBP, heart-rate, respiratory-rate, temperature, and AVPU bands and score-5 outcome
+      threshold."
+    url: https://pubmed.ncbi.nlm.nih.gov/11588210/
+    reviewed: true
+  - id: source_2
+    type: validation
+    citation: Poor performance of the modified early warning score for predicting mortality in critically ill patients
+      presenting to an emergency department.
+    locator: "Methods, Results, and Conclusion: adult ED validation, score performance, and caution against transfer of
+      thresholds across settings."
+    url: https://pubmed.ncbi.nlm.nih.gov/25215131/
+    reviewed: true
+  - id: source_3
+    type: guideline
+    citation: "Acutely ill adults in hospital: recognising and responding to deterioration."
+    locator: "Recommendations 1.4-1.8: physiological observations, aggregate track-and-trigger systems, monitoring
+      frequency, and clinical concern."
+    url: https://www.nice.org.uk/guidance/cg50
+    reviewed: true
+  - id: source_4
+    type: guideline
+    citation: "Surviving Sepsis Campaign: international guidelines for management of sepsis and septic shock 2026."
+    locator: "Screening recommendations: use NEWS, NEWS2, MEWS, or SIRS over qSOFA as a single inpatient sepsis screen."
+    url: https://doi.org/10.1007/s00134-026-08361-1
+    reviewed: true
+inputs:
+  systolic_bp_category:
+    title: Systolic Blood Pressure
+    description: Systolic blood pressure band (mmHg).
+    aliases:
+      - systolic_bp
+    kind: enum
+    enumValues:
+      - value: bp_le_70
+        points: 3
+        label: bp le 70
+        description: "Systolic Blood Pressure: bp le 70."
+      - value: bp_71_80
+        points: 2
+        label: bp 71 80
+        description: "Systolic Blood Pressure: bp 71 80."
+      - value: bp_81_100
+        points: 1
+        label: bp 81 100
+        description: "Systolic Blood Pressure: bp 81 100."
+      - value: bp_101_199
+        points: 0
+        label: bp 101 199
+        description: "Systolic Blood Pressure: bp 101 199."
+      - value: bp_ge_200
+        points: 2
+        label: bp ge 200
+        description: "Systolic Blood Pressure: bp ge 200."
+    required: true
+    conceptId: mews.input.systolic_bp_category
+    examples:
+      - bp_101_199
+    sourceRefs:
+      - source_1
+    sharedKey: systolic_bp_category
+  heart_rate_category:
+    title: Heart Rate
+    description: Heart rate band (beats per minute).
+    aliases:
+      - heart_rate
+    kind: enum
+    enumValues:
+      - value: hr_le_40
+        aliases:
+          - hr_lt_40
+        points: 2
+        label: hr le 40
+        description: "Heart Rate: hr le 40."
+      - value: hr_41_50
+        points: 1
+        label: hr 41 50
+        description: "Heart Rate: hr 41 50."
+      - value: hr_51_100
+        points: 0
+        label: hr 51 100
+        description: "Heart Rate: hr 51 100."
+      - value: hr_101_110
+        points: 1
+        label: hr 101 110
+        description: "Heart Rate: hr 101 110."
+      - value: hr_111_129
+        points: 2
+        label: hr 111 129
+        description: "Heart Rate: hr 111 129."
+      - value: hr_ge_130
+        aliases:
+          - hr_gt_130
+        points: 3
+        label: hr ge 130
+        description: "Heart Rate: hr ge 130."
+    required: true
+    conceptId: mews.input.heart_rate_category
+    examples:
+      - hr_51_100
+    sourceRefs:
+      - source_1
+    sharedKey: heart_rate_category
+  respiratory_rate_category:
+    title: Respiratory Rate
+    description: Respiratory rate band (breaths per minute).
+    aliases:
+      - respiratory_rate
+    kind: enum
+    enumValues:
+      - value: rr_lt_9
+        points: 2
+        label: rr lt 9
+        description: "Respiratory Rate: rr lt 9."
+      - value: rr_9_14
+        points: 0
+        label: rr 9 14
+        description: "Respiratory Rate: rr 9 14."
+      - value: rr_15_20
+        points: 1
+        label: rr 15 20
+        description: "Respiratory Rate: rr 15 20."
+      - value: rr_21_29
+        points: 2
+        label: rr 21 29
+        description: "Respiratory Rate: rr 21 29."
+      - value: rr_ge_30
+        aliases:
+          - rr_gt_30
+        points: 3
+        label: rr ge 30
+        description: "Respiratory Rate: rr ge 30."
+    required: true
+    conceptId: mews.input.respiratory_rate_category
+    examples:
+      - rr_9_14
+    sourceRefs:
+      - source_1
+    sharedKey: respiratory_rate_category
+  temperature_category:
+    title: Temperature
+    description: Body temperature band.
+    aliases:
+      - temperature
+    kind: enum
+    enumValues:
+      - value: temp_lt_35c
+        points: 2
+        label: temp lt 35c
+        description: "Temperature: temp lt 35c."
+      - value: temp_35_384c
+        points: 0
+        label: temp 35 384c
+        description: "Temperature: temp 35 384c."
+      - value: temp_ge_385c
+        aliases:
+          - temp_gt_385c
+        points: 2
+        label: temp ge 385c
+        description: "Temperature: temp ge 385c."
+    required: true
+    conceptId: mews.input.temperature_category
+    examples:
+      - temp_35_384c
+    sourceRefs:
+      - source_1
+    sharedKey: temperature_category
+  avpu:
+    title: AVPU Score
+    description: Level of consciousness on the AVPU scale.
+    kind: enum
+    enumValues:
+      - value: alert
+        points: 0
+        label: alert
+        description: "AVPU Score: alert."
+      - value: voice
+        points: 1
+        label: voice
+        description: "AVPU Score: voice."
+      - value: pain
+        points: 2
+        label: pain
+        description: "AVPU Score: pain."
+      - value: unresponsive
+        points: 3
+        label: unresponsive
+        description: "AVPU Score: unresponsive."
+    required: true
+    conceptId: mews.input.avpu
+    examples:
+      - alert
+    sourceRefs:
+      - source_1
+    sharedKey: avpu
+outputs:
+  mews_score:
+    title: MEWS Score
+    description: Total Modified Early Warning Score (0-14).
+    kind: integer
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+primaryOutputs:
+  - mews_score
+interpretationBands:
+  - code: mews_band_1
+    kind: risk
+    when: ">=5"
+    label: At or above the original MEWS >=5 threshold associated with increased odds of death, ICU admission, and
+      high-dependency-unit admission; response protocols are setting-specific.
+    severity: abnormal
+    evidenceRefs:
+      - source_1
+  - code: mews_band_2
+    kind: risk
+    when: <5
+    label: Below the original MEWS high-risk threshold; this does not rule out deterioration.
+    severity: normal
+    evidenceRefs:
+      - source_1
+scoring:
+  output: mews_score
+  components:
+    - kind: enum
+      field: systolic_bp_category
+    - kind: enum
+      field: heart_rate_category
+    - kind: enum
+      field: respiratory_rate_category
+    - kind: enum
+      field: temperature_category
+    - kind: enum
+      field: avpu
+  range:
+    - 0
+    - 14
+  evidenceRefs:
+    - source_1
