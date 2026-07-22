@@ -33,19 +33,27 @@ before starting Blume.
 
 ## Dependency posture
 
-The site pins Blume `1.1.2`, the latest compatible release reviewed on
-2026-07-20. `npm audit` still reports 10 transitive findings (5 high and 5 low)
-through Blume's bundled Vercel adapter, Scalar API renderer, AI SDK, nested
-Astro, and esbuild dependencies. Those paths are not part of this deployment:
-the site is a static build, has no Vercel adapter or server islands, does not use
-Scalar, and keeps Blume MCP and Ask AI disabled. Published assets contain no
-runtime Node dependency tree or server-side renderer.
+The site pins Blume `1.1.3` and Wrangler `4.113.0`, the latest compatible
+releases reviewed on 2026-07-22. The MCP SDK still declares Hono's Node adapter
+1.x, but Hono 2 retains the public `getRequestListener` API used by the SDK and
+only raises the Node floor to 20; this project already requires Node 22. The
+checked-in override therefore pins `@hono/node-server` `2.0.11`, and the real
+transport parity gate covers that integration until the SDK widens its range.
+
+`npm audit` still reports 13 transitive entries (8 high and 5 low) through
+Blume's bundled Vercel adapter, Scalar API renderer, AI SDK, nested Astro and
+esbuild dependencies, plus Wrangler's Miniflare/Sharp development chain. Those
+paths are not part of this deployment: the site is a static build, has no
+Vercel adapter or server islands, does not use Scalar, and keeps Blume MCP and
+Ask AI disabled. Published assets contain no runtime Node dependency tree or
+server-side renderer.
 
 This is a bounded build-time waiver, not a claim that the findings are fixed.
-Do not apply the audit tool's suggested `blume@0.0.0` downgrade or force
-incompatible overrides. Re-review the waiver whenever Blume updates, any of the
-disabled features is enabled, content becomes untrusted, or a compatible patched
-dependency graph becomes available.
+Do not apply the audit tool's suggested `blume@0.0.0` downgrade or force Sharp
+0.35 or Astro 7 beneath packages that still pin incompatible ranges. Re-review
+the Hono override and this waiver whenever the MCP SDK, Blume, Scalar,
+Miniflare, or Wrangler updates; any disabled feature is enabled; content becomes
+untrusted; or a compatible patched dependency graph becomes available.
 
 ## Deployment
 

@@ -46,6 +46,21 @@ operator remains responsible for its environment and clinical use boundary.
   verified commit.
 - Publish the changelog and responsibility notice with the release.
 
+## Dependency security
+
+- Keep `npm audit --omit=dev` clean for the published MCP runtime. Review the
+  complete audit separately because deployment and documentation build tools are
+  intentionally development dependencies.
+- `@modelcontextprotocol/sdk` `1.29.0` still declares
+  `@hono/node-server` 1.x. Hono 2 retains the `getRequestListener` API used by
+  the SDK and requires Node 20+, while OathMCP requires Node 22; the checked-in
+  override pins Hono `2.0.11` and real transport parity is the compatibility
+  gate. Remove the override when the SDK adopts Hono 2 directly.
+- Do not override Miniflare's exact Sharp pin. Keep Wrangler current and adopt
+  Sharp 0.35 only through a Cloudflare release that declares it compatible.
+- Re-review the separate static-site waiver in `docs-site/README.md` whenever
+  its framework graph or enabled feature set changes.
+
 ## npm publication
 
 Authenticate the maintainer account separately; credentials are never stored in
