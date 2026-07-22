@@ -44,6 +44,22 @@ describe('strict spec authoring', () => {
     expect(() => validateSpecTexts(source())).not.toThrow();
   });
 
+  it('orders validated specs by filename regardless of source insertion order', () => {
+    const rFactor = structuredClone(validSpec);
+    rFactor.id = 'r_factor';
+    rFactor.clinicalModel.modelId = 'r_factor';
+    const ranson = structuredClone(validSpec);
+    ranson.id = 'ranson';
+    ranson.clinicalModel.modelId = 'ranson';
+
+    const specs = validateSpecTexts({
+      'ranson.yaml': stringify(ranson),
+      'r_factor.yaml': stringify(rFactor),
+    });
+
+    expect([...specs.keys()]).toEqual(['r_factor', 'ranson']);
+  });
+
   it.each([
     ['top-level', (spec: any) => { spec.unexpected = true; }],
     ['misspelled input', (spec: any) => { spec.inputs.value.hardLimit = [0, 1]; }],

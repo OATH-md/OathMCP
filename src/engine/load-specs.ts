@@ -536,8 +536,11 @@ function lifecycleIssues(specs: ReadonlyMap<string, CalcSpec>): string[] {
 function validateSources(sources: [file: string, text: string][]): Map<string, CalcSpec> {
   const specs = new Map<string, CalcSpec>();
   const errors: string[] = [];
+  const orderedSources = [...sources].sort(([left], [right]) =>
+    left < right ? -1 : left > right ? 1 : 0,
+  );
 
-  for (const [file, text] of sources) {
+  for (const [file, text] of orderedSources) {
     let raw: unknown;
     try {
       raw = parseYaml(text);
