@@ -84,6 +84,9 @@
     "tsx": "^4",
     "typescript": "^5",
     "vitest": "^3",
-    "wrangler": "^4.112.0"
+    "wrangler": "^4.113.0"
+  },
+  "overrides": {
+    "@hono/node-server": "2.0.11"
   }
 }
