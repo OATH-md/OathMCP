@@ -31,6 +31,10 @@ function outputIsCurrent(path: string, expected: string): boolean {
   return existsSync(path) && readFileSync(path, 'utf8') === expected;
 }
 
+export function normalizeLineEndings(text: string): string {
+  return text.replace(/\r\n?/g, '\n');
+}
+
 export async function bundleSpecs(argv: string[]): Promise<number> {
   const check = argv.includes('--check');
   const specsDir = join(ROOT, 'specs');
@@ -41,7 +45,9 @@ export async function bundleSpecs(argv: string[]): Promise<number> {
     JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { version: string }
   ).version;
   const texts = Object.fromEntries(files.map((file) => [file, readFileSync(join(specsDir, file), 'utf8')]));
-  const responsibleUseText = readFileSync(join(ROOT, 'docs/RESPONSIBLE_USE.md'), 'utf8');
+  const responsibleUseText = normalizeLineEndings(
+    readFileSync(join(ROOT, 'docs/RESPONSIBLE_USE.md'), 'utf8'),
+  );
   const specs = [...validateSpecTexts(texts).values()];
 
   const entries = files.map(

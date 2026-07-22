@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { bundleSpecs } from './bundle-specs.js';
+import { bundleSpecs, normalizeLineEndings } from './bundle-specs.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -39,5 +39,19 @@ describe('generated compute index', () => {
     expect(reviewStates).toContain('"gfr"');
     expect(reviewStates).toContain('"state": "scenario_verified"');
     expect(reviewStates).not.toContain('"state": "blocked"');
+  });
+});
+
+describe('cross-platform generation', () => {
+  it('normalizes Windows and legacy line endings before embedding source text', () => {
+    expect(normalizeLineEndings('first\r\nsecond\rthird\n')).toBe(
+      'first\nsecond\nthird\n',
+    );
+  });
+
+  it('pins the generator input and all generated TypeScript artifacts to LF', () => {
+    const attributes = readFileSync(join(ROOT, '.gitattributes'), 'utf8');
+    expect(attributes).toContain('docs/RESPONSIBLE_USE.md text eol=lf');
+    expect(attributes).toContain('*.generated.ts text eol=lf');
   });
 });
