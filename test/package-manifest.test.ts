@@ -28,7 +28,7 @@ describe('published package manifest', () => {
       .filter((path) => path.endsWith('.yaml'))
       .map((path) => path.replace(/\.yaml$/, ''))
       .sort();
-    expect(calculatorIds).toHaveLength(39);
+    expect(calculatorIds).toHaveLength(40);
     for (const calculatorId of calculatorIds) {
       expect(files).toContain(`specs/${calculatorId}.yaml`);
       expect(files).toContain(`validation/calculators/${calculatorId}.yaml`);

@@ -9,8 +9,8 @@ describe('validation enrollment', () => {
     const dossiers = loadValidationDossiers();
     const catalog = loadValidationCatalog();
     expect([...dossiers.keys()].sort()).toEqual([...specs.keys()].sort());
-    expect(catalog.groups.map((group) => group.calculatorIds.length)).toEqual([18, 13, 4, 4]);
-    expect(new Set(catalog.groups.flatMap((group) => group.calculatorIds)).size).toBe(39);
+    expect(catalog.groups.map((group) => group.calculatorIds.length)).toEqual([19, 13, 4, 4]);
+    expect(new Set(catalog.groups.flatMap((group) => group.calculatorIds)).size).toBe(40);
     for (const [id, dossier] of dossiers) {
       expect(dossier.specVersion).toBe(specs.get(id)?.version);
       expect(dossier.enrollment).toBe('pending_independent_review');

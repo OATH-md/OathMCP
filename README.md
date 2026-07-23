@@ -1,7 +1,7 @@
 # OathMCP
 
 An agent-native [Model Context Protocol](https://modelcontextprotocol.io) server
-for 39 established clinical calculators and structured interpretation tools.
+for 40 established clinical calculators and structured interpretation tools.
 OathMCP gives AI agents strict input and output schemas, per-value unit handling,
 plausibility guards, cited evidence resources, and deterministic calculation
 paths over stdio, stateless HTTP, and Cloudflare Workers.
@@ -23,9 +23,11 @@ policies, or local protocols.
 
 Version `0.1.0` is the planned first open-source release and is not yet
 published to npm.
-All 39 calculator dossiers and all four review groups currently derive
-`scenario_verified`, and the ordinary acceptance, clinical-release, transport,
-compatibility, and package gates pass.
+All 40 calculator dossiers and all four review groups currently derive
+`scenario_verified`, and the ordinary acceptance, transport, compatibility,
+and package gates pass. The checked-in `0.1.0` release attestation covers the
+prior 39-calculator catalog; a fresh attestation is required before the current
+catalog can pass the clinical-release gate.
 
 In OathMCP, `scenario_verified` has a precise repository meaning: the implemented
 model and its declared population, variant, inputs, outputs, warnings,

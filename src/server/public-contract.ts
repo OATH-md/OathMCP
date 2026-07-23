@@ -386,7 +386,7 @@ export function buildCalcResultSchema(spec: CalcSpec): z.ZodObject {
 /*
  * The dispatcher advertises one stable catalog-wide envelope. Runtime input
  * validation is still selected from the exact calculator schema, and every
- * result is still produced by `run()`. Repeating all 39 exact result schemas in
+ * result is still produced by `run()`. Repeating every exact result schema in
  * both aggregate tools made a four-tool compact catalog almost as large as the
  * full catalog; it added no runtime safety because the selected calculator is
  * already validated before this envelope is emitted.

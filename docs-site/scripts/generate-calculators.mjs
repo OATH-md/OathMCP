@@ -49,8 +49,8 @@ const categories = [
     slug: "hepatology-gastroenterology",
     title: "Hepatology and gastroenterology",
     icon: "hospital",
-    description: "Liver severity, injury patterns, hepatitis serology, and pancreatitis scoring.",
-    ids: ["child_pugh", "hepb", "meld", "r_factor", "ranson"],
+    description: "Liver fibrosis risk, severity, injury patterns, hepatitis serology, and pancreatitis scoring.",
+    ids: ["child_pugh", "fib4", "hepb", "meld", "r_factor", "ranson"],
   },
   {
     slug: "pediatrics-neonatology",

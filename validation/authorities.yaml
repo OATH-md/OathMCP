@@ -2753,3 +2753,124 @@ authorities:
     reviewBy: 2027-01-12
     discoveryOnly: false
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10497369/
+  - id: fib4_sterling_2006
+    name: Sterling FIB-4 derivation study
+    sourceRole: derivation
+    owner: Hepatology
+    jurisdiction: International peer-reviewed literature
+    controllingClaimScope:
+      - Original FIB-4 equation, inputs, units, and derivation population
+    approvalStatus: peer-reviewed primary derivation report
+    versionMethod: PMID, DOI, full-text equation, and linked publication notices checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 16729309; doi:10.1002/hep.21178
+    checkedAt: 2026-07-23
+    reviewBy: 2027-07-23
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/16729309/
+  - id: fib4_shah_2009
+    name: Shah adult NAFLD FIB-4 validation study
+    sourceRole: external_validation
+    owner: Clinical Gastroenterology and Hepatology
+    jurisdiction: Adult NAFLD biopsy cohort
+    controllingClaimScope:
+      - Adult NAFLD FIB-4 formula reconstruction and historical 1.30 and 2.67 thresholds
+    approvalStatus: peer-reviewed independent validation study
+    versionMethod: PMID, PMCID, DOI, Tables 1 and 5, and linked publication notices checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 19523535; PMCID PMC3079239; doi:10.1016/j.cgh.2009.05.033
+    checkedAt: 2026-07-23
+    reviewBy: 2027-07-23
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3079239/
+  - id: fib4_mcpherson_2017
+    name: McPherson FIB-4 age-confounding study
+    sourceRole: external_validation
+    owner: American Journal of Gastroenterology
+    jurisdiction: Adult NAFLD biopsy cohorts
+    controllingClaimScope:
+      - Low accuracy in younger adults and age-adjusted lower threshold in older adults
+    approvalStatus: peer-reviewed age-performance validation study
+    versionMethod: PMID, PMCID, DOI, full text, and linked publication notices checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 27725647; PMCID PMC5418560; doi:10.1038/ajg.2016.453
+    checkedAt: 2026-07-23
+    reviewBy: 2027-07-23
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5418560/
+  - id: fib4_mozes_2022
+    name: FIB-4 individual-patient-data meta-analysis
+    sourceRole: systematic_review
+    owner: Gut
+    jurisdiction: International adult NAFLD evidence synthesis
+    controllingClaimScope:
+      - FIB-4 diagnostic accuracy and sequential-testing evidence in adult NAFLD
+    approvalStatus: peer-reviewed individual-patient-data meta-analysis
+    versionMethod: PMID, DOI, full text, and linked publication notices checked
+    currentnessMethod: Check corrections, retractions, and supersession annually
+    version: PMID 34001645; doi:10.1136/gutjnl-2021-324243
+    checkedAt: 2026-07-23
+    reviewBy: 2027-07-23
+    discoveryOnly: false
+    url: https://pubmed.ncbi.nlm.nih.gov/34001645/
+  - id: fib4_aga_2026
+    name: AGA 2026 MASLD clinical care pathway
+    sourceRole: controlling_authority
+    owner: American Gastroenterological Association
+    jurisdiction: United States
+    controllingClaimScope:
+      - Selected adult MASLD screening population and first-tier FIB-4 pathway
+      - Binary second-tier-testing thresholds of 1.3 and 2.0 at age 65 or older
+    approvalStatus: current responsible US specialty pathway
+    versionMethod: Society publication page, PMID, DOI, publication date, and pathway recommendations checked
+    currentnessMethod: Check AGA pathway status and successor publications before release and at least every 90 days
+    version: Published 2026-03-09; PMID 41812830; doi:10.1053/j.gastro.2026.01.047
+    checkedAt: 2026-07-23
+    reviewBy: 2026-10-21
+    discoveryOnly: false
+    url: https://gastro.org/clinical-guidance/clinical-care-pathway-for-the-risk-stratification-and-management-of-patients-with-masld/
+  - id: fib4_aasld_2023
+    name: AASLD 2023 NAFLD practice guidance
+    sourceRole: specialty_guidance
+    owner: American Association for the Study of Liver Diseases
+    jurisdiction: United States
+    controllingClaimScope:
+      - FIB-4 age limitations, acute-illness exclusion, and divergent 2.67 referral pathway
+    approvalStatus: current AASLD practice guidance
+    versionMethod: AASLD current-guidance page, PMID, PMCID, DOI, Figure 2, and update history checked
+    currentnessMethod: Check AASLD guidance status and successor publications before release and at least every 90 days
+    version: 2023 guidance current on 2026-07-23; PMID 36727674; doi:10.1097/HEP.0000000000000323
+    checkedAt: 2026-07-23
+    reviewBy: 2026-10-21
+    discoveryOnly: false
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10735173/
+  - id: fib4_easl_2024
+    name: EASL-EASD-EASO 2024 MASLD guideline
+    sourceRole: specialty_guidance
+    owner: European Association for the Study of the Liver
+    jurisdiction: Europe and international specialty guidance
+    controllingClaimScope:
+      - FIB-4 formula, age limitations, and divergent multistep MASLD thresholds
+    approvalStatus: current multidisciplinary European specialty guideline
+    versionMethod: Society PDF, PMID, DOI, Figure 2, pages 500-502, and update history checked
+    currentnessMethod: Check EASL guideline status and successor publications before release and at least every 90 days
+    version: J Hepatol 2024;81:492-542; PMID 38851997; doi:10.1016/j.jhep.2024.04.031
+    checkedAt: 2026-07-23
+    reviewBy: 2026-10-21
+    discoveryOnly: false
+    url: https://easlcampus.eu/sites/default/files/2024-08/EASL_CPGs_management_of_MASLD.pdf
+  - id: fib4_who_2018
+    name: WHO 2018 HCV guideline FIB-4 equation
+    sourceRole: independent_numeric
+    owner: World Health Organization
+    jurisdiction: International
+    controllingClaimScope:
+      - Independent published FIB-4 equation and unit reconstruction
+    approvalStatus: responsible international guideline source
+    versionMethod: WHO guideline edition, NCBI Bookshelf identity, and Figure 5.1 equation checked
+    currentnessMethod: Check source integrity and supersession of the numeric equation annually
+    version: WHO 2018; NCBI Bookshelf NBK531733; PMID 30307724
+    checkedAt: 2026-07-23
+    reviewBy: 2027-07-23
+    discoveryOnly: false
+    url: https://www.ncbi.nlm.nih.gov/books/NBK531733/

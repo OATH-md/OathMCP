@@ -5,6 +5,22 @@ MCP endpoint. Release readiness is separate from a deployment decision: a green
 gate proves the checked-in implementation and evidence contract, while the
 operator remains responsible for its environment and clinical use boundary.
 
+## Automation boundary
+
+Ordinary contributor CI and release readiness are deliberately separate:
+
+- `.github/workflows/ci.yml` runs once for each pull request and again after
+  merge to `main`. It executes the current catalog's acceptance, portability,
+  documentation, and code-scanning checks without comparing unreleased work to
+  a historical release attestation.
+- `.github/workflows/release-readiness.yml` runs only by explicit manual
+  dispatch or for a `v*` version tag. It repeats ordinary acceptance, requires
+  the matching clinical release attestation, checks the generated documentation,
+  and exercises the package tarball.
+
+This keeps contributor pull requests actionable while preserving the hard
+attestation boundary for version tags, `prepublishOnly`, and deployment.
+
 ## Before release
 
 1. Confirm the intended version in `package.json` and the matching attestation
@@ -103,7 +119,9 @@ and rollback procedure are recorded in [HOSTING.md](HOSTING.md).
 
 ## Version 0.1.0 release state
 
-The checked-in `0.1.0` release passes the ordinary acceptance,
-clinical-release, compatibility, real-transport, and package-manifest gates.
-It is licensed under Apache-2.0. The GitHub release and npm publication are
-separate operator actions; the package is not yet available from npm.
+The checked-in `0.1.0` attestation records the prior 39-calculator release
+candidate. The current 40-calculator catalog requires a fresh, explicitly
+requested release attestation before `check:clinical-release` can pass. The
+ordinary pull-request acceptance gate remains separate and can pass without
+rewriting historical release evidence. The project is licensed under
+Apache-2.0; GitHub release and npm publication remain separate operator actions.

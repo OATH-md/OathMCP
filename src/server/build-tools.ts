@@ -632,7 +632,7 @@ function buildResponsibleUseResource(): ResourceDefinition {
 
 // Specs are immutable after load. Shared definitions and each catalog profile
 // are built lazily, then reused across fresh stateless server instances. A
-// compact-only deployment therefore never pays to construct 39 direct schemas.
+// compact-only deployment therefore never pays to construct every direct schema.
 interface SharedCatalogDefinitions {
   specs: CalcSpec[];
   tools: ToolDefinition[];

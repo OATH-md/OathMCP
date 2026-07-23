@@ -182,6 +182,18 @@ export const VALIDATION_REVIEW_STATES = {
       "witnessedExecutableClaims": 28
     }
   },
+  "fib4": {
+    "state": "scenario_verified",
+    "blockerCodes": [],
+    "counts": {
+      "claimsTotal": 21,
+      "claimsSupported": 21,
+      "requiredCases": 15,
+      "passedCases": 15,
+      "executableClaims": 20,
+      "witnessedExecutableClaims": 20
+    }
+  },
   "free_water_deficit": {
     "state": "scenario_verified",
     "blockerCodes": [],

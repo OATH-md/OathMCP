@@ -29,5 +29,5 @@ repository root remains the calculator runtime and package module.
 npm run check
 ```
 
-The check must confirm generated-page parity, all 39 calculator pages, required
+The check must confirm generated-page parity, all 40 calculator pages, required
 responsibility language, and a successful production Blume build.

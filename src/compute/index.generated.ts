@@ -16,6 +16,7 @@ import './corrected_calcium.js';
 import './creatinine_clearance.js';
 import './csf.js';
 import './eos.js';
+import './fib4.js';
 import './free_water_deficit.js';
 import './gad7.js';
 import './gcs.js';

@@ -16,7 +16,7 @@ describe('lint-specs command', () => {
     const output = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
 
     await expect(lintSpecs([])).resolves.toBe(0);
-    expect(output).toHaveBeenCalledWith('Validated 39 calculator specs.\n');
+    expect(output).toHaveBeenCalledWith('Validated 40 calculator specs.\n');
 
     output.mockRestore();
   });

@@ -9,7 +9,7 @@ describe('clinical catalog gate', () => {
     const report = await validateClinicalCatalog();
     expect(report.ok).toBe(true);
     expect(report.requestedGate).toBe('integrity');
-    expect(report.calculatorReports).toHaveLength(39);
+    expect(report.calculatorReports).toHaveLength(40);
     expect(report.groupReports).toHaveLength(4);
     const states = report.calculatorReports.map((entry) => entry.reviewState.state);
     expect(new Set(states)).toEqual(new Set(['source_verified']));
@@ -23,7 +23,7 @@ describe('clinical catalog gate', () => {
         caseRunner: runner,
       });
       expect(report.ok).toBe(true);
-      expect(report.calculatorReports).toHaveLength(39);
+      expect(report.calculatorReports).toHaveLength(40);
       expect(report.groupReports).toHaveLength(4);
       expect(report.groupReports.every((group) => group.state === 'scenario_verified')).toBe(true);
       expect(report.groupReports.every((group) => group.missingCalculatorIds.length === 0)).toBe(true);
@@ -32,14 +32,14 @@ describe('clinical catalog gate', () => {
     }
   });
 
-  it('uses exit 0 for integrity, 1 for an unmet gate, and 2 for invalid usage', async () => {
+  it('uses exit 0 for integrity, 1 for the pending release attestation, and 2 for invalid usage', async () => {
     const stdout = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
     const stderr = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
     await expect(validateClinical([])).resolves.toBe(0);
     await expect(validateClinical(['--require-source-verified'])).resolves.toBe(0);
     await expect(validateClinical([
       '--release-attestation', 'validation/releases/0.1.0.yaml',
-    ])).resolves.toBe(0);
+    ])).resolves.toBe(1);
     await expect(validateClinical(['--unknown'])).resolves.toBe(2);
     stdout.mockRestore();
     stderr.mockRestore();
