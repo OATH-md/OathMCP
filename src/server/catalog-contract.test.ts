@@ -20,6 +20,7 @@ const CALCULATOR_IDS = [
   'creatinine_clearance',
   'csf',
   'eos',
+  'fib4',
   'free_water_deficit',
   'gad7',
   'gcs',
@@ -93,9 +94,9 @@ describe('MCP catalog contract', () => {
       client.listResources(),
     ]);
 
-    expect(tools).toHaveLength(42);
+    expect(tools).toHaveLength(43);
     expect(prompts).toHaveLength(3);
-    expect(resources).toHaveLength(40);
+    expect(resources).toHaveLength(41);
 
     expect(tools.map((tool) => tool.name).sort()).toEqual(
       [

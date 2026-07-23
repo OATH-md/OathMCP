@@ -186,8 +186,8 @@ describe('agent-eval: complete calculator catalog', () => {
     compactClient = await connectTestClient('agent-eval-compact', { mode: 'compact' });
   });
 
-  it('covers all 39 calculators', () => {
-    expect(catalog).toHaveLength(39);
+  it('covers all 40 calculators', () => {
+    expect(catalog).toHaveLength(40);
   });
 
   it.each(catalog)(

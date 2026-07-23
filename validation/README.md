@@ -1,6 +1,6 @@
 # Implementation Assurance Ledger
 
-This directory records the source and behavior assurance for the 39 established
+This directory records the source and behavior assurance for the 40 established
 clinical calculators implemented by OathMCP. It does not contain new clinical
 research and does not claim to revalidate the underlying instruments.
 
@@ -12,10 +12,11 @@ immutable source-derived reference, edge, and agent cases;
 breaks.
 
 Review state is derived by code. A dossier cannot author `status`, `passed`,
-`actual`, `source_verified`, or `scenario_verified`. At the current `0.1.0`
-release candidate, all 39 dossiers and all four derived groups pass
-`scenario_verified` through the engine, full direct MCP tools, and compact MCP
-dispatch.
+`actual`, `source_verified`, or `scenario_verified`. In the current catalog,
+all 40 dossiers and all four derived groups pass `scenario_verified` through
+the engine, full direct MCP tools, and compact MCP dispatch. The checked-in
+`0.1.0` release attestation covers the prior 39-calculator catalog and must be
+refreshed as a separate release action.
 
 Repository terminology is deliberately narrow:
 

@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-OathMCP is a TypeScript Model Context Protocol (MCP) server implementing 39
+OathMCP is a TypeScript Model Context Protocol (MCP) server implementing 40
 established clinical calculators (BMI, GFR, MELD, etc.) as agent-native tools,
 with per-value US/SI unit handling, plausibility guards, evidence resources, and
 interpreter prompts. It runs over stdio (`npx oath-mcp`), stateless HTTP, or

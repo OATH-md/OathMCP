@@ -2,28 +2,58 @@ schemaVersion: "1.0"
 generatedAt: 2026-07-15
 sourcePolicies:
   formula_unit_dosing:
-    roles: [bibliographic_database, controlling_authority, specialty_guidance, derivation, independent_numeric]
+    roles:
+      - bibliographic_database
+      - controlling_authority
+      - specialty_guidance
+      - derivation
+      - independent_numeric
     minimumExternalValidations: 0
     controllingAuthorityRequired: true
   additive_criteria_scores:
-    roles: [bibliographic_database, controlling_authority, specialty_guidance, derivation, external_validation]
+    roles:
+      - bibliographic_database
+      - controlling_authority
+      - specialty_guidance
+      - derivation
+      - external_validation
     minimumExternalValidations: 1
     controllingAuthorityRequired: true
   policy_versioned:
-    roles: [bibliographic_database, controlling_authority, specialty_guidance, derivation, external_validation, data_release]
+    roles:
+      - bibliographic_database
+      - controlling_authority
+      - specialty_guidance
+      - derivation
+      - external_validation
+      - data_release
     minimumExternalValidations: 1
     controllingAuthorityRequired: true
   interpreter_conditional:
-    roles: [bibliographic_database, controlling_authority, specialty_guidance, derivation]
+    roles:
+      - bibliographic_database
+      - controlling_authority
+      - specialty_guidance
+      - derivation
     minimumExternalValidations: 0
     controllingAuthorityRequired: true
 calculatorSourcePolicyOverrides:
   carboplatin_auc:
-    roles: [bibliographic_database, controlling_authority, specialty_guidance, derivation, approved_label]
+    roles:
+      - bibliographic_database
+      - controlling_authority
+      - specialty_guidance
+      - derivation
+      - approved_label
     minimumExternalValidations: 0
     controllingAuthorityRequired: true
   chemo_dose_bsa:
-    roles: [bibliographic_database, controlling_authority, specialty_guidance, derivation, approved_label]
+    roles:
+      - bibliographic_database
+      - controlling_authority
+      - specialty_guidance
+      - derivation
+      - approved_label
     minimumExternalValidations: 0
     controllingAuthorityRequired: true
 groups:
@@ -39,6 +69,7 @@ groups:
       - chemo_dose_bsa
       - corrected_calcium
       - creatinine_clearance
+      - fib4
       - free_water_deficit
       - gfr
       - gir

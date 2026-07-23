@@ -21,6 +21,12 @@ describe('unit conversion', () => {
     expect(convert('alt', 100, 'U/L', 'ukat/L')).toBeCloseTo(1.667, 10);
   });
 
+  it('treats platelet counts in 10^9/L and 10^3/uL as numerically equivalent', () => {
+    expect(convert('platelet_count', 250, '10^9/L', '10^3/uL')).toBe(250);
+    expect(convert('platelet_count', 250, '10^3/uL', '10^9/L')).toBe(250);
+    expect(resolveUnit('platelet_count', '10^3/µL')).toBe('10^3/uL');
+  });
+
   it('reports known and unknown units', () => {
     expect(isKnownUnit('creatinine', 'umol/L')).toBe(true);
     expect(isKnownUnit('creatinine', 'mmol/L')).toBe(false);

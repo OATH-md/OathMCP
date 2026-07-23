@@ -1,5 +1,5 @@
 schemaVersion: "1.0"
-capturedAt: 2026-07-15
+capturedAt: 2026-07-23
 snapshot:
   catalogMode: full
   defaultCatalogMode: full
@@ -19,6 +19,7 @@ snapshot:
     - calculate_creatinine_clearance
     - calculate_csf
     - calculate_eos
+    - calculate_fib4
     - calculate_free_water_deficit
     - calculate_gad7
     - calculate_gcs
@@ -66,6 +67,7 @@ snapshot:
     - calc://creatinine_clearance/evidence
     - calc://csf/evidence
     - calc://eos/evidence
+    - calc://fib4/evidence
     - calc://free_water_deficit/evidence
     - calc://gad7/evidence
     - calc://gcs/evidence
@@ -134,6 +136,7 @@ snapshot:
         - gender
     csf: {}
     eos: {}
+    fib4: {}
     free_water_deficit:
       patient_category:
         - demographic
@@ -2396,6 +2399,117 @@ snapshot:
               - Vitals every 4 hours for 24 hours
               - Vitals in NICU
               - Vitals per NICU
+            availability:
+              kind: always
+    fib4:
+      directTool:
+        inputs:
+          age:
+            required: true
+            kind: integer
+          ast:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: U/L
+              acceptedUnits:
+                - U/L
+                - ukat/L
+          alt:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: U/L
+              acceptedUnits:
+                - U/L
+                - ukat/L
+          platelet_count:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: 10^9/L
+              acceptedUnits:
+                - 10^3/uL
+                - 10^9/L
+          assessment_context:
+            required: true
+            kind: enum
+            enumValues:
+              - acutely_ill
+              - stable_ambulatory
+        conditionalRequirements:
+          - kind: forbidValueWhen
+            field: assessment_context
+            when: ==acutely_ill
+            target: assessment_context
+            value: acutely_ill
+            message: FIB-4 should not be used during acute illness; use clinician-directed alternative assessment after the clinical state and laboratory values are stable.
+        outputs:
+          fib4_score:
+            kind: number
+            availability:
+              kind: always
+          screen_result:
+            kind: enum
+            allowedValues:
+              - not_interpreted_age_under_35
+              - screen_negative
+              - secondary_assessment_needed
+            availability:
+              kind: always
+      compactDispatcher:
+        inputs:
+          age:
+            required: true
+            kind: integer
+          ast:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: U/L
+              acceptedUnits:
+                - U/L
+                - ukat/L
+          alt:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: U/L
+              acceptedUnits:
+                - U/L
+                - ukat/L
+          platelet_count:
+            required: true
+            kind: quantity
+            quantity:
+              canonicalUnit: 10^9/L
+              acceptedUnits:
+                - 10^3/uL
+                - 10^9/L
+          assessment_context:
+            required: true
+            kind: enum
+            enumValues:
+              - acutely_ill
+              - stable_ambulatory
+        conditionalRequirements:
+          - kind: forbidValueWhen
+            field: assessment_context
+            when: ==acutely_ill
+            target: assessment_context
+            value: acutely_ill
+            message: FIB-4 should not be used during acute illness; use clinician-directed alternative assessment after the clinical state and laboratory values are stable.
+        outputs:
+          fib4_score:
+            kind: number
+            availability:
+              kind: always
+          screen_result:
+            kind: enum
+            allowedValues:
+              - not_interpreted_age_under_35
+              - screen_negative
+              - secondary_assessment_needed
             availability:
               kind: always
     free_water_deficit:

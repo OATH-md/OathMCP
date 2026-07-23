@@ -1,15 +1,18 @@
 ---
 title: "Hepatology and gastroenterology"
-description: "Liver severity, injury patterns, hepatitis serology, and pancreatitis scoring."
+description: "Liver fibrosis risk, severity, injury patterns, hepatitis serology, and pancreatitis scoring."
 ---
 
 {/* GENERATED from repository-root OathMCP sources. */}
 
-Liver severity, injury patterns, hepatitis serology, and pancreatitis scoring.
+Liver fibrosis risk, severity, injury patterns, hepatitis serology, and pancreatitis scoring.
 
 <CardGroup cols={2}>
   <Card title="Modified Child-Pugh Score (INR variant)" href="/calculators/hepatology-gastroenterology/child_pugh" icon="calculator">
     Adults with established cirrhosis whose bilirubin, albumin, INR, ascites, and encephalopathy categories are available. Return an integer score from 5-15 and descriptive class A (5-6), B (7-9), or C (10-15).
+  </Card>
+  <Card title="Fibrosis-4 (FIB-4) Index" href="/calculators/hepatology-gastroenterology/fib4" icon="calculator">
+    Calculate the published FIB-4 index and apply the selected 2026 AGA adult MASLD first-tier threshold. A low result is FIB-4 below 1.3 for ages 35-64 or below 2.0 for ages 65 and older; otherwise return that secondary fibrosis assessment is needed. Below age 35, return the score without a pathway interpretation.
   </Card>
   <Card title="Hepatitis B Triple-Panel Findings" href="/calculators/hepatology-gastroenterology/hepb" icon="calculator">
     Map an explicit HBsAg, total anti-HBc, and anti-HBs state to a typed CDC pattern while preserving uncertainty and contradictions.

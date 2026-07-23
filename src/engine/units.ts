@@ -50,6 +50,7 @@ export const ANALYTES: Record<string, AnalyteSpec> = {
   glucose: defineAnalyte('mg/dL', { 'mmol/L': 0.05551 }),
   bun: defineAnalyte('mg/dL', { 'mmol/L': 0.357 }),
   wbc: defineAnalyte('cells/mm3', { '10^9/L': 0.001 }),
+  platelet_count: defineAnalyte('10^9/L', { '10^3/uL': 1.0 }),
   hematocrit: defineAnalyte('percent', { 'L/L': 0.01 }),
   pao2: defineAnalyte('mmHg', { kPa: 0.133322 }),
   base_deficit: defineAnalyte('mEq/L', { 'mmol/L': 1.0 }),

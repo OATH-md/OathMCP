@@ -1,0 +1,242 @@
+id: fib4
+version: 1.0.0
+name: Fibrosis-4 (FIB-4) Index
+family: liver_fibrosis
+variant: aga_2026_adult_masld_first_line
+synonyms:
+  - fibrosis-4 index
+  - metabolic liver fibrosis risk stratification
+abbreviations:
+  - FIB-4
+reviewAfter: 2026-10-21
+clinicalModel:
+  modelId: fib4.sterling_2006
+  modelVersion: sterling_2006_formula__aga_2026_masld_screen
+  jurisdiction: United States
+  evidenceRefs:
+    - source_1
+    - source_3
+  modelKind: formula
+  reviewDate: 2026-07-23
+applicability:
+  population: Adults in a stable ambulatory setting who are at increased risk for metabolic dysfunction-associated
+    steatotic liver disease (MASLD), including adults with type 2 diabetes, overweight or obesity plus another metabolic
+    risk factor, or incidental steatosis or elevated liver enzymes.
+  setting: First-tier MASLD fibrosis-risk screening using contemporaneous age, AST, ALT, and platelet count. The selected
+    2026 AGA pathway treats an elevated age-adjusted FIB-4 as a positive screen requiring second-tier assessment, not as
+    a diagnosis of fibrosis.
+  exclusions:
+    - Do not use FIB-4 in acutely ill patients or when aminotransferases or platelets do not represent a stable clinical
+      state.
+    - FIB-4 has low accuracy below age 35; this calculator returns the raw score but does not interpret the MASLD screen
+      in that age group.
+    - This MASLD screening variant is not a substitute for evaluation of other liver diseases, second-tier fibrosis
+      testing, specialist assessment, or clinical judgment.
+  evidenceRefs:
+    - source_2
+    - source_3
+    - source_4
+    - source_5
+    - source_7
+purposeForAgents: Calculate the published FIB-4 index and apply the selected 2026 AGA adult MASLD first-tier threshold.
+  A low result is FIB-4 below 1.3 for ages 35-64 or below 2.0 for ages 65 and older; otherwise return that secondary
+  fibrosis assessment is needed. Below age 35, return the score without a pathway interpretation.
+whenNotToUse: Do not use during acute illness, with non-contemporaneous or unstable laboratory values, below age 18, or
+  as a stand-alone diagnosis or fibrosis stage. This implementation intentionally does not apply the separate 2.67
+  referral threshold retained by AASLD 2023 and EASL 2024.
+evidence:
+  - id: source_1
+    type: derivation
+    citation: Sterling RK, Lissen E, Clumeck N, et al. Development of a simple noninvasive index to predict significant
+      fibrosis in patients with HIV/HCV coinfection. Hepatology. 2006;43(6):1317-1325.
+    locator: Abstract equation; age in years multiplied by AST in U/L, divided by platelet count in 10^9/L multiplied by the
+      square root of ALT in U/L.
+    doi: 10.1002/hep.21178
+    url: https://pubmed.ncbi.nlm.nih.gov/16729309/
+    reviewed: true
+  - id: source_2
+    type: validation
+    citation: Shah AG, Lydecker A, Murray K, et al. Comparison of noninvasive markers of fibrosis in patients with
+      nonalcoholic fatty liver disease. Clin Gastroenterol Hepatol. 2009;7(10):1104-1112.
+    locator: Table 1 formula and Table 5 clinical utility of the 1.30 and 2.67 NAFLD thresholds.
+    doi: 10.1016/j.cgh.2009.05.033
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3079239/
+    reviewed: true
+  - id: source_3
+    type: reference
+    citation: Kanwal F, Bril F, Wong VWS, et al. Clinical Care Pathway for the Risk Stratification and Management of
+      Patients With Metabolic Dysfunction-Associated Steatotic Liver Disease. Gastroenterology. 2026;171(1):164-183.
+    locator: AGA recommendations, steps 1-4; FIB-4 below 1.3, or below 2.0 at age 65 or older, is a negative first-tier
+      screen and elevated results proceed to second-tier testing.
+    doi: 10.1053/j.gastro.2026.01.047
+    url: https://gastro.org/clinical-guidance/clinical-care-pathway-for-the-risk-stratification-and-management-of-patients-with-masld/
+    reviewed: true
+  - id: source_4
+    type: reference
+    citation: Rinella ME, Neuschwander-Tetri BA, Siddiqui MS, et al. AASLD Practice Guidance on the clinical assessment and
+      management of nonalcoholic fatty liver disease. Hepatology. 2023;77(5):1797-1835.
+    locator: Figure 2 and primary risk assessment text; low accuracy below age 35, age adjustment above 65, and prohibition
+      during acute illness.
+    doi: 10.1097/HEP.0000000000000323
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10735173/
+    reviewed: true
+  - id: source_5
+    type: reference
+    citation: European Association for the Study of the Liver, European Association for the Study of Diabetes, and European
+      Association for the Study of Obesity. EASL-EASD-EASO Clinical Practice Guidelines on the management of metabolic
+      dysfunction-associated steatotic liver disease. J Hepatol. 2024;81(3):492-542.
+    locator: Figure 2 and pp. 500-502; formula, first-tier age-adjusted thresholds, low accuracy below age 35, and retained
+      2.67 pathway.
+    doi: 10.1016/j.jhep.2024.04.031
+    url: https://easlcampus.eu/sites/default/files/2024-08/EASL_CPGs_management_of_MASLD.pdf
+    reviewed: true
+  - id: source_6
+    type: reference
+    citation: World Health Organization. Guidelines for the care and treatment of persons diagnosed with chronic hepatitis C
+      virus infection. Geneva; 2018.
+    locator: Figure 5.1, printed p. 35; independent FIB-4 equation and units.
+    url: https://www.ncbi.nlm.nih.gov/books/NBK531733/
+    reviewed: true
+  - id: source_7
+    type: validation
+    citation: Mozes FE, Lee JA, Selvaraj EA, et al. Diagnostic accuracy of non-invasive tests for advanced fibrosis in
+      patients with NAFLD; an individual patient data meta-analysis. Gut. 2022;71(5):1006-1019.
+    locator: Abstract results; FIB-4 accuracy and sequential testing using the lower 1.3 threshold.
+    doi: 10.1136/gutjnl-2021-324243
+    url: https://pubmed.ncbi.nlm.nih.gov/34001645/
+    reviewed: true
+inputs:
+  age:
+    title: Age
+    description: Age in completed years at the time of the laboratory tests.
+    conceptId: fib4.input.age
+    required: true
+    examples:
+      - 55
+    sourceRefs:
+      - source_1
+      - source_3
+    hardLimits:
+      - 18
+      - 130
+    kind: integer
+  ast:
+    title: AST
+    description: Aspartate aminotransferase. Pass a bare number in U/L, or an object {value, unit} to supply U/L or ukat/L.
+    conceptId: fib4.input.ast
+    required: true
+    examples:
+      - 40
+    sourceRefs:
+      - source_1
+      - source_6
+    hardLimits:
+      - 0.01
+      - 100000
+    kind: quantity
+    quantity:
+      analyte: ast
+      canonicalUnit: U/L
+      acceptedUnits:
+        - U/L
+        - ukat/L
+  alt:
+    title: ALT
+    description: Alanine aminotransferase. Pass a bare number in U/L, or an object {value, unit} to supply U/L or ukat/L.
+    conceptId: fib4.input.alt
+    required: true
+    examples:
+      - 40
+    sourceRefs:
+      - source_1
+      - source_6
+    hardLimits:
+      - 0.01
+      - 100000
+    kind: quantity
+    quantity:
+      analyte: alt
+      canonicalUnit: U/L
+      acceptedUnits:
+        - U/L
+        - ukat/L
+  platelet_count:
+    title: Platelet Count
+    description: Platelet count. Pass a bare number in 10^9/L, or an object {value, unit} to supply 10^9/L or 10^3/uL; these
+      units are numerically equivalent.
+    conceptId: fib4.input.platelet_count
+    required: true
+    examples:
+      - 200
+    sourceRefs:
+      - source_1
+      - source_6
+    hardLimits:
+      - 0.01
+      - 10000
+    kind: quantity
+    quantity:
+      analyte: platelet_count
+      canonicalUnit: 10^9/L
+      acceptedUnits:
+        - 10^9/L
+        - 10^3/uL
+  assessment_context:
+    title: Assessment Context
+    description: Whether the contemporaneous laboratory values come from a stable ambulatory assessment or an acute illness.
+    conceptId: fib4.input.assessment_context
+    required: true
+    examples:
+      - stable_ambulatory
+    sourceRefs:
+      - source_4
+    kind: enum
+    enumValues:
+      - value: stable_ambulatory
+        label: Stable ambulatory
+        description: Contemporaneous values obtained outside acute illness.
+      - value: acutely_ill
+        label: Acutely ill
+        description: Acute illness; the selected MASLD FIB-4 pathway should not be applied.
+outputs:
+  fib4_score:
+    title: FIB-4 Score
+    description: Dimensionless FIB-4 index rounded to 2 decimal places.
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_1
+      - source_6
+    kind: number
+  screen_result:
+    title: MASLD First-Line Screen Result
+    description: The selected 2026 AGA first-line result. A positive screen means secondary fibrosis assessment is needed;
+      it does not diagnose or stage fibrosis.
+    availability:
+      kind: always
+    evidenceRefs:
+      - source_3
+      - source_4
+      - source_5
+    kind: enum
+    allowedValues:
+      - not_interpreted_age_under_35
+      - screen_negative
+      - secondary_assessment_needed
+primaryOutputs:
+  - fib4_score
+constraints:
+  - kind: forbidValueWhen
+    field: assessment_context
+    when: ==acutely_ill
+    target: assessment_context
+    value: acutely_ill
+    message: FIB-4 should not be used during acute illness; use clinician-directed alternative assessment after the clinical
+      state and laboratory values are stable.
+warnings:
+  - field: age
+    when: <35
+    message: FIB-4 has low accuracy below age 35; the raw score is reported but the MASLD screening result is not interpreted.
+    evidenceRefs:
+      - source_4
+      - source_5
