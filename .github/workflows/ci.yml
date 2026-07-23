@@ -2,7 +2,9 @@ name: CI
 
 on:
   push:
-  pull_request:
+    branches:
+      - main
+  pull_request: {}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -25,7 +27,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
-      - run: npm run check:clinical-release
 
   windows-portability:
     runs-on: windows-latest

@@ -46,6 +46,11 @@ additionally blocked by `check:clinical-release` and `prepublishOnly` unless the
 package-version attestation, source versions, review chronology, currentness,
 and unresolved-change state all pass.
 
+Pull-request CI runs the ordinary acceptance gate without a historical release
+attestation. The separate release-readiness workflow runs manually or for a
+`v*` tag and requires `check:clinical-release`, so unreleased catalog work does
+not rewrite prior release evidence while publication remains blocked.
+
 No test or CI command fetches mutable clinical sources. Reviewed searches,
 locators, expected cases, and release attestations are checked in. Networked
 source refresh is deliberate, reviewed work performed before the applicable
