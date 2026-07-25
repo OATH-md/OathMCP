@@ -6,3 +6,8 @@ description: Deploy, version, monitor, and support OathMCP without crossing its 
 OathMCP provides a stateless calculation service, not a complete regulated
 clinical system. Operators own the controls around it and must keep calculator
 definitions, evidence, policy-backed data, and deployments current.
+
+Calculator acceptance and production publication are separate states. The
+official release workflow binds the versioned MCP catalog, generated Blume
+references, clinical release evidence, and both Worker deployments to one tag,
+then verifies the live result before announcing the release.

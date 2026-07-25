@@ -49,8 +49,12 @@ Keep changes focused and explain:
 - the tests or scenarios that demonstrate the change; and
 - any compatibility, deployment, documentation, or release impact.
 
-Run `npm run check` before opening a pull request. Release-affecting changes must
-also pass `npm run check:clinical-release` and `npm run check:package`.
+Run `npm run check` before opening a pull request. Calculator pull requests must
+also run `npm --prefix docs-site run generate` and commit the generated Blume
+page; the independent docs CI job verifies that surface. Contributors do not
+rewrite a historical release attestation. After merge, maintainers prepare the
+next exact release and run `npm run check:release` through the workflow in
+[`docs/RELEASE.md`](docs/RELEASE.md).
 
 ## Reporting sensitive issues
 

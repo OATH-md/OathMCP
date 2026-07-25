@@ -67,24 +67,16 @@ The existing `oath-mcp` custom-domain Worker continues to own `/mcp`, `/health`,
 `/responsible-use`, and every other `mcp.oath.md` path. Cloudflare runs the more
 specific documentation routes before that custom-domain Worker.
 
-Connect the Cloudflare Worker named `oath-docs` to the same
-`OATH-md/OathMCP` GitHub repository with Workers Builds:
+The normal publisher is the repository-root tagged release workflow. A
+calculator pull request runs `npm run generate`, commits the generated page,
+and passes this module's `npm run check`. A later versioned release tag deploys
+the `oath-mcp` Worker and this `oath-docs` Worker from the same exact checkout,
+then verifies every live calculator page before publishing the GitHub release.
 
-- Production branch: `main`
-- Root directory: `docs-site`
-- Build command: `npm run check`
-- Deploy command: `npx wrangler deploy`
-- Preview URLs and non-production branch deploys: disabled initially
-
-Configure build watch paths to include changes that can affect the published
-site:
-
-- `docs-site/**`
-- `specs/**`
-- `validation/**`
-- `src/server/validation-state.generated.ts`
-- `docs/RESPONSIBLE_USE.md`
-- `package.json`
+Do not connect this Worker to automatic builds from `main`. Accepted calculator
+work can exist on `main` before its package-version release attestation is
+prepared; deploying the docs independently would advertise a calculator that
+the official MCP does not yet serve.
 
 The build stages Blume output beneath `.deploy/docs/` because path-routed static
 assets mirror the public `/docs` prefix. Do not deploy `dist/` directly.
@@ -94,8 +86,15 @@ HTTPS URL before delegating to the static-assets binding. It also applies HSTS
 and `nosniff` defensively to the returned asset response; it does not render,
 transform, log, or inspect documentation content.
 
-Deploy `oath-docs` before enabling human-facing links or the MCP root redirect.
-Verify the docs home, one generated calculator page, search, raw Markdown,
-`llms.txt`, light and dark themes, and `/mcp` health after the route is active.
-Rollback is independent through the `oath-docs` Worker deployment history;
-removing its two routes returns those requests to the MCP Worker.
+The tagged workflow deploys the MCP first and the docs second, then verifies the
+docs home, every generated calculator page, the attested live MCP catalog, and
+new-calculator execution. Rollback remains independent through the `oath-docs`
+Worker deployment history; removing its two routes returns those requests to
+the MCP Worker.
+
+For manual recovery only, check out the exact release tag and run:
+
+```bash
+npm run check
+npm run deploy
+```

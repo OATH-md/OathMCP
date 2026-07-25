@@ -18,6 +18,7 @@ const SUBCOMMANDS: Record<string, Command> = {
   'new-calculator': async (argv) => (await import('./new-calculator.js')).scaffoldCalculator(argv),
   'check-calculator': async (argv) => (await import('./check-calculator.js')).checkCalculator(argv),
   'promote-calculator': async (argv) => (await import('./promote-calculator.js')).promoteCalculator(argv),
+  'prepare-release': async (argv) => (await import('./prepare-release.js')).prepareRelease(argv),
 };
 
 async function main(argv: string[]): Promise<number> {

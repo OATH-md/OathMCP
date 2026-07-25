@@ -15,3 +15,29 @@ There are several versions in play:
 Consumers should retain enough metadata to reproduce a result and identify
 which model was used. Before upgrading, compare the affected calculator
 contracts and clinical model metadata, not only the npm semantic version.
+
+## One release identifies every official surface
+
+The root package version, release attestation, hosted MCP service, and Blume
+site are released from one `vX.Y.Z` tag. Merging a calculator to `main` makes it
+accepted but unreleased; it does not make the calculator available through the
+official MCP or this site.
+
+A calculator pull request must include its generated Blume reference page. A
+later maintainer release pull request updates the package and docs-module
+versions, adds a fresh `validation/releases/<version>.yaml` attestation after
+the required currentness review, and adds the changelog entry. Historical
+release attestations are not rewritten.
+
+The tag-triggered workflow:
+
+1. runs the complete release gate;
+2. deploys the MCP Worker;
+3. deploys the Blume Worker from the same tag;
+4. verifies the live version, catalog, evidence resources, newly added
+   calculator cases, and every generated calculator page; and
+5. creates the GitHub release only after production verification succeeds.
+
+The exact maintainer commands, required GitHub environment, recovery path, and
+current release state are maintained in the repository
+[release guide](https://github.com/OATH-md/OathMCP/blob/main/docs/RELEASE.md).

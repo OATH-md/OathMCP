@@ -29,5 +29,12 @@ repository root remains the calculator runtime and package module.
 npm run check
 ```
 
-The check must confirm generated-page parity, all 40 calculator pages, required
-responsibility language, and a successful production Blume build.
+The check must confirm generated-page parity, one page for every live
+calculator, required responsibility language, and a successful production
+Blume build.
+
+Calculator pull requests must run the generator and commit the resulting page.
+Production deployment belongs to the root tag-driven release workflow, which
+deploys the MCP Worker first, deploys this site from the same tag second, and
+then verifies both live surfaces. A merge to `main` is not a documentation
+deployment.

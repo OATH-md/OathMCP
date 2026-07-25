@@ -17,3 +17,23 @@ transport.
 Record the package version, source commit, deployment identifier, UTC time,
 verification result, and previous deployable version. Do not silently serve a
 clinically changed contract under an unchanged release record.
+
+## Official deployment path
+
+Production is deployed only by the repository's `vX.Y.Z` tag workflow. It
+validates the tagged release evidence before credentials are available, then
+deploys `oath-mcp` followed by `oath-docs`. The workflow polls the real endpoint
+and verifies both surfaces before creating a GitHub release.
+
+The protected GitHub `production` environment holds the least-privilege
+Cloudflare token and account identifier. The former continuous deployment from
+the `main` branch must remain disconnected so there is only one production
+owner and an accepted-but-unreleased calculator cannot appear on one surface
+without the other.
+
+Direct Wrangler deployment is reserved for recorded recovery. If one Worker
+changes and the following deployment or verification fails, restore the
+changed Worker to its immediately prior verified version and rerun the live
+verification. See the repository
+[release guide](https://github.com/OATH-md/OathMCP/blob/main/docs/RELEASE.md)
+for the exact commands.
