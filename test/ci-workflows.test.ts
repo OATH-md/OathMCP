@@ -3,6 +3,10 @@ import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 interface Workflow {
+  concurrency?: {
+    group?: string;
+    'cancel-in-progress'?: boolean;
+  };
   on: {
     push?: {
       branches?: string[];
@@ -15,6 +19,7 @@ interface Workflow {
     if?: string;
     needs?: string | string[];
     environment?: string | { name?: string; url?: string };
+    'timeout-minutes'?: number;
     steps?: Array<{ run?: string }>;
   }>;
 }
@@ -51,25 +56,37 @@ describe('GitHub workflow boundaries', () => {
     const workflow = loadWorkflow('.github/workflows/release-readiness.yml');
     const commands = runCommands(workflow);
     const validateReleaseCommands = runCommands(workflow, 'validate-release');
+    const coordinator = readFileSync('scripts/release/deploy-production.mjs', 'utf8');
 
     expect(workflow.on.push?.tags).toEqual(['v*']);
     expect(Object.hasOwn(workflow.on, 'workflow_dispatch')).toBe(true);
+    expect(workflow.concurrency).toEqual({
+      group: 'oathmcp-production-release',
+      'cancel-in-progress': false,
+    });
     expect(validateReleaseCommands).toEqual(expect.arrayContaining([
       'npm run check:release',
       'npm run check:worker',
     ]));
-    expect(commands).toContain('npm run verify:production');
+    expect(commands.some((command) => command.includes('npm run deploy:production'))).toBe(true);
     expect(commands.some((command) => command.includes('npm publish --access public'))).toBe(true);
     expect(commands.some((command) => command.includes('npm run check:release-metadata -- --tag'))).toBe(true);
     expect(commands.some((command) => command.includes('git merge-base --is-ancestor'))).toBe(true);
-    expect(commands.filter((command) => command.includes('npx wrangler deploy'))).toHaveLength(2);
+    expect(commands.some((command) => command.includes('npx wrangler deploy'))).toBe(false);
+    expect(coordinator.match(/'versions', 'upload'/gu)).toHaveLength(1);
+    expect(coordinator.match(/'versions', 'deploy'/gu)).toHaveLength(1);
+    expect(coordinator).toContain("`${versionId}@100`");
+    expect(coordinator).toContain("for (const key of ['mcp', 'docs'])");
+    expect(coordinator).toContain('const verification = verifyProductionImpl({');
     expect(commands.some((command) => command.includes('gh release create'))).toBe(true);
 
     expect(workflow.jobs['deploy-production']?.if).toContain("refs/tags/v");
     expect(workflow.jobs['deploy-production']?.needs).toBe('validate-release');
-    expect(workflow.jobs['verify-production']?.needs).toBe('deploy-production');
+    expect(workflow.jobs['verify-production']).toBeUndefined();
+    expect(workflow.jobs['publish-npm']?.needs).toBe('deploy-production');
     expect(workflow.jobs['publish-npm']?.if).toContain('NPM_PUBLISH_ENABLED');
     expect(workflow.jobs['deploy-production']?.environment).toMatchObject({ name: 'production' });
+    expect(workflow.jobs['deploy-production']?.['timeout-minutes']).toBeGreaterThanOrEqual(45);
   });
 
   it('resolves the release attestation from the package version and includes Blume in the release gate', () => {

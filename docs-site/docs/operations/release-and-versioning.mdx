@@ -32,11 +32,17 @@ release attestations are not rewritten.
 The tag-triggered workflow:
 
 1. runs the complete release gate;
-2. deploys the MCP Worker;
-3. deploys the Blume Worker from the same tag;
-4. verifies the live version, catalog, evidence resources, newly added
+2. captures the live rollback baseline and uploads both Worker versions without
+   changing traffic;
+3. promotes the Blume Worker and then the MCP Worker directly to 100% while
+   continuously probing both surfaces;
+4. verifies the live version, catalog, evidence resources, BMI, a panel, newly added
    calculator cases, and every generated calculator page; and
 5. creates the GitHub release only after production verification succeeds.
+
+Any partial deployment or failed verification automatically restores the prior
+MCP version first and the prior docs version second. Percentage-based canaries
+are not used because one MCP exchange must not be split across server versions.
 
 The exact maintainer commands, required GitHub environment, recovery path, and
 current release state are maintained in the repository

@@ -86,15 +86,14 @@ HTTPS URL before delegating to the static-assets binding. It also applies HSTS
 and `nosniff` defensively to the returned asset response; it does not render,
 transform, log, or inspect documentation content.
 
-The tagged workflow deploys the MCP first and the docs second, then verifies the
-docs home, every generated calculator page, the attested live MCP catalog, and
-new-calculator execution. Rollback remains independent through the `oath-docs`
-Worker deployment history; removing its two routes returns those requests to
-the MCP Worker.
+The tagged workflow uploads both Worker versions without changing traffic,
+promotes docs and then MCP directly to 100%, and verifies the docs home, every
+generated calculator page, both MCP protocol eras, the attested live catalog,
+and new-calculator execution. A failed cutover automatically restores MCP first
+and docs second to their captured production version IDs.
 
-For manual recovery only, check out the exact release tag and run:
+For manual recovery only, check out the exact release tag.
 
-```bash
-npm run check
-npm run deploy
-```
+Use the repository-root deployment coordinator for manual recovery so the same
+availability probes, verification, and automatic rollback remain in force. See
+[`docs/RELEASE.md`](../docs/RELEASE.md) for the exact command.

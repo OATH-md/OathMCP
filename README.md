@@ -143,14 +143,15 @@ Deploy to Workers only after reviewing [Responsible Use](docs/RESPONSIBLE_USE.md
 the security and privacy boundary, and the release checklist. The official
 MCP and Blume Workers deploy from one exact `v*` tag only after
 `npm run check:release` passes; the workflow then verifies the live catalog,
-new-calculator execution, and every generated calculator page before creating
-the GitHub release. For a manual recovery deployment:
+modern and legacy clients, new-calculator execution, and every generated
+calculator page before creating the GitHub release. For a manual recovery
+deployment from an exact release tag:
 
 ```bash
 npm run check:release
-npm run deploy:worker
-npm --prefix docs-site run deploy
-npm run verify:production
+npm run deploy:production -- \
+  --tag "$(git describe --tags --exact-match)" \
+  --sha "$(git rev-parse HEAD)"
 ```
 
 The official documentation is available at `https://mcp.oath.md/docs/`, and the

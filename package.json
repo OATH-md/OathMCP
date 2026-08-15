@@ -63,6 +63,7 @@
     "release:prepare": "tsx src/cli/index.ts prepare-release && npm --prefix docs-site run generate",
     "check:release-metadata": "node scripts/release/check-metadata.mjs",
     "check:release": "npm run check:release-metadata && npm run check && npm run check:clinical-release && npm --prefix docs-site run check && npm pack --dry-run",
+    "deploy:production": "node scripts/release/deploy-production.mjs",
     "verify:production": "node scripts/release/verify-production.mjs",
     "check:package": "vitest run test/package-manifest.test.ts",
     "check": "npm run check:generated && npm run lint:specs && npm run validate:clinical -- --require-scenario-verified && npm run typecheck && npm run build && npm run test:run && npm run check:package",
@@ -75,8 +76,7 @@
     "start:http": "node dist/server/http.js",
     "types:worker": "wrangler types src/server/worker-configuration.d.ts --strict-vars false",
     "check:worker": "npm run build && wrangler types src/server/worker-configuration.d.ts --strict-vars false --check && node scripts/check-worker-bundle.mjs",
-    "check:deploy": "npm run check:release && wrangler types src/server/worker-configuration.d.ts --strict-vars false --check && wrangler deploy --dry-run",
-    "deploy:worker": "npm run check:deploy && wrangler deploy"
+    "check:deploy": "npm run check:release && wrangler types src/server/worker-configuration.d.ts --strict-vars false --check && wrangler deploy --dry-run"
   },
   "dependencies": {
     "@modelcontextprotocol/express": "^2.0.0",
