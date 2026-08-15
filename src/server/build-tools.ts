@@ -9,8 +9,7 @@
  * constrained to the spec's declared outputs.
  */
 import { createRequire } from 'node:module';
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { completable } from '@modelcontextprotocol/sdk/server/completable.js';
+import { McpServer, completable } from '@modelcontextprotocol/server';
 import * as z from 'zod/v4';
 import { fillTemplate as fillPromptTemplate } from '../engine/prompt-template.js';
 import {
@@ -112,9 +111,7 @@ function promptStringSchema(input: InputSpec): z.ZodType<string> {
 function promptArgsShape(spec: CalcSpec): Record<string, z.ZodType> {
   return Object.fromEntries(
     Object.entries(spec.inputs).map(([name, input]) => {
-      let field: z.ZodType = promptStringSchema(input);
-      if (!input.required) field = field.optional();
-      field = field.describe(promptArgDescription(input));
+      let field: z.ZodType = promptStringSchema(input).describe(promptArgDescription(input));
       if (input.kind === 'boolean' || input.kind === 'enum') {
         const choices = input.kind === 'boolean'
           ? ['true', 'false']
@@ -124,6 +121,7 @@ function promptArgsShape(spec: CalcSpec): Record<string, z.ZodType> {
           return choices.filter((choice) => choice.toLowerCase().startsWith(prefix));
         });
       }
+      if (!input.required) field = field.optional();
       return [name, field];
     }),
   );
@@ -145,7 +143,7 @@ function fillTemplate(template: string, result: ReturnType<typeof run>): string 
 
 interface PromptDefinition {
   name: string;
-  config: { title: string; description: string; argsSchema: Record<string, z.ZodType> };
+  config: { title: string; description: string; argsSchema: z.ZodObject };
   // The SDK infers the arg values as `unknown` from the wide raw-shape type; each
   // is a validated string (or absent) at runtime — narrowed in the handler.
   handler: (args: Record<string, unknown>) => {
@@ -169,7 +167,7 @@ function buildPromptDefinition(spec: CalcSpec): PromptDefinition {
     config: {
       title: `Interpret ${spec.name}`,
       description: prompt.description,
-      argsSchema: promptArgsShape(spec),
+      argsSchema: z.object(promptArgsShape(spec)),
     },
     handler: (args) => {
       const rawInputs: Record<string, unknown> = {};
@@ -666,7 +664,7 @@ export function buildServer(options: BuildServerOptions = {}): McpServer {
   // Materialize specs only when the shared cache is cold. On the warm
   // stateless-HTTP path, spec validation and derived contract work are skipped.
   if (sharedCatalogDefinitions === null) {
-    const specs = [...loadSpecs().values()];
+    const specs = [...loadSpecs().values()].sort((left, right) => left.id.localeCompare(right.id));
     assertComputeCoverage(
       specs.map((spec) => spec.id),
       getRegisteredComputeIds(),

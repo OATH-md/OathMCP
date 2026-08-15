@@ -35,20 +35,32 @@ describe('public MCP contracts', () => {
     expect(serialized).not.toContain('citation');
   });
 
-  it('exports draft-07 object schemas for canonical input and exact output values', () => {
-    const spec = loadSpec('oxygenation_index');
-    const input = z.toJSONSchema(buildCalculatorInputSchema(spec), {
-      target: 'draft-07',
+  it('exports draft 2020-12 object schemas for canonical inputs, aliases, and exact outputs', () => {
+    const input = z.toJSONSchema(buildCalculatorInputSchema(loadSpec('bmi')), {
+      target: 'draft-2020-12',
       io: 'input',
-    }) as { type?: string; properties?: Record<string, unknown>; additionalProperties?: boolean };
-    const output = z.toJSONSchema(buildCalcResultSchema(spec), {
-      target: 'draft-07',
+    }) as {
+      $schema?: string;
+      type?: string;
+      properties?: Record<string, { description?: string }>;
+      additionalProperties?: boolean;
+      allOf?: { anyOf?: { required?: string[] }[] }[];
+    };
+    const output = z.toJSONSchema(buildCalcResultSchema(loadSpec('oxygenation_index')), {
+      target: 'draft-2020-12',
       io: 'output',
-    }) as { type?: string; properties?: Record<string, unknown> };
+    }) as { $schema?: string; type?: string; properties?: Record<string, unknown> };
+    expect(input.$schema).toBe('https://json-schema.org/draft/2020-12/schema');
     expect(input.type).toBe('object');
     expect(input.additionalProperties).toBe(false);
-    expect(input.properties).toHaveProperty('pao2');
-    expect(input.properties).not.toHaveProperty('PaO2');
+    expect(input.properties?.weight_kg?.description).toBe('Body weight in kilograms.');
+    expect(input.properties?.weight?.description)
+      .toBe('Compatibility alias for weight_kg. Prefer weight_kg.');
+    expect(input.allOf?.[0]?.anyOf).toEqual(expect.arrayContaining([
+      { required: ['weight'] },
+      { required: ['weight_kg'] },
+    ]));
+    expect(output.$schema).toBe('https://json-schema.org/draft/2020-12/schema');
     expect(output.type).toBe('object');
     expect(output.properties).toHaveProperty('results');
     expect(output.properties).toHaveProperty('evidenceUri');
@@ -103,13 +115,15 @@ describe('public MCP contracts', () => {
     }
   });
 
-  it('keeps panel and compact dispatch schemas top-level objects', () => {
+  it('keeps panel and compact dispatch schemas as draft 2020-12 top-level objects', () => {
     for (const schema of [buildPanelResultSchema(), buildCompactDispatchResultSchema()]) {
-      const json = z.toJSONSchema(schema, { target: 'draft-07', io: 'output' }) as {
+      const json = z.toJSONSchema(schema, { target: 'draft-2020-12', io: 'output' }) as {
+        $schema?: string;
         type?: string;
         anyOf?: unknown;
         oneOf?: unknown;
       };
+      expect(json.$schema).toBe('https://json-schema.org/draft/2020-12/schema');
       expect(json.type).toBe('object');
       expect(json.anyOf).toBeUndefined();
       expect(json.oneOf).toBeUndefined();

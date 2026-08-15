@@ -98,14 +98,19 @@ Before merging, also:
   Blume surface, the package manifest, `LICENSE`, and `NOTICE`;
 - run `npm audit --omit=dev` for the published runtime and separately review the
   development dependency findings used by deployment and documentation builds;
-  and
-- re-review the documented `docs-site` dependency waiver whenever its framework
-  graph or enabled features change.
+- inspect the root `npm ls` graph and package manifest: the split MCP SDK v2
+  server, Node, and Express packages must be runtime dependencies, the v2 client
+  must remain development-only, and neither the monolithic v1 SDK nor a Hono
+  override may be present;
+- review the isolated MCP SDK v1 copy pulled into `docs-site` by Blume, confirm
+  no root runtime, test, or release script imports it, and re-review that waiver
+  whenever Blume's dependency graph or enabled features change; and
+- confirm the comprehensive production verifier pins modern protocol
+  `2026-07-28` and its separate bounded legacy list/resource/calculation smoke
+  remains green.
 
-The MCP SDK currently relies on the checked-in `@hono/node-server` override;
-real transport parity is the compatibility gate until the SDK adopts that major
-version directly. Do not override Miniflare's exact Sharp pin; adopt Sharp
-updates through a compatible Wrangler release.
+Do not override Miniflare's exact Sharp pin; adopt Sharp updates through a
+compatible Wrangler release.
 
 ## Tag the verified release commit
 
@@ -136,12 +141,15 @@ publisher. A `v*` tag runs these ordered jobs:
 3. Deploy `oath-mcp` and then the tagged Blume `oath-docs` Worker under one
    protected-environment approval.
 4. Poll the live service until `/health` reports the tagged version.
-5. Compare every live `calc://<id>/evidence` resource with the attested catalog.
+5. Open a modern-pinned `2026-07-28` client and compare every live
+   `calc://<id>/evidence` resource with the attested catalog.
 6. Call `describe_calculator` for every calculator and calculate a source-linked
    reference case for every calculator newly added since the prior attestation.
-7. Fetch and verify one generated Blume page for every attested calculator.
-8. Optionally publish the npm package through trusted publishing.
-9. Attach the package tarball and both Cloudflare Worker version IDs to the
+7. Open a separate explicit-legacy client and require the bounded
+   list/resource/calculation smoke to pass.
+8. Fetch and verify one generated Blume page for every attested calculator.
+9. Optionally publish the npm package through trusted publishing.
+10. Attach the package tarball and both Cloudflare Worker version IDs to the
    GitHub release.
 
 Any failure prevents the GitHub release. Do not announce a calculator from a

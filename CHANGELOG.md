@@ -4,6 +4,15 @@ All notable changes to OathMCP are documented here.
 
 ## Unreleased
 
+- Migrated the MCP boundary to the split TypeScript SDK v2 packages and one
+  stateless dual-era implementation serving modern protocol `2026-07-28` plus
+  the supported legacy era over stdio, Node HTTP, and Cloudflare Workers.
+- Added explicit legacy/modern transport matrices, raw protocol checks, a real
+  workerd smoke, and modern-first production verification with a bounded legacy
+  smoke.
+- **Breaking for pre-1.0 embedders:** the `oath-mcp/server` export path and
+  `buildServer()` name are unchanged, but the returned `McpServer` is an SDK v2
+  object. Interoperability with SDK v1 transport objects is not retained.
 - Added one tag-driven release workflow that validates the package-version
   attestation, deploys the MCP and Blume documentation Workers from the same
   commit, verifies both production surfaces, and only then creates a GitHub

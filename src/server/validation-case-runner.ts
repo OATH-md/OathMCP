@@ -41,22 +41,25 @@ type BoundaryFailureKind = 'required' | 'unknown' | 'hard_limit' | 'enum' | 'uni
 function schemaBoundaryFailure(
   error: unknown,
   inputs: Readonly<Record<string, unknown>>,
-): { kind: BoundaryFailureKind; field: string } | undefined {
+): { kind: BoundaryFailureKind; field: string; toolName?: string } | undefined {
   const actual = error as { field?: unknown; message?: unknown };
   const message = typeof actual.message === 'string' ? actual.message : '';
   const required = /Required input: ([a-zA-Z0-9_]+)/.exec(message);
   const unknown = /"keys":\s*\[\s*"([^"]+)"/.exec(message) ??
     /Unrecognized key(?:s)?:?\s*"([^"]+)"/.exec(message);
   const paths = [...message.matchAll(/"path":\s*\[\s*"([^"]+)"/g)];
+  const humanizedPath = /Invalid arguments for tool ([^:]+):\s*([a-zA-Z0-9_]+(?:\.[a-zA-Z0-9_]+)*):/.exec(message);
   const invalidUnion = /"code":\s*"invalid_union"/.test(message);
-  const genericInvalidInput = invalidUnion || message === 'Invalid input';
+  const genericInvalidInput = invalidUnion || /(?:^|: )Invalid input(?:$|:)/.test(message);
   const path = invalidUnion ? paths[paths.length - 1] : paths[0];
+  const humanizedField = humanizedPath?.[2]?.split('.')[0];
+  const toolName = humanizedPath?.[1];
   const structuredField = typeof actual.field === 'string' && actual.field !== '' && actual.field !== 'inputs'
     ? actual.field.split('.')[0]
     : undefined;
-  const field = required?.[1] ?? unknown?.[1] ?? path?.[1] ?? structuredField;
+  const field = required?.[1] ?? unknown?.[1] ?? path?.[1] ?? humanizedField ?? structuredField;
   if (field === undefined) return undefined;
-  if (required !== null) return { kind: 'required', field };
+  if (required !== null) return { kind: 'required', field, toolName };
   // Zod reports a missing canonical (non-alias) input as an invalid type whose
   // received value is undefined. Treat that boundary spelling as the same
   // missing-input discriminant emitted by the engine.
@@ -65,19 +68,19 @@ function schemaBoundaryFailure(
     /Invalid option:/.test(message) ||
     genericInvalidInput
   )) {
-    return { kind: 'required', field };
+    return { kind: 'required', field, toolName };
   }
-  if (unknown !== null) return { kind: 'unknown', field };
+  if (unknown !== null) return { kind: 'unknown', field, toolName };
   if (/Too (?:small|big):/.test(message) || /Expected [^\n]+–[^\n]+/.test(message)) {
-    return { kind: 'hard_limit', field };
+    return { kind: 'hard_limit', field, toolName };
   }
-  if (/Invalid option:/.test(message)) return { kind: 'enum', field };
-  if (/Expected one of:/.test(message)) return { kind: 'unit', field };
+  if (/Invalid option:/.test(message)) return { kind: 'enum', field, toolName };
+  if (/Expected one of:/.test(message)) return { kind: 'unit', field, toolName };
   if (/Provide [a-zA-Z0-9_]+ once; do not combine it with compatibility aliases\./.test(message)) {
-    return { kind: 'alias', field };
+    return { kind: 'alias', field, toolName };
   }
   if (genericInvalidInput || /Invalid input: expected/.test(message)) {
-    return { kind: 'type', field };
+    return { kind: 'type', field, toolName };
   }
   return undefined;
 }
@@ -96,9 +99,11 @@ export function throwClinicalSurfaceFailure(
   calculatorId: string,
   inputs: Record<string, unknown>,
   mcpError: unknown,
+  expectedToolName = `calculate_${calculatorId}`,
 ): never {
   const boundary = schemaBoundaryFailure(mcpError, inputs);
   if (boundary === undefined) throw mcpError;
+  if (boundary.toolName !== undefined && boundary.toolName !== expectedToolName) throw mcpError;
   let engineError: EngineError | undefined;
   try {
     run(calculatorId, structuredClone(inputs));
@@ -119,12 +124,13 @@ export function throwClinicalSurfaceFailure(
 async function callClinicalSurface<T>(
   calculatorId: string,
   inputs: Record<string, unknown>,
+  expectedToolName: string,
   operation: () => Promise<T>,
 ): Promise<T> {
   try {
     return await operation();
   } catch (error) {
-    throwClinicalSurfaceFailure(calculatorId, inputs, error);
+    throwClinicalSurfaceFailure(calculatorId, inputs, error, expectedToolName);
   }
 }
 
@@ -157,7 +163,7 @@ export async function createValidationCaseRunner(): Promise<ManagedValidationCas
   return {
     runEngine: async (calculatorId, inputs) => run(calculatorId, inputs),
     runFullMcp: async (calculatorId, inputs) => {
-      const result = await callClinicalSurface(calculatorId, inputs, () =>
+      const result = await callClinicalSurface(calculatorId, inputs, `calculate_${calculatorId}`, () =>
         full.client.callTool({ name: `calculate_${calculatorId}`, arguments: inputs }));
       if (result.isError) {
         const first = (result.content as { type: string; text?: string }[])[0];
@@ -174,7 +180,7 @@ export async function createValidationCaseRunner(): Promise<ManagedValidationCas
       return clinicalPayload(result.structuredContent);
     },
     runCompactMcp: async (calculatorId, inputs) => {
-      const response = await callClinicalSurface(calculatorId, inputs, () =>
+      const response = await callClinicalSurface(calculatorId, inputs, 'calculate', () =>
         compact.client.callTool({
           name: 'calculate',
           arguments: { id: calculatorId, inputs },

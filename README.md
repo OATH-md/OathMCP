@@ -102,6 +102,21 @@ session state is retained. A client points at the deployed streamable HTTP URL:
 }
 ```
 
+The stdio, Node HTTP, and Worker entrypoints use one MCP SDK v2 implementation
+to serve modern protocol `2026-07-28` and the supported stateless legacy era.
+Modern HTTP requests include protocol/client metadata in the message and mirror
+routing through `MCP-Protocol-Version`, `Mcp-Method`, and, when applicable,
+`Mcp-Name`. Browser preflights allow `Accept`, `Content-Type`, and those three
+MCP headers. HTTP responses use `Cache-Control: no-store`; the SDK selects JSON
+for complete non-streaming exchanges and request-scoped SSE when required,
+without creating a persistent MCP session.
+
+Around February 2027 is only the earliest review date for legacy support, not a
+protocol cutoff. Removing it requires a later announced breaking release after
+at least two successful modern OathMCP releases, support in the major documented
+clients, consistently green modern-first production verification, and advance
+deprecation notice.
+
 Run the HTTP transports locally:
 
 ```bash

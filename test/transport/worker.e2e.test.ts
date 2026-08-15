@@ -9,7 +9,17 @@ describe('Worker protocol faults', () => {
     expect(contract.malformed.status).toBe(400);
     expect(contract.malformed.body).toMatch(/Parse error/i);
     expect(contract.malformed.body).not.toContain('patient-name');
-    expect(contract.invalidVersion.status).toBe(400);
-    expect(contract.invalidVersion.body).toMatch(/Unsupported protocol version/i);
+    expect(contract.unsupportedVersion.status).toBe(400);
+    expect(JSON.parse(contract.unsupportedVersion.body)).toMatchObject({
+      error: { code: -32022, message: expect.stringMatching(/Unsupported protocol version/i) },
+    });
+    expect(contract.bodyHeaderMismatch.status).toBe(400);
+    expect(JSON.parse(contract.bodyHeaderMismatch.body)).toMatchObject({
+      error: { code: -32020, message: expect.stringMatching(/headers and body disagree/i) },
+    });
+    for (const missing of [contract.missingMethodHeader, contract.missingNameHeader]) {
+      expect(missing.status).toBe(400);
+      expect(JSON.parse(missing.body)).toMatchObject({ error: { code: -32020 } });
+    }
   });
 });

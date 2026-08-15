@@ -1,10 +1,11 @@
 import { readdir, readFile } from "node:fs/promises";
 import { resolve, relative, sep } from "node:path";
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
-import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
+import { pathToFileURL } from "node:url";
+import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/client";
 import YAML from "yaml";
 
 const root = resolve(import.meta.dirname, "../..");
+const MODERN_PROTOCOL_VERSION = "2026-07-28";
 
 function parseArgs(argv) {
   const options = {
@@ -103,6 +104,25 @@ async function listAllResources(client) {
   return resources;
 }
 
+async function expectedPromptNames(calculatorIds) {
+  const specs = await Promise.all(calculatorIds.map(async (id) => YAML.parse(
+    await readFile(resolve(root, "specs", `${id}.yaml`), "utf8"),
+  )));
+  return specs
+    .filter((spec) => spec.prompt !== undefined)
+    .map((spec) => `interpret_${spec.id}`)
+    .sort();
+}
+
+function requireExactCatalog(label, actual, expected) {
+  const actualSorted = [...actual].sort();
+  const expectedSorted = [...expected].sort();
+  if (JSON.stringify(actualSorted) === JSON.stringify(expectedSorted)) return;
+  const missing = expectedSorted.filter((value) => !actualSorted.includes(value));
+  const extra = actualSorted.filter((value) => !expectedSorted.includes(value));
+  throw new Error(`Production ${label} mismatch; missing=${missing.join(",")}; extra=${extra.join(",")}`);
+}
+
 async function calculateNewEntries(client, calculatorIds) {
   for (const id of calculatorIds) {
     const dossier = YAML.parse(
@@ -119,6 +139,91 @@ async function calculateNewEntries(client, calculatorIds) {
     if (result.isError === true) {
       throw new Error(`Production calculation failed for new calculator ${id} using ${testCase.id}`);
     }
+    if (result.structuredContent?.result?.calculator !== id || result.structuredContent.result.ok !== true) {
+      throw new Error(`Production calculation identity differs for new calculator ${id}`);
+    }
+  }
+}
+
+export async function verifyMcpSurface(baseUrl, release) {
+  const modernClient = new Client(
+    { name: "oathmcp-release-verifier-modern", version: release.version },
+    { versionNegotiation: { mode: { pin: MODERN_PROTOCOL_VERSION } } },
+  );
+  try {
+    await modernClient.connect(new StreamableHTTPClientTransport(new URL("/mcp", baseUrl)));
+    if (modernClient.getProtocolEra() !== "modern") {
+      throw new Error("Production MCP verification did not negotiate the modern protocol era");
+    }
+    const expectedIds = [...release.attestation.calculatorIds].sort();
+    const [{ tools }, { prompts }, resources, expectedPrompts] = await Promise.all([
+      modernClient.listTools(),
+      modernClient.listPrompts(),
+      listAllResources(modernClient),
+      expectedPromptNames(expectedIds),
+    ]);
+    const toolNames = tools.map((tool) => tool.name).sort();
+    const expectedTools = ["calculate", "calculate_panel", "describe_calculator", "find_calculator"];
+    requireExactCatalog("compact tool catalog", toolNames, expectedTools);
+    requireExactCatalog(
+      "prompt catalog",
+      prompts.map((prompt) => prompt.name),
+      expectedPrompts,
+    );
+    requireExactCatalog(
+      "resource catalog",
+      resources.map((resource) => resource.uri),
+      [...expectedIds.map((id) => `calc://${id}/evidence`), "oath://responsible-use"],
+    );
+
+    for (const id of expectedIds) {
+      const uri = `calc://${id}/evidence`;
+      const [evidence, result] = await Promise.all([
+        modernClient.readResource({ uri }),
+        modernClient.callTool({
+          name: "describe_calculator",
+          arguments: { id },
+        }),
+      ]);
+      if (!evidence.contents.some(
+        (content) => content.uri === uri && "text" in content && content.text.length > 0,
+      )) {
+        throw new Error(`Production evidence response differs for ${id}`);
+      }
+      if (result.isError === true) throw new Error(`Production cannot describe ${id}`);
+      if (result.structuredContent?.calculator?.id !== id) {
+        throw new Error(`Production descriptor identity differs for ${id}`);
+      }
+    }
+    await modernClient.readResource({ uri: "oath://responsible-use" });
+    await calculateNewEntries(modernClient, release.newCalculatorIds);
+  } finally {
+    await modernClient.close();
+  }
+
+  const legacyClient = new Client(
+    { name: "oathmcp-release-verifier-legacy", version: release.version },
+    { versionNegotiation: { mode: "legacy" } },
+  );
+  try {
+    await legacyClient.connect(new StreamableHTTPClientTransport(new URL("/mcp", baseUrl)));
+    if (legacyClient.getProtocolEra() !== "legacy") {
+      throw new Error("Production MCP compatibility smoke did not negotiate the legacy era");
+    }
+    const { tools } = await legacyClient.listTools();
+    if (!tools.some((tool) => tool.name === "calculate")) {
+      throw new Error("Production legacy compatibility smoke is missing calculate");
+    }
+    await legacyClient.readResource({ uri: "oath://responsible-use" });
+    const calculation = await legacyClient.callTool({
+      name: "calculate",
+      arguments: { id: "bmi", inputs: { weight_kg: 70, height_cm: 170 } },
+    });
+    if (calculation.isError === true) {
+      throw new Error("Production legacy compatibility BMI smoke failed");
+    }
+  } finally {
+    await legacyClient.close();
   }
 }
 
@@ -130,45 +235,7 @@ async function verifyOnce(baseUrl, release) {
     throw new Error(`Production reports ${health.version}; expected ${release.version}`);
   }
 
-  const client = new Client({ name: "oathmcp-release-verifier", version: release.version });
-  const transport = new StreamableHTTPClientTransport(new URL("/mcp", baseUrl));
-  await client.connect(transport);
-  try {
-    const [{ tools }, resources] = await Promise.all([
-      client.listTools(),
-      listAllResources(client),
-    ]);
-    const toolNames = tools.map((tool) => tool.name).sort();
-    const expectedTools = ["calculate", "calculate_panel", "describe_calculator", "find_calculator"];
-    if (JSON.stringify(toolNames) !== JSON.stringify(expectedTools)) {
-      throw new Error(`Production compact tools differ: ${toolNames.join(", ")}`);
-    }
-
-    const expectedIds = [...release.attestation.calculatorIds].sort();
-    const resourceIds = resources
-      .map((resource) => /^calc:\/\/([^/]+)\/evidence$/u.exec(resource.uri)?.[1])
-      .filter(Boolean)
-      .sort();
-    if (JSON.stringify(resourceIds) !== JSON.stringify(expectedIds)) {
-      const missing = expectedIds.filter((id) => !resourceIds.includes(id));
-      const extra = resourceIds.filter((id) => !expectedIds.includes(id));
-      throw new Error(`Production catalog mismatch; missing=${missing.join(",")}; extra=${extra.join(",")}`);
-    }
-    if (!resources.some((resource) => resource.uri === "oath://responsible-use")) {
-      throw new Error("Production is missing oath://responsible-use");
-    }
-
-    for (const id of expectedIds) {
-      const result = await client.callTool({
-        name: "describe_calculator",
-        arguments: { id },
-      });
-      if (result.isError === true) throw new Error(`Production cannot describe ${id}`);
-    }
-    await calculateNewEntries(client, release.newCalculatorIds);
-  } finally {
-    await client.close();
-  }
+  await verifyMcpSurface(baseUrl, release);
 
   const docsPaths = await calculatorDocsPaths(release.attestation.calculatorIds);
   for (const [id, path] of docsPaths) {
@@ -184,26 +251,35 @@ async function verifyOnce(baseUrl, release) {
   if (!responsibleUse.ok) throw new Error(`Responsible Use returned HTTP ${responsibleUse.status}`);
 }
 
-const options = parseArgs(process.argv.slice(2));
-const release = await loadRelease();
-const startedAt = Date.now();
-let lastError;
-do {
-  try {
-    await verifyOnce(options.baseUrl, release);
-    console.log(
-      `Production verification passed: ${release.version}; ` +
-      `${release.attestation.calculatorIds.length} MCP calculators; ` +
-      `${release.attestation.calculatorIds.length} Blume pages; ` +
-      `${release.newCalculatorIds.length} newly published calculators exercised.`,
-    );
-    process.exit(0);
-  } catch (error) {
-    lastError = error;
-    if (Date.now() - startedAt >= options.timeoutMs) break;
-    console.log(`Production not ready: ${error instanceof Error ? error.message : String(error)}; retrying.`);
-    await new Promise((resolvePromise) => setTimeout(resolvePromise, 5_000));
-  }
-} while (true);
+async function runCli() {
+  const options = parseArgs(process.argv.slice(2));
+  const release = await loadRelease();
+  const startedAt = Date.now();
+  let lastError;
+  do {
+    try {
+      await verifyOnce(options.baseUrl, release);
+      console.log(
+        `Production verification passed: ${release.version}; ` +
+        `${release.attestation.calculatorIds.length} MCP calculators; ` +
+        `${release.attestation.calculatorIds.length} Blume pages; ` +
+        `${release.newCalculatorIds.length} newly published calculators exercised.`,
+      );
+      return;
+    } catch (error) {
+      lastError = error;
+      if (Date.now() - startedAt >= options.timeoutMs) break;
+      console.log(`Production not ready: ${error instanceof Error ? error.message : String(error)}; retrying.`);
+      await new Promise((resolvePromise) => setTimeout(resolvePromise, 5_000));
+    }
+  } while (true);
 
-throw lastError;
+  throw lastError;
+}
+
+if (
+  process.argv[1] !== undefined &&
+  import.meta.url === pathToFileURL(resolve(process.argv[1])).href
+) {
+  await runCli();
+}

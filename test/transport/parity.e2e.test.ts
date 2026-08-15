@@ -5,47 +5,77 @@ import {
   connectTransport,
   type TransportKind,
 } from '../support/transport-harness.js';
+import type { ProtocolEra } from '../support/protocol-fixtures.js';
 
-const TRANSPORTS: TransportKind[] = ['in-memory', 'stdio', 'http', 'worker'];
 const MODES = ['full', 'compact'] satisfies CatalogMode[];
+const MATRIX = [
+  { era: 'legacy', kind: 'in-memory' },
+  { era: 'legacy', kind: 'stdio' },
+  { era: 'legacy', kind: 'http' },
+  { era: 'legacy', kind: 'worker' },
+  { era: 'modern', kind: 'stdio' },
+  { era: 'modern', kind: 'http' },
+  { era: 'modern', kind: 'worker' },
+] satisfies { era: ProtocolEra; kind: TransportKind }[];
+
+function keyOf(entry: (typeof MATRIX)[number]): string {
+  return `${entry.era}:${entry.kind}`;
+}
+
+function applicationContract(snapshot: Record<string, unknown>): Record<string, unknown> {
+  const contract = { ...snapshot };
+  delete contract.protocolEra;
+  return contract;
+}
 
 describe('real MCP transport parity', () => {
-  it('returns identical transport contracts and direct/compact clinical payloads', async () => {
-    const modeEntries = await Promise.all(MODES.map(async (mode) => {
-      const entries = await Promise.all(TRANSPORTS.map(async (kind) => {
-        const connection = await connectTransport(kind, mode);
-        let snapshot: Record<string, unknown>;
+  it('rejects an impossible modern in-memory test connection', async () => {
+    await expect(connectTransport('in-memory', 'full', 'modern'))
+      .rejects.toThrow('legacy-only test surface');
+  });
+
+  it('runs the full/compact legacy+modern transport matrix sequentially', async () => {
+    const byMode = new Map<CatalogMode, Map<string, Record<string, unknown>>>();
+
+    for (const mode of MODES) {
+      const snapshots = new Map<string, Record<string, unknown>>();
+      for (const entry of MATRIX) {
+        const label = `${mode} ${keyOf(entry)}`;
+        const connection = await connectTransport(entry.kind, mode, entry.era);
         try {
-          snapshot = await captureTransportContract(connection.client, mode);
+          const snapshot = await captureTransportContract(connection.client, mode);
+          expect(snapshot.protocolEra, `${label} negotiated era`).toBe(entry.era);
+          snapshots.set(keyOf(entry), snapshot);
         } finally {
           await connection.close();
         }
-        expect(connection.stderr(), `${kind} stderr`).not.toMatch(/patient|input|error/i);
-        return [kind, snapshot] as const;
-      }));
-      const snapshots = Object.fromEntries(entries) as Record<
-        TransportKind,
-        Record<string, unknown>
-      >;
-
-      for (const kind of TRANSPORTS.slice(1)) {
-        expect(snapshots[kind], `${kind} differs from in-memory`).toEqual(snapshots['in-memory']);
+        expect(connection.stderr(), `${label} stderr`).not.toMatch(/patient|input|error/i);
       }
-      return [mode, snapshots] as const;
-    }));
-    const byMode = Object.fromEntries(modeEntries) as Record<
-      CatalogMode,
-      Record<TransportKind, Record<string, unknown>>
-    >;
+      const baseline = snapshots.get('legacy:in-memory');
+      expect(baseline, `${mode} baseline`).toBeDefined();
+      for (const entry of MATRIX.slice(1)) {
+        const snapshot = snapshots.get(keyOf(entry));
+        expect(
+          applicationContract(snapshot ?? {}),
+          `${mode} ${keyOf(entry)} differs from legacy:in-memory`,
+        ).toEqual(applicationContract(baseline ?? {}));
+      }
+      byMode.set(mode, snapshots);
+    }
 
-    for (const kind of TRANSPORTS) {
-      const full = byMode.full[kind].sentinelResults as Record<string, unknown>;
-      const compact = byMode.compact[kind].sentinelResults as Record<
-        string,
-        { result: { result: unknown } }
-      >;
-      for (const [id, clinicalResult] of Object.entries(full)) {
-        expect(compact[id]?.result.result, `${kind} ${id} direct/compact`).toEqual(clinicalResult);
+    for (const entry of MATRIX) {
+      const label = keyOf(entry);
+      const full = byMode.get('full')?.get(label)?.sentinelResults as
+        | Record<string, unknown>
+        | undefined;
+      const compact = byMode.get('compact')?.get(label)?.sentinelResults as
+        | Record<string, { result: { result: unknown } }>
+        | undefined;
+      expect(full, `${label} full sentinels`).toBeDefined();
+      expect(compact, `${label} compact sentinels`).toBeDefined();
+      for (const [id, clinicalResult] of Object.entries(full ?? {})) {
+        expect(compact?.[id]?.result.result, `${label} ${id} direct/compact`)
+          .toEqual(clinicalResult);
       }
     }
   }, 120_000);
