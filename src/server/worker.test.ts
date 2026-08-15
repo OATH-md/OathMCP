@@ -9,14 +9,18 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { Client, StreamableHTTPClientTransport } from '@modelcontextprotocol/client';
 import { describe, it, expect } from 'vitest';
+import {
+  LEGACY_PROTOCOL_VERSION,
+  MODERN_PROTOCOL_VERSION,
+} from '../../test/support/protocol-fixtures.js';
 import { loadSpecs, primeSpecs } from '../engine/index.js';
 import { SPEC_TEXTS, PKG_VERSION } from './spec-data.generated.js';
 import worker from './worker.js';
 
 const SPECS_DIR = join(dirname(fileURLToPath(import.meta.url)), '../../specs');
 const WRANGLER_CONFIG = join(SPECS_DIR, '../wrangler.jsonc');
-const LEGACY_PROTOCOL_VERSION = '2025-11-25';
 
 describe('spec-data.generated.ts', () => {
   it('matches specs/*.yaml exactly (run `npm run gen:specs` if this fails)', () => {
@@ -134,8 +138,10 @@ describe('Worker Streamable HTTP transport', () => {
     });
     expect(noOrigin.status).toBe(200);
     expect(allowed.status).toBe(200);
-    expect(noOrigin.headers.get('content-type')).toBe('application/json');
-    expect(allowed.headers.get('content-type')).toBe('application/json');
+    expect(['application/json', 'text/event-stream'])
+      .toContain(noOrigin.headers.get('content-type'));
+    expect(['application/json', 'text/event-stream'])
+      .toContain(allowed.headers.get('content-type'));
     expect(noOrigin.headers.get('cache-control')).toBe('no-store');
     expect(allowed.headers.get('access-control-allow-origin')).toBe('https://app.example');
     const hostile = await worker.fetch(request('https://evil.example'), {
@@ -152,6 +158,28 @@ describe('Worker Streamable HTTP transport', () => {
     expect(preflight.status).toBe(204);
     expect(preflight.headers.get('access-control-allow-origin')).toBe('https://app.example');
     expect(preflight.headers.get('access-control-allow-methods')).toContain('POST');
+    expect(preflight.headers.get('access-control-allow-headers'))
+      .toBe('accept, content-type, mcp-protocol-version, mcp-method, mcp-name');
+  });
+
+  it('serves a modern discovery and tools list through the shared handler', async () => {
+    const client = new Client(
+      { name: 'worker-modern-smoke', version: '0.0.0' },
+      { versionNegotiation: { mode: { pin: MODERN_PROTOCOL_VERSION } } },
+    );
+    const transport = new StreamableHTTPClientTransport(
+      new URL('https://worker.example/mcp'),
+      { fetch: async (input, init) => worker.fetch(new Request(input, init)) },
+    );
+    try {
+      await client.connect(transport);
+      expect(client.getProtocolEra()).toBe('modern');
+      expect(client.getDiscoverResult()).toBeDefined();
+      const { tools } = await client.listTools();
+      expect(tools.map(({ name }) => name)).toContain('calculate_bmi');
+    } finally {
+      await client.close();
+    }
   });
 
   it('accepts the checked-in production documentation origin', async () => {

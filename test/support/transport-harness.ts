@@ -38,17 +38,13 @@ export async function startLoopbackHttp(options: {
   mode?: CatalogMode;
   allowedOrigins?: ReadonlySet<string>;
 } = {}): Promise<LoopbackHttpServer> {
-  const server = startHttpServer({ port: 0, host: '127.0.0.1', ...options });
-  await once(server, 'listening');
-  const { port } = server.address() as AddressInfo;
+  const running = startHttpServer({ port: 0, host: '127.0.0.1', ...options });
+  await once(running.server, 'listening');
+  const { port } = running.server.address() as AddressInfo;
   return {
-    server,
+    server: running.server,
     url: new URL(`http://127.0.0.1:${port}/mcp`),
-    close: async () => {
-      if (!server.listening) return;
-      server.close();
-      await once(server, 'close');
-    },
+    close: running.close,
   };
 }
 

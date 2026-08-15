@@ -1,10 +1,9 @@
 /**
  * Cloudflare Workers entry — stateless streamable HTTP over the SDK's
  * web-standard transport (fetch `Request` → `Response`). No sessions, no Durable
- * Objects, no paid plan. A fresh `McpServer` is built per request (the SDK
- * forbids reconnecting a connected server); the derived tool/prompt/resource
- * definitions are memoized in module scope, so per-request cost is just object
- * construction.
+ * Objects, no paid plan. Module-scoped dual-era handlers build a fresh
+ * `McpServer` per request; derived tool/prompt/resource definitions remain
+ * memoized in module scope.
  *
  * Workers has no filesystem, so `loadSpecs()`'s disk path (`node:fs` +
  * `readdirSync`) is never reachable here: we prime the spec cache and the server
@@ -12,12 +11,10 @@
  * `buildServer()`. Regenerate that module with `npm run gen:specs` (runs
  * automatically on `npm run build`).
  */
-import {
-  parseJSONRPCMessage,
-  WebStandardStreamableHTTPServerTransport,
-} from '@modelcontextprotocol/server';
+import { parseJSONRPCMessage } from '@modelcontextprotocol/server';
 import { primeSpecs } from '../engine/index.js';
-import { buildServer, catalogMode } from './build-tools.js';
+import { catalogMode } from './build-tools.js';
+import { createOathMcpHandler } from './mcp-handler.js';
 import { originRejection, parseAllowedOrigins } from './origin.js';
 import { SPEC_TEXTS, PKG_VERSION } from './spec-data.generated.js';
 import { RESPONSIBLE_USE_TEXT } from './responsible-use.generated.js';
@@ -31,6 +28,8 @@ import {
 // One-time init per isolate: validate + cache the bundled specs and pin the
 // version. Runs at module load (before any request), replacing the fs read.
 primeSpecs(SPEC_TEXTS);
+const fullHandler = createOathMcpHandler({ mode: 'full', version: PKG_VERSION });
+const compactHandler = createOathMcpHandler({ mode: 'compact', version: PKG_VERSION });
 
 export type WorkerEnv = Partial<Env> & {
   /** Portal-generated token; install as a Worker secret and never commit it. */
@@ -127,7 +126,10 @@ function corsHeaders(origin: string | null, allowed: ReadonlySet<string>): Heade
   if (origin !== null && allowed.has(origin)) {
     headers.set('access-control-allow-origin', origin);
     headers.set('access-control-allow-methods', 'POST, OPTIONS');
-    headers.set('access-control-allow-headers', 'accept, content-type, mcp-protocol-version');
+    headers.set(
+      'access-control-allow-headers',
+      'accept, content-type, mcp-protocol-version, mcp-method, mcp-name',
+    );
     headers.set('access-control-max-age', '86400');
     headers.set('vary', 'Origin');
   }
@@ -324,24 +326,14 @@ async function handleRequest(request: Request, env: WorkerEnv): Promise<Response
           400,
         ), origin, origins);
       }
-      const server = buildServer({
-        mode: catalogMode(env.OATH_MCP_MODE),
-        version: PKG_VERSION,
-      });
-      const transport = new WebStandardStreamableHTTPServerTransport({
-        sessionIdGenerator: undefined, // stateless
-        enableJsonResponse: true, // plain JSON responses (no SSE) — a calculator needs no streaming
-      });
-      try {
-        await server.connect(transport);
-        return withCors(
-          await transport.handleRequest(request, { parsedBody }),
-          origin,
-          origins,
-        );
-      } finally {
-        await Promise.allSettled([transport.close(), server.close()]);
-      }
+      const handler = catalogMode(env.OATH_MCP_MODE) === 'compact'
+        ? compactHandler
+        : fullHandler;
+      return withCors(
+        await handler.fetch(request, { parsedBody }),
+        origin,
+        origins,
+      );
     } catch {
       // handleRequest returns well-formed JSON-RPC error Responses for parse/
       // protocol/tool faults itself; this only catches a genuine infrastructure

@@ -3,9 +3,13 @@ import http from 'node:http';
 import { pathToFileURL } from 'node:url';
 import express from 'express';
 import { createMcpExpressApp } from '@modelcontextprotocol/express';
-import { NodeStreamableHTTPServerTransport } from '@modelcontextprotocol/node';
+import { toNodeHandler } from '@modelcontextprotocol/node';
 import { parseJSONRPCMessage } from '@modelcontextprotocol/server';
-import { buildServer, catalogMode, type CatalogMode } from './build-tools.js';
+import { catalogMode, type CatalogMode } from './build-tools.js';
+import {
+  createOathMcpHandler,
+  reportMcpInfrastructureError,
+} from './mcp-handler.js';
 import { originRejection, parseAllowedOrigins } from './origin.js';
 import {
   acceptsMediaType,
@@ -20,6 +24,15 @@ export interface HttpServerOptions {
   allowedOrigins?: ReadonlySet<string>;
 }
 
+interface OathHttpApp extends express.Express {
+  closeMcpHandler(): Promise<void>;
+}
+
+export interface RunningHttpServer {
+  server: http.Server;
+  close(): Promise<void>;
+}
+
 const methodNotAllowed = (_req: express.Request, res: express.Response): void => {
   res.set('Allow', 'POST').status(405).json({
     jsonrpc: '2.0',
@@ -28,8 +41,8 @@ const methodNotAllowed = (_req: express.Request, res: express.Response): void =>
   });
 };
 
-export function createHttpApp(options: HttpServerOptions): express.Express {
-  const app = express();
+export function createHttpApp(options: HttpServerOptions): OathHttpApp {
+  const app = express() as OathHttpApp;
   const allowedOrigins = options.allowedOrigins ?? new Set<string>();
   const allowedOriginHostnames = [...allowedOrigins]
     .map((origin) => new URL(origin).hostname);
@@ -37,6 +50,19 @@ export function createHttpApp(options: HttpServerOptions): express.Express {
     host: options.host,
     ...(allowedOriginHostnames.length === 0 ? {} : { allowedOrigins: allowedOriginHostnames }),
   });
+  const handler = createOathMcpHandler({ mode: options.mode ?? 'full' });
+  const nodeHandler = toNodeHandler({
+    fetch: async (request, requestOptions) => {
+      const response = await handler.fetch(request, requestOptions);
+      response.headers.set('Cache-Control', 'no-store');
+      return response;
+    },
+  }, { onerror: reportMcpInfrastructureError });
+  let closeMcpHandlerPromise: Promise<void> | undefined;
+  app.closeMcpHandler = () => {
+    closeMcpHandlerPromise ??= handler.close();
+    return closeMcpHandlerPromise;
+  };
 
   // This parent middleware runs before the SDK app's JSON parser and host
   // validation, so hostile browser requests are rejected before body parsing.
@@ -55,7 +81,7 @@ export function createHttpApp(options: HttpServerOptions): express.Express {
       res.set({
         'Access-Control-Allow-Origin': origin,
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Accept, Content-Type, MCP-Protocol-Version',
+        'Access-Control-Allow-Headers': 'Accept, Content-Type, MCP-Protocol-Version, Mcp-Method, Mcp-Name',
         'Access-Control-Max-Age': '86400',
         Vary: 'Origin',
       });
@@ -133,49 +159,28 @@ export function createHttpApp(options: HttpServerOptions): express.Express {
   app.use(mcpApp);
 
   app.post('/mcp', async (req, res) => {
-    try {
-      // Streamable HTTP carries exactly one JSON-RPC message per POST. JSON-RPC
-      // batches are not part of MCP and can produce ambiguous lifecycle/tool
-      // semantics across clients, so reject them before transport dispatch.
-      if (Array.isArray(req.body)) {
-        res.status(400).json({
-          jsonrpc: '2.0',
-          error: { code: -32600, message: 'Invalid Request: MCP does not support JSON-RPC batches.' },
-          id: null,
-        });
-        return;
-      }
-      try {
-        parseJSONRPCMessage(req.body);
-      } catch {
-        res.status(400).json({
-          jsonrpc: '2.0',
-          error: { code: -32600, message: 'Invalid Request' },
-          id: null,
-        });
-        return;
-      }
-      const server = buildServer({ mode: options.mode ?? 'full' });
-      const transport = new NodeStreamableHTTPServerTransport({
-        sessionIdGenerator: undefined,
-        enableJsonResponse: true,
+    // Streamable HTTP carries exactly one JSON-RPC message per POST. JSON-RPC
+    // batches are not part of MCP and can produce ambiguous lifecycle/tool
+    // semantics across clients, so reject them before transport dispatch.
+    if (Array.isArray(req.body)) {
+      res.status(400).json({
+        jsonrpc: '2.0',
+        error: { code: -32600, message: 'Invalid Request: MCP does not support JSON-RPC batches.' },
+        id: null,
       });
-      res.on('close', () => {
-        void transport.close();
-        void server.close();
-      });
-      await server.connect(transport);
-      await transport.handleRequest(req, res, req.body);
-    } catch {
-      console.error('Error handling MCP request.');
-      if (!res.headersSent) {
-        res.status(500).json({
-          jsonrpc: '2.0',
-          error: { code: -32603, message: 'Internal server error' },
-          id: null,
-        });
-      }
+      return;
     }
+    try {
+      parseJSONRPCMessage(req.body);
+    } catch {
+      res.status(400).json({
+        jsonrpc: '2.0',
+        error: { code: -32600, message: 'Invalid Request' },
+        id: null,
+      });
+      return;
+    }
+    await nodeHandler(req, res, req.body);
   });
   app.all('/mcp', methodNotAllowed);
 
@@ -208,8 +213,54 @@ export function createHttpApp(options: HttpServerOptions): express.Express {
 
 export function startHttpServer(
   options: HttpServerOptions & { port: number },
-): http.Server {
-  return createHttpApp(options).listen(options.port, options.host);
+): RunningHttpServer {
+  const app = createHttpApp(options);
+  const server = app.listen(options.port, options.host);
+  let serverClosed = false;
+  server.once('close', () => {
+    serverClosed = true;
+  });
+  let closePromise: Promise<void> | undefined;
+  return {
+    server,
+    close() {
+      closePromise ??= (async () => {
+        const readyToClose = server.listening || serverClosed
+          ? Promise.resolve()
+          : new Promise<void>((resolve, reject) => {
+            const cleanup = () => {
+              server.off('listening', onListening);
+              server.off('close', onClose);
+              server.off('error', onError);
+            };
+            const onListening = () => {
+              cleanup();
+              resolve();
+            };
+            const onClose = () => {
+              cleanup();
+              resolve();
+            };
+            const onError = (error: Error) => {
+              cleanup();
+              reject(error);
+            };
+            server.once('listening', onListening);
+            server.once('close', onClose);
+            server.once('error', onError);
+            if (server.listening) onListening();
+            else if (serverClosed) onClose();
+          });
+        await app.closeMcpHandler();
+        await readyToClose;
+        if (serverClosed) return;
+        await new Promise<void>((resolve, reject) => {
+          server.close((error) => error ? reject(error) : resolve());
+        });
+      })();
+      return closePromise;
+    },
+  };
 }
 
 function isEntrypoint(): boolean {
@@ -222,7 +273,8 @@ if (isEntrypoint()) {
   const host = process.env.HOST ?? '127.0.0.1';
   const mode = catalogMode(process.env.OATH_MCP_MODE);
   const allowedOrigins = parseAllowedOrigins(process.env.OATH_ALLOWED_ORIGINS);
-  startHttpServer({ port, host, mode, allowedOrigins }).once('listening', () => {
+  const running = startHttpServer({ port, host, mode, allowedOrigins });
+  running.server.once('listening', () => {
     console.error(`oath-mcp listening on http://${host}:${port}/mcp`);
   });
 }

@@ -1,27 +1,72 @@
 import { spawn } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { Client } from '@modelcontextprotocol/client';
+import {
+  getDefaultEnvironment,
+  StdioClientTransport,
+} from '@modelcontextprotocol/client/stdio';
 import { afterEach, describe, expect, it } from 'vitest';
+import {
+  LEGACY_PROTOCOL_VERSION,
+  MODERN_PROTOCOL_VERSION,
+} from '../support/protocol-fixtures.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
-const LEGACY_PROTOCOL_VERSION = '2025-11-25';
-const children: ReturnType<typeof spawn>[] = [];
+interface TrackedChild {
+  child: ReturnType<typeof spawn>;
+  closed: Promise<{ code: number | null; signal: NodeJS.Signals | null }>;
+}
 
-afterEach(() => {
-  for (const child of children.splice(0)) child.kill();
+const children: TrackedChild[] = [];
+
+afterEach(async () => {
+  await Promise.all(children.splice(0).map(async ({ child, closed }) => {
+    if (child.exitCode === null && child.signalCode === null) child.kill();
+    await closed;
+  }));
 });
 
 describe('spawned stdio framing', () => {
+  it('serves a modern discovery and tools list through the shared stdio entry', async () => {
+    const client = new Client(
+      { name: 'stdio-modern-smoke', version: '0.0.0' },
+      { versionNegotiation: { mode: { pin: MODERN_PROTOCOL_VERSION } } },
+    );
+    const transport = new StdioClientTransport({
+      command: process.execPath,
+      args: ['dist/server/stdio.js'],
+      cwd: ROOT,
+      env: getDefaultEnvironment(),
+      stderr: 'pipe',
+    });
+    let stderr = '';
+    transport.stderr?.on('data', (chunk) => {
+      stderr += String(chunk);
+    });
+
+    try {
+      await client.connect(transport);
+      expect(client.getProtocolEra()).toBe('modern');
+      expect(client.getDiscoverResult()).toBeDefined();
+      const { tools } = await client.listTools();
+      expect(tools.map(({ name }) => name)).toContain('calculate_bmi');
+      expect(stderr).toBe('');
+    } finally {
+      await client.close();
+    }
+  });
+
   it('keeps stdout JSON-RPC-only and recovers after a malformed input frame', async () => {
     const child = spawn(process.execPath, ['dist/server/stdio.js'], {
       cwd: ROOT,
       env: process.env,
       stdio: ['pipe', 'pipe', 'pipe'],
     });
-    children.push(child);
     const closed = new Promise<{ code: number | null; signal: NodeJS.Signals | null }>((resolve) => {
       child.once('close', (code, signal) => resolve({ code, signal }));
     });
+    children.push({ child, closed });
     child.stdout.setEncoding('utf8');
     child.stderr.setEncoding('utf8');
     const stdoutLines: string[] = [];

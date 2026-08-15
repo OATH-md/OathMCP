@@ -1,22 +1,31 @@
-import http, { type Server } from 'node:http';
-import { once } from 'node:events';
+import http from 'node:http';
+import { Client, StreamableHTTPClientTransport } from '@modelcontextprotocol/client';
 import { afterEach, describe, expect, it } from 'vitest';
-import { startLoopbackHttp } from '../../test/support/transport-harness.js';
+import {
+  startLoopbackHttp,
+  type LoopbackHttpServer,
+} from '../../test/support/transport-harness.js';
+import {
+  LEGACY_PROTOCOL_VERSION,
+  MODERN_PROTOCOL_VERSION,
+} from '../../test/support/protocol-fixtures.js';
+import { startHttpServer } from './http.js';
 
-const LEGACY_PROTOCOL_VERSION = '2025-11-25';
-
-const servers: Server[] = [];
+const servers: LoopbackHttpServer[] = [];
 
 afterEach(async () => {
-  await Promise.allSettled(servers.splice(0).map(async (server) => {
-    server.close();
-    await once(server, 'close');
-  }));
+  const results = await Promise.allSettled(
+    servers.splice(0).map((server) => server.close()),
+  );
+  const failures = results.flatMap((result) => result.status === 'rejected' ? [result.reason] : []);
+  if (failures.length > 0) {
+    throw new AggregateError(failures, 'Failed to close Node HTTP test servers.');
+  }
 });
 
 async function start(allowedOrigins = new Set<string>()): Promise<string> {
   const connection = await startLoopbackHttp({ allowedOrigins });
-  servers.push(connection.server);
+  servers.push(connection);
   return connection.url.origin;
 }
 
@@ -50,8 +59,10 @@ describe('Node Streamable HTTP transport', () => {
     const allowed = await fetch(`${url}/mcp`, initializeRequest('https://app.example'));
     expect(noOrigin.status).toBe(200);
     expect(allowed.status).toBe(200);
-    expect(noOrigin.headers.get('content-type')).toBe('application/json');
-    expect(allowed.headers.get('content-type')).toBe('application/json');
+    expect(['application/json', 'text/event-stream'])
+      .toContain(noOrigin.headers.get('content-type'));
+    expect(['application/json', 'text/event-stream'])
+      .toContain(allowed.headers.get('content-type'));
     expect(noOrigin.headers.get('cache-control')).toBe('no-store');
     expect(noOrigin.headers.get('x-content-type-options')).toBe('nosniff');
     expect(allowed.headers.get('access-control-allow-origin')).toBe('https://app.example');
@@ -63,6 +74,33 @@ describe('Node Streamable HTTP transport', () => {
     expect(preflight.status).toBe(204);
     expect(preflight.headers.get('access-control-allow-origin')).toBe('https://app.example');
     expect(preflight.headers.get('access-control-allow-methods')).toContain('POST');
+    expect(preflight.headers.get('access-control-allow-headers')?.toLowerCase())
+      .toBe('accept, content-type, mcp-protocol-version, mcp-method, mcp-name');
+  });
+
+  it('serves a modern discovery and tools list through the shared handler', async () => {
+    const url = await start();
+    const client = new Client(
+      { name: 'http-modern-smoke', version: '0.0.0' },
+      { versionNegotiation: { mode: { pin: MODERN_PROTOCOL_VERSION } } },
+    );
+    try {
+      await client.connect(new StreamableHTTPClientTransport(new URL(`${url}/mcp`)));
+      expect(client.getProtocolEra()).toBe('modern');
+      expect(client.getDiscoverResult()).toBeDefined();
+      const { tools } = await client.listTools();
+      expect(tools.map(({ name }) => name)).toContain('calculate_bmi');
+    } finally {
+      await client.close();
+    }
+  });
+
+  it('closes the HTTP owner idempotently before an asynchronous bind completes', async () => {
+    const running = startHttpServer({ port: 0, host: '127.0.0.1' });
+    await Promise.all([running.close(), running.close()]);
+    await new Promise<void>((resolve) => setImmediate(resolve));
+    expect(running.server.listening).toBe(false);
+    expect(running.server.address()).toBeNull();
   });
 
   it('rejects a hostile Origin before parsing a malformed body', async () => {
