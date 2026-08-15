@@ -38,6 +38,7 @@ export function runNpmCommand({
   env = process.env,
   spawnImpl = spawn,
   stderr = process.stderr,
+  streamOutput = true,
   stdout = process.stdout,
   timeoutMs = 600_000,
 }) {
@@ -59,12 +60,12 @@ export function runNpmCommand({
   child.stdout.on('data', (chunk) => {
     const text = chunk.toString();
     stdoutOutput += text;
-    stdout.write(text);
+    if (streamOutput) stdout.write(text);
   });
   child.stderr.on('data', (chunk) => {
     const text = chunk.toString();
     stderrOutput += text;
-    stderr.write(text);
+    if (streamOutput) stderr.write(text);
   });
   return new Promise((resolvePromise, reject) => {
     child.once('error', (error) => {
@@ -106,13 +107,18 @@ export async function readRegistryPackage({
   return response.json();
 }
 
-export function validatePublishedVersion(packument, { packageName, version, sha }) {
+export function validatePublishedVersion(packument, {
+  packageName,
+  version,
+  sha,
+  integrity: expectedIntegrity,
+}) {
   const published = packument?.versions?.[version];
   if (published === undefined) return undefined;
   if (published.name !== packageName || published.version !== version) {
     throw new Error(`npm registry returned unexpected metadata for ${packageName}@${version}`);
   }
-  if (published.gitHead !== sha) {
+  if (published.gitHead !== undefined && published.gitHead !== sha) {
     throw new Error(
       `${packageName}@${version} was published from ${String(published.gitHead)}; expected ${sha}`,
     );
@@ -122,6 +128,11 @@ export function validatePublishedVersion(packument, { packageName, version, sha 
   if (typeof integrity !== 'string' || !integrity.startsWith('sha512-')) {
     throw new Error(`${packageName}@${version} is missing SHA-512 registry integrity`);
   }
+  if (integrity !== expectedIntegrity) {
+    throw new Error(
+      `${packageName}@${version} registry integrity does not match the exact release package`,
+    );
+  }
   if (typeof tarball !== 'string' || !tarball.startsWith('https://registry.npmjs.org/')) {
     throw new Error(`${packageName}@${version} is missing its registry tarball URL`);
   }
@@ -129,6 +140,36 @@ export function validatePublishedVersion(packument, { packageName, version, sha 
     return { pendingLatest: true };
   }
   return { integrity, tarball };
+}
+
+export function parseLocalPackIntegrity(stdout, { packageName, version }) {
+  let parsed;
+  try {
+    parsed = JSON.parse(stdout);
+  } catch {
+    throw new Error('npm pack did not return valid JSON');
+  }
+  const entries = Array.isArray(parsed) ? parsed : Object.values(parsed ?? {});
+  const packed = entries.find((entry) => entry?.name === packageName && entry?.version === version);
+  if (packed === undefined) {
+    throw new Error(`npm pack did not return ${packageName}@${version}`);
+  }
+  if (typeof packed.integrity !== 'string' || !packed.integrity.startsWith('sha512-')) {
+    throw new Error(`npm pack did not return SHA-512 integrity for ${packageName}@${version}`);
+  }
+  return packed.integrity;
+}
+
+export async function readLocalPackageIntegrity({ packageName, projectRoot, runNpm, version }) {
+  const build = await runNpm({ args: ['run', 'build'], cwd: projectRoot });
+  if (build.exitCode !== 0) throw new Error(`npm run build failed with exit code ${build.exitCode}`);
+  const packed = await runNpm({
+    args: ['pack', '--dry-run', '--json'],
+    cwd: projectRoot,
+    streamOutput: false,
+  });
+  if (packed.exitCode !== 0) throw new Error(`npm pack failed with exit code ${packed.exitCode}`);
+  return parseLocalPackIntegrity(packed.stdout, { packageName, version });
 }
 
 function delay(ms) {
@@ -171,7 +212,18 @@ export async function publishNpm({
 } = {}) {
   if (!/^[0-9a-f]{40}$/iu.test(sha ?? '')) throw new Error('A full release commit SHA is required');
   const metadata = await readPackageMetadata(projectRoot);
-  const expected = { packageName: metadata.name, version: metadata.version, sha };
+  const localIntegrity = await readLocalPackageIntegrity({
+    packageName: metadata.name,
+    projectRoot,
+    runNpm,
+    version: metadata.version,
+  });
+  const expected = {
+    integrity: localIntegrity,
+    packageName: metadata.name,
+    version: metadata.version,
+    sha,
+  };
   let packument = await readRegistryPackage({
     packageName: metadata.name,
     registry: metadata.registry,
@@ -190,7 +242,9 @@ export async function publishNpm({
       log(`${publishFailure.message}; checking whether the registry accepted the package.`);
     }
   } else if (!published.pendingLatest) {
-    log(`${metadata.name}@${metadata.version} is already published from ${sha}.`);
+    log(
+      `${metadata.name}@${metadata.version} already matches the exact release package from ${sha}.`,
+    );
   }
 
   const deadline = Date.now() + timeoutMs;

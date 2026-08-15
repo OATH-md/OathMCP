@@ -4,6 +4,10 @@ All notable changes to OathMCP are documented here.
 
 ## Unreleased
 
+- Verify npm releases by matching registry SHA-512 integrity to a dry-run pack
+  of the exact tag, while retaining commit checks when npm supplies optional
+  `gitHead` metadata.
+
 ## 0.2.1 — 2026-08-15
 
 - Published the first public npm package as `@oath-md/oath-mcp`, while

@@ -30,9 +30,23 @@ export function readRegistryPackage(options: {
   registry?: string;
   fetchImpl?: typeof fetch;
 }): Promise<NpmPackument | undefined>;
+export function parseLocalPackIntegrity(
+  stdout: string,
+  expected: { packageName: string; version: string },
+): string;
+export function readLocalPackageIntegrity(options: {
+  packageName: string;
+  version: string;
+  projectRoot: string;
+  runNpm: (options: {
+    args: string[];
+    cwd: string;
+    streamOutput?: boolean;
+  }) => Promise<NpmCommandResult>;
+}): Promise<string>;
 export function validatePublishedVersion(
   packument: NpmPackument | undefined,
-  expected: { packageName: string; version: string; sha: string },
+  expected: { packageName: string; version: string; sha: string; integrity: string },
 ): { integrity: string; tarball: string } | { pendingLatest: true } | undefined;
 export function publishNpm(
   options: {
@@ -43,7 +57,11 @@ export function publishNpm(
   },
   dependencies?: {
     fetchImpl?: typeof fetch;
-    runNpm?: (options: { args: string[]; cwd: string }) => Promise<NpmCommandResult>;
+    runNpm?: (options: {
+      args: string[];
+      cwd: string;
+      streamOutput?: boolean;
+    }) => Promise<NpmCommandResult>;
     sleep?: (milliseconds: number) => Promise<void>;
     writeOutputs?: (path: string | undefined, values: PublishOutputs) => Promise<void>;
     log?: (message: string) => void;
