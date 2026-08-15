@@ -21,14 +21,20 @@ policies, or local protocols.
 
 ## Release status
 
-Version `0.1.0` is the latest tagged production release and is not yet
-published to npm.
+The hosted MCP and Blume documentation are published together from one verified
+`v*` tag. Check the [live service metadata](https://mcp.oath.md/health) for the
+deployed version and [GitHub Releases](https://github.com/OATH-md/OathMCP/releases)
+for its exact source and release notes. The `0.2.0` attestation covers all 40
+calculators, including FIB-4, and the release supports modern MCP protocol
+`2026-07-28` while retaining the documented stateless legacy era.
+
+npm publication remains disabled for `0.2.0`. A hosted release does not imply
+that the same version is available from the registry; use the reviewed source
+checkout for local stdio until an npm release is explicitly announced.
+
 All 40 calculator dossiers and all four review groups currently derive
 `scenario_verified`, and the ordinary acceptance, transport, compatibility,
-and package gates pass. The checked-in `0.1.0` release attestation covers the
-prior 39-calculator catalog. FIB-4 is merged and documented on `main` but
-requires the next versioned release before it appears on the official MCP and
-Blume site.
+and package gates pass.
 
 In OathMCP, `scenario_verified` has a precise repository meaning: the implemented
 model and its declared population, variant, inputs, outputs, warnings,
@@ -37,7 +43,9 @@ source-derived cases through the engine, full MCP tool, and compact MCP tool.
 It does not mean regulatory approval, guarantee suitability for an individual
 patient, or remove clinician discretion.
 
-- [Release attestation](validation/releases/0.1.0.yaml)
+- [0.2.0 release attestation](validation/releases/0.2.0.yaml)
+- [GitHub releases](https://github.com/OATH-md/OathMCP/releases)
+- [Live service metadata](https://mcp.oath.md/health)
 - [Release process](docs/RELEASE.md)
 - [Changelog](CHANGELOG.md)
 
@@ -70,22 +78,9 @@ Configure an MCP-compatible client to run the built stdio server:
 
 ### npm package
 
-After the first registry publication:
-
-```bash
-npx oath-mcp
-```
-
-```json
-{
-  "mcpServers": {
-    "oath": {
-      "command": "npx",
-      "args": ["-y", "oath-mcp"]
-    }
-  }
-}
-```
+npm publication is deferred for the hosted `0.2.0` release. Until a registry
+release is explicitly announced, use the source checkout for stdio or the
+official hosted endpoint for Streamable HTTP.
 
 ## Remote deployment
 

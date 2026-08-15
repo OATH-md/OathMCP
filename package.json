@@ -1,6 +1,6 @@
 {
   "name": "oath-mcp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Agent-native MCP server for evidence-backed clinical calculators.",
   "license": "Apache-2.0",
   "type": "module",
@@ -60,7 +60,7 @@
     "check:calculator": "tsx src/cli/index.ts check-calculator",
     "promote:calculator": "tsx src/cli/index.ts promote-calculator",
     "check:clinical-release": "npm run validate:clinical -- --require-source-verified --require-scenario-verified --release-attestation auto",
-    "release:prepare": "tsx src/cli/index.ts prepare-release && npm --prefix docs-site run generate",
+    "release:prepare": "tsx src/cli/index.ts prepare-release",
     "check:release-metadata": "node scripts/release/check-metadata.mjs",
     "check:release": "npm run check:release-metadata && npm run check && npm run check:clinical-release && npm --prefix docs-site run check && npm pack --dry-run",
     "deploy:production": "node scripts/release/deploy-production.mjs",
@@ -94,6 +94,6 @@
     "tsx": "^4",
     "typescript": "^5",
     "vitest": "^3",
-    "wrangler": "^4.113.0"
+    "wrangler": "^4.123.0"
   }
 }

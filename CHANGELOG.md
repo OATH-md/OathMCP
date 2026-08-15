@@ -4,6 +4,10 @@ All notable changes to OathMCP are documented here.
 
 ## Unreleased
 
+## 0.2.0 — 2026-08-15
+
+- Added FIB-4 and its generated documentation, adopted MCP SDK v2 with modern
+  and legacy protocol support, and made hosted Worker releases rollback-safe.
 - Migrated the MCP boundary to the split TypeScript SDK v2 packages and one
   stateless dual-era implementation serving modern protocol `2026-07-28` plus
   the supported legacy era over stdio, Node HTTP, and Cloudflare Workers.
@@ -17,6 +21,11 @@ All notable changes to OathMCP are documented here.
   attestation, deploys the MCP and Blume documentation Workers from the same
   commit, verifies both production surfaces, and only then creates a GitHub
   release.
+- Updated Blume and Wrangler to their current reviewed compatible releases,
+  applied available transitive dependency patches, and cleared all root runtime
+  audit findings.
+- Replaced the unavailable original Apgar DOI resolver link with its stable
+  PubMed record without changing the DOI identity or calculator contract.
 - Added a guarded release-preparation command, dynamic release metadata checks,
   and live catalog, calculation, evidence, version, and generated-page
   verification.

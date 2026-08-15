@@ -15,8 +15,8 @@ Review state is derived by code. A dossier cannot author `status`, `passed`,
 `actual`, `source_verified`, or `scenario_verified`. In the current catalog,
 all 40 dossiers and all four derived groups pass `scenario_verified` through
 the engine, full direct MCP tools, and compact MCP dispatch. The checked-in
-`0.1.0` release attestation covers the prior 39-calculator catalog and must be
-refreshed as a separate release action.
+`0.2.0` release attestation covers this complete catalog; historical
+attestations remain immutable.
 
 Repository terminology is deliberately narrow:
 
