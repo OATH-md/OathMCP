@@ -18,21 +18,14 @@ numbers, free-text notes, or other protected or personal health information.
 
 ## Local stdio
 
-Until the first verified npm publication, build the server from source:
-
-```bash
-git clone https://github.com/OATH-md/OathMCP.git
-cd OathMCP
-npm ci
-npm run build
-```
+Run the exact reviewed npm release:
 
 ```json title="MCP client configuration"
 {
   "mcpServers": {
     "oathmcp": {
-      "command": "node",
-      "args": ["/absolute/path/to/OathMCP/dist/server/stdio.js"]
+      "command": "npx",
+      "args": ["-y", "@oath-md/oath-mcp@0.2.1"]
     }
   }
 }

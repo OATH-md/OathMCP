@@ -4,6 +4,22 @@ All notable changes to OathMCP are documented here.
 
 ## Unreleased
 
+## 0.2.1 — 2026-08-15
+
+- Published the first public npm package as `@oath-md/oath-mcp`, while
+  preserving the `oath-mcp` executable, server identity, Worker names, and
+  canonical hosted endpoint.
+- Made verified npm publication mandatory for future release tags after the
+  Cloudflare cutover and before GitHub release creation, using a protected
+  trusted-publishing environment without a stored npm token.
+- Added clean packed-consumer checks on Node.js 22 and 24 for both public
+  exports and declarations, the installed executable, modern and legacy MCP
+  clients, the 40-calculator catalog, BMI, FIB-4, evidence, package hygiene,
+  and the runtime dependency audit.
+- Refreshed the moved NASA Glenn metric-atmosphere citation to its current
+  official page. Clinical formulas, MCP behavior, and hosted routes are
+  unchanged.
+
 ## 0.2.0 — 2026-08-15
 
 - Added FIB-4 and its generated documentation, adopted MCP SDK v2 with modern
@@ -14,7 +30,7 @@ All notable changes to OathMCP are documented here.
 - Added explicit legacy/modern transport matrices, raw protocol checks, a real
   workerd smoke, and modern-first production verification with a bounded legacy
   smoke.
-- **Breaking for pre-1.0 embedders:** the `oath-mcp/server` export path and
+- **Breaking for pre-1.0 embedders:** the `./server` export and
   `buildServer()` name are unchanged, but the returned `McpServer` is an SDK v2
   object. Interoperability with SDK v1 transport objects is not retained.
 - Added one tag-driven release workflow that validates the package-version

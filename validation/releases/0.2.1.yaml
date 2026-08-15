@@ -1,0 +1,230 @@
+schemaVersion: "1.0"
+packageVersion: 0.2.1
+checkedAt: 2026-08-15
+networkCheckedAt: 2026-08-15
+reviewer: RyanYahya
+reviewerTimeZone: Asia/Riyadh
+currentnessConfirmed: true
+unresolvedChanges: []
+calculatorIds:
+  - aa_gradient
+  - anion_gap
+  - bmi
+  - bsa
+  - bsa_dubois
+  - carboplatin_auc
+  - chemo_dose_bsa
+  - corrected_calcium
+  - creatinine_clearance
+  - fib4
+  - free_water_deficit
+  - gfr
+  - gir
+  - ibw
+  - ich_volume
+  - map
+  - oxygenation_index
+  - r_factor
+  - sodium_deficit
+  - apgar
+  - chadsvasc
+  - child_pugh
+  - gad7
+  - gcs
+  - mews
+  - morse_fall_scale
+  - nihss
+  - pews
+  - qsofa
+  - ranson
+  - timi
+  - wells_dvt
+  - eos
+  - grace
+  - kdpi
+  - meld
+  - abg
+  - csf
+  - hepb
+  - neonatal_measurements
+sourceVersions:
+  aa_ers_2015: European Respiratory Journal 2015;45:227-243
+  aa_helmholz_1979: PMID 436542; doi:10.1378/chest.75.6.748
+  aa_nasa_atmosphere: Earth Atmosphere Equation - Metric page checked 2026-08-15
+  aa_ncbi_bookshelf_2024: NCBI Bookshelf NBK482268 and NBK545153; checked 2026-07-16
+  abg_ats_interpretation: web resource checked 2026-07-16
+  abg_figge_1998: PMID 9824071
+  abg_french_guideline_2019: PMCID PMC6695455; 2019 guideline
+  abg_winters_1965: PMID 6016545
+  anion_figge_1998: PMID 9824071; doi:10.1097/00003246-199811000-00019
+  anion_kraut_nagami_2013: PMID 23833313; PMCID PMC3817910; doi:10.2215/CJN.04040413
+  anion_merck_2025: professional page checked 2026-07-16
+  anion_oh_carroll_1977: PMID 895822; doi:10.1056/NEJM197710132971507
+  apgar_aap_utstein_2023: Pediatrics 2023;151:e2022059631
+  apgar_acog_2015: Committee Opinion 644, October 2015; site checked 2026-07-16
+  apgar_apgar_1953: doi:10.1213/00000539-195307000-00001
+  apgar_cnattingius_2017: PMID 28493508
+  bmi_cdc_2024: page dated 2024-03-19; checked 2026-07-16
+  bmi_cdc_numeric_2024: page dated 2024-06-28; checked 2026-07-16
+  bmi_keys_1972: doi:10.1016/0021-9681(72)90027-6
+  bmi_who_2025: page dated 2025-12-08; checked 2026-07-16
+  bsa_asco_2021: doi:10.1200/JCO.21.00471
+  bsa_daniell_2012: PMID 22460277; doi:10.1002/ajpa.22051
+  bsa_dubois_1916: doi:10.1001/archinte.1916.00080130010002
+  bsa_dubois_revisited_2000: PMID 10929220
+  bsa_fda_rofecoxib_review: NDA 21042s026 and 21052s019 review; checked 2026-07-16
+  bsa_fda_valganciclovir_review: FDA media 92286; checked 2026-07-16
+  bsa_mosteller_1987: PMID 3657876; doi:10.1056/NEJM198710223171717
+  calcium_acb_2015: March 2015 position paper
+  calcium_bmj_1977: PMID 843828; PMCID PMC1605322; doi:10.1136/bmj.1.6061.598
+  calcium_desgagnes_2025: PMID 39836424; doi:10.1001/jamanetworkopen.2024.55251
+  calcium_ifcc_eflm_2026: PMID 42035248; doi:10.1515/cclm-2026-0545
+  calcium_payne_1973: PMID 4758544; doi:10.1136/bmj.4.5893.643
+  carb_calvert_1989: PMID 2681557; doi:10.1200/JCO.1989.7.11.1748
+  carb_eviq_addikd_2022: Version 1 published 2022-10-24; site checked 2026-07-16
+  carb_fda_label_2012: Application 077139 supplement 016 label; checked 2026-07-16
+  carb_nci_ctep_2010: Information letter October 2010; checked 2026-07-16
+  chadsvasc_accaha_2023: 2023 guideline; doi:10.1161/CIR.0000000000001193
+  chadsvasc_esc_2024: 2024 ESC AF guideline
+  chadsvasc_friberg_2012: PMID 22246443; doi:10.1093/eurheartj/ehr488
+  chadsvasc_lip_2010: doi:10.1378/chest.09-1584
+  chadsvasc_olesen_2011: PMID 21282258; doi:10.1136/bmj.d124
+  chemo_fda_optimization_2024: Final guidance August 2024; checked 2026-07-16
+  chemo_kmcc_bsa_cap_2024: Version 2; policy review date March 2026; checked 2026-07-16
+  chemo_paclitaxel_label_2015: NDA 020262 supplement 051 label; checked 2026-07-16
+  chemo_vandenbongard_2000: PMID 11108434; doi:10.2165/00003088-200039050-00004
+  child_pugh_aasld_2024: guidance hub checked 2026-07-16
+  child_pugh_albers_1989: PMID 2734585; doi:10.3109/00365528909093045
+  child_pugh_pugh_1973: PMID 4541913; doi:10.1002/bjs.1800600817
+  child_pugh_va_2026: live table checked 2026-07-16
+  crcl_cockcroft_1976: PMID 1244564; Nephron 1976;16:31-41
+  crcl_fda_2024: March 2024 final guidance
+  crcl_nkf_2026: NKF professional page checked 2026-07-16
+  crcl_winter_2012: PMID 22576791; doi:10.1002/j.1875-9114.2012.01098.x
+  csf_budhram_2024: PMID 39185100; doi:10.1212/CPJ.0000000000200350
+  csf_graus_2016: PMID 26906964; doi:10.1016/S1474-4422(15)00401-9
+  csf_idsa_2004: PMID 15494903; doi:10.1086/425368
+  csf_idsa_asm_lab_2024: 2024 update; doi:10.1093/cid/ciae104; Table 6
+  csf_mcdonald_2017: PMID 29275977; doi:10.1016/S1474-4422(17)30470-2
+  csf_nice_ng228: NG228 recommendations 1.1.12-1.1.15 checked 2026-07-16
+  csf_who_tb_diagnostics_2024: WHO module 3 rapid diagnostics, 3rd edition, recommendation 6; 20 March 2024
+  eos_aap_2018: Pediatrics 2018;142:e20182894; official page checked 2026-07-16
+  eos_acog_2020: Committee Opinion 797; official page checked 2026-07-16
+  eos_acog_term_2013: Committee Opinion 579; postterm begins at 42 0/7 weeks; official page checked 2026-07-16
+  eos_kaiser_2024_release: Kaiser EOS Calculator 2.0 updated 2024; live release checked 2026-07-16
+  eos_kuzniewicz_2017_2024: PMID 28114554; PMID 39314183; doi:10.1542/peds.2023-065267
+  eos_technical_assessment_2021: PMID 33129425; doi:10.1016/S1473-3099(20)30490-4
+  fib4_aasld_2023: 2023 guidance current on 2026-07-23; PMID 36727674; doi:10.1097/HEP.0000000000000323
+  fib4_aga_2026: Published 2026-03-09; PMID 41812830; doi:10.1053/j.gastro.2026.01.047
+  fib4_easl_2024: J Hepatol 2024;81:492-542; PMID 38851997; doi:10.1016/j.jhep.2024.04.031
+  fib4_mcpherson_2017: PMID 27725647; PMCID PMC5418560; doi:10.1038/ajg.2016.453
+  fib4_mozes_2022: PMID 34001645; doi:10.1136/gutjnl-2021-324243
+  fib4_shah_2009: PMID 19523535; PMCID PMC3079239; doi:10.1016/j.cgh.2009.05.033
+  fib4_sterling_2006: PMID 16729309; doi:10.1002/hep.21178
+  fib4_who_2018: WHO 2018; NCBI Bookshelf NBK531733; PMID 30307724
+  fwd_adrogue_2000: PMID 10816188; doi:10.1056/NEJM200005183422006
+  fwd_nhsaaa_2026: adult management page checked 2026-07-16
+  fwd_uw_nephrology_2026: curriculum checked 2026-07-16
+  fwd_yun_2023: PMCID PMC10175862; Korean J Intern Med 2023
+  gad7_lowe_2008: PMID 18388841; doi:10.1097/MLR.0b013e318160d093
+  gad7_nih_form_2026: live page checked 2026-07-16
+  gad7_spitzer_2006: PMID 16717171; doi:10.1001/archinte.166.10.1092
+  gad7_uspstf_2023: JAMA 2023 recommendation; live statement checked 2026-07-16
+  gcs_nice_ng232_2023: NG232 published 2023; site checked 2026-07-16
+  gcs_official_faq_2026: site checked 2026-07-16
+  gcs_reith_2016: PMID 26564211
+  gcs_teasdale_jennett_1974: doi:10.1016/S0140-6736(74)91639-0
+  gfr_inker_2021: PMID 34554658; doi:10.1056/NEJMoa2102953
+  gfr_kdigo_2024: Kidney International 2024;105(4S):S117-S314; doi:10.1016/j.kint.2023.10.018
+  gfr_niddk_equations_2026: 2021 CKD-EPI adult equations page checked 2026-07-16
+  gfr_nkf_asn_2021: PMID 34563581; 2021 final report
+  gir_cowett_1983: PMID 6338038; doi:10.1172/JCI110791
+  gir_nigeria_2021: First edition November 2021; checked 2026-07-16
+  gir_rch_2026: Clinical guideline checked 2026-07-16
+  gir_ucdavis_2025: NICU Nutrition Guideline updated 2025; checked 2026-07-16
+  grace_effect_2006: PMID 16387810; PMCID PMC1860727
+  grace_esc_2023: 2023 ESC ACS guideline checked 2026-07-16
+  grace_fox_2006: PMID 17032691; PMCID PMC1661748; doi:10.1136/bmj.38985.646481.55
+  grace_nice_ng185: NG185 recommendation 1.2.11 checked 2026-07-16
+  grace_nomogram_archive: GRACE Risk Model Coefficients PDF pages 12-13; archive snapshot 2015-09-07
+  hepb_aasld_2018: PMID 29405329; doi:10.1002/hep.29800
+  hepb_cdc_2023_table1: PMID 36893044; MMWR 72(RR-1), Table 1
+  hepb_cdc_clinical_2025: CDC clinical overview updated 2025-09-18; checked 2026-07-16
+  hrsa_optn: site checked 2026-07-15
+  ibw_accp_2020: CCSAP 2020 Book 2 sample
+  ibw_devine_1974: doi:10.1177/106002807400801104
+  ibw_fda_ocs_2017: PN 100004071 Rev 2, Appendix B
+  ibw_pai_2000: PMID 10981254; doi:10.1345/aph.19381
+  ich_aha_2022: doi:10.1161/STR.0000000000000407
+  ich_chang_2021: PMID 34214866
+  ich_eso_eans_2025: European Stroke Journal 2025 volume 10 issue 4
+  ich_hanley_2015: PMID 26243227; doi:10.1161/STROKEAHA.114.007343
+  ich_kothari_1996: PMID 8711791; doi:10.1161/01.STR.27.8.1304
+  kdpi_dahmen_2019: PMID 31375750; PMCID PMC6677881; doi:10.1038/s41598-019-47772-7
+  kdpi_optn_guide_2025: Updated 2025-04-21; OPTN data through 2025-04-18
+  kdpi_optn_mapping_2026: 2025 reference population; database snapshot 2026-04-03
+  kdpi_rao_2009: PMID 19118111; doi:10.1097/TP.0b013e318190f14b
+  map_accaha_2017: doi:10.1161/HYP.0000000000000065
+  map_aha_measurement_2024: PMCID PMC11409525; checked 2026-07-16
+  map_clinical_methods_1990: Clinical Methods 3rd edition, chapter 16
+  map_papaioannou_2020: PMID 32694334; doi:10.1097/HJH.0000000000002564
+  map_razminia_2004: PMID 15558774
+  meld_aasld_guidance: official guidance hub checked 2026-07-16
+  meld_kim_2021: PMID 34481845; PMCID PMC8608337; doi:10.1053/j.gastro.2021.08.050
+  meld_kwong_2023: PMID 36943091; PMCID PMC10363200; doi:10.1097/HEP.0000000000000352
+  meld_optn_policy_2023: MELD 3.0 implementation effective 2023-07-13; checked 2026-07-16
+  mews_ho_2014: PMID 25215131
+  mews_nice_cg50_2026: CG50; live guidance checked 2026-07-16
+  mews_subbe_2001: PMID 11588210; doi:10.1093/qjmed/94.10.521
+  morse_ahrq_psnet_2026: page checked 2026-07-16
+  morse_ahrq_toolkit_2026: toolkit PDF checked 2026-07-16
+  morse_chow_2007: PMID 16464453; doi:10.1016/j.ijnurstu.2005.12.003
+  morse_morse_1989: doi:10.1017/S0714980800008576
+  neonatal_aha_aap_2025: 2025 AHA/AAP Part 5 checked 2026-07-16
+  neonatal_kempley_2008: PMID 18372092; doi:10.1016/j.resuscitation.2008.02.002
+  neonatal_procedures_review_2023: PMCID PMC10497369; 2023
+  neonatal_shukla_1986: PMID 3728405
+  neonatal_zubrow_1995: PMID 8648456
+  nihss_aha_asa_2026: doi:10.1161/STR.0000000000000513
+  nihss_brott_1989: doi:10.1161/01.STR.20.7.864
+  nihss_ninds_2024: updated February 2024; checked 2026-07-16
+  nihss_stockbridge_2024: PMID 38252764; doi:10.1161/STROKEAHA.123.044384
+  nihss_zero_2011: PMID 20828876; doi:10.1016/j.annemergmed.2010.06.564
+  oi_aha_ats_2015: Circulation 2015 guideline checked 2026-07-16
+  oi_muniraman_2019: PMID 30924897; doi:10.1001/jamanetworkopen.2019.1179
+  oi_nsw_ino_2025: RHW neonatal iNO guideline checked 2026-07-16
+  oi_rawat_2015: PMID 25592054; doi:10.1159/000369774
+  pews_monaghan_2005: doi:10.7748/paed2005.02.17.1.32.c964
+  pews_nhs_england_2023: published 2023-11-03; checked 2026-07-16
+  pews_rcpch_national_2023: national PEWS launch 2023; checked 2026-07-16
+  pews_roland_2016: PMID 26531861; doi:10.1136/emermed-2015-204951
+  pubmed_medline: E-utilities interface checked 2026-07-16
+  pubmed_medline_dosing: E-utilities interface checked 2026-07-16
+  pubmed_medline_interpreter: PubMed E-utilities interface checked 2026-07-16
+  pubmed_medline_policy: PubMed web interface checked 2026-07-16
+  qsofa_freund_2017: PMID 28114554; doi:10.1001/jama.2016.20329
+  qsofa_sepsis3_2016: PMID 26903338; doi:10.1001/jama.2016.0287
+  qsofa_seymour_2016: PMID 26903335; doi:10.1001/jama.2016.0288
+  r_aasld_2023: PMID 35899384; doi:10.1002/hep.32689
+  r_benichou_1990: PMID 2254635; doi:10.1016/0168-8278(90)90124-A
+  r_easl_2019: J Hepatol 2019;70:1222-1261
+  r_fda_dili_2009: Final guidance July 2009; checked 2026-07-16
+  r_livertox_rucam_2019: NCBI Bookshelf NBK548272; checked 2026-07-16
+  ranson_acg_2024: PMID 38857482
+  ranson_atlanta_2012: doi:10.1136/gutjnl-2012-302779
+  ranson_jpn_2006: PMID 16463209; doi:10.1007/s00534-005-1049-1
+  ranson_meta_2023: PMID 37755341
+  ranson_ranson_1974: PMID 4834279
+  sodium_adrogue_2000: PMID 10824078; doi:10.1056/NEJM200005253422107
+  sodium_european_guideline_2014: doi:10.1530/EJE-13-1020 plus 2014 correction
+  sodium_expert_panel_2013: PMID 24074529; doi:10.1016/j.amjmed.2013.07.006
+  sodium_watson_1980: PMID 6986753; doi:10.1093/ajcn/33.1.27
+  ssc_adult_2026: doi:10.1007/s00134-026-08361-1; published 2026-03-23
+  timi_accaha_2025: 2025 ACS guideline
+  timi_antman_2000: PMID 10938172; doi:10.1001/jama.284.7.835
+  timi_esc_2023: 2023 ESC ACS guideline
+  timi_polonio_2010: PMID 20439123; doi:10.1016/j.ijcard.2010.04.016
+  wells_dvt_ash_2018: 2018 diagnosis guideline
+  wells_dvt_geersing_2014: doi:10.1136/bmj.g1340
+  wells_dvt_nice_ng158: NG158 recommendations checked 2026-07-16
+  wells_dvt_wells_2003: PMID 14507948; doi:10.1056/NEJMoa023153
