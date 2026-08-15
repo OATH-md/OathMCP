@@ -11,6 +11,28 @@ export interface ContinuityMonitor {
   stop(options?: { assertHealthy?: boolean }): Promise<void>;
 }
 
+export interface RestoreProductionOptions {
+  tag: string;
+  sha: string;
+  mcpVersionId: string;
+  docsVersionId: string;
+  expectedVersion: string;
+  baseUrl?: string | URL;
+}
+
+export interface RestoreProductionDependencies {
+  runWrangler?: (options: {
+    args: string[];
+    cwd: string;
+    quiet?: boolean;
+  }) => Promise<WranglerResult>;
+  verifyRollbackImpl?: (options: {
+    baseUrl: string | URL;
+    expectedVersion: string;
+  }) => Promise<void>;
+  log?: (message: string) => void;
+}
+
 export function parseActiveVersion(
   value: unknown,
   label: string,
@@ -78,3 +100,7 @@ export function deployProduction(
     log?: (message: string) => void;
   },
 ): Promise<Record<string, string>>;
+export function restoreProduction(
+  options: RestoreProductionOptions,
+  dependencies?: RestoreProductionDependencies,
+): Promise<void>;

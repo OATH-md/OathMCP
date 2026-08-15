@@ -79,14 +79,19 @@ jobs:
           npm run deploy:production -- --tag "$GITHUB_REF_NAME" --sha "$GITHUB_SHA"
 
   publish-npm:
-    if: startsWith(github.ref, 'refs/tags/v') && vars.NPM_PUBLISH_ENABLED == 'true'
+    if: startsWith(github.ref, 'refs/tags/v')
     needs: deploy-production
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    environment: production
+    timeout-minutes: 25
+    environment: npm-publish
     permissions:
       contents: read
       id-token: write
+    outputs:
+      package_name: ${{ steps.publish.outputs.package_name }}
+      package_version: ${{ steps.publish.outputs.package_version }}
+      package_integrity: ${{ steps.publish.outputs.package_integrity }}
+      package_tarball: ${{ steps.publish.outputs.package_tarball }}
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
@@ -96,25 +101,59 @@ jobs:
           node-version: 24
           registry-url: https://registry.npmjs.org
           package-manager-cache: false
+      - run: npm install --global npm@12.0.2
       - run: npm ci
-      - name: Publish package once
+      - name: Publish and verify the package once
+        id: publish
+        run: npm run publish:npm -- --sha "$GITHUB_SHA"
+      - name: Verify a clean registry consumer
+        env:
+          PACKAGE_NAME: ${{ steps.publish.outputs.package_name }}
+          PACKAGE_VERSION: ${{ steps.publish.outputs.package_version }}
+        run: npm run verify:npm-package -- --package-spec "$PACKAGE_NAME@$PACKAGE_VERSION"
+
+  rollback-after-npm-failure:
+    if: >-
+      always() &&
+      startsWith(github.ref, 'refs/tags/v') &&
+      needs.deploy-production.result == 'success' &&
+      needs.publish-npm.result == 'failure'
+    needs:
+      - deploy-production
+      - publish-npm
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Restore the captured production baseline
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PREVIOUS_MCP_VERSION_ID: ${{ needs.deploy-production.outputs.previous_mcp_version_id }}
+          PREVIOUS_DOCS_VERSION_ID: ${{ needs.deploy-production.outputs.previous_docs_version_id }}
+          PREVIOUS_VERSION: ${{ needs.deploy-production.outputs.previous_version }}
         run: |
-          package_version="$(node -p "require('./package.json').version")"
-          published_version="$(npm view "oath-mcp@$package_version" version 2>/dev/null || true)"
-          if [ "$published_version" = "$package_version" ]; then
-            published_git_head="$(npm view "oath-mcp@$package_version" gitHead 2>/dev/null || true)"
-            test "$published_git_head" = "$GITHUB_SHA"
-            echo "oath-mcp@$package_version is already published from this commit."
-          else
-            npm publish --access public
-          fi
+          npm run rollback:production -- \
+            --tag "$GITHUB_REF_NAME" \
+            --sha "$GITHUB_SHA" \
+            --mcp-version-id "$PREVIOUS_MCP_VERSION_ID" \
+            --docs-version-id "$PREVIOUS_DOCS_VERSION_ID" \
+            --expected-version "$PREVIOUS_VERSION"
 
   publish-github-release:
     if: >-
       always() &&
       startsWith(github.ref, 'refs/tags/v') &&
       needs.deploy-production.result == 'success' &&
-      (needs.publish-npm.result == 'success' || needs.publish-npm.result == 'skipped')
+      needs.publish-npm.result == 'success'
     needs:
       - deploy-production
       - publish-npm
@@ -128,10 +167,28 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
-          node-version: 22
-          cache: npm
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - run: npm install --global npm@12.0.2
       - run: npm ci
-      - run: mkdir -p release-artifacts && npm pack --pack-destination release-artifacts
+      - name: Download the exact registry tarball
+        env:
+          PACKAGE_NAME: ${{ needs.publish-npm.outputs.package_name }}
+          PACKAGE_VERSION: ${{ needs.publish-npm.outputs.package_version }}
+          PACKAGE_INTEGRITY: ${{ needs.publish-npm.outputs.package_integrity }}
+          PACKAGE_TARBALL: ${{ needs.publish-npm.outputs.package_tarball }}
+        run: |
+          mkdir -p release-artifacts
+          artifact="release-artifacts/oath-md-oath-mcp-$PACKAGE_VERSION.tgz"
+          curl --fail --location --silent --show-error "$PACKAGE_TARBALL" --output "$artifact"
+          ARTIFACT="$artifact" node --input-type=module <<'NODE'
+          import { createHash } from 'node:crypto';
+          import { readFileSync } from 'node:fs';
+          const [algorithm, expected] = process.env.PACKAGE_INTEGRITY.split('-', 2);
+          const actual = createHash(algorithm).update(readFileSync(process.env.ARTIFACT)).digest('base64');
+          if (actual !== expected) throw new Error('Downloaded npm tarball integrity mismatch');
+          NODE
       - name: Publish verified GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -140,10 +197,15 @@ jobs:
           PREVIOUS_MCP_VERSION_ID: ${{ needs.deploy-production.outputs.previous_mcp_version_id }}
           PREVIOUS_DOCS_VERSION_ID: ${{ needs.deploy-production.outputs.previous_docs_version_id }}
           PREVIOUS_VERSION: ${{ needs.deploy-production.outputs.previous_version }}
+          PACKAGE_NAME: ${{ needs.publish-npm.outputs.package_name }}
+          PACKAGE_VERSION: ${{ needs.publish-npm.outputs.package_version }}
+          PACKAGE_INTEGRITY: ${{ needs.publish-npm.outputs.package_integrity }}
         run: |
           notes="$(printf '%s\n' \
             "Production deployment verified from commit \`$GITHUB_SHA\`." \
             "" \
+            "- npm package: [\`$PACKAGE_NAME@$PACKAGE_VERSION\`](https://www.npmjs.com/package/$PACKAGE_NAME/v/$PACKAGE_VERSION)" \
+            "- npm integrity: \`$PACKAGE_INTEGRITY\`" \
             "- MCP Worker version: \`$MCP_VERSION_ID\`" \
             "- Blume docs Worker version: \`$DOCS_VERSION_ID\`" \
             "- Rollback baseline: OathMCP \`$PREVIOUS_VERSION\`, MCP \`$PREVIOUS_MCP_VERSION_ID\`, docs \`$PREVIOUS_DOCS_VERSION_ID\`" \

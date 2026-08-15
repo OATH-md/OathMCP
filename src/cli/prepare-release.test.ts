@@ -38,10 +38,10 @@ describe('release preparation', () => {
   });
 
   it('keeps package and lockfile versions aligned', () => {
-    expect(JSON.parse(updatePackageVersion('{"name":"oath-mcp","version":"0.1.0"}', '0.2.0')))
-      .toMatchObject({ name: 'oath-mcp', version: '0.2.0' });
+    expect(JSON.parse(updatePackageVersion('{"name":"@oath-md/oath-mcp","version":"0.1.0"}', '0.2.0')))
+      .toMatchObject({ name: '@oath-md/oath-mcp', version: '0.2.0' });
     expect(JSON.parse(updatePackageVersion(
-      '{"name":"oath-mcp","version":"0.1.0","packages":{"":{"version":"0.1.0"}}}',
+      '{"name":"@oath-md/oath-mcp","version":"0.1.0","packages":{"":{"version":"0.1.0"}}}',
       '0.2.0',
       true,
     ))).toMatchObject({

@@ -322,6 +322,47 @@ async function rollbackDeployment({
   }
 }
 
+export async function restoreProduction({
+  tag,
+  sha,
+  mcpVersionId,
+  docsVersionId,
+  expectedVersion,
+  baseUrl = 'https://mcp.oath.md',
+} = {}, {
+  runWrangler = runWranglerCommand,
+  verifyRollbackImpl = verifyRollbackProduction,
+  log = console.log,
+} = {}) {
+  if (!/^v\d+\.\d+\.\d+$/u.test(tag ?? '')) throw new Error('A vX.Y.Z release tag is required');
+  if (!/^[0-9a-f]{40}$/iu.test(sha ?? '')) throw new Error('A full release commit SHA is required');
+  for (const [label, value] of [
+    ['MCP version ID', mcpVersionId],
+    ['docs version ID', docsVersionId],
+  ]) {
+    if (!/^[0-9a-f-]{36}$/iu.test(value ?? '')) throw new Error(`${label} is required`);
+  }
+  if (!/^\d+\.\d+\.\d+$/u.test(expectedVersion ?? '')) {
+    throw new Error('An expected X.Y.Z health version is required');
+  }
+  await rollbackDeployment({
+    changed: { mcp: true, docs: true },
+    previous: {
+      mcp: mcpVersionId,
+      docs: docsVersionId,
+      healthVersion: expectedVersion,
+    },
+    release: { tag, sha },
+    baseUrl,
+    runWrangler,
+    verifyRollback: verifyRollbackImpl,
+  });
+  log(
+    `Production restored after npm release failure: MCP ${mcpVersionId}; ` +
+    `docs ${docsVersionId}; health ${expectedVersion}.`,
+  );
+}
+
 export async function deployProduction({
   tag,
   sha,
