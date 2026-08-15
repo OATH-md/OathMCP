@@ -1,5 +1,39 @@
 import { defineConfig } from "blume";
 
+const geist = {
+  name: "Geist",
+  fallback: "sans" as const,
+  variants: [
+    {
+      src: "./fonts/Geist-Variable.woff2",
+      weight: "100..900",
+      style: "normal" as const,
+    },
+    {
+      src: "./fonts/Geist-VariableItalic.woff2",
+      weight: "100..900",
+      style: "italic" as const,
+    },
+  ],
+};
+
+const geistMono = {
+  name: "Geist Mono",
+  fallback: "mono" as const,
+  variants: [
+    {
+      src: "./fonts/GeistMono-Variable.woff2",
+      weight: "100..900",
+      style: "normal" as const,
+    },
+    {
+      src: "./fonts/GeistMono-VariableItalic.woff2",
+      weight: "100..900",
+      style: "italic" as const,
+    },
+  ],
+};
+
 export default defineConfig({
   title: "OathMCP",
   description:
@@ -34,9 +68,9 @@ export default defineConfig({
       dark: "#0D0F12",
     },
     fonts: {
-      display: "geist",
-      body: "geist",
-      mono: "geist-mono",
+      display: geist,
+      body: geist,
+      mono: geistMono,
     },
     radius: "sm",
     mode: "system",

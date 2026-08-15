@@ -52,6 +52,11 @@ Re-review this waiver whenever the MCP SDK, Blume, Scalar, Miniflare, or
 Wrangler updates; any disabled feature is enabled; content becomes untrusted;
 or a compatible patched dependency graph becomes available.
 
+The site self-hosts the upstream Geist and Geist Mono variable webfonts so a
+documentation build does not depend on a mutable remote font URL. Their pinned
+source, archive checksum, and SIL Open Font License are recorded in
+[`fonts/README.md`](fonts/README.md).
+
 ## Deployment
 
 The static site is canonical at `https://mcp.oath.md/docs/`. Its Worker owns
