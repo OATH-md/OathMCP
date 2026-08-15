@@ -35,6 +35,6 @@ Blume build.
 
 Calculator pull requests must run the generator and commit the resulting page.
 Production deployment belongs to the root tag-driven release workflow, which
-deploys the MCP Worker first, deploys this site from the same tag second, and
-then verifies both live surfaces. A merge to `main` is not a documentation
-deployment.
+uploads both versions before changing traffic, promotes this site and then the
+MCP Worker directly to 100%, and verifies both live surfaces. A merge to `main`
+is not a documentation deployment.

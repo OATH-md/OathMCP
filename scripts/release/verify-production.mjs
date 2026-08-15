@@ -46,7 +46,7 @@ function compareVersions(left, right) {
   return 0;
 }
 
-async function loadRelease() {
+export async function loadRelease() {
   const packageJson = JSON.parse(await readFile(resolve(root, "package.json"), "utf8"));
   const version = packageJson.version;
   const releasesDir = resolve(root, "validation", "releases");
@@ -145,7 +145,39 @@ async function calculateNewEntries(client, calculatorIds) {
   }
 }
 
-export async function verifyMcpSurface(baseUrl, release) {
+export async function verifyLegacyMcpSurface(baseUrl, clientVersion) {
+  const legacyClient = new Client(
+    { name: "oathmcp-release-verifier-legacy", version: clientVersion },
+    { versionNegotiation: { mode: "legacy" } },
+  );
+  try {
+    await legacyClient.connect(new StreamableHTTPClientTransport(new URL("/mcp", baseUrl)));
+    if (legacyClient.getProtocolEra() !== "legacy") {
+      throw new Error("Production MCP compatibility smoke did not negotiate the legacy era");
+    }
+    const { tools } = await legacyClient.listTools();
+    if (!tools.some((tool) => tool.name === "calculate")) {
+      throw new Error("Production legacy compatibility smoke is missing calculate");
+    }
+    await legacyClient.readResource({ uri: "oath://responsible-use" });
+    const calculation = await legacyClient.callTool({
+      name: "calculate",
+      arguments: { id: "bmi", inputs: { weight_kg: 70, height_cm: 170 } },
+    });
+    if (
+      calculation.isError === true ||
+      calculation.structuredContent?.result?.calculator !== "bmi" ||
+      calculation.structuredContent.result.ok !== true
+    ) {
+      throw new Error("Production legacy compatibility BMI smoke failed");
+    }
+  } finally {
+    await legacyClient.close();
+  }
+}
+
+export async function verifyMcpSurface(baseUrl, release, { signal } = {}) {
+  signal?.throwIfAborted();
   const modernClient = new Client(
     { name: "oathmcp-release-verifier-modern", version: release.version },
     { versionNegotiation: { mode: { pin: MODERN_PROTOCOL_VERSION } } },
@@ -196,50 +228,72 @@ export async function verifyMcpSurface(baseUrl, release) {
       }
     }
     await modernClient.readResource({ uri: "oath://responsible-use" });
+
+    const discovery = await modernClient.callTool({
+      name: "find_calculator",
+      arguments: { query: "body mass index" },
+    });
+    if (discovery.isError === true) {
+      throw new Error("Production modern calculator discovery failed");
+    }
+
+    const bmi = await modernClient.callTool({
+      name: "calculate",
+      arguments: { id: "bmi", inputs: { weight_kg: 70, height_cm: 170 } },
+    });
+    if (
+      bmi.isError === true ||
+      bmi.structuredContent?.result?.calculator !== "bmi" ||
+      bmi.structuredContent.result.ok !== true
+    ) {
+      throw new Error("Production modern BMI calculation failed");
+    }
+
+    const panel = await modernClient.callTool({
+      name: "calculate_panel",
+      arguments: {
+        calculators: ["bmi", "qsofa"],
+        inputs: {},
+        overrides: {
+          bmi: { weight_kg: 70, height_cm: 170 },
+          qsofa: { respiratory_rate: 24, systolic_bp: 90, altered_mental_status: true },
+        },
+      },
+    });
+    const panelResults = panel.structuredContent?.results;
+    if (
+      panel.isError === true ||
+      !Array.isArray(panelResults) ||
+      panelResults.length !== 2 ||
+      panelResults.some((entry) => entry?.ok !== true)
+    ) {
+      throw new Error("Production modern panel calculation failed");
+    }
+
     await calculateNewEntries(modernClient, release.newCalculatorIds);
   } finally {
     await modernClient.close();
   }
-
-  const legacyClient = new Client(
-    { name: "oathmcp-release-verifier-legacy", version: release.version },
-    { versionNegotiation: { mode: "legacy" } },
-  );
-  try {
-    await legacyClient.connect(new StreamableHTTPClientTransport(new URL("/mcp", baseUrl)));
-    if (legacyClient.getProtocolEra() !== "legacy") {
-      throw new Error("Production MCP compatibility smoke did not negotiate the legacy era");
-    }
-    const { tools } = await legacyClient.listTools();
-    if (!tools.some((tool) => tool.name === "calculate")) {
-      throw new Error("Production legacy compatibility smoke is missing calculate");
-    }
-    await legacyClient.readResource({ uri: "oath://responsible-use" });
-    const calculation = await legacyClient.callTool({
-      name: "calculate",
-      arguments: { id: "bmi", inputs: { weight_kg: 70, height_cm: 170 } },
-    });
-    if (calculation.isError === true) {
-      throw new Error("Production legacy compatibility BMI smoke failed");
-    }
-  } finally {
-    await legacyClient.close();
-  }
+  signal?.throwIfAborted();
+  await verifyLegacyMcpSurface(baseUrl, release.version);
+  signal?.throwIfAborted();
 }
 
-async function verifyOnce(baseUrl, release) {
-  const healthResponse = await fetch(new URL("/health", baseUrl), { redirect: "error" });
+export async function verifyOnce(baseUrl, release, { fetchImpl = fetch, signal } = {}) {
+  signal?.throwIfAborted();
+  const healthResponse = await fetchImpl(new URL("/health", baseUrl), { redirect: "error", signal });
   if (!healthResponse.ok) throw new Error(`Health returned HTTP ${healthResponse.status}`);
   const health = await healthResponse.json();
   if (health.version !== release.version) {
     throw new Error(`Production reports ${health.version}; expected ${release.version}`);
   }
 
-  await verifyMcpSurface(baseUrl, release);
+  await verifyMcpSurface(baseUrl, release, { signal });
 
   const docsPaths = await calculatorDocsPaths(release.attestation.calculatorIds);
   for (const [id, path] of docsPaths) {
-    const response = await fetch(new URL(path, baseUrl));
+    signal?.throwIfAborted();
+    const response = await fetchImpl(new URL(path, baseUrl), { signal });
     if (!response.ok) throw new Error(`Blume page for ${id} returned HTTP ${response.status}: ${path}`);
     const spec = YAML.parse(await readFile(resolve(root, "specs", `${id}.yaml`), "utf8"));
     if (!(await response.text()).includes(spec.name)) {
@@ -247,34 +301,132 @@ async function verifyOnce(baseUrl, release) {
     }
   }
 
-  const responsibleUse = await fetch(new URL("/responsible-use", baseUrl));
+  const responsibleUse = await fetchImpl(new URL("/responsible-use", baseUrl), { signal });
   if (!responsibleUse.ok) throw new Error(`Responsible Use returned HTTP ${responsibleUse.status}`);
 }
 
-async function runCli() {
-  const options = parseArgs(process.argv.slice(2));
-  const release = await loadRelease();
+function abortableDelay(milliseconds, signal) {
+  if (signal === undefined) {
+    return new Promise((resolvePromise) => setTimeout(resolvePromise, milliseconds));
+  }
+  signal.throwIfAborted();
+  return new Promise((resolvePromise, reject) => {
+    const timer = setTimeout(() => {
+      signal.removeEventListener("abort", onAbort);
+      resolvePromise();
+    }, milliseconds);
+    function onAbort() {
+      clearTimeout(timer);
+      reject(signal.reason);
+    }
+    signal.addEventListener("abort", onAbort, { once: true });
+  });
+}
+
+function raceWithSignal(operation, signal) {
+  signal.throwIfAborted();
+  return new Promise((resolvePromise, reject) => {
+    function onAbort() {
+      reject(signal.reason ?? new Error("Operation aborted"));
+    }
+    signal.addEventListener("abort", onAbort, { once: true });
+    operation.then(
+      (value) => {
+        signal.removeEventListener("abort", onAbort);
+        resolvePromise(value);
+      },
+      (error) => {
+        signal.removeEventListener("abort", onAbort);
+        reject(error);
+      },
+    );
+  });
+}
+
+export async function verifyProduction({
+  baseUrl = "https://mcp.oath.md",
+  timeoutMs = 300_000,
+  loadReleaseImpl = loadRelease,
+  verifyOnceImpl = verifyOnce,
+  log = console.log,
+  signal,
+} = {}) {
+  const release = await loadReleaseImpl();
+  const deadlineSignal = AbortSignal.timeout(timeoutMs + 60_000);
+  const verificationSignal = signal === undefined
+    ? deadlineSignal
+    : AbortSignal.any([signal, deadlineSignal]);
   const startedAt = Date.now();
   let lastError;
   do {
     try {
-      await verifyOnce(options.baseUrl, release);
-      console.log(
+      verificationSignal.throwIfAborted();
+      await raceWithSignal(
+        verifyOnceImpl(baseUrl, release, { signal: verificationSignal }),
+        verificationSignal,
+      );
+      log(
         `Production verification passed: ${release.version}; ` +
         `${release.attestation.calculatorIds.length} MCP calculators; ` +
         `${release.attestation.calculatorIds.length} Blume pages; ` +
         `${release.newCalculatorIds.length} newly published calculators exercised.`,
       );
-      return;
+      return release;
     } catch (error) {
       lastError = error;
-      if (Date.now() - startedAt >= options.timeoutMs) break;
-      console.log(`Production not ready: ${error instanceof Error ? error.message : String(error)}; retrying.`);
-      await new Promise((resolvePromise) => setTimeout(resolvePromise, 5_000));
+      if (Date.now() - startedAt >= timeoutMs) break;
+      log(`Production not ready: ${error instanceof Error ? error.message : String(error)}; retrying.`);
+      await abortableDelay(5_000, verificationSignal);
     }
   } while (true);
 
   throw lastError;
+}
+
+export async function verifyRollbackProduction({
+  baseUrl = "https://mcp.oath.md",
+  expectedVersion,
+  timeoutMs = 60_000,
+  fetchImpl = fetch,
+  verifyLegacyImpl = verifyLegacyMcpSurface,
+  log = console.log,
+} = {}) {
+  if (typeof expectedVersion !== "string" || expectedVersion.length === 0) {
+    throw new Error("Rollback verification requires the previous health version");
+  }
+
+  const startedAt = Date.now();
+  const deadlineSignal = AbortSignal.timeout(timeoutMs + 30_000);
+  let lastError;
+  do {
+    try {
+      await raceWithSignal((async () => {
+        const [healthResponse, docsResponse] = await Promise.all([
+          fetchImpl(new URL("/health", baseUrl), { redirect: "error", signal: deadlineSignal }),
+          fetchImpl(new URL("/docs/", baseUrl), { redirect: "error", signal: deadlineSignal }),
+        ]);
+        if (!healthResponse.ok) throw new Error(`Rollback health returned HTTP ${healthResponse.status}`);
+        if (!docsResponse.ok) throw new Error(`Rollback docs returned HTTP ${docsResponse.status}`);
+        const health = await healthResponse.json();
+        if (health.version !== expectedVersion) {
+          throw new Error(`Rollback reports ${health.version}; expected ${expectedVersion}`);
+        }
+        await verifyLegacyImpl(baseUrl, expectedVersion);
+      })(), deadlineSignal);
+      log(`Rollback verification passed: ${expectedVersion}; legacy BMI and Blume docs are available.`);
+      return;
+    } catch (error) {
+      lastError = error;
+      if (Date.now() - startedAt >= timeoutMs) break;
+      await abortableDelay(2_000, deadlineSignal);
+    }
+  } while (true);
+
+  throw lastError;
+}
+
+async function runCli() {
+  await verifyProduction(parseArgs(process.argv.slice(2)));
 }
 
 if (

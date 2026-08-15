@@ -96,17 +96,23 @@ package-version clinical attestation, the complete Blume site, and the package
 tarball. Only then can the protected `production` environment expose its
 least-privilege Cloudflare credential.
 
-The workflow builds both Worker artifacts before changing production, then
-deploys `oath-mcp` followed by `oath-docs` from the same tagged checkout under
-one protected-environment approval. Its production verifier polls `/health`,
-compares the complete live evidence-resource catalog with the release
-attestation, describes every calculator, calculates a source-linked case for
-each newly released calculator, and verifies every generated Blume page. The
-GitHub release is created only after those live checks pass.
+The workflow builds and uploads both Worker versions before changing production
+traffic. It records the two current version IDs and the live `/health` version,
+starts continuous availability probes, promotes `oath-docs` directly to 100%,
+and then promotes `oath-mcp` directly to 100%. It never splits MCP traffic
+between versions.
 
-Cloudflare Workers Builds must be disconnected from `main` after the tagged
-workflow is configured. There must not be a second production path whose source
-and release state differ from the tag.
+The production verifier opens a modern-pinned MCP client, compares the complete
+live evidence-resource catalog with the release attestation, describes every
+calculator, exercises discovery, BMI, a panel, and each newly released
+calculator, and then runs a separate explicit-legacy smoke. It also verifies
+every generated Blume page. Any cutover or verification failure automatically
+rolls back MCP first and docs second to the captured version IDs, confirms the
+previous health version, legacy BMI, and docs root, and fails the workflow. The
+GitHub release is created only after the full cutover succeeds.
+
+Cloudflare Workers Builds must remain disconnected from `main`. There must not
+be a second production path whose source and release state differ from the tag.
 
 For OpenAI plugin-domain verification, obtain the exact token from the plugin
 submission portal and install it without committing it:
@@ -133,16 +139,16 @@ exact release tag, then run:
 npm ci
 npm --prefix docs-site ci
 npm run check:release
-npm run deploy:worker
-npm --prefix docs-site run deploy
-npm run verify:production
+npm run deploy:production -- \
+  --tag "$(git describe --tags --exact-match)" \
+  --sha "$(git rev-parse HEAD)"
 ```
 
-The production verifier covers version, catalog, description, newly released
-calculation, evidence, and Blume-page parity. Also confirm that a disallowed
-browser origin receives 403, plaintext HTTP redirects with 308, HTTPS carries
-the HSTS header, a JSON-RPC batch receives 400/`-32600`, and no request body
-appears in Workers Logs.
+The coordinator performs the same upload-first cutover, continuous probes,
+production verification, and automatic rollback as the tagged workflow. Also
+confirm that a disallowed browser origin receives 403, plaintext HTTP redirects
+with 308, HTTPS carries the HSTS header, a JSON-RPC batch receives
+400/`-32600`, and no request body appears in Workers Logs.
 
 Record the deployed package version, Worker deployment or version identifier,
 UTC timestamp, commit, verification result, and previous deployable version in
@@ -150,12 +156,24 @@ the release notes or deployment record before announcing availability.
 
 ## Rollback
 
-Use Cloudflare Workers deployment history to roll back to the immediately prior
-verified deployment. After rollback, repeat the remote transport checks and
-confirm `/health` reports the expected package version. If a safe deployment is
-not available, remove the `mcp.oath.md` custom domain or disable the Worker until
-the issue is resolved. Do not silently serve a clinically changed contract under
-the same recorded release state.
+The deployment coordinator automatically rolls back a partial or failed
+cutover. It restores `oath-mcp` first and `oath-docs` second, confirms both
+captured version IDs are again receiving 100% of traffic, and then verifies the
+previous `/health` version, a legacy BMI calculation, and the docs root.
+
+If manual intervention is required, use the exact captured version IDs with
+these commands, again restoring MCP before docs. Set `MCP_VERSION_ID` and
+`DOCS_VERSION_ID` to the recorded values before running them:
+
+```bash
+npx wrangler rollback "$MCP_VERSION_ID" -y
+npx wrangler --cwd docs-site rollback "$DOCS_VERSION_ID" -y
+```
+
+Keep the existing routes and domains in place so the last verified version
+remains available. Treat an incomplete rollback as an incident, do not create
+or announce the GitHub release, and do not silently serve a clinically changed
+contract under the previous release state.
 
 ## Deployment record
 

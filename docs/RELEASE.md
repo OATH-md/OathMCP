@@ -137,14 +137,17 @@ production credentials are available.
 publisher. A `v*` tag runs these ordered jobs:
 
 1. Validate the exact tag with `npm run check:release`.
-2. Build both tagged Worker artifacts before changing production.
-3. Deploy `oath-mcp` and then the tagged Blume `oath-docs` Worker under one
-   protected-environment approval.
-4. Poll the live service until `/health` reports the tagged version.
+2. Confirm both Workers have exactly one version receiving 100% of traffic and
+   capture those version IDs plus the live `/health` version.
+3. Build and upload both tagged Worker versions without changing production
+   traffic.
+4. Start continuous probes, promote `oath-docs` directly to 100%, verify it,
+   and then promote `oath-mcp` directly to 100%. Never split MCP traffic.
 5. Open a modern-pinned `2026-07-28` client and compare every live
    `calc://<id>/evidence` resource with the attested catalog.
-6. Call `describe_calculator` for every calculator and calculate a source-linked
-   reference case for every calculator newly added since the prior attestation.
+6. Call `describe_calculator` for every calculator, exercise discovery, BMI and
+   panel calculation, and calculate a source-linked reference case for every
+   calculator newly added since the prior attestation.
 7. Open a separate explicit-legacy client and require the bounded
    list/resource/calculation smoke to pass.
 8. Fetch and verify one generated Blume page for every attested calculator.
@@ -152,9 +155,13 @@ publisher. A `v*` tag runs these ordered jobs:
 10. Attach the package tarball and both Cloudflare Worker version IDs to the
    GitHub release.
 
-Any failure prevents the GitHub release. Do not announce a calculator from a
-green build alone; the terminal state is the successful production-verification
-job and resulting GitHub release.
+Any partial cutover, failed availability probe, or production-verification
+failure rolls back MCP first and docs second to the captured version IDs. The
+workflow then confirms the previous health version, a legacy BMI calculation,
+and the docs root. A failed deployment or incomplete rollback prevents the
+GitHub release. Do not announce a calculator from a green build alone; the
+terminal state is the successful protected deployment job and resulting GitHub
+release.
 
 ## One-time production configuration
 
@@ -173,11 +180,10 @@ when creating and rotating the token.
 Protect `v*` tag creation with a repository ruleset so only release maintainers
 can start production, and keep the normal required checks on `main`.
 
-Disconnect the old Cloudflare Workers Builds connection from `main` after this
-tag workflow is merged and its credentials are tested. Production must have one
-owner: the tagged GitHub workflow. Leaving the old `main` trigger connected
-creates an ambiguous second path that either fails against an unreleased
-attestation or deploys source that has not completed the release workflow.
+Keep Cloudflare Workers Builds disconnected from `main`. Production must have
+one owner: the tagged GitHub workflow. Reconnecting a `main` trigger creates an
+ambiguous second path that either fails against an unreleased attestation or
+deploys source that has not completed the release workflow.
 
 The npm job is disabled unless repository variable
 `NPM_PUBLISH_ENABLED=true`. Enable it only after the `oath-mcp` package has an
@@ -190,21 +196,23 @@ token to the repository.
 Manual dispatch of the workflow runs release validation but never deploys;
 production jobs require an actual `v*` tag.
 
-Use direct Wrangler deployment only for recovery:
+Use the tested coordinator only for recorded recovery from an exact release
+tag:
 
 ```bash
 npm ci
 npm --prefix docs-site ci
 npm run check:release
-npm run deploy:worker
-npm --prefix docs-site run deploy
-npm run verify:production
+npm run deploy:production -- \
+  --tag "$(git describe --tags --exact-match)" \
+  --sha "$(git rev-parse HEAD)"
 ```
 
-Record the reason and both resulting Worker version IDs. If the second
-deployment or live verification fails after the first Worker changes, roll the
-changed Worker back to its immediately prior verified version and repeat live
-verification. See [Hosted Endpoint Operations](HOSTING.md).
+Record the reason, captured rollback baseline, and both resulting Worker version
+IDs. The coordinator uploads before cutover and automatically restores a failed
+deployment. If rollback needs manual intervention, restore MCP first and docs
+second to the captured version IDs and repeat the bounded rollback verification.
+See [Hosted Endpoint Operations](HOSTING.md).
 
 ## npm, license, and responsibility
 
