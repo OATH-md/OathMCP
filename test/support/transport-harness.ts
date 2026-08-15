@@ -12,6 +12,14 @@ import type { CatalogMode } from '../../src/server/build-tools.js';
 import { startHttpServer } from '../../src/server/http.js';
 import { connectInMemoryClient } from '../../src/server/in-memory-client.js';
 import worker from '../../src/server/worker.js';
+import {
+  MODERN_PROTOCOL_VERSION,
+  UNSUPPORTED_MODERN_PROTOCOL_VERSION,
+  modernJsonRpcRequest,
+  modernRequestHeaders,
+  type ProtocolEra,
+  versionNegotiationForEra,
+} from './protocol-fixtures.js';
 
 export type TransportKind = 'in-memory' | 'stdio' | 'http' | 'worker';
 
@@ -23,7 +31,10 @@ export interface TransportConnection {
 
 export interface HttpFaultContract {
   malformed: { status: number; body: string };
-  invalidVersion: { status: number; body: string };
+  unsupportedVersion: { status: number; body: string };
+  bodyHeaderMismatch: { status: number; body: string };
+  missingMethodHeader: { status: number; body: string };
+  missingNameHeader: { status: number; body: string };
 }
 
 export interface LoopbackHttpServer {
@@ -51,17 +62,25 @@ export async function startLoopbackHttp(options: {
 export async function connectTransport(
   kind: TransportKind,
   mode: CatalogMode = 'full',
+  era: ProtocolEra = 'legacy',
 ): Promise<TransportConnection> {
-  const client = new Client({ name: `transport-${kind}-${mode}`, version: '0.0.0' });
+  if (kind === 'in-memory' && era === 'modern') {
+    throw new Error('The in-memory transport is a legacy-only test surface.');
+  }
 
   if (kind === 'in-memory') {
-    const connection = await connectInMemoryClient(`transport-${kind}-${mode}`, { mode });
+    const connection = await connectInMemoryClient(`transport-${kind}-${mode}-${era}`, { mode });
     return {
       client: connection.client,
       stderr: () => '',
       close: connection.close,
     };
   }
+
+  const client = new Client(
+    { name: `transport-${kind}-${mode}-${era}`, version: '0.0.0' },
+    { versionNegotiation: versionNegotiationForEra(era) },
+  );
 
   if (kind === 'stdio') {
     const transport = new StdioClientTransport({
@@ -96,8 +115,20 @@ export async function connectTransport(
       client,
       stderr: () => '',
       close: async () => {
-        await client.close();
-        await server.close();
+        const failures: unknown[] = [];
+        try {
+          await client.close();
+        } catch (error) {
+          failures.push(error);
+        }
+        try {
+          await server.close();
+        } catch (error) {
+          failures.push(error);
+        }
+        if (failures.length > 0) {
+          throw new AggregateError(failures, 'Failed to close the HTTP transport connection.');
+        }
       },
     };
   }
@@ -129,14 +160,70 @@ export async function captureHttpFaultContract(
     headers: baseHeaders,
     body: '{"private":"patient-name"',
   }));
-  const invalidVersion = await send(new Request(endpoint, {
+  const unsupportedVersion = await send(new Request(endpoint, {
     method: 'POST',
-    headers: { ...baseHeaders, 'mcp-protocol-version': '1900-01-01' },
-    body: JSON.stringify({ jsonrpc: '2.0', id: 2, method: 'tools/list', params: {} }),
+    headers: {
+      ...baseHeaders,
+      ...modernRequestHeaders(
+        'tools/list',
+        undefined,
+        UNSUPPORTED_MODERN_PROTOCOL_VERSION,
+      ),
+    },
+    body: JSON.stringify(modernJsonRpcRequest('tools/list', {}, {
+      id: 2,
+      protocolVersion: UNSUPPORTED_MODERN_PROTOCOL_VERSION,
+    })),
+  }));
+  const bodyHeaderMismatch = await send(new Request(endpoint, {
+    method: 'POST',
+    headers: {
+      ...baseHeaders,
+      ...modernRequestHeaders(
+        'tools/list',
+        undefined,
+        UNSUPPORTED_MODERN_PROTOCOL_VERSION,
+      ),
+    },
+    body: JSON.stringify(modernJsonRpcRequest('tools/list', {}, { id: 3 })),
+  }));
+  const missingMethodHeader = await send(new Request(endpoint, {
+    method: 'POST',
+    headers: {
+      ...baseHeaders,
+      'MCP-Protocol-Version': MODERN_PROTOCOL_VERSION,
+    },
+    body: JSON.stringify(modernJsonRpcRequest('tools/list', {}, { id: 4 })),
+  }));
+  const missingNameHeader = await send(new Request(endpoint, {
+    method: 'POST',
+    headers: {
+      ...baseHeaders,
+      ...modernRequestHeaders('tools/call'),
+    },
+    body: JSON.stringify(modernJsonRpcRequest('tools/call', {
+      name: 'calculate_bmi',
+      arguments: { weight_kg: 70, height_cm: 170 },
+    }, { id: 5 })),
   }));
   return {
     malformed: { status: malformed.status, body: await malformed.text() },
-    invalidVersion: { status: invalidVersion.status, body: await invalidVersion.text() },
+    unsupportedVersion: {
+      status: unsupportedVersion.status,
+      body: await unsupportedVersion.text(),
+    },
+    bodyHeaderMismatch: {
+      status: bodyHeaderMismatch.status,
+      body: await bodyHeaderMismatch.text(),
+    },
+    missingMethodHeader: {
+      status: missingMethodHeader.status,
+      body: await missingMethodHeader.text(),
+    },
+    missingNameHeader: {
+      status: missingNameHeader.status,
+      body: await missingNameHeader.text(),
+    },
   };
 }
 
@@ -236,6 +323,7 @@ export async function captureTransportContract(
   }));
 
   return {
+    protocolEra: client.getProtocolEra(),
     serverVersion: client.getServerVersion(),
     capabilities: client.getServerCapabilities(),
     instructions: client.getInstructions(),

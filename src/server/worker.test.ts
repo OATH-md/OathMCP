@@ -14,6 +14,10 @@ import { describe, it, expect } from 'vitest';
 import {
   LEGACY_PROTOCOL_VERSION,
   MODERN_PROTOCOL_VERSION,
+  exchangeJsonRpc,
+  jsonRpcResult,
+  modernJsonRpcRequest,
+  modernRequestHeaders,
 } from '../../test/support/protocol-fixtures.js';
 import { loadSpecs, primeSpecs } from '../engine/index.js';
 import { SPEC_TEXTS, PKG_VERSION } from './spec-data.generated.js';
@@ -56,6 +60,17 @@ const initializeBody = JSON.stringify({
     clientInfo: { name: 'worker-test', version: '0.0.0' },
   },
 });
+
+function postRaw(
+  body: unknown,
+  headers: Record<string, string> = {},
+) {
+  return exchangeJsonRpc(
+    body,
+    (init) => worker.fetch(new Request('https://worker.example/mcp', init)),
+    headers,
+  );
+}
 
 describe('Worker Streamable HTTP transport', () => {
   it('redirects plaintext requests and applies HSTS to every HTTPS response', async () => {
@@ -182,6 +197,66 @@ describe('Worker Streamable HTTP transport', () => {
     }
   });
 
+  it('keeps raw legacy responses free of modern wire and session fields', async () => {
+    const initialized = await postRaw(JSON.parse(initializeBody));
+    expect(initialized.response.status).toBe(200);
+    expect(initialized.response.headers.get('mcp-session-id')).toBeNull();
+    expect(jsonRpcResult(initialized.message).protocolVersion).toBe(LEGACY_PROTOCOL_VERSION);
+
+    const listed = await postRaw({
+      jsonrpc: '2.0', id: 2, method: 'tools/list', params: {},
+    }, { 'MCP-Protocol-Version': LEGACY_PROTOCOL_VERSION });
+    const result = jsonRpcResult(listed.message);
+    expect(listed.response.status).toBe(200);
+    expect(listed.response.headers.get('mcp-session-id')).toBeNull();
+    expect(result).not.toHaveProperty('resultType');
+    expect(result).not.toHaveProperty('ttlMs');
+    expect(result).not.toHaveProperty('cacheScope');
+    expect(result).not.toHaveProperty('_meta');
+  });
+
+  it('serves raw modern discovery, lists, and a complete BMI call', async () => {
+    const modernPost = (
+      method: string,
+      params: Record<string, unknown>,
+      id: number,
+      name?: string,
+    ) => postRaw(
+      modernJsonRpcRequest(method, params, { id, clientName: 'raw-worker-modern' }),
+      modernRequestHeaders(method, name),
+    );
+
+    const discovered = await modernPost('server/discover', {}, 1);
+    expect(discovered.response.status).toBe(200);
+    expect(discovered.response.headers.get('mcp-session-id')).toBeNull();
+    expect(jsonRpcResult(discovered.message)).toMatchObject({
+      resultType: 'complete',
+      ttlMs: 0,
+      cacheScope: 'private',
+      supportedVersions: expect.arrayContaining([MODERN_PROTOCOL_VERSION]),
+    });
+
+    const listed = await modernPost('tools/list', {}, 2);
+    const listResult = jsonRpcResult(listed.message);
+    expect(listed.response.headers.get('mcp-session-id')).toBeNull();
+    expect(listResult).toMatchObject({
+      resultType: 'complete', ttlMs: 0, cacheScope: 'private',
+    });
+    expect((listResult.tools as { name: string }[]).map(({ name }) => name))
+      .toContain('calculate_bmi');
+
+    const called = await modernPost('tools/call', {
+      name: 'calculate_bmi',
+      arguments: { weight_kg: 70, height_cm: 170 },
+    }, 3, 'calculate_bmi');
+    const callResult = jsonRpcResult(called.message);
+    expect(called.response.headers.get('mcp-session-id')).toBeNull();
+    expect(callResult.resultType).toBe('complete');
+    expect(callResult.structuredContent).toMatchObject({
+      id: 'bmi', evidenceUri: 'calc://bmi/evidence',
+    });
+  });
+
   it('accepts the checked-in production documentation origin', async () => {
     const config = readFileSync(WRANGLER_CONFIG, 'utf8');
     const configuredOrigins = /"OATH_ALLOWED_ORIGINS"\s*:\s*"([^"]+)"/.exec(config)?.[1];
@@ -231,7 +306,11 @@ describe('Worker Streamable HTTP transport', () => {
   });
 
   it('rejects JSON-RPC batches and oversized requests before transport dispatch', async () => {
-    for (const body of ['[]', `[${initializeBody}]`]) {
+    for (const body of [
+      '[]',
+      `[${initializeBody}]`,
+      JSON.stringify([modernJsonRpcRequest('tools/list')]),
+    ]) {
       const response = await worker.fetch(new Request('https://worker.example/mcp', {
         method: 'POST',
         headers: {
@@ -349,7 +428,13 @@ describe('Worker Streamable HTTP transport', () => {
       body,
     }));
 
-    for (const body of ['{}', 'null', '42', '{"jsonrpc":"2.0","id":1,"method":42}']) {
+    for (const body of [
+      '{}',
+      'null',
+      '42',
+      '{"jsonrpc":"2.0","id":1,"method":42}',
+      JSON.stringify({ ...modernJsonRpcRequest('tools/list'), method: 42 }),
+    ]) {
       const response = await request(body);
       expect(response.status, body).toBe(400);
       await expect(response.json()).resolves.toMatchObject({ error: { code: -32600 } });

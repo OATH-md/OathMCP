@@ -8,9 +8,11 @@ import {
 const servers: LoopbackHttpServer[] = [];
 
 afterEach(async () => {
-  await Promise.allSettled(servers.splice(0).map(async (server) => {
-    await server.close();
-  }));
+  const results = await Promise.allSettled(servers.splice(0).map((server) => server.close()));
+  const failures = results.flatMap((result) => result.status === 'rejected' ? [result.reason] : []);
+  if (failures.length > 0) {
+    throw new AggregateError(failures, 'Failed to close loopback HTTP servers.');
+  }
 });
 
 async function url(): Promise<string> {
@@ -27,7 +29,17 @@ describe('loopback HTTP protocol faults', () => {
     expect(JSON.parse(contract.malformed.body)).toEqual({
       jsonrpc: '2.0', error: { code: -32700, message: 'Parse error' }, id: null,
     });
-    expect(contract.invalidVersion.status).toBe(400);
-    expect(contract.invalidVersion.body).toMatch(/Unsupported protocol version/i);
+    expect(contract.unsupportedVersion.status).toBe(400);
+    expect(JSON.parse(contract.unsupportedVersion.body)).toMatchObject({
+      error: { code: -32022, message: expect.stringMatching(/Unsupported protocol version/i) },
+    });
+    expect(contract.bodyHeaderMismatch.status).toBe(400);
+    expect(JSON.parse(contract.bodyHeaderMismatch.body)).toMatchObject({
+      error: { code: -32020, message: expect.stringMatching(/headers and body disagree/i) },
+    });
+    for (const missing of [contract.missingMethodHeader, contract.missingNameHeader]) {
+      expect(missing.status).toBe(400);
+      expect(JSON.parse(missing.body)).toMatchObject({ error: { code: -32020 } });
+    }
   });
 });

@@ -8,6 +8,10 @@ import {
 import {
   LEGACY_PROTOCOL_VERSION,
   MODERN_PROTOCOL_VERSION,
+  exchangeJsonRpc,
+  jsonRpcResult,
+  modernJsonRpcRequest,
+  modernRequestHeaders,
 } from '../../test/support/protocol-fixtures.js';
 import { startHttpServer } from './http.js';
 
@@ -52,6 +56,14 @@ function initializeRequest(origin?: string): RequestInit {
   };
 }
 
+function postRaw(
+  origin: string,
+  body: unknown,
+  headers: Record<string, string> = {},
+) {
+  return exchangeJsonRpc(body, (init) => fetch(`${origin}/mcp`, init), headers);
+}
+
 describe('Node Streamable HTTP transport', () => {
   it('accepts non-browser requests and an explicitly allowed exact Origin', async () => {
     const url = await start(new Set(['https://app.example']));
@@ -93,6 +105,86 @@ describe('Node Streamable HTTP transport', () => {
     } finally {
       await client.close();
     }
+  });
+
+  it('keeps raw legacy responses free of modern wire and session fields', async () => {
+    const url = await start();
+    const initialized = await postRaw(url, JSON.parse(initializeBody));
+    expect(initialized.response.status).toBe(200);
+    expect(initialized.response.headers.get('mcp-session-id')).toBeNull();
+    expect(jsonRpcResult(initialized.message).protocolVersion).toBe(LEGACY_PROTOCOL_VERSION);
+
+    const listed = await postRaw(url, {
+      jsonrpc: '2.0', id: 2, method: 'tools/list', params: {},
+    }, { 'MCP-Protocol-Version': LEGACY_PROTOCOL_VERSION });
+    const result = jsonRpcResult(listed.message);
+    expect(listed.response.status).toBe(200);
+    expect(listed.response.headers.get('mcp-session-id')).toBeNull();
+    expect(result).not.toHaveProperty('resultType');
+    expect(result).not.toHaveProperty('ttlMs');
+    expect(result).not.toHaveProperty('cacheScope');
+    expect(result).not.toHaveProperty('_meta');
+  });
+
+  it('serves raw modern discovery, schemas, and a complete BMI call', async () => {
+    const url = await start();
+    const modernPost = (
+      method: string,
+      params: Record<string, unknown>,
+      id: number,
+      name?: string,
+    ) => postRaw(
+      url,
+      modernJsonRpcRequest(method, params, { id, clientName: 'raw-http-modern' }),
+      modernRequestHeaders(method, name),
+    );
+
+    const discovered = await modernPost('server/discover', {}, 1);
+    expect(discovered.response.status).toBe(200);
+    expect(discovered.response.headers.get('mcp-session-id')).toBeNull();
+    expect(jsonRpcResult(discovered.message)).toMatchObject({
+      resultType: 'complete',
+      ttlMs: 0,
+      cacheScope: 'private',
+      supportedVersions: expect.arrayContaining([MODERN_PROTOCOL_VERSION]),
+    });
+
+    const listed = await modernPost('tools/list', {}, 2);
+    const listResult = jsonRpcResult(listed.message);
+    expect(listed.response.headers.get('mcp-session-id')).toBeNull();
+    expect(listResult).toMatchObject({
+      resultType: 'complete', ttlMs: 0, cacheScope: 'private',
+    });
+    const bmi = (listResult.tools as Record<string, unknown>[])
+      .find((tool) => tool.name === 'calculate_bmi');
+    expect(bmi).toBeDefined();
+    const input = bmi?.inputSchema as {
+      additionalProperties?: boolean;
+      properties?: Record<string, { description?: string }>;
+      allOf?: { anyOf?: { required?: string[] }[] }[];
+    };
+    const output = bmi?.outputSchema as { properties?: Record<string, unknown> };
+    expect(input.additionalProperties).toBe(false);
+    expect(input.properties?.weight_kg?.description).toBe('Body weight in kilograms.');
+    expect(input.properties?.weight?.description)
+      .toBe('Compatibility alias for weight_kg. Prefer weight_kg.');
+    expect(input.allOf?.[0]?.anyOf).toEqual(expect.arrayContaining([
+      { required: ['weight'] },
+      { required: ['weight_kg'] },
+    ]));
+    expect(output.properties).toHaveProperty('results');
+    expect(output.properties).toHaveProperty('evidenceUri');
+
+    const called = await modernPost('tools/call', {
+      name: 'calculate_bmi',
+      arguments: { weight_kg: 70, height_cm: 170 },
+    }, 3, 'calculate_bmi');
+    const callResult = jsonRpcResult(called.message);
+    expect(called.response.headers.get('mcp-session-id')).toBeNull();
+    expect(callResult.resultType).toBe('complete');
+    expect(callResult.structuredContent).toMatchObject({
+      id: 'bmi', evidenceUri: 'calc://bmi/evidence',
+    });
   });
 
   it('closes the HTTP owner idempotently before an asynchronous bind completes', async () => {
@@ -190,7 +282,11 @@ describe('Node Streamable HTTP transport', () => {
 
   it('rejects JSON-RPC batches and oversized requests before transport dispatch', async () => {
     const url = await start();
-    for (const body of ['[]', `[${initializeBody}]`]) {
+    for (const body of [
+      '[]',
+      `[${initializeBody}]`,
+      JSON.stringify([modernJsonRpcRequest('tools/list')]),
+    ]) {
       const response = await fetch(`${url}/mcp`, {
         method: 'POST',
         headers: {
@@ -231,7 +327,13 @@ describe('Node Streamable HTTP transport', () => {
       body,
     });
 
-    for (const body of ['{}', 'null', '42', '{"jsonrpc":"2.0","id":1,"method":42}']) {
+    for (const body of [
+      '{}',
+      'null',
+      '42',
+      '{"jsonrpc":"2.0","id":1,"method":42}',
+      JSON.stringify({ ...modernJsonRpcRequest('tools/list'), method: 42 }),
+    ]) {
       const response = await request(body);
       expect(response.status, body).toBe(400);
       await expect(response.json()).resolves.toMatchObject({ error: { code: -32600 } });
