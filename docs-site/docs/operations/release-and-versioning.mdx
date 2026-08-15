@@ -37,8 +37,10 @@ The tag-triggered workflow:
 3. promotes the Blume Worker and then the MCP Worker directly to 100% while
    continuously probing both surfaces;
 4. verifies the live version, catalog, evidence resources, BMI, a panel, newly added
-   calculator cases, and every generated calculator page; and
-5. creates the GitHub release only after production verification succeeds.
+   calculator cases, and every generated calculator page;
+5. publishes and verifies the scoped npm package from the same tag; and
+6. creates the GitHub release only after production and npm verification
+   succeed.
 
 Any partial deployment or failed verification automatically restores the prior
 MCP version first and the prior docs version second. Percentage-based canaries

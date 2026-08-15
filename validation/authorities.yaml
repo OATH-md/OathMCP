@@ -956,13 +956,13 @@ authorities:
     controllingClaimScope:
       - Altitude-to-barometric-pressure conversion
     approvalStatus: reviewed primary or responsible-authority source
-    versionMethod: Stable PMID, DOI, document version, and exact locator checked
+    versionMethod: Official page identity and exact equation locator checked
     currentnessMethod: Check correction, retraction, supersession, and current page annually
-    version: Metric atmosphere page checked 2026-07-16
-    checkedAt: 2026-07-16
-    reviewBy: 2027-07-16
+    version: Earth Atmosphere Equation - Metric page checked 2026-08-15
+    checkedAt: 2026-08-15
+    reviewBy: 2027-08-15
     discoveryOnly: false
-    url: https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/atmosmet508.html
+    url: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/earth-atmosphere-equation-metric/
   - id: oi_rawat_2015
     name: Rawat neonatal OSI derivation study
     sourceRole: derivation

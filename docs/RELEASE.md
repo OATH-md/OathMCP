@@ -54,12 +54,12 @@ currentness review, then run:
 npm ci
 npm --prefix docs-site ci
 npm run release:prepare -- \
-  --version 0.2.0 \
+  --version 0.2.1 \
   --reviewer "<reviewer identity>" \
   --reviewer-time-zone "Asia/Riyadh" \
   --checked-at YYYY-MM-DD \
   --network-checked-at YYYY-MM-DD \
-  --summary "Added <calculator> and its generated Blume reference." \
+  --summary "Summarize the public release changes." \
   --confirm-currentness
 npm --prefix docs-site run generate
 ```
@@ -126,8 +126,8 @@ git pull --ff-only
 npm ci
 npm --prefix docs-site ci
 npm run check:release
-git tag -a v0.2.0 -m "OathMCP 0.2.0"
-git push origin v0.2.0
+git tag -a v0.2.1 -m "OathMCP 0.2.1"
+git push origin v0.2.1
 ```
 
 The tag must be annotated, equal `v` plus the package version, and point to a
@@ -197,12 +197,12 @@ token to the repository. The GitHub release remains withheld until the registry
 reports the exact package version, tag commit, latest dist-tag, tarball, and
 integrity and a clean registry consumer passes.
 
-The first publication is the one exception because npm requires a package to
-exist before trusted publishing can be configured. After the tagged Workers are
-verified, leave the `npm-publish` job awaiting review, publish the exact tag
-interactively with account 2FA, configure the trusted publisher, disallow
-traditional publish tokens, and only then approve the pending job. All later
-tags publish through OIDC.
+The first publication (`0.2.1`) is the one exception because npm requires a
+package to exist before trusted publishing can be configured. After the tagged
+Workers are verified, leave the `npm-publish` job awaiting review, publish the
+exact tag interactively with account 2FA, configure the trusted publisher,
+disallow traditional publish tokens, and only then approve the pending job. All
+later tags publish through OIDC.
 
 ## Manual readiness and recovery
 
@@ -244,8 +244,9 @@ hosted MCP service, and Blume documentation.
 
 The [live service metadata](https://mcp.oath.md/health) is the source of truth
 for the deployed version, and [GitHub Releases](https://github.com/OATH-md/OathMCP/releases)
-identifies its exact tag and source. The `0.2.0` attestation covers the
-40-calculator catalog, including FIB-4. It becomes an official hosted release
-only after the tag workflow verifies both production Workers and creates the
-matching GitHub release. The `0.2.0` package was not published to npm; mandatory
-registry publication begins with the next tagged release.
+identifies its exact tag and source. The npm registry is the source of truth for
+the scoped package. The `0.2.1` attestation covers the 40-calculator catalog,
+including FIB-4. Treat `0.2.1` as released only when the tag workflow has
+verified both production Workers, verified `@oath-md/oath-mcp@0.2.1`, and
+created the matching GitHub release. The historical `0.2.0` package was not
+published to npm.

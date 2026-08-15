@@ -24,13 +24,14 @@ policies, or local protocols.
 The hosted MCP and Blume documentation are published together from one verified
 `v*` tag. Check the [live service metadata](https://mcp.oath.md/health) for the
 deployed version and [GitHub Releases](https://github.com/OATH-md/OathMCP/releases)
-for its exact source and release notes. The `0.2.0` attestation covers all 40
+for its exact source and release notes. The `0.2.1` attestation covers all 40
 calculators, including FIB-4, and the release supports modern MCP protocol
 `2026-07-28` while retaining the documented stateless legacy era.
 
-npm publication remains disabled for `0.2.0`. A hosted release does not imply
-that the same version is available from the registry; use the reviewed source
-checkout for local stdio until an npm release is explicitly announced.
+The first public npm package is
+[`@oath-md/oath-mcp@0.2.1`](https://www.npmjs.com/package/@oath-md/oath-mcp/v/0.2.1).
+The hosted MCP, Blume documentation, npm package, and GitHub release are
+verified from the same tagged commit.
 
 All 40 calculator dossiers and all four review groups currently derive
 `scenario_verified`, and the ordinary acceptance, transport, compatibility,
@@ -43,7 +44,8 @@ source-derived cases through the engine, full MCP tool, and compact MCP tool.
 It does not mean regulatory approval, guarantee suitability for an individual
 patient, or remove clinician discretion.
 
-- [0.2.0 release attestation](validation/releases/0.2.0.yaml)
+- [0.2.1 release attestation](validation/releases/0.2.1.yaml)
+- [npm package](https://www.npmjs.com/package/@oath-md/oath-mcp)
 - [GitHub releases](https://github.com/OATH-md/OathMCP/releases)
 - [Live service metadata](https://mcp.oath.md/health)
 - [Release process](docs/RELEASE.md)
@@ -78,9 +80,33 @@ Configure an MCP-compatible client to run the built stdio server:
 
 ### npm package
 
-npm publication is deferred for the hosted `0.2.0` release. Until a registry
-release is explicitly announced, use the source checkout for stdio or the
-official hosted endpoint for Streamable HTTP.
+Run the exact reviewed release as a local stdio MCP server:
+
+```json
+{
+  "mcpServers": {
+    "oath": {
+      "command": "npx",
+      "args": ["-y", "@oath-md/oath-mcp@0.2.1"]
+    }
+  }
+}
+```
+
+For programmatic use, install the same exact version and import the public
+engine or MCP server entrypoint:
+
+```bash
+npm install --save-exact @oath-md/oath-mcp@0.2.1
+```
+
+```ts
+import { run } from '@oath-md/oath-mcp';
+import { buildServer } from '@oath-md/oath-mcp/server';
+```
+
+The installed executable remains `oath-mcp`; only the npm package and import
+scope are namespaced.
 
 ## Remote deployment
 

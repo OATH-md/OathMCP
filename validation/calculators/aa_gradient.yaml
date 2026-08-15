@@ -98,8 +98,8 @@ searchRecords:
           steady_state_rq_0_8_age_reference_altitude_adjusted
         translationExposed: false
         filters: []
-        coverageTo: 2026-07-16
-        searchedAt: 2026-07-16
+        coverageTo: 2026-08-15
+        searchedAt: 2026-08-15
         reviewer: OathMCP clinical search lane
         recordsRetrieved: 0
         stableCitationIds:
@@ -198,15 +198,15 @@ claims:
       - sourceId: aa_helmholz_1979
         locator: Helmholz 1979, abbreviated alveolar air equation, p. 748.
       - sourceId: aa_nasa_atmosphere
-        locator: NASA metric atmosphere model, troposphere lines 7-12 defining T=15.04-.00649h and
+        locator: NASA Earth Atmosphere Equation - Metric, troposphere model defining T=15.04-.00649h and
           p=101.29*((T+273.1)/288.08)^5.256 for altitude below 11,000 m.
     executable: true
     scenarioIds:
       - case:aa_gradient:ref-1
       - case:aa_gradient:ref-2
       - case:aa_gradient:ref-3
-    reviewedAt: 2026-07-16
-    reviewBy: 2027-07-16
+    reviewedAt: 2026-08-15
+    reviewBy: 2027-08-15
   - id: claim:aa_gradient:applicability-purpose
     kind: applicability
     statement: Compute the alveolar-arterial oxygen gradient and the age-expected gradient to evaluate the
@@ -423,15 +423,15 @@ claims:
       - aa_nasa_atmosphere
     locators:
       - sourceId: aa_nasa_atmosphere
-        locator: NASA metric atmosphere model, troposphere lines 7-12 defining altitude h in metres and the
+        locator: NASA Earth Atmosphere Equation - Metric, troposphere model defining altitude h in metres and the
           corresponding pressure curve fit.
     executable: true
     scenarioIds:
       - case:aa_gradient:ref-1
       - case:aa_gradient:ref-2
       - case:aa_gradient:ref-3
-    reviewedAt: 2026-07-16
-    reviewBy: 2027-07-16
+    reviewedAt: 2026-08-15
+    reviewBy: 2027-08-15
   - id: claim:aa_gradient:input-altitude-hard_limits
     kind: input
     statement: OathMCP rejects Altitude outside [0,9000] as a conservative operational envelope, not a clinical cutoff.

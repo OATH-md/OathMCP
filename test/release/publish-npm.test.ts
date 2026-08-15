@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi } from 'vitest';
 
 import {
@@ -7,9 +8,9 @@ import {
 } from '../../scripts/release/publish-npm.mjs';
 
 const PACKAGE_NAME = '@oath-md/oath-mcp';
-const VERSION = '0.2.0';
+const VERSION = (JSON.parse(readFileSync('package.json', 'utf8')) as { version: string }).version;
 const SHA = 'a'.repeat(40);
-const TARBALL = 'https://registry.npmjs.org/@oath-md/oath-mcp/-/oath-mcp-0.2.0.tgz';
+const TARBALL = `https://registry.npmjs.org/@oath-md/oath-mcp/-/oath-mcp-${VERSION}.tgz`;
 const INTEGRITY = `sha512-${Buffer.from('integrity').toString('base64')}`;
 
 function packument({

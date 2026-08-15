@@ -42,8 +42,8 @@ evidence:
     type: reference
     citation: National Aeronautics and Space Administration. Metric
       standard-atmosphere barometric relationship for the troposphere.
-    locator: url:https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/atmosmet508.html
-    url: https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/atmosmet508.html
+    locator: url:https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/earth-atmosphere-equation-metric/
+    url: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/earth-atmosphere-equation-metric/
     reviewed: true
 inputs:
   pao2:
