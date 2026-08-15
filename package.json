@@ -74,7 +74,7 @@
     "start:stdio": "node dist/server/stdio.js",
     "start:http": "node dist/server/http.js",
     "types:worker": "wrangler types src/server/worker-configuration.d.ts --strict-vars false",
-    "check:worker": "npm run build && wrangler types src/server/worker-configuration.d.ts --strict-vars false --check && wrangler deploy --dry-run",
+    "check:worker": "npm run build && wrangler types src/server/worker-configuration.d.ts --strict-vars false --check && node scripts/check-worker-bundle.mjs",
     "check:deploy": "npm run check:release && wrangler types src/server/worker-configuration.d.ts --strict-vars false --check && wrangler deploy --dry-run",
     "deploy:worker": "npm run check:deploy && wrangler deploy"
   },

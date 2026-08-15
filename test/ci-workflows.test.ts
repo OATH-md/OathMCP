@@ -23,9 +23,13 @@ function loadWorkflow(path: string): Workflow {
   return YAML.parse(readFileSync(path, 'utf8')) as Workflow;
 }
 
-function runCommands(workflow: Workflow): string[] {
-  return Object.values(workflow.jobs)
-    .flatMap((job) => job.steps ?? [])
+function runCommands(workflow: Workflow, jobName?: string): string[] {
+  const job = jobName === undefined ? undefined : workflow.jobs[jobName];
+  const jobs = jobName === undefined
+    ? Object.values(workflow.jobs)
+    : job === undefined ? [] : [job];
+  return jobs
+    .flatMap((entry) => entry.steps ?? [])
     .flatMap((step) => step.run === undefined ? [] : [step.run]);
 }
 
@@ -35,20 +39,25 @@ describe('GitHub workflow boundaries', () => {
 
     expect(workflow.on.push?.branches).toEqual(['main']);
     expect(Object.hasOwn(workflow.on, 'pull_request')).toBe(true);
-    expect(runCommands(workflow)).toContain('npm run check');
+    expect(runCommands(workflow, 'check')).toEqual(expect.arrayContaining([
+      'npm run check',
+      'npm run check:worker',
+    ]));
     expect(runCommands(workflow)).not.toContain('npm run check:clinical-release');
-    expect(runCommands(workflow.jobs.docs === undefined
-      ? { ...workflow, jobs: {} }
-      : { ...workflow, jobs: { docs: workflow.jobs.docs } })).toContain('npm run check');
+    expect(runCommands(workflow, 'docs')).toContain('npm run check');
   });
 
   it('validates, deploys both Workers, verifies production, and publishes only from version tags', () => {
     const workflow = loadWorkflow('.github/workflows/release-readiness.yml');
     const commands = runCommands(workflow);
+    const validateReleaseCommands = runCommands(workflow, 'validate-release');
 
     expect(workflow.on.push?.tags).toEqual(['v*']);
     expect(Object.hasOwn(workflow.on, 'workflow_dispatch')).toBe(true);
-    expect(commands).toContain('npm run check:release');
+    expect(validateReleaseCommands).toEqual(expect.arrayContaining([
+      'npm run check:release',
+      'npm run check:worker',
+    ]));
     expect(commands).toContain('npm run verify:production');
     expect(commands.some((command) => command.includes('npm publish --access public'))).toBe(true);
     expect(commands.some((command) => command.includes('npm run check:release-metadata -- --tag'))).toBe(true);
@@ -57,6 +66,7 @@ describe('GitHub workflow boundaries', () => {
     expect(commands.some((command) => command.includes('gh release create'))).toBe(true);
 
     expect(workflow.jobs['deploy-production']?.if).toContain("refs/tags/v");
+    expect(workflow.jobs['deploy-production']?.needs).toBe('validate-release');
     expect(workflow.jobs['verify-production']?.needs).toBe('deploy-production');
     expect(workflow.jobs['publish-npm']?.if).toContain('NPM_PUBLISH_ENABLED');
     expect(workflow.jobs['deploy-production']?.environment).toMatchObject({ name: 'production' });

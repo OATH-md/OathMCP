@@ -52,12 +52,32 @@ The Worker additionally redirects plaintext HTTP to the identical HTTPS URL,
 adds `Strict-Transport-Security: max-age=31536000; includeSubDomains` to every
 HTTPS response, cancels request streams as soon as they exceed 100 KiB, and
 rejects JSON-RPC batches because Streamable HTTP carries exactly one MCP message
-per POST. MCP responses use `Cache-Control: no-store`; the stateless transport
-returns JSON rather than opening an SSE stream.
+per POST. MCP responses use `Cache-Control: no-store`.
 
 The application does not log inputs, request bodies, calculated values, patient
 data, or error payload contents. Cloudflare platform metadata may still be
 processed under the Cloudflare account and its configured observability policy.
+
+## Protocol compatibility
+
+The stdio, Node HTTP, and Worker entrypoints share one MCP SDK v2 implementation
+that serves modern protocol `2026-07-28` and the supported stateless legacy era.
+Each HTTP request creates a fresh MCP server; no MCP session or Durable Object
+holds protocol state between requests.
+
+Modern HTTP messages carry protocol version and client capability metadata;
+client identity metadata may also be present. Clients mirror routing through
+`MCP-Protocol-Version`, `Mcp-Method`, and, where applicable, `Mcp-Name`. Browser
+preflight allows `Accept`, `Content-Type`, and those three MCP headers. MCP responses retain
+`Cache-Control: no-store`. The SDK selects JSON for complete non-streaming
+exchanges and request-scoped SSE when required; neither response form changes
+the service's stateless ownership model.
+
+Around February 2027 is the earliest evidence review date for legacy support,
+not a scheduled protocol cutoff. Legacy removal requires a later announced
+breaking release, at least two successful modern OathMCP releases, support in
+the major documented clients, consistently green modern-first production
+verification, and advance deprecation notice.
 
 ## Tagged production deployment
 

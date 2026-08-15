@@ -7,11 +7,28 @@ OathMCP supports stdio, stateless Streamable HTTP, and Cloudflare Workers. MCP
 SDK imports remain confined to the server boundary; calculation behavior is
 shared with the pure engine.
 
-The official Worker:
+All three entrypoints use one MCP SDK v2 implementation to serve modern protocol
+`2026-07-28` and the supported stateless legacy era. Every HTTP request receives
+a fresh MCP server; no persistent MCP session is retained.
 
-- returns JSON rather than holding an SSE stream;
+Modern HTTP messages include protocol/client metadata and mirror routing through
+`MCP-Protocol-Version`, `Mcp-Method`, and, when applicable, `Mcp-Name` headers.
+Browser preflights allow `Accept`, `Content-Type`, and those three MCP headers.
+The SDK selects JSON for complete non-streaming exchanges and request-scoped SSE
+when required; both remain request-scoped and use `Cache-Control: no-store`.
+
+The official Worker additionally:
+
 - accepts one MCP JSON-RPC message per POST and rejects JSON-RPC batches;
-- uses `Cache-Control: no-store` for MCP responses;
 - rejects request bodies over 100 KiB;
 - redirects plaintext HTTP to HTTPS and sends HSTS on HTTPS responses; and
 - applies a per-client rate limit at the public edge.
+
+Around February 2027 is only OathMCP's earliest evidence review date for legacy
+support, not a protocol cutoff. Removal requires a later announced breaking
+release after two successful modern releases, support in the major documented
+clients, consistently green modern-first production verification, and advance
+deprecation notice.
+
+Clinical and deployment responsibilities remain defined by
+[Responsible use](/responsible-use).

@@ -8,7 +8,18 @@ interface PackManifest {
 }
 
 interface PackageJson {
+  bundledDependencies?: string[];
+  bundleDependencies?: string[];
+  dependencies: Record<string, string>;
+  devDependencies: Record<string, string>;
   exports: Record<string, string>;
+  optionalDependencies?: Record<string, string>;
+  overrides?: Record<string, unknown>;
+  peerDependencies?: Record<string, string>;
+}
+
+interface PackageLock {
+  packages: Record<string, unknown>;
 }
 
 describe('published package manifest', () => {
@@ -52,10 +63,45 @@ describe('published package manifest', () => {
     ]) expect(files).toContain(publicDocument);
 
     const packageJson = JSON.parse(readFileSync('package.json', 'utf8')) as PackageJson;
+    expect(packageJson.dependencies).toMatchObject({
+      '@modelcontextprotocol/express': '^2.0.0',
+      '@modelcontextprotocol/node': '^2.0.0',
+      '@modelcontextprotocol/server': '^2.0.0',
+    });
+    expect(packageJson.devDependencies['@modelcontextprotocol/client']).toBe('^2.0.0');
+    for (const runtimeDependencies of [
+      packageJson.dependencies,
+      packageJson.optionalDependencies ?? {},
+      packageJson.peerDependencies ?? {},
+    ]) {
+      expect(runtimeDependencies).not.toHaveProperty('@modelcontextprotocol/client');
+      expect(runtimeDependencies).not.toHaveProperty('@modelcontextprotocol/sdk');
+    }
+    for (const dependencySurface of [packageJson.dependencies, packageJson.devDependencies]) {
+      expect(dependencySurface).not.toHaveProperty('@modelcontextprotocol/sdk');
+    }
+    for (const bundled of [
+      packageJson.bundledDependencies ?? [],
+      packageJson.bundleDependencies ?? [],
+    ]) {
+      expect(bundled).not.toContain('@modelcontextprotocol/client');
+      expect(bundled).not.toContain('@modelcontextprotocol/sdk');
+    }
+    expect(packageJson.overrides ?? {}).not.toHaveProperty('@hono/node-server');
+    const packageLock = JSON.parse(readFileSync('package-lock.json', 'utf8')) as PackageLock;
+    expect(Object.keys(packageLock.packages).some((path) =>
+      path === 'node_modules/@modelcontextprotocol/sdk'
+      || path.endsWith('/node_modules/@modelcontextprotocol/sdk'))).toBe(false);
     expect(packageJson.exports).toEqual({
       '.': './dist/engine/index.js',
       './server': './dist/server/mcp.js',
     });
+
+    for (const internalHelper of [
+      'in-memory-client', 'compatibility', 'validation-case-runner',
+    ]) {
+      expect(files.some((path) => path.startsWith(`dist/server/${internalHelper}.`))).toBe(false);
+    }
 
     const packedFiles = new Set(files);
     const markdownLink = /!?\[[^\]]*\]\((<[^>]+>|[^)\s]+)(?:\s+"[^"]*")?\)/g;

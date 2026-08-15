@@ -36,6 +36,7 @@ jobs:
       - if: startsWith(github.ref, 'refs/tags/v')
         run: npm run check:release-metadata -- --tag "$GITHUB_REF_NAME"
       - run: npm run check:release
+      - run: npm run check:worker
 
   deploy-production:
     if: startsWith(github.ref, 'refs/tags/v')

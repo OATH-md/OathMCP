@@ -27,6 +27,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
+      - run: npm run check:worker
 
   windows-portability:
     runs-on: windows-latest
