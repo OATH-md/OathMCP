@@ -12,8 +12,10 @@
  * `buildServer()`. Regenerate that module with `npm run gen:specs` (runs
  * automatically on `npm run build`).
  */
-import { WebStandardStreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js';
-import { JSONRPCMessageSchema } from '@modelcontextprotocol/sdk/types.js';
+import {
+  parseJSONRPCMessage,
+  WebStandardStreamableHTTPServerTransport,
+} from '@modelcontextprotocol/server';
 import { primeSpecs } from '../engine/index.js';
 import { buildServer, catalogMode } from './build-tools.js';
 import { originRejection, parseAllowedOrigins } from './origin.js';
@@ -314,7 +316,9 @@ async function handleRequest(request: Request, env: WorkerEnv): Promise<Response
           400,
         ), origin, origins);
       }
-      if (!JSONRPCMessageSchema.safeParse(parsedBody).success) {
+      try {
+        parseJSONRPCMessage(parsedBody);
+      } catch {
         return withCors(jsonResponse(
           { jsonrpc: '2.0', error: { code: -32600, message: 'Invalid Request' }, id: null },
           400,

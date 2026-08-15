@@ -3,6 +3,15 @@ import { executeValidationCases } from '../validation/case-runner.js';
 import { ValidationDossierSchema } from '../validation/schema.js';
 import { createValidationCaseRunner, throwClinicalSurfaceFailure } from './validation-case-runner.js';
 
+function thrownBy(operation: () => never): unknown {
+  try {
+    operation();
+  } catch (error) {
+    return error;
+  }
+  throw new Error('Expected operation to throw.');
+}
+
 describe('production validation case runner', () => {
   it('executes engine, full direct MCP, and compact MCP with exact parity', async () => {
     const dossier = ValidationDossierSchema.parse({
@@ -162,5 +171,37 @@ describe('production validation case runner', () => {
     });
     expect(() => throwClinicalSurfaceFailure('bmi', { height_cm: 170 }, driftedPayload))
       .toThrow('drifted public message');
+
+    const wrongTool = new Error(
+      'Input validation error: Invalid arguments for tool calculate_gfr: height_cm: Invalid input: expected number, received undefined',
+    );
+    expect(() => throwClinicalSurfaceFailure('bmi', { weight_kg: 70 }, wrongTool))
+      .toThrow('Invalid arguments for tool calculate_gfr');
+  });
+
+  it('normalizes v2 humanized and dotted Standard Schema paths', () => {
+    expect(thrownBy(() => throwClinicalSurfaceFailure(
+      'bmi',
+      { weight_kg: 70 },
+      new Error('Input validation error: Invalid arguments for tool calculate_bmi: height_cm: Invalid input: expected number, received undefined'),
+    ))).toMatchObject({ code: 'MISSING_REQUIRED', field: 'height_cm' });
+
+    expect(thrownBy(() => throwClinicalSurfaceFailure(
+      'bmi',
+      { weight_kg: 0.4, height_cm: 170 },
+      new Error('Input validation error: Invalid arguments for tool calculate_bmi: weight_kg: Too small: expected number to be >=0.5'),
+    ))).toMatchObject({ code: 'OUT_OF_HARD_LIMITS', field: 'weight_kg' });
+
+    expect(thrownBy(() => throwClinicalSurfaceFailure(
+      'gfr',
+      { creatinine: { value: 1, unit: 'bogus' }, age: 60, sex: 'male' },
+      new Error('Input validation error: Invalid arguments for tool calculate_gfr: creatinine.unit: Expected one of: mg/dL | umol/L'),
+    ))).toMatchObject({ code: 'UNKNOWN_UNIT', field: 'creatinine' });
+
+    expect(thrownBy(() => throwClinicalSurfaceFailure(
+      'gfr',
+      { creatinine: { value: 0, unit: 'mg/dL' }, age: 60, sex: 'male' },
+      new Error('Input validation error: Invalid arguments for tool calculate_gfr: creatinine.value: Expected 0.01–60 mg/dL'),
+    ))).toMatchObject({ code: 'OUT_OF_HARD_LIMITS', field: 'creatinine' });
   });
 });

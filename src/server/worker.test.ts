@@ -10,13 +10,13 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { describe, it, expect } from 'vitest';
-import { LATEST_PROTOCOL_VERSION } from '@modelcontextprotocol/sdk/types.js';
 import { loadSpecs, primeSpecs } from '../engine/index.js';
 import { SPEC_TEXTS, PKG_VERSION } from './spec-data.generated.js';
 import worker from './worker.js';
 
 const SPECS_DIR = join(dirname(fileURLToPath(import.meta.url)), '../../specs');
 const WRANGLER_CONFIG = join(SPECS_DIR, '../wrangler.jsonc');
+const LEGACY_PROTOCOL_VERSION = '2025-11-25';
 
 describe('spec-data.generated.ts', () => {
   it('matches specs/*.yaml exactly (run `npm run gen:specs` if this fails)', () => {
@@ -47,7 +47,7 @@ const initializeBody = JSON.stringify({
   id: 1,
   method: 'initialize',
   params: {
-    protocolVersion: LATEST_PROTOCOL_VERSION,
+    protocolVersion: LEGACY_PROTOCOL_VERSION,
     capabilities: {},
     clientInfo: { name: 'worker-test', version: '0.0.0' },
   },

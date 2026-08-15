@@ -1,10 +1,10 @@
 import { spawn } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { LATEST_PROTOCOL_VERSION } from '@modelcontextprotocol/sdk/types.js';
 import { afterEach, describe, expect, it } from 'vitest';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
+const LEGACY_PROTOCOL_VERSION = '2025-11-25';
 const children: ReturnType<typeof spawn>[] = [];
 
 afterEach(() => {
@@ -99,7 +99,7 @@ describe('spawned stdio framing', () => {
       id: 1,
       method: 'initialize',
       params: {
-        protocolVersion: LATEST_PROTOCOL_VERSION,
+        protocolVersion: LEGACY_PROTOCOL_VERSION,
         capabilities: {},
         clientInfo: { name: 'raw-stdio-test', version: '0.0.0' },
       },

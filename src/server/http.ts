@@ -2,9 +2,9 @@
 import http from 'node:http';
 import { pathToFileURL } from 'node:url';
 import express from 'express';
-import { createMcpExpressApp } from '@modelcontextprotocol/sdk/server/express.js';
-import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
-import { JSONRPCMessageSchema } from '@modelcontextprotocol/sdk/types.js';
+import { createMcpExpressApp } from '@modelcontextprotocol/express';
+import { NodeStreamableHTTPServerTransport } from '@modelcontextprotocol/node';
+import { parseJSONRPCMessage } from '@modelcontextprotocol/server';
 import { buildServer, catalogMode, type CatalogMode } from './build-tools.js';
 import { originRejection, parseAllowedOrigins } from './origin.js';
 import {
@@ -30,8 +30,13 @@ const methodNotAllowed = (_req: express.Request, res: express.Response): void =>
 
 export function createHttpApp(options: HttpServerOptions): express.Express {
   const app = express();
-  const mcpApp = createMcpExpressApp({ host: options.host });
   const allowedOrigins = options.allowedOrigins ?? new Set<string>();
+  const allowedOriginHostnames = [...allowedOrigins]
+    .map((origin) => new URL(origin).hostname);
+  const mcpApp = createMcpExpressApp({
+    host: options.host,
+    ...(allowedOriginHostnames.length === 0 ? {} : { allowedOrigins: allowedOriginHostnames }),
+  });
 
   // This parent middleware runs before the SDK app's JSON parser and host
   // validation, so hostile browser requests are rejected before body parsing.
@@ -140,7 +145,9 @@ export function createHttpApp(options: HttpServerOptions): express.Express {
         });
         return;
       }
-      if (!JSONRPCMessageSchema.safeParse(req.body).success) {
+      try {
+        parseJSONRPCMessage(req.body);
+      } catch {
         res.status(400).json({
           jsonrpc: '2.0',
           error: { code: -32600, message: 'Invalid Request' },
@@ -149,7 +156,7 @@ export function createHttpApp(options: HttpServerOptions): express.Express {
         return;
       }
       const server = buildServer({ mode: options.mode ?? 'full' });
-      const transport = new StreamableHTTPServerTransport({
+      const transport = new NodeStreamableHTTPServerTransport({
         sessionIdGenerator: undefined,
         enableJsonResponse: true,
       });

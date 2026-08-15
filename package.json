@@ -13,6 +13,9 @@
   "files": [
     "dist",
     "!dist/cli",
+    "!dist/server/in-memory-client.*",
+    "!dist/server/compatibility.*",
+    "!dist/server/validation-case-runner.*",
     "specs",
     "validation",
     "templates",
@@ -76,12 +79,15 @@
     "deploy:worker": "npm run check:deploy && wrangler deploy"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@modelcontextprotocol/express": "^2.0.0",
+    "@modelcontextprotocol/node": "^2.0.0",
+    "@modelcontextprotocol/server": "^2.0.0",
     "express": "^4",
     "yaml": "^2.9.0",
     "zod": "^4.4.0"
   },
   "devDependencies": {
+    "@modelcontextprotocol/client": "^2.0.0",
     "@types/express": "^4.17.21",
     "@types/node": "^22",
     "fast-check": "^4.9.0",
@@ -89,8 +95,5 @@
     "typescript": "^5",
     "vitest": "^3",
     "wrangler": "^4.113.0"
-  },
-  "overrides": {
-    "@hono/node-server": "2.0.11"
   }
 }

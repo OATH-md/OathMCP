@@ -1,7 +1,6 @@
 import { readdir, readFile } from "node:fs/promises";
 import { resolve, relative, sep } from "node:path";
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
-import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
+import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/client";
 import YAML from "yaml";
 
 const root = resolve(import.meta.dirname, "../..");

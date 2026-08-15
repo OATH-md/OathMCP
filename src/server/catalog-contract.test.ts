@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { ProtocolError, ProtocolErrorCode } from '@modelcontextprotocol/client';
 import { convert, loadSpec } from '../engine/index.js';
 import type { InputSpec } from '../engine/index.js';
 import { connectTestClient } from '../../test/support/mcp-client.js';
@@ -48,9 +49,9 @@ const CALCULATOR_IDS = [
 ] as const;
 
 const DISPATCH_TOOLS = [
-  'calculate_panel',
-  'describe_calculator',
   'find_calculator',
+  'describe_calculator',
+  'calculate_panel',
 ] as const;
 const PROMPT_IDS = ['abg', 'csf', 'hepb'] as const;
 
@@ -76,6 +77,18 @@ function promptArgument(input: InputSpec, raw: unknown): string {
   return String(raw);
 }
 
+async function expectInvalidPromptArguments(operation: Promise<unknown>): Promise<void> {
+  let caught: unknown;
+  try {
+    await operation;
+  } catch (error) {
+    caught = error;
+  }
+  expect(caught).toBeInstanceOf(ProtocolError);
+  expect(caught).toMatchObject({ code: ProtocolErrorCode.InvalidParams });
+  expect((caught as Error).message).toMatch(/Invalid (?:params|arguments)/i);
+}
+
 describe('MCP catalog contract', () => {
   it('publishes concise clinical-use instructions at initialization', async () => {
     const client = await connectTestClient('catalog-instructions-test');
@@ -93,23 +106,26 @@ describe('MCP catalog contract', () => {
       client.listPrompts(),
       client.listResources(),
     ]);
+    const [{ tools: repeatedTools }, { prompts: repeatedPrompts }, { resources: repeatedResources }] =
+      await Promise.all([
+        client.listTools(),
+        client.listPrompts(),
+        client.listResources(),
+      ]);
 
     expect(tools).toHaveLength(43);
     expect(prompts).toHaveLength(3);
     expect(resources).toHaveLength(41);
 
-    expect(tools.map((tool) => tool.name).sort()).toEqual(
-      [
-        ...CALCULATOR_IDS.map((id) => `calculate_${id}`),
-        ...DISPATCH_TOOLS,
-      ].sort(),
-    );
-    expect(prompts.map((prompt) => prompt.name).sort()).toEqual(
-      PROMPT_IDS.map((id) => `interpret_${id}`).sort(),
-    );
-    expect(resources.map((resource) => resource.uri).sort()).toEqual(
-      [...CALCULATOR_IDS.map((id) => `calc://${id}/evidence`), 'oath://responsible-use'].sort(),
-    );
+    const toolNames = [...CALCULATOR_IDS.map((id) => `calculate_${id}`), ...DISPATCH_TOOLS];
+    const promptNames = PROMPT_IDS.map((id) => `interpret_${id}`);
+    const resourceUris = [...CALCULATOR_IDS.map((id) => `calc://${id}/evidence`), 'oath://responsible-use'];
+    expect(tools.map((tool) => tool.name)).toEqual(toolNames);
+    expect(prompts.map((prompt) => prompt.name)).toEqual(promptNames);
+    expect(resources.map((resource) => resource.uri)).toEqual(resourceUris);
+    expect(repeatedTools.map((tool) => tool.name)).toEqual(toolNames);
+    expect(repeatedPrompts.map((prompt) => prompt.name)).toEqual(promptNames);
+    expect(repeatedResources.map((resource) => resource.uri)).toEqual(resourceUris);
 
     for (const tool of tools) {
       expect(tool.inputSchema.type, tool.name).toBe('object');
@@ -259,28 +275,28 @@ describe('MCP catalog contract', () => {
 
   it('rejects blank/bad prompt values as invalid params and completes closed choices', async () => {
     const client = await connectTestClient('catalog-prompt-validation-test');
-    await expect(client.getPrompt({
+    await expectInvalidPromptArguments(client.getPrompt({
       name: 'interpret_abg',
       arguments: {
         ph: ' ', paco2: '40', bicarbonate: '24', sodium: '140', chloride: '104',
       },
-    })).rejects.toThrow(/-32602|Invalid params/i);
-    await expect(client.getPrompt({
+    }));
+    await expectInvalidPromptArguments(client.getPrompt({
       name: 'interpret_abg',
       arguments: {
         ph: 'not-a-number', paco2: '40', bicarbonate: '24', sodium: '140', chloride: '104',
       },
-    })).rejects.toThrow(/-32602|Invalid params/i);
-    await expect(client.getPrompt({
+    }));
+    await expectInvalidPromptArguments(client.getPrompt({
       name: 'interpret_abg',
       arguments: {
         ph: '7.4', paco2: '40', bicarbonate: '24', sodium: '140', chloride: '104', venous_sample: 'maybe',
       },
-    })).rejects.toThrow(/-32602|Invalid params/i);
-    await expect(client.getPrompt({
+    }));
+    await expectInvalidPromptArguments(client.getPrompt({
       name: 'interpret_hepb',
       arguments: { hbsag: 'maybe', anti_hbc_total: 'negative', anti_hbs: 'negative' },
-    })).rejects.toThrow(/-32602|Invalid params/i);
+    }));
 
     const completion = await client.complete({
       ref: { type: 'ref/prompt', name: 'interpret_abg' },

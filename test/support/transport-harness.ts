@@ -3,12 +3,11 @@ import type { AddressInfo } from 'node:net';
 import { once } from 'node:events';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { Client } from '@modelcontextprotocol/sdk/client/index.js';
+import { Client, StreamableHTTPClientTransport } from '@modelcontextprotocol/client';
 import {
   getDefaultEnvironment,
   StdioClientTransport,
-} from '@modelcontextprotocol/sdk/client/stdio.js';
-import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
+} from '@modelcontextprotocol/client/stdio';
 import type { CatalogMode } from '../../src/server/build-tools.js';
 import { startHttpServer } from '../../src/server/http.js';
 import { connectInMemoryClient } from '../../src/server/in-memory-client.js';

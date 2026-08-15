@@ -1,8 +1,9 @@
 import http, { type Server } from 'node:http';
 import { once } from 'node:events';
-import { LATEST_PROTOCOL_VERSION } from '@modelcontextprotocol/sdk/types.js';
 import { afterEach, describe, expect, it } from 'vitest';
 import { startLoopbackHttp } from '../../test/support/transport-harness.js';
+
+const LEGACY_PROTOCOL_VERSION = '2025-11-25';
 
 const servers: Server[] = [];
 
@@ -24,7 +25,7 @@ const initializeBody = JSON.stringify({
   id: 1,
   method: 'initialize',
   params: {
-    protocolVersion: LATEST_PROTOCOL_VERSION,
+    protocolVersion: LEGACY_PROTOCOL_VERSION,
     capabilities: {},
     clientInfo: { name: 'http-test', version: '0.0.0' },
   },
