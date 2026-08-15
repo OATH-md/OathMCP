@@ -194,8 +194,10 @@ It uses the separately protected `npm-publish` environment and a
 [trusted publisher](https://docs.npmjs.com/trusted-publishers/) bound to this
 exact workflow. Trusted publishing uses GitHub OIDC; never add a long-lived npm
 token to the repository. The GitHub release remains withheld until the registry
-reports the exact package version, tag commit, latest dist-tag, tarball, and
-integrity and a clean registry consumer passes.
+reports the exact package version, latest dist-tag, and tarball integrity that
+matches a dry-run pack of the exact tag, and a clean registry consumer passes.
+If npm reports optional `gitHead` metadata, it must also match the tag commit;
+the registry does not guarantee that field for every publication.
 
 The first publication (`0.2.1`) is the one exception because npm requires a
 package to exist before trusted publishing can be configured. After the tagged
@@ -246,7 +248,7 @@ The [live service metadata](https://mcp.oath.md/health) is the source of truth
 for the deployed version, and [GitHub Releases](https://github.com/OATH-md/OathMCP/releases)
 identifies its exact tag and source. The npm registry is the source of truth for
 the scoped package. The `0.2.1` attestation covers the 40-calculator catalog,
-including FIB-4. Treat `0.2.1` as released only when the tag workflow has
+including FIB-4. Treat `0.2.1` as released only when the release process has
 verified both production Workers, verified `@oath-md/oath-mcp@0.2.1`, and
 created the matching GitHub release. The historical `0.2.0` package was not
 published to npm.
