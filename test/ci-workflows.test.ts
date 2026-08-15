@@ -19,6 +19,7 @@ interface Workflow {
     if?: string;
     needs?: string | string[];
     environment?: string | { name?: string; url?: string };
+    strategy?: { matrix?: { 'node-version'?: number[] } };
     'timeout-minutes'?: number;
     steps?: Array<{ run?: string }>;
   }>;
@@ -50,6 +51,8 @@ describe('GitHub workflow boundaries', () => {
     ]));
     expect(runCommands(workflow)).not.toContain('npm run check:clinical-release');
     expect(runCommands(workflow, 'docs')).toContain('npm run check');
+    expect(workflow.jobs['package-consumer']?.strategy?.matrix?.['node-version']).toEqual([22, 24]);
+    expect(runCommands(workflow, 'package-consumer')).toContain('npm run check:package-consumer');
   });
 
   it('validates, deploys both Workers, verifies production, and publishes only from version tags', () => {
@@ -69,7 +72,7 @@ describe('GitHub workflow boundaries', () => {
       'npm run check:worker',
     ]));
     expect(commands.some((command) => command.includes('npm run deploy:production'))).toBe(true);
-    expect(commands.some((command) => command.includes('npm publish --access public'))).toBe(true);
+    expect(commands.some((command) => command.includes('npm run publish:npm'))).toBe(true);
     expect(commands.some((command) => command.includes('npm run check:release-metadata -- --tag'))).toBe(true);
     expect(commands.some((command) => command.includes('git merge-base --is-ancestor'))).toBe(true);
     expect(commands.some((command) => command.includes('npx wrangler deploy'))).toBe(false);
@@ -84,7 +87,16 @@ describe('GitHub workflow boundaries', () => {
     expect(workflow.jobs['deploy-production']?.needs).toBe('validate-release');
     expect(workflow.jobs['verify-production']).toBeUndefined();
     expect(workflow.jobs['publish-npm']?.needs).toBe('deploy-production');
-    expect(workflow.jobs['publish-npm']?.if).toContain('NPM_PUBLISH_ENABLED');
+    expect(workflow.jobs['publish-npm']?.if).not.toContain('NPM_PUBLISH_ENABLED');
+    expect(workflow.jobs['publish-npm']?.environment).toBe('npm-publish');
+    expect(workflow.jobs['rollback-after-npm-failure']?.needs).toEqual([
+      'deploy-production',
+      'publish-npm',
+    ]);
+    expect(runCommands(workflow, 'rollback-after-npm-failure'))
+      .toEqual(expect.arrayContaining([expect.stringContaining('npm run rollback:production')]));
+    expect(runCommands(workflow, 'publish-github-release'))
+      .toEqual(expect.arrayContaining([expect.stringContaining('PACKAGE_TARBALL')]));
     expect(workflow.jobs['deploy-production']?.environment).toMatchObject({ name: 'production' });
     expect(workflow.jobs['deploy-production']?.['timeout-minutes']).toBeGreaterThanOrEqual(45);
   });

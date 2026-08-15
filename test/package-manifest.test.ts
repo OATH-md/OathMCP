@@ -8,6 +8,7 @@ interface PackManifest {
 }
 
 interface PackageJson {
+  name: string;
   bundledDependencies?: string[];
   bundleDependencies?: string[];
   dependencies: Record<string, string>;
@@ -16,6 +17,7 @@ interface PackageJson {
   optionalDependencies?: Record<string, string>;
   overrides?: Record<string, unknown>;
   peerDependencies?: Record<string, string>;
+  publishConfig?: { access?: string; registry?: string };
 }
 
 interface PackageLock {
@@ -63,6 +65,11 @@ describe('published package manifest', () => {
     ]) expect(files).toContain(publicDocument);
 
     const packageJson = JSON.parse(readFileSync('package.json', 'utf8')) as PackageJson;
+    expect(packageJson.name).toBe('@oath-md/oath-mcp');
+    expect(packageJson.publishConfig).toEqual({
+      access: 'public',
+      registry: 'https://registry.npmjs.org/',
+    });
     expect(packageJson.dependencies).toMatchObject({
       '@modelcontextprotocol/express': '^2.0.0',
       '@modelcontextprotocol/node': '^2.0.0',

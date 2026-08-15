@@ -8,6 +8,7 @@ import {
   deployProduction,
   parseActiveVersion,
   parseUploadedVersionId,
+  restoreProduction,
   runWranglerCommand,
 } from '../../scripts/release/deploy-production.mjs';
 
@@ -248,6 +249,31 @@ describe('rollback-safe production deployment', () => {
     const harness = createHarness({ splitMcp: true });
     await expect(execute(harness)).rejects.toThrow('exactly one active production version');
     expect(harness.events.some((event) => event.includes(':versions upload'))).toBe(false);
+  });
+
+  it('restores both captured Workers after a later npm publication failure', async () => {
+    const harness = createHarness();
+    harness.active.mcp = UPLOADED.mcp;
+    harness.active.docs = UPLOADED.docs;
+    await restoreProduction({
+      tag: 'v0.2.0',
+      sha: SHA,
+      mcpVersionId: PREVIOUS.mcp,
+      docsVersionId: PREVIOUS.docs,
+      expectedVersion: '0.1.0',
+    }, {
+      runWrangler: harness.runWrangler,
+      verifyRollbackImpl: harness.verifyRollbackImpl,
+      log: vi.fn(),
+    });
+    const rollbacks = harness.events.filter((event) => event.includes(':rollback '));
+    expect(rollbacks).toEqual([
+      expect.stringContaining(`mcp:rollback ${PREVIOUS.mcp}`),
+      expect.stringContaining(`docs:rollback ${PREVIOUS.docs}`),
+    ]);
+    expect(harness.verifyRollbackImpl).toHaveBeenCalledWith(expect.objectContaining({
+      expectedVersion: '0.1.0',
+    }));
   });
 });
 

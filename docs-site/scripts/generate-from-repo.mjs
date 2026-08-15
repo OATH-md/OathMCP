@@ -21,8 +21,8 @@ for (const path of [
 }
 
 const packageJson = JSON.parse(await readFile(join(repositoryRoot, "package.json"), "utf8"));
-if (packageJson.name !== "oath-mcp") {
-  throw new Error(`Expected the docs site inside the oath-mcp repository: ${repositoryRoot}`);
+if (packageJson.name !== "@oath-md/oath-mcp") {
+  throw new Error(`Expected the docs site inside the OathMCP repository: ${repositoryRoot}`);
 }
 
 const canonical = await readFile(responsibleUsePath, "utf8");

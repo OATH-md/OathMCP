@@ -14,7 +14,7 @@ draft
   -> MCP Worker
   -> Blume docs Worker
   -> live catalog/docs verification
-  -> optional npm publication
+  -> required npm publication
   -> GitHub release
 ```
 
@@ -154,7 +154,8 @@ publisher. A `v*` tag runs these ordered jobs:
 7. Open a separate explicit-legacy client and require the bounded
    list/resource/calculation smoke to pass.
 8. Fetch and verify one generated Blume page for every attested calculator.
-9. Optionally publish the npm package through trusted publishing.
+9. Publish the npm package through trusted publishing and verify a clean
+   registry consumer before the GitHub release is created.
 10. Attach the package tarball and both Cloudflare Worker version IDs to the
    GitHub release.
 
@@ -188,11 +189,20 @@ one owner: the tagged GitHub workflow. Reconnecting a `main` trigger creates an
 ambiguous second path that either fails against an unreleased attestation or
 deploys source that has not completed the release workflow.
 
-The npm job is disabled unless repository variable
-`NPM_PUBLISH_ENABLED=true`. Enable it only after the `oath-mcp` package has an
-[npm trusted publisher](https://docs.npmjs.com/trusted-publishers/) bound to this
-exact workflow. Trusted publishing uses GitHub OIDC; do not add a long-lived npm
-token to the repository.
+The npm job is mandatory for release tags and runs only after production passes.
+It uses the separately protected `npm-publish` environment and a
+[trusted publisher](https://docs.npmjs.com/trusted-publishers/) bound to this
+exact workflow. Trusted publishing uses GitHub OIDC; never add a long-lived npm
+token to the repository. The GitHub release remains withheld until the registry
+reports the exact package version, tag commit, latest dist-tag, tarball, and
+integrity and a clean registry consumer passes.
+
+The first publication is the one exception because npm requires a package to
+exist before trusted publishing can be configured. After the tagged Workers are
+verified, leave the `npm-publish` job awaiting review, publish the exact tag
+interactively with account 2FA, configure the trusted publisher, disallow
+traditional publish tokens, and only then approve the pending job. All later
+tags publish through OIDC.
 
 ## Manual readiness and recovery
 
@@ -219,7 +229,7 @@ See [Hosted Endpoint Operations](HOSTING.md).
 
 ## npm, license, and responsibility
 
-Before enabling npm publication, confirm the package name, public access,
+Before npm publication, confirm the scoped package name, public access,
 Apache-2.0 identity, `NOTICE`, package contents, and trusted-publisher binding.
 The package `prepublishOnly` hook repeats metadata, ordinary acceptance, and the
 clinical release gate.
@@ -237,4 +247,5 @@ for the deployed version, and [GitHub Releases](https://github.com/OATH-md/OathM
 identifies its exact tag and source. The `0.2.0` attestation covers the
 40-calculator catalog, including FIB-4. It becomes an official hosted release
 only after the tag workflow verifies both production Workers and creates the
-matching GitHub release. npm publication remains disabled.
+matching GitHub release. The `0.2.0` package was not published to npm; mandatory
+registry publication begins with the next tagged release.

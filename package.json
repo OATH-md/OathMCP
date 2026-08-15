@@ -1,5 +1,5 @@
 {
-  "name": "oath-mcp",
+  "name": "@oath-md/oath-mcp",
   "version": "0.2.0",
   "description": "Agent-native MCP server for evidence-backed clinical calculators.",
   "license": "Apache-2.0",
@@ -8,7 +8,7 @@
     "node": ">=22"
   },
   "bin": {
-    "oath-mcp": "./dist/server/stdio.js"
+    "oath-mcp": "dist/server/stdio.js"
   },
   "files": [
     "dist",
@@ -42,6 +42,10 @@
   "bugs": {
     "url": "https://github.com/OATH-md/OathMCP/issues"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "mcp",
     "clinical-calculators",
@@ -62,12 +66,16 @@
     "check:clinical-release": "npm run validate:clinical -- --require-source-verified --require-scenario-verified --release-attestation auto",
     "release:prepare": "tsx src/cli/index.ts prepare-release",
     "check:release-metadata": "node scripts/release/check-metadata.mjs",
-    "check:release": "npm run check:release-metadata && npm run check && npm run check:clinical-release && npm --prefix docs-site run check && npm pack --dry-run",
+    "check:release": "npm run check:release-metadata && npm run check && npm run check:clinical-release && npm --prefix docs-site run check && npm run check:package-consumer && npm pack --dry-run",
     "deploy:production": "node scripts/release/deploy-production.mjs",
+    "rollback:production": "node scripts/release/rollback-production.mjs",
     "verify:production": "node scripts/release/verify-production.mjs",
+    "publish:npm": "node scripts/release/publish-npm.mjs",
+    "verify:npm-package": "node scripts/release/verify-package-consumer.mjs",
     "check:package": "vitest run test/package-manifest.test.ts",
+    "check:package-consumer": "node scripts/release/verify-package-consumer.mjs",
     "check": "npm run check:generated && npm run lint:specs && npm run validate:clinical -- --require-scenario-verified && npm run typecheck && npm run build && npm run test:run && npm run check:package",
-    "prepublishOnly": "npm run check:release-metadata && npm run check && npm run check:clinical-release",
+    "prepublishOnly": "npm run check:release-metadata && npm run check && npm run check:clinical-release && npm run check:package-consumer",
     "typecheck": "tsc -p tsconfig.test.json",
     "test": "npm run build && npm run test:run",
     "test:run": "vitest run --exclude test/package-manifest.test.ts",

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Stdio entry — the `oath-mcp` bin, for local clients
- * (`npx oath-mcp` / `{ command, args }` client configs).
+ * (`npx @oath-md/oath-mcp` / `{ command, args }` client configs).
  */
 import { serveStdio } from '@modelcontextprotocol/server/stdio';
 import { buildServer, catalogMode } from './build-tools.js';
