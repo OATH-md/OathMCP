@@ -39,6 +39,7 @@ npm run validate:clinical -- --group formula_unit_dosing
 npm run validate:clinical -- --require-source-verified
 npm run validate:clinical -- --require-scenario-verified
 npm run check:clinical-release
+npm run check:release
 ```
 
 `npm run check` requires catalog-wide `scenario_verified` state. Publication is
@@ -46,10 +47,13 @@ additionally blocked by `check:clinical-release` and `prepublishOnly` unless the
 package-version attestation, source versions, review chronology, currentness,
 and unresolved-change state all pass.
 
-Pull-request CI runs the ordinary acceptance gate without a historical release
-attestation. The separate release-readiness workflow runs manually or for a
-`v*` tag and requires `check:clinical-release`, so unreleased catalog work does
-not rewrite prior release evidence while publication remains blocked.
+Pull-request CI runs the ordinary acceptance and generated Blume documentation
+gates without comparing unreleased work with a historical release attestation.
+A maintainer later runs `npm run release:prepare -- ...` to create a new,
+package-versioned attestation after the required currentness review. The
+tag-triggered release workflow then requires `check:release`, deploys both
+official Workers from the same commit, and verifies the live MCP catalog and
+generated Blume pages before publication is considered complete.
 
 No test or CI command fetches mutable clinical sources. Reviewed searches,
 locators, expected cases, and release attestations are checked in. Networked

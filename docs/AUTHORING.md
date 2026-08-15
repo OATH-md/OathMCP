@@ -132,16 +132,37 @@ MCP cases, and tested without registering it globally.
 failure writes no live candidate files. A successful run installs the strict
 spec, typed compute, dossier, catalog membership, and generated artifacts.
 
+## 6. Generate the Blume documentation
+
+Every calculator pull request must include its generated Blume reference page.
+Assign the calculator to exactly one category in
+`docs-site/scripts/generate-calculators.mjs`, then run:
+
+```bash
+npm --prefix docs-site run generate
+npm --prefix docs-site run check
+```
+
+Commit the category assignment and generated `docs-site/docs/calculators/**`
+changes with the calculator. The docs check derives the live calculator count,
+requires exactly one generated page for every spec, and fails on an unassigned,
+missing, duplicate, or stale page. Do not hand-author the generated calculator
+page.
+
+Contributor CI runs both `npm run check` and the Blume check. A merged
+calculator is therefore locally complete and documented, but it is still
+unreleased until a maintainer prepares and tags a version through
+[`RELEASE.md`](RELEASE.md).
+
 ## Release and later corrections
 
 `npm run check` is the non-network acceptance gate. Publication additionally
-runs `npm run check:clinical-release`, which requires current complete searches,
-claim-level source verification, passing source-derived scenarios, and
-`validation/releases/<package-version>.yaml` matching the package, catalog,
-source versions/content hashes, dates, reviewer, currentness, and unresolved
-change state. This is an implementation and release-integrity gate, not a
-separate credential or transfer of clinical responsibility. Public releases and
-deployments must carry `docs/RESPONSIBLE_USE.md`.
+runs `npm run check:release`, which requires current complete searches,
+claim-level source verification, passing source-derived scenarios, a
+package-version attestation, generated Blume parity, a package dry run, and the
+ordinary acceptance suite. This is an implementation and release-integrity
+gate, not a separate credential or transfer of clinical responsibility. Public
+releases and deployments must carry `docs/RESPONSIBLE_USE.md`.
 
 When a user reports a clinical issue, trace it to the exact claim and source,
 refresh the governing evidence when needed, correct the spec/compute/dossier,

@@ -10,6 +10,7 @@ import {
   validateReleaseSourceCurrentness,
   validateReleaseSourceVersions,
 } from './release-attestation.js';
+import { deriveReleaseRequirements } from './release-requirements.js';
 import { deriveGroupReadiness, deriveReviewStateWithIssues } from './state.js';
 import type {
   CalculatorValidationReport,
@@ -29,6 +30,11 @@ export {
   validateReleaseSourceCurrentness,
   validateReleaseSourceVersions,
 } from './release-attestation.js';
+export {
+  deriveReleaseRequirements,
+  releaseAttestationInventory,
+  type ReleaseRequirements,
+} from './release-requirements.js';
 export { requiredSourceBundle, validateSearchRecord } from './search-policy.js';
 export { validateDossierIntegrity } from './integrity.js';
 export { deriveGroupReadiness, deriveReviewState } from './state.js';
@@ -149,35 +155,10 @@ export async function validateClinicalCatalog(
     const expected = new Set(catalogIds);
     for (const id of expected) if (!attested.has(id)) errors.push(error('release.missing_calculator', `release attestation omits ${id}`, id));
     for (const id of attested) if (!expected.has(id)) errors.push(error('release.unknown_calculator', `release attestation includes unknown ${id}`, id));
-    const requiredByCalculator = new Map<string, ReadonlyMap<string, string>>();
-    const checkedAtByCalculator = new Map<string, ReadonlyMap<string, string>>();
-    const reviewedAtByCalculator = new Map<string, ReadonlyMap<string, string>>();
-    for (const id of catalogIds) {
-      const dossier = dossiers.get(id);
-      if (dossier === undefined) continue;
-      const requiredSourceIds = new Set([
-        ...dossier.authoritySourceIds,
-        ...dossier.searchRecords.flatMap((record) => record.screenedCitations
-          .filter((citation) => citation.disposition === 'included')
-          .map((citation) => citation.citationId)),
-      ]);
-      const requiredSources = new Map<string, string>();
-      const checkedSources = new Map<string, string>();
-      for (const sourceId of requiredSourceIds) {
-        const source = authorities.get(sourceId);
-        if (source !== undefined) {
-          requiredSources.set(sourceId, source.version);
-          checkedSources.set(sourceId, source.checkedAt);
-        }
-      }
-      requiredByCalculator.set(id, requiredSources);
-      checkedAtByCalculator.set(id, checkedSources);
-      reviewedAtByCalculator.set(id, new Map(dossier.claims.flatMap((claim) =>
-        claim.reviewedAt === undefined ? [] : [[claim.id, claim.reviewedAt] as const])));
-    }
-    errors.push(...validateReleaseSourceVersions(options.releaseAttestation, requiredByCalculator));
-    errors.push(...validateReleaseSourceCurrentness(options.releaseAttestation, checkedAtByCalculator));
-    errors.push(...validateReleaseReviewCurrentness(options.releaseAttestation, reviewedAtByCalculator));
+    const requirements = deriveReleaseRequirements(catalog, dossiers, authorities);
+    errors.push(...validateReleaseSourceVersions(options.releaseAttestation, requirements.requiredByCalculator));
+    errors.push(...validateReleaseSourceCurrentness(options.releaseAttestation, requirements.checkedAtByCalculator));
+    errors.push(...validateReleaseReviewCurrentness(options.releaseAttestation, requirements.reviewedAtByCalculator));
   }
   return { ok: errors.length === 0, requestedGate, calculatorReports, groupReports, errors, warnings: [] };
 }

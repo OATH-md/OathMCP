@@ -98,7 +98,17 @@ New work uses a staged promotion workflow. See [`docs/AUTHORING.md`](docs/AUTHOR
 2. Complete the draft spec, standalone typed compute, reproducible search, claims, and source-derived cases under `drafts/calculators/<id>/`.
 3. Run `npm run check:calculator -- --id <id>`.
 4. Run `npm run promote:calculator -- --id <id>`; promotion writes live files and generated artifacts only after isolated compile, engine, MCP, source, and scenario gates pass.
-5. Run `npm run check` and inspect the MCP surface. User-created drafts are excluded from runtime loading, normal generation, CI, and packaging.
+5. Assign the calculator to a Blume category, run
+   `npm --prefix docs-site run generate`, and commit its generated reference
+   page.
+6. Run `npm run check`, inspect the MCP surface, and run
+   `npm --prefix docs-site run check`. User-created drafts are excluded from
+   runtime loading, normal generation, CI, and packaging.
+
+Merging a calculator does not publish it. Maintainers use the versioned,
+tag-driven workflow in [`docs/RELEASE.md`](docs/RELEASE.md) to refresh the
+release attestation, deploy both the MCP and Blume Workers, and verify the live
+catalog and generated documentation.
 
 `src/server/build-tools.ts` derives the `calculate_<id>` tool, the
 `evidence_<id>` resource, and (if the spec has a `prompt` block) the

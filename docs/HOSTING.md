@@ -59,25 +59,34 @@ The application does not log inputs, request bodies, calculated values, patient
 data, or error payload contents. Cloudflare platform metadata may still be
 processed under the Cloudflare account and its configured observability policy.
 
-## Continuous deployment
+## Tagged production deployment
 
-The official Worker is connected directly to the
-`OATH-md/OathMCP` GitHub repository through Cloudflare Workers Builds. A push
-to `main` starts the production pipeline. Non-production branch builds and
-preview URLs remain disabled.
+The official Workers deploy from the exact `v*` Git tag through
+`.github/workflows/release-readiness.yml`. A push to `main` is an accepted but
+unreleased catalog change; it never proves or initiates a production release.
 
-Cloudflare installs dependencies, runs the configured build command, and only
-deploys when it succeeds:
+The workflow first runs:
 
 ```bash
-npm run check:deploy
+npm run check:release
 ```
 
-That gate runs the complete repository acceptance suite, the clinical-release
-attestation, generated Worker type verification, and a Wrangler dry run. The
-separate Workers Builds deploy command is `npx wrangler deploy`, using the
-checked-in `wrangler.jsonc`. Cloudflare manages the deployment credential; the
-repository does not contain a Cloudflare token.
+That gate verifies release metadata, ordinary repository acceptance, the
+package-version clinical attestation, the complete Blume site, and the package
+tarball. Only then can the protected `production` environment expose its
+least-privilege Cloudflare credential.
+
+The workflow builds both Worker artifacts before changing production, then
+deploys `oath-mcp` followed by `oath-docs` from the same tagged checkout under
+one protected-environment approval. Its production verifier polls `/health`,
+compares the complete live evidence-resource catalog with the release
+attestation, describes every calculator, calculates a source-linked case for
+each newly released calculator, and verifies every generated Blume page. The
+GitHub release is created only after those live checks pass.
+
+Cloudflare Workers Builds must be disconnected from `main` after the tagged
+workflow is configured. There must not be a second production path whose source
+and release state differ from the tag.
 
 For OpenAI plugin-domain verification, obtain the exact token from the plugin
 submission portal and install it without committing it:
@@ -90,31 +99,30 @@ Verify that `/.well-known/openai-apps-challenge` returns only the token, with no
 JSON wrapper or additional text. Remove or rotate the secret when OpenAI issues
 a replacement challenge.
 
-GitHub Actions remains an independent pull-request and push signal. Cloudflare
-does not depend on that separate workflow finishing because it repeats the
-release gates itself before production deployment.
-
-The `oath-docs` Worker is connected to the same repository with `docs-site` as
-its Workers Builds root directory. Its build command is `npm run check`, its
-deploy command is `npx wrangler deploy`, and its watch paths cover `docs-site/`
-plus the repository-root specs, validation data, generated assurance state, and
-Responsible Use notice listed in `docs-site/README.md`.
+GitHub pull-request CI remains an independent acceptance signal. It validates
+the current catalog and generated Blume content without rewriting a historical
+release attestation or deploying either Worker.
 
 ## Manual deploy and verification
 
-Use this only as a documented recovery path when Workers Builds is unavailable.
-Authenticate Wrangler to the intended account, then run:
+Use this only as a documented recovery path when the tagged workflow is
+unavailable. Authenticate Wrangler to the intended account and check out the
+exact release tag, then run:
 
 ```bash
 npm ci
+npm --prefix docs-site ci
+npm run check:release
 npm run deploy:worker
+npm --prefix docs-site run deploy
+npm run verify:production
 ```
 
-After deployment, verify `/health`, `/responsible-use`, MCP initialization, tool
-listing, calculator discovery, and at least one deterministic calculation through
-the real remote transport. Confirm that a disallowed browser origin receives
-403, plaintext HTTP redirects with 308, HTTPS carries the HSTS header, a JSON-RPC
-batch receives 400/`-32600`, and no request body appears in Workers Logs.
+The production verifier covers version, catalog, description, newly released
+calculation, evidence, and Blume-page parity. Also confirm that a disallowed
+browser origin receives 403, plaintext HTTP redirects with 308, HTTPS carries
+the HSTS header, a JSON-RPC batch receives 400/`-32600`, and no request body
+appears in Workers Logs.
 
 Record the deployed package version, Worker deployment or version identifier,
 UTC timestamp, commit, verification result, and previous deployable version in

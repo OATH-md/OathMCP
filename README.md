@@ -21,13 +21,14 @@ policies, or local protocols.
 
 ## Release status
 
-Version `0.1.0` is the planned first open-source release and is not yet
+Version `0.1.0` is the latest tagged production release and is not yet
 published to npm.
 All 40 calculator dossiers and all four review groups currently derive
 `scenario_verified`, and the ordinary acceptance, transport, compatibility,
 and package gates pass. The checked-in `0.1.0` release attestation covers the
-prior 39-calculator catalog; a fresh attestation is required before the current
-catalog can pass the clinical-release gate.
+prior 39-calculator catalog. FIB-4 is merged and documented on `main` but
+requires the next versioned release before it appears on the official MCP and
+Blume site.
 
 In OathMCP, `scenario_verified` has a precise repository meaning: the implemented
 model and its declared population, variant, inputs, outputs, warnings,
@@ -125,12 +126,16 @@ method on that path.
 
 Deploy to Workers only after reviewing [Responsible Use](docs/RESPONSIBLE_USE.md),
 the security and privacy boundary, and the release checklist. The official
-Worker uses Cloudflare Workers Builds: a push to `main` runs `npm run
-check:deploy`, then deploys with the checked-in `wrangler.jsonc` only if that
-gate succeeds. For a manual recovery deployment:
+MCP and Blume Workers deploy from one exact `v*` tag only after
+`npm run check:release` passes; the workflow then verifies the live catalog,
+new-calculator execution, and every generated calculator page before creating
+the GitHub release. For a manual recovery deployment:
 
 ```bash
+npm run check:release
 npm run deploy:worker
+npm --prefix docs-site run deploy
+npm run verify:production
 ```
 
 The official documentation is available at `https://mcp.oath.md/docs/`, and the
@@ -260,9 +265,11 @@ revalidated the underlying clinical instrument.
 ```bash
 npm run check                   # complete acceptance gate
 npm run check:clinical-release  # source, scenario, currentness, and attestation gate
+npm run check:release           # exact version, Blume, package, and release gate
 npm run new:calculator -- --id example --archetype formula
 npm run check:calculator -- --id example
 npm run promote:calculator -- --id example
+npm --prefix docs-site run generate
 npm run lint:specs
 npm run typecheck
 npm run test

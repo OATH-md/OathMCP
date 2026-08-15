@@ -1,4 +1,6 @@
 import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { parse as parseYaml } from 'yaml';
 import {
   ReleaseEvidenceAttestationSchema,
@@ -14,8 +16,22 @@ interface Args {
   releaseAttestation?: ReleaseEvidenceAttestation;
 }
 
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
+
 function usage(): void {
-  process.stderr.write('Usage: npm run validate:clinical -- [--group ID | --calculator ID] [--require-source-verified] [--require-scenario-verified] [--release-attestation PATH]\n');
+  process.stderr.write('Usage: npm run validate:clinical -- [--group ID | --calculator ID] [--require-source-verified] [--require-scenario-verified] [--release-attestation PATH|auto]\n');
+}
+
+function loadReleaseAttestation(path: string): ReleaseEvidenceAttestation {
+  const resolvedPath = path === 'auto'
+    ? join(
+      ROOT,
+      'validation',
+      'releases',
+      `${(JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { version: string }).version}.yaml`,
+    )
+    : path;
+  return ReleaseEvidenceAttestationSchema.parse(parseYaml(readFileSync(resolvedPath, 'utf8')));
 }
 
 function parseArgs(argv: string[]): Args {
@@ -39,7 +55,7 @@ function parseArgs(argv: string[]): Args {
     } else if (token === '--release-attestation') {
       const path = argv[index + 1];
       if (path === undefined) throw new Error('--release-attestation requires a path');
-      args.releaseAttestation = ReleaseEvidenceAttestationSchema.parse(parseYaml(readFileSync(path, 'utf8')));
+      args.releaseAttestation = loadReleaseAttestation(path);
       index += 1;
     } else {
       throw new Error(`unknown option '${token}'`);

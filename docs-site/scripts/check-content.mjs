@@ -8,7 +8,7 @@ const sourceRoot = resolve(root, "..");
 const specFiles = (await readdir(join(sourceRoot, "specs"))).filter((name) => name.endsWith(".yaml")).sort();
 const specs = await Promise.all(specFiles.map(async (name) => YAML.parse(await readFile(join(sourceRoot, "specs", name), "utf8"))));
 
-if (specs.length !== 40) throw new Error(`Expected 40 calculators, found ${specs.length}. Update the site contract deliberately.`);
+if (specs.length === 0) throw new Error("No calculator specs were found.");
 
 const generated = [];
 async function walk(dir) {

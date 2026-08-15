@@ -2,6 +2,18 @@
 
 All notable changes to OathMCP are documented here.
 
+## Unreleased
+
+- Added one tag-driven release workflow that validates the package-version
+  attestation, deploys the MCP and Blume documentation Workers from the same
+  commit, verifies both production surfaces, and only then creates a GitHub
+  release.
+- Added a guarded release-preparation command, dynamic release metadata checks,
+  and live catalog, calculation, evidence, version, and generated-page
+  verification.
+- Made generated Blume calculator-page parity part of calculator contribution
+  and release acceptance instead of relying on a hard-coded catalog count.
+
 ## 0.1.0 — 2026-07-21
 
 - Added 39 established clinical calculators and structured interpretation tools

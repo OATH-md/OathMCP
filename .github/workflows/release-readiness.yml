@@ -1,4 +1,4 @@
-name: Release readiness
+name: Release, publish, and deploy
 
 on:
   workflow_dispatch: {}
@@ -14,9 +14,90 @@ permissions:
   contents: read
 
 jobs:
-  release-readiness:
+  validate-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm --prefix docs-site ci
+      - if: startsWith(github.ref, 'refs/tags/v')
+        name: Require an annotated tag on main
+        run: |
+          test "$(git cat-file -t "$GITHUB_REF_NAME")" = "tag"
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main
+      - if: startsWith(github.ref, 'refs/tags/v')
+        run: npm run check:release-metadata -- --tag "$GITHUB_REF_NAME"
+      - run: npm run check:release
+
+  deploy-production:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: validate-release
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    environment:
+      name: production
+      url: https://mcp.oath.md
+    outputs:
+      mcp_version_id: ${{ steps.deploy_mcp.outputs.version_id }}
+      docs_version_id: ${{ steps.deploy_docs.outputs.version_id }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            docs-site/package-lock.json
+      - run: npm ci
+      - run: npm --prefix docs-site ci
+      - run: npm run build
+      - run: npm --prefix docs-site run build
+      - name: Deploy exact tagged MCP Worker
+        id: deploy_mcp
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          NO_COLOR: "1"
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          deploy_output="$(npx wrangler deploy --tag "$GITHUB_REF_NAME" --message "OathMCP $GITHUB_REF_NAME ($GITHUB_SHA)" 2>&1)"
+          printf '%s\n' "$deploy_output"
+          version_id="$(printf '%s\n' "$deploy_output" | sed -n 's/.*Current Version ID: //p' | tr -d '\r' | tail -n 1)"
+          test -n "$version_id"
+          echo "version_id=$version_id" >> "$GITHUB_OUTPUT"
+      - name: Deploy exact tagged Blume docs Worker
+        id: deploy_docs
+        working-directory: docs-site
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          NO_COLOR: "1"
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          deploy_output="$(npx wrangler deploy --tag "$GITHUB_REF_NAME" --message "OathMCP Blume docs $GITHUB_REF_NAME ($GITHUB_SHA)" 2>&1)"
+          printf '%s\n' "$deploy_output"
+          version_id="$(printf '%s\n' "$deploy_output" | sed -n 's/.*Current Version ID: //p' | tr -d '\r' | tail -n 1)"
+          test -n "$version_id"
+          echo "version_id=$version_id" >> "$GITHUB_OUTPUT"
+
+  verify-production:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: deploy-production
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
@@ -26,8 +107,77 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm --prefix docs-site ci
-      - run: npm run check
-      - run: npm run check:clinical-release
-      - run: npm --prefix docs-site run check
-      - run: npm pack --dry-run
+      - run: npm run verify:production
+
+  publish-npm:
+    if: startsWith(github.ref, 'refs/tags/v') && vars.NPM_PUBLISH_ENABLED == 'true'
+    needs: verify-production
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - run: npm ci
+      - name: Publish package once
+        run: |
+          package_version="$(node -p "require('./package.json').version")"
+          published_version="$(npm view "oath-mcp@$package_version" version 2>/dev/null || true)"
+          if [ "$published_version" = "$package_version" ]; then
+            published_git_head="$(npm view "oath-mcp@$package_version" gitHead 2>/dev/null || true)"
+            test "$published_git_head" = "$GITHUB_SHA"
+            echo "oath-mcp@$package_version is already published from this commit."
+          else
+            npm publish --access public
+          fi
+
+  publish-github-release:
+    if: >-
+      always() &&
+      startsWith(github.ref, 'refs/tags/v') &&
+      needs.verify-production.result == 'success' &&
+      (needs.publish-npm.result == 'success' || needs.publish-npm.result == 'skipped')
+    needs:
+      - deploy-production
+      - verify-production
+      - publish-npm
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: mkdir -p release-artifacts && npm pack --pack-destination release-artifacts
+      - name: Publish verified GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MCP_VERSION_ID: ${{ needs.deploy-production.outputs.mcp_version_id }}
+          DOCS_VERSION_ID: ${{ needs.deploy-production.outputs.docs_version_id }}
+        run: |
+          notes="$(printf '%s\n' \
+            "Production deployment verified from commit \`$GITHUB_SHA\`." \
+            "" \
+            "- MCP Worker version: \`$MCP_VERSION_ID\`" \
+            "- Blume docs Worker version: \`$DOCS_VERSION_ID\`" \
+            "- Live MCP catalog, new-calculator calculation, and every generated calculator page passed.")"
+          gh release create "$GITHUB_REF_NAME" release-artifacts/*.tgz \
+            --verify-tag \
+            --generate-notes \
+            --title "OathMCP ${GITHUB_REF_NAME#v}" \
+            --notes "$notes"
