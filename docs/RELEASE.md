@@ -61,6 +61,7 @@ npm run release:prepare -- \
   --network-checked-at YYYY-MM-DD \
   --summary "Added <calculator> and its generated Blume reference." \
   --confirm-currentness
+npm --prefix docs-site run generate
 ```
 
 `--confirm-currentness` is an explicit maintainer attestation after the source
@@ -69,14 +70,16 @@ old or ambiguous version, invalid chronology, source checks later than the
 declared network review, claim reviews later than the attestation, or an
 existing release file.
 
-The command prepares together:
+The preparation command updates:
 
 - root `package.json` and `package-lock.json`;
 - `docs-site/package.json` and its lockfile;
 - the complete catalog and source-version inventory in
   `validation/releases/<version>.yaml`;
-- a dated changelog entry; and
-- regenerated repository-derived Blume content.
+- a dated changelog entry.
+
+The following generation command regenerates the repository-derived Blume
+content from the reviewed specifications.
 
 Review every generated field, then run the single release gate:
 
@@ -229,7 +232,9 @@ hosted MCP service, and Blume documentation.
 
 ## Current release state
 
-`v0.1.0` is the latest tagged production release and contains the prior
-39-calculator catalog. The 40-calculator `main` catalog, including FIB-4,
-requires the next versioned release pull request and tag before it is expected
-on the official MCP or Blume site.
+The [live service metadata](https://mcp.oath.md/health) is the source of truth
+for the deployed version, and [GitHub Releases](https://github.com/OATH-md/OathMCP/releases)
+identifies its exact tag and source. The `0.2.0` attestation covers the
+40-calculator catalog, including FIB-4. It becomes an official hosted release
+only after the tag workflow verifies both production Workers and creates the
+matching GitHub release. npm publication remains disabled.

@@ -25,19 +25,9 @@ Then configure the built stdio entrypoint:
 }
 ```
 
-After npm publication, the package will expose the `oath-mcp` binary. Pin the
-exact reviewed package version instead of accepting a moving latest tag:
-
-```json
-{
-  "mcpServers": {
-    "oathmcp": {
-      "command": "npx",
-      "args": ["-y", "oath-mcp@0.1.0"]
-    }
-  }
-}
-```
+Registry publication is currently disabled, including for the hosted `0.2.0`
+release. When a package release is explicitly announced, pin its exact reviewed
+version instead of accepting a moving latest tag.
 
 The server communicates over stdout. Route application logs elsewhere so they
 cannot corrupt the MCP transport. OathMCP requires Node.js 22 or newer.

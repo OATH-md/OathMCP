@@ -1292,7 +1292,7 @@ authorities:
     checkedAt: 2026-07-16
     reviewBy: 2027-07-16
     discoveryOnly: false
-    url: https://doi.org/10.1213/00000539-195307000-00001
+    url: https://pubmed.ncbi.nlm.nih.gov/13083014/
   - id: apgar_acog_2015
     name: ACOG and AAP Apgar Score Committee Opinion
     sourceRole: controlling_authority
