@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "npm run generate && blume dev",
-    "build": "blume build && node scripts/stage-cloudflare.mjs",
+    "build": "blume build && node scripts/check-font-build.mjs && node scripts/stage-cloudflare.mjs",
     "preview": "blume preview",
     "generate": "node scripts/generate-from-repo.mjs",
     "generate:calculators": "node scripts/generate-calculators.mjs",
