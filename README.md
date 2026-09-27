@@ -216,8 +216,32 @@ Four agent-dispatch tools sit above the catalog:
 - `calculate` dispatches one calculator in compact mode with the same clinical
   contract as its direct tool.
 
+A `calc://{id}/evidence` resource template advertises the evidence resources
+for clients that browse templates and completes calculator ids. Reads of
+existing evidence URIs are unchanged.
+
 Set `OATH_MCP_MODE=compact` to expose only the four dispatch tools while keeping
-all evidence resources. Full mode is the compatibility default.
+all evidence resources. Full mode is the compatibility default and remains
+unchanged. Because full mode publishes a typed input and output schema for every
+calculator, its `tools/list` response is roughly 350 KB for the 40-calculator
+catalog, compared with about 27 KB in compact mode. Clients that load every
+tool definition into model context may prefer compact mode:
+
+```json
+{
+  "mcpServers": {
+    "oath": {
+      "command": "npx",
+      "args": ["-y", "@oath-md/oath-mcp@0.2.1"],
+      "env": { "OATH_MCP_MODE": "compact" }
+    }
+  }
+}
+```
+
+Compact mode returns the same clinical result contract through `calculate`;
+agents discover ids with `find_calculator` and inputs with
+`describe_calculator` instead of reading per-calculator tool schemas.
 
 Analyte inputs accept either a bare number in the documented canonical unit or
 an explicit quantity:
