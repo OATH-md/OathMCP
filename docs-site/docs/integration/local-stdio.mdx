@@ -20,5 +20,25 @@ The npm package is scoped, while its installed executable and MCP server
 identity remain `oath-mcp`. Pin an exact reviewed version instead of accepting
 a moving latest tag.
 
+By default the local server runs in full mode, which publishes one
+`calculate_<id>` tool with typed input and output schemas per calculator. Its
+tool list is roughly 350 KB. To use the same four-tool compact catalog as the
+official endpoint, set `OATH_MCP_MODE`:
+
+```json
+{
+  "mcpServers": {
+    "oathmcp": {
+      "command": "npx",
+      "args": ["-y", "@oath-md/oath-mcp@0.2.1"],
+      "env": { "OATH_MCP_MODE": "compact" }
+    }
+  }
+}
+```
+
+Compact mode returns the same result contract through `calculate`. Full mode
+remains the default, so existing configurations are unaffected.
+
 The server communicates over stdout. Route application logs elsewhere so they
 cannot corrupt the MCP transport. OathMCP requires Node.js 22 or newer.
