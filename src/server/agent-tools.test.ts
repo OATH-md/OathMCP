@@ -503,4 +503,36 @@ describe('evidence resources', () => {
     expect(payload.outputs.oi.interpretationBands.length).toBeGreaterThan(0);
     expect(payload.outputs.osi.interpretationBands).toEqual([]);
   });
+
+  it('advertises an evidence template without duplicating the static listing', async () => {
+    const client = await connectTestClient('agent-tools-template-test');
+    const { resourceTemplates } = await client.listResourceTemplates();
+    expect(resourceTemplates).toEqual([
+      expect.objectContaining({
+        name: 'evidence',
+        uriTemplate: 'calc://{id}/evidence',
+        mimeType: 'application/json',
+      }),
+    ]);
+
+    const { resources } = await client.listResources();
+    const uris = resources.map((resource) => resource.uri);
+    expect(new Set(uris).size).toBe(uris.length);
+    expect(uris.filter((uri) => uri.startsWith('calc://'))).toHaveLength(40);
+  });
+
+  it('completes canonical calculator ids for the evidence template', async () => {
+    const client = await connectTestClient('agent-tools-template-test');
+    const completion = await client.complete({
+      ref: { type: 'ref/resource', uri: 'calc://{id}/evidence' },
+      argument: { name: 'id', value: 'bs' },
+    });
+    expect(completion.completion.values).toEqual(['bsa', 'bsa_dubois']);
+  });
+
+  it('keeps unknown evidence URIs as resource-not-found errors', async () => {
+    const client = await connectTestClient('agent-tools-template-test');
+    await expect(client.readResource({ uri: 'calc://not_a_calculator/evidence' }))
+      .rejects.toThrow(/calc:\/\/not_a_calculator\/evidence/);
+  });
 });
