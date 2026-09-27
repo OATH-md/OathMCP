@@ -7,6 +7,12 @@ All notable changes to OathMCP are documented here.
 - Verify npm releases by matching registry SHA-512 integrity to a dry-run pack
   of the exact tag, while retaining commit checks when npm supplies optional
   `gitHead` metadata.
+- Added the `calc://{id}/evidence` resource template with calculator-id
+  completion. The template is additive: the static evidence resources, their
+  URIs and contents, `resources/list`, every tool and prompt, and the default
+  full catalog mode are unchanged.
+- Documented the full versus compact catalog size trade-off and how to opt in
+  to `OATH_MCP_MODE=compact` for local stdio clients.
 
 ## 0.2.1 — 2026-08-15
 

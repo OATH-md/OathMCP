@@ -15,6 +15,11 @@ The JSON resource includes citations, source locators, “when not to use” tex
 interpretation bands, declared outputs, and warning rules. Successful results
 link their own evidence resource.
 
+The same URIs are also advertised as the resource template
+`calc://{id}/evidence`, which supports completion of canonical calculator ids.
+The template adds no entries to `resources/list`, and an unknown id returns
+the standard resource-not-found error.
+
 ## Responsible use
 
 ```text
