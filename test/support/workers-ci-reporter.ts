@@ -1,4 +1,4 @@
-import type { Reporter } from 'vitest/reporters';
+import type { Reporter } from 'vitest/node';
 
 function printError(error: unknown): void {
   if (error && typeof error === 'object') {
