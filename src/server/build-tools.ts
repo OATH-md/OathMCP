@@ -9,7 +9,12 @@
  * constrained to the spec's declared outputs.
  */
 import { createRequire } from 'node:module';
-import { McpServer, completable } from '@modelcontextprotocol/server';
+import {
+  McpServer,
+  ResourceNotFoundError,
+  ResourceTemplate,
+  completable,
+} from '@modelcontextprotocol/server';
 import * as z from 'zod/v4';
 import { fillTemplate as fillPromptTemplate } from '../engine/prompt-template.js';
 import {
@@ -611,6 +616,42 @@ function buildEvidenceResource(spec: CalcSpec): ResourceDefinition {
   };
 }
 
+interface ResourceTemplateDefinition {
+  name: string;
+  uriTemplate: string;
+  config: { title: string; description: string; mimeType: string };
+  complete: (value: string) => string[];
+  read: (uri: URL, id: string) => ReturnType<ResourceDefinition['read']>;
+}
+
+/**
+ * Discovery template over the evidence resources. The SDK resolves exact static
+ * URIs first, so every existing `calc://<id>/evidence` read is unchanged; the
+ * template adds `resources/templates/list` visibility and id completion. It
+ * contributes nothing to `resources/list` (no list callback), so the static
+ * listing is not duplicated.
+ */
+function buildEvidenceResourceTemplate(evidence: ResourceDefinition[]): ResourceTemplateDefinition {
+  const byId = new Map(evidence.map((resource) => [resource.name.slice('evidence_'.length), resource]));
+  const ids = [...byId.keys()];
+  return {
+    name: 'evidence',
+    uriTemplate: 'calc://{id}/evidence',
+    config: {
+      title: 'Calculator evidence',
+      description:
+        'Citations, interpretation bands, and safety notes for one calculator. Use a canonical id returned by find_calculator.',
+      mimeType: 'application/json',
+    },
+    complete: (value) => ids.filter((id) => id.startsWith(value)),
+    read: (uri, id) => {
+      const resource = byId.get(id);
+      if (resource === undefined) throw new ResourceNotFoundError(uri.href);
+      return resource.read();
+    },
+  };
+}
+
 /** Canonical responsibility boundary, bundled for every transport and runtime. */
 function buildResponsibleUseResource(): ResourceDefinition {
   const uri = 'oath://responsible-use';
@@ -636,6 +677,7 @@ interface SharedCatalogDefinitions {
   tools: ToolDefinition[];
   prompts: PromptDefinition[];
   resources: ResourceDefinition[];
+  resourceTemplates: ResourceTemplateDefinition[];
 }
 let sharedCatalogDefinitions: SharedCatalogDefinitions | null = null;
 let directToolDefinitions: ToolDefinition[] | null = null;
@@ -657,8 +699,8 @@ export function catalogMode(value: string | undefined): CatalogMode {
 /**
  * Build a fresh McpServer with one `calculate_<id>` tool per spec, the
  * `find_calculator` and `calculate_panel` agent-dispatch tools, an
- * `interpret_<id>` prompt for every spec that declares a `prompt` block, and an
- * `evidence_<id>` resource per spec.
+ * `interpret_<id>` prompt for every spec that declares a `prompt` block, an
+ * `evidence_<id>` resource per spec, and a `calc://{id}/evidence` template.
  */
 export function buildServer(options: BuildServerOptions = {}): McpServer {
   // Materialize specs only when the shared cache is cold. On the warm
@@ -670,6 +712,7 @@ export function buildServer(options: BuildServerOptions = {}): McpServer {
       getRegisteredComputeIds(),
     );
     assertOutputConditionCoverage(specs);
+    const evidenceResources = specs.map(buildEvidenceResource);
     sharedCatalogDefinitions = {
       specs,
       tools: [
@@ -678,10 +721,11 @@ export function buildServer(options: BuildServerOptions = {}): McpServer {
         buildPanelDefinition(specs),
       ],
       prompts: specs.filter((s) => s.prompt !== undefined).map(buildPromptDefinition),
-      resources: [...specs.map(buildEvidenceResource), buildResponsibleUseResource()],
+      resources: [...evidenceResources, buildResponsibleUseResource()],
+      resourceTemplates: [buildEvidenceResourceTemplate(evidenceResources)],
     };
   }
-  const { specs, tools: sharedTools, prompts, resources } = sharedCatalogDefinitions;
+  const { specs, tools: sharedTools, prompts, resources, resourceTemplates } = sharedCatalogDefinitions;
   const mode = options.mode ?? 'full';
   let selectedTools: ToolDefinition[];
   if (mode === 'compact') {
@@ -711,6 +755,14 @@ export function buildServer(options: BuildServerOptions = {}): McpServer {
   }
   for (const { name, uri, config, read } of resources) {
     server.registerResource(name, uri, config, read);
+  }
+  for (const { name, uriTemplate, config, complete, read } of resourceTemplates) {
+    server.registerResource(
+      name,
+      new ResourceTemplate(uriTemplate, { list: undefined, complete: { id: complete } }),
+      config,
+      (uri, variables) => read(uri, String(variables.id)),
+    );
   }
   // This catalog is immutable for the lifetime of a server instance. The SDK
   // defaults all three list-change flags to true when definitions are
