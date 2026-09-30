@@ -22,6 +22,6 @@
     "yaml": "2.9.0"
   },
   "devDependencies": {
-    "wrangler": "^4.141.0"
+    "wrangler": "^4.144.0"
   }
 }
